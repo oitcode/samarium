@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/* Dashboard */
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+/* Product category */
+Route::get('/dashboard/productCategory', 'ProductCategoryController@index')->name('product-category');

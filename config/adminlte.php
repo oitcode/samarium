@@ -253,6 +253,19 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+
+
+
+        [
+            'text'        => 'Product category',
+            'url'         => 'dashboard/productCategory',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+
+
+
+
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -472,5 +485,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
