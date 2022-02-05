@@ -4,26 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vendor extends Model
+class SaleItem extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'vendor';
+    protected $table = 'sale_item';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'vendor_id';
+    protected $primaryKey = 'sale_item_id';
 
     protected $fillable = [
-         'name', 'phone',
-         'email', 'address',
-         'pan_num',
+         'sale_id', 'title', 'amount',
     ];
 
 
@@ -34,11 +32,11 @@ class Vendor extends Model
      */
 
     /*
-     * purchase table.
+     * sale table.
      *
      */
-    public function purchases()
+    public function sale()
     {
-        return $this->hasMany('App\Purchase', 'vendor_id', 'vendor_id');
+        return $this->belongsTo('App\Sale', 'sale_id', 'sale_id');
     }
 }

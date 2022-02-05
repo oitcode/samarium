@@ -1,40 +1,32 @@
-<x-box-list title="Vendor list">
-  @if ($vendors != null && count($vendors) > 0)
+<x-box-list title="Sale list">
+  @if ($sales != null && count($sales) > 0)
     <div class="table-responsive">
       <table class="table table-sm table-hover">
         <thead>
           <tr class="text-secondary">
             <th>ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>PAN Num</th>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Total</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($vendors as $vendor)
+          @foreach ($sales as $sale)
             <tr>
               <td>
-                {{ $vendor->vendor_id }}
+                {{ $sale->sale_id }}
+              </td>
+              <td>
+                {{ $sale->sale_date }}
               </td>
               <td>
                 <a href="" wire:click.prevent="">
-                {{ $vendor->name }}
+                {{ $sale->customer->name }}
                 </a>
               </td>
               <td>
-                {{ $vendor->phone }}
-              </td>
-              <td>
-                {{ $vendor->email }}
-              </td>
-              <td>
-                {{ $vendor->address }}
-              </td>
-              <td>
-                {{ $vendor->pan_num }}
+                {{ $sale->getTotalAmount() }}
               </td>
               <td>
                 <span class="btn btn-tool btn-sm" wire:click="">
@@ -52,7 +44,7 @@
     </div>
   @else
     <div class="text-secondary py-3 px-3">
-      No vendors.
+      No sales.
     </div>
   @endif
 </x-box-list>

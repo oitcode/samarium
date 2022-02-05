@@ -1,5 +1,5 @@
 <x-box-list title="Vendor list">
-  @if ($vendors != null && count($vendors) > 0)
+  @if ($customers != null && count($customers) > 0)
     <div class="table-responsive">
       <table class="table table-sm table-hover">
         <thead>
@@ -14,27 +14,27 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($vendors as $vendor)
+          @foreach ($customers as $customer)
             <tr>
               <td>
-                {{ $vendor->vendor_id }}
+                {{ $customer->customer_id }}
               </td>
               <td>
                 <a href="" wire:click.prevent="">
-                {{ $vendor->name }}
+                {{ $customer->name }}
                 </a>
               </td>
               <td>
-                {{ $vendor->phone }}
+                {{ $customer->phone }}
               </td>
               <td>
-                {{ $vendor->email }}
+                {{ $customer->email }}
               </td>
               <td>
-                {{ $vendor->address }}
+                {{ $customer->address }}
               </td>
               <td>
-                {{ $vendor->pan_num }}
+                {{ $customer->pan_num }}
               </td>
               <td>
                 <span class="btn btn-tool btn-sm" wire:click="">
@@ -52,7 +52,7 @@
     </div>
   @else
     <div class="text-secondary py-3 px-3">
-      No vendors.
+      No customers.
     </div>
   @endif
 </x-box-list>
