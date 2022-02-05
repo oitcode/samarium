@@ -1,4 +1,4 @@
-<x-box-list title="Vendor list">
+<x-box-list title="Customer list">
   @if ($customers != null && count($customers) > 0)
     <div class="table-responsive">
       <table class="table table-sm table-hover">
