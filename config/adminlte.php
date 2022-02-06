@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -260,6 +260,12 @@ return [
             'text'        => 'Product category',
             'url'         => 'dashboard/productCategory',
             'icon'        => 'far fa-fw fa-file',
+        ],
+
+        [
+            'text'        => 'Customer',
+            'url'         => 'dashboard/customer',
+            'icon'        => 'far fa-fw fa-user',
         ],
 
 

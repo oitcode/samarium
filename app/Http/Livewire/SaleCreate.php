@@ -10,7 +10,7 @@ use App\SaleItem;
 
 class SaleCreate extends Component
 {
-    public $customer;
+    public $customer = null;
 
     public $customerData = [
         'name' => null,
@@ -38,12 +38,18 @@ class SaleCreate extends Component
     {
         /* Todo: Validation */
 
-        $customer = new Customer;
+        $customer = null;
 
-        $customer->name = $this->c_name;
-        $customer->phone = $this->c_phone;
+        if (! $this->customer) {
+            $customer = new Customer;
 
-        $customer->save();
+            $customer->name = $this->c_name;
+            $customer->phone = $this->c_phone;
+
+            $customer->save();
+        } else {
+            $customer = $this->customer;
+        }
 
         $sale = new Sale;
 
@@ -84,5 +90,16 @@ class SaleCreate extends Component
         }
 
         $this->total = $total;
+    }
+
+    public function getCustomerInfo()
+    {
+        $customer = Customer::where('phone', $this->c_phone)->first();
+
+        if ($customer) {
+            $this->customer = $customer;
+
+            $this->c_name = $customer->name;
+        }
     }
 }

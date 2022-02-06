@@ -4,8 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use App\Customer;
+
 class CustomerComponent extends Component
 {
+    public $displayingCustomer;
+
     public $modes = [
         'create' => false,
         'list' => false,
@@ -16,6 +20,7 @@ class CustomerComponent extends Component
 
     protected $listeners = [
         'clearModes',
+        'displayCustomer',
     ];
 
     public function render()
@@ -42,5 +47,13 @@ class CustomerComponent extends Component
     public function exitMode($modeName)
     {
         $this->modes[$modeName] = false;
+    }
+
+    public function displayCustomer($customerId)
+    {
+        $customer = Customer::findOrFail($customerId);
+
+        $this->displayingCustomer = $customer;
+        $this->enterMode('display');
     }
 }

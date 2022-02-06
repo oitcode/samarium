@@ -8,7 +8,7 @@
 
   <div class="form-group">
     <label for="">Phone</label>
-    <input type="text" class="form-control" wire:model.defer="c_phone">
+    <input type="text" class="form-control" wire:model.defer="c_phone" wire:keydown.enter="getCustomerInfo" />
     @error('c_phone') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 

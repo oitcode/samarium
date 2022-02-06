@@ -1,40 +1,32 @@
-<x-box-list title="Customer list">
-  @if ($customers != null && count($customers) > 0)
+<x-box-list title="Sale list">
+  @if ($sales != null && count($sales) > 0)
     <div class="table-responsive">
       <table class="table table-sm table-hover">
         <thead>
           <tr class="text-secondary">
             <th>ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>PAN Num</th>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Total</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($customers as $customer)
+          @foreach ($sales as $sale)
             <tr>
               <td>
-                {{ $customer->customer_id }}
+                {{ $sale->sale_id }}
               </td>
               <td>
-                <a href="" wire:click.prevent="$emit('displayCustomer', {{ $customer->customer_id }})">
-                {{ $customer->name }}
+                {{ $sale->sale_date }}
+              </td>
+              <td>
+                <a href="" wire:click.prevent="">
+                {{ $sale->customer->name }}
                 </a>
               </td>
               <td>
-                {{ $customer->phone }}
-              </td>
-              <td>
-                {{ $customer->email }}
-              </td>
-              <td>
-                {{ $customer->address }}
-              </td>
-              <td>
-                {{ $customer->pan_num }}
+                {{ $sale->getTotalAmount() }}
               </td>
               <td>
                 <span class="btn btn-tool btn-sm" wire:click="">
@@ -52,7 +44,7 @@
     </div>
   @else
     <div class="text-secondary py-3 px-3">
-      No customers.
+      No sales.
     </div>
   @endif
 </x-box-list>

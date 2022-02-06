@@ -27,3 +27,6 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 /* Product category */
 Route::get('/dashboard/productCategory', 'ProductCategoryController@index')->name('product-category');
+
+/* Customer */
+Route::get('/dashboard/customer', 'CustomerController@index')->name('customer');

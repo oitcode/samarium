@@ -8,6 +8,8 @@
     @livewire ('customer-create')
   @elseif ($modes['list'])
     @livewire ('customer-list')
+  @elseif ($modes['display'])
+    @livewire ('customer-detail', ['customer' => $displayingCustomer,])
   @endif
 
 </x-box-generic>
