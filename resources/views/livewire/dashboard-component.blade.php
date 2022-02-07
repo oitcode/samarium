@@ -11,6 +11,7 @@
     <div class="col-md-6">
       @livewire ('product-component')
       @livewire ('purchase-component')
+      @livewire ('daybook-component')
     </div>
   </div>
 </div>

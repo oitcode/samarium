@@ -32,7 +32,14 @@
         Email
       </div>
       <div class="col-md-9">
-        {{ $customer->email }}
+        @if ($customer->email)
+          {{ $customer->email }}
+        @else
+          <div class="text-secondary">
+            <i class="fas fa-exclamation-circle text-warning"></i>
+            Not found
+          </div>
+        @endif
       </div>
     </div>
 
@@ -41,7 +48,14 @@
         Address
       </div>
       <div class="col-md-9">
-        {{ $customer->address }}
+        @if ($customer->address)
+          {{ $customer->address }}
+        @else
+          <div class="text-secondary">
+            <i class="fas fa-exclamation-circle text-warning"></i>
+            Not found
+          </div>
+        @endif
       </div>
     </div>
 
@@ -50,7 +64,14 @@
         PAN num
       </div>
       <div class="col-md-9">
-        {{ $customer->pan_num }}
+        @if ($customer->pan_num)
+          {{ $customer->pan_num }}
+        @else
+          <div class="text-secondary">
+            <i class="fas fa-exclamation-circle text-warning"></i>
+            Not found
+          </div>
+        @endif
       </div>
     </div>
 

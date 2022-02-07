@@ -8,6 +8,8 @@
     @livewire ('sale-create')
   @elseif ($modes['list'])
     @livewire ('sale-list')
+  @elseif ($modes['display'])
+    @livewire ('sale-detail', ['sale' => $displayingSale,])
   @endif
 
 </x-box-generic>

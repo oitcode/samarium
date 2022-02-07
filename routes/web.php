@@ -30,3 +30,9 @@ Route::get('/dashboard/productCategory', 'ProductCategoryController@index')->nam
 
 /* Customer */
 Route::get('/dashboard/customer', 'CustomerController@index')->name('customer');
+
+/* Sale */
+Route::get('/dashboard/sale', 'SaleController@index')->name('sale');
+
+/* Daybook */
+Route::get('/dashboard/daybook', 'DaybookController@index')->name('daybook');

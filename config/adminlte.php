@@ -246,20 +246,11 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-
-
 
         [
-            'text'        => 'Product category',
-            'url'         => 'dashboard/productCategory',
-            'icon'        => 'far fa-fw fa-file',
+            'text'        => 'Sale',
+            'url'         => 'dashboard/sale',
+            'icon'        => 'far fa-fw fa-user',
         ],
 
         [
@@ -267,6 +258,19 @@ return [
             'url'         => 'dashboard/customer',
             'icon'        => 'far fa-fw fa-user',
         ],
+
+        [
+            'text'        => 'Daybook',
+            'url'         => 'dashboard/daybook',
+            'icon'        => 'far fa-fw fa-list',
+        ],
+
+        [
+            'text'        => 'Product category',
+            'url'         => 'dashboard/productCategory',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+
 
 
 

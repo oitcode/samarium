@@ -41,4 +41,22 @@ class Customer extends Model
     {
         return $this->hasMany('App\Sale', 'customer_id', 'customer_id');
     }
+
+
+    /*-------------------------------------------------------------------------
+     * Methods
+     *-------------------------------------------------------------------------
+     *
+     */
+
+    /*
+     * get balance.
+     *
+     */
+    public function getBalance()
+    {
+        // Todo
+
+        return 0;
+    }
 }

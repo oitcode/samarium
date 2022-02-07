@@ -10,6 +10,7 @@
             <th>Email</th>
             <th>Address</th>
             <th>PAN Num</th>
+            <th>Balance</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -35,6 +36,9 @@
               </td>
               <td>
                 {{ $customer->pan_num }}
+              </td>
+              <td>
+                {{ $customer->getBalance() }}
               </td>
               <td>
                 <span class="btn btn-tool btn-sm" wire:click="">

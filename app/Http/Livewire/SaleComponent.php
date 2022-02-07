@@ -4,8 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use App\Sale;
+
 class SaleComponent extends Component
 {
+    public $displayingSale = null;
+
     public $modes = [
         'create' => false,
         'list' => false,
@@ -16,6 +20,7 @@ class SaleComponent extends Component
 
     protected $listeners = [
         'clearModes',
+        'displaySale',
     ];
 
     public function render()
@@ -42,5 +47,13 @@ class SaleComponent extends Component
     public function exitMode($modeName)
     {
         $this->modes[$modeName] = false;
+    }
+
+    public function displaySale($saleId)
+    {
+        $sale = Sale::findOrFail($saleId);
+
+        $this->displayingSale = $sale;
+        $this->enterMode('display');
     }
 }
