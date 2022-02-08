@@ -1,5 +1,5 @@
 <x-box-list title="Sale list">
-  @if ($sales != null && count($sales) > 0)
+  @if ($saleInvoices != null && count($saleInvoices) > 0)
     <div class="table-responsive">
       <table class="table table-sm table-hover">
         <thead>
@@ -13,34 +13,34 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($sales as $sale)
+          @foreach ($saleInvoices as $saleInvoice)
             <tr>
               <td>
-                {{ $sale->sale_id }}
+                {{ $saleInvoice->sale_invoice_id }}
               </td>
               <td>
-                {{ $sale->sale_date }}
+                {{ $saleInvoice->sale_invoice_date }}
               </td>
               <td>
-                <a href="" wire:click.prevent="$emit('displaySale', {{ $sale->sale_id }})">
-                {{ $sale->customer->name }}
+                <a href="" wire:click.prevent="$emit('displaySale', {{ $saleInvoice->sale_invoice_id }})">
+                {{ $saleInvoice->customer->name }}
                 </a>
               </td>
               <td>
-                {{ $sale->getTotalAmount() }}
+                {{ $saleInvoice->getTotalAmount() }}
               </td>
               <td>
-                @if (strtolower($feesInvoice->payment_status) === 'pending')
+                @if (strtolower($saleInvoice->payment_status) === 'pending')
                   <span class="badge badge-danger badge-pill">
                     Pending
                   </span>
-                @elseif (strtolower($feesInvoice->payment_status) === 'partially_paid')
+                @elseif (strtolower($saleInvoice->payment_status) === 'partially_paid')
                   <span class="badge badge-warning badge-pill">
                     Partially Paid
                   </span>
-                @else
-                  <span class="badge badge-secondary badge-pill">
-                    {{ $feesInvoice->payment_status }}
+                @elseif (strtolower($saleInvoice->payment_status) === 'paid')
+                  <span class="badge badge-success badge-pill">
+                    {{ $saleInvoice->payment_status }}
                   </span>
                 @endif
               </td>

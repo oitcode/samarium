@@ -11,6 +11,7 @@ class ProductCreate extends Component
 {
     public $name;
     public $product_category_id;
+    public $selling_price;
 
     public $productCategories;
 
@@ -26,6 +27,7 @@ class ProductCreate extends Component
         $validatedData = $this->validate([
             'name' => 'required',
             'product_category_id' => 'required',
+            'selling_price' => 'required',
         ]);
 
         Product::create($validatedData);

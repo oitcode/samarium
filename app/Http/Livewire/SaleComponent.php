@@ -5,10 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 use App\Sale;
+use App\SaleInvoice;
 
 class SaleComponent extends Component
 {
-    public $displayingSale = null;
+    public $displayingSaleInvoice = null;
 
     public $modes = [
         'create' => false,
@@ -49,11 +50,11 @@ class SaleComponent extends Component
         $this->modes[$modeName] = false;
     }
 
-    public function displaySale($saleId)
+    public function displaySale($saleInvoiceId)
     {
-        $sale = Sale::findOrFail($saleId);
+        $saleInvoice = SaleInvoice::findOrFail($saleInvoiceId);
 
-        $this->displayingSale = $sale;
+        $this->displayingSaleInvoice = $saleInvoice;
         $this->enterMode('display');
     }
 }

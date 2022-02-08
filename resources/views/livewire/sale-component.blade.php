@@ -7,9 +7,9 @@
   @if ($modes['create'])
     @livewire ('sale-create')
   @elseif ($modes['list'])
-    @livewire ('sale-list')
+    @livewire ('sale-invoice-list')
   @elseif ($modes['display'])
-    @livewire ('sale-detail', ['sale' => $displayingSale,])
+    @livewire ('sale-invoice-detail', ['saleInvoice' => $displayingSaleInvoice,])
   @endif
 
 </x-box-generic>

@@ -6,11 +6,12 @@ use Livewire\Component;
 use Carbon\Carbon;
 
 use App\Sale;
+use App\SaleInvoice;
 
 class DaybookComponent extends Component
 {
     public $daybookDate;
-    public $sales;
+    public $saleInvoices;
 
     public $totalAmount;
     public $totalCashAmount;
@@ -23,7 +24,7 @@ class DaybookComponent extends Component
 
     public function render()
     {
-        $this->sales = Sale::where('sale_date', $this->daybookDate)->get();
+        $this->saleInvoices = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->get();
 
         $this->totalAmount = $this->getTotalAmount();
         $this->totalCashAmount = $this->getTotalCashAmount();
@@ -46,8 +47,8 @@ class DaybookComponent extends Component
     {
         $total = 0;
 
-        foreach($this->sales as $sale) {
-            $total += $sale->getTotalAmount();
+        foreach($this->saleInvoices as $saleInvoice) {
+            $total += $saleInvoice->getTotalAmount();
         }
 
         return $total;
@@ -57,8 +58,8 @@ class DaybookComponent extends Component
     {
         $total = 0;
 
-        foreach($this->sales as $sale) {
-            $total += $sale->getTotalAmount();
+        foreach($this->saleInvoices as $saleInvoice) {
+            $total += $saleInvoice->getTotalAmount();
         }
 
         return $total;

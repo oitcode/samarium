@@ -22,6 +22,7 @@ class Product extends Model
 
     protected $fillable = [
          'name', 'product_category_id',
+         'selling_price',
     ];
 
 
@@ -38,5 +39,14 @@ class Product extends Model
     public function productCategory()
     {
         return $this->belongsTo('App\ProductCategory', 'product_category_id', 'product_category_id');
+    }
+
+    /*
+     * sale_invoice_item table.
+     *
+     */
+    public function saleInvoiceItems()
+    {
+        return $this->hasMany('App\SaleInvoiceItem', 'product_id', 'product_id');
     }
 }

@@ -25,6 +25,8 @@ class CreateProductTable extends Migration
             $table->foreign('product_category_id', 'fk_product_product_category')
                 ->references('product_category_id')->on('product_category');
 
+            $table->integer('selling_price');
+
             $table->timestamps();
         });
     }

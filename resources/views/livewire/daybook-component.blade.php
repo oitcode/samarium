@@ -13,7 +13,7 @@
     </span>
   </x-menu-bar-horizontal>
 
-  @if ($sales != null && count($sales) > 0)
+  @if ($saleInvoices != null && count($saleInvoices) > 0)
     <div class="table-responsive">
       <table class="table table-sm table-hover">
         <thead>
@@ -28,24 +28,24 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($sales as $sale)
+          @foreach ($saleInvoices as $saleInvoice)
             <tr>
               <td>
-                {{ $sale->sale_id }}
+                {{ $saleInvoice->sale_invoice_id }}
               </td>
               <td>
-                {{ $sale->sale_date }}
+                {{ $saleInvoice->sale_invoice_date }}
               </td>
               <td>
-                <a href="" wire:click.prevent="$emit('displaySale', {{ $sale->sale_id }})">
-                {{ $sale->customer->name }}
+                <a href="" wire:click.prevent="$emit('displaySaleInvoice', {{ $saleInvoice->sale_invoice_id }})">
+                {{ $saleInvoice->customer->name }}
                 </a>
               </td>
               <td>
-                {{ $sale->getTotalAmount() }}
+                {{ $saleInvoice->getTotalAmount() }}
               </td>
               <td>
-                {{ $sale->getTotalAmount() }}
+                {{ $saleInvoice->getTotalAmount() }}
               </td>
               <td>
                 0
