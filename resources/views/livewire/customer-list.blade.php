@@ -1,4 +1,50 @@
 <x-box-list title="Customer list">
+
+  {{-- Search bar --}}
+  <div class="m-3">
+    <h3 class="h4">Search</h3>
+    <div class="row">
+
+      <div class="col-md-2">
+        <div class="font-weight-bold">
+          Name
+        </div>
+        <input type="text" wire:model.defer="customerSearch.name" />
+      </div>
+
+      <div class="col-md-2">
+        <div class="font-weight-bold">
+          Phone
+        </div>
+        <input type="text" wire:model.defer="customerSearch.phone" />
+      </div>
+
+      <div class="col-md-2">
+        <div class="font-weight-bold">
+          Email
+        </div>
+        <input type="text" wire:model.defer="customerSearch.email" />
+      </div>
+
+      <div class="col-md-2">
+        <div class="font-weight-bold">
+          Address
+        </div>
+        <input type="text" wire:model.defer="customerSearch.address" />
+      </div>
+
+      <div class="col-md-2">
+        <div class="font-weight-bold">
+          &nbsp;
+        </div>
+        <button class="btn btn-primary" wire:click="search">
+          Search
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   @if ($customers != null && count($customers) > 0)
     <div class="table-responsive">
       <table class="table table-sm table-hover">

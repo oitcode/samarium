@@ -45,10 +45,10 @@
                 {{ $saleInvoice->getTotalAmount() }}
               </td>
               <td>
-                {{ $saleInvoice->getTotalAmount() }}
+                {{ $saleInvoice->getPaidAmount() }}
               </td>
               <td>
-                0
+                {{ $saleInvoice->getPendingAmount() }}
               </td>
               <td>
                 <span class="btn btn-tool btn-sm" wire:click="">

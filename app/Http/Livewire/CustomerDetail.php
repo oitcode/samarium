@@ -10,6 +10,11 @@ class CustomerDetail extends Component
 
     public $modes = [
         'salesHistory' => false,
+        'customerPaymentCreate' => false,
+    ];
+
+    protected $listeners = [
+        'customerPaymentMade',
     ];
 
     public function render()
@@ -33,8 +38,8 @@ class CustomerDetail extends Component
         $this->modes[$modeName] = true;
     }
 
-    public function exitMode($modeName)
+    public function customerPaymentMade($amountRemaining)
     {
-        $this->modes[$modeName] = false;
+        $this->clearModes();
     }
 }

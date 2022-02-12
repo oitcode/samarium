@@ -27,6 +27,7 @@ class SaleCreate extends Component
     ];
     public $c_name;
     public $c_phone;
+    public $c_address;
 
     public $saleItems = array();
     public $customers;
@@ -63,6 +64,7 @@ class SaleCreate extends Component
 
                 $customer->name = $this->c_name;
                 $customer->phone = $this->c_phone;
+                $customer->address = $this->c_address;
 
                 $customer->save();
             } else {

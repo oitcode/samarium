@@ -27,6 +27,7 @@ class CreateSaleInvoicePaymentTable extends Migration
 
 
             $table->integer('amount');
+            $table->string('deposited_by')->nullable();
 
             $table->timestamps();
         });

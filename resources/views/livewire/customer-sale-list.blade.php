@@ -1,5 +1,5 @@
 <x-box-list title="Sale list">
-  @if ($sales != null && count($sales) > 0)
+  @if ($saleInvoices != null && count($saleInvoices) > 0)
     <div class="table-responsive">
       <table class="table table-sm table-hover">
         <thead>
@@ -8,25 +8,49 @@
             <th>Date</th>
             <th>Customer</th>
             <th>Total</th>
+            <th>Paid</th>
+            <th>Pending</th>
+            <th>Payment status</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($sales as $sale)
+          @foreach ($saleInvoices as $saleInvoice)
             <tr>
               <td>
-                {{ $sale->sale_id }}
+                {{ $saleInvoice->sale_invoice_id }}
               </td>
               <td>
-                {{ $sale->sale_date }}
+                {{ $saleInvoice->sale_invoice_date }}
               </td>
               <td>
                 <a href="" wire:click.prevent="">
-                {{ $sale->customer->name }}
+                {{ $saleInvoice->customer->name }}
                 </a>
               </td>
               <td>
-                {{ $sale->getTotalAmount() }}
+                {{ $saleInvoice->getTotalAmount() }}
+              </td>
+              <td>
+                {{ $saleInvoice->getPaidAmount() }}
+              </td>
+              <td>
+                {{ $saleInvoice->getPendingAmount() }}
+              </td>
+              <td>
+                @if (strtolower($saleInvoice->payment_status) === 'pending')
+                  <span class="badge badge-danger badge-pill">
+                    Pending
+                  </span>
+                @elseif (strtolower($saleInvoice->payment_status) === 'partially_paid')
+                  <span class="badge badge-warning badge-pill">
+                    Partially Paid
+                  </span>
+                @elseif (strtolower($saleInvoice->payment_status) === 'paid')
+                  <span class="badge badge-success badge-pill">
+                    {{ $saleInvoice->payment_status }}
+                  </span>
+                @endif
               </td>
               <td>
                 <span class="btn btn-tool btn-sm" wire:click="">

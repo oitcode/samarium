@@ -42,6 +42,15 @@ class Customer extends Model
         return $this->hasMany('App\Sale', 'customer_id', 'customer_id');
     }
 
+    /*
+     * sale_invoice table.
+     *
+     */
+    public function saleInvoices()
+    {
+        return $this->hasMany('App\SaleInvoice', 'customer_id', 'customer_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods
@@ -55,8 +64,23 @@ class Customer extends Model
      */
     public function getBalance()
     {
-        // Todo
+        $total = 0;
 
-        return 0;
+        foreach ($this->saleInvoices as $saleInvoice) {
+            $total += $saleInvoice->getPendingAmount();
+        }
+
+        return $total;
+    }
+
+    /*
+     * Get pending sale invoices of customer.
+     *
+     */
+    public function getPendingSaleInvoices()
+    {
+        $invoices = $this->saleInvoices()->where('payment_status', '!=', 'paid')->get();
+
+        return $invoices;
     }
 }

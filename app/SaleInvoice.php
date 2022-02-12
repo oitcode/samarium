@@ -81,4 +81,35 @@ class SaleInvoice extends Model
 
         return $total;
     }
+
+    /*
+     * Get paid amount.
+     *
+     */
+    public function getPaidAmount()
+    {
+        $total = 0;
+
+        foreach ($this->saleInvoicePayments as $saleInvoicePayment) {
+            $total += $saleInvoicePayment->amount;
+        }
+
+        return $total;
+    }
+
+    /*
+     * Get pending amount.
+     *
+     */
+    public function getPendingAmount()
+    {
+        $totalAmount = $this->getTotalAmount();
+        $pendingAmount = $totalAmount;
+
+        foreach ($this->saleInvoicePayments as $saleInvoicePayment) {
+            $pendingAmount -= $saleInvoicePayment->amount;
+        }
+
+        return $pendingAmount;
+    }
 }

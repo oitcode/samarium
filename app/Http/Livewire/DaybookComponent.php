@@ -59,7 +59,7 @@ class DaybookComponent extends Component
         $total = 0;
 
         foreach($this->saleInvoices as $saleInvoice) {
-            $total += $saleInvoice->getTotalAmount();
+            $total += $saleInvoice->getPaidAmount();
         }
 
         return $total;
@@ -69,7 +69,9 @@ class DaybookComponent extends Component
     {
         $total = 0;
 
-        // Todo
+        foreach($this->saleInvoices as $saleInvoice) {
+            $total += $saleInvoice->getPendingAmount();
+        }
 
         return $total;
     }

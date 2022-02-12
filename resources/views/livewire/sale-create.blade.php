@@ -12,6 +12,12 @@
     @error('c_phone') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
+  <div class="form-group">
+    <label for="">Address</label>
+    <input type="text" class="form-control" wire:model.defer="c_address" />
+    @error('c_address') <span class="text-danger">{{ $message }}</span> @enderror
+  </div>
+
 
   <div class="row">
     <div class="col-md-9 bg-warning-rm">

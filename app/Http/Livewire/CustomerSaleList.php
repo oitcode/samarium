@@ -7,11 +7,11 @@ use Livewire\Component;
 class CustomerSaleList extends Component
 {
     public $customer;
-    public $sales;
+    public $saleInvoices;
 
     public function render()
     {
-        $this->sales = $this->customer->sales;
+        $this->saleInvoices = $this->customer->saleInvoices;
 
         return view('livewire.customer-sale-list');
     }

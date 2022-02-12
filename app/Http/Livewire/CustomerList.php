@@ -10,10 +10,25 @@ class CustomerList extends Component
 {
     public $customers;
 
-    public function render()
+    public $customerSearch = [
+        'name' => null,
+        'phone' => null,
+        'email' => null,
+        'address' => null,
+    ];
+
+    public function mount()
     {
         $this->customers = Customer::all();
+    }
 
+    public function render()
+    {
         return view('livewire.customer-list');
+    }
+
+    public function search()
+    {
+        $this->customers = Customer::where('address', 'like', '%'.$this->customerSearch['address'].'%')->get();
     }
 }

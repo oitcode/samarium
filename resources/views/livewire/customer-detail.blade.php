@@ -3,6 +3,7 @@
     @if (true)
     <x-menu-item fa-class="fas fa-arrow-right" title="Sales hitory" click-method="enterMode('salesHistory')" />
     <x-menu-item fa-class="fas fa-hand-holding-usd" title="Credit history" click-method="enterWorkerListMode" />
+    <x-menu-item fa-class="fas fa-hand-holding-usd" title="Payment" click-method="enterMode('customerPaymentCreate')" />
     @endif
 
   </x-menu-bar-horizontal>
@@ -75,10 +76,23 @@
       </div>
     </div>
 
+    <div class="row p-2 border" style="margin: auto;">
+      <div class="col-md-3">
+        Balance
+      </div>
+      <div class="col-md-9 text-danger font-weight-bold">
+        {{ $customer->getBalance() }}
+      </div>
+    </div>
+
   </div>
 
   @if ($modes['salesHistory'])
     @livewire ('customer-sale-list', ['customer' => $customer,])
+  @endif
+
+  @if ($modes['customerPaymentCreate'])
+    @livewire ('customer-payment-create', ['customer' => $customer,])
   @endif
 
 </x-box-generic>
