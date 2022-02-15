@@ -271,6 +271,12 @@ return [
             'icon'        => 'far fa-fw fa-file',
         ],
 
+        [
+            'text'        => 'Expense',
+            'url'         => 'dashboard/expense',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+
 
 
 

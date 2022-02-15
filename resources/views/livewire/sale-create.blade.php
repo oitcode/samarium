@@ -1,25 +1,80 @@
 <x-box-create title="Create sale">
 
-  <div class="form-group">
-    <label for="">Name</label>
-    <input type="text" class="form-control" wire:model.defer="c_name">
-    @error('c_name') <span class="text-danger">{{ $message }}</span> @enderror
+  <div class="row border mb-3 p-2 bg-light">
+
+    <div class="col-md-2">
+      <h3 class="d-inline h5">Bill no:</h3>
+      @if ($lockState)
+        {{ $createdSaleInvoice->sale_invoice_id }}
+      @endif
+    </div>
+
+    <div class="col-md-2">
+      <h3 class="d-inline h5">Date:</h3>
+      2022-01-01
+    </div>
+
+    <div class="col-md-6">
+      @if (session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show col-md-4 mx-3 my-2" role="alert">
+          {{ session('message') }}
+          <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+    </div>
+
+    <div class="col-md-2 float-right">
+      <button class="btn mr-3 text-primary">
+        <i class="fas fa-print"></i>
+        <br>
+        Print
+      </button>
+    </div>
+
   </div>
 
-  <div class="form-group">
-    <label for="">Phone</label>
-    <input type="text" class="form-control" wire:model.defer="c_phone" wire:keydown.enter="getCustomerInfo" />
-    @error('c_phone') <span class="text-danger">{{ $message }}</span> @enderror
+  <div class="row mb-3">
+
+    {{-- Customer section --}} 
+    <div class="col-md-3 p-3 bg-light border">
+      <div class="">
+        <label class="" style="width: 100px;">Name</label>
+        <input type="text" class="" wire:model.defer="c_name">
+        @error('c_name') <span class="text-danger">{{ $message }}</span> @enderror
+      </div>
+
+      <div class="">
+        <label class="" style="width: 100px;">VAT num</label>
+        <input type="text" class="" wire:model.defer="c_vat_num">
+        @error('c_vat_num') <span class="text-danger">{{ $message }}</span> @enderror
+      </div>
+
+      <div class="">
+        <label class="" style="width: 100px;">Phone</label>
+        <input type="text" class="" wire:model.defer="c_phone" wire:keydown.enter="getCustomerInfo" />
+        @error('c_phone') <span class="text-danger">{{ $message }}</span> @enderror
+      </div>
+
+      <div class="">
+        <label class="" style="width: 100px;">Address</label>
+        <input type="text" class="" wire:model.defer="c_address" />
+        @error('c_address') <span class="text-danger">{{ $message }}</span> @enderror
+      </div>
+    </div>
+
+
+    {{-- Product add section --}} 
+    <div class="col-md-9 p-3 bg-light border">
+      <label class="">Product code</label>
+      <input type="text" class="" style="width: 100%; bg-color: #abc;" wire:model.defer="" />
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="">Address</label>
-    <input type="text" class="form-control" wire:model.defer="c_address" />
-    @error('c_address') <span class="text-danger">{{ $message }}</span> @enderror
-  </div>
 
 
-  <div class="row">
+  <div class="row bg-light border py-2 mb-3">
     <div class="col-md-9 bg-warning-rm">
       <!-- Sale items -->
       <h4>Items</h4>
@@ -103,30 +158,32 @@
     </div>
   </div>
 
-  <div class="col-md-3">
-    <h3>Payment</h3>
+  <div class="row py-2 border">
+    <div class="col-md-3">
+      <h3>Payment</h3>
 
-    <div class="table-responsive" style="overflow: auto;">
-      <table class="table" style="">
-        <tbody>
-          <tr class="m-0 p-0" style="">
-            <th class="m-0 p-1 border">
-              Cash
-            </th>
-            <td class="m-0 p-1 border">
-              <input type="text" class="border-0" wire:model.defer="cashGiven" style="width: 100% !important;" />
-            </td>
-          </tr>
-          <tr class="m-0 p-0" style="">
-            <th class="m-0 p-1 border">
-              Return
-            </th>
-            <td class="m-0 p-1 border">
-              <input type="text" class="border-0" wire:model.defer="cashReturn" style="width: 100% !important;" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive" style="overflow: auto;">
+        <table class="table" style="">
+          <tbody>
+            <tr class="m-0 p-0" style="">
+              <th class="m-0 p-1 border">
+                Cash
+              </th>
+              <td class="m-0 p-1 border">
+                <input type="text" class="border-0" wire:model.defer="cashGiven" style="width: 100% !important;" />
+              </td>
+            </tr>
+            <tr class="m-0 p-0" style="">
+              <th class="m-0 p-1 border">
+                Return
+              </th>
+              <td class="m-0 p-1 border">
+                <input type="text" class="border-0" wire:model.defer="cashReturn" style="width: 100% !important;" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -134,8 +191,12 @@
 
 
   <div class="mt-3 p-2">
-    <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
-    <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreateMode')">Cancel</button>
+    @if ( ! $lockState)
+      <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
+      <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreateMode')">Cancel</button>
+    @else
+      <button type="submit" class="btn btn-primary" wire:click="clearModes">Finish</button>
+    @endif
   </div>
 
 </x-box-create>

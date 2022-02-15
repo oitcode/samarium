@@ -28,6 +28,7 @@ class SaleCreate extends Component
     public $c_name;
     public $c_phone;
     public $c_address;
+    public $c_vat_num;
 
     public $saleItems = array();
     public $customers;
@@ -41,6 +42,9 @@ class SaleCreate extends Component
     public $cashGiven;
     public $cashReturn;
 
+    public $lockState = false;
+    public $createdSaleInvoice;
+
     public function render()
     {
         $this->products = Product::all();
@@ -49,8 +53,9 @@ class SaleCreate extends Component
 
     public function store()
     {
-        //dd('Foo');
         /* Todo: Validation */
+
+        $saleInvoice = null;
 
         DB::beginTransaction();
 
@@ -123,12 +128,15 @@ class SaleCreate extends Component
             }
 
             DB::commit();
+            $this->createdSaleInvoice = $saleInvoice;
         } catch (\Exception $e) {
             DB::rollback();
             dd ($e);
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
 
+        $this->enterLockState();
+        session()->flash('message', 'Sale created.');
         // $this->emit('clearModes');
     }
 
@@ -162,6 +170,7 @@ class SaleCreate extends Component
             $this->customer = $customer;
 
             $this->c_name = $customer->name;
+            $this->c_address = $customer->address;
         }
     }
 
@@ -191,5 +200,10 @@ class SaleCreate extends Component
          for ($i=0; $i < $this->totalNumOfRows; $i++) {
              $this->total += $this->saleItems[$i]['amount'];
          }
+    }
+
+    public function enterLockState()
+    {
+        $this->lockState = true;
     }
 }

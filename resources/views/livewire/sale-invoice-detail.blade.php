@@ -37,6 +37,20 @@
       </div>
     </div>
 
+    <div class="row p-2 border" style="margin: auto;">
+      <div class="col-md-3">
+        Payment
+      </div>
+      <div class="col-md-9">
+        {{ $saleInvoice->total_amount }}
+        {{--
+        <span class="badge badge-pill">
+          {{ $saleInvoice->customer->phone }}
+        <span>
+        --}}
+      </div>
+    </div>
+
   </div>
 
   <div>

@@ -2,12 +2,13 @@
   <x-menu-bar-horizontal>
     @if (true)
     <x-menu-item fa-class="fas fa-arrow-right" title="Sales hitory" click-method="enterMode('salesHistory')" />
-    <x-menu-item fa-class="fas fa-hand-holding-usd" title="Credit history" click-method="enterWorkerListMode" />
     <x-menu-item fa-class="fas fa-hand-holding-usd" title="Payment" click-method="enterMode('customerPaymentCreate')" />
+    <x-menu-item fa-class="fas fa-list" title="Ledger" click-method="enterMode('ledger')" />
     @endif
 
   </x-menu-bar-horizontal>
 
+  @if (! $modes['ledger'])
   <div class="">
 
     <div class="row p-2 border" style="margin: auto;">
@@ -86,6 +87,7 @@
     </div>
 
   </div>
+  @endif
 
   @if ($modes['salesHistory'])
     @livewire ('customer-sale-list', ['customer' => $customer,])
@@ -93,6 +95,14 @@
 
   @if ($modes['customerPaymentCreate'])
     @livewire ('customer-payment-create', ['customer' => $customer,])
+  @endif
+
+  @if ($modes['saleInvoicePaymentCreate'])
+    @livewire ('customer-invoice-payment-create', ['saleInvoice' => $paymentReceivingSaleInvoice,])
+  @endif
+
+  @if ($modes['ledger'])
+    @livewire ('customer-ledger', ['customer' => $customer,])
   @endif
 
 </x-box-generic>

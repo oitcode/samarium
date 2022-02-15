@@ -53,13 +53,9 @@
                 @endif
               </td>
               <td>
-                <span class="btn btn-tool btn-sm" wire:click="">
-                  <i class="fas fa-pencil-alt text-info"></i>
-                </span>
-
-                <span class="btn btn-tool btn-sm" wire:click="">
-                  <i class="fas fa-trash text-danger"></i>
-                </span>
+                <button class="btn btn-primary btn-sm" wire:click="$emit('receiveSaleInvoicePayment', {{ $saleInvoice->sale_invoice_id }})">
+                  Receive payment
+                </button>
               </td>
             </tr>
           @endforeach

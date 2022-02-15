@@ -83,4 +83,52 @@ class Customer extends Model
 
         return $invoices;
     }
+
+    /*
+     * Get total num of sale invoices.
+     *
+     */
+    public function getTotalSaleInvoices()
+    {
+        return count($this->saleInvoices);
+    }
+
+    /*
+     * Get total num of pending sale invoices.
+     *
+     */
+    public function getTotalPendingSaleInvoices()
+    {
+        return count($this->saleInvoices()->where('payment_status', '!=', 'paid')->get());
+    }
+
+    /*
+     * Get total sales.
+     *
+     */
+    public function getTotalSaleAmount()
+    {
+        $total = 0;
+
+        foreach ($this->saleInvoices as $saleInvoice) {
+            $total += $saleInvoice->total_amount;
+        }
+
+        return $total;
+    }
+
+    /*
+     * Get total paid amount.
+     *
+     */
+    public function getTotalPaidAmount()
+    {
+        $total = 0;
+
+        foreach ($this->saleInvoices as $saleInvoice) {
+            $total += $saleInvoice->getPaidAmount();
+        }
+
+        return $total;
+    }
 }
