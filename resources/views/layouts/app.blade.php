@@ -18,9 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/fontawesome-free/css/all.css') }}" rel="stylesheet">
+
+    <!-- Livewire -->
+    @livewireStyles
 </head>
 <body>
     <div id="app">
+        @if (false)
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -71,10 +76,64 @@
                 </div>
             </div>
         </nav>
+        @endif
 
         <main class="py-4">
-            @yield('content')
+          <div class="row">
+            <div class="col-md-2">
+
+                <div class="text-center border">
+                  <button class="btn btn-warning w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem; background-color: orange;">
+                    <i class="fas fa-tv mr-3"></i>
+                    <a href="{{ route('dashboard') }}" class="text-dark" style="text-decoration: none;">
+                    DASHBOARD
+                    </a>
+                  </button>
+                </div>
+
+                <div class="text-center border">
+                  <button class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                    <i class="fas fa-shopping-cart mr-3"></i>
+                    <a href="" class="text-white" style="text-decoration: none;">
+                    SALE
+                    </a>
+                  </button>
+                </div>
+
+                <div class="text-center border">
+                  <button class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                    <i class="fas fa-atom mr-3"></i>
+                    TABLES
+                  </button>
+                </div>
+
+                <div class="text-center border">
+                  <button class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                    <i class="fas fa-list mr-3"></i>
+                    <a href="{{ route('menu') }}" class="text-white" style="text-decoration: none;">
+                    MENU
+                    </a>
+                  </button>
+                </div>
+
+                <div class="text-center border">
+                  <button class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                    <i class="fas fa-shopping-cart mr-3"></i>
+                    <a href="{{ route('daybook') }}" class="text-white" style="text-decoration: none;">
+                    DAYBOOK
+                    </a>
+                  </button>
+                </div>
+
+            </div>
+            <div class="col-md-10">
+              @yield('content')
+            </div>
+          </div>
         </main>
     </div>
+
+    <!-- Livewire scripts -->
+    @livewireScripts
 </body>
 </html>

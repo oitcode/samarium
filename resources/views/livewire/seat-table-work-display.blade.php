@@ -8,9 +8,9 @@
   <div class="row">
 
     <div class="col-md-6">
-      <div class="card">
-        <div class="card-header bg-info">
-          <h2 class="h4">
+      <div class="card mb-3">
+        <div class="card-header bg-success text-white">
+          <h1 class="">
             {{ $seatTable->name }}
           </h2>
         </div>
@@ -31,7 +31,7 @@
                 @endif
   
                 @if ($seatTable->isBooked())
-                  <button class="btn btn-warning mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('makePayment')">
+                  <button class="btn btn-warning-rm mr-3" style="height: 100px; width: 225px; font-size: 1.5rem; background-color: orange;" wire:click="enterMode('makePayment')">
                     <i class="fas fa-shopping-cart mr-3"></i>
                     Payment
                   </button>
@@ -78,7 +78,7 @@
 
             <div class="col-md-4">
               @if ($seatTable->isBooked())
-                <div class="d-flex justify-content-center h-100 bg-danger">
+                <div class="d-flex justify-content-center h-100 bg-danger text-white">
                   <div class="d-flex justify-content-center align-self-center">
                     <h3 class="h5 font-weight-bold">
                       BOOKED
@@ -86,7 +86,7 @@
                   </div>
                 </div>
               @else
-                <div class="d-flex justify-content-center h-100 bg-success">
+                <div class="d-flex justify-content-center h-100 bg-success text-white">
                   <div class="d-flex justify-content-center align-self-center">
                     <h3 class="h5 font-weight-bold">
                       OPEN
@@ -111,7 +111,7 @@
       <div class="table-responsive">
         <table class="table table-bordered table-hover border-dark">
           <thead>
-            <tr class="bg-info" style="font-size: 1.3rem;">
+            <tr class="bg-success text-white" style="font-size: 1.3rem;">
               <th>#</th>
               <th>Item</th>
               <th>Price</th>
@@ -123,9 +123,10 @@
           <tbody style="font-size: 1.3rem;">
             @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
               @foreach ($seatTable->getCurrentBookingItems() as $item)
-              <tr style="font-size: 1.3rem; background-image: linear-gradient(to right, #EADDCA, #EADDCA);" class="font-weight-bold text-white-rm">
+              <tr style="font-size: 1.3rem; background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);" class="font-weight-bold text-white-rm">
                 <td> {{ $loop->iteration }} </td>
                 <td>
+                  <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                   {{ $item->product->name }}
                 </td>
                 <td>
@@ -142,9 +143,11 @@
             @endif
           </tbody>
   
-          <tfoot class="bg-danger-rm" style="background-image: linear-gradient(to right, white, #abc);">
+          <tfoot class="bg-success text-white" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
             <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+              <strong>
               TOTAL
+              </strong>
             </td>
             <td style="font-size: 1.5rem;" class="font-weight-bold">
               @if ($seatTable->isBooked())

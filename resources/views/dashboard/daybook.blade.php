@@ -1,7 +1,4 @@
-@extends('adminlte::page')
-
-@section('title', 'Dashboard')
-
-@section('content')
+@extends('layouts.app')
+@section ('content')
   @livewire('daybook-component')
-@stop
+@endsection

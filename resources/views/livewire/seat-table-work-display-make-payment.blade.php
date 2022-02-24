@@ -1,16 +1,16 @@
 <div class="card">
-  <div class="card-header bg-info">
+  <div class="card-header bg-success text-white">
     <h1>
       Make payment
     </h1>
   </div>
   <div class="card-body p-0">
     <div class="table-responsive mb-0">
-      <table class="table mb-0">
+      <table class="table table-bordered mb-0">
         <tbody>
 
           <tr style="font-size: 1.3rem; height: 50px;">
-            <td class="w-50 p-0 bg-info font-weight-bold">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold">
               <span class="ml-4">
                 TOTAL
               </span>
@@ -21,7 +21,7 @@
           </tr>
 
           <tr style="font-size: 1.3rem; height: 50px;">
-            <td class="w-50 p-0 bg-info font-weight-bold">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold">
               <span class="ml-4">
                 PAY BY
               </span>
@@ -37,7 +37,7 @@
           </tr>
 
           <tr style="font-size: 1.3rem; height: 50px;">
-            <td class="w-50 p-0 bg-info p-0 font-weight-bold">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
               <span class="ml-4">
                 Tender Amount
               </span>
@@ -54,9 +54,9 @@
         </tbody>
       </table>
     </div>
-    <div class="p-3 m-0" style="background-image: linear-gradient(to right, white, #abc);">
+    <div class="p-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
       @if (! $modes['paid'])
-      <button class="btn btn-lg btn-success mr-3" wire:click="store" style="width: 120px; height: 80px; font-size: 1.3rem;">
+      <button class="btn btn-lg btn-success mr-3" wire:click="store" style="width: 130px; height: 80px; font-size: 1.3rem;">
         CONFIRM
       </button>
 

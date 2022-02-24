@@ -1,4 +1,4 @@
-<x-box-list title="Daybook">
+<div>
   <div class="p-0" style="">
     <div class="bg-info">
       <button class="btn btn-success m-0" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="setPreviousDay">
@@ -136,7 +136,7 @@
             </thead>
             <tbody style="font-size: 1.3rem;">
               @foreach ($seatTableBookings as $seatTableBooking)
-                <tr class="bg-light-rm" style="background-color: #eee;">
+                <tr class="bg-light-rm" style="background-color: #AFDBF5;">
                   <td>
                     {{ $seatTableBooking->seat_table_booking_id }}
                   </td>
@@ -168,8 +168,8 @@
               @endforeach
             </tbody>
             <tfoot>
-              <tr class="" style="font-size: 1.3rem; background-image: linear-gradient(to right, white, #abc);">
-                <td class="font-weight-bold" colspan="3">
+              <tr class="bg-success text-white" style="font-size: 1.5rem; {{--background-image: linear-gradient(to right, white, #abc);--}}">
+                <td class="font-weight-bold text-right" colspan="3">
                   Total
                 </td>
                 <td class="font-weight-bold">
@@ -205,4 +205,4 @@
       </div>
     </div>
   </div>
-</x-box-list>
+</div>

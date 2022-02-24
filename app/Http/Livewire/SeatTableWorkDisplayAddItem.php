@@ -67,4 +67,9 @@ class SeatTableWorkDisplayAddItem extends Component
 
         $this->selectedProduct = null;
     }
+
+    public function updateTotal()
+    {
+        $this->total = $this->price * $this->quantity;
+    }
 }

@@ -1,9 +1,9 @@
 <div>
   <div class="row">
     @foreach ($products as $product)
-      <div class="col-md-4">
+      <div class="col-md-4 mb-3">
         <div class="card">
-          <div class="card-header bg-warning-rm" style="background-image: linear-gradient(to right, #7B3F00, #8B3F00);">
+          <div class="card-header bg-warning-rm" {{--style="background-image: linear-gradient(to right, #7B3F00, #8B3F00);"--}}>
             @if (false)
             {{ $product->name }}
             @endif
@@ -30,7 +30,7 @@
                   </table>
                 </div>
                 <div class="p-2">
-                  <button class="btn btn-warning">
+                  <button class="btn btn-success">
                     <i class="fas fa-shopping-cart mr-2"></i>
                     Order
                   </button>

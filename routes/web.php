@@ -39,3 +39,6 @@ Route::get('/dashboard/daybook', 'DaybookController@index')->name('daybook');
 
 /* Expense */
 Route::get('/dashboard/expense', 'ExpenseController@index')->name('expense');
+
+/* Menu */
+Route::get('/dashboard/menu', 'MenuController@index')->name('menu');

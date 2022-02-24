@@ -8,7 +8,7 @@
   <div class="table-responsive m-0">
     <table class="table table-bordered m-0">
       <thead>
-        <tr class="bg-info" style="font-size: 1.3rem;">
+        <tr class="bg-success text-white" style="font-size: 1.3rem;">
           <th>Search Item</th>
           <th>Item</th>
           <th>Price</th>
@@ -39,7 +39,7 @@
             {{ $price }}
           </td>
           <td class="p-0 h-100">
-            <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter=""/>
+            <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
           </td>
           <td>
             {{ $total }}
