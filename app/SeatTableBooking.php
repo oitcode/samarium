@@ -59,4 +59,15 @@ class SeatTableBooking extends Model
     {
         return count($this->seatTableBookingItems);
     }
+
+    public function getTotalAmount()
+    {
+        $total = 0;
+
+        foreach ($this->seatTableBookingItems as $seatTableBookingItem) {
+            $total +=  $seatTableBookingItem->getTotalAmount();
+        }
+
+        return $total;
+    }
 }

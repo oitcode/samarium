@@ -11,13 +11,14 @@ class SeatTableWorkDisplay extends Component
     public $seatTable;
 
     public $modes = [
-        'addItem' => false,
+        'addItem' => true,
         'makePayment' => false,
     ];
 
     protected $listeners = [
         'exitAddItemMode',
         'exitMakePaymentMode',
+        'itemAddedToBooking',
     ];
 
     public function render()
@@ -51,6 +52,7 @@ class SeatTableWorkDisplay extends Component
         $seatTableBooking = new SeatTableBooking;
 
         $seatTableBooking->seat_table_id = $this->seatTable->seat_table_id;
+        $seatTableBooking->booking_date = date('Y-m-d');
         $seatTableBooking->status = 'open';
 
         $seatTableBooking->save();
@@ -65,5 +67,10 @@ class SeatTableWorkDisplay extends Component
     public function exitMakePaymentMode()
     {
         $this->exitMode('makePayment');
+    }
+
+    public function itemAddedToBooking()
+    {
+        $this->render();
     }
 }

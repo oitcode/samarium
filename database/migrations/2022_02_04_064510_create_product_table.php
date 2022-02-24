@@ -26,6 +26,7 @@ class CreateProductTable extends Migration
                 ->references('product_category_id')->on('product_category');
 
             $table->integer('selling_price');
+            $table->string('image_path');
 
             $table->timestamps();
         });

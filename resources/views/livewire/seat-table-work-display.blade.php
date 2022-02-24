@@ -1,6 +1,8 @@
 <div>
-  @if ($modes['addItem'])
-    @livewire ('seat-table-work-display-add-item', ['seat_table_booking_id' => $seatTable->getCurrentBooking()->seat_table_booking_id,])
+  @if ($seatTable->isBooked())
+    @if (true || $modes['addItem'])
+      @livewire ('seat-table-work-display-add-item', ['seat_table_booking_id' => $seatTable->getCurrentBooking()->seat_table_booking_id,])
+    @endif
   @endif
 
   <div class="row">
@@ -20,10 +22,12 @@
               <div class="p-2">
   
                 @if ($seatTable->isBooked())
+                  @if (false)
                   <button class="btn btn-success mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('addItem')">
                     <i class="fas fa-plus mr-3"></i>
                     Add Item
                   </button>
+                  @endif
                 @endif
   
                 @if ($seatTable->isBooked())
@@ -47,7 +51,7 @@
                       <i class="fas fa-shopping-cart mr-3"></i>
                       Total items
                     </td>
-                    <td>
+                    <td class="font-weight-bold">
                       @if ($seatTable->isBooked())
                         {{ $seatTable->getCurrentBookingTotalItems() }}
                       @else
@@ -60,7 +64,7 @@
                       <i class="fas fa-rupee-sign mr-3"></i>
                       Total bill amount
                     </td>
-                    <td>
+                    <td class="font-weight-bold">
                       @if ($seatTable->isBooked())
                         {{ $seatTable->getCurrentBookingTotalAmount() }}
                       @else
@@ -105,9 +109,9 @@
     <div class="col-md-6">
       @if ($seatTable->isBooked())
       <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-hover border-dark">
           <thead>
-            <tr class="bg-success" style="font-size: 1.3rem;">
+            <tr class="bg-info" style="font-size: 1.3rem;">
               <th>#</th>
               <th>Item</th>
               <th>Price</th>
@@ -116,10 +120,10 @@
             </tr>
           </thead>
   
-          <tbody style="font-size: 1.3rem;" class="bg-info">
+          <tbody style="font-size: 1.3rem;">
             @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
               @foreach ($seatTable->getCurrentBookingItems() as $item)
-              <tr>
+              <tr style="font-size: 1.3rem; background-image: linear-gradient(to right, #EADDCA, #EADDCA);" class="font-weight-bold text-white-rm">
                 <td> {{ $loop->iteration }} </td>
                 <td>
                   {{ $item->product->name }}
@@ -138,7 +142,7 @@
             @endif
           </tbody>
   
-          <tfoot class="bg-danger">
+          <tfoot class="bg-danger-rm" style="background-image: linear-gradient(to right, white, #abc);">
             <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right">
               TOTAL
             </td>

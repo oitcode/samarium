@@ -18,13 +18,13 @@
       </thead>
 
       <tbody>
-        <tr class="p-0" style="height: 60px; font-size: 1.3rem;">
+        <tr class="p-0 font-weight-bold" style="height: 60px; font-size: 1.3rem;">
           <td class="p-0 h-100">
-            <input class="m-0 w-100 h-100" type="text" wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
+            <input class="m-0 w-100 h-100 border-0" type="text" wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
           </td>
           <td class="p-0 h-100">
             @if (true)
-            <select class="w-100 h-100 custom-control" wire:model.defer="product_id" wire:change="selectItem">
+            <select class="w-100 h-100 custom-control border-0" wire:model.defer="product_id" wire:change="selectItem">
               <option>---</option>
 
               @foreach ($products as $product)
@@ -39,7 +39,7 @@
             {{ $price }}
           </td>
           <td class="p-0 h-100">
-            <input class="w-100 h-100" type="text" wire:model.defer="quantity" wire:keydown.enter="" />
+            <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter=""/>
           </td>
           <td>
             {{ $total }}
@@ -50,13 +50,27 @@
   </div>
 
   <div class="p-3 m-0" style="background-image: linear-gradient(to right, white, #abc);">
-    <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSeatTableBooking" style="width: 120px; height: 80px; font-size: 1.3rem;">
-      Add
-    </button>
+    <div class="row">
+      <div class="col-md-8">
+        <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSeatTableBooking" style="width: 120px; height: 80px; font-size: 1.3rem;">
+          Add
+        </button>
 
-    <button class="btn btn-lg btn-danger" wire:click="$emit('exitAddItemMode')" style="width: 120px; height: 80px; font-size: 1.3rem;">
-      Cancel
-    </button>
+        <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="width: 120px; height: 80px; font-size: 1.3rem;">
+          Cancel
+        </button>
+      </div>
+      @if ($selectedProduct != null)
+        <div class="col-md-4" style="height: 50px;">
+          <div class="float-right">
+            <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 80px;">
+          </div>
+          <div class="clearfix">
+          </div>
+        </div>
+      @endif
+    </div>
+
   </div>
 
 </div>

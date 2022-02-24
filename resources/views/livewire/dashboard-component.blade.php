@@ -36,8 +36,10 @@
 
   @if (true)
   <div>
-    @livewire ('cafe-sale-component')
+    @livewire ('cafe-menu-component')
+
     @if (false)
+    @livewire ('cafe-sale-component')
     <div class="row">
       <div class="col-md-8">
         @livewire ('counter-dash-component')

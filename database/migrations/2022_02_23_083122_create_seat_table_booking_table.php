@@ -24,6 +24,7 @@ class CreateSeatTableBookingTable extends Migration
                 ->references('seat_table_id')->on('seat_table');
 
             $table->string('status');
+            $table->date('booking_date');
 
             $table->timestamps();
         });

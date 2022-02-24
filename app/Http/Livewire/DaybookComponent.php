@@ -7,6 +7,7 @@ use Carbon\Carbon;
 
 use App\Sale;
 use App\SaleInvoice;
+use App\SeatTableBooking;
 
 class DaybookComponent extends Component
 {
@@ -17,6 +18,9 @@ class DaybookComponent extends Component
     public $totalCashAmount;
     public $totalCreditAmount;
 
+    public $seatTableBookings;
+    public $totalBookingAmount;
+
     public function mount()
     {
         $this->daybookDate = date('Y-m-d');
@@ -26,9 +30,12 @@ class DaybookComponent extends Component
     {
         $this->saleInvoices = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->get();
 
+        $this->seatTableBookings = SeatTableBooking::where('booking_date', $this->daybookDate)->get();
+
         $this->totalAmount = $this->getTotalAmount();
         $this->totalCashAmount = $this->getTotalCashAmount();
         $this->totalCreditAmount = $this->getTotalCreditAmount();
+        $this->totalBookingAmount = $this->getTotalBookingAmount();
 
         return view('livewire.daybook-component');
     }
@@ -71,6 +78,17 @@ class DaybookComponent extends Component
 
         foreach($this->saleInvoices as $saleInvoice) {
             $total += $saleInvoice->getPendingAmount();
+        }
+
+        return $total;
+    }
+
+    public function getTotalBookingAmount()
+    {
+        $total = 0;
+
+        foreach($this->seatTableBookings as $booking) {
+            $total += $booking->getTotalAmount();
         }
 
         return $total;

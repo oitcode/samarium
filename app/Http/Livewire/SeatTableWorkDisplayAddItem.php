@@ -19,6 +19,8 @@ class SeatTableWorkDisplayAddItem extends Component
     public $price;
     public $total;
 
+    public $selectedProduct = null;
+
     public function render()
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')->get();
@@ -36,7 +38,8 @@ class SeatTableWorkDisplayAddItem extends Component
 
         $seatTableBookingItem->save();
 
-        $this->emit('exitAddItemMode');
+        $this->resetInputFields();
+        $this->emit('itemAddedToBooking');
     }
 
     public function updateProductList()
@@ -51,5 +54,17 @@ class SeatTableWorkDisplayAddItem extends Component
         $this->price = $product->selling_price;
         $this->quantity = 1;
         $this->total = $this->price * $this->quantity;
+
+        $this->selectedProduct = $product;
+    }
+
+    public function resetInputFields()
+    {
+        $this->product_id = '';
+        $this->quantity = '';
+        $this->price = '';
+        $this->total = '';
+
+        $this->selectedProduct = null;
     }
 }
