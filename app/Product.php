@@ -49,4 +49,13 @@ class Product extends Model
     {
         return $this->hasMany('App\SaleInvoiceItem', 'product_id', 'product_id');
     }
+
+    /*
+     * seat_table_booking_item table.
+     *
+     */
+    public function seatTableBookingItems()
+    {
+        return $this->hasMany('App\SeatTableBookingItem', 'product_id', 'product_id');
+    }
 }

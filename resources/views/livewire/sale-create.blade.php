@@ -95,7 +95,7 @@
       <div class="table-responsive" style="overflow: auto;">
         <table class="table" style="">
           <thead>
-            <tr class="border p-1">
+            <tr class="border p-1 bg-info">
               <th class="border p-2">SN</th>
               <th class="border p-2">Item</th>
               <th class="border p-2">Price</th>
@@ -127,13 +127,14 @@
                   </div>
                 </td>
                 <td class="m-0 p-0 border">
-                  <input readonly type="text" class="border-0" wire:model.defer="saleItems.{{ $i }}.price" />
+                  <input readonly type="text" class="border-0" wire:model.defer="saleItems.{{ $i }}.price" style="width: 100%;"/>
                 </td>
                 <td class="m-0 p-0 border">
-                  <input type="text" class="border-0" wire:model.defer="saleItems.{{ $i }}.qty" wire:keydown.tab.prevent="setItemTotal({{ $i }})"/>
+                  <input type="text" class="border-0" wire:model.defer="saleItems.{{ $i }}.qty" wire:keydown.tab.prevent="setItemTotal({{ $i }})"
+                  style="width: 100%; height: 100%;"/>
                 </td>
                 <td class="m-0 p-0 border">
-                  <input readonly type="text" class="border-0" wire:model.defer="saleItems.{{ $i }}.amount" />
+                  <input readonly type="text" class="border-0" wire:model.defer="saleItems.{{ $i }}.amount" style="width: 100%;"/>
                 </td>
                 <td class="m-0 p-0 px-2 border">
                     <i class="fas fa-trash text-danger" wire:click="removeRow({{ $i }})"></i>

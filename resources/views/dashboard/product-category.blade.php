@@ -4,4 +4,5 @@
 
 @section('content')
   @livewire('product-category-component')
+  @livewire('product-component')
 @stop
