@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\SeatTable;
+
 class SaleController extends Controller
 {
     /**
@@ -23,6 +25,9 @@ class SaleController extends Controller
      */
     public function index()
     {
-        return view('dashboard.sale');
+        $seatTable = SeatTable::first();
+
+        return view('dashboard.sale')
+            ->with('seatTable' , $seatTable);
     }
 }

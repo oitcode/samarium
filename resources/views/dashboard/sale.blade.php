@@ -1,7 +1,4 @@
-@extends('adminlte::page')
-
-@section('title', 'Dashboard')
-
-@section('content')
-  @livewire('sale-component')
-@stop
+@extends('layouts.app')
+@section ('content')
+  @livewire('seat-table-work-display', ['seatTable' => $seatTable,])
+@endsection

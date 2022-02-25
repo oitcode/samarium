@@ -109,7 +109,7 @@
                 </div>
 
                 <div class="text-center border">
-                  <a href="" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                  <a href="{{ route('sale') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
                     <i class="fas fa-shopping-cart mr-3"></i>
                     SALE
                   </a>
