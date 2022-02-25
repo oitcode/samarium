@@ -33,6 +33,17 @@
           </tr>
 
           <tr style="font-size: 1.3rem; height: 50px;">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold">
+              <span class="ml-4">
+                STOCK COUNT
+              </span>
+            </td>
+            <td class="p-0 h-100 bg-warning font-weight-bold">
+              <input class="w-100 h-100 font-weight-bold @error('stock_count') border-danger @enderror" type="text" wire:model.defer="stock_count" />
+            </td>
+          </tr>
+
+          <tr style="font-size: 1.3rem; height: 50px;">
             <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
               <span class="ml-4">
                 IMAGE

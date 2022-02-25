@@ -14,6 +14,7 @@ class CafeMenuProductCreate extends Component
 
     public $name;
     public $selling_price;
+    public $stock_count = null;
     public $image;
 
     public function render()
@@ -26,6 +27,7 @@ class CafeMenuProductCreate extends Component
         $validatedData = $this->validate([
             'name' => 'required',
             'selling_price' => 'required|integer',
+            'stock_count' => 'nullable|integer',
             'image' => 'image',
         ]);
 

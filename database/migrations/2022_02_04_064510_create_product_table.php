@@ -28,6 +28,8 @@ class CreateProductTable extends Migration
             $table->integer('selling_price');
             $table->string('image_path');
 
+            $table->integer('stock_count')->nullable();
+
             $table->timestamps();
         });
     }

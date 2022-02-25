@@ -24,6 +24,20 @@
                           </tr>
                           <tr>
                             <th>
+                              <span class="badge mr-2">
+                              Stock
+                              </span>
+                              @if ($product->stock_count != null)
+                                {{ $product->stock_count }}
+                              @else
+                              <span class="text-secondary">
+                                NA
+                              </span>
+                              @endif
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>
                               <i class="fas fa-rupee-sign"></i>
                               {{ $product->selling_price }}
                             </th>
