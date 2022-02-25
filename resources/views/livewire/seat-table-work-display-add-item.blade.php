@@ -49,14 +49,14 @@
     </table>
   </div>
 
-  <div class="p-3 m-0" style="background-image: linear-gradient(to right, white, #abc);">
+  <div class="p-3 m-0" style="{{--background-image: linear-gradient(to right, white, #abc);--}}">
     <div class="row">
       <div class="col-md-8">
-        <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSeatTableBooking" style="width: 120px; height: 80px; font-size: 1.3rem;">
+        <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSeatTableBooking" style="width: 110px; height: 70px; font-size: 1.3rem;">
           Add
         </button>
 
-        <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="width: 120px; height: 80px; font-size: 1.3rem;">
+        <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="width: 110px; height: 70px; font-size: 1.3rem;">
           Cancel
         </button>
       </div>

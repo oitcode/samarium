@@ -117,16 +117,16 @@
   @endif
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-6">
       @if ($seatTableBookings != null && count($seatTableBookings) > 0)
         <div class="table-responsive">
           <table class="table table-sm-rm table-bordered table-hover">
             <thead>
-              <tr class="bg-light" style="font-size: 1.3rem;">
-                <th>ID</th>
-                <th>Date</th>
+              <tr class="bg-light-rm" style="font-size: 1.3rem; background-color: orange;">
+                <th style="width: 100px;">Bill no</th>
+                <th style="width: 200px;">Date</th>
                 <th>Table</th>
-                <th>Total</th>
+                <th style="width: 200px;">Total</th>
                 @if (false)
                 <th>Cash</th>
                 <th>Credit</th>
@@ -134,17 +134,19 @@
                 @endif
               </tr>
             </thead>
-            <tbody style="font-size: 1.3rem;">
+            <tbody class="bg-white" style="font-size: 1.3rem;">
               @foreach ($seatTableBookings as $seatTableBooking)
-                <tr class="bg-light-rm" style="background-color: #AFDBF5;">
-                  <td>
-                    {{ $seatTableBooking->seat_table_booking_id }}
+                <tr class="" {{--style="background-color: #AFDBF5;"--}}>
+                  <td class="text-secondary-rm" style="font-size: 1rem;">
+                    90{{ $seatTableBooking->seat_table_booking_id }}
                   </td>
-                  <td>
+                  <td style="font-size: 1rem;">
                     {{ $seatTableBooking->booking_date }}
                   </td>
-                  <td>
-                    {{ $seatTableBooking->seatTable->name }}
+                  <td class="text-secondary">
+                    <span class="badge badge-primary" wire:click="displayBooking({{ $seatTableBooking }})">
+                      {{ $seatTableBooking->seatTable->name }}
+                    </span>
                   </td>
                   <td class="font-weight-bold">
                     {{ $seatTableBooking->getTotalAmount() }}
@@ -195,14 +197,18 @@
         </div>
       @endif
     </div>
-    <div class="col-md-4">
-      <div class="d-flex justify-content-center h-100 bg-warning">
+    <div class="col-md-6">
+      @if (! $modes['displayBooking'])
+      <div class="d-flex justify-content-center h-100 bg-warning-rm" style="background-color: #abc;">
         <div class="justify-content-center align-self-center text-center">
           <h3 class="h5 font-weight-bold" style="font-size: 1.8rem;">
             TOTAL: {{ $totalBookingAmount }}
           </h3>
         </div>
       </div>
+      @else
+        @livewire ('daybook-booking-display', ['seatTableBooking' => $displayingBooking,])
+      @endif
     </div>
   </div>
 </div>

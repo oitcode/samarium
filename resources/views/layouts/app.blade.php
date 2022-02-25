@@ -25,6 +25,22 @@
 </head>
 <body>
     <div id="app">
+        <div class="bg-success-rm py-4 text-right" style="background-image: linear-gradient(to right, #fff, green);">
+          <div class="float-right">
+            <h1 class="text-white mr-3">
+              <i class="fas fa-tv mr-3"></i>
+              SmartPY
+            </h1>
+          </div>
+          <div class="float-right mx-4 px-4 text-white border-right border-left" style="font-size: 1.3rem;">
+            <i class="fas fa-user mr-3"></i>
+            {{ Auth::user()->name }}
+          </div>
+          <div class="clearfix">
+          </div>
+
+        </div>
+
         @if (false)
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -83,46 +99,47 @@
             <div class="col-md-2">
 
                 <div class="text-center border">
-                  <button class="btn btn-warning w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem; background-color: orange;">
+                  <a href="{{ route('dashboard') }}" class="btn btn-warning w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem; background-color: orange;">
                     <i class="fas fa-tv mr-3"></i>
-                    <a href="{{ route('dashboard') }}" class="text-dark" style="text-decoration: none;">
                     DASHBOARD
-                    </a>
-                  </button>
+                  </a>
                 </div>
 
                 <div class="text-center border">
-                  <button class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                  <a href="" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
                     <i class="fas fa-shopping-cart mr-3"></i>
-                    <a href="" class="text-white" style="text-decoration: none;">
                     SALE
-                    </a>
-                  </button>
+                  </a>
                 </div>
 
+                @if (false)
                 <div class="text-center border">
                   <button class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
                     <i class="fas fa-atom mr-3"></i>
                     TABLES
                   </button>
                 </div>
+                @endif
 
                 <div class="text-center border">
-                  <button class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                  <a href="{{ route('menu') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
                     <i class="fas fa-list mr-3"></i>
-                    <a href="{{ route('menu') }}" class="text-white" style="text-decoration: none;">
                     MENU
-                    </a>
-                  </button>
+                  </a>
                 </div>
 
                 <div class="text-center border">
-                  <button class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                  <a href="{{ route('daybook') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
                     <i class="fas fa-shopping-cart mr-3"></i>
-                    <a href="{{ route('daybook') }}" class="text-white" style="text-decoration: none;">
                     DAYBOOK
-                    </a>
-                  </button>
+                  </a>
+                </div>
+
+                <div class="text-center border">
+                  <a href="" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                    <i class="fas fa-users mr-3"></i>
+                    CUSTOMER
+                  </a>
                 </div>
 
             </div>

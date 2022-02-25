@@ -1,6 +1,6 @@
 <div class="card mb-3 shadow">
-  <div class="card-header bg-light" style="background-image: linear-gradient(to right, #fff, #abc);">
-    <h2 class="h4 text badge badge-info p-3 text-white" style="font-size: 1.3rem;">
+  <div class="card-header bg-success" style="{{--background-image: linear-gradient(to right, #fff, #abc);--}}">
+    <h2 class="h4 text-white" style="font-size: 1.7rem;">
       {{ $seatTable->name }}
     </h2>
   </div>
@@ -41,7 +41,8 @@
       </div>
 
       @if ($seatTable->isBooked())
-      <div class="col-md-4 bg-danger text-white" wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})">
+      <div class="col-md-4 bg-danger-rm text-white" wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})"
+      style="background-color: orange;">
         <div class="d-flex justify-content-center h-100">
           <div class="justify-content-center align-self-center text-center">
             <h3 class="h5 font-weight-bold">

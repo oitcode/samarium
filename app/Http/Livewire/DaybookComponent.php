@@ -21,6 +21,15 @@ class DaybookComponent extends Component
     public $seatTableBookings;
     public $totalBookingAmount;
 
+    public $displayingBooking;
+
+    public $modes = [
+        'displayBooking' => false,
+    ];
+
+    protected $listeners = [
+    ];
+
     public function mount()
     {
         $this->daybookDate = date('Y-m-d');
@@ -30,7 +39,7 @@ class DaybookComponent extends Component
     {
         $this->saleInvoices = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->get();
 
-        $this->seatTableBookings = SeatTableBooking::where('booking_date', $this->daybookDate)->get();
+        $this->seatTableBookings = SeatTableBooking::where('booking_date', $this->daybookDate)->orderBy('seat_table_booking_id', 'desc')->get();
 
         $this->totalAmount = $this->getTotalAmount();
         $this->totalCashAmount = $this->getTotalCashAmount();
@@ -38,6 +47,27 @@ class DaybookComponent extends Component
         $this->totalBookingAmount = $this->getTotalBookingAmount();
 
         return view('livewire.daybook-component');
+    }
+
+    /* Clear modes */
+    public function clearModes()
+    {
+        foreach ($this->modes as $key => $val) {
+            $this->modes[$key] = false;
+        }
+    }
+
+    /* Enter and exit mode */
+    public function enterMode($modeName)
+    {
+        $this->clearModes();
+
+        $this->modes[$modeName] = true;
+    }
+
+    public function exitMode($modeName)
+    {
+        $this->modes[$modeName] = false;
     }
 
     public function setPreviousDay()
@@ -92,5 +122,15 @@ class DaybookComponent extends Component
         }
 
         return $total;
+    }
+
+    public function displayBooking(SeatTableBooking $seatTableBooking)
+    {
+        $this->displayingBooking = $seatTableBooking;
+        if ($this->modes['displayBooking']) {
+            $this->exitMode('displayBooking');
+        } else {
+            $this->enterMode('displayBooking');
+        }
     }
 }
