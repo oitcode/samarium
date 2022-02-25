@@ -32,10 +32,13 @@
               SmartPY
             </h1>
           </div>
-          <div class="float-right mx-4 px-4 text-white border-right border-left" style="font-size: 1.3rem;">
-            <i class="fas fa-user mr-3"></i>
-            {{ Auth::user()->name }}
-          </div>
+          @guest
+          @else
+            <div class="float-right mx-4 px-4 text-white border-right border-left" style="font-size: 1.3rem;">
+              <i class="fas fa-user mr-3"></i>
+              {{ Auth::user()->name }}
+            </div>
+          @endguest
           <div class="clearfix">
           </div>
 
