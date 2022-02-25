@@ -6,10 +6,9 @@
           <div class="col-md-4 mb-3">
             <div class="card">
               <div class="card-header bg-warning-rm" {{--style="background-image: linear-gradient(to right, #7B3F00, #8B3F00);"--}}>
-                @if (false)
+                <span style="font-size: 1.3rem;">
                 {{ $product->name }}
-                @endif
-                &nbsp;
+                </span>
               </div>
               <div class="card-body p-0">
                 <div class="row">
@@ -17,11 +16,13 @@
                     <div class="table-responsive">
                       <table class="table">
                         <tbody style="font-size: 1.3rem;">
+                          @if (false)
                           <tr>
                             <th>
                               {{ $product->name }}
                             </th>
                           </tr>
+                          @endif
                           <tr>
                             <th>
                               <span class="badge mr-2">

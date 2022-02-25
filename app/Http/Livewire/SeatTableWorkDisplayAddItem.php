@@ -38,6 +38,13 @@ class SeatTableWorkDisplayAddItem extends Component
 
         $seatTableBookingItem->save();
 
+        $product = Product::find($this->product_id);
+
+        if ($product->stock_count != null) {
+          $product->stock_count -=  $this->quantity;
+          $product->save();
+        }
+
         $this->resetInputFields();
         $this->emit('itemAddedToBooking');
     }
