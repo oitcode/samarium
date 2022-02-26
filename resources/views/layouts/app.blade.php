@@ -115,12 +115,12 @@
                   </a>
                 </div>
 
-                @if (false)
+                @if (true)
                 <div class="text-center border">
-                  <button class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                  <a href="{{ route('cafesale') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
                     <i class="fas fa-atom mr-3"></i>
                     TABLES
-                  </button>
+                  </a>
                 </div>
                 @endif
 
@@ -138,12 +138,33 @@
                   </a>
                 </div>
 
+                @can ('is-admin')
                 <div class="text-center border">
                   <a href="" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
                     <i class="fas fa-users mr-3"></i>
                     CUSTOMER
                   </a>
                 </div>
+                @else
+                <div class="text-center border">
+                  @if (false)
+                  <a href="" class="btn w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                    <i class="fas fa-star mr-3"></i>
+                    LOGOUT
+                  </a>
+                  @endif
+                  <a class="btn btn-info w-100 h-100 p-4 font-weight-bold text-left" href="{{ route('logout') }}"  style="font-size: 1.5rem;"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                      <i class="fas fa-star mr-3"></i>
+                      LOGOUT
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+                </div>
+                @endcan
 
             </div>
             <div class="col-md-10">

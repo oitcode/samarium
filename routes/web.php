@@ -42,3 +42,6 @@ Route::get('/dashboard/expense', 'ExpenseController@index')->name('expense');
 
 /* Menu */
 Route::get('/dashboard/menu', 'MenuController@index')->name('menu');
+
+/* Seat Tables */
+Route::get('/dashboard/cafesale', 'SeatTableController@index')->name('cafesale');
