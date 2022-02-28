@@ -118,7 +118,7 @@
                 @if (true)
                 <div class="text-center border">
                   <a href="{{ route('cafesale') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
-                    <i class="fas fa-atom mr-3"></i>
+                    <i class="fas fa-table mr-3"></i>
                     TABLES
                   </a>
                 </div>
@@ -131,32 +131,35 @@
                   </a>
                 </div>
 
+                @can ('is-admin')
+                  <div class="text-center border">
+                    <a href="{{ route('daybook') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                      <i class="fas fa-book mr-3"></i>
+                      DAYBOOK
+                    </a>
+                  </div>
+
+                  <div class="text-center border">
+                    <a href="" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                      <i class="fas fa-users mr-3"></i>
+                      CUSTOMER
+                    </a>
+                  </div>
+                @endcan
+
                 <div class="text-center border">
-                  <a href="{{ route('daybook') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
-                    <i class="fas fa-shopping-cart mr-3"></i>
-                    DAYBOOK
+                  <a href="{{ route('online-order') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                    <i class="fas fa-satellite-dish mr-3"></i>
+                    ONLINE ORDER
                   </a>
                 </div>
 
-                @can ('is-admin')
                 <div class="text-center border">
-                  <a href="" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
-                    <i class="fas fa-users mr-3"></i>
-                    CUSTOMER
-                  </a>
-                </div>
-                @else
-                <div class="text-center border">
-                  @if (false)
-                  <a href="" class="btn w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
-                    <i class="fas fa-star mr-3"></i>
-                    LOGOUT
-                  </a>
-                  @endif
-                  <a class="btn btn-info w-100 h-100 p-4 font-weight-bold text-left" href="{{ route('logout') }}"  style="font-size: 1.5rem;"
+                  <a class="btn btn-info-rm w-100 h-100 p-4 font-weight-bold text-left text-white" href="{{ route('logout') }}"  style="font-size: 1.5rem;
+                  background-color: #6c6;"
                      onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                      <i class="fas fa-star mr-3"></i>
+                      <i class="fas fa-send mr-3 text-warning-rm" style="color: #50c"></i>
                       LOGOUT
                   </a>
 
@@ -164,7 +167,6 @@
                       @csrf
                   </form>
                 </div>
-                @endcan
 
             </div>
             <div class="col-md-10">

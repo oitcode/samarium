@@ -1,4 +1,4 @@
-<div class="mb-5 border bg-light">
+<div class="mb-5 border bg-light shadow">
   @if (false)
   <h1 class="h4">
     Add Item
@@ -8,7 +8,7 @@
   <div class="table-responsive m-0">
     <table class="table table-bordered m-0">
       <thead>
-        <tr class="bg-success text-white" style="font-size: 1.3rem;">
+        <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;">
           <th>Search Item</th>
           <th>Item</th>
           <th>Price</th>
@@ -36,13 +36,13 @@
             @endif
           </td>
           <td>
-            {{ $price }}
+            @php echo number_format( $price ); @endphp
           </td>
           <td class="p-0 h-100">
             <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
           </td>
           <td>
-            {{ $total }}
+            @php echo number_format( $total ); @endphp
           </td>
         </tr>
       </tbody>
@@ -53,6 +53,7 @@
     <div class="row">
       <div class="col-md-8">
         <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSeatTableBooking" style="width: 110px; height: 70px; font-size: 1.3rem;">
+          <i class="fas fa-plus mr-2"></i>
           Add
         </button>
 

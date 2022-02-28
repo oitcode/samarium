@@ -45,3 +45,9 @@ Route::get('/dashboard/menu', 'MenuController@index')->name('menu');
 
 /* Seat Tables */
 Route::get('/dashboard/cafesale', 'SeatTableController@index')->name('cafesale');
+
+/* Online Order */
+Route::get('/dashboard/onlineorder', 'OnlineOrderController@index')->name('online-order');
+
+/* Website routes */
+Route::get('/website', 'WebsiteController@homePage')->name('website-home');

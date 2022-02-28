@@ -67,10 +67,11 @@ class SeatTableWorkDisplayAddItem extends Component
 
     public function resetInputFields()
     {
+        $this->add_item_name = '';
         $this->product_id = '';
         $this->quantity = '';
-        $this->price = '';
-        $this->total = '';
+        unset($this->price);
+        $this->total = null;
 
         $this->selectedProduct = null;
     }

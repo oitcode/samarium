@@ -8,9 +8,9 @@
   <div class="row">
 
     <div class="col-md-6">
-      <div class="card mb-3">
-        <div class="card-header bg-success text-white">
-          <h1 class="">
+      <div class="card mb-3 shadow">
+        <div class="card-header bg-success-rm text-white-rm">
+          <h1 class="badge badge-success" style="font-size: 2rem;">
             {{ $seatTable->name }}
           </h2>
         </div>
@@ -20,27 +20,35 @@
           <div class="row">
             <div class="col-md-8">
               <div class="p-2">
-  
-                @if ($seatTable->isBooked())
-                  @if (false)
-                  <button class="btn btn-success mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('addItem')">
-                    <i class="fas fa-plus mr-3"></i>
-                    Add Item
-                  </button>
+                <div class="float-left">
+                  @if ($seatTable->isBooked())
+                    <button class="btn btn-warning-rm mr-3" style="height: 100px; width: 225px; font-size: 1.5rem; background-color: orange;" wire:click="enterMode('makePayment')">
+                      <i class="fas fa-shopping-cart mr-3"></i>
+                      Payment
+                    </button>
+
+                  @else
+                    <button class="btn btn-success mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="bookSeatTable">
+                      <i class="fas fa-check mr-3"></i>
+                      Book table
+                    </button>
                   @endif
-                @endif
+                </div>
+                <div class="float-left">
+                  @if ($seatTable->isBooked())
+                    @if (true)
+                    <button class="btn btn-warning-rm mr-3 p-3 text-danger" style="font-size: 2.5rem;">
+                      <i class="fas fa-rupee-sign mr-2"></i>
+                      @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
+                    </button>
+                    @else
+                      FOO
+                    @endif
+                  @endif
+                </div>
+                <div class="clearfix">
+                </div>
   
-                @if ($seatTable->isBooked())
-                  <button class="btn btn-warning-rm mr-3" style="height: 100px; width: 225px; font-size: 1.5rem; background-color: orange;" wire:click="enterMode('makePayment')">
-                    <i class="fas fa-shopping-cart mr-3"></i>
-                    Payment
-                  </button>
-                @else
-                  <button class="btn btn-success mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="bookSeatTable">
-                    <i class="fas fa-check mr-3"></i>
-                    Book table
-                  </button>
-                @endif
   
               </div>
 
@@ -66,7 +74,7 @@
                     </td>
                     <td class="font-weight-bold">
                       @if ($seatTable->isBooked())
-                        {{ $seatTable->getCurrentBookingTotalAmount() }}
+                        @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
                       @else
                         NA
                       @endif
@@ -111,7 +119,7 @@
       <div class="table-responsive">
         <table class="table table-bordered table-hover border-dark">
           <thead>
-            <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem; background-color: orange;">
+            <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
               <th>#</th>
               <th>Item</th>
               <th>Price</th>
@@ -130,7 +138,7 @@
                   {{ $item->product->name }}
                 </td>
                 <td>
-                  {{ $item->product->selling_price }}
+                  @php echo number_format( $item->product->selling_price ); @endphp
                 </td>
                 <td>
                   <span class="badge badge-pill-rm badge-success">
@@ -138,7 +146,7 @@
                   </span>
                 </td>
                 <td>
-                  {{ $item->getTotalAmount() }}
+                  @php echo number_format( $item->getTotalAmount() ); @endphp
                 </td>
               </tr>
               @endforeach
@@ -153,7 +161,7 @@
             </td>
             <td style="font-size: 1.5rem;" class="font-weight-bold">
               @if ($seatTable->isBooked())
-                {{ $seatTable->getCurrentBookingTotalAmount() }}
+                @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
               @else
                 0
               @endif

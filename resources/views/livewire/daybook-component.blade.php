@@ -1,6 +1,6 @@
 <div>
   <div class="p-0" style="">
-    <div class="bg-info">
+    <div class="bg-info-rm mb-4">
       <button class="btn btn-success m-0" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left mr-3"></i>
         Previous
@@ -11,118 +11,25 @@
         Next
       </button>
 
-      <span class="badge badge-pill mt-2" style="font-size: 1.5rem;">
-        {{ $daybookDate }}
-        &nbsp;
-        &nbsp;
-        |
-        &nbsp;
-        &nbsp;
+      <button class="btn btn-danger m-0 float-right" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="">
+        <i class="fas fa-calendar mr-3"></i>
         {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
-      </span>
-    </div>
+      </button>
 
-    @if (false)
-    <x-menu-bar-horizontal>
-      <x-menu-item title="Previous" fa-class="fas fa-arrow-left" click-method="setPreviousDay" />
-      <x-menu-item title="Next" fa-class="fas fa-arrow-right" click-method="setNextDay" />
-      <span class="badge badge-pill mt-2">
+      <button class="btn btn-success mr-2 float-right" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="">
+        <i class="fas fa-calendar mr-3"></i>
         {{ $daybookDate }}
-        &nbsp;
-        &nbsp;
-        |
-        &nbsp;
-        &nbsp;
-        {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
-      </span>
-    </x-menu-bar-horizontal>
-  </div>
-  @endif
+      </button>
 
-  @if (false)
-  @if ($saleInvoices != null && count($saleInvoices) > 0)
-    <div class="table-responsive">
-      <table class="table table-sm table-hover">
-        <thead>
-          <tr class="text-secondary">
-            <th>ID</th>
-            <th>Date</th>
-            <th>Customer</th>
-            <th>Total</th>
-            <th>Cash</th>
-            <th>Credit</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($saleInvoices as $saleInvoice)
-            <tr>
-              <td>
-                {{ $saleInvoice->sale_invoice_id }}
-              </td>
-              <td>
-                {{ $saleInvoice->sale_invoice_date }}
-              </td>
-              <td>
-                <a href="" wire:click.prevent="$emit('displaySaleInvoice', {{ $saleInvoice->sale_invoice_id }})">
-                {{ $saleInvoice->customer->name }}
-                </a>
-              </td>
-              <td>
-                {{ $saleInvoice->getTotalAmount() }}
-              </td>
-              <td>
-                {{ $saleInvoice->getPaidAmount() }}
-              </td>
-              <td>
-                {{ $saleInvoice->getPendingAmount() }}
-              </td>
-              <td>
-                <span class="btn btn-tool btn-sm" wire:click="">
-                  <i class="fas fa-pencil-alt text-info"></i>
-                </span>
-
-                <span class="btn btn-tool btn-sm" wire:click="">
-                  <i class="fas fa-trash text-danger"></i>
-                </span>
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-        <tfoot>
-          <tr>
-            <td class="font-weight-bold" colspan="3">
-              Total
-            </td>
-            <td class="font-weight-bold">
-              {{ $totalAmount }}
-            </td>
-            <td class="font-weight-bold">
-              {{ $totalCashAmount }}
-            </td>
-            <td class="font-weight-bold">
-              {{ $totalCreditAmount }}
-            </td>
-            <td>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
     </div>
-  @else
-    <div class="text-secondary py-3 px-3">
-      No sales.
-    </div>
-  @endif
-  @endif
 
   <div class="row">
     <div class="col-md-6">
       @if ($seatTableBookings != null && count($seatTableBookings) > 0)
         <div class="table-responsive">
-          <table class="table table-sm-rm table-bordered table-hover">
+          <table class="table table-sm-rm table-bordered table-hover shadow-sm">
             <thead>
-              <tr class="bg-light-rm" style="font-size: 1.3rem; background-color: orange;">
+              <tr class="bg-success text-white" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
                 <th style="width: 100px;">Bill no</th>
                 <th style="width: 200px;">Date</th>
                 <th>Table</th>
@@ -144,49 +51,24 @@
                     {{ $seatTableBooking->booking_date }}
                   </td>
                   <td class="text-secondary">
-                    <span class="badge badge-primary" wire:click="displayBooking({{ $seatTableBooking }})">
+                    <span class="badge badge-success" wire:click="displayBooking({{ $seatTableBooking }})">
                       {{ $seatTableBooking->seatTable->name }}
                     </span>
                   </td>
                   <td class="font-weight-bold">
-                    {{ $seatTableBooking->getTotalAmount() }}
+                    @php echo number_format( $seatTableBooking->getTotalAmount() ); @endphp
                   </td>
-                  @if (false)
-                  <td>
-                  </td>
-                  <td>
-                  </td>
-                  <td>
-                    <span class="btn btn-tool btn-sm" wire:click="">
-                      <i class="fas fa-pencil-alt text-info"></i>
-                    </span>
-
-                    <span class="btn btn-tool btn-sm" wire:click="">
-                      <i class="fas fa-trash text-danger"></i>
-                    </span>
-                  </td>
-                  @endif
                 </tr>
               @endforeach
             </tbody>
             <tfoot>
-              <tr class="bg-success text-white" style="font-size: 1.5rem; {{--background-image: linear-gradient(to right, white, #abc);--}}">
+              <tr class="bg-success-rm text-white-rm" style="font-size: 1.5rem; {{--background-image: linear-gradient(to right, white, #abc);--}}">
                 <td class="font-weight-bold text-right" colspan="3">
                   Total
                 </td>
                 <td class="font-weight-bold">
-                  {{ $totalBookingAmount }}
+                  @php echo number_format( $totalBookingAmount ); @endphp
                 </td>
-                @if (false)
-                <td class="font-weight-bold">
-                  {{ $totalCashAmount }}
-                </td>
-                <td class="font-weight-bold">
-                  {{ $totalCreditAmount }}
-                </td>
-                <td>
-                </td>
-                @endif
               </tr>
             </tfoot>
           </table>
@@ -199,13 +81,24 @@
     </div>
     <div class="col-md-6">
       @if (! $modes['displayBooking'])
-      <div class="d-flex justify-content-center h-100 bg-warning-rm" style="background-color: #abc;">
-        <div class="justify-content-center align-self-center text-center">
-          <h3 class="h5 font-weight-bold" style="font-size: 1.8rem;">
-            TOTAL: {{ $totalBookingAmount }}
-          </h3>
+      <div class="shadow-sm">
+        <div class="card float-right-rm">
+          <div class="card-body p-0 bg-success text-white">
+            <div class="p-4">
+              <h2>
+                Total
+              </h2>
+              <div class="" style="font-size: 2rem;">
+              <i class="fas fa-rupee-sign mr-3"></i>
+              @php echo number_format( $totalBookingAmount ); @endphp
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix">
         </div>
       </div>
+
       @else
         @livewire ('daybook-booking-display', ['seatTableBooking' => $displayingBooking,])
       @endif

@@ -72,11 +72,13 @@ class DaybookComponent extends Component
 
     public function setPreviousDay()
     {
+        $this->clearModes();
         $this->daybookDate = Carbon::create($this->daybookDate)->subDay()->toDateString();
     }
 
     public function setNextDay()
     {
+        $this->clearModes();
         $this->daybookDate = Carbon::create($this->daybookDate)->addDay()->toDateString();
     }
 
