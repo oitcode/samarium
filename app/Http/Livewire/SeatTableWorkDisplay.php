@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 use App\SeatTableBooking;
+use App\SaleInvoice;
 
 class SeatTableWorkDisplay extends Component
 {
@@ -49,6 +50,16 @@ class SeatTableWorkDisplay extends Component
 
     public function bookSeatTable()
     {
+        /*
+         * --------------------------------------------------------------------
+         * CONCEPT
+         * --------------------------------------------------------------------
+         *
+         * When you book a seat table you start a new sale_invoice.
+         *
+         */
+
+        /* Create a seat table booking. */
         $seatTableBooking = new SeatTableBooking;
 
         $seatTableBooking->seat_table_id = $this->seatTable->seat_table_id;
@@ -56,6 +67,17 @@ class SeatTableWorkDisplay extends Component
         $seatTableBooking->status = 'open';
 
         $seatTableBooking->save();
+
+
+        /* Create a sale invoice */
+        $saleInvoice = new SaleInvoice;
+
+        $saleInvoice->sale_invoice_date = date('Y-m-d');
+        $saleInvoice->seat_table_booking_id = $seatTableBooking->seat_table_booking_id;
+        $saleInvoice->payment_status = 'pending';
+
+        $saleInvoice->save();
+
         $this->render();
     }
 

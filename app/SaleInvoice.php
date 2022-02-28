@@ -59,6 +59,15 @@ class SaleInvoice extends Model
         return $this->hasMany('App\SaleInvoicePayment', 'sale_invoice_id', 'sale_invoice_id');
     }
 
+    /*
+     * seat_table_booking table.
+     *
+     */
+    public function seatTableBooking()
+    {
+        return $this->BelongsTo('App\SeatTableBooking', 'seat_table_booking_id', 'seat_table_booking_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods

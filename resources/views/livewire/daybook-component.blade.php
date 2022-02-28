@@ -34,7 +34,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      @if ($seatTableBookings != null && count($seatTableBookings) > 0)
+      @if ($saleInvoices != null && count($saleInvoices) > 0)
         <div class="table-responsive">
           <table class="table table-sm-rm table-bordered table-hover shadow-sm">
             <thead>
@@ -43,29 +43,24 @@
                 <th style="width: 200px;">Date</th>
                 <th>Table</th>
                 <th style="width: 200px;">Total</th>
-                @if (false)
-                <th>Cash</th>
-                <th>Credit</th>
-                <th>Action</th>
-                @endif
               </tr>
             </thead>
             <tbody class="bg-white" style="font-size: 1.3rem;">
-              @foreach ($seatTableBookings as $seatTableBooking)
-                <tr class="" {{--style="background-color: #AFDBF5;"--}}>
+              @foreach ($saleInvoices as $saleInvoice)
+                <tr class="">
                   <td class="text-secondary-rm" style="font-size: 1rem;">
-                    90{{ $seatTableBooking->seat_table_booking_id }}
+                    90{{ $saleInvoice->sale_invoice_id }}
                   </td>
                   <td style="font-size: 1rem;">
-                    {{ $seatTableBooking->booking_date }}
+                    {{ $saleInvoice->sale_invoice_date }}
                   </td>
                   <td class="text-secondary">
-                    <span class="badge badge-success" wire:click="displayBooking({{ $seatTableBooking }})">
-                      {{ $seatTableBooking->seatTable->name }}
+                    <span class="badge badge-success" wire:click="displaySaleInvoice({{ $saleInvoice }})">
+                      {{ $saleInvoice->seatTableBooking->seatTable->name }}
                     </span>
                   </td>
                   <td class="font-weight-bold">
-                    @php echo number_format( $seatTableBooking->getTotalAmount() ); @endphp
+                    @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                   </td>
                 </tr>
               @endforeach
@@ -76,7 +71,7 @@
                   Total
                 </td>
                 <td class="font-weight-bold">
-                  @php echo number_format( $totalBookingAmount ); @endphp
+                  @php echo number_format( $totalSaleAmount ); @endphp
                 </td>
               </tr>
             </tfoot>
@@ -99,7 +94,7 @@
               </h2>
               <div class="" style="font-size: 2rem;">
               <i class="fas fa-rupee-sign mr-3"></i>
-              @php echo number_format( $totalBookingAmount ); @endphp
+              @php echo number_format( $totalSaleAmount ); @endphp
               </div>
             </div>
           </div>

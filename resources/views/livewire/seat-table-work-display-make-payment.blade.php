@@ -1,6 +1,6 @@
 <div class="card shadow">
-  <div class="card-header bg-success-rm text-white-rm">
-    <h1 class="badge badge-success" style="font-size: 1.5rem;">
+  <div class="card-header bg-success text-white">
+    <h1 class="" style="font-size: 1.5rem;">
       Make payment
     </h1>
   </div>
@@ -12,27 +12,75 @@
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
             <td class="w-50 p-0 bg-info-rm font-weight-bold">
               <span class="ml-4">
-                TOTAL
+                Customer Name
               </span>
-            </td>
-            <td class="p-0 h-100 bg-warning font-weight-bold pl-3 pt-2">
-              {{ $this->total }}
-            </td>
-          </tr>
-
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold">
-              <span class="ml-4">
-                PAY BY
-              </span>
-              @error('pay_by')
+              @error('customer_name')
               <div>
                 <span class="text-danger">{{ $message }}</span>
               </div>
               @enderror
             </td>
             <td class="p-0 h-100 bg-warning font-weight-bold">
-              <input class="w-100 h-100 font-weight-bold" type="text" wire:model.defer="pay_by" />
+              <input class="w-100 h-100 font-weight-bold" type="text" wire:model.defer="customer_name" />
+            </td>
+          </tr>
+
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
+              <span class="ml-4">
+                Customer Phone
+              </span>
+              @error('tender_amount')
+              <div>
+                <span class="text-danger">{{ $message }}</span>
+              </div>
+              @enderror
+            </td>
+            <td class="p-0 h-100 font-weight-bold">
+              <input class="w-100 h-100 font-weight-bold" type="text" wire:model="customer_phone" wire:keydown.enter="fetchCustomerData"/>
+            </td>
+          </tr>
+
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
+              <span class="ml-4">
+                Customer Address
+              </span>
+              @error('tender_amount')
+              <div>
+                <span class="text-danger">{{ $message }}</span>
+              </div>
+              @enderror
+            </td>
+            <td class="p-0 h-100 font-weight-bold">
+              <input class="w-100 h-100 font-weight-bold" type="text" wire:model="customer_address" />
+            </td>
+          </tr>
+
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
+              <span class="ml-4">
+                Customer PAN
+              </span>
+              @error('tender_amount')
+              <div>
+                <span class="text-danger">{{ $message }}</span>
+              </div>
+              @enderror
+            </td>
+            <td class="p-0 h-100 font-weight-bold">
+              <input class="w-100 h-100 font-weight-bold" type="text" wire:model="customer_pan" />
+            </td>
+          </tr>
+
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold">
+              <span class="ml-4">
+                TOTAL
+              </span>
+            </td>
+            <td class="p-0 h-100 bg-warning font-weight-bold pl-3 pt-2">
+              {{ $this->total }}
             </td>
           </tr>
 
@@ -51,6 +99,8 @@
               <input class="w-100 h-100 font-weight-bold" type="text" wire:model="tender_amount" />
             </td>
           </tr>
+
+
         </tbody>
       </table>
     </div>

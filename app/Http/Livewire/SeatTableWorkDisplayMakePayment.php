@@ -4,6 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use App\Customer;
+use App\SaleInvoice;
+use App\SaleInvoicePayment;
+
 class SeatTableWorkDisplayMakePayment extends Component
 {
     public $seatTable;
@@ -13,6 +17,15 @@ class SeatTableWorkDisplayMakePayment extends Component
     public $tender_amount;
 
     public $returnAmount;
+
+    /* Customer to which sale_invoice will be made */
+    public $customer;
+
+    /* Customer info */
+    public $customer_name;
+    public $customer_phone;
+    public $customer_address;
+    public $customer_pan;
 
     public $modes = [
         'paid' => false,
@@ -51,8 +64,12 @@ class SeatTableWorkDisplayMakePayment extends Component
     public function store()
     {
         $validatedData = $this->validate([
-            'pay_by' => 'nullable',
             'tender_amount' => 'required|integer',
+
+            'customer_name' => 'nullable',
+            'customer_phone' => 'nullable',
+            'customer_address' => 'nullable',
+            'customer_pan' => 'nullable',
         ]);
 
         $currentBookingAmount = $this->seatTable->getCurrentBookingTotalAmount();
@@ -61,7 +78,27 @@ class SeatTableWorkDisplayMakePayment extends Component
             return;
         }
 
-        /* Todo: Make payment against an invoice */
+        /*
+         *
+         * Todo: Make payment against an invoice
+         *
+         */
+
+        /* Get the sale_invoice */
+        $saleInvoice = $this->seatTable->getCurrentBooking()->saleInvoice;
+
+        /* Make sale_invoice_payment */
+        $saleInvoicePayment = new SaleInvoicePayment;
+
+        $saleInvoicePayment->payment_date = date('Y-m-d');
+        $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;
+        $saleInvoicePayment->amount = $currentBookingAmount;
+
+        $saleInvoicePayment->save();
+
+        /* Mark sale_invoice as paid  */
+        $saleInvoice->payment_status = 'paid';
+        $saleInvoice->save();
 
         $this->returnAmount = $this->tender_amount - $currentBookingAmount;
 
@@ -76,5 +113,17 @@ class SeatTableWorkDisplayMakePayment extends Component
         $booking->save();
 
         $this->emit('exitMakePaymentMode');
+    }
+
+    public function fetchCustomerData()
+    {
+        $customer = Customer::where('phone', $this->customer_phone)->first();
+
+        if ($customer) {
+            $this->customer = $customer;
+
+            $this->customer_name = $customer->name;
+            $this->customer_address = $customer->address;
+        }
     }
 }

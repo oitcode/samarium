@@ -45,6 +45,7 @@ class DaybookComponent extends Component
         $this->totalCashAmount = $this->getTotalCashAmount();
         $this->totalCreditAmount = $this->getTotalCreditAmount();
         $this->totalBookingAmount = $this->getTotalBookingAmount();
+        $this->totalSaleAmount = $this->getTotalSaleAmount();
 
         return view('livewire.daybook-component');
     }
@@ -134,5 +135,16 @@ class DaybookComponent extends Component
         } else {
             $this->enterMode('displayBooking');
         }
+    }
+
+    public function getTotalSaleAmount()
+    {
+        $total = 0;
+
+        foreach ($this->saleInvoices as $saleInvoice) {
+            $total += $saleInvoice->getTotalAmount();
+        }
+
+        return $total;
     }
 }

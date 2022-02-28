@@ -20,13 +20,26 @@ class CreateSaleInvoiceTable extends Migration
 
             /*
              * Foreign key to customer table.
+             *
+             * Todo: Really nullbale ?
              */
-            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('customer_id')->nullable();
             $table->foreign('customer_id', 'fk_sale_invoice_customer')
                 ->references('customer_id')->on('customer');
 
+            /*
+             * Foreign key to seat_table table.
+             *
+             * For Cafe and resturants
+             *
+             */
+            $table->unsignedBigInteger('seat_table_booking_id')->nullable();
+            $table->foreign('seat_table_booking_id', 'fk_sale_invoice__seat_table_booking')
+                ->references('seat_table_booking_id')->on('seat_table_booking');
 
-            $table->integer('total_amount');
+
+            /* Todo: Really nullbale ? */
+            $table->integer('total_amount')->nullable();
             $table->string('payment_status');
 
             $table->timestamps();

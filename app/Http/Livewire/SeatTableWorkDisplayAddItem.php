@@ -5,7 +5,9 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 use App\Product;
+use App\SeatTableBooking;
 use App\SeatTableBookingItem;
+use App\SaleInvoiceItem;
 
 class SeatTableWorkDisplayAddItem extends Component
 {
@@ -30,6 +32,7 @@ class SeatTableWorkDisplayAddItem extends Component
 
     public function addItemToSeatTableBooking()
     {
+        /*
         $seatTableBookingItem = new SeatTableBookingItem;
 
         $seatTableBookingItem->seat_table_booking_id = $this->seat_table_booking_id;
@@ -44,9 +47,45 @@ class SeatTableWorkDisplayAddItem extends Component
           $product->stock_count -=  $this->quantity;
           $product->save();
         }
+        */
+
+
+        /*
+         *
+         *
+         *
+         *
+         For sale invoie
+         *
+         *
+         *
+         */
+
+        /* Get sale_invoice */
+        $seatTableBooking = SeatTableBooking::find($this->seat_table_booking_id);
+        $saleInvoice = $seatTableBooking->saleInvoice;
+
+        /* Add sale_invoice_item to sale_invoice */
+        $saleInvoiceItem = new SaleInvoiceItem;
+
+        $saleInvoiceItem->sale_invoice_id = $saleInvoice->sale_invoice_id;
+        $saleInvoiceItem->product_id = $this->product_id;
+        $saleInvoiceItem->quantity = $this->quantity;
+
+        $saleInvoiceItem->save();
+
+        /* Do inventory management */
+        $product = Product::find($this->product_id);
+
+        if ($product->stock_count != null) {
+          $product->stock_count -=  $this->quantity;
+          $product->save();
+        }
 
         $this->resetInputFields();
         $this->emit('itemAddedToBooking');
+
+
     }
 
     public function updateProductList()

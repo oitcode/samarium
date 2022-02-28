@@ -49,6 +49,15 @@ class SeatTableBooking extends Model
         return $this->hasMany('App\SeatTableBookingItem', 'seat_table_booking_id', 'seat_table_booking_id');
     }
 
+    /*
+     * sale_invoice table.
+     *
+     */
+    public function saleInvoice()
+    {
+        return $this->hasOne('App\SaleInvoice', 'seat_table_booking_id', 'seat_table_booking_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods
@@ -57,15 +66,15 @@ class SeatTableBooking extends Model
      */
     public function getTotalItems()
     {
-        return count($this->seatTableBookingItems);
+        return count($this->saleInvoice->saleInvoiceItems);
     }
 
     public function getTotalAmount()
     {
         $total = 0;
 
-        foreach ($this->seatTableBookingItems as $seatTableBookingItem) {
-            $total +=  $seatTableBookingItem->getTotalAmount();
+        foreach ($this->saleInvoice->saleInvoiceItems as $item) {
+            $total +=  $item->getTotalAmount();
         }
 
         return $total;
