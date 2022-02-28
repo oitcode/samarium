@@ -11,6 +11,15 @@
         Next
       </button>
 
+      <button wire:loading class="btn btn-danger-rm" style="height: 100px; width: 225px; font-size: 1.5rem;">
+        <div class="spinner-border text-info mr-3" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <span class="ml-3 text-secondary" style="font-size: 1rem;">
+          Loading...
+        </span>
+      </button>
+
       <button class="btn btn-danger m-0 float-right" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="">
         <i class="fas fa-calendar mr-3"></i>
         {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
