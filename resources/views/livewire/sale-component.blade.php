@@ -1,7 +1,9 @@
 <div>
-  @livewire ('cafe-sale-component')
-
   @if (false)
+  @livewire ('cafe-sale-component')
+  @endif
+
+  @if (true)
   <x-box-generic title="Sale">
     <x-menu-bar-horizontal>
       <x-menu-item title="Create" fa-class="fas fa-plus" click-method="enterMode('create')" />

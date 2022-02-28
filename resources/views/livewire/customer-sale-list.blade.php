@@ -1,9 +1,9 @@
-<x-box-list title="Sale list">
+<div>
   @if ($saleInvoices != null && count($saleInvoices) > 0)
     <div class="table-responsive">
-      <table class="table table-sm table-hover">
+      <table class="table table-sm table-bordered table-hover">
         <thead>
-          <tr class="text-secondary">
+          <tr class="bg-success text-white" style="font-size: 1.3rem;">
             <th>ID</th>
             <th>Date</th>
             <th>Customer</th>
@@ -16,11 +16,11 @@
         </thead>
         <tbody>
           @foreach ($saleInvoices as $saleInvoice)
-            <tr>
+            <tr style="font-size: 1.3rem;">
               <td>
                 {{ $saleInvoice->sale_invoice_id }}
               </td>
-              <td>
+              <td class="text-secondary" style="font-size: 1rem;">
                 {{ $saleInvoice->sale_invoice_date }}
               </td>
               <td>
@@ -67,4 +67,4 @@
       No sales.
     </div>
   @endif
-</x-box-list>
+</div>

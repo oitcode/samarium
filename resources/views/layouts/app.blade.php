@@ -109,38 +109,87 @@
                 </div>
 
                 <div class="text-center border">
-                  <a href="{{ route('sale') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                  <a href="{{ route('sale') }}"
+                    class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+
+                    style="font-size: 1.5rem;
+
+                      @if(Route::current()->getName() == 'sale')
+                        background-color: #008450;
+                      @endif
+                    ">
+
                     <i class="fas fa-shopping-cart mr-3"></i>
                     SALE
+
                   </a>
                 </div>
 
                 @if (true)
                 <div class="text-center border">
-                  <a href="{{ route('cafesale') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                  <a href="{{ route('cafesale') }}"
+                    class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+
+                    style="font-size: 1.5rem;
+
+                      @if(Route::current()->getName() == 'cafesale')
+                        background-color: #008450;
+                      @endif
+                    ">
+
                     <i class="fas fa-table mr-3"></i>
                     TABLES
+
                   </a>
                 </div>
                 @endif
 
                 <div class="text-center border">
-                  <a href="{{ route('menu') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                  <a href="{{ route('menu') }}"
+                    class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+
+                    style="font-size: 1.5rem;
+
+                      @if(Route::current()->getName() == 'menu')
+                        background-color: #008450;
+                      @endif
+                    ">
+
                     <i class="fas fa-list mr-3"></i>
                     MENU
+
                   </a>
                 </div>
 
                 @can ('is-admin')
                   <div class="text-center border">
-                    <a href="{{ route('daybook') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                    <a href="{{ route('daybook') }}"
+                      class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+
+                      style="font-size: 1.5rem;
+
+                        @if(Route::current()->getName() == 'daybook')
+                          background-color: #008450;
+                        @endif
+
+                      ">
+
                       <i class="fas fa-book mr-3"></i>
                       DAYBOOK
+
                     </a>
                   </div>
 
                   <div class="text-center border">
-                    <a href="" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                  <a href="{{ route('customer') }}"
+                    class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+
+                    style="font-size: 1.5rem;
+
+                      @if(Route::current()->getName() == 'customer')
+                        background-color: #008450;
+                      @endif
+                    ">
                       <i class="fas fa-users mr-3"></i>
                       CUSTOMER
                     </a>
@@ -148,9 +197,19 @@
                 @endcan
 
                 <div class="text-center border">
-                  <a href="{{ route('online-order') }}" class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem;">
+                  <a href="{{ route('online-order') }}"
+                    class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+
+                    style="font-size: 1.5rem;
+
+                      @if(Route::current()->getName() == 'online-order')
+                        background-color: #008450;
+                      @endif
+                    ">
+
                     <i class="fas fa-satellite-dish mr-3"></i>
                     ONLINE ORDER
+
                   </a>
                 </div>
 
@@ -159,7 +218,7 @@
                   background-color: #6c6;"
                      onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                      <i class="fas fa-send mr-3 text-warning-rm" style="color: #50c"></i>
+                      <i class="fas fa-send mr-3 text-warning-rm" style="color: red"></i>
                       LOGOUT
                   </a>
 

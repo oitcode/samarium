@@ -1,81 +1,68 @@
-<x-box-generic title="Customer ledger">
-  <div class="row p-3 mb-3">
-    <div class="col-md-4 bg-light border">
-
-      <div class="table-responsive">
-        <table class="table table-sm">
-          <tbody>
-
-            <tr>
-              <th>Customer</th>
-              <td>{{ $customer->name }}</td>
-            </tr>
-
-            <tr>
-              <th>Phone</th>
-              <td>{{ $customer->phone }}</td>
-            </tr>
-
-            <tr>
-              <th>Email</th>
-              <td>{{ $customer->email }}</td>
-            </tr>
-
-            <tr>
-              <th>Address</th>
-              <td>{{ $customer->address }}</td>
-            </tr>
-
-            <tr>
-              <th>PAN num</th>
-              <td>{{ $customer->pan_num }}</td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-
-    <div class="col-md-4 bg-light border">
-      <div class="table-responsive">
-        <table class="table table-sm">
-          <tbody>
-
-            <tr>
-              <th>Total bills</th>
-              <td>{{ $customer->getTotalSaleInvoices() }}</td>
-            </tr>
-
-            <tr>
-              <th>Total sales</th>
-              <td>{{ $customer->getTotalSaleAmount() }}</td>
-            </tr>
-
-            <tr>
-              <th>Pending bills</th>
-              <td>
-              {{ $customer->getTotalPendingSaleInvoices() }}
-              </td>
-            </tr>
-
-            <tr>
-              <th>Pending amount</th>
-              <td>{{ $customer->getBalance() }}</td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-    </div>
-
+<div>
+  <div class="bg-success text-white mb-3 p-3">
+    <h2>
+      Customer Ledger
+    </h2>
   </div>
 
-  <div class="p-3 mb-3 border">
+  <div class="row py-3">
+    <div class="col-md-3">
+      <div class="d-flex justify-content-center h-100">
+        <div class="justify-content-center align-self-center text-center">
+          <h2>
+            Total Bills
+          </h2>
+          <div style="font-size: 2rem;">
+            {{ $customer->getTotalSaleInvoices() }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="d-flex justify-content-center h-100">
+        <div class="justify-content-center align-self-center text-center">
+          <h2>
+            Total Sales
+          </h2>
+          <div style="font-size: 2rem;">
+            <i class="fas fa-rupee-sign"></i>
+            {{ $customer->getTotalSaleAmount() }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="d-flex justify-content-center h-100">
+        <div class="justify-content-center align-self-center text-center">
+          <h2>
+            Pending Bills 
+          </h2>
+          <div style="font-size: 2rem;">
+            {{ $customer->getTotalPendingSaleInvoices() }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="d-flex justify-content-center h-100">
+        <div class="justify-content-center align-self-center text-center">
+          <h2>
+            Pending Amount
+          </h2>
+          <div class="text-danger" style="font-size: 2rem;">
+            <i class="fas fa-rupee-sign"></i>
+            {{ $customer->getBalance() }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-3-rm mb-3 border">
     <div class="table-responsive">
-      <table class="table table-sm table-bordered">
+      <table class="table table-sm table-bordered" style="font-size: 1.3rem;">
         <thead>
-          <tr>
+          <tr class="bg-success text-white">
             <th>Bill ID</th>
             <th>Bill date</th>
             <th>Customer</th>
@@ -128,4 +115,4 @@
       </table>
     </div>
   </div>
-</x-box-generic>
+</div>
