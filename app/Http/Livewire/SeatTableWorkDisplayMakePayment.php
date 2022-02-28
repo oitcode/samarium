@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 use App\Customer;
 use App\SaleInvoice;
@@ -29,6 +30,7 @@ class SeatTableWorkDisplayMakePayment extends Component
 
     public $modes = [
         'paid' => false,
+        'customer' => false,
     ];
 
     public function mount()
@@ -66,11 +68,16 @@ class SeatTableWorkDisplayMakePayment extends Component
         $validatedData = $this->validate([
             'tender_amount' => 'required|integer',
 
-            'customer_name' => 'nullable',
-            'customer_phone' => 'nullable',
-            'customer_address' => 'nullable',
-            'customer_pan' => 'nullable',
         ]);
+
+        if ($this->modes['customer']) {
+            $validatedData2 = $this->validate([
+                'customer_name' => 'required',
+                'customer_phone' => 'required',
+                'customer_address' => 'nullable',
+                'customer_pan' => 'nullable',
+            ]);
+        }
 
         $currentBookingAmount = $this->seatTable->getCurrentBookingTotalAmount();
 
@@ -78,32 +85,69 @@ class SeatTableWorkDisplayMakePayment extends Component
             return;
         }
 
+        DB::beginTransaction();
+
         /*
-         *
-         * Todo: Make payment against an invoice
+         * Do Customer stuff if needed.
          *
          */
 
-        /* Get the sale_invoice */
-        $saleInvoice = $this->seatTable->getCurrentBooking()->saleInvoice;
+        try {
+            if ($this->modes['customer']) {
+                $customer = Customer::where('phone', $this->customer_phone)->first();
+                if (! $customer) {
+                    $customer = new Customer;
 
-        /* Make sale_invoice_payment */
-        $saleInvoicePayment = new SaleInvoicePayment;
+                    $customer->name = $this->customer_name;
+                    $customer->phone = $this->customer_phone;;
+                    if ($this->customer_address) {
+                        $customer->address = $this->customer_address;;
+                    }
+                    if ($this->customer_pan) {
+                        $customer->pan_number = $this->customer_pan;;
+                    }
 
-        $saleInvoicePayment->payment_date = date('Y-m-d');
-        $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;
-        $saleInvoicePayment->amount = $currentBookingAmount;
+                    $customer->save();
+                }
+            }
 
-        $saleInvoicePayment->save();
+            /*
+             *
+             * Todo: Make payment against an invoice
+             *
+             */
 
-        /* Mark sale_invoice as paid  */
-        $saleInvoice->payment_status = 'paid';
-        $saleInvoice->save();
+            /* Get the sale_invoice */
+            $saleInvoice = $this->seatTable->getCurrentBooking()->saleInvoice;
 
-        $this->returnAmount = $this->tender_amount - $currentBookingAmount;
+            if ($this->modes['customer']) {
+                $saleInvoice->customer_id = $customer->customer_id;
+                $saleInvoice->save();
+            }
 
-        $this->enterMode('paid');
+            /* Make sale_invoice_payment */
+            $saleInvoicePayment = new SaleInvoicePayment;
 
+            $saleInvoicePayment->payment_date = date('Y-m-d');
+            $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;
+            $saleInvoicePayment->amount = $currentBookingAmount;
+
+            $saleInvoicePayment->save();
+
+            /* Mark sale_invoice as paid  */
+            $saleInvoice->payment_status = 'paid';
+            $saleInvoice->save();
+
+            DB::commit();
+
+            $this->returnAmount = $this->tender_amount - $currentBookingAmount;
+
+            $this->enterMode('paid');
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd ($e);
+            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
+        }
     }
 
     public function finishPayment()

@@ -74,6 +74,10 @@ class SeatTableWorkDisplayAddItem extends Component
 
         $saleInvoiceItem->save();
 
+        /* Update sale_invoice total amount. */
+        $saleInvoice->total_amount += $saleInvoiceItem->getTotalAmount();
+        $saleInvoice->save();
+
         /* Do inventory management */
         $product = Product::find($this->product_id);
 

@@ -12,7 +12,7 @@ use App\SeatTableBooking;
 class DaybookComponent extends Component
 {
     public $daybookDate;
-    public $saleInvoices;
+    //public $saleInvoices;
 
     public $totalAmount;
     public $totalCashAmount;
@@ -21,10 +21,10 @@ class DaybookComponent extends Component
     public $seatTableBookings;
     public $totalBookingAmount;
 
-    public $displayingBooking;
+    public $displayingSaleInvoice;
 
     public $modes = [
-        'displayBooking' => false,
+        'displaySaleInvoice' => false,
     ];
 
     protected $listeners = [
@@ -37,17 +37,15 @@ class DaybookComponent extends Component
 
     public function render()
     {
-        $this->saleInvoices = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->get();
+        $saleInvoices = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->paginate(5);
 
-        $this->seatTableBookings = SeatTableBooking::where('booking_date', $this->daybookDate)->orderBy('seat_table_booking_id', 'desc')->get();
+        $this->totalAmount = $this->getTotalAmount($saleInvoices);
+        // $this->totalCashAmount = $this->getTotalCashAmount();
+        // $this->totalCreditAmount = $this->getTotalCreditAmount();
+        $this->totalSaleAmount = $this->getTotalSaleAmount($saleInvoices);
 
-        $this->totalAmount = $this->getTotalAmount();
-        $this->totalCashAmount = $this->getTotalCashAmount();
-        $this->totalCreditAmount = $this->getTotalCreditAmount();
-        $this->totalBookingAmount = $this->getTotalBookingAmount();
-        $this->totalSaleAmount = $this->getTotalSaleAmount();
-
-        return view('livewire.daybook-component');
+        return view('livewire.daybook-component')
+            ->with('saleInvoices', $saleInvoices);
     }
 
     /* Clear modes */
@@ -83,11 +81,11 @@ class DaybookComponent extends Component
         $this->daybookDate = Carbon::create($this->daybookDate)->addDay()->toDateString();
     }
 
-    public function getTotalAmount()
+    public function getTotalAmount($saleInvoices)
     {
         $total = 0;
 
-        foreach($this->saleInvoices as $saleInvoice) {
+        foreach($saleInvoices as $saleInvoice) {
             $total += $saleInvoice->getTotalAmount();
         }
 
@@ -127,21 +125,21 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function displayBooking(SeatTableBooking $seatTableBooking)
+    public function displaySaleInvoice(SaleInvoice $saleInoice)
     {
-        $this->displayingBooking = $seatTableBooking;
-        if ($this->modes['displayBooking']) {
+        $this->displayingSaleInvoice = $saleInoice;
+        if ($this->modes['displaySaleInvoice']) {
             $this->exitMode('displayBooking');
         } else {
-            $this->enterMode('displayBooking');
+            $this->enterMode('displaySaleInvoice');
         }
     }
 
-    public function getTotalSaleAmount()
+    public function getTotalSaleAmount($saleInvoices)
     {
         $total = 0;
 
-        foreach ($this->saleInvoices as $saleInvoice) {
+        foreach ($saleInvoices as $saleInvoice) {
             $total += $saleInvoice->getTotalAmount();
         }
 
