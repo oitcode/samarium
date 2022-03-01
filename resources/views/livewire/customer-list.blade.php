@@ -1,62 +1,47 @@
 <div>
 
-  @if ($customers != null && count($customers) > 0)
-    @if (false)
-    <div class="table-responsive">
-      <table class="table table-sm table-hover">
-        <thead>
-          <tr class="text-secondary">
-            <th>ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>PAN Num</th>
-            <th>Balance</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($customers as $customer)
-            <tr>
-              <td>
-                {{ $customer->customer_id }}
-              </td>
-              <td>
-                <a href="" wire:click.prevent="$emit('displayCustomer', {{ $customer->customer_id }})">
-                {{ $customer->name }}
-                </a>
-              </td>
-              <td>
-                {{ $customer->phone }}
-              </td>
-              <td>
-                {{ $customer->email }}
-              </td>
-              <td>
-                {{ $customer->address }}
-              </td>
-              <td>
-                {{ $customer->pan_num }}
-              </td>
-              <td>
-                {{ $customer->getBalance() }}
-              </td>
-              <td>
-                <span class="btn btn-tool btn-sm" wire:click="">
-                  <i class="fas fa-pencil-alt text-info"></i>
-                </span>
+  {{-- Search Bar --}}
+  <div class="mb-4 p-3 border shadow-sm d-flex-rm">
 
-                <span class="btn btn-tool btn-sm" wire:click="">
-                  <i class="fas fa-trash text-danger"></i>
-                </span>
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
+    @if (false)
+    <div class="float-left mr-3">
+        <h2 class="text-secondary">
+          Search
+        </h2>
     </div>
     @endif
+
+    <div class="float-left mr-3">
+      <div>
+        <label class="text-secondary">
+          <i class="fas fa-user mr-3"></i>
+          Name
+        </label>
+      </div>
+      <input type="text" style="font-size: 1.1rem;">
+    </div>
+
+    <div class="float-left mr-3">
+      <div>
+        <label class="text-secondary">
+          <i class="fas fa-phone mr-3"></i>
+          Phone
+        </label>
+      </div>
+      <input type="text" style="font-size: 1.1rem;">
+    </div>
+
+    <div class="float-right mr-3">
+      <button class="btn btn-danger h-100 p-3" style="font-size: 1.3rem;">
+        Creditors
+      </button>
+    </div>
+
+    <div class="clearfix">
+    </div>
+  </div>
+
+  @if ($customers != null && count($customers) > 0)
 
     <div class="row">
       @foreach ($customers as $customer)

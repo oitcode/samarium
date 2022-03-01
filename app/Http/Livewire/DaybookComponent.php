@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Carbon\Carbon;
+use Livewire\WithPagination;
 
 use App\Sale;
 use App\SaleInvoice;
@@ -11,6 +12,8 @@ use App\SeatTableBooking;
 
 class DaybookComponent extends Component
 {
+    use WithPagination;
+
     public $daybookDate;
     //public $saleInvoices;
 
