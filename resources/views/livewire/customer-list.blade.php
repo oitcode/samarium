@@ -18,7 +18,7 @@
           Name
         </label>
       </div>
-      <input type="text" style="font-size: 1.1rem;">
+      <input type="text" wire:model.defer="customerSearch.name" style="font-size: 1.1rem;" wire:keydown.enter="search" />
     </div>
 
     <div class="float-left mr-3">
@@ -28,11 +28,11 @@
           Phone
         </label>
       </div>
-      <input type="text" style="font-size: 1.1rem;">
+      <input type="text" wire:model.defer="customerSearch.phone" style="font-size: 1.1rem;" wire:keydown.enter="search" />
     </div>
 
     <div class="float-right mr-3">
-      <button class="btn btn-danger h-100 p-3" style="font-size: 1.3rem;">
+      <button class="btn btn-danger h-100 p-3" style="font-size: 1.3rem;" wire:click="getCreditors">
         Creditors
       </button>
     </div>
@@ -68,8 +68,14 @@
                         </tr>
                         <tr>
                           <th class="text-danger">
-                            <i class="fas fa-rupee-sign"></i>
-                            @php echo number_format( $customer->getBalance() ); @endphp
+                            @if ($customer->getBalance()  > 0)
+                              <i class="fas fa-rupee-sign"></i>
+                              @php echo number_format( $customer->getBalance() ); @endphp
+                            @else
+                              <span class="badge badge-success">
+                               No pending
+                              </span>
+                            @endif
                           </th>
                         </tr>
                       </tbody>
@@ -101,7 +107,7 @@
       @endforeach
     </div>
   @else
-    <div class="text-secondary py-3 px-3">
+    <div class="text-secondary py-3 px-3" style="font-size: 1.3rem;">
       No customers.
     </div>
   @endif

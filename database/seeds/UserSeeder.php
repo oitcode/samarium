@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@oit.com.np',
             'password' => Hash::make('password'),
+            'role' => 'admin',
 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

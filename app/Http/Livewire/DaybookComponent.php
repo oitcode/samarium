@@ -14,6 +14,8 @@ class DaybookComponent extends Component
 {
     use WithPagination;
 
+    protected $paginationTheme = 'bootstrap';
+
     public $daybookDate;
     //public $saleInvoices;
 

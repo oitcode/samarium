@@ -1,6 +1,7 @@
 <div>
   <div class="row">
     <div class="col-md-10">
+      @if ($websiteOrders != null && count($websiteOrders) > 0)
       <div class="table-responsive mb-3">
         <table class="table table-bordered table-hover">
           <thead>
@@ -95,6 +96,12 @@
       <div>
         {{ $websiteOrders->links() }}
       </div>
+
+      @else
+        <div class="text-secondary" style="font-size: 1.3rem;">
+          No online orders.
+        </div>
+      @endif
     </div>
     <div class="col-md-2">
 

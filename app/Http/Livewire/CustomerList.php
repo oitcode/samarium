@@ -29,6 +29,30 @@ class CustomerList extends Component
 
     public function search()
     {
-        $this->customers = Customer::where('address', 'like', '%'.$this->customerSearch['address'].'%')->get();
+        $this->customers = new Customer;
+
+        if ($this->customerSearch['name']) {
+            $this->customers = $this->customers->where('name', 'like', '%'.$this->customerSearch['name'].'%');
+        } 
+
+        if ($this->customerSearch['phone']) {
+            $this->customers = $this->customers->where('phone', 'like', '%'.$this->customerSearch['phone'].'%');
+        } 
+
+        $this->customers = $this->customers->get();
+    }
+
+    public function getCreditors()
+    {
+        $customers = Customer::all();
+
+        foreach ($customers as $key => $customer) {
+            if ($customer->getBalance() <= 0) {
+              // remove this element
+              unset($customers[$key]);
+            }
+        }
+
+        $this->customers = $customers;
     }
 }

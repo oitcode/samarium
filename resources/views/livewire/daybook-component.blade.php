@@ -89,6 +89,10 @@
                       <span class="badge badge-success">
                       Paid
                       </span>
+                      @elseif ( $saleInvoice->payment_status == 'partially_paid')
+                      <span class="badge badge-warning">
+                      Partial
+                      </span>
                       @else
                       <span class="badge badge-danger">
                         Pending

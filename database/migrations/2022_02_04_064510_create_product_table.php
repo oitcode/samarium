@@ -21,7 +21,7 @@ class CreateProductTable extends Migration
             /*
              * Foreign key to product_category table.
              */
-            $table->unsignedBigInteger('product_category_id');
+            $table->unsignedBigInteger('product_category_id')->nullable();
             $table->foreign('product_category_id', 'fk_product_product_category')
                 ->references('product_category_id')->on('product_category');
 

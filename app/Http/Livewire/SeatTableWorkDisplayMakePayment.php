@@ -79,9 +79,17 @@ class SeatTableWorkDisplayMakePayment extends Component
             ]);
         }
 
+        /* Get the sale_invoice */
+        $saleInvoice = $this->seatTable->getCurrentBooking()->saleInvoice;
+
+        /* Final Payment Status */
+        $finalPaymentStatus = $saleInvoice->payment_status;
+
+        /* Get current booking/invoice amount */
         $currentBookingAmount = $this->seatTable->getCurrentBookingTotalAmount();
 
-        if ($this->tender_amount < $currentBookingAmount) {
+        /* If no customer do not take less payments !!! */
+        if (! $this->modes['customer'] && $this->tender_amount < $currentBookingAmount) {
             return;
         }
 
@@ -117,30 +125,40 @@ class SeatTableWorkDisplayMakePayment extends Component
              *
              */
 
-            /* Get the sale_invoice */
-            $saleInvoice = $this->seatTable->getCurrentBooking()->saleInvoice;
 
             if ($this->modes['customer']) {
                 $saleInvoice->customer_id = $customer->customer_id;
                 $saleInvoice->save();
             }
 
-            /* Make sale_invoice_payment */
-            $saleInvoicePayment = new SaleInvoicePayment;
+            /* If payment receied then create a payment record. */
+            if ($this->tender_amount > 0) {
+                /* Make sale_invoice_payment */
+                $saleInvoicePayment = new SaleInvoicePayment;
 
-            $saleInvoicePayment->payment_date = date('Y-m-d');
-            $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;
-            $saleInvoicePayment->amount = $currentBookingAmount;
+                $saleInvoicePayment->payment_date = date('Y-m-d');
+                $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;
 
-            $saleInvoicePayment->save();
+                if ($this->tender_amount < $currentBookingAmount) {
+                    $saleInvoicePayment->amount = $this->tender_amount;
+                    $this->returnAmount = 0;
+                    $finalPaymentStatus = 'partially_paid';
+                } else {
+                    $saleInvoicePayment->amount = $currentBookingAmount;
+                    $this->returnAmount = $this->tender_amount - $currentBookingAmount;
+                    $finalPaymentStatus = 'paid';
+                }
 
-            /* Mark sale_invoice as paid  */
-            $saleInvoice->payment_status = 'paid';
+                $saleInvoicePayment->save();
+            }
+
+
+            /* Update payment_status of sale invoice */
+            $saleInvoice->payment_status = $finalPaymentStatus;
             $saleInvoice->save();
 
             DB::commit();
 
-            $this->returnAmount = $this->tender_amount - $currentBookingAmount;
 
             $this->enterMode('paid');
         } catch (\Exception $e) {

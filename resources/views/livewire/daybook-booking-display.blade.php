@@ -1,13 +1,6 @@
 <div>
   {{-- Main Info --}}
   <div class="card mb-3 shadow-sm">
-    @if (false)
-    <div class="card-header">
-      <h1>
-        {{ $seatTableBooking->seat_table_booking_id }}
-      </h1>
-    </div>
-    @endif
     <div class="card-body p-0">
       <div class="table-responsive">
         <table class="table">
@@ -17,6 +10,7 @@
                 Customer
               </th>
               <td style="font-weight: bold;">
+                @if ($customer)
                 self
               </td>
             </tr>
