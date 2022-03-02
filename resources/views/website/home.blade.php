@@ -107,7 +107,7 @@
           <div class="col-md-4">
             <button class="btn btn-warning-rm mr-3 text-white" style="height: 120px; width: 350px; font-size: 2.5rem; background-color: maroon;" wire:click="">
               <i class="fas fa-list mr-3"></i>
-              FOOD MENU
+              Our Products
             </button>
             @if (false)
             <h2 class="mt-3">KOREAN</h2>
