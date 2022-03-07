@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return redirect('/dashboard');
-});
+// Route::get('/', function () {
+//     // return view('welcome');
+//     // return redirect('/dashboard');
+// });
+
+Route::get('/', 'WebsiteController@homePage')->name('website-home');
 
 Auth::routes();
 
@@ -50,7 +52,7 @@ Route::get('/dashboard/cafesale', 'SeatTableController@index')->name('cafesale')
 Route::get('/dashboard/onlineorder', 'OnlineOrderController@index')->name('online-order');
 
 /* Website routes */
-Route::get('/website', 'WebsiteController@homePage')->name('website-home');
+// Route::get('/website', 'WebsiteController@homePage')->name('website-home');
 
 /* Daybook */
 Route::get('/dashboard/company', 'CompanyController@index')->name('company');
