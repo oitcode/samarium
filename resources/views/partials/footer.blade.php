@@ -47,17 +47,7 @@
       <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
       @else
         <div class="text-secondary">
-          Online order queries: 
-          <span class="text-primary">
-          +977 1 4423005
-          </span>
-        </div>
-
-        <div class="text-secondary">
-          Appy for job
-          <span class="text-primary">
-          +977 1 4423006
-          </span>
+          Authentic Korean Cousine
         </div>
       @endif
     </div>
