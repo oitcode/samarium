@@ -33,7 +33,6 @@ class CafeMenuProductCreate extends Component
 
         $imagePath = $this->image->store('products', 'public');
         $validatedData['image_path'] = $imagePath;
-        $validatedData['product_category_id'] = 1;
 
         Product::create($validatedData);
 

@@ -1,54 +1,69 @@
 <div>
   <div class="row">
   
-    <div class="col-md-5" style="font-size: 1.5rem;">
-      <div>
+    <div class="col-md-4" style="font-size: 1.5rem;">
+      <div class="mb-2">
         <i class="fas fa-map-marker-alt mr-3"></i>
-        Kimchi Ramen Resturant
+        {{ $company->name }}
       </div>
-      <div>
+      <div style="font-size: 1rem;">
         <i class="fas fa-phone mr-3"></i>
-        +977 1 4434878
+        {{ $company->phone }}
       </div>
-      <div>
+      <div style="font-size: 1rem;">
         <i class="fas fa-map-marker-alt mr-3"></i>
-        Baluwatar, Kathmandu, Nepal
+        {{ $company->address }}
       </div>
     </div>
   
-    @if (false)
-    <div class="col-md-4" style="font-size: 1.5rem">
-      <div>
+    <div class="col-md-4" style="font-size: 1.3rem;">
+      <div class="mb-2">
+        @if (false)
         <i class="fas fa-star mr-3"></i>
-        POPULAR FOODS
+        @endif
+        Social media
       </div>
       <div>
-        <i class="fas fa-star mr-3"></i>
-        Ramen noodles
+        <div class="float-left text-primary" style="">
+          <i class="fab fa-facebook mr-3 fa-2x"></i>
+        </div>
+        <div class="float-left text-info" style="">
+          <i class="fab fa-twitter mr-3 fa-2x"></i>
+        </div>
+        <div class="float-left text-danger" style="">
+          <i class="fab fa-instagram mr-3 fa-2x"></i>
+        </div>
+        <div class="float-left text-danger" style="">
+          <i class="fab fa-youtube mr-3 fa-2x"></i>
+        </div>
+        <div class="clearfix">
+        </div>
       </div>
-      <div>
-        <i class="fas fa-star mr-3"></i>
-        Cappucino Coffee
-      </div>
+    </div>
+
+    @if (true)
+    <div class="col-md-4" style="font-size: 1rem;">
+      @if (false)
+      <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
+      @else
+        <div class="text-secondary">
+          Online order queries: 
+          <span class="text-primary">
+          +977 1 4423005
+          </span>
+        </div>
+
+        <div class="text-secondary">
+          Appy for job
+          <span class="text-primary">
+          +977 1 4423006
+          </span>
+        </div>
+      @endif
     </div>
     @endif
-  
-    <div class="col-md-3" style="font-size: 1.3rem;">
-      <div>
-        <i class="fas fa-star mr-3"></i>
-        CONNECT
-      </div>
-      <div>
-        <i class="fab fa-facebook-f mr-3"></i>
-        Facebook
-      </div>
-      <div>
-        <i class="fab fa-instagram mr-3"></i>
-        Instagram
-      </div>
-    </div>
   </div>
-  <div class="text-center mt-4">
+  <div class="text-center-rm mt-4">
     &copy; 2022 | Website developed by OIT
   </div>
 </div>

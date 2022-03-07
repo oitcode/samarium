@@ -1,6 +1,6 @@
 <div>
   @if (! $modes['showForm'])
-  <button class="btn btn-warning-rm mr-3" style="height: 120px; width: 350px; font-size: 2.5rem; background-color: orange;"
+  <button class="btn btn-warning-rm mr-3 w-100" style="height: 120px; {{-- width: 350px; --}} font-size: 2.5rem; background-color: orange;"
       wire:click="enterMode('showForm')">
     <i class="fas fa-shopping-cart mr-3"></i>
     ORDER

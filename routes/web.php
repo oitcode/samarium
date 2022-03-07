@@ -51,3 +51,6 @@ Route::get('/dashboard/onlineorder', 'OnlineOrderController@index')->name('onlin
 
 /* Website routes */
 Route::get('/website', 'WebsiteController@homePage')->name('website-home');
+
+/* Daybook */
+Route::get('/dashboard/company', 'CompanyController@index')->name('company');

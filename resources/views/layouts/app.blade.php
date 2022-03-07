@@ -38,6 +38,13 @@
               <i class="fas fa-user mr-3"></i>
               {{ Auth::user()->name }}
             </div>
+
+            <div class="float-right mx-4 px-4 text-white border-right border-left" style="font-size: 1.3rem;">
+              <a href="{{ route('company') }}" class="text-white">
+              <i class="fas fa-user mr-3"></i>
+              Company
+              </a>
+            </div>
           @endguest
           <div class="clearfix">
           </div>
