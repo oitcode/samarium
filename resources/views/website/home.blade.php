@@ -123,7 +123,7 @@
             <div class="d-flex justify-content-center h-100 text-success">
               <div class="d-flex justify-content-center align-self-center">
                 <div>
-                  <div class="text-primary" style="font-size: 3rem;">
+                  <div class="text-danger" style="font-size: 3rem;">
                     {{ $company->name }}
                   </div>
                   <div class="text-secondary" style="font-size: 1.5rem;">
@@ -131,17 +131,21 @@
                   </div>
                   <div class="text-secondary" style="font-size: 1.2rem;">
                     <div class="d-inline">
+                      @if (false)
                       <div class="badge badge-light">
                         Almira
                       </div>
                       <br />
+                      @endif
                       <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="d-inline-block" style="height: 50px;">
                       </div>
                     </div>
                     <div class="d-inline">
+                      @if (false)
                       <div class="badge badge-light">
                         Sofa
                       </div>
+                      @endif
                     </div>
                   </div>
                 </div>
