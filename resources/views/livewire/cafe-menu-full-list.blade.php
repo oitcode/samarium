@@ -7,6 +7,7 @@
 
     <div class="table-responsive">
       <table class="table table-striped table-hover" style="font-size: 1.3rem;">
+        @if (false)
         <thead>
           <tr>
             <th>
@@ -17,6 +18,7 @@
             </th>
           </tr>
         </thead>
+        @endif
         <tbody>
           @foreach ($productCategory->products as $product)
             <tr>
@@ -25,6 +27,7 @@
                 {{ $product->name }}
               </td>
               <td>
+                Rs
                 {{ $product->selling_price }}
               </td>
             </tr>

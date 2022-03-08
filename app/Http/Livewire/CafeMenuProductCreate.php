@@ -14,11 +14,16 @@ class CafeMenuProductCreate extends Component
 
     public $name;
     public $selling_price;
+    public $product_category_id;
     public $stock_count = null;
     public $image;
 
+    public $productCategories;
+
     public function render()
     {
+        $this->productCategories = ProductCategory::all();
+
         return view('livewire.cafe-menu-product-create');
     }
 
@@ -26,6 +31,7 @@ class CafeMenuProductCreate extends Component
     {
         $validatedData = $this->validate([
             'name' => 'required',
+            'product_category_id' => 'required|integer',
             'selling_price' => 'required|integer',
             'stock_count' => 'nullable|integer',
             'image' => 'image',
@@ -38,11 +44,14 @@ class CafeMenuProductCreate extends Component
 
         session()->flash('success', 'Product Added');
         $this->resetInputFields();
+
+        $this->emit('productAdded');
     }
 
     public function resetInputFields()
     {
         $this->name = '';
+        $this->product_category_id = '';
         $this->selling_price = '';
         $this->image = null;
     }

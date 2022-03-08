@@ -135,7 +135,12 @@
       </div>
     </div>
     <div class="col-md-4">
-      @livewire ('cafe-menu-product-create')
+      <div class="mb-3">
+        @livewire ('cafe-menu-product-create')
+      </div>
+      <div class="mb-3">
+        @livewire ('cafe-menu-product-category-create')
+      </div>
     </div>
   </div>
 </div>

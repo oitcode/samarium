@@ -8,6 +8,12 @@
     </div>
 
     <div class="form-group">
+      <label for="">Tagline</label>
+      <input type="text" class="form-control" wire:model.defer="tagline" style="font-size: 1.3rem;">
+      @error('tagline') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
       <label for="">Phone</label>
       <input type="text" class="form-control" wire:model.defer="phone" style="font-size: 1.3rem;">
       @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
@@ -35,6 +41,40 @@
       <label for="">Logo</label>
       <input type="file" class="form-control" wire:model="logo_image">
       @error('logo_image') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <h2 class="mt-4">
+      Social Media Links
+    </h2>
+
+    <div class="form-group">
+      <label for="">Facebook</label>
+      <input type="text" class="form-control" wire:model.defer="fb_link" style="font-size: 1.3rem;">
+      @error('fb_link') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="">Twitter</label>
+      <input type="text" class="form-control" wire:model.defer="twitter_link" style="font-size: 1.3rem;">
+      @error('twitter_link') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="">Instagram</label>
+      <input type="text" class="form-control" wire:model.defer="insta_link" style="font-size: 1.3rem;">
+      @error('insta_link') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="">Youtube</label>
+      <input type="text" class="form-control" wire:model.defer="youtube_link" style="font-size: 1.3rem;">
+      @error('youtube_link') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="">Tiktok</label>
+      <input type="text" class="form-control" wire:model.defer="tiktok_link" style="font-size: 1.3rem;">
+      @error('tiktok_link') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     @if ($company)

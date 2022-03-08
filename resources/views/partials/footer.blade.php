@@ -6,11 +6,15 @@
         <i class="fas fa-map-marker-alt mr-3"></i>
         {{ $company->name }}
       </div>
-      <div style="font-size: 1rem;">
+      <div class="mb-1" style="font-size: 1rem;">
         <i class="fas fa-phone mr-3"></i>
         {{ $company->phone }}
       </div>
-      <div style="font-size: 1rem;">
+      <div class="mb-1" style="font-size: 1rem;">
+        <i class="fas fa-envelope mr-3"></i>
+        {{ $company->email }}
+      </div>
+      <div class="mb-1" style="font-size: 1rem;">
         <i class="fas fa-map-marker-alt mr-3"></i>
         {{ $company->address }}
       </div>
@@ -24,18 +28,41 @@
         Social media
       </div>
       <div>
-        <div class="float-left text-primary" style="">
-          <i class="fab fa-facebook mr-3 fa-2x"></i>
-        </div>
-        <div class="float-left text-info" style="">
-          <i class="fab fa-twitter mr-3 fa-2x"></i>
-        </div>
-        <div class="float-left text-danger" style="">
-          <i class="fab fa-instagram mr-3 fa-2x"></i>
-        </div>
-        <div class="float-left text-danger" style="">
-          <i class="fab fa-youtube mr-3 fa-2x"></i>
-        </div>
+        @if ($company->fb_link)
+          <a href="{{ $company->fb_link }}" target="_blank">
+            <div class="float-left text-primary" style="">
+              <i class="fab fa-facebook mr-3 fa-2x"></i>
+            </div>
+          </a>
+        @endif
+        @if ($company->twitter_link)
+          <a href="{{ $company->twitter_link }}" target="_blank">
+            <div class="float-left text-info" style="">
+              <i class="fab fa-twitter mr-3 fa-2x"></i>
+            </div>
+          </a>
+        @endif
+        @if ($company->insta_link)
+          <a href="{{ $company->insta_link }}" target="_blank">
+            <div class="float-left text-danger" style="">
+              <i class="fab fa-instagram mr-3 fa-2x"></i>
+            </div>
+          </a>
+        @endif
+        @if ($company->youtube_link)
+          <a href="{{ $company->youtube_link }}" target="_blank">
+            <div class="float-left text-danger" style="">
+              <i class="fab fa-youtube mr-3 fa-2x"></i>
+            </div>
+          </a>
+        @endif
+        @if ($company->tiktok_link)
+          <a href="{{ $company->tiktok_link }}" target="_blank">
+            <div class="float-left text-danger" style="">
+              <i class="fab fa-tiktok mr-3 fa-2x"></i>
+            </div>
+          </a>
+        @endif
         <div class="clearfix">
         </div>
       </div>
@@ -47,7 +74,7 @@
       <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
       @else
         <div class="text-secondary">
-          Authentic Korean Cousine
+          {{ $company->tagline }}
         </div>
       @endif
     </div>

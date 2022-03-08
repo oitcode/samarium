@@ -17,7 +17,12 @@ class CafeMenuComponent extends Component
     ];
 
     public $modes = [
-        'showFullMenuList' => false,
+        'showFullMenuList' => true,
+    ];
+
+    protected $listeners = [
+        'productAdded' => 'ackProductAdded',
+        'productCategoryAdded' => 'ackProductCategoryAdded',
     ];
 
     public function mount()
@@ -76,5 +81,15 @@ class CafeMenuComponent extends Component
     public function showFullMenuList()
     {
         $this->enterMode('showFullMenuList');
+    }
+
+    public function ackProductCategoryAdded()
+    {
+        //
+    }
+
+    public function ackProductAdded()
+    {
+        $this->render();
     }
 }

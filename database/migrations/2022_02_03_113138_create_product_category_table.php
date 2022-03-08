@@ -18,6 +18,8 @@ class CreateProductCategoryTable extends Migration
 
             $table->string('name')->unique();
 
+            $table->string('image_path');
+
             $table->timestamps();
             $table->string('comment', 255)->nullable();
         });

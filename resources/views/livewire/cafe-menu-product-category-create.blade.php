@@ -1,7 +1,7 @@
 <div class="card shadow-sm">
   <div class="card-header bg-success" style="{{--background-color: orange;--}}">
     <h1 class="text-white" style="font-size: 1.8rem;">
-      Add product
+      Add product category
     </h1>
   </div>
   <div class="card-body p-0">
@@ -18,48 +18,6 @@
             </td>
             <td class="p-0 h-100 bg-warning font-weight-bold">
               <input class="w-100 h-100 font-weight-bold @error('name') border-danger @enderror" type="text" wire:model.defer="name" />
-            </td>
-          </tr>
-
-          <tr style="font-size: 1.3rem; height: 50px;">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold">
-              <span class="ml-4">
-                CATEGORY
-              </span>
-            </td>
-            <td class="p-0 h-100 bg-warning font-weight-bold">
-              <select class="w-100 h-100 custom-control border" wire:model.defer="product_category_id" wire:change="">
-                <option>---</option>
-
-                @foreach ($productCategories as $productCategory)
-                  <option value="{{ $productCategory->product_category_id }}">
-                    {{ $productCategory->name }}
-                  </option>
-                @endforeach
-              </select>
-            </td>
-          </tr>
-
-
-          <tr style="font-size: 1.3rem; height: 50px;">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold">
-              <span class="ml-4">
-                PRICE
-              </span>
-            </td>
-            <td class="p-0 h-100 bg-warning font-weight-bold">
-              <input class="w-100 h-100 font-weight-bold @error('selling_price') border-danger @enderror" type="text" wire:model.defer="selling_price" />
-            </td>
-          </tr>
-
-          <tr style="font-size: 1.3rem; height: 50px;">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold">
-              <span class="ml-4">
-                STOCK COUNT
-              </span>
-            </td>
-            <td class="p-0 h-100 bg-warning font-weight-bold">
-              <input class="w-100 h-100 font-weight-bold @error('stock_count') border-danger @enderror" type="text" wire:model.defer="stock_count" />
             </td>
           </tr>
 

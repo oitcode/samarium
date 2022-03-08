@@ -17,11 +17,18 @@ class CreateCompanyTable extends Migration
             $table->bigIncrements('company_id');
 
             $table->string('name');
+            $table->string('tagline');
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->string('pan_number')->nullable();
             $table->string('logo_image_path')->nullable();
+
+            $table->string('fb_link')->nullable();
+            $table->string('twitter_link')->nullable();
+            $table->string('insta_link')->nullable();
+            $table->string('youtube_link')->nullable();
+            $table->string('tiktok_link')->nullable();
 
             $table->timestamps();
         });

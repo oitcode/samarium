@@ -10,10 +10,19 @@ class CafeMenuFullList extends Component
 {
     public $productCategories;
 
+    protected $listeners = [
+        'productAdded' => 'ackProductAdded',
+    ];
+
     public function render()
     {
         $this->productCategories = ProductCategory::all();
 
         return view('livewire.cafe-menu-full-list');
+    }
+
+    public function ackProductAdded()
+    {
+        $this->render();
     }
 }

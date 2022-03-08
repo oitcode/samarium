@@ -40,40 +40,25 @@
   @else
   <div class="p-0">
 
-    {{-- HEADER --}}
-    <div class="o-ws-header bg-success-rm text-white-rm p-3 mb-4-rm border-bottom" style="{{--background-color: maroon;--}}">
-      <div class="float-left mr-4">
-        <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
-      </div>
-      <div class="float-left mt-3">
-        <h1 class="mt-2" style="font-weight: bold; font-size: 2rem;">{{ $company->name }}</h1>
-      </div>
-      <div class="float-right mr-5 h-100 mt-3" style="font-size: 1.5rem; font-weight: bold;">
-        <div class="d-flex justify-content-center h-100">
-          <div class="justify-content-center h-100 align-self-center text-center">
-            <span class="" style="font-size: 1.8rem; font-weight:bold;">
-              <i class="fab fa-facebook text-primary"></i>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="float-right mr-4 h-100 mt-3" style="font-size: 1.5rem; font-weight: bold;">
-        <div class="d-flex justify-content-center h-100">
-          <div class="justify-content-center h-100 align-self-center text-center text-secondary">
-            <i class="fas fa-phone mr-3"></i>
-            {{ $company->phone }}
-          </div>
-        </div>
-      </div>
-      <div class="clearfix">
+    @include ('partials.header')
+
+    {{-- Tagline --}}
+    @if (false)
+    <div class="container-fluid border">
+      <div class="container py-2 text-secondary">
+        {{ $company->tagline }}
       </div>
     </div>
+    @endif
+
 
     {{-- Body --}}
+    @if (false)
     <div class="container-fluid bg-light-rm py-5" style="background-color: #eee;">
       <div class="container mb-4">
         <div class="row">
-          <div class="col-md-6">
+          @if (true)
+          <div class="col-md-4">
             @foreach ($products as $product)
               <div class="col-md-12 mb-3 h-80 p-0">
                 <div class="card h-100 shadow p-0">
@@ -90,7 +75,10 @@
                               {{ $product->name }}
                             </th>
                             <td class="text-danger" style="font-size: 1.5rem;">
+                              @if (false)
                               <i class="fas fa-rupee-sign mr-2"></i>
+                              @endif
+                              Rs.
                               {{ $product->selling_price }}
                             </td>
                           </tr>
@@ -110,43 +98,32 @@
               @break
             @endforeach
 
-            <div class="h-20">
+            <div class="h-20 mb-3">
               @livewire ('website-hero-order')
             </div>
 
           </div>
+          @endif
+
           <div class="col-md-6 bg-white border">
             @if (false)
             @endif
 
 
-            <div class="d-flex justify-content-center h-100 text-success">
-              <div class="d-flex justify-content-center align-self-center">
+            <div class="py-3 d-none d-md-block">
+              <div class="">
                 <div>
+                  @if (false)
                   <div class="text-danger" style="font-size: 3rem;">
                     {{ $company->name }}
                   </div>
-                  <div class="text-secondary" style="font-size: 1.5rem;">
-                    Online store
-                  </div>
-                  <div class="text-secondary" style="font-size: 1.2rem;">
-                    <div class="d-inline">
-                      @if (false)
-                      <div class="badge badge-light">
-                        Almira
+                  @endif
+                  <div class="" style="">
+                    @foreach ($productCategories as $productCategory)
+                      <div class="d-inline mr-3">
+                        <img src="{{ asset('storage/' . $productCategory->image_path) }}" style="wigth: 300px; height: 100px;">
                       </div>
-                      <br />
-                      @endif
-                      <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="d-inline-block" style="height: 50px;">
-                      </div>
-                    </div>
-                    <div class="d-inline">
-                      @if (false)
-                      <div class="badge badge-light">
-                        Sofa
-                      </div>
-                      @endif
-                    </div>
+                    @endforeach
                   </div>
                 </div>
               </div>
@@ -156,6 +133,7 @@
         </div>
       </div>
     </div>
+    @endif
 
     {{-- Second para --}}
     @if (false)
@@ -180,6 +158,30 @@
     </div>
     @endif
 
+    {{-- Category mednu --}}
+    <div class="container p-3 mb-3">
+      <h2>
+        Categories
+      </h2>
+      <div class="row">
+        @foreach ($productCategories as $productCategory)
+          <div class="col-md-2 border p-0">
+            <div class="card h-100 shadow">
+              <div class="text-center">
+                <img class="card-img-top img-fluid" src="{{ asset('storage/' . $productCategory->image_path) }}" alt="Card image cap"
+                style="height: 100px; width: 100px;">
+              </div>
+              <div class="card-body">
+                <div class="text-center" style="font-size: 1.3rem;">
+                {{ $productCategory->name }}
+                </div>
+              </div>
+            </div>
+          </div>
+        @endforeach
+      </div>
+    </div>
+
     {{-- Third para --}}
     @if (true)
     <div class="container-fluid bg-light-rm border p-4 mb-4-rm">
@@ -200,18 +202,30 @@
                           <th style="font-size: 1.5rem; font-weight: bold;">
                             {{ $product->name }}
                           </th>
+                        </tr>
+                        <tr>
                           <td class="text-danger" style="font-size: 1.5rem;">
+                            @if (false)
                             <i class="fas fa-rupee-sign mr-2"></i>
+                            @endif
+                            Rs.
                             {{ $product->selling_price }}
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
-                  <div class="text-center">
-                    <button class="btn btn-danger px-4 py-3">
-                      Order
-                    </button>
+                  <div class="">
+                    <a href="{{ route('website-product-view', [ $product->product_id, str_replace(' ', '-', $product->name),]) }}">
+                      <button class="btn btn-warning px-4 py-3" style="background-color: orange;">
+                        View
+                      </button>
+                    </a>
+                    <a href="{{ route('website-product-view', [ $product->product_id, str_replace(' ', '_', $product->name),]) }}">
+                      <button class="btn btn-success px-4 py-3">
+                        Order
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
