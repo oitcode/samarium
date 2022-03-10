@@ -26,14 +26,6 @@
           <input type="text" wire:model.defer="producSearch.phone" style="font-size: 1.1rem;" wire:keydown.enter="search" />
         </div>
 
-        @if (false)
-        <div class="float-right mr-3">
-          <button class="btn btn-danger h-100 p-3" style="font-size: 1.3rem;" wire:click="">
-            Top Selling
-          </button>
-        </div>
-        @endif
-
         <div class="clearfix">
         </div>
       </div>
@@ -41,22 +33,21 @@
       {{-- Categories Bar --}}
       <div class="mb-4 p-3 border-rm shadow-sm d-flex-rm">
 
-        <div class="float-left mr-3">
-          <button class="btn btn-success h-100 p-3" style="font-size: 1.3rem;" wire:click="enterMode('showFullMenuList')">
-            Show all
-          </button>
-        </div>
-
-        @foreach ($productCategories as $productCategory)
-          <div class="float-left mr-3">
-            <button class="btn btn-danger h-100 p-3" style="font-size: 1.3rem;" wire:click="selectCategory('{{ $productCategory->product_category_id }}')">
-              {{ $productCategory->name }}
+        <div class="row">
+          <div class="col-md-2 border p-0">
+            <button class="btn btn-success w-100 h-100" style="font-size: 1.3rem;" wire:click="enterMode('showFullMenuList')">
+              Show all
             </button>
           </div>
-        @endforeach
-
-        <div class="clearfix">
+          @foreach ($productCategories as $productCategory)
+            <div class="col-md-2 border p-0">
+              <button class="btn btn-danger w-100 h-100" style="font-size: 1.1rem;" wire:click="selectCategory('{{ $productCategory->product_category_id }}')">
+                {{ $productCategory->name }}
+              </button>
+            </div>
+          @endforeach
         </div>
+
       </div>
 
 

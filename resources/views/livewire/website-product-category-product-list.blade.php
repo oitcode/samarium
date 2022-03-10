@@ -1,7 +1,7 @@
 <div>
   <div class="my-3 text-scondary">
     Displaying
-    2
+    {{ count($productCategory->products) }}
     out of
     {{ count($productCategory->products) }}
     products
