@@ -8,6 +8,7 @@
     <button class="btn btn-success" wire:click="">
       Facebook
     </button>
+    @endif
     <script>
     document.getElementById('shareBtn').onclick = function() {
       FB.ui({
@@ -16,7 +17,6 @@
         href: "{{ Request::url() }}",
       }, function(response){});
     }
-    @endif
     </script>
   </div>
 
