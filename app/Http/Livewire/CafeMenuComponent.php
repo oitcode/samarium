@@ -12,17 +12,21 @@ class CafeMenuComponent extends Component
     public $products = null;
     public $productCategories;
 
+    public $updatingProduct;
+
     public $productSearch = [
         'name' => null,
     ];
 
     public $modes = [
         'showFullMenuList' => true,
+        'updateProduct' => false,
     ];
 
     protected $listeners = [
         'productAdded' => 'ackProductAdded',
         'productCategoryAdded' => 'ackProductCategoryAdded',
+        'exitUpdateProductMode',
     ];
 
     public function mount()
@@ -91,5 +95,20 @@ class CafeMenuComponent extends Component
     public function ackProductAdded()
     {
         $this->render();
+    }
+
+    public function updateProduct($productId)
+    {
+        $product = Product::findOrFail($productId);
+
+        $this->updatingProduct = $product;
+        $this->enterMode('updateProduct');
+    }
+
+    public function exitUpdateProductMode()
+    {
+        $this->updatingProduct = null;
+
+        $this->exitMode('updateProduct');
     }
 }

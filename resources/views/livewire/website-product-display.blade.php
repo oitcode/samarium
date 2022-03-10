@@ -1,4 +1,14 @@
 <div>
+
+  <div class="py-2 mb-3 border">
+    <h2>
+      Share
+    </h2>
+    <button class="btn btn-success" wire:click="">
+      Facebook
+    </button>
+  </div>
+
   <div class="row">
     <div class="col-md-6 py-3">
       <h2 class="ml-2 mb-3">

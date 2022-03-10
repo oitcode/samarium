@@ -54,6 +54,8 @@
       <div class="row">
         @if ($modes['showFullMenuList'])
           @livewire ('cafe-menu-full-list')
+        @elseif ($modes['updateProduct'])
+          @livewire ('cafe-menu-product-edit', ['product' => $updatingProduct,])
         @else
           @if ($products != null && count($products) > 0)
             @foreach ($products as $product)
@@ -101,7 +103,7 @@
                           </table>
                         </div>
                         <div class="p-2">
-                          <button class="btn btn-success">
+                          <button class="btn btn-success" wire:click="updateProduct({{ $product->product_id }})">
                             <i class="fas fa-pencil-alt mr-2"></i>
                             Edit
                           </button>
