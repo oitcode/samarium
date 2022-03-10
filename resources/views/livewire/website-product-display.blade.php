@@ -4,9 +4,20 @@
     <h2>
       Share
     </h2>
+    @if (false)
     <button class="btn btn-success" wire:click="">
       Facebook
     </button>
+    <script>
+    document.getElementById('shareBtn').onclick = function() {
+      FB.ui({
+        display: 'popup',
+        method: 'share',
+        href: "{{ Request::url() }}",
+      }, function(response){});
+    }
+    @endif
+    </script>
   </div>
 
   <div class="row">
