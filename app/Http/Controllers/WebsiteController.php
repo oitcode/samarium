@@ -36,4 +36,19 @@ class WebsiteController extends Controller
             ->with('productCategories', $productCategories)
             ->with('products', $products);
     }
+
+    public function productCategoryProductList($id, $name)
+    {
+        $products = Product::all();
+        $productCategories = ProductCategory::all();
+        $company = Company::first();
+
+        $productCategory = ProductCategory::find($id);
+
+        return view('website.product-category-product-list')
+            ->with('productCategory', $productCategory)
+            ->with('company', $company)
+            ->with('productCategories', $productCategories)
+            ->with('products', $products);
+    }
 }

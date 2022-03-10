@@ -16,9 +16,17 @@ class CreateWebsiteOrderTable extends Migration
         Schema::create('website_order', function (Blueprint $table) {
             $table->bigIncrements('website_order_id');
 
+            /*
+             * Foreign key to product table.
+             */
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id', 'fk_website_order__product')
+                ->references('product_id')->on('product');
+
             $table->string('phone');
             $table->string('address')->nullable();
             $table->string('status')->default('new');
+
 
             $table->timestamps();
         });

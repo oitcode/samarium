@@ -59,3 +59,6 @@ Route::get('/dashboard/company', 'CompanyController@index')->name('company');
 
 /* Product View */
 Route::get('/product/{id}/{name}', 'WebsiteController@productView')->name('website-product-view');
+
+/* Product category page. Shows all product of this category  */
+Route::get('/product/category/{id}/{name}', 'WebsiteController@productCategoryProductList')->name('website-product-category-product-list');

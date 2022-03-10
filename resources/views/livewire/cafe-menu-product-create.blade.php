@@ -44,6 +44,19 @@
           <tr style="font-size: 1.3rem; height: 50px;">
             <td class="w-50 p-0 bg-info-rm font-weight-bold">
               <span class="ml-4">
+                DESCRIPTION
+              </span>
+            </td>
+            <td class="p-0 h-100 bg-warning font-weight-bold">
+              <textarea row="5" class="w-100 h-100 font-weight-bold @error('description') border-danger @enderror" type="text"
+                wire:model.defer="description" />
+              </textarea>
+            </td>
+          </tr>
+
+          <tr style="font-size: 1.3rem; height: 50px;">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold">
+              <span class="ml-4">
                 PRICE
               </span>
             </td>

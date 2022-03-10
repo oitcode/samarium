@@ -111,8 +111,8 @@
                         </div>
                         <div class="p-2">
                           <button class="btn btn-success">
-                            <i class="fas fa-shopping-cart mr-2"></i>
-                            Order
+                            <i class="fas fa-pencil-alt mr-2"></i>
+                            Edit
                           </button>
                         </div>
                       </div>

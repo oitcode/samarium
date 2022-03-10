@@ -21,7 +21,7 @@ class Product extends Model
     protected $primaryKey = 'product_id';
 
     protected $fillable = [
-         'name', 'product_category_id',
+         'name', 'product_category_id', 'description',
          'selling_price', 'stock_count', 'image_path',
     ];
 
@@ -57,5 +57,14 @@ class Product extends Model
     public function seatTableBookingItems()
     {
         return $this->hasMany('App\SeatTableBookingItem', 'product_id', 'product_id');
+    }
+
+    /*
+     * website_order table.
+     *
+     */
+    public function websiteOrders()
+    {
+        return $this->hasMany('App\WebsiteOrder', 'product_id', 'product_id');
     }
 }

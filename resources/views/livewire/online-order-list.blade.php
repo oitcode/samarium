@@ -6,16 +6,19 @@
         <table class="table table-bordered table-hover">
           <thead>
             <tr class="text-secondary-rm bg-success text-white" style="font-size: 1.3rem;">
-              <th style="width: 150px;">
+              <th style="width: 120px;">
                 Order ID
               </th>
               <th style="width: 200px;">
                 Date
               </th>
-              <th style="width: 250px;">
+              <th style="width: 200px;">
+                Product
+              </th>
+              <th style="width: 200px;">
                 Phone
               </th>
-              <th style="width: 300px;">
+              <th style="width: 200px;">
                 Address
               </th>
               <th>
@@ -41,6 +44,9 @@
                   @else
                     {{ $order->created_at }}
                   @endif
+                </td>
+                <td>
+                  {{ $order->product->name }}
                 </td>
                 <td class="pl-3">
                   {{ $order->phone }}

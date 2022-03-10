@@ -21,7 +21,7 @@ class WebsiteOrder extends Model
     protected $primaryKey = 'website_order_id';
 
     protected $fillable = [
-         'phone', 'address', 'status',
+         'phone', 'address', 'status', 'product_id',
     ];
 
 
@@ -32,13 +32,11 @@ class WebsiteOrder extends Model
      */
 
     /*
-     * purchase table.
+     * product table.
      *
      */
-    /*
-    public function purchases()
+    public function product()
     {
-        return $this->hasMany('App\Purchase', 'vendor_id', 'vendor_id');
+        return $this->belongsTo('App\Product', 'product_id', 'product_id');
     }
-    */
 }

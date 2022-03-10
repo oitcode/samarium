@@ -14,6 +14,7 @@ class CafeMenuProductCreate extends Component
 
     public $name;
     public $selling_price;
+    public $description;
     public $product_category_id;
     public $stock_count = null;
     public $image;
@@ -32,6 +33,7 @@ class CafeMenuProductCreate extends Component
         $validatedData = $this->validate([
             'name' => 'required',
             'product_category_id' => 'required|integer',
+            'description' => 'required',
             'selling_price' => 'required|integer',
             'stock_count' => 'nullable|integer',
             'image' => 'image',
@@ -52,6 +54,7 @@ class CafeMenuProductCreate extends Component
     {
         $this->name = '';
         $this->product_category_id = '';
+        $this->description = '';
         $this->selling_price = '';
         $this->image = null;
     }

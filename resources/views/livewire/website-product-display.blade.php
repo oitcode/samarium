@@ -21,9 +21,7 @@
                 Description
               </th>
               <td class="text-secondary">
-                Lorem ipsum dolor emut connetidor delta
-                Lorem ipsum dolor emut connetidor delta
-                Lorem ipsum dolor emut connetidor delta
+                {{ $product->description }}
               </td>
             </tr>
             <tr>
@@ -45,13 +43,13 @@
     </div>
   </div>
   <div class="p-3">
-    @if (false)
-    <button class="btn btn-warning px-4 py-3" style="background-color: orange;">
-      View
-    </button>
-    @endif
-    <button class="btn btn-success px-4 py-3">
-      Order
-    </button>
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="my-3">
+          Order / Inquiry
+        </h2>
+        @livewire ('website-product-order', ['product' => $product,])
+      </div>
+    </div>
   </div>
 </div>
