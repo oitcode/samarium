@@ -113,7 +113,7 @@ class SeatTableWorkDisplayAddItem extends Component
         $this->add_item_name = '';
         $this->product_id = '';
         $this->quantity = '';
-        unset($this->price);
+        $this->price = '';
         $this->total = null;
 
         $this->selectedProduct = null;
