@@ -132,7 +132,7 @@
                   </a>
                 </div>
 
-                @if (false)
+                @if (true)
                 <div class="text-center border">
                   <a href="{{ route('cafesale') }}"
                     class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
