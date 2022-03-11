@@ -36,7 +36,9 @@
             @endif
           </td>
           <td>
-            @php echo number_format( $price ); @endphp
+            @if (isset($price))
+              @php echo number_format( $price ); @endphp
+            @endif
           </td>
           <td class="p-0 h-100">
             <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
