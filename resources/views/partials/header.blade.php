@@ -1,6 +1,6 @@
 <div>
 
-  <div class="container-fluid border bg-light">
+  <div class="container-fluid border bg-light d-none d-md-block">
     <div class="container py-2">
       <div class="float-right mr-5" style="font-size: 1rem; font-weight: bold;">
         <div class="d-flex justify-content-center h-100">
@@ -29,7 +29,7 @@
         <div class="float-left mr-4">
           <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
         </div>
-        <div class="float-left mt-3">
+        <div class="float-left mt-3 d-none d-md-block">
           <h1 class="mt-2 text-dark" style="font-weight: bold; font-size: 2rem;">{{ $company->name }}</h1>
           <div class="text-secondary">
             {{ $company->tagline }}

@@ -6,10 +6,12 @@ use Livewire\Component;
 
 use App\Sale;
 use App\SaleInvoice;
+use App\SeatTable;
 
 class SaleComponent extends Component
 {
     public $displayingSaleInvoice = null;
+    public $seatTable;
 
     public $modes = [
         'create' => false,
@@ -26,6 +28,7 @@ class SaleComponent extends Component
 
     public function render()
     {
+        $this->seatTable = SeatTable::first();
         return view('livewire.sale-component');
     }
 

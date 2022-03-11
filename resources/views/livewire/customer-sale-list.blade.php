@@ -53,8 +53,13 @@
                 @endif
               </td>
               <td>
-                <button class="btn btn-primary btn-sm" wire:click="$emit('receiveSaleInvoicePayment', {{ $saleInvoice->sale_invoice_id }})">
+                @if ($saleInvoice->getPendingAmount() > 0)
+                <button class="btn btn-danger mr-3" wire:click="$emit('receiveSaleInvoicePayment', {{ $saleInvoice->sale_invoice_id }})">
                   Receive payment
+                </button>
+                @endif
+                <button class="btn btn-primary mr-3" wire:click="$emit('receiveSaleInvoicePayment', {{ $saleInvoice->sale_invoice_id }})">
+                  Print
                 </button>
               </td>
             </tr>

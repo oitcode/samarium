@@ -1,9 +1,12 @@
 <div>
-  @if (false)
-  @livewire ('cafe-sale-component')
+  @if (true)
+    @if (false)
+      @livewire ('cafe-sale-component')
+    @endif
+    @livewire ('seat-table-work-display', ['seatTable' => $seatTable,])
   @endif
 
-  @if (true)
+  @if (false)
   <x-box-generic title="Sale">
     <x-menu-bar-horizontal>
       <x-menu-item title="Create" fa-class="fas fa-plus" click-method="enterMode('create')" />
