@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 use App\Product;
+use App\ProductCategory;
 use App\SeatTableBooking;
 use App\SeatTableBookingItem;
 use App\SaleInvoiceItem;
@@ -13,8 +14,13 @@ class SeatTableWorkDisplayAddItem extends Component
 {
     public $seat_table_booking_id;
 
+    /* Search options */
     public $add_item_name;
+    public $search_product_category_id;
+
+    /* Products and Categories */
     public $products;
+    public $productCategories;
 
     public $product_id;
     public $quantity;
@@ -23,9 +29,15 @@ class SeatTableWorkDisplayAddItem extends Component
 
     public $selectedProduct = null;
 
-    public function render()
+
+    public function mount()
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')->get();
+    }
+
+    public function render()
+    {
+        $this->productCategories = ProductCategory::all();
 
         return view('livewire.seat-table-work-display-add-item');
     }
@@ -117,10 +129,23 @@ class SeatTableWorkDisplayAddItem extends Component
         $this->total = null;
 
         $this->selectedProduct = null;
+        $this->search_product_category_id = null;
     }
 
     public function updateTotal()
     {
         $this->total = $this->price * $this->quantity;
+    }
+
+    public function selectProductCategory()
+    {
+        $validatedData = $this->validate([
+            'search_product_category_id' => 'required|integer',
+        ]);
+
+        $this->selectedProduct = null;
+        $this->quantity = '';
+
+        $this->products = ProductCategory::find($validatedData['search_product_category_id'])->products;
     }
 }

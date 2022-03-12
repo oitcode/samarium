@@ -86,7 +86,7 @@ class SeatTableWorkDisplayMakePayment extends Component
         $finalPaymentStatus = $saleInvoice->payment_status;
 
         /* Get current booking/invoice amount */
-        $currentBookingAmount = $this->seatTable->getCurrentBookingTotalAmount();
+        $currentBookingAmount = $this->seatTable->getCurrentBookingPendingAmount();
 
         /* If no customer do not take less payments !!! */
         if (! $this->modes['customer'] && $this->tender_amount < $currentBookingAmount) {
@@ -159,7 +159,9 @@ class SeatTableWorkDisplayMakePayment extends Component
 
             DB::commit();
 
-
+            $booking = $this->seatTable->getCurrentBooking();
+            $booking->status = 'closed';
+            $booking->save();
             $this->enterMode('paid');
         } catch (\Exception $e) {
             DB::rollback();
@@ -170,11 +172,11 @@ class SeatTableWorkDisplayMakePayment extends Component
 
     public function finishPayment()
     {
-        $booking = $this->seatTable->getCurrentBooking();
-        if ($booking) {
-            $booking->status = 'closed';
-            $booking->save();
-        }
+        // $booking = $this->seatTable->getCurrentBooking();
+        // if ($booking) {
+        //     $booking->status = 'closed';
+        //     $booking->save();
+        // }
 
         $this->emit('exitMakePaymentMode');
     }

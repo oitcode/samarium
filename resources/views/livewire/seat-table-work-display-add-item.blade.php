@@ -10,6 +10,7 @@
       <thead>
         <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;">
           <th>Search Item</th>
+          <th>Category</th>
           <th>Item</th>
           <th>Price</th>
           <th>Quantity</th>
@@ -21,6 +22,19 @@
         <tr class="p-0 font-weight-bold" style="height: 60px; font-size: 1.3rem;">
           <td class="p-0 h-100">
             <input class="m-0 w-100 h-100 border-0" type="text" wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
+          </td>
+          <td class="p-0 h-100">
+            @if (true)
+            <select class="w-100 h-100 custom-control border-0" wire:model.defer="search_product_category_id" wire:change="selectProductCategory">
+              <option>---</option>
+
+              @foreach ($productCategories as $productCategory)
+                <option value="{{ $productCategory->product_category_id }}">
+                  {{ $productCategory->name }}
+                </option>
+              @endforeach
+            </select>
+            @endif
           </td>
           <td class="p-0 h-100">
             @if (true)
@@ -36,17 +50,17 @@
             @endif
           </td>
           <td>
-            @if (isset($price))
-              @if ($price != '' )
-                @php echo number_format( $price ); @endphp
-              @endif
+            @if ($selectedProduct)
+              @php echo number_format( $selectedProduct->selling_price ); @endphp
             @endif
           </td>
           <td class="p-0 h-100">
             <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
           </td>
           <td>
-            @php echo number_format( $total ); @endphp
+            @if ($selectedProduct)
+              @php echo number_format( $total ); @endphp
+            @endif
           </td>
         </tr>
       </tbody>

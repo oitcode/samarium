@@ -1,9 +1,6 @@
 <div>
-    <div class="row">
-      <div class="col-md-8">
-      </div>
-      <div class="col-md-4">
-      </div>
+    <div wire:offline class="border p-2 mb-3 text-secondary">
+      YOU ARE OFFLINE
     </div>
 
     @if ($modes['workingTableDisplay'])

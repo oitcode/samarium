@@ -122,5 +122,26 @@ class SeatTable extends Model
         return $total;
     }
 
+    /*
+     * Get current booking Pending Amount
+     *
+     */
+    public function getCurrentBookingPendingAmount()
+    {
+        $total = 0;
+
+        $booking = $this->getCurrentBooking();
+
+        return $booking->saleInvoice->getPendingAmount();
+
+        // if ($booking) {
+        //     foreach ($booking->saleInvoice->saleInvoiceItems as $item) {
+        //         $total += $item->getTotalAmount();
+        //     }
+        // }
+
+        // return $total;
+    }
+
 
 }

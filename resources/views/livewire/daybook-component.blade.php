@@ -82,6 +82,10 @@
                     <td>
                       @if ($saleInvoice->customer)
                         {{ $saleInvoice->customer->name }}
+                      @else
+                        <span class="text-secondary">
+                          CASH
+                        </span>
                       @endif
                     </td>
                     <td>

@@ -2,6 +2,7 @@
 @section ('content')
   @if (false)
   @livewire('cafe-sale-component')
+  @livewire('recent-sale-invoices-component')
   @endif
 
   <div class="h-100">
@@ -15,6 +16,7 @@
       </div>
     </div>
   </div>
+
 @endsection
 
 
