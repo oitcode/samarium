@@ -171,8 +171,10 @@ class SeatTableWorkDisplayMakePayment extends Component
     public function finishPayment()
     {
         $booking = $this->seatTable->getCurrentBooking();
-        $booking->status = 'closed';
-        $booking->save();
+        if ($booking) {
+            $booking->status = 'closed';
+            $booking->save();
+        }
 
         $this->emit('exitMakePaymentMode');
     }
