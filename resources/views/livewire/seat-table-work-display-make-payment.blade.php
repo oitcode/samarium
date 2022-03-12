@@ -121,7 +121,7 @@
 
     <div class="p-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
       @if (! $modes['paid'])
-      <button class="btn btn-lg btn-success mr-3" wire:click="store" style="width: 130px; height: 70px; font-size: 1.3rem;">
+      <button onclick="this.disabled=true;" class="btn btn-lg btn-success mr-3" wire:click="store" style="width: 130px; height: 70px; font-size: 1.3rem;">
         CONFIRM
       </button>
 

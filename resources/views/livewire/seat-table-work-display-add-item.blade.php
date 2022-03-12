@@ -37,7 +37,9 @@
           </td>
           <td>
             @if (isset($price))
-              @php echo number_format( $price ); @endphp
+              @if ($price != '' )
+                @php echo number_format( $price ); @endphp
+              @endif
             @endif
           </td>
           <td class="p-0 h-100">
@@ -59,9 +61,11 @@
           Add
         </button>
 
+        @if (false)
         <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="width: 110px; height: 70px; font-size: 1.3rem;">
           Cancel
         </button>
+        @endif
       </div>
       @if ($selectedProduct != null)
         <div class="col-md-4" style="height: 50px;">

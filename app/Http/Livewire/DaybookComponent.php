@@ -42,7 +42,7 @@ class DaybookComponent extends Component
 
     public function render()
     {
-        $saleInvoices = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->paginate(5);
+        $saleInvoices = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->orderBy('sale_invoice_id', 'desc')->paginate(5);
 
         $this->totalAmount = $this->getTotalAmount($saleInvoices);
         // $this->totalCashAmount = $this->getTotalCashAmount();
