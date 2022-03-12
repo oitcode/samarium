@@ -125,14 +125,14 @@
         CONFIRM
       </button>
 
-      <button class="btn btn-lg btn-danger" wire:click="$emit('exitMakePaymentMode')" style="width: 120px; height: 70px; font-size: 1.3rem;">
+      <button onclick="this.disabled=true;" class="btn btn-lg btn-danger" wire:click="$emit('exitMakePaymentMode')" style="width: 120px; height: 70px; font-size: 1.3rem;">
         CANCEL
       </button>
       @else
-        <button class="btn btn-lg btn-success mr-3" wire:click="finishPayment" style="width: 120px; height: 70px; font-size: 1.3rem;">
+        <button onclick="this.disabled=true;" class="btn btn-lg btn-success mr-3" wire:click="finishPayment" style="width: 120px; height: 70px; font-size: 1.3rem;">
           FINISH
         </button>
-        <button class="btn btn-lg btn-warning-rm mr-3" wire:click="finishPayment" style="width: 120px; height: 70px; font-size: 1.3rem; background-color: orange">
+        <button onclick="this.disabled=true;" lass="btn btn-lg btn-warning-rm mr-3" wire:click="finishPayment" style="width: 120px; height: 70px; font-size: 1.3rem; background-color: orange">
           PRINT
         </button>
         <span class="float-right font-weight-bold mt-3 mr-3" style="font-size: 1.5rem;">
