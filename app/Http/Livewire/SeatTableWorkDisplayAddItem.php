@@ -130,6 +130,8 @@ class SeatTableWorkDisplayAddItem extends Component
 
         $this->selectedProduct = null;
         $this->search_product_category_id = null;
+
+        $this->products = Product::all();
     }
 
     public function updateTotal()
