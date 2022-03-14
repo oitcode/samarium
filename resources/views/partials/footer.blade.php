@@ -81,6 +81,7 @@
     @endif
   </div>
   <div class="text-center-rm mt-4">
-    &copy; 2022 | Website developed by OIT
+    &copy; 2022
+    OIT
   </div>
 </div>
