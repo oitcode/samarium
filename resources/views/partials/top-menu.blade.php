@@ -24,7 +24,7 @@
           @php
             $i++;
           @endphp
-          @if ($i == 8)
+          @if ($i == 5)
             @break
           @endif
         @endforeach
