@@ -42,8 +42,13 @@
         CONFIRM
       </button>
 
-      <button class="btn btn-lg btn-danger" wire:click="$emit('exitMakePaymentMode')" style="{{--width: 120px; height: 80px; font-size: 1.3rem;--}}">
+      <button class="btn btn-lg btn-danger mr-3" wire:click="$emit('exitMakePaymentMode')" style="{{--width: 120px; height: 80px; font-size: 1.3rem;--}}">
         CANCEL
+      </button>
+
+      <button wire:loading class="btn">
+        <span class="spinner-border text-info mr-3" role="status">
+        </span>
       </button>
     </div>
   </div>
