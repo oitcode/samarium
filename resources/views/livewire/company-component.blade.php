@@ -89,5 +89,10 @@
     <button type="submit" class="btn btn-danger p-3" wire:click="$emit('exitCreateMode')" style="font-size: 1.3rem;">
       Cancel
     </button>
+
+    <button wire:loading class="btn">
+      <span class="spinner-border text-info mr-3" role="status">
+      </span>
+    </button>
   </div>
 </div>

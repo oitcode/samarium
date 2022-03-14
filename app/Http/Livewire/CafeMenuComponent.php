@@ -13,6 +13,7 @@ class CafeMenuComponent extends Component
     public $productCategories;
 
     public $updatingProduct;
+    public $updatingProductCategory;
 
     public $productSearch = [
         'name' => null,
@@ -21,12 +22,15 @@ class CafeMenuComponent extends Component
     public $modes = [
         'showFullMenuList' => true,
         'updateProduct' => false,
+        'updateProductCategory' => false,
     ];
 
     protected $listeners = [
         'productAdded' => 'ackProductAdded',
         'productCategoryAdded' => 'ackProductCategoryAdded',
         'exitUpdateProductMode',
+        'updateProduct',
+        'updateProductCategory',
     ];
 
     public function mount()
@@ -110,5 +114,19 @@ class CafeMenuComponent extends Component
         $this->updatingProduct = null;
 
         $this->exitMode('updateProduct');
+    }
+
+    public function updateProductCategory($productCategoryId)
+    {
+        $this->updatingProductCategory = ProductCategory::findOrFail($productCategoryId);
+
+        $this->enterMode('updateProductCategory');
+    }
+
+    public function exitUpdateProductCategoryMode()
+    {
+        $this->updatingProductCategory = null;
+
+        $this->exitMode('updateProductCategory');
     }
 }

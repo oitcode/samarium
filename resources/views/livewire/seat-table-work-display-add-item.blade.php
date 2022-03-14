@@ -80,6 +80,12 @@
           Cancel
         </button>
         @endif
+
+        <button wire:loading class="btn">
+          <span class="spinner-border text-info mr-3" role="status">
+          </span>
+        </button>
+
       </div>
       @if ($selectedProduct != null)
         <div class="col-md-4" style="height: 50px;">

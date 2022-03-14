@@ -56,6 +56,8 @@
           @livewire ('cafe-menu-full-list')
         @elseif ($modes['updateProduct'])
           @livewire ('cafe-menu-product-edit', ['product' => $updatingProduct,])
+        @elseif ($modes['updateProductCategory'])
+          @livewire ('cafe-menu-product-category-edit', ['productCategory' => $updatingProductCategory,])
         @else
           @if ($products != null && count($products) > 0)
             @foreach ($products as $product)
@@ -65,6 +67,11 @@
                     <span style="font-size: 1.3rem;">
                     {{ $product->name }}
                     </span>
+                    <div class="p-2 d-inline">
+                      <button class="btn text-primary border-primary rounded-circle" wire:click="updateProduct({{ $product->product_id }})">
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
+                    </div>
                   </div>
                   <div class="card-body p-0">
                     <div class="row">
@@ -101,12 +108,6 @@
                               </tr>
                             </tbody>
                           </table>
-                        </div>
-                        <div class="p-2">
-                          <button class="btn btn-success" wire:click="updateProduct({{ $product->product_id }})">
-                            <i class="fas fa-pencil-alt mr-2"></i>
-                            Edit
-                          </button>
                         </div>
                       </div>
                       <div class="col-md-4">

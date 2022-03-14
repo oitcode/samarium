@@ -113,6 +113,11 @@
       <button class="btn btn-lg btn-danger" wire:click="$emit('exitUpdateProductMode')" style="{{--width: 120px; height: 80px; font-size: 1.3rem;--}}">
         CANCEL
       </button>
+
+      <button wire:loading class="btn">
+        <span class="spinner-border text-info mr-3" role="status">
+        </span>
+      </button>
     </div>
   </div>
 </div>

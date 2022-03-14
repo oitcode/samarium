@@ -5,7 +5,8 @@
       <h2 class="p-3">
         {{ $productCategory->name }}
       </h2>
-      <button href="" class="btn text-primary border-primary rounded-circle ml-3">
+      <button href="" class="btn text-primary border-primary rounded-circle ml-3"
+        wire:click="$emit('updateProductCategory', {{ $productCategory->product_category_id }})">
         <i class="fas fa-pencil-alt"></i>
       </button>
     </div>
@@ -39,7 +40,8 @@
                   {{ $product->selling_price }}
                 </td>
                 <td>
-                  <button href="" class="btn text-primary border-primary rounded-circle">
+                  <button href="" class="btn text-primary border-primary rounded-circle"
+                    wire:click="$emit('updateProduct', {{ $product->product_id }})">
                     <i class="fas fa-pencil-alt"></i>
                   </button>
                 </td>

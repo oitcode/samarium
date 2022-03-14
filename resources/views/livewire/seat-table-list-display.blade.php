@@ -77,6 +77,10 @@
             <h3 class="h5 font-weight-bold">
               BOOKED
             </h3>
+            <button wire:loading class="btn">
+              <span class="spinner-border text-info mr-3" role="status">
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -88,6 +92,10 @@
             <h3 class="h5 font-weight-bold">
               OPEN
             </h3>
+            <button wire:loading class="btn">
+              <span class="spinner-border text-info mr-3" role="status">
+              </span>
+            </button>
           </div>
         </div>
       </div>

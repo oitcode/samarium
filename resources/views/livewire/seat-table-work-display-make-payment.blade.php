@@ -5,17 +5,22 @@
     </h1>
   </div>
   <div class="card-body p-0">
-    <div class="table-responsive mb-0">
-      <table class="table table-bordered mb-0">
-        <tbody>
+    @if ($modes['customer'])
+      <div class="p-3">
+        <button class="btn btn-danger mr-3" wire:click="exitMode('customer')">
+          No Customer
+        </button>
 
-          @if ($modes['customer'])
-            <div class="p-3">
-              <button class="btn btn-danger" wire:click="exitMode('customer')">
-                No Customer
-              </button>
-            </div>
+        <button wire:loading class="btn">
+          <span class="spinner-border text-info mr-3" role="status">
+          </span>
+        </button>
 
+      </div>
+
+      <div class="table-responsive mb-0">
+        <table class="table mb-0">
+          <tbody>
             <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
               <td class="w-50 p-0 bg-info-rm font-weight-bold">
                 <span class="ml-4">
@@ -79,13 +84,26 @@
                 <input class="w-100 h-100 font-weight-bold" type="text" wire:model="customer_pan" />
               </td>
             </tr>
-          @else
-            <div class="p-3">
-              <button class="btn btn-success" wire:click="enterMode('customer')">
-                Customer
-              </button>
-            </div>
-          @endif
+          </tbody>
+        </table>
+      </div>
+    @else
+      <div class="p-3">
+        <button class="btn btn-success mr-3" wire:click="enterMode('customer')">
+          Customer
+        </button>
+
+        <button wire:loading class="btn">
+          <span class="spinner-border text-info mr-3" role="status">
+          </span>
+        </button>
+      </div>
+    @endif
+
+    <div class="table-responsive mb-0">
+      <table class="table table-bordered mb-0">
+        <tbody>
+
 
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
             <td class="w-50 p-0 bg-info-rm font-weight-bold">
@@ -110,7 +128,7 @@
               @enderror
             </td>
             <td class="p-0 h-100 font-weight-bold">
-              <input class="w-100 h-100 font-weight-bold" type="text" wire:model="tender_amount" />
+              <input class="w-100 h-100 font-weight-bold" type="text" wire:model.defer="tender_amount" />
             </td>
           </tr>
 
@@ -128,12 +146,20 @@
       <button onclick="this.disabled=true;" class="btn btn-lg btn-danger" wire:click="$emit('exitMakePaymentMode')" style="width: 120px; height: 70px; font-size: 1.3rem;">
         CANCEL
       </button>
+      <button wire:loading class="btn">
+        <span class="spinner-border text-info mr-3" role="status">
+        </span>
+      </button>
       @else
         <button onclick="this.disabled=true;" class="btn btn-lg btn-success mr-3" wire:click="finishPayment" style="width: 120px; height: 70px; font-size: 1.3rem;">
           FINISH
         </button>
         <button onclick="this.disabled=true;" lass="btn btn-lg btn-warning-rm mr-3" wire:click="finishPayment" style="width: 120px; height: 70px; font-size: 1.3rem; background-color: orange">
           PRINT
+        </button>
+        <button wire:loading class="btn">
+          <span class="spinner-border text-info mr-3" role="status">
+          </span>
         </button>
         <span class="float-right font-weight-bold mt-3 mr-3" style="font-size: 1.5rem;">
           RETURN &nbsp;&nbsp;&nbsp;&nbsp;
