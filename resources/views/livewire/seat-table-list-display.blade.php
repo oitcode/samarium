@@ -74,7 +74,7 @@
       style="background-color: orange;">
         <div class="d-flex justify-content-center h-100">
           <div class="justify-content-center align-self-center text-center">
-            <h3 class="h5 font-weight-bold">
+            <h3 class="h5 font-weight-bold p-4">
               BOOKED
             </h3>
             <button wire:loading class="btn">
@@ -89,7 +89,7 @@
       style="{{--background-color: green;--} font-weight: bold;">
         <div class="d-flex justify-content-center h-100">
           <div class="justify-content-center align-self-center text-center">
-            <h3 class="h5 font-weight-bold">
+            <h3 class="h5 font-weight-bold p-4">
               OPEN
             </h3>
             <button wire:loading class="btn">

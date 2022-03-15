@@ -25,7 +25,8 @@
 </head>
 <body>
     <div id="app">
-        <div class="bg-success-rm py-4 text-right" style="background-image: linear-gradient(to right, #fff, green);">
+        {{-- TOP HEADER SECTION --}}
+        <div class="bg-success-rm py-4 text-right d-none d-md-block mb-3" style="background-image: linear-gradient(to right, #fff, green);">
           <div class="float-right">
             <h1 class="text-white mr-3">
               <i class="fas fa-tv mr-3"></i>
@@ -51,62 +52,10 @@
 
         </div>
 
-        @if (false)
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        @endif
-
-        <main class="py-4">
+        <main class="py-4-rm">
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 p-0">
+              <div class="d-none d-md-block">
 
                 <div class="text-center border">
                   <a href="{{ route('dashboard') }}" class="btn btn-warning w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem; background-color: orange;">
@@ -233,8 +182,99 @@
                       @csrf
                   </form>
                 </div>
+              </div>
 
+              <div class="d-md-none mb-4">
+
+
+
+
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success" style="font-size: 1.2rem;">
+    <div class="py-2">
+      <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <span class="text-white font-weight-bold">
+      <i class="fas fa-tv mr-3"></i>
+      SmartPY
+    </span>
+  
+    <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item text-white mr-3 pr-3">
+          <a class="nav-link text-white" href="{{ route('dashboard') }}">
+            <i class="fas fa-tv mr-3"></i>
+            DASHBOARD
+          </a>
+        </li>
+
+        <li class="nav-item text-white mr-3 pr-3">
+          <a class="nav-link text-white" href="{{ route('sale') }}">
+            <i class="fas fa-shopping-cart mr-3"></i>
+            SALE
+          </a>
+        </li>
+
+        <li class="nav-item text-white mr-3 pr-3">
+          <a class="nav-link text-white" href="{{ route('cafesale') }}">
+            <i class="fas fa-table mr-3"></i>
+            TABLES
+          </a>
+        </li>
+
+        <li class="nav-item text-white mr-3 pr-3">
+          <a class="nav-link text-white" href="{{ route('menu') }}">
+            <i class="fas fa-list mr-3"></i>
+            MENU
+          </a>
+        </li>
+
+        <li class="nav-item text-white mr-3 pr-3">
+          <a class="nav-link text-white" href="{{ route('daybook') }}">
+            <i class="fas fa-book mr-3"></i>
+            DAYBOOK
+          </a>
+        </li>
+
+        <li class="nav-item text-white mr-3 pr-3">
+          <a class="nav-link text-white" href="{{ route('customer') }}">
+            <i class="fas fa-users mr-3"></i>
+            CUSTOMER
+          </a>
+        </li>
+
+        <li class="nav-item text-white mr-3 pr-3">
+          <a class="nav-link text-white" href="{{ route('online-order') }}">
+            <i class="fas fa-satellite-dish mr-3"></i>
+            ONLINE ORDER
+          </a>
+        </li>
+
+        <li class="nav-item text-white mr-3 pr-3">
+          <a class="nav-link text-white" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();"
+            >
+            <i class="fas fa-send mr-3 text-warning-rm" style="color: red"></i>
+            LOGOUT
+          </a>
+        </li>
+  
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+
+
+              </div>
             </div>
+
             <div class="col-md-10">
               @yield('content')
             </div>

@@ -32,7 +32,9 @@
             @foreach ($productCategory->products as $product)
               <tr>
                 <td>
-                  <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 100px; height: 100px;">
+                  <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 75px; height: 75px;">
+                </td>
+                <td>
                   {{ $product->name }}
                 </td>
                 <td>

@@ -1,6 +1,8 @@
 <div>
   <div class="p-0" style="">
-    <div class="bg-info-rm mb-4">
+
+    {{-- Show in bigger screens --}}
+    <div class="bg-info-rm mb-4 d-none d-md-block">
       <button class="btn btn-success m-0" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left mr-3"></i>
         Previous
@@ -44,6 +46,59 @@
         </div>
       </div>
       <div class="clearfix">
+      </div>
+
+    </div>
+
+    {{-- Show in smaller screens --}}
+    <div class="bg-info-rm mb-4 d-md-none">
+      <button class="btn btn-success m-0" style="font-size: 1.5rem;" wire:click="setPreviousDay">
+        <i class="fas fa-arrow-left mr-3"></i>
+        @if (false)
+        Previous
+        @endif
+      </button>
+
+      <button class="btn btn-danger m-0" style="font-size: 1.5rem;" wire:click="setNextDay">
+        <i class="fas fa-arrow-right mr-3"></i>
+        @if (false)
+        Next
+        @endif
+      </button>
+
+      <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+        <div class="spinner-border text-info mr-3" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <span class="ml-3 text-secondary" style="font-size: 1rem;">
+          Loading...
+        </span>
+      </button>
+
+
+      <div class="py-2">
+        <button class="btn btn-success mr-2" style="font-size: 1.5rem;" wire:click="">
+          <i class="fas fa-calendar mr-3"></i>
+          {{ $daybookDate }}
+        </button>
+
+        <button class="btn btn-danger m-0" style="font-size: 1.5rem;" wire:click="">
+          <i class="fas fa-calendar mr-3"></i>
+          {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
+        </button>
+      </div>
+
+      <div class="shadow-sm-rm" style="width: 500px;">
+        <div class="card">
+          <div class="card-body p-0 bg-success text-white">
+            <div class="p-4">
+              <h2 class="font-weight-bold" style="font-size: 2rem;">
+                <i class="fas fa-rupee-sign mr-3"></i>
+                @php echo number_format( $totalSaleAmount ); @endphp
+              </h2>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>

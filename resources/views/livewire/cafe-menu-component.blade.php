@@ -16,16 +16,6 @@
           <input type="text" wire:model.defer="productSearch.name" style="font-size: 1.1rem;" wire:keydown.enter="search" />
         </div>
 
-        <div class="float-left mr-3">
-          <div>
-            <label class="text-secondary">
-              <i class="fas fa-phone mr-3"></i>
-              Phone
-            </label>
-          </div>
-          <input type="text" wire:model.defer="producSearch.phone" style="font-size: 1.1rem;" wire:keydown.enter="search" />
-        </div>
-
         <div class="clearfix">
         </div>
       </div>
@@ -33,19 +23,56 @@
       {{-- Categories Bar --}}
       <div class="mb-4 p-3 border-rm shadow-sm d-flex-rm">
 
-        <div class="row">
-          <div class="col-md-2 border p-0">
-            <button class="btn btn-success w-100 h-100" style="font-size: 1.3rem;" wire:click="enterMode('showFullMenuList')">
-              Show all
+
+        {{-- Show in smaller screens --}}
+        <div class="d-md-none">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-size: 1.2rem;">
+            <button class="navbar-toggler border border-white-rm" type="button" data-toggle="collapse" data-target="#cafeMenuProductCategories" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
-          </div>
-          @foreach ($productCategories as $productCategory)
+
+            <span class="text-secondary">
+              Categories
+            </span>
+          
+            <div class="collapse navbar-collapse mt-3" id="cafeMenuProductCategories">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item text-white-rm mr-3 pr-3">
+                  <a class="nav-link text-white-rm" href="" wire:click.prevent="enterMode('showFullMenuList')">
+                    Show All
+                  </a>
+                </li>
+                @foreach ($productCategories as $productCategory)
+                  <li class="nav-item text-white-rm mr-3 pr-3">
+                    <a class="nav-link text-white-rm" href="" wire:click.prevent="selectCategory('{{ $productCategory->product_category_id }}')">
+                      <img src="{{ asset('storage/' . $productCategory->image_path) }}" style="height: 40px; width: 40px;" class="rounded-circle-rm">
+                      <span class="ml-3">
+                      {{ $productCategory->name }}
+                      </span>
+                    </a>
+                  </li>
+                @endforeach
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        {{-- Show in bigger screens --}}
+        <div class="d-none d-md-block">
+          <div class="row">
             <div class="col-md-2 border p-0">
-              <button class="btn btn-danger w-100 h-100" style="font-size: 1.1rem;" wire:click="selectCategory('{{ $productCategory->product_category_id }}')">
-                {{ $productCategory->name }}
+              <button class="btn btn-success w-100 h-100" style="font-size: 1.3rem;" wire:click="enterMode('showFullMenuList')">
+                Show all
               </button>
             </div>
-          @endforeach
+            @foreach ($productCategories as $productCategory)
+              <div class="col-md-2 border p-0">
+                <button class="btn btn-danger w-100 h-100" style="font-size: 1.1rem;" wire:click="selectCategory('{{ $productCategory->product_category_id }}')">
+                  {{ $productCategory->name }}
+                </button>
+              </div>
+            @endforeach
+          </div>
         </div>
 
       </div>

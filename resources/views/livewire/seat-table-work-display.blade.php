@@ -96,7 +96,7 @@
               @if ($seatTable->isBooked())
                 <div class="d-flex justify-content-center h-100 bg-danger text-white">
                   <div class="d-flex justify-content-center align-self-center">
-                    <h3 class="h5 font-weight-bold">
+                    <h3 class="h5 font-weight-bold p-3">
                       BOOKED
                     </h3>
                   </div>
@@ -104,7 +104,7 @@
               @else
                 <div class="d-flex justify-content-center h-100 bg-success text-white">
                   <div class="d-flex justify-content-center align-self-center">
-                    <h3 class="h5 font-weight-bold">
+                    <h3 class="h5 font-weight-bold p-3">
                       OPEN
                     </h3>
                   </div>

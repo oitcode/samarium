@@ -8,7 +8,16 @@
   <div class="h-100">
     <div class="d-flex justify-content-center h-100 text-success">
       <div class="d-flex justify-content-center align-self-center">
-        <span class="badge badge-success text-white" style="font-size: 5rem;">
+
+        {{-- Show in md or bigger screens --}}
+        <span class="badge badge-success text-white d-none d-md-block" style="font-size: 5rem;">
+          &copy;
+          OIT
+          SmartPY
+        </span>
+
+        {{-- Show in smaller than md screens --}}
+        <span class="badge badge-success text-white d-md-none" style="font-size: 2.5rem;">
           &copy;
           OIT
           SmartPY
