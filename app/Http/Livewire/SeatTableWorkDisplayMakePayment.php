@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Customer;
 use App\SaleInvoice;
 use App\SaleInvoicePayment;
+use App\SaleInvoiceAddition;
+use App\SaleInvoiceAdditionHeading;
 
 class SeatTableWorkDisplayMakePayment extends Component
 {
@@ -16,6 +18,10 @@ class SeatTableWorkDisplayMakePayment extends Component
     public $total;
     public $pay_by;
     public $tender_amount;
+
+    public $discount = 0;
+    public $service_charge = 0;
+    public $grand_total;
 
     public $returnAmount;
 
@@ -28,6 +34,12 @@ class SeatTableWorkDisplayMakePayment extends Component
     public $customer_address;
     public $customer_pan;
 
+    /* Sale invoice addition headings */
+    public $saleInvoiceAdditionHeadings;
+
+    /* Sale invoice additions */
+    public $saleInvoiceAdditions = array();
+
     public $modes = [
         'paid' => false,
         'customer' => false,
@@ -35,11 +47,25 @@ class SeatTableWorkDisplayMakePayment extends Component
 
     public function mount()
     {
+        $this->saleInvoiceAdditionHeadings = SaleInvoiceAdditionHeading::all();
+
+        foreach (SaleInvoiceAdditionHeading::all() as $saleInvoiceAddition) {
+            $this->saleInvoiceAdditions += [$saleInvoiceAddition->name => 0];
+        }
+
         $this->total = $this->seatTable->getCurrentBookingTotalAmount();
+        $this->grand_total = $this->seatTable->getCurrentBookingGrandTotalAmount();
     }
+
     public function render()
     {
         return view('livewire.seat-table-work-display-make-payment');
+    }
+
+    public function updatedSaleInvoiceAdditions()
+    {
+      // dd ('WOW');
+      $this->calculateGrandTotal();
     }
 
     /* Clear modes */
@@ -85,11 +111,15 @@ class SeatTableWorkDisplayMakePayment extends Component
         /* Final Payment Status */
         $finalPaymentStatus = $saleInvoice->payment_status;
 
+        /* Calculate the grand_total */
+        $this->calculateGrandTotal();
+
         /* Get current booking/invoice amount */
         $currentBookingAmount = $this->seatTable->getCurrentBookingPendingAmount();
+        $currentBookingGrandAmount = $this->seatTable->getCurrentBookingGrandTotalAmount();
 
         /* If no customer do not take less payments !!! */
-        if (! $this->modes['customer'] && $this->tender_amount < $currentBookingAmount) {
+        if (! $this->modes['customer'] && $this->tender_amount < $this->grand_total) {
             return;
         }
 
@@ -131,7 +161,22 @@ class SeatTableWorkDisplayMakePayment extends Component
                 $saleInvoice->save();
             }
 
-            /* If payment receied then create a payment record. */
+            /* Make Sale Invoice Additions if needed. */
+            foreach ($this->saleInvoiceAdditions as $key => $val) {
+                if ($val > 0) {
+                    $saleInvoiceAdditionHeading = SaleInvoiceAdditionHeading::where('name', $key)->first();
+
+                    $saleInvoiceAddition = new SaleInvoiceAddition;
+
+                    $saleInvoiceAddition->sale_invoice_id = $saleInvoice->sale_invoice_id;
+                    $saleInvoiceAddition->sale_invoice_addition_heading_id = $saleInvoiceAdditionHeading->sale_invoice_addition_heading_id;
+                    $saleInvoiceAddition->amount = $val;
+
+                    $saleInvoiceAddition->save();
+                }
+            }
+
+            /* If payment received then create a payment record. */
             if ($this->tender_amount > 0) {
                 /* Make sale_invoice_payment */
                 $saleInvoicePayment = new SaleInvoicePayment;
@@ -139,13 +184,13 @@ class SeatTableWorkDisplayMakePayment extends Component
                 $saleInvoicePayment->payment_date = date('Y-m-d');
                 $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;
 
-                if ($this->tender_amount < $currentBookingAmount) {
+                if ($this->tender_amount < $this->grand_total) {
                     $saleInvoicePayment->amount = $this->tender_amount;
                     $this->returnAmount = 0;
                     $finalPaymentStatus = 'partially_paid';
                 } else {
-                    $saleInvoicePayment->amount = $currentBookingAmount;
-                    $this->returnAmount = $this->tender_amount - $currentBookingAmount;
+                    $saleInvoicePayment->amount = $this->grand_total;
+                    $this->returnAmount = $this->tender_amount - $this->grand_total;
                     $finalPaymentStatus = 'paid';
                 }
 
@@ -157,11 +202,13 @@ class SeatTableWorkDisplayMakePayment extends Component
             $saleInvoice->payment_status = $finalPaymentStatus;
             $saleInvoice->save();
 
-            DB::commit();
 
             $booking = $this->seatTable->getCurrentBooking();
             $booking->status = 'closed';
             $booking->save();
+
+            DB::commit();
+
             $this->enterMode('paid');
         } catch (\Exception $e) {
             DB::rollback();
@@ -190,6 +237,32 @@ class SeatTableWorkDisplayMakePayment extends Component
 
             $this->customer_name = $customer->name;
             $this->customer_address = $customer->address;
+        }
+    }
+
+    public function calculateGrandTotal()
+    {
+        /* TODO
+        $validatedData = $this->validate([
+            'discount' => 'required|integer',
+            'service_charge' => 'required|integer',
+        ]);
+        */
+
+        $this->grand_total = $this->total;
+
+        foreach ($this->saleInvoiceAdditions as $key => $val) {
+            if (strtolower(SaleInvoiceAdditionHeading::where('name', $key)->first()->effect) == 'plus') {
+                if (is_numeric($val)) {
+                    $this->grand_total += $val;
+                }
+            } else if (strtolower(SaleInvoiceAdditionHeading::where('name', $key)->first()->effect) == 'minus') {
+                if (is_numeric($val)) {
+                    $this->grand_total -= $val;
+                }
+            } else {
+                dd('Sale invoice addition heading configurations gone wrong! Contact your service provider.');
+            }
         }
     }
 }

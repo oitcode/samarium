@@ -162,7 +162,7 @@
                       {{ $saleInvoice->getPendingAmount() }}
                     </td>
                     <td class="font-weight-bold">
-                      @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
+                      @php echo number_format( $saleInvoice->getGrandTotalAmount() ); @endphp
                     </td>
                   </tr>
                 @endforeach

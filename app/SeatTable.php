@@ -143,5 +143,24 @@ class SeatTable extends Model
         // return $total;
     }
 
+    public function getCurrentBookingGrandTotalAmount()
+    {
+        $booking = $this->getCurrentBooking();
+        $saleInvoice = $booking->saleInvoice;
 
+        $total = $this->getCurrentBookingTotalAmount();
+        $grandTotal = $total;
+
+        foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition) {
+            if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'plus') {
+                $grandTotal += $saleInvoiceAddition->amount;
+            } else if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'minus') {
+                $grandTotal -= $saleInvoiceAddition->amount;
+            } else {
+                dd('Sale Invoice Additions Heading COnfiguration gone wrong! Contact your service provider.');
+            }
+        }
+
+        return $grandTotal;
+    }
 }

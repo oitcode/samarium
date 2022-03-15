@@ -116,6 +116,36 @@
             </td>
           </tr>
 
+          @foreach ($saleInvoiceAdditions as $key => $val)
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
+              <span class="ml-4">
+                {{ $key }}
+              </span>
+              @error('discount')
+              <div>
+                <span class="text-danger">{{ $message }}</span>
+              </div>
+              @enderror
+            </td>
+            <td class="p-0 h-100 font-weight-bold">
+              <input class="w-100 h-100 font-weight-bold" type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+              wire:keydown.enter="calculateGrandTotal" wire:change="calculateGrandTotal" />
+            </td>
+          </tr>
+          @endforeach
+
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold">
+              <span class="ml-4">
+                GRAND TOTAL
+              </span>
+            </td>
+            <td class="p-0 h-100 bg-warning font-weight-bold pl-3 pt-2">
+              {{ $this->grand_total }}
+            </td>
+          </tr>
+
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
             <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
               <span class="ml-4">

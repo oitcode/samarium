@@ -68,6 +68,15 @@ class SaleInvoice extends Model
         return $this->BelongsTo('App\SeatTableBooking', 'seat_table_booking_id', 'seat_table_booking_id');
     }
 
+    /*
+     * sale_invoice_addition table.
+     *
+     */
+    public function saleInvoiceAdditions()
+    {
+        return $this->hasMany('App\SaleInvoiceAddition', 'sale_invoice_id', 'sale_invoice_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods
@@ -92,6 +101,17 @@ class SaleInvoice extends Model
     }
 
     /*
+     * Get grand total amount.
+     *
+     */
+    public function getGrandTotalAmount()
+    {
+        $total = $this->getTotalAmount();
+
+        return $total + $this->getSaleInvoiceAdditionsAmount();
+    }
+
+    /*
      * Get paid amount.
      *
      */
@@ -112,7 +132,7 @@ class SaleInvoice extends Model
      */
     public function getPendingAmount()
     {
-        $totalAmount = $this->getTotalAmount();
+        $totalAmount = $this->getGrandTotalAmount();
         $pendingAmount = $totalAmount;
 
         foreach ($this->saleInvoicePayments as $saleInvoicePayment) {
@@ -120,5 +140,50 @@ class SaleInvoice extends Model
         }
 
         return $pendingAmount;
+    }
+
+    /*
+    public function getTotalDiscount()
+    {
+        $total = 0;
+
+        foreach ($this->saleInvoiceAdditions as $saleInvoiceAddition) {
+            if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name == 'discount')) {
+                $total += $saleInvoiceAddition->amount;
+            }
+        }
+
+        return $total;
+    }
+
+    public function getTotalServiceCharge()
+    {
+        $total = 0;
+
+        foreach ($this->saleInvoiceAdditions as $saleInvoiceAddition) {
+            if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name == 'service charge')) {
+                $total += $saleInvoiceAddition->amount;
+            }
+        }
+
+        return $total;
+    }
+    */
+
+    public function getSaleInvoiceAdditionsAmount()
+    {
+        $total = 0;
+
+        foreach ($this->saleInvoiceAdditions as $saleInvoiceAddition) {
+            if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'plus') {
+                $total += $saleInvoiceAddition->amount;
+            } else if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'minus') {
+                $total -= $saleInvoiceAddition->amount;
+            } else {
+                dd('Sale Invoice Additions Configuration gone wrong! Contact your service provider.');
+            }
+        }
+
+        return $total;
     }
 }
