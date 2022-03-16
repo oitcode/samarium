@@ -1,9 +1,14 @@
 <div>
 
   <div class="mb-3 p-3">
-    <button class="btn btn-success p-3" style="font-size: 1.3rem;" wire:click="enterMode('showPayments')">
+    <button class="btn btn-success p-3 float-left" style="font-size: 1.3rem;" wire:click="enterMode('showPayments')">
       Payments
     </button>
+    <button class="btn btn-danger p-3 float-right" style="font-size: 1.3rem;" wire:click="$emit('exitDisplaySaleInvoiceMode')">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="clearfix">
+    </div>
   </div>
 
   {{-- Main Info --}}
@@ -96,9 +101,13 @@
                   <span class="badge badge-warning">
                   Partial
                   </span>
-                  @else
+                  @elseif ( $saleInvoice->payment_status == 'pending')
                   <span class="badge badge-danger">
-                    Pending
+                  Pending
+                  </span>
+                  @else
+                  <span class="badge badge-secondary">
+                    {{ $saleInvoice->payment_status }}
                   </span>
                   @endif
                 </td>

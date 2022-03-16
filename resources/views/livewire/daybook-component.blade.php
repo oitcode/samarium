@@ -13,13 +13,10 @@
         Next
       </button>
 
-      <button wire:loading class="btn btn-danger-rm" style="height: 100px; width: 225px; font-size: 1.5rem;">
+      <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
         <div class="spinner-border text-info mr-3" role="status">
           <span class="sr-only">Loading...</span>
         </div>
-        <span class="ml-3 text-secondary" style="font-size: 1rem;">
-          Loading...
-        </span>
       </button>
 
 
@@ -112,27 +109,34 @@
               <thead>
                 <tr class="bg-success text-white" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
                   <th style="width: 100px;">Bill no</th>
-                  <th style="width: 200px;">Date</th>
-                  <th>Table</th>
+                  <th style="width: 200px;">Time</th>
+                  <th style="width: 200px;">Table</th>
                   <th>Customer</th>
-                  <th>Payment Status</th>
-                  <th>Pending Amount</th>
+                  <th style="width: 200px;">Payment Status</th>
+                  <th style="width: 200px;">Pending Amount</th>
                   <th style="width: 200px;">Total</th>
                 </tr>
               </thead>
               <tbody class="bg-white" style="font-size: 1.3rem;">
                 @foreach ($saleInvoices as $saleInvoice)
                   <tr class="">
-                    <td class="text-secondary-rm" style="font-size: 1rem;">
+                    <td class="text-secondary-rm" style="font-size: 1rem;" wire:click="displaySaleInvoice({{ $saleInvoice }})">
+                      <span class="text-primary">
                       90{{ $saleInvoice->sale_invoice_id }}
-                    </td>
-                    <td style="font-size: 1rem;">
-                      {{ $saleInvoice->sale_invoice_date }}
-                    </td>
-                    <td class="text-secondary">
-                      <span class="badge badge-success" wire:click="displaySaleInvoice({{ $saleInvoice }})">
-                        {{ $saleInvoice->seatTableBooking->seatTable->name }}
                       </span>
+                    </td>
+                    <td class="" style="font-size: 1rem;">
+                      @if (false)
+                      <div>
+                        {{ $saleInvoice->sale_invoice_date }}
+                      </div>
+                      @endif
+                      <div>
+                        {{ $saleInvoice->created_at->format('H:i A') }}
+                      </div>
+                    </td>
+                    <td class="">
+                      {{ $saleInvoice->seatTableBooking->seatTable->name }}
                     </td>
                     <td>
                       @if ($saleInvoice->customer)

@@ -33,6 +33,7 @@ class DaybookComponent extends Component
     ];
 
     protected $listeners = [
+        'exitDisplaySaleInvoiceMode',
     ];
 
     public function mount()
@@ -149,5 +150,11 @@ class DaybookComponent extends Component
         }
 
         return $total;
+    }
+
+    public function exitDisplaySaleInvoiceMode()
+    {
+        $this->displayingSaleInvoice = null;
+        $this->exitMode('displaySaleInvoice');
     }
 }
