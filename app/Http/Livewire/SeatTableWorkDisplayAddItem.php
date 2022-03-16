@@ -62,6 +62,10 @@ class SeatTableWorkDisplayAddItem extends Component
         */
 
 
+        if (! $this->selectedProduct) {
+            return;
+        }
+
         /*
          *
          *
