@@ -137,6 +137,7 @@
         <table class="table table-bordered table-hover border-dark">
           <thead>
             <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+              <th>--</th>
               <th>#</th>
               <th>Item</th>
               <th>Price</th>
@@ -150,6 +151,11 @@
               @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
                 @foreach ($seatTable->getCurrentBookingItems() as $item)
                 <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
+                  <td>
+                    <a href="" wire:click.prevent="" class="">
+                    <i class="fas fa-trash text-danger"></i>
+                    </a>
+                  </td>
                   <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
                   <td>
                     <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
@@ -173,7 +179,7 @@
           </tbody>
   
           <tfoot class="bg-success text-white" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
-            <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+            <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
               <strong>
               TOTAL
               </strong>

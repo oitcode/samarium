@@ -124,4 +124,8 @@ class SeatTableWorkDisplay extends Component
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
     }
+
+    public function removeItemFromCurrentBooking($saleInvoiceItemId)
+    {
+    }
 }

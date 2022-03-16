@@ -77,7 +77,7 @@
 
         @if (true)
         <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="width: 110px; height: 70px; font-size: 1.3rem;">
-          Cancel
+          Reset
         </button>
         @endif
 
