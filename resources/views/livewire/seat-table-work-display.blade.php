@@ -152,7 +152,7 @@
                 @foreach ($seatTable->getCurrentBookingItems() as $item)
                 <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
                   <td>
-                    <a href="" wire:click.prevent="" class="">
+                    <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
                     <i class="fas fa-trash text-danger"></i>
                     </a>
                   </td>
@@ -204,4 +204,8 @@
       
     </div>
   </div>
+
+  @if ($modes['confirmRemoveSaleInvoiceItem'])
+    @livewire ('seat-table-work-display-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
+  @endif
 </div>

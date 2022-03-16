@@ -7,20 +7,26 @@ use Illuminate\Support\Facades\DB;
 
 use App\SeatTableBooking;
 use App\SaleInvoice;
+use App\SaleInvoiceItem;
 
 class SeatTableWorkDisplay extends Component
 {
     public $seatTable;
 
+    public $deletingSaleInvoiceItem = null; 
+
     public $modes = [
         'addItem' => true,
         'makePayment' => false,
+        'confirmRemoveSaleInvoiceItem' => false,
     ];
 
     protected $listeners = [
         'exitAddItemMode',
         'exitMakePaymentMode',
         'itemAddedToBooking',
+        'removeItemFromCurrentBooking',
+        'exitDeleteSaleInvoiceItem',
     ];
 
     public function render()
@@ -125,7 +131,39 @@ class SeatTableWorkDisplay extends Component
         }
     }
 
+    public function confirmRemoveItemFromCurrentBooking($saleInvoiceItemId)
+    {
+        $saleInvoiceItem = SaleInvoiceItem::find($saleInvoiceItemId);
+
+        $this->deletingSaleInvoiceItem = $saleInvoiceItem;
+        $this->enterMode('confirmRemoveSaleInvoiceItem');
+    }
+
     public function removeItemFromCurrentBooking($saleInvoiceItemId)
     {
+        $saleInvoiceItem = SaleInvoiceItem::find($saleInvoiceItemId);
+
+        DB::beginTransaction();
+
+        try {
+            $saleInvoiceItem->delete_reason = 'Removed by user';
+            $saleInvoiceItem->save();
+            $saleInvoiceItem->delete();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd ($e);
+            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
+        }
+
+        $this->deletingSaleInvoiceItem = null;
+        $this->exitMode('confirmRemoveSaleInvoiceItem');
+        $this->render();
+    }
+
+    public function exitDeleteSaleInvoiceItem()
+    {
+        $this->deletingSaleInvoiceItem = null;
+        $this->exitMode('confirmRemoveSaleInvoiceItem');
     }
 }
