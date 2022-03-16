@@ -25,7 +25,7 @@ class WebsiteProductOrder extends Component
             'address' => 'nullable',
         ]);
 
-        $validatedData['product_id'] = $this->product->product_category_id;
+        $validatedData['product_id'] = $this->product->product_id;
 
         WebsiteOrder::create($validatedData);
 
