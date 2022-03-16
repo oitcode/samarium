@@ -152,9 +152,13 @@
                       <span class="badge badge-warning">
                       Partial
                       </span>
-                      @else
+                      @elseif ( $saleInvoice->payment_status == 'pending')
                       <span class="badge badge-danger">
                         Pending
+                      </span>
+                      @else
+                      <span class="badge badge-secondary">
+                        {{ $saleInvoice->payment_status }}
                       </span>
                       @endif
                     </td>

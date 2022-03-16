@@ -83,9 +83,13 @@ class SeatTable extends Model
      */
     public function getCurrentBookingItems()
     {
+        $items = null;
+
         $booking = $this->getCurrentBooking();
 
-        $items = $booking->saleInvoice->saleInvoiceItems;
+        if ($booking->saleInvoice) {
+            $items = $booking->saleInvoice->saleInvoiceItems;
+        }
 
         return $items;
     }
@@ -114,8 +118,10 @@ class SeatTable extends Model
         $booking = $this->getCurrentBooking();
 
         if ($booking) {
-            foreach ($booking->saleInvoice->saleInvoiceItems as $item) {
-                $total += $item->getTotalAmount();
+            if ($booking->saleInvoice) {
+                foreach ($booking->saleInvoice->saleInvoiceItems as $item) {
+                    $total += $item->getTotalAmount();
+                }
             }
         }
 

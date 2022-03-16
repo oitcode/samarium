@@ -62,6 +62,15 @@
 
               <div class="table-responsive">
                 <table class="table">
+                  @if ($seatTable->isBooked())
+                  <tr>
+                    <td colspan="2">
+                      <button class="btn btn-danger" wire:click="closeTable">
+                        Close
+                      </button>
+                    </td>
+                  </tr>
+                  @endif
                   <tr class="text-success" style="font-size: 1.3rem;">
                     <td>
                       <i class="fas fa-shopping-cart mr-3"></i>
@@ -137,27 +146,29 @@
           </thead>
   
           <tbody style="font-size: 1.3rem;">
-            @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
-              @foreach ($seatTable->getCurrentBookingItems() as $item)
-              <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
-                <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
-                <td>
-                  <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
-                  {{ $item->product->name }}
-                </td>
-                <td>
-                  @php echo number_format( $item->product->selling_price ); @endphp
-                </td>
-                <td>
-                  <span class="badge badge-pill-rm badge-success">
-                    {{ $item->quantity }}
-                  </span>
-                </td>
-                <td>
-                  @php echo number_format( $item->getTotalAmount() ); @endphp
-                </td>
-              </tr>
-              @endforeach
+            @if ($seatTable->getCurrentBooking()->hasSaleInvoice())
+              @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
+                @foreach ($seatTable->getCurrentBookingItems() as $item)
+                <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
+                  <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+                  <td>
+                    <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                    {{ $item->product->name }}
+                  </td>
+                  <td>
+                    @php echo number_format( $item->product->selling_price ); @endphp
+                  </td>
+                  <td>
+                    <span class="badge badge-pill-rm badge-success">
+                      {{ $item->quantity }}
+                    </span>
+                  </td>
+                  <td>
+                    @php echo number_format( $item->getTotalAmount() ); @endphp
+                  </td>
+                </tr>
+                @endforeach
+              @endif
             @endif
           </tbody>
   

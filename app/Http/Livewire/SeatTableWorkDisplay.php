@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 use App\SeatTableBooking;
 use App\SaleInvoice;
@@ -57,6 +58,7 @@ class SeatTableWorkDisplay extends Component
          *
          * When you book a seat table you start a new sale_invoice.
          *
+         *
          */
 
         /* Create a seat table booking. */
@@ -94,5 +96,32 @@ class SeatTableWorkDisplay extends Component
     public function itemAddedToBooking()
     {
         $this->render();
+    }
+
+    public function closeTable()
+    {
+        $currentBooking = $this->seatTable->getCurrentBooking();
+        $saleInvoice = $currentBooking->saleInvoice;
+
+        /* Dont do anything if any items added in sale invoice */
+        if (count($currentBooking->saleInvoice->saleInvoiceItems) > 0) {
+            return;
+        }
+
+        DB::beginTransaction();
+
+        try {
+            $currentBooking->status = 'closed';
+            $currentBooking->save();
+
+            $saleInvoice->payment_status = 'aborted';
+            $saleInvoice->save();
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd ($e);
+            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
+        }
     }
 }

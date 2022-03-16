@@ -66,7 +66,11 @@ class SeatTableBooking extends Model
      */
     public function getTotalItems()
     {
-        return count($this->saleInvoice->saleInvoiceItems);
+        if ($this->saleInvoice) {
+            return count($this->saleInvoice->saleInvoiceItems);
+        } else {
+            return 0;
+        }
     }
 
     public function getTotalAmount()
@@ -78,5 +82,14 @@ class SeatTableBooking extends Model
         }
 
         return $total;
+    }
+
+    public function hasSaleInvoice()
+    {
+        if ($this->saleInvoice) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
