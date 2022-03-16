@@ -28,7 +28,7 @@
                     </button>
 
                   @else
-                    <button class="btn btn-success mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="bookSeatTable">
+                    <button onclick="this.disabled=true;" class="btn btn-success mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="bookSeatTable">
                       <i class="fas fa-check mr-3"></i>
                       Book table
                     </button>
