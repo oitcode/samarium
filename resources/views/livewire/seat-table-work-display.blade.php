@@ -70,7 +70,7 @@
                       <button class="btn btn-danger mr-3" wire:click="closeTable">
                         Close
                       </button>
-                      <button class="btn btn-success mr-3" wire:click="">
+                      <button class="btn btn-success mr-3" wire:click="" onclick="printElem('printDiv')">
                         Print
                       </button>
                     </td>
@@ -213,4 +213,46 @@
   @if ($modes['confirmRemoveSaleInvoiceItem'])
     @livewire ('seat-table-work-display-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
   @endif
+
+
+<div class="d-none text-center" id="printDiv">
+  <span>
+    Mister Kimchi Ramen
+  </span>
+  <br />
+  <span class="h4">
+    PAN Num: 605946000
+  </span>
+  <span>
+    Baluwatar, Kathmandu, Nepal
+  </span>
+  <span>
+    +977 9851100000 | 9841000000
+  </span>
+  <span>
+    POS Invoice
+  </span>
+</div>
+
+<script>
+function printElem(elem)
+{
+    console.log('HELLO');
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('</head><body >');
+    mywindow.document.write(document.getElementById(elem).innerHTML);
+    mywindow.document.write('</body></html>');
+
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+
+    mywindow.print();
+    mywindow.close();
+
+    return true;
+}
+</script>
+
 </div>

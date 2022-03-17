@@ -81,18 +81,35 @@ class SeatTableWorkDisplayAddItem extends Component
         $seatTableBooking = SeatTableBooking::find($this->seat_table_booking_id);
         $saleInvoice = $seatTableBooking->saleInvoice;
 
-        /* Add sale_invoice_item to sale_invoice */
-        $saleInvoiceItem = new SaleInvoiceItem;
 
-        $saleInvoiceItem->sale_invoice_id = $saleInvoice->sale_invoice_id;
-        $saleInvoiceItem->product_id = $this->product_id;
-        $saleInvoiceItem->quantity = $this->quantity;
+        /*
+         * If same product added before just increase the count.
+         * Else, create a new sale invoice item.
+         *
+         */
 
-        $saleInvoiceItem->save();
+        $saleInvoiceItem = $this->checkExistingItemsForProduct($saleInvoice, $this->product_id);
 
-        /* Update sale_invoice total amount. */
-        $saleInvoice->total_amount += $saleInvoiceItem->getTotalAmount();
-        $saleInvoice->save();
+        if ($saleInvoiceItem) {
+            /* Update existing sale invoice item. */
+            $saleInvoiceItem->quantity += $this->quantity;
+            $saleInvoiceItem->save();
+
+            $this->updateSaleInvoiceTotalAmount($saleInvoice, $saleInvoiceItem, $this->quantity);
+        } else {
+            /* Add sale_invoice_item to sale_invoice */
+            $saleInvoiceItem = new SaleInvoiceItem;
+
+            $saleInvoiceItem->sale_invoice_id = $saleInvoice->sale_invoice_id;
+            $saleInvoiceItem->product_id = $this->product_id;
+            $saleInvoiceItem->quantity = $this->quantity;
+
+            $saleInvoiceItem->save();
+
+            /* Update sale_invoice total amount. */
+            $saleInvoice->total_amount += $saleInvoiceItem->getTotalAmount();
+            $saleInvoice->save();
+        }
 
         /* Do inventory management */
         $product = Product::find($this->product_id);
@@ -153,5 +170,24 @@ class SeatTableWorkDisplayAddItem extends Component
         $this->quantity = '';
 
         $this->products = ProductCategory::find($validatedData['search_product_category_id'])->products;
+    }
+
+    public function checkExistingItemsForProduct($saleInvoice, $productId)
+    {
+        foreach ($saleInvoice->saleInvoiceItems as $saleInvoiceItem) {
+            if ($saleInvoiceItem->product_id == $productId) {
+                return $saleInvoiceItem;
+            }
+        }
+
+        return null;
+    }
+
+    public function updateSaleInvoiceTotalAmount($saleInvoice, $saleInvoiceItem, $quantity)
+    {
+        $product = $saleInvoiceItem->product;
+
+        $saleInvoice->total_amount += $product->selling_price * $quantity;
+        $saleInvoice->save();
     }
 }
