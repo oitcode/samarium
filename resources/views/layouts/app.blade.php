@@ -46,6 +46,9 @@
               Company
               </a>
             </div>
+            <div class="float-right mx-4 px-4 text-white border-left" style="font-size: 1.3rem;">
+              @livewire ('online-order-counter')
+            </div>
           @endguest
           <div class="clearfix">
           </div>

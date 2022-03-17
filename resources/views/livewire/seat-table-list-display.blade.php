@@ -71,7 +71,8 @@
 
       @if ($seatTable->isBooked())
       <div class="col-md-4 bg-danger-rm text-white" wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})"
-      style="background-color: orange;">
+      style="background-color: orange;"
+      role="button">
         <div class="d-flex justify-content-center h-100">
           <div class="justify-content-center align-self-center text-center">
             <h3 class="h5 font-weight-bold p-4">
@@ -86,7 +87,8 @@
       </div>
       @else
       <div class="col-md-4 bg-success text-white" wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})"
-      style="{{--background-color: green;--} font-weight: bold;">
+      style="{{--background-color: green;--} font-weight: bold;"
+      role="button">
         <div class="d-flex justify-content-center h-100">
           <div class="justify-content-center align-self-center text-center">
             <h3 class="h5 font-weight-bold p-4">
