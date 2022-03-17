@@ -9,14 +9,15 @@
     Total: {{ count($saleInvoice->saleInvoicePayments) }}
   </div>
 
-  <hr />
-
   @foreach ($saleInvoice->saleInvoicePayments as $payment)
+  <div class="bg-success">
+    &nbsp;
+  </div>
   <div class="table-responsive mb-4 shadow">
     <table class="table" style="font-size: 1.3rem;">
       <tbody>
 
-        <tr class="bg-success text-white" style="{{--font-size: 2rem; background-color: #dff;--}}">
+        <tr class="bg-success-rm text-white-rm" style="{{--font-size: 2rem; background-color: #dff;--}}">
           <td>
             Paid By
           </td>
@@ -49,10 +50,24 @@
 
         <tr>
           <td>
+            Payment type
+          </td>
+          <td>
+            @if ($payment->saleInvoicePaymentType)
+              {{ $payment->saleInvoicePaymentType->name }}
+            @else
+            @endif
+          </td>
+        </tr>
+
+        <tr>
+          <td>
             Amount
           </td>
           <td>
-            <i class="fas fa-rupee-sign mr-3"></i>
+            <span class="mr-2">
+            Rs
+            </span>
             @php echo number_format( $payment->amount ); @endphp
           </td>
         </tr>

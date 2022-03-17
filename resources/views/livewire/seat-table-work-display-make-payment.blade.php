@@ -112,7 +112,7 @@
               </span>
             </td>
             <td class="p-0 h-100 bg-warning font-weight-bold pl-3 pt-2">
-              {{ $this->total }}
+              @php echo number_format( $this->total ); @endphp
             </td>
           </tr>
 
@@ -129,8 +129,9 @@
               @enderror
             </td>
             <td class="p-0 h-100 font-weight-bold">
-              <input class="w-100 h-100 font-weight-bold" type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
-              wire:keydown.enter="calculateGrandTotal" wire:change="calculateGrandTotal" />
+              <input class="w-100 h-100 font-weight-bold pl-3"
+                  type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                  wire:keydown.enter="calculateGrandTotal" wire:change="calculateGrandTotal" />
             </td>
           </tr>
           @endforeach
@@ -142,7 +143,7 @@
               </span>
             </td>
             <td class="p-0 h-100 bg-warning font-weight-bold pl-3 pt-2">
-              {{ $this->grand_total }}
+              @php echo number_format( $this->grand_total ); @endphp
             </td>
           </tr>
 
@@ -162,6 +163,27 @@
             </td>
           </tr>
 
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold">
+              <span class="ml-4">
+                Payment type
+              </span>
+            </td>
+            <td class="p-0 h-100 w-50 bg-warning font-weight-bold">
+              <select class="w-100 h-100 custom-control border-0"
+                  wire:model.defer="sale_invoice_payment_type_id">
+                <option>---</option>
+
+                @foreach ($saleInvoicePaymentTypes as $saleInvoicePaymentType)
+                  <option value="{{ $saleInvoicePaymentType->sale_invoice_payment_type_id }}">
+                    {{ $saleInvoicePaymentType->name }}
+                  </option>
+                @endforeach
+              </select>
+            </td>
+          </tr>
+
+
 
         </tbody>
       </table>
@@ -169,11 +191,19 @@
 
     <div class="p-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
       @if (! $modes['paid'])
-      <button onclick="this.disabled=true;" class="btn btn-lg btn-success mr-3" wire:click="store" style="width: 130px; height: 70px; font-size: 1.3rem;">
+      <button
+          onclick="this.disabled=true;"
+          class="btn btn-lg btn-success mr-3"
+          wire:click="store"
+          style="width: 130px; height: 70px; font-size: 1.3rem;">
         CONFIRM
       </button>
 
-      <button onclick="this.disabled=true;" class="btn btn-lg btn-danger" wire:click="$emit('exitMakePaymentMode')" style="width: 120px; height: 70px; font-size: 1.3rem;">
+      <button
+          onclick="this.disabled=true;"
+          class="btn btn-lg btn-danger"
+          wire:click="$emit('exitMakePaymentMode')"
+          style="width: 120px; height: 70px; font-size: 1.3rem;">
         CANCEL
       </button>
       <button wire:loading class="btn">
@@ -181,10 +211,18 @@
         </span>
       </button>
       @else
-        <button onclick="this.disabled=true;" class="btn btn-lg btn-success mr-3" wire:click="finishPayment" style="width: 120px; height: 70px; font-size: 1.3rem;">
+        <button
+            onclick="this.disabled=true;"
+            class="btn btn-lg btn-success mr-3"
+            wire:click="finishPayment"
+            style="width: 120px; height: 70px; font-size: 1.3rem;">
           FINISH
         </button>
-        <button onclick="this.disabled=true;" lass="btn btn-lg btn-warning-rm mr-3" wire:click="finishPayment" style="width: 120px; height: 70px; font-size: 1.3rem; background-color: orange">
+        <button
+            onclick="this.disabled=true;"
+            class="btn btn-lg btn-warning-rm mr-3"
+            wire:click="finishPayment"
+            style="width: 120px; height: 70px; font-size: 1.3rem; background-color: orange">
           PRINT
         </button>
         <button wire:loading class="btn">

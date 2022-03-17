@@ -120,7 +120,10 @@
               <tbody class="bg-white" style="font-size: 1.3rem;">
                 @foreach ($saleInvoices as $saleInvoice)
                   <tr class="">
-                    <td class="text-secondary-rm" style="font-size: 1rem;" wire:click="displaySaleInvoice({{ $saleInvoice }})">
+                    <td class="text-secondary-rm"
+                        style="font-size: 1rem;"
+                        wire:click="displaySaleInvoice({{ $saleInvoice }})"
+                        role="button">
                       <span class="text-primary">
                       90{{ $saleInvoice->sale_invoice_id }}
                       </span>

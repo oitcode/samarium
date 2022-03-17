@@ -21,7 +21,7 @@ class SaleInvoicePayment extends Model
     protected $primaryKey = 'sale_invoice_payment_id';
 
     protected $fillable = [
-         'sale_invoice_id', 'payment_date',
+         'sale_invoice_payment_type_id', 'sale_invoice_id', 'payment_date',
          'amount',
     ];
 
@@ -31,6 +31,15 @@ class SaleInvoicePayment extends Model
      *-------------------------------------------------------------------------
      *
      */
+
+    /*
+     * sale_invoice_payment_type table.
+     *
+     */
+    public function saleInvoicePaymentType()
+    {
+        return $this->belongsTo('App\SaleInvoicePaymentType', 'sale_invoice_payment_type_id', 'sale_invoice_payment_type_id');
+    }
 
     /*
      * sale_invoice table.

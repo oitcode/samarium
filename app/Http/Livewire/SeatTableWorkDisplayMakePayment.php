@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Customer;
 use App\SaleInvoice;
+use App\SaleInvoicePaymentType;
 use App\SaleInvoicePayment;
 use App\SaleInvoiceAddition;
 use App\SaleInvoiceAdditionHeading;
@@ -40,6 +41,9 @@ class SeatTableWorkDisplayMakePayment extends Component
     /* Sale invoice additions */
     public $saleInvoiceAdditions = array();
 
+    public $saleInvoicePaymentTypes;
+    public $sale_invoice_payment_type_id;
+
     public $modes = [
         'paid' => false,
         'customer' => false,
@@ -47,6 +51,8 @@ class SeatTableWorkDisplayMakePayment extends Component
 
     public function mount()
     {
+        $this->saleInvoicePaymentTypes = SaleInvoicePaymentType::all();
+
         $this->saleInvoiceAdditionHeadings = SaleInvoiceAdditionHeading::all();
 
         foreach (SaleInvoiceAdditionHeading::all() as $saleInvoiceAddition) {
@@ -93,7 +99,7 @@ class SeatTableWorkDisplayMakePayment extends Component
     {
         $validatedData = $this->validate([
             'tender_amount' => 'required|integer',
-
+            'sale_invoice_payment_type_id' => 'required|integer',
         ]);
 
         if ($this->modes['customer']) {
@@ -180,6 +186,8 @@ class SeatTableWorkDisplayMakePayment extends Component
             if ($this->tender_amount > 0) {
                 /* Make sale_invoice_payment */
                 $saleInvoicePayment = new SaleInvoicePayment;
+
+                $saleInvoicePayment->sale_invoice_payment_type_id = $validatedData['sale_invoice_payment_type_id'];
 
                 $saleInvoicePayment->payment_date = date('Y-m-d');
                 $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;

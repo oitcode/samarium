@@ -38,7 +38,9 @@
                   @if ($seatTable->isBooked())
                     @if (true)
                     <button class="btn btn-warning-rm mr-3 p-3 text-danger" style="font-size: 2.5rem;">
-                      <i class="fas fa-rupee-sign mr-2"></i>
+                      <span class="mr-2">
+                      Rs
+                      </span>
                       @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
                     </button>
                     @else
@@ -65,8 +67,11 @@
                   @if ($seatTable->isBooked())
                   <tr>
                     <td colspan="2">
-                      <button class="btn btn-danger" wire:click="closeTable">
+                      <button class="btn btn-danger mr-3" wire:click="closeTable">
                         Close
+                      </button>
+                      <button class="btn btn-success mr-3" wire:click="">
+                        Print
                       </button>
                     </td>
                   </tr>
