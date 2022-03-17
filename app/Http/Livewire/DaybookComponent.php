@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 use App\Sale;
 use App\SaleInvoice;
 use App\SeatTableBooking;
+use App\SaleInvoicePaymentType;
 
 class DaybookComponent extends Component
 {
@@ -27,6 +28,8 @@ class DaybookComponent extends Component
     public $totalBookingAmount;
 
     public $displayingSaleInvoice;
+
+    public $paymentByType = array();
 
     public $modes = [
         'displaySaleInvoice' => false,
@@ -49,6 +52,15 @@ class DaybookComponent extends Component
         // $this->totalCashAmount = $this->getTotalCashAmount();
         // $this->totalCreditAmount = $this->getTotalCreditAmount();
         $this->totalSaleAmount = $this->getTotalSaleAmount($saleInvoices);
+
+        $this->paymentByType = array();
+        foreach (SaleInvoicePaymentType::all() as $saleInvoicePaymentType) {
+            $this->paymentByType += array(
+                $saleInvoicePaymentType->name
+                =>
+                $this->getPaymentTotalByType($saleInvoices, $saleInvoicePaymentType->sale_invoice_payment_type_id)
+            );
+        }
 
         return view('livewire.daybook-component')
             ->with('saleInvoices', $saleInvoices);
@@ -156,5 +168,22 @@ class DaybookComponent extends Component
     {
         $this->displayingSaleInvoice = null;
         $this->exitMode('displaySaleInvoice');
+    }
+
+    public function getPaymentTotalByType($saleInvoices, $paymentTypeId)
+    {
+        $paymentType = SaleInvoicePaymentType::find($paymentTypeId);
+
+        $total = 0;
+
+        foreach ($saleInvoices as $saleInvoice) {
+            foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment) {
+                if ($saleInvoicePayment->sale_invoice_payment_type_id == $paymentTypeId) {
+                    $total += $saleInvoicePayment->amount;
+                }
+            }
+        }
+
+        return $total;
     }
 }

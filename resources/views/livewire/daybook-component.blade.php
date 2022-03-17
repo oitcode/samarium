@@ -119,10 +119,10 @@
               </thead>
               <tbody class="bg-white" style="font-size: 1.3rem;">
                 @foreach ($saleInvoices as $saleInvoice)
-                  <tr class="">
+                  <tr class="" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
                     <td class="text-secondary-rm"
                         style="font-size: 1rem;"
-                        wire:click="displaySaleInvoice({{ $saleInvoice }})"
+                        wire:click=""
                         role="button">
                       <span class="text-primary">
                       90{{ $saleInvoice->sale_invoice_id }}
@@ -198,6 +198,28 @@
             No sales.
           </div>
         @endif
+        
+        <div class="row mt-5">
+          @foreach ($paymentByType as $key => $val)
+            <div class="col-md-3">
+              <div class="card shadow">
+                <div class="card-body">
+                  <h2 class="mb-5 text-success font-weight-bold">
+                    {{ $key }}
+                  </h2>
+                  <h3 class="text-secondary font-weight-bold">
+                    Rs
+                    @php echo number_format( $val ); @endphp
+                  </h3>
+                </div>
+              </div>
+            </div>
+          @endforeach
+
+        </div>
+
+
+
       </div>
       <div class="col-md-6">
       </div>
