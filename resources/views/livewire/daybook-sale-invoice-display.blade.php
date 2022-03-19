@@ -85,7 +85,7 @@
                   NRs
                   &nbsp;&nbsp;
                   @endif
-                  @php echo number_format( $saleInvoice->getGrandTotalAmount() ); @endphp
+                  @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                 </td>
               </tr>
               <tr class="text-secondary" style="font-size: 1.3rem;">
