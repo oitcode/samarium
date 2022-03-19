@@ -62,3 +62,6 @@ Route::get('/product/{id}/{name}', 'WebsiteController@productView')->name('websi
 
 /* Product category page. Shows all product of this category  */
 Route::get('/product/category/{id}/{name}', 'WebsiteController@productCategoryProductList')->name('website-product-category-product-list');
+
+/* Checkout page  */
+Route::get('/checkout', 'WebsiteController@checkout')->name('website-checkout');

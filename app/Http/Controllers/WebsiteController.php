@@ -51,4 +51,24 @@ class WebsiteController extends Controller
             ->with('productCategories', $productCategories)
             ->with('products', $products);
     }
+
+    /**
+     * Show the checkout page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function checkout()
+    {
+        $products = Product::all();
+        $productCategories = ProductCategory::all();
+        $company = Company::first();
+
+        $cartItems = session('cartItems');
+
+        return view('website.checkout')
+            ->with('company', $company)
+            ->with('productCategories', $productCategories)
+            ->with('products', $products)
+            ->with('cartItems', $cartItems);
+    }
 }

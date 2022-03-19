@@ -63,8 +63,19 @@ class Product extends Model
      * website_order table.
      *
      */
+    /*
     public function websiteOrders()
     {
         return $this->hasMany('App\WebsiteOrder', 'product_id', 'product_id');
+    }
+    */
+
+    /*
+     * website_order table.
+     *
+     */
+    public function websiteOrderItems()
+    {
+        return $this->hasMany('App\WebsiteOrderItems', 'product_id', 'product_id');
     }
 }

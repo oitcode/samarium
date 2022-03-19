@@ -22,17 +22,22 @@
                 Address
               </th>
               <th>
+                Total
+              </th>
+              <th>
                 Status
               </th>
+              @if (false)
               <th>
                 Action
               </th>
+              @endif
             </tr>
           </thead>
 
           <tbody>
             @foreach ($websiteOrders as $order)
-              <tr style="font-size: 1.3rem;">
+              <tr style="font-size: 1.3rem;" role="button" wire:click="$emit('displayOnlineOrder', {{ $order->website_order_id }})">
                 <td>
                   {{ $order->website_order_id }}
                 </td>
@@ -46,13 +51,18 @@
                   @endif
                 </td>
                 <td>
-                  {{ $order->product->name }}
+                  @if ($order->product)
+                    {{ $order->product->name }}
+                  @endif
                 </td>
                 <td class="pl-3">
                   {{ $order->phone }}
                 </td>
                 <td class="text-secondary" style="font-size: 1rem;">
                   {{ $order->address }}
+                </td>
+                <td class="text-secondary" style="font-size: 1rem;">
+                  @php echo number_format( $order->getTotalAmount() ); @endphp
                 </td>
                 <td>
                   @if ($order->status == 'new')
@@ -78,6 +88,7 @@
                   @endif
                 </td>
 
+                @if (false)
                 <td>
                   @if ($order->status == 'new')
                     <button class="btn btn-success mr-3" wire:click="updateStatus({{ $order }}, 'new', 'open')">
@@ -93,6 +104,7 @@
                     </button>
                   @endif
                 </td>
+                @endif
               </tr>
             @endforeach
           </tbody>
