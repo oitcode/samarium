@@ -187,7 +187,7 @@
               </strong>
             </td>
             <td style="font-size: 1.5rem;" class="font-weight-bold">
-              @php echo number_format( $saleInvoice->getGrandTotalAmount() ); @endphp
+              @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
             </td>
           </tr>
         </tfoot>
