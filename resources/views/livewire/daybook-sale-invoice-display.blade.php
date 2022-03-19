@@ -57,7 +57,7 @@
                   NRs
                   &nbsp;&nbsp;
                   @endif
-                  @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
+                  @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
                 </td>
               </tr>
 
