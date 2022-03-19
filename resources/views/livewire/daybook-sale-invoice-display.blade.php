@@ -162,7 +162,7 @@
               </strong>
             </td>
             <td style="font-size: 1.3rem;" class="font-weight-bold">
-              @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
+              @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
             </td>
           </tr>
           @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)

@@ -196,4 +196,16 @@ class SaleInvoice extends Model
 
         return $total;
     }
+
+    public function getTotalAmountRaw()
+    {
+        $total = 0;
+
+        foreach ($this->saleInvoiceItems as $saleInvoiceItem) {
+            $totalPrice = $saleInvoiceItem->product->selling_price * $saleInvoiceItem->quantity;;
+            $total += $totalPrice;
+        }
+
+        return $total;
+    }
 }
