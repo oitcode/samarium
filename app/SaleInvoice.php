@@ -97,6 +97,16 @@ class SaleInvoice extends Model
             $total += $totalPrice;
         }
 
+        foreach ($this->saleInvoiceAdditions as $saleInvoiceAddition)  {
+            if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'plus') {
+                $total += $saleInvoiceAddition->amount;
+            } else if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'minus') {
+                $total -= $saleInvoiceAddition->amount;
+            } else {
+              die ('Whoops!');
+            }
+        }
+
         return $total;
     }
 
@@ -132,7 +142,7 @@ class SaleInvoice extends Model
      */
     public function getPendingAmount()
     {
-        $totalAmount = $this->getGrandTotalAmount();
+        $totalAmount = $this->getTotalAmount();
         $pendingAmount = $totalAmount;
 
         foreach ($this->saleInvoicePayments as $saleInvoicePayment) {
