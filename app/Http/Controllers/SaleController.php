@@ -30,4 +30,9 @@ class SaleController extends Controller
         return view('dashboard.sale')
             ->with('seatTable' , $seatTable);
     }
+
+    public function takeaway()
+    {
+        return view('dashboard.takeaway');
+    }
 }

@@ -79,7 +79,7 @@
                     ">
 
                     <i class="fas fa-shopping-cart mr-3"></i>
-                    SALE
+                    TAKEAWAY
 
                   </a>
                 </div>

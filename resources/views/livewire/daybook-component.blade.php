@@ -139,7 +139,11 @@
                       </div>
                     </td>
                     <td class="">
+                      @if ($saleInvoice->seatTableBooking)
                       {{ $saleInvoice->seatTableBooking->seatTable->name }}
+                      @else
+                        Takeaway
+                      @endif
                     </td>
                     <td>
                       @if ($saleInvoice->customer)

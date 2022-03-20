@@ -34,7 +34,8 @@ Route::get('/dashboard/productCategory', 'ProductCategoryController@index')->nam
 Route::get('/dashboard/customer', 'CustomerController@index')->name('customer');
 
 /* Sale */
-Route::get('/dashboard/sale', 'SaleController@index')->name('sale');
+Route::get('/dashboard/sale', 'SaleController@takeaway')->name('sale');
+//Route::get('/dashboard/sale', function() {})->name('sale');
 
 /* Daybook */
 Route::get('/dashboard/daybook', 'DaybookController@index')->name('daybook');

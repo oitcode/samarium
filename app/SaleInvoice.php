@@ -69,6 +69,15 @@ class SaleInvoice extends Model
     }
 
     /*
+     * takeaway table.
+     *
+     */
+    public function takeaway()
+    {
+        return $this->BelongsTo('App\Takeaway', 'takeaway_id', 'takeaway_id');
+    }
+
+    /*
      * sale_invoice_addition table.
      *
      */
@@ -207,5 +216,14 @@ class SaleInvoice extends Model
         }
 
         return $total;
+    }
+
+    public function isPaid()
+    {
+        if (strtolower($this->payment_status) == 'paid') {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
