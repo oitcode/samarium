@@ -235,6 +235,7 @@
 
 
     {{-- Bill total PRINT div --}}
+    @if ($seatTable->getCurrentBooking()->saleInvoice)
     <div class="d-none" id="printDiv">
       <div class="text-center">
         <div class="text-center">
@@ -362,6 +363,7 @@
       </div>
 
     </div>
+    @endif
 
 
   </div>
