@@ -1,4 +1,5 @@
 <div>
+
   @if ($seatTable->isBooked())
     @if (true || $modes['addItem'])
       @livewire ('seat-table-work-display-add-item', ['seat_table_booking_id' => $seatTable->getCurrentBooking()->seat_table_booking_id,])
@@ -70,7 +71,26 @@
                       <button class="btn btn-danger mr-3" wire:click="closeTable">
                         Close
                       </button>
-                      <button class="btn btn-success mr-3" wire:click="" onclick="printElem('printDiv')">
+                      <button class="btn btn-success mr-3"
+                          onclick="
+                              console.log('Bayern ');
+
+                              var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+    
+                              mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+                              mywindow.document.write('</head><body >');
+                              mywindow.document.write(document.getElementById('printDiv').innerHTML);
+                              mywindow.document.write('</body></html>');
+    
+                              mywindow.document.close();
+                              mywindow.focus();
+    
+                              mywindow.print();
+                              mywindow.close();
+
+
+
+                              console.log('Munich')">
                         Print
                       </button>
                     </td>
@@ -208,51 +228,126 @@
       </div>
       
     </div>
+
+    @if ($modes['confirmRemoveSaleInvoiceItem'])
+      @livewire ('seat-table-work-display-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
+    @endif
+
+
+    {{-- Bill total PRINT div --}}
+    <div class="d-none" id="printDiv">
+      <div class="text-center">
+        <div class="text-center">
+          MISTER KIMCHI RAMEN
+        </div>
+        <br />
+        <div class="text-center">
+          BALUWATAR, KTM, NEPAL
+        </div>
+        <div class="h4" class="text-center">
+          PAN Num: 611718420
+        </div>
+        <div class="text-center">
+          ABBREVIATED TAX INVOICE
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <div>
+        <div>
+          Bill # : 90{{ $seatTable->getCurrentBooking()->saleInvoice->sale_invoice_id }}
+          -078/79
+        </div>
+        <div>
+          Invoice Date : {{ $seatTable->getCurrentBooking()->saleInvoice->sale_invoice_date }}
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <div>
+        <div>
+          <table class="">
+            <tbody>
+              <tr>
+                <td style="margin-right: 50px";>SN</td>
+                <td style="margin-right: 50px";>Particular</td>
+                <td style="margin-right: 50px";>Qty</td>
+                <td>
+                  &nbsp;&nbsp;
+                </td>
+                <td style="margin-right: 50px";>Rate</td>
+                <td style="margin-right: 50px";>Amount</td>
+              </tr>
+              @foreach ($seatTable->getCurrentBookingItems() as $item)
+                <tr>
+                  <td> {{ $loop->iteration }} </td>
+                  <td>
+                    {{ \Illuminate\Support\Str::limit($item->product->name, 25, $end=' ...') }}
+                  </td>
+                  <td>
+                    @php echo number_format( $item->product->selling_price ); @endphp
+                  </td>
+                  <td>
+                    &nbsp;&nbsp;
+                  </td>
+                  <td>
+                    {{ $item->quantity }}
+                  </td>
+                  <td>
+                    @php echo number_format( $item->getTotalAmount() ); @endphp
+                  </td>
+                </tr>
+              @endforeach
+              <tr>
+                <td colspan="6">
+                  &nbsp;
+                </td>
+              </tr>
+              <tr style="">
+                <td colspan="5" style="text-aign: right;">
+                  TOTAL
+                </td>
+                <td>
+                  @php echo number_format( $seatTable->getCurrentBooking()->saleInvoice->getTotalAmountRaw() ); @endphp
+                </td>
+              </tr>
+              @foreach ($seatTable->getCurrentBooking()->saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
+                <tr class="text-secondary" style="font-size: 1.3rem;">
+                  <td colspan="4" style="text-aign: right;">
+                    {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
+                  </td>
+                  <td style="">
+                    @php echo number_format( $saleInvoiceAddition->amount ); @endphp
+                  </td>
+                </tr>
+              @endforeach
+              <tr>
+                <td colspan="5" style="text-aign: right;">
+                  GRAND TOTAL
+                </td>
+                <td>
+                  @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div>
+            -----------------------------------------------<br />
+            THANK YOU &nbsp;&nbsp; VISIT AGAIN<br />
+            -----------------------------------------------<br />
+            kimchiramen.com.np
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
   </div>
-
-  @if ($modes['confirmRemoveSaleInvoiceItem'])
-    @livewire ('seat-table-work-display-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
-  @endif
-
-
-<div class="d-none text-center" id="printDiv">
-  <span>
-    Mister Kimchi Ramen
-  </span>
-  <br />
-  <span class="h4">
-    PAN Num: 605946000
-  </span>
-  <span>
-    Baluwatar, Kathmandu, Nepal
-  </span>
-  <span>
-    +977 9851100000 | 9841000000
-  </span>
-  <span>
-    POS Invoice
-  </span>
-</div>
-
-<script>
-function printElem(elem)
-{
-    console.log('HELLO');
-    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-
-    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
-    mywindow.document.write('</head><body >');
-    mywindow.document.write(document.getElementById(elem).innerHTML);
-    mywindow.document.write('</body></html>');
-
-    mywindow.document.close(); // necessary for IE >= 10
-    mywindow.focus(); // necessary for IE >= 10*/
-
-    mywindow.print();
-    mywindow.close();
-
-    return true;
-}
-</script>
 
 </div>
