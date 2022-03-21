@@ -275,6 +275,9 @@
               <tr>
                 <td style="margin-right: 50px";>SN</td>
                 <td style="margin-right: 50px";>Particular</td>
+                <td>
+                  &nbsp;&nbsp;
+                </td>
                 <td style="margin-right: 50px";>Qty</td>
                 <td>
                   &nbsp;&nbsp;
@@ -287,6 +290,9 @@
                   <td> {{ $loop->iteration }} </td>
                   <td>
                     {{ \Illuminate\Support\Str::limit($item->product->name, 25, $end=' ...') }}
+                  </td>
+                  <td>
+                    &nbsp;&nbsp;
                   </td>
                   <td>
                     @php echo number_format( $item->product->selling_price ); @endphp
