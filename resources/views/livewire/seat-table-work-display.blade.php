@@ -283,6 +283,9 @@
                   &nbsp;&nbsp;
                 </td>
                 <td style="margin-right: 50px";>Rate</td>
+                <td>
+                  &nbsp;&nbsp;
+                </td>
                 <td style="margin-right: 50px";>Amount</td>
               </tr>
               @foreach ($seatTable->getCurrentBookingItems() as $item)
@@ -304,6 +307,9 @@
                     {{ $item->quantity }}
                   </td>
                   <td>
+                    &nbsp;&nbsp;
+                  </td>
+                  <td>
                     @php echo number_format( $item->getTotalAmount() ); @endphp
                   </td>
                 </tr>
@@ -314,7 +320,7 @@
                 </td>
               </tr>
               <tr style="">
-                <td colspan="5" style="text-aign: right;">
+                <td colspan="7" style="text-aign: right;">
                   TOTAL
                 </td>
                 <td>
@@ -323,7 +329,7 @@
               </tr>
               @foreach ($seatTable->getCurrentBooking()->saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
                 <tr class="text-secondary" style="font-size: 1.3rem;">
-                  <td colspan="4" style="text-aign: right;">
+                  <td colspan="7" style="text-aign: right;">
                     {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                   </td>
                   <td style="">
@@ -332,7 +338,7 @@
                 </tr>
               @endforeach
               <tr>
-                <td colspan="5" style="text-aign: right;">
+                <td colspan="7" style="text-aign: right;">
                   GRAND TOTAL
                 </td>
                 <td>
