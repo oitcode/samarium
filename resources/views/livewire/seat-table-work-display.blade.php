@@ -257,8 +257,10 @@
 
       <div>
         <div>
+          @if ($seatTable->getCurrentBooking()->saleInvoice)
           Bill # : 90{{ $seatTable->getCurrentBooking()->saleInvoice->sale_invoice_id }}
           -078/79
+          @endif
         </div>
         <div>
           Invoice Date : {{ $seatTable->getCurrentBooking()->saleInvoice->sale_invoice_date }}
