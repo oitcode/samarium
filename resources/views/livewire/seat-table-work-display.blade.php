@@ -324,7 +324,9 @@
                   TOTAL
                 </td>
                 <td>
-                  @php echo number_format( $seatTable->getCurrentBooking()->saleInvoice->getTotalAmountRaw() ); @endphp
+                  @if ($seatTable->getCurrentBooking()->saleInvoice)
+                    @php echo number_format( $seatTable->getCurrentBooking()->saleInvoice->getTotalAmountRaw() ); @endphp
+                  @endif
                 </td>
               </tr>
               @foreach ($seatTable->getCurrentBooking()->saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
