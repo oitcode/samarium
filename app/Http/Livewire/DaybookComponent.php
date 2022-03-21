@@ -193,6 +193,17 @@ class DaybookComponent extends Component
         return $total;
     }
 
+    public function cmpTodayItems($a, $b)
+    {
+        if ($a['quantity'] < $b['quantity']) {
+            return -1;
+        } else if ($a['quantity'] == $b['quantity']) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
     public function getSaleItemQuantity($saleInvoices)
     {
         $this->todayItems = array();
@@ -206,6 +217,16 @@ class DaybookComponent extends Component
                 }
             }
         }
+
+        usort($this->todayItems, function ($a, $b) {
+            if ($b['quantity'] < $a['quantity']) {
+                return -1;
+            } else if ($b['quantity'] == $a['quantity']) {
+                return 0;
+            } else {
+                return 1;
+            }
+        });
     }
 
     public function itemInTodayItems(Product $product)
@@ -238,4 +259,5 @@ class DaybookComponent extends Component
 
         $this->todayItems[] = $line;
     }
+
 }
