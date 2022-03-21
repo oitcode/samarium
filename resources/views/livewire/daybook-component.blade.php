@@ -222,6 +222,39 @@
 
         </div>
 
+        {{-- Daybook item count div --}}
+        <div class="my-4">
+          @if (count($todayItems) > 0)
+            <div class="table-responsive">
+              <table class="table table-bordered" style="font-size: 1.3rem;">
+                <thead>
+                  <tr class="bg-success text-white">
+                    <th>
+                      Item
+                    </th>
+                    <th>
+                      Quantity
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($todayItems as $item)
+                      <tr>
+                        <td>
+                          {{ $item['product']->name }}
+                        </td>
+                        <td>
+                          {{ $item['quantity'] }}
+                        </td>
+                      <tr>
+                    @endforeach
+                </tbody>
+              </table>
+            </div>
+          @endif
+        </div>
+
 
 
       </div>

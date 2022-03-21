@@ -8,8 +8,10 @@ use Livewire\WithPagination;
 
 use App\Sale;
 use App\SaleInvoice;
+use App\SaleInvoiceItem;
 use App\SeatTableBooking;
 use App\SaleInvoicePaymentType;
+use App\Product;
 
 class DaybookComponent extends Component
 {
@@ -30,6 +32,8 @@ class DaybookComponent extends Component
     public $displayingSaleInvoice;
 
     public $paymentByType = array();
+
+    public $todayItems = array();
 
     public $modes = [
         'displaySaleInvoice' => false,
@@ -61,6 +65,8 @@ class DaybookComponent extends Component
                 $this->getPaymentTotalByType($saleInvoices, $saleInvoicePaymentType->sale_invoice_payment_type_id)
             );
         }
+
+        $this->getSaleItemQuantity($saleInvoices);
 
         return view('livewire.daybook-component')
             ->with('saleInvoices', $saleInvoices);
@@ -185,5 +191,51 @@ class DaybookComponent extends Component
         }
 
         return $total;
+    }
+
+    public function getSaleItemQuantity($saleInvoices)
+    {
+        $this->todayItems = array();
+
+        foreach ($saleInvoices as $saleInvoice) {
+            foreach ($saleInvoice->saleInvoiceItems as $saleInvoiceItem) {
+                if ($this->itemInTodayItems($saleInvoiceItem->product)) {
+                    $this->updateTodayItemsCount($saleInvoiceItem);
+                } else {
+                    $this->addToTodayItemsCount($saleInvoiceItem);
+                }
+            }
+        }
+    }
+
+    public function itemInTodayItems(Product $product)
+    {
+        foreach ($this->todayItems as $item) {
+            if ($item['product']->product_id == $product->product_id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function updateTodayItemsCount(SaleInvoiceItem $saleInvoiceItem)
+    {
+        for ($i=0; $i < count($this->todayItems); $i++) {
+            if ($this->todayItems[$i]['product']->product_id == $saleInvoiceItem->product->product_id) {
+                $this->todayItems[$i]['quantity'] += $saleInvoiceItem->quantity;
+                break;
+            }
+        }
+    }
+
+    public function addToTodayItemsCount(SaleInvoiceItem $saleInvoiceItem)
+    {
+        $line = array();
+
+        $line['product'] = $saleInvoiceItem->product;
+        $line['quantity'] = $saleInvoiceItem->quantity;
+
+        $this->todayItems[] = $line;
     }
 }
