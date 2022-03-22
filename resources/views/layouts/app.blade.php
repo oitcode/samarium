@@ -262,6 +262,13 @@
         </li>
 
         <li class="nav-item text-white mr-3 pr-3">
+          <a class="nav-link text-white" href="{{ route('weekbook') }}">
+            <i class="fas fa-book mr-3"></i>
+            WEEKBOOK
+          </a>
+        </li>
+
+        <li class="nav-item text-white mr-3 pr-3">
           <a class="nav-link text-white" href="{{ route('customer') }}">
             <i class="fas fa-users mr-3"></i>
             CUSTOMER
