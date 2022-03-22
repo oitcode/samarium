@@ -2,11 +2,19 @@
 
   {{-- Top Menu --}}
   <div class="mb-4">
-    <button class="btn btn-success mr-3" wire:click="goToPreviousWeek">
+    <button class="btn btn-success mr-3 p-3" wire:click="goToPreviousWeek" style="font-size:1.3rem;">
+      <i class="fas fa-arrow-left mr-3"></i>
       Previous 
     </button>
-    <button class="btn btn-success mr-3" wire:click="goToNextWeek">
+    <button class="btn btn-success mr-3 p-3 pr-5" wire:click="goToNextWeek" style="font-size:1.3rem;">
+      <i class="fas fa-arrow-right mr-3"></i>
       Next
+    </button>
+
+    <button wire:loading class="btn btn-danger-rm" style="">
+      <div class="spinner-border text-info mr-3" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </button>
   </div>
 
