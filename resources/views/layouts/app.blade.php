@@ -140,6 +140,24 @@
                   </div>
 
                   <div class="text-center border">
+                    <a href="{{ route('weekbook') }}"
+                      class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+
+                      style="font-size: 1.5rem;
+
+                        @if(Route::current()->getName() == 'weekbook')
+                          background-color: #008450;
+                        @endif
+
+                      ">
+
+                      <i class="fas fa-book mr-3"></i>
+                      WEEKBOOK
+
+                    </a>
+                  </div>
+
+                  <div class="text-center border">
                   <a href="{{ route('customer') }}"
                     class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
 

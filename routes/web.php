@@ -39,6 +39,8 @@ Route::get('/dashboard/sale', 'SaleController@takeaway')->name('sale');
 
 /* Daybook */
 Route::get('/dashboard/daybook', 'DaybookController@index')->name('daybook');
+/* Weekbook */
+Route::get('/dashboard/weekbook', 'WeekbookController@index')->name('weekbook');
 
 /* Expense */
 Route::get('/dashboard/expense', 'ExpenseController@index')->name('expense');
@@ -55,7 +57,7 @@ Route::get('/dashboard/onlineorder', 'OnlineOrderController@index')->name('onlin
 /* Website routes */
 // Route::get('/website', 'WebsiteController@homePage')->name('website-home');
 
-/* Daybook */
+/* Company */
 Route::get('/dashboard/company', 'CompanyController@index')->name('company');
 
 /* Product View */

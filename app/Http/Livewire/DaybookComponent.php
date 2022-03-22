@@ -34,6 +34,7 @@ class DaybookComponent extends Component
     public $paymentByType = array();
 
     public $todayItems = array();
+    public $weekBook = array();
 
     public $modes = [
         'displaySaleInvoice' => false,
