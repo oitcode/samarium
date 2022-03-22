@@ -1,6 +1,6 @@
 <div>
   @if ($takeaway)
-    @if (true || $modes['addItem'])
+    @if (! $takeaway->saleInvoice->isPaid() && $modes['addItem'])
       @livewire ('takeaway-work-add-item', ['takeaway' => $takeaway,])
     @endif
   @endif

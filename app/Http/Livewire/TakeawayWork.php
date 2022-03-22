@@ -17,6 +17,7 @@ class TakeawayWork extends Component
     public $deletingSaleInvoiceItem = null; 
 
     public $modes = [
+        'addItem' => true,
         'makePayment' => false,
         'confirmRemoveSaleInvoiceItem' => false,
     ];
