@@ -8,125 +8,67 @@
 
   <div class="row">
 
-    <div class="col-md-6">
-      <div class="card mb-3 shadow">
-        <div class="card-header bg-success-rm text-white-rm">
-          <h1 class="badge badge-success" style="font-size: 2rem;">
+    <div class="col-md-7">
+      <div class="card mb-0">
+        <div class="card-header bg-success text-white">
+          <h1 class="d-inline" style="font-size: 2rem;">
             {{ $seatTable->name }}
           </h2>
+
+          <div class="d-inline">
+            <button wire:loading class="btn">
+              <span class="spinner-border text-white mr-3" role="status" style="font-size: 1rem;">
+              </span>
+            </button>
+          </div>
         </div>
       
         <div class="card-body p-0">
   
-          <div class="row">
+          <div class="row" style="margin:auto;">
             <div class="col-md-8">
-              <div class="p-2">
-                <div class="float-left">
-                  @if ($seatTable->isBooked())
-                    <button class="btn btn-warning-rm mr-3" style="height: 100px; width: 225px; font-size: 1.5rem; background-color: orange;" wire:click="enterMode('makePayment')">
-                      <i class="fas fa-shopping-cart mr-3"></i>
-                      Payment
-                    </button>
-
-                  @else
-                    <button onclick="this.disabled=true;" class="btn btn-success mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="bookSeatTable">
-                      <i class="fas fa-check mr-3"></i>
-                      Book table
-                    </button>
-                  @endif
-                </div>
-                <div class="float-left">
-                  @if ($seatTable->isBooked())
-                    @if (true)
-                    <button class="btn btn-warning-rm mr-3 p-3 text-danger" style="font-size: 2.5rem;">
-                      <span class="mr-2">
-                      Rs
-                      </span>
-                      @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
-                    </button>
-                    @else
-                      FOO
-                    @endif
-                  @endif
-                </div>
-
-                <div class="float-left">
-                  <button wire:loading class="btn">
-                    <span class="spinner-border text-info mr-3" role="status">
-                    </span>
+              <div class="d-inline">
+                @if ($seatTable->isBooked())
+                  @if (false)
+                  <button class="btn btn-danger mr-3 h-100" wire:click="closeTable">
+                    Close
                   </button>
-                </div>
+                  <button class="btn btn-success mr-3 h-100"
+                      onclick="
+                          console.log('Bayern ');
 
-                <div class="clearfix">
-                </div>
-  
-  
-              </div>
-
-              <div class="table-responsive">
-                <table class="table">
-                  @if ($seatTable->isBooked())
-                  <tr>
-                    <td colspan="2">
-                      <button class="btn btn-danger mr-3" wire:click="closeTable">
-                        Close
-                      </button>
-                      <button class="btn btn-success mr-3"
-                          onclick="
-                              console.log('Bayern ');
-
-                              var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+                          var mywindow = window.open('', 'PRINT', 'height=400,width=600');
     
-                              mywindow.document.write('<html><head><title>' + document.title  + '</title>');
-                              mywindow.document.write('</head><body >');
-                              mywindow.document.write(document.getElementById('printDiv').innerHTML);
-                              mywindow.document.write('</body></html>');
+                          mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+                          mywindow.document.write('</head><body >');
+                          mywindow.document.write(document.getElementById('printDiv').innerHTML);
+                          mywindow.document.write('</body></html>');
     
-                              mywindow.document.close();
-                              mywindow.focus();
+                          mywindow.document.close();
+                          mywindow.focus();
     
-                              mywindow.print();
-                              mywindow.close();
+                          mywindow.print();
+                          mywindow.close();
 
 
 
-                              console.log('Munich')">
-                        Print
-                      </button>
-                    </td>
-                  </tr>
+                          console.log('Munich')">
+                    Print
                   @endif
-                  <tr class="text-success" style="font-size: 1.3rem;">
-                    <td>
-                      <i class="fas fa-shopping-cart mr-3"></i>
-                      Total items
-                    </td>
-                    <td class="font-weight-bold">
-                      @if ($seatTable->isBooked())
-                        {{ $seatTable->getCurrentBookingTotalItems() }}
-                      @else
-                        NA
-                      @endif
-                    </td>
-                  </tr>
-                  <tr style="font-size: 1.3rem;">
-                    <td>
-                      <i class="fas fa-rupee-sign mr-3"></i>
-                      Total bill amount
-                    </td>
-                    <td class="font-weight-bold">
-                      @if ($seatTable->isBooked())
-                        @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
-                      @else
-                        NA
-                      @endif
-                    </td>
-                  </tr>
-                </table>
+                  </button>
+
+                @else
+                  <button onclick="this.disabled=true;" class="btn btn-success mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="bookSeatTable">
+                    <i class="fas fa-check mr-3"></i>
+                    Book table
+                  </button>
+                @endif
               </div>
+
             </div>
 
             <div class="col-md-4">
+              @if (false)
               @if ($seatTable->isBooked())
                 <div class="d-flex justify-content-center h-100 bg-danger text-white">
                   <div class="d-flex justify-content-center align-self-center">
@@ -144,24 +86,18 @@
                   </div>
                 </div>
               @endif
+              @endif
             </div>
           </div>
 
         </div>
       </div>
 
-      @if ($modes['makePayment'])
-        @livewire ('seat-table-work-display-make-payment', ['seatTable' => $seatTable,])
-      @endif
-  
-    </div>
-  
-    <div class="col-md-6">
       @if ($seatTable->isBooked())
       <div class="table-responsive">
         <table class="table table-bordered table-hover border-dark">
           <thead>
-            <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+            <tr class="bg-success text-white" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
               <th>--</th>
               <th>#</th>
               <th>Item</th>
@@ -203,7 +139,7 @@
             @endif
           </tbody>
   
-          <tfoot class="bg-success text-white" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
+          <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
             <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
               <strong>
               TOTAL
@@ -221,6 +157,14 @@
         </table>
       </div>
       @endif
+
+    </div>
+  
+    <div class="col-md-5">
+      @if ($seatTable->isBooked() && $modes['makePayment'])
+        @livewire ('seat-table-work-display-make-payment', ['seatTable' => $seatTable,])
+      @endif
+  
 
       <div>
         <div class="float-right">

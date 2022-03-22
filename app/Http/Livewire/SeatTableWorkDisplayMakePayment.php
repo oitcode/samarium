@@ -49,6 +49,10 @@ class SeatTableWorkDisplayMakePayment extends Component
         'customer' => false,
     ];
 
+    protected $listeners = [
+      'makePaymentPleaseUpdate' => 'mount',
+    ];
+
     public function mount()
     {
         $this->saleInvoicePaymentTypes = SaleInvoicePaymentType::all();

@@ -17,7 +17,7 @@ class SeatTableWorkDisplay extends Component
 
     public $modes = [
         'addItem' => true,
-        'makePayment' => false,
+        'makePayment' => true,
         'confirmRemoveSaleInvoiceItem' => false,
     ];
 
@@ -101,6 +101,7 @@ class SeatTableWorkDisplay extends Component
 
     public function itemAddedToBooking()
     {
+        $this->emit('makePaymentPleaseUpdate');
         $this->render();
     }
 

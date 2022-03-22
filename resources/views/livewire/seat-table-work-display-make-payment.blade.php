@@ -1,7 +1,7 @@
 <div class="card shadow">
   <div class="card-header bg-success text-white">
     <h1 class="" style="font-size: 1.5rem;">
-      Make payment
+      Payment
     </h1>
   </div>
   <div class="card-body p-0">
@@ -49,7 +49,7 @@
                 @enderror
               </td>
               <td class="p-0 h-100 font-weight-bold">
-                <input class="w-100 h-100 font-weight-bold" type="text" wire:model="customer_phone" wire:keydown.enter="fetchCustomerData"/>
+                <input class="w-100 h-100 font-weight-bold" type="text" wire:model.defer="customer_phone" wire:keydown.enter="fetchCustomerData"/>
               </td>
             </tr>
 
@@ -199,6 +199,7 @@
         CONFIRM
       </button>
 
+      @if (false)
       <button
           onclick="this.disabled=true;"
           class="btn btn-lg btn-danger"
@@ -206,6 +207,7 @@
           style="width: 120px; height: 70px; font-size: 1.3rem;">
         CANCEL
       </button>
+      @endif
       <button wire:loading class="btn">
         <span class="spinner-border text-info mr-3" role="status">
         </span>
