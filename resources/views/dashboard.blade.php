@@ -5,6 +5,9 @@
   @livewire('recent-sale-invoices-component')
   @endif
 
+  @livewire ('viewbook-component')
+
+  @if (false)
   <div class="h-100">
     <div class="d-flex justify-content-center h-100 text-success">
       <div class="d-flex justify-content-center align-self-center">
@@ -25,6 +28,7 @@
       </div>
     </div>
   </div>
+  @endif
 
 @endsection
 
