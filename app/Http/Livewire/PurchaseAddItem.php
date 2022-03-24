@@ -6,12 +6,12 @@ use Livewire\Component;
 
 use App\Product;
 use App\ProductCategory;
-use App\SaleInvoiceItem;
-use App\Takeaway;
+use App\PurchaseItem;
+use App\Purchase;
 
-class TakeawayWorkAddItem extends Component
+class PurchaseAddItem extends Component
 {
-    public $takeaway;
+    public $purchase;
 
     /* Search options */
     public $add_item_name;
@@ -24,6 +24,8 @@ class TakeawayWorkAddItem extends Component
     public $product_id;
     public $quantity;
     public $price;
+    public $unit;
+    public $purchase_price_per_unit;
     public $total;
 
     public $selectedProduct = null;
@@ -36,12 +38,12 @@ class TakeawayWorkAddItem extends Component
 
     public function render()
     {
-        $this->productCategories = ProductCategory::where('does_sell', 'yes')->get();
+        $this->productCategories = ProductCategory::all();
 
-        return view('livewire.takeaway-work-add-item');
+        return view('livewire.purchase-add-item');
     }
 
-    public function addItemToTakeaway()
+    public function addItemToPurchase()
     {
         if (! $this->selectedProduct) {
             return;
@@ -53,40 +55,41 @@ class TakeawayWorkAddItem extends Component
          *
          */
 
-        $saleInvoiceItem = $this->checkExistingItemsForProduct($this->takeaway->saleInvoice, $this->product_id);
+        $purchaseItem = $this->checkExistingItemsForProduct($this->purchase, $this->product_id);
 
-        if ($saleInvoiceItem) {
+        if ($purchaseItem) {
             /* Update existing sale invoice item. */
-            $saleInvoiceItem->quantity += $this->quantity;
-            $saleInvoiceItem->save();
+            $purchaseItem->quantity += $this->quantity;
+            $purchaseItem->save();
 
-            $this->updateSaleInvoiceTotalAmount($this->takeaway->saleInvoice, $saleInvoiceItem, $this->quantity);
+            $this->updatePurchaseTotalAmount($this->purchase, $purchaseItem, $this->quantity);
         } else {
-            /* Add sale_invoice_item to sale_invoice */
-            $saleInvoiceItem = new SaleInvoiceItem;
+            /* Add purchase_item to purchase */
+            $purchaseItem = new PurchaseItem;
 
-            $saleInvoiceItem->sale_invoice_id = $this->takeaway->saleInvoice->sale_invoice_id;
-            $saleInvoiceItem->product_id = $this->product_id;
-            $saleInvoiceItem->quantity = $this->quantity;
+            $purchaseItem->purchase_id = $this->purchase->purchase_id;
+            $purchaseItem->product_id = $this->product_id;
+            $purchaseItem->quantity = $this->quantity;
+            $purchaseItem->unit = $this->unit;
+            $purchaseItem->purchase_price_per_unit = $this->purchase_price_per_unit;
+            $purchaseItem->purchase_price_total = $this->quantity * $this->purchase_price_per_unit;
 
-            $saleInvoiceItem->save();
+            $purchaseItem->save();
 
-            /* Update sale_invoice total amount. */
-            $saleInvoice = $this->takeaway->saleInvoice;
-            $saleInvoice->total_amount += $saleInvoiceItem->getTotalAmount();
-            $saleInvoice->save();
+            /* Update purchase total amount. */
+            // TODO
         }
 
         /* Do inventory management */
         $product = Product::find($this->product_id);
 
         if ($product->stock_count != null) {
-          $product->stock_count -=  $this->quantity;
+          $product->stock_count +=  $this->quantity;
           $product->save();
         }
 
         $this->resetInputFields();
-        $this->emit('itemAddedToTakeaway');
+        $this->emit('itemAddedToPurchase');
     }
 
     public function updateProductList()
@@ -100,7 +103,9 @@ class TakeawayWorkAddItem extends Component
 
         $this->price = $product->selling_price;
         $this->quantity = 1;
-        $this->total = $this->price * $this->quantity;
+        if ($this->purchase_price_per_unit) {
+            $this->total = $this->purchase_price_unit * $this->quantity;
+        }
 
         $this->selectedProduct = $product;
     }
@@ -121,7 +126,7 @@ class TakeawayWorkAddItem extends Component
 
     public function updateTotal()
     {
-        $this->total = $this->price * $this->quantity;
+        $this->total = $this->purchase_price_per_unit * $this->quantity;
     }
 
     public function selectProductCategory()
@@ -136,22 +141,21 @@ class TakeawayWorkAddItem extends Component
         $this->products = ProductCategory::find($validatedData['search_product_category_id'])->products;
     }
 
-    public function checkExistingItemsForProduct($saleInvoice, $productId)
+    public function checkExistingItemsForProduct($purchase, $productId)
     {
-        foreach ($saleInvoice->saleInvoiceItems as $saleInvoiceItem) {
-            if ($saleInvoiceItem->product_id == $productId) {
-                return $saleInvoiceItem;
+        foreach ($purchase->purchaseItems as $purchaseItem) {
+            if ($purchaseItem->product_id == $productId) {
+                return $purchaseItem;
             }
         }
 
         return null;
     }
 
-    public function updateSaleInvoiceTotalAmount($saleInvoice, $saleInvoiceItem, $quantity)
+    public function updatePurchaseTotalAmount($purchase, $purchaseItem, $quantity)
     {
-        $product = $saleInvoiceItem->product;
+        $product = $purchaseItem->product;
 
-        $saleInvoice->total_amount += $product->selling_price * $quantity;
-        $saleInvoice->save();
+        $purchase->save();
     }
 }

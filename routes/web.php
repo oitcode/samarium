@@ -45,6 +45,9 @@ Route::get('/dashboard/weekbook', 'WeekbookController@index')->name('weekbook');
 /* Expense */
 Route::get('/dashboard/expense', 'ExpenseController@index')->name('dashboard-expense');
 
+/* Purchase */
+Route::get('/dashboard/purchase', 'PurchaseController@index')->name('dashboard-purchase');
+
 /* Menu */
 Route::get('/dashboard/menu', 'MenuController@index')->name('menu');
 

@@ -78,4 +78,13 @@ class Product extends Model
     {
         return $this->hasMany('App\WebsiteOrderItems', 'product_id', 'product_id');
     }
+
+    /*
+     * purchase_item table.
+     *
+     */
+    public function purchaseItems()
+    {
+        return $this->hasMany('App\PurchaseItem', 'product_id', 'product_id');
+    }
 }

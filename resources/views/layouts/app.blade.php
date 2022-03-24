@@ -43,10 +43,10 @@
                   More
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <button class="dropdown-item" wire:click="">
+                  <a class="dropdown-item" href="{{ route('dashboard-purchase') }}">
                     <i class="fas fa-star text-secondary"></i>
                     Purchase
-                  </button>
+                  </a>
                   <a class="dropdown-item" href="{{ route('dashboard-expense') }}">
                     <i class="fas fa-star text-secondary"></i>
                     Expense

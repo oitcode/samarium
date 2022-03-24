@@ -13,7 +13,7 @@ class WebsiteController extends Controller
     public function homePage()
     {
         $products = Product::all();
-        $productCategories = ProductCategory::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
 
         return view('website.home')
@@ -25,7 +25,7 @@ class WebsiteController extends Controller
     public function productView($id, $name)
     {
         $products = Product::all();
-        $productCategories = ProductCategory::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
 
         $product = Product::find($id);
@@ -40,7 +40,7 @@ class WebsiteController extends Controller
     public function productCategoryProductList($id, $name)
     {
         $products = Product::all();
-        $productCategories = ProductCategory::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
 
         $productCategory = ProductCategory::find($id);
@@ -60,7 +60,7 @@ class WebsiteController extends Controller
     public function checkout()
     {
         $products = Product::all();
-        $productCategories = ProductCategory::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
 
         $cartItems = session('cartItems');

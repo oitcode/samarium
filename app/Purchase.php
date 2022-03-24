@@ -21,7 +21,7 @@ class Purchase extends Model
     protected $primaryKey = 'purchase_id';
 
     protected $fillable = [
-         'vendor_id',
+         'vendor_id', 'payment_status'
     ];
 
 
@@ -38,5 +38,60 @@ class Purchase extends Model
     public function vendor()
     {
         return $this->belongsTo('App\Vendor', 'vendor_id', 'vendor_id');
+    }
+
+    /*
+     * purchase_item table.
+     *
+     */
+    public function purchaseItems()
+    {
+        return $this->hasMany('App\PurchaseItem', 'purchase_id', 'purchase_id');
+    }
+
+    /*
+     * purchase_payment table.
+     *
+     */
+    public function purchasePayments()
+    {
+        return $this->hasMany('App\PurchasePayment', 'purchase_id', 'purchase_id');
+    }
+
+
+    /*-------------------------------------------------------------------------
+     * Methods
+     *-------------------------------------------------------------------------
+     *
+     */
+
+    /*
+     * Get total amount.
+     *
+     */
+    public function getTotalAmount()
+    {
+        $total = 0;
+
+        foreach ($this->purchaseItems as $purchaseItem) {
+            $total += $purchaseItem->getTotalAmount();
+        }
+
+        return $total;
+    }
+
+    /*
+     * Get pending amount.
+     *
+     */
+    public function getPendingAmount()
+    {
+        $pendingAmount = $this->getTotalAmount();
+
+        foreach ($this->purchasePayments as $purchasePayment) {
+            $pendingAmount -= $purchasePayment->amount;
+        }
+
+        return $pendingAmount;
     }
 }

@@ -1,13 +1,19 @@
-<x-box-generic title="Purchase">
-  <x-menu-bar-horizontal>
-    <x-menu-item title="Create" fa-class="fas fa-plus" click-method="enterMode('create')" />
-    <x-menu-item title="List" fa-class="fas fa-list" click-method="enterMode('list')" />
-  </x-menu-bar-horizontal>
+<div>
+  @if (! $modes['create'] && ! $modes['display'])
+  <div class="mb-3">
+    <button class="btn btn-success m-0" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('create')">
+      <i class="fas fa-plus mr-3"></i>
+      New
+    </button>
+  </div>
+  @endif
 
   @if ($modes['create'])
     @livewire ('purchase-create')
-  @elseif ($modes['list'])
+  @elseif ($modes['display'])
+    @livewire ('purchase-display', ['purchase' => $displayingPurchase,])
+  @else
     @livewire ('purchase-list')
   @endif
 
-</x-box-generic>
+</div>

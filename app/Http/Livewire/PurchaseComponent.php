@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use App\Purchase;
+
 class PurchaseComponent extends Component
 {
     public $modes = [
@@ -16,6 +18,7 @@ class PurchaseComponent extends Component
 
     protected $listeners = [
         'clearModes',
+        'displayPurchase',
     ];
 
     public function render()
@@ -42,5 +45,12 @@ class PurchaseComponent extends Component
     public function exitMode($modeName)
     {
         $this->modes[$modeName] = false;
+    }
+
+    public function displayPurchase($purchaseId)
+    {
+        $purchase = Purchase::find($purchaseId);
+        $this->displayingPurchase = $purchase;
+        $this->enterMode('display');
     }
 }
