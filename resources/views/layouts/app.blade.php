@@ -35,18 +35,46 @@
           </div>
           @guest
           @else
-            <div class="float-right mx-4 px-4 text-white border-right border-left" style="font-size: 1.3rem;">
-              <i class="fas fa-user mr-3"></i>
-              {{ Auth::user()->name }}
+
+            <div class="float-right mx-4-rm mr-4 px-4-rm text-white border-right" style="font-size: 1.3rem;">
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-list text-secondry mr-2"></i>
+                  More
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button class="dropdown-item" wire:click="">
+                    <i class="fas fa-star text-secondary"></i>
+                    Purchase
+                  </button>
+                  <a class="dropdown-item" href="{{ route('dashboard-expense') }}">
+                    <i class="fas fa-star text-secondary"></i>
+                    Expense
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <div class="float-right mx-4 px-4 text-white border-right-rm border-left" style="font-size: 1.3rem;">
-              <a href="{{ route('company') }}" class="text-white">
-              <i class="fas fa-user mr-3"></i>
-              Company
-              </a>
+            <div class="float-right mx-4 px-4 text-white border-right-rm" style="font-size: 1.3rem;">
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-cog text-secondry mr-2"></i>
+                  {{ Auth::user()->name }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <a class="dropdown-item" href="">
+                    <i class="fas fa-user text-secondary"></i>
+                    {{ Auth::user()->name }}
+                  </a>
+                  <a class="dropdown-item" href="{{ route('company') }}">
+                    <i class="fas fa-user text-secondary"></i>
+                    Company
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="float-right mx-4 px-4 text-white border-left" style="font-size: 1.3rem;">
+
+            <div class="float-right mx-4 px-4 text-white border-left-rm" style="font-size: 1.3rem;">
               @livewire ('online-order-counter')
             </div>
           @endguest

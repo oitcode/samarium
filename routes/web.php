@@ -43,7 +43,7 @@ Route::get('/dashboard/daybook', 'DaybookController@index')->name('daybook');
 Route::get('/dashboard/weekbook', 'WeekbookController@index')->name('weekbook');
 
 /* Expense */
-Route::get('/dashboard/expense', 'ExpenseController@index')->name('expense');
+Route::get('/dashboard/expense', 'ExpenseController@index')->name('dashboard-expense');
 
 /* Menu */
 Route::get('/dashboard/menu', 'MenuController@index')->name('menu');
@@ -68,3 +68,4 @@ Route::get('/product/category/{id}/{name}', 'WebsiteController@productCategoryPr
 
 /* Checkout page  */
 Route::get('/checkout', 'WebsiteController@checkout')->name('website-checkout');
+

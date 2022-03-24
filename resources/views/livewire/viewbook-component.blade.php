@@ -1,76 +1,37 @@
 <div>
   {{-- User select Menu --}}
 
-  <div class="dropdown" wire:key="bookDropdown">
-    <button class="btn btn-success dropdown-toggle" type="button" id="bookDropdown" data-toggle="dropdown" aria-expanded="false">
-      Book
-    </button>
-    <div class="dropdown-menu" aria-labelledby="bookDropdown">
-      <button class="dropdown-item" wire:click="enterDaybookMode">
-        Daybook
+  <div>
+    <div class="dropdown" wire:key="rand">
+      <button class="btn btn-success dropdown-toggle"
+          type="button" id="bookDropdown"
+          data-toggle="dropdown" aria-expanded="false"
+          style="font-size: 1.3rem;">
+        Book
       </button>
-      <button class="dropdown-item" wire:click="enterWeekbookMode">
-        Weekbook
-      </button>
-      <button class="dropdown-item" wire:click="enterMonthbookMode">
-        Monthbook
-      </button>
-      <button class="dropdown-item" wire:click="enterYearbookMode">
-        Yearbook
-      </button>
+      <div class="dropdown-menu" aria-labelledby="bookDropdown">
+        <button class="dropdown-item" wire:click="enterDaybookMode">
+          Daybook
+        </button>
+        <button class="dropdown-item" wire:click="enterWeekbookMode">
+          Weekbook
+        </button>
+        <button class="dropdown-item" wire:click="enterMonthbookMode">
+          Monthbook
+        </button>
+        <button class="dropdown-item" wire:click="enterYearbookMode">
+          Yearbook
+        </button>
+      </div>
     </div>
-  </div>
-
-  {{-- Previous Next Menu --}}
-  <div class="my-3">
-    <button class="btn btn-success"
-        @if ($modes['daybook'])
-          wire:click="goToPrevious('day')"
-        @elseif ($modes['weekbook'])
-          wire:click="goToPrevious('week')"
-        @elseif ($modes['monthbook'])
-          wire:click="goToPrevious('month')"
-        @elseif ($modes['yearbook'])
-          wire:click="goToPrevious('year')"
-        @else
-        @endif
-        >
-      <i class="fas fa-arrow-left mr-3"></i>
-      Previous
-    </button>
-    <button class="btn btn-success"
-        @if ($modes['daybook'])
-          wire:click="goToNext('day')"
-        @elseif ($modes['weekbook'])
-          wire:click="goToNext('week')"
-        @elseif ($modes['monthbook'])
-          wire:click="goToNext('month')"
-        @elseif ($modes['yearbook'])
-          wire:click="goToNext('year')"
-        @else
-        @endif
-        >
-      <i class="fas fa-arrow-right mr-3"></i>
-      Next
+    <button wire:loading class="btn btn-danger-rm" style="font-size: 0.5rem;">
+      <div class="spinner-border text-info mr-3" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </button>
   </div>
 
-  {{-- Display info --}}
-  <div class="my-3">
-    @if ($modes['daybook'])
-      Date: {{ $startDate->toDateString() }}
-      {{ $startDate->format('l') }}
-    @elseif ($modes['weekbook'])
-      Start: {{ $startDate->toDateString() }} {{ $startDate->format('l') }}
-      <br/>
-      End: {{ $endDate->toDateString() }} {{ $endDate->format('l') }}
-    @elseif ($modes['monthbook'])
-      Month: {{ $startDate->format('F') }} {{ $startDate->format('Y') }}
-    @elseif ($modes['yearbook'])
-      Year: {{ $startDate->format('Y') }}
-    @else
-    @endif
-  </div>
+
 
   @if (
       $modes['daybook'] ||
@@ -78,7 +39,65 @@
       $modes['monthbook'] ||
       $modes['yearbook']
   )
-    <div class="table-responsive">
+
+    {{-- Previous Next Menu --}}
+    <div class="my-3">
+      <button class="btn btn-success"
+          @if ($modes['daybook'])
+            wire:click="goToPrevious('day')"
+          @elseif ($modes['weekbook'])
+            wire:click="goToPrevious('week')"
+          @elseif ($modes['monthbook'])
+            wire:click="goToPrevious('month')"
+          @elseif ($modes['yearbook'])
+            wire:click="goToPrevious('year')"
+          @else
+          @endif
+          style="font-size: 1.3rem;"
+          >
+        <i class="fas fa-arrow-left mr-3"></i>
+        Previous
+      </button>
+
+      <button class="btn btn-success"
+          @if ($modes['daybook'])
+            wire:click="goToNext('day')"
+          @elseif ($modes['weekbook'])
+            wire:click="goToNext('week')"
+          @elseif ($modes['monthbook'])
+            wire:click="goToNext('month')"
+          @elseif ($modes['yearbook'])
+            wire:click="goToNext('year')"
+          @else
+          @endif
+          style="font-size: 1.3rem;"
+          >
+        <i class="fas fa-arrow-right mr-3"></i>
+        Next
+      </button>
+    </div>
+
+    {{-- Display info --}}
+    <div class="my-3 py-3 pl-3 bg-white border" style="font-size: 1.3rem;">
+      @if ($modes['daybook'])
+        Date: {{ $startDate->toDateString() }}
+        {{ $startDate->format('l') }}
+      @elseif ($modes['weekbook'])
+        <div class="mb-2">
+        Start: {{ $startDate->toDateString() }} {{ $startDate->format('l') }}
+        </div>
+        <div class="">
+        End: {{ $endDate->toDateString() }} {{ $endDate->format('l') }}
+        </div>
+      @elseif ($modes['monthbook'])
+        Month: {{ $startDate->format('F') }} {{ $startDate->format('Y') }}
+      @elseif ($modes['yearbook'])
+        Year: {{ $startDate->format('Y') }}
+      @else
+      @endif
+    </div>
+
+    <div class="table-responsive bg-white">
       <table class="table table-bordered" style="font-size:1.3rem;">
         <thead>
           <tr class="bg-success text-white">

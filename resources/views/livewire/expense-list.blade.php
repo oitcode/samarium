@@ -48,7 +48,7 @@
       </table>
     @else
       <div class="p-2 text-muted">
-        No expense categories.
+        No expenses
       </div>
     @endif
   
