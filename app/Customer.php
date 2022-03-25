@@ -51,6 +51,15 @@ class Customer extends Model
         return $this->hasMany('App\SaleInvoice', 'customer_id', 'customer_id');
     }
 
+    /*
+     * ab_account table.
+     *
+     */
+    public function abAccount()
+    {
+        return $this->hasOne('App\AbAccount', 'ab_account_id', 'ab_account_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods

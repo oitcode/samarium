@@ -57,6 +57,9 @@ Route::get('/dashboard/cafesale', 'SeatTableController@index')->name('cafesale')
 /* Online Order */
 Route::get('/dashboard/onlineorder', 'OnlineOrderController@index')->name('online-order');
 
+/* Online Order */
+Route::get('/dashboard/accounting', 'AccountingController@index')->name('dashboard-accounting');
+
 /* Website routes */
 // Route::get('/website', 'WebsiteController@homePage')->name('website-home');
 

@@ -70,6 +70,10 @@
                     <i class="fas fa-user text-secondary"></i>
                     Company
                   </a>
+                  <a class="dropdown-item" href="{{ route('dashboard-accounting') }}">
+                    <i class="fas fa-user text-secondary"></i>
+                    Accounting
+                  </a>
                 </div>
               </div>
             </div>

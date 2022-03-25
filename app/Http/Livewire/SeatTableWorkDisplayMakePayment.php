@@ -12,6 +12,10 @@ use App\SaleInvoicePayment;
 use App\SaleInvoiceAddition;
 use App\SaleInvoiceAdditionHeading;
 
+use App\JournalEntry;
+use App\JournalEntryItem;
+use App\AbAccount;
+
 class SeatTableWorkDisplayMakePayment extends Component
 {
     public $seatTable;
@@ -156,6 +160,15 @@ class SeatTableWorkDisplayMakePayment extends Component
                     }
 
                     $customer->save();
+
+                    /* Make an ab_account of this customer */
+                    $abAccount = new AbAccount;
+                    $abAccount->name = $customer->name . ' ' . $customer->phone;
+                    $abAccount->save();
+
+                    /* Link the ab_account to the customer */
+                    $customer->ab_account_id = $abAccount->ab_account_id;
+                    $customer->save();
                 }
             }
 
@@ -219,6 +232,9 @@ class SeatTableWorkDisplayMakePayment extends Component
             $booking->status = 'closed';
             $booking->save();
 
+            /* Make journal entry */
+            $this->makeJournalEntry($saleInvoice);
+
             DB::commit();
 
             $this->enterMode('paid');
@@ -276,5 +292,133 @@ class SeatTableWorkDisplayMakePayment extends Component
                 dd('Sale invoice addition heading configurations gone wrong! Contact your service provider.');
             }
         }
+    }
+
+    public function makeJournalEntry($saleInvoice)
+    {
+        $journalEntry = new JournalEntry;
+        $journalEntry->date = date('Y-m-d');
+        $journalEntry->notes = 'Sales made';
+        $journalEntry->save();
+
+        if ($saleInvoice->payment_status == 'paid') {
+
+            /*
+             * Cash account debit
+             */
+
+            $journalEntryItem = new JournalEntryItem;
+
+            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
+            $journalEntryItem->ab_account_id = AbAccount::where('name', 'cash')->first()->getKey();
+            $journalEntryItem->type = 'debit';
+            $journalEntryItem->amount = $saleInvoice->getTotalAmount();
+
+            $journalEntryItem->save();
+
+
+            /*
+             * Sales account credit
+             */
+
+            $journalEntryItem = new JournalEntryItem;
+
+            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
+            $journalEntryItem->ab_account_id = AbAccount::where('name', 'sales')->first()->getKey();
+            $journalEntryItem->type = 'credit';
+            $journalEntryItem->amount = $saleInvoice->getTotalAmount();
+
+            $journalEntryItem->save();
+        } else if ($saleInvoice->payment_status == 'partially_paid') {
+            /*
+             * Cash account debit
+             */
+
+            $journalEntryItem = new JournalEntryItem;
+
+            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
+            $journalEntryItem->ab_account_id = AbAccount::where('name', 'cash')->first()->getKey();
+            $journalEntryItem->type = 'debit';
+            $journalEntryItem->amount = $saleInvoice->getPaidAmount();
+
+            $journalEntryItem->save();
+
+            /*
+             * Customer account debit
+             *
+             * account receivable
+             *
+             */
+
+            $journalEntryItem = new JournalEntryItem;
+
+            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
+
+            $journalEntryItem->ab_account_id = $saleInvoice->customer->abAccount->ab_account_id;
+
+            $journalEntryItem->type = 'debit';
+            $journalEntryItem->amount = $saleInvoice->getPendingAmount();
+
+            $journalEntryItem->save();
+
+            /*
+             * Sales account credit
+             */
+
+            $journalEntryItem = new JournalEntryItem;
+
+            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
+            $journalEntryItem->ab_account_id = AbAccount::where('name', 'sales')->first()->getKey();
+            $journalEntryItem->type = 'credit';
+            $journalEntryItem->amount = $saleInvoice->getTotalAmount();
+
+            $journalEntryItem->save();
+        } else if ($saleInvoice->payment_status == 'pending') {
+
+            /*
+             * Customer account debit
+             *
+             * account receivable
+             *
+             */
+
+            $journalEntryItem = new JournalEntryItem;
+
+            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
+
+            $journalEntryItem->ab_account_id = $saleInvoice->customer->abAccount->ab_account_id;
+
+            $journalEntryItem->type = 'debit';
+            $journalEntryItem->amount = $saleInvoice->getTotalAmount();
+
+            $journalEntryItem->save();
+
+
+            /*
+             * Sales account credit
+             */
+
+            $journalEntryItem = new JournalEntryItem;
+
+            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
+            $journalEntryItem->ab_account_id = AbAccount::where('name', 'sales')->first()->getKey();
+            $journalEntryItem->type = 'credit';
+            $journalEntryItem->amount = $saleInvoice->getTotalAmount();
+
+            $journalEntryItem->save();
+        } else {
+          dd('Whoops');
+        }
+    }
+
+    public function createPersonalAccount($name)
+    {
+        $abAccount = new AbAccount;
+
+        $abAccount->name = $name;
+
+        $abAccount->save();
+
+        return $abAccount->getKey();
     }
 }
