@@ -48,4 +48,69 @@ class AbAccount extends Model
     {
         return $this->belongsTo('App\Customer', 'ab_account_id', 'ab_account_id');
     }
+
+    /*
+     * ledger_entry table.
+     *
+     */
+    public function ledgerEntries()
+    {
+        return $this->hasMany('App\LedgerEntry', 'ab_account_id', 'ab_account_id');
+    }
+
+    /*
+     * ledger_entry table (by being related in the entry).
+     *
+     */
+    public function relatedLedgerEntries()
+    {
+        return $this->hasMany('App\LedgerEntry', 'related_ab_account_id', 'ab_account_id');
+    }
+
+
+    /*-------------------------------------------------------------------------
+     * Methods
+     *-------------------------------------------------------------------------
+     *
+     */
+
+    public function getLedgerBalance()
+    {
+        $balance = 0;
+
+        foreach ($this->ledgerEntries as $ledgerEntry) {
+            if ($ledgerEntry->type == 'debit') {
+                $balance += $ledgerEntry->amount;
+            } else if ($ledgerEntry->type == 'credit') {
+                $balance -= $ledgerEntry->amount;
+            } else {
+                dd('Whoops');
+            }
+        }
+
+        return $balance;
+    }
+
+    public function hasDebitBalance()
+    {
+        if ($this->getLedgerBalance() >= 0) {
+            return true;
+        } else if ($this->getLedgerBalance() < 0) {
+            return false;
+        } else {
+            dd('Whoops');
+        }
+    }
+
+    public function hasCreditBalance()
+    {
+        if ($this->getLedgerBalance() >= 0) {
+            return false;
+        } else if ($this->getLedgerBalance() < 0) {
+            return true;
+        } else {
+            dd('Whoops');
+        }
+    }
+
 }

@@ -4,16 +4,23 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use App\AbAccount;
+
 class AccountingComponent extends Component
 {
+    public $displayingLedgerAbAccount;
+
     public $modes = [
         'create' => false,
         'list' => true,
         'viewJournalEntry' => false,
+        'displayLedger' => false,
+        'trialBalance' => false,
     ];
 
     protected $listeners = [
         'abAccountAdded',
+        'displayAbAccountLedger',
     ];
 
     public function render()
@@ -45,5 +52,14 @@ class AccountingComponent extends Component
     public function abAccountAdded()
     {
         $this->exitMode('create');
+    }
+
+    public function displayAbAccountLedger($abAccountId)
+    {
+        $abAccount = AbAccount::find($abAccountId);
+
+        $this->displayingLedgerAbAccount = $abAccount;
+
+        $this->enterMode('displayLedger');
     }
 }

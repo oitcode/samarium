@@ -15,6 +15,7 @@ use App\SaleInvoiceAdditionHeading;
 use App\JournalEntry;
 use App\JournalEntryItem;
 use App\AbAccount;
+use App\LedgerEntry;
 
 class SeatTableWorkDisplayMakePayment extends Component
 {
@@ -233,7 +234,7 @@ class SeatTableWorkDisplayMakePayment extends Component
             $booking->save();
 
             /* Make journal entry */
-            // $this->makeJournalEntry($saleInvoice);
+            $this->makeAccountingEntry($saleInvoice);
 
             DB::commit();
 
@@ -294,7 +295,7 @@ class SeatTableWorkDisplayMakePayment extends Component
         }
     }
 
-    public function makeJournalEntry($saleInvoice)
+    public function makeAccountingEntry($saleInvoice)
     {
         $journalEntry = new JournalEntry;
         $journalEntry->date = date('Y-m-d');
@@ -409,6 +410,8 @@ class SeatTableWorkDisplayMakePayment extends Component
         } else {
           dd('Whoops');
         }
+
+        $this->makeLedgerEntry($journalEntry);
     }
 
     public function createPersonalAccount($name)
@@ -420,5 +423,68 @@ class SeatTableWorkDisplayMakePayment extends Component
         $abAccount->save();
 
         return $abAccount->getKey();
+    }
+
+    public function makeLedgerEntry($journalEntry)
+    {
+        /* Find single side and multiple sides */
+        $debitCount = 0;
+        $creditCount = 0;
+        foreach ($journalEntry->journalEntryItems as $journalEntryItem) {
+            if ($journalEntryItem->type == 'debit') {
+                $debitCount++;
+            } else if ($journalEntryItem->type == 'credit') {
+                $creditCount++;
+            } else {
+                dd('Whoops');
+            }
+        }
+
+        $multiSide = '';
+        if ($debitCount > 1 && $creditCount > 1) {
+            dd('Whoops');
+        } else if ($debitCount > 1) {
+            $multiSide = 'debit';
+        } else if ($creditCount > 1) {
+            $multiSide = 'credit';
+        }
+
+        foreach ($journalEntry->journalEntryItems as $journalEntryItem) {
+
+            foreach ($journalEntry->journalEntryItems as $jei ) {
+                if ($jei->journal_entry_item_id == $journalEntryItem->journal_entry_item_id) {
+                    continue;
+                }
+
+                if ($jei->type == $journalEntryItem->type) {
+                    continue;
+                }
+
+                $ledgerEntry = new LedgerEntry;
+
+                $ledgerEntry->date = $journalEntry->date;
+                $ledgerEntry->ab_account_id = $journalEntryItem->ab_account_id;
+                $ledgerEntry->journal_entry_id = $journalEntry->journal_entry_id;
+
+                if ($jei->type == 'credit') {
+                    $ledgerEntry->particulars = 'To ' . $jei->abAccount->name . ' A/c';
+                } else if ($jei->type == 'debit') {
+                    $ledgerEntry->particulars = 'By ' . $jei->abAccount->name . ' A/c';
+                } else {
+                    dd('Whoops');
+                }
+
+                $ledgerEntry->related_ab_account_id = $jei->abAccount->ab_account_id;
+                $ledgerEntry->type = $journalEntryItem->type;
+
+                if ($journalEntryItem->type == $multiSide) {
+                    $ledgerEntry->amount = $journalEntryItem->amount;
+                } else {
+                    $ledgerEntry->amount = $jei->amount;
+                }
+
+                $ledgerEntry->save();
+            }
+        }
     }
 }

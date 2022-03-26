@@ -1,5 +1,5 @@
 <div>
-  <div class="table-responsive">
+  <div class="table-responsive bg-white">
     <table class="table table-bordered table-striped-rm" style="font-size: 1.3rem;">
       <thead>
         <tr class="bg-success text-white">

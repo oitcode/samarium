@@ -39,4 +39,13 @@ class JournalEntry extends Model
     {
         return $this->hasMany('App\JournalEntryItem', 'journal_entry_id', 'journal_entry_id');
     }
+
+    /*
+     * ledger_entry table.
+     *
+     */
+    public function ledgerEntries()
+    {
+        return $this->hasMany('App\LedgerEntry', 'journal_entry_id', 'journal_entry_id');
+    }
 }

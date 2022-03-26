@@ -10,7 +10,7 @@
 
       <tbody>
         @foreach ($abAccounts as $abAccount)
-          <tr>
+          <tr role="button" wire:click="$emit('displayAbAccountLedger', {{ $abAccount->ab_account_id }})">
             <td>
               {{ $abAccount->ab_account_id }}
             </td>
