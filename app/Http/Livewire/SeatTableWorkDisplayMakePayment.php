@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Traits\MiscTrait;
+
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
@@ -19,6 +21,8 @@ use App\LedgerEntry;
 
 class SeatTableWorkDisplayMakePayment extends Component
 {
+    use MiscTrait;
+
     public $seatTable;
 
     public $total;
@@ -233,7 +237,7 @@ class SeatTableWorkDisplayMakePayment extends Component
             $booking->status = 'closed';
             $booking->save();
 
-            /* Make journal entry */
+            /* Make accounting entries */
             $this->makeAccountingEntry($saleInvoice);
 
             DB::commit();
@@ -295,125 +299,6 @@ class SeatTableWorkDisplayMakePayment extends Component
         }
     }
 
-    public function makeAccountingEntry($saleInvoice)
-    {
-        $journalEntry = new JournalEntry;
-        $journalEntry->date = date('Y-m-d');
-        $journalEntry->notes = 'Sales made';
-        $journalEntry->save();
-
-        if ($saleInvoice->payment_status == 'paid') {
-
-            /*
-             * Cash account debit
-             */
-
-            $journalEntryItem = new JournalEntryItem;
-
-            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
-            $journalEntryItem->ab_account_id = AbAccount::where('name', 'cash')->first()->getKey();
-            $journalEntryItem->type = 'debit';
-            $journalEntryItem->amount = $saleInvoice->getTotalAmount();
-
-            $journalEntryItem->save();
-
-
-            /*
-             * Sales account credit
-             */
-
-            $journalEntryItem = new JournalEntryItem;
-
-            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
-            $journalEntryItem->ab_account_id = AbAccount::where('name', 'sales')->first()->getKey();
-            $journalEntryItem->type = 'credit';
-            $journalEntryItem->amount = $saleInvoice->getTotalAmount();
-
-            $journalEntryItem->save();
-        } else if ($saleInvoice->payment_status == 'partially_paid') {
-            /*
-             * Cash account debit
-             */
-
-            $journalEntryItem = new JournalEntryItem;
-
-            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
-            $journalEntryItem->ab_account_id = AbAccount::where('name', 'cash')->first()->getKey();
-            $journalEntryItem->type = 'debit';
-            $journalEntryItem->amount = $saleInvoice->getPaidAmount();
-
-            $journalEntryItem->save();
-
-            /*
-             * Customer account debit
-             *
-             * account receivable
-             *
-             */
-
-            $journalEntryItem = new JournalEntryItem;
-
-            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
-
-            $journalEntryItem->ab_account_id = $saleInvoice->customer->abAccount->ab_account_id;
-
-            $journalEntryItem->type = 'debit';
-            $journalEntryItem->amount = $saleInvoice->getPendingAmount();
-
-            $journalEntryItem->save();
-
-            /*
-             * Sales account credit
-             */
-
-            $journalEntryItem = new JournalEntryItem;
-
-            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
-            $journalEntryItem->ab_account_id = AbAccount::where('name', 'sales')->first()->getKey();
-            $journalEntryItem->type = 'credit';
-            $journalEntryItem->amount = $saleInvoice->getTotalAmount();
-
-            $journalEntryItem->save();
-        } else if ($saleInvoice->payment_status == 'pending') {
-
-            /*
-             * Customer account debit
-             *
-             * account receivable
-             *
-             */
-
-            $journalEntryItem = new JournalEntryItem;
-
-            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
-
-            $journalEntryItem->ab_account_id = $saleInvoice->customer->abAccount->ab_account_id;
-
-            $journalEntryItem->type = 'debit';
-            $journalEntryItem->amount = $saleInvoice->getTotalAmount();
-
-            $journalEntryItem->save();
-
-
-            /*
-             * Sales account credit
-             */
-
-            $journalEntryItem = new JournalEntryItem;
-
-            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
-            $journalEntryItem->ab_account_id = AbAccount::where('name', 'sales')->first()->getKey();
-            $journalEntryItem->type = 'credit';
-            $journalEntryItem->amount = $saleInvoice->getTotalAmount();
-
-            $journalEntryItem->save();
-        } else {
-          dd('Whoops');
-        }
-
-        $this->makeLedgerEntry($journalEntry);
-    }
-
     public function createPersonalAccount($name)
     {
         $abAccount = new AbAccount;
@@ -425,66 +310,4 @@ class SeatTableWorkDisplayMakePayment extends Component
         return $abAccount->getKey();
     }
 
-    public function makeLedgerEntry($journalEntry)
-    {
-        /* Find single side and multiple sides */
-        $debitCount = 0;
-        $creditCount = 0;
-        foreach ($journalEntry->journalEntryItems as $journalEntryItem) {
-            if ($journalEntryItem->type == 'debit') {
-                $debitCount++;
-            } else if ($journalEntryItem->type == 'credit') {
-                $creditCount++;
-            } else {
-                dd('Whoops');
-            }
-        }
-
-        $multiSide = '';
-        if ($debitCount > 1 && $creditCount > 1) {
-            dd('Whoops');
-        } else if ($debitCount > 1) {
-            $multiSide = 'debit';
-        } else if ($creditCount > 1) {
-            $multiSide = 'credit';
-        }
-
-        foreach ($journalEntry->journalEntryItems as $journalEntryItem) {
-
-            foreach ($journalEntry->journalEntryItems as $jei ) {
-                if ($jei->journal_entry_item_id == $journalEntryItem->journal_entry_item_id) {
-                    continue;
-                }
-
-                if ($jei->type == $journalEntryItem->type) {
-                    continue;
-                }
-
-                $ledgerEntry = new LedgerEntry;
-
-                $ledgerEntry->date = $journalEntry->date;
-                $ledgerEntry->ab_account_id = $journalEntryItem->ab_account_id;
-                $ledgerEntry->journal_entry_id = $journalEntry->journal_entry_id;
-
-                if ($jei->type == 'credit') {
-                    $ledgerEntry->particulars = 'To ' . $jei->abAccount->name . ' A/c';
-                } else if ($jei->type == 'debit') {
-                    $ledgerEntry->particulars = 'By ' . $jei->abAccount->name . ' A/c';
-                } else {
-                    dd('Whoops');
-                }
-
-                $ledgerEntry->related_ab_account_id = $jei->abAccount->ab_account_id;
-                $ledgerEntry->type = $journalEntryItem->type;
-
-                if ($journalEntryItem->type == $multiSide) {
-                    $ledgerEntry->amount = $journalEntryItem->amount;
-                } else {
-                    $ledgerEntry->amount = $jei->amount;
-                }
-
-                $ledgerEntry->save();
-            }
-        }
-    }
 }

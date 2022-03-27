@@ -23,7 +23,18 @@
     <div class="form-group">
       <label for="">Amount</label>
       <input type="text" class="form-control" wire:model.defer="amount">
-      @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+      @error('amount') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
+      <label>Payment Type</label>
+      <select class="custom-select" wire:model.defer="expense_payment_type_id">
+        <option>---</option>
+        @foreach($expensePaymentTypes as $expensePaymentType)
+          <option value="{{ $expensePaymentType->expense_payment_type_id }}">{{ $expensePaymentType->name }}</option>
+        @endforeach
+      </select>
+      @error('expense_payment_type_id') <span class="text-danger">{{ $message }}</span>@enderror
     </div>
   
     <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>

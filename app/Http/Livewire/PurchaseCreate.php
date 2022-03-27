@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Traits\MiscTrait;
+
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
@@ -11,6 +13,8 @@ use App\PurchasePayment;
 
 class PurchaseCreate extends Component
 {
+    use MiscTrait;
+
     public $purchase;
 
     public $modes = [
@@ -88,6 +92,9 @@ class PurchaseCreate extends Component
 
             $this->purchase->payment_status = 'paid';
             $this->purchase->save();
+
+            /* Make accounting entries */
+            $this->makePurchaseAccountingEntry($this->purchase);
 
             DB::commit();
 

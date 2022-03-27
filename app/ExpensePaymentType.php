@@ -4,26 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Expense extends Model
+class ExpensePaymentType extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'expense';
+    protected $table = 'expense_payment_type';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'expense_id';
+    protected $primaryKey = 'expense_payment_type_id';
 
     protected $fillable = [
-        'expense_category_id', 'date',
-        'name', 'amount',
-        'comment',
+         'name',
     ];
 
 
@@ -33,22 +31,12 @@ class Expense extends Model
      *
      */
 
-
-    /*
-     * expense_category table.
-     *
-     */
-    public function expenseCategory()
-    {
-        return $this->belongsTo('App\ExpenseCategory', 'expense_category_id', 'expense_category_id');
-    }
-
     /*
      * expense_payment table.
      *
      */
     public function expensePayments()
     {
-        return $this->hasMany('App\ExpensePayment', 'expense_id', 'expense_id');
+        return $this->hasMany('App\ExpensePayment', 'expense_payment_type_id', 'expense_payment_type_id');
     }
 }
