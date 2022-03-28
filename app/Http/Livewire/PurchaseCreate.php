@@ -94,7 +94,7 @@ class PurchaseCreate extends Component
             $this->purchase->save();
 
             /* Make accounting entries */
-            $this->makePurchaseAccountingEntry($this->purchase);
+            //$this->makePurchaseAccountingEntry($this->purchase);
 
             DB::commit();
 
