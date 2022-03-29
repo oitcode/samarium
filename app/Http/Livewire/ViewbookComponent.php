@@ -97,7 +97,9 @@ class ViewbookComponent extends Component
 
     public function getTotalAmount($startDate, $endDate)
     {
-        $saleInvoices = SaleInvoice::whereDate('sale_invoice_date', '>=',  $startDate)->get();
+        $saleInvoices = SaleInvoice::whereDate('sale_invoice_date', '>=',  $startDate)
+            ->whereDate('sale_invoice_date', '<=',  $endDate)
+            ->get();
 
         $total = 0;
 
@@ -113,7 +115,7 @@ class ViewbookComponent extends Component
         if ($this->modes['daybook']) {
             $this->endDate = $this->startDate->copy();
         } else if ($this->modes['weekbook']) {
-            $this->endDate = $this->startDate->copy()->endOfWeek();
+            $this->endDate = $this->startDate->copy()->addDays(6);
         } else if ($this->modes['monthbook']) {
             $this->endDate = $this->startDate->copy()->endOfMonth();
         } else if ($this->modes['yearbook']) {
@@ -213,6 +215,7 @@ class ViewbookComponent extends Component
     {
         if ($unit == 'day') {
             $this->startDate->subDay();
+            $this->endDate = $this->startDate->copy();
         } else if ($unit == 'week') {
             $this->startDate->subWeek();
             $this->endDate = $this->startDate->copy()->addDays(6);
@@ -231,6 +234,7 @@ class ViewbookComponent extends Component
     {
         if ($unit == 'day') {
             $this->startDate->addDay();
+            $this->endDate = $this->startDate->copy();
         } else if ($unit == 'week') {
             $this->startDate->addWeek();
             $this->endDate = $this->startDate->copy()->addDays(6);
