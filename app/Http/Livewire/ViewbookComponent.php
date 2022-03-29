@@ -70,7 +70,7 @@ class ViewbookComponent extends Component
         $this->unitName = 'Date';
 
         $this->startDate = Carbon::now()->startOfWeek(Carbon::SUNDAY);
-        $this->endDate = Carbon::now()->endOfWeek(Carbon::SUNDAY);
+        $this->endDate = $this->startDate->copy()->addDays(6);
 
         $this->enterMode('weekbook');
     }
@@ -215,10 +215,13 @@ class ViewbookComponent extends Component
             $this->startDate->subDay();
         } else if ($unit == 'week') {
             $this->startDate->subWeek();
+            $this->endDate = $this->startDate->copy()->addDays(6);
         } else if ($unit == 'month') {
             $this->startDate->subMonth();
+            $this->endDate = $this->startDate->copy()->endOfMonth();
         } else if ($unit == 'year') {
             $this->startDate->subYear();
+            $this->endDate = $this->startDate->copy()->endOfYear();
         } else {
             dd('Whoops');
         }
@@ -230,10 +233,13 @@ class ViewbookComponent extends Component
             $this->startDate->addDay();
         } else if ($unit == 'week') {
             $this->startDate->addWeek();
+            $this->endDate = $this->startDate->copy()->addDays(6);
         } else if ($unit == 'month') {
             $this->startDate->addMonth();
+            $this->endDate = $this->startDate->copy()->endOfMonth();
         } else if ($unit == 'year') {
             $this->startDate->addYear();
+            $this->endDate = $this->startDate->copy()->endOfYear();
         } else {
             dd('Whoops');
         }
