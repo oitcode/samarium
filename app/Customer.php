@@ -120,7 +120,7 @@ class Customer extends Model
         $total = 0;
 
         foreach ($this->saleInvoices as $saleInvoice) {
-            $total += $saleInvoice->total_amount;
+            $total += $saleInvoice->getTotalAmount();
         }
 
         return $total;

@@ -8,18 +8,21 @@
       </h2>
     </div>
 
-    <div class="p-3">
+    <div class="pl-3">
       <div class="my-3 font-weight-bold">
-        Payment date:
-        &nbsp;
-        &nbsp;
+        <div class="text-secondary">
+          Payment date
+        </div>
         {{ $payment_date }}
-        &nbsp;
-        &nbsp;
-        |
-        &nbsp;
-        &nbsp;
-        {{ Carbon\Carbon::parse($payment_date)->format('l') }}
+        <span class="badge badge-pill badge-secondary" style="font-size: 1rem;">
+          {{ Carbon\Carbon::parse($payment_date)->format('l') }}
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="">Deposited by</label>
+        <input type="text" class="form-control" wire:model.defer="deposited_by" style="font-size: 1.3rem;">
+        @error('deposited_by') <span class="text-danger">{{ $message }}</span> @enderror
       </div>
 
       <div class="form-group">
@@ -29,8 +32,17 @@
       </div>
 
       <div class="form-group">
-        <label for="">Deposited by</label>
-        <input type="text" class="form-control" wire:model.defer="deposited_by" style="font-size: 1.3rem;">
+        <label for="">Payment type</label>
+        <select class="w-100 h-100 custom-control"
+            wire:model.defer="sale_invoice_payment_type_id">
+          <option>---</option>
+
+          @foreach ($saleInvoicePaymentTypes as $saleInvoicePaymentType)
+            <option value="{{ $saleInvoicePaymentType->sale_invoice_payment_type_id }}">
+              {{ $saleInvoicePaymentType->name }}
+            </option>
+          @endforeach
+        </select>
         @error('deposited_by') <span class="text-danger">{{ $message }}</span> @enderror
       </div>
 

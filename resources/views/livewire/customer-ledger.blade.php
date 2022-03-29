@@ -85,7 +85,7 @@
               {{ $saleInvoice->customer->name }}
             </td>
             <td>
-              {{ $saleInvoice->total_amount }}
+              {{ $saleInvoice->getTotalAmount() }}
             </td>
             <td>
               {{ $saleInvoice->getPaidAmount() }}

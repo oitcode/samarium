@@ -148,6 +148,14 @@
           </tr>
 
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
+            <td class="w-50 p-0 bg-info-rm p-2 font-weight-bold">
+              <button class="btn btn-success-rm mr-3 border-secondary" wire:click="">
+                Multiple payments
+              </button>
+            </td>
+          </tr>
+
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
             <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
               <span class="ml-4">
                 Tender Amount
