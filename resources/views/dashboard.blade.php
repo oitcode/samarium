@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section ('content')
   @if (false)
-  @livewire('cafe-sale-component')
-  @livewire('recent-sale-invoices-component')
+  @livewire ('cafe-sale-component')
+  @livewire ('recent-sale-invoices-component')
+  @livewire ('viewbook-component')
   @endif
 
-  @livewire ('viewbook-component')
+  @livewire ('sale-invoice-search')
 
   @if (false)
   <div class="h-100">
