@@ -80,14 +80,29 @@
     {{-- Display info --}}
     <div class="my-3 py-3 pl-3 bg-white border" style="font-size: 1.3rem;">
       @if ($modes['daybook'])
-        Date: {{ $startDate->toDateString() }}
+        <div style="color: orange">
+          <h2>
+            Date
+          </h2>
+        </div>
+        {{ $startDate->toDateString() }}
         {{ $startDate->format('l') }}
       @elseif ($modes['weekbook'])
         <div class="mb-2">
-        Start: {{ $startDate->toDateString() }} {{ $startDate->format('l') }}
+          <div style="color: orange">
+            <h2>
+              Start Date
+            </h2>
+          </div>
+          {{ $startDate->toDateString() }} {{ $startDate->format('l') }}
         </div>
         <div class="">
-        End: {{ $endDate->toDateString() }} {{ $endDate->format('l') }}
+          <div style="color: orange">
+            <h2>
+              End Date
+            </h2>
+          </div>
+          {{ $endDate->toDateString() }} {{ $endDate->format('l') }}
         </div>
       @elseif ($modes['monthbook'])
         Month: {{ $startDate->format('F') }} {{ $startDate->format('Y') }}
