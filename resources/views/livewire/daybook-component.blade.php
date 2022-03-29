@@ -20,15 +20,6 @@
       </button>
 
 
-      <button class="btn btn-success mr-2 float-left" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="">
-        <i class="fas fa-calendar mr-3"></i>
-        {{ $daybookDate }}
-      </button>
-
-      <button class="btn btn-danger m-0 float-left" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="">
-        <i class="fas fa-calendar mr-3"></i>
-        {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
-      </button>
 
       <div class="shadow-sm-rm float-right" style="width: 500px;">
         <div class="card">
@@ -45,6 +36,18 @@
       <div class="clearfix">
       </div>
 
+    </div>
+
+    <div class="d-none d-md-block my-3 text-secondary" style="font-size: 1.3rem;">
+      <i class="fas fa-calendar mr-2"></i>
+      {{ Carbon\Carbon::parse($daybookDate)->format('Y F d') }}
+      &nbsp;&nbsp;
+      {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
+
+      <input type="date" wire:model.defer="daybookDate" class="ml-5">
+      <button class="btn btn-success" wire:click="render">
+        Go
+      </button>
     </div>
 
     {{-- Show in smaller screens --}}
