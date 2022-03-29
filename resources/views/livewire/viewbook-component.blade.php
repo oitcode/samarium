@@ -117,7 +117,15 @@
 
         <tbody>
           @foreach ($book as $line)
-            <tr>
+            <tr
+              @if ($modes['monthbook'])
+                @if ($line['unit']->format('l') == 'Sunday')
+                  class="" 
+                  style="background-color: #cec;"
+                @endif
+              @endif
+
+            >
               <td>
                 @if ($modes['daybook'])
                   {{ $line['unit']->toTimeString() }}
