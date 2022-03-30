@@ -1,12 +1,18 @@
-<div class="my-4">
+<div class="mb-4">
 
   {{-- Top Menu --}}
   <div class="mb-4">
-    <button class="btn btn-success mr-3 p-3" wire:click="goToPreviousWeek" style="font-size:1.3rem;">
+    <button class="btn btn-success m-0 p-3"
+        wire:click="goToPreviousWeek"
+        style="height: 100px; width: 225px; font-size: 1.5rem;"
+    >
       <i class="fas fa-arrow-left mr-3"></i>
       Previous 
     </button>
-    <button class="btn btn-success mr-3 p-3 pr-5" wire:click="goToNextWeek" style="font-size:1.3rem;">
+    <button class="btn btn-danger mx-0 p-3 pr-5"
+        wire:click="goToNextWeek"
+        style="height: 100px; width: 225px; font-size: 1.5rem;"
+    >
       <i class="fas fa-arrow-right mr-3"></i>
       Next
     </button>
@@ -16,6 +22,15 @@
         <span class="sr-only">Loading...</span>
       </div>
     </button>
+
+    <button class="btn btn-success p-3 pr-5 float-right" wire:click="goToNextWeek" style="font-size:1.3rem;">
+      <h2>
+        <i class="fas fa-rupee-sign mr-3"></i>
+        @php echo number_format($totalAmount); @endphp
+      <h2>
+    </button>
+    <div class="clearfix">
+    </div>
   </div>
 
   @if (count($weekBook) > 0)
