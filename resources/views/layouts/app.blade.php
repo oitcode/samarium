@@ -93,7 +93,7 @@
               <div class="d-none d-md-block">
 
                 <div class="text-center border">
-                  <a href="{{ route('dashboard') }}" class="btn btn-warning w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1.5rem; background-color: orange;">
+                  <a href="{{ route('dashboard') }}" class="btn btn-warning w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1rem; background-color: orange;">
                     <i class="fas fa-tv mr-3"></i>
                     DASHBOARD
                   </a>
@@ -103,7 +103,7 @@
                   <a href="{{ route('sale') }}"
                     class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
 
-                    style="font-size: 1.5rem;
+                    style="font-size: 1rem;
 
                       @if(Route::current()->getName() == 'sale')
                         background-color: #008450;
@@ -121,7 +121,7 @@
                   <a href="{{ route('cafesale') }}"
                     class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
 
-                    style="font-size: 1.5rem;
+                    style="font-size: 1rem;
 
                       @if(Route::current()->getName() == 'cafesale')
                         background-color: #008450;
@@ -139,7 +139,7 @@
                   <a href="{{ route('menu') }}"
                     class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
 
-                    style="font-size: 1.5rem;
+                    style="font-size: 1rem;
 
                       @if(Route::current()->getName() == 'menu')
                         background-color: #008450;
@@ -157,7 +157,7 @@
                     <a href="{{ route('daybook') }}"
                       class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
 
-                      style="font-size: 1.5rem;
+                      style="font-size: 1rem;
 
                         @if(Route::current()->getName() == 'daybook')
                           background-color: #008450;
@@ -175,7 +175,7 @@
                     <a href="{{ route('weekbook') }}"
                       class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
 
-                      style="font-size: 1.5rem;
+                      style="font-size: 1rem;
 
                         @if(Route::current()->getName() == 'weekbook')
                           background-color: #008450;
@@ -193,7 +193,7 @@
                   <a href="{{ route('customer') }}"
                     class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
 
-                    style="font-size: 1.5rem;
+                    style="font-size: 1rem;
 
                       @if(Route::current()->getName() == 'customer')
                         background-color: #008450;
@@ -209,7 +209,7 @@
                   <a href="{{ route('online-order') }}"
                     class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
 
-                    style="font-size: 1.5rem;
+                    style="font-size: 1rem;
 
                       @if(Route::current()->getName() == 'online-order')
                         background-color: #008450;
@@ -223,12 +223,14 @@
                 </div>
 
                 <div class="text-center border">
-                  <a class="btn btn-info-rm w-100 h-100 p-4 font-weight-bold text-left text-white" href="{{ route('logout') }}"  style="font-size: 1.5rem;
-                  background-color: #6c6;"
-                     onclick="event.preventDefault();
-                                   document.getElementById('logout-form').submit();">
-                      <i class="fas fa-send mr-3 text-warning-rm" style="color: red"></i>
-                      LOGOUT
+                  <a class="btn btn-info-rm w-100 h-100 p-4 font-weight-bold text-left text-white"
+                      href="{{ route('logout') }}"
+                      style="font-size: 1rem;background-color: #6c6;"
+                      onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();"
+                  >
+                    <i class="fas fa-send mr-3 text-warning-rm" style="color: red"></i>
+                    LOGOUT
                   </a>
 
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

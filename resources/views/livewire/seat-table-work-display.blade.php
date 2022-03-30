@@ -1,11 +1,10 @@
 <div>
 
-  @if ($seatTable->isBooked())
-    @if (true || $modes['addItem'])
-      @livewire ('seat-table-work-display-add-item', ['seat_table_booking_id' => $seatTable->getCurrentBooking()->seat_table_booking_id,])
+    @if ($seatTable->isBooked())
+      @if (true || $modes['addItem'])
+        @livewire ('seat-table-work-display-add-item', ['seat_table_booking_id' => $seatTable->getCurrentBooking()->seat_table_booking_id,])
+      @endif
     @endif
-  @endif
-
   <div class="row">
 
     <div class="col-md-7">
@@ -161,10 +160,15 @@
     </div>
   
     <div class="col-md-5">
+  
+      @if (false)
+      @livewire ('seat-table-work-display-customer', ['seatTable' => $seatTable,])
+      @endif
+
       @if ($seatTable->isBooked() && $modes['makePayment'])
         @livewire ('seat-table-work-display-make-payment', ['seatTable' => $seatTable,])
       @endif
-  
+
 
       <div>
         <div class="float-right">
@@ -311,5 +315,12 @@
 
 
   </div>
+
+  <div >
+    <div class="row">
+      <div class="col-md-6">
+      </div>
+    </div>
+  </div >
 
 </div>

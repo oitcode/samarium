@@ -13,7 +13,7 @@
           <th>Category</th>
           <th>Item</th>
           <th>Price</th>
-          <th>Quantity</th>
+          <th style="width: 100px;">Quantity</th>
           <th>Total</th>
         </tr>
       </thead>
