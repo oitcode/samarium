@@ -33,9 +33,32 @@
     </div>
   </div>
 
+  <div class="d-none d-md-block my-3 text-secondary" style="font-size: 1.3rem;">
+    <div class="row">
+      <div class="col-md-3">
+        <i class="fas fa-calendar mr-2"></i>
+        {{ Carbon\Carbon::parse($startDay)->format('Y F d') }}
+        &nbsp;&nbsp;
+        {{ Carbon\Carbon::parse($startDay)->format('l') }}
+        <br />
+        <i class="fas fa-calendar mr-2"></i>
+        {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('Y F d') }}
+        &nbsp;&nbsp;
+        {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('l') }}
+      </div>
+
+      <div class="col-md-3">
+        <input type="date" wire:model.defer="weekStartDate" class="ml-5">
+        <button class="btn btn-success" wire:click="setStartOfWeek">
+          Go
+        </button>
+      </div>
+    </div>
+  </div>
+
   @if (count($weekBook) > 0)
-    <div class="table-responsive">
-      <table class="table table-bordered" style="font-size: 1.3rem;">
+    <div class="table-responsive m-0 p-0">
+      <table class="table table-bordered shadow-sm" style="font-size: 1.3rem;">
         <thead>
           <tr class="bg-success text-white">
             <th>
@@ -53,7 +76,7 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody class="bg-white">
             @foreach ($weekBook as $day)
               <tr> 
                 <td>
@@ -64,7 +87,7 @@
 
                   @else
                     <span class="text-secondary" style="font-size: 1rem;">
-                      {{ $day['day']->format('Y-m-d') }}
+                      {{ $day['day']->format('Y F d') }}
                     </span>
                   @endif
                 </td>
@@ -81,12 +104,12 @@
             @endforeach
         </tbody>
 
-        <tfoot>
+        <tfoot class="bg-white">
           <tr>
-            <td colspan="3" class="text-right mr-3 font-weight-bold">
+            <td colspan="3" class="text-right mr-3 font-weight-bold" style="font-size: 1.5rem;">
               TOTAL
             </td>
-            <td class="font-weight-bold">
+            <td class="font-weight-bold" style="font-size: 1.5rem;">
               @php echo number_format($totalAmount); @endphp
             </td>
           </tr>

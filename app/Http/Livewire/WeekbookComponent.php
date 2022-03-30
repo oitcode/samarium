@@ -10,6 +10,7 @@ use App\SaleInvoice;
 class WeekbookComponent extends Component
 {
     public $startDay;
+    public $weekStartDate;
 
     public $weekBook = array();
     public $totalAmount = array();
@@ -87,5 +88,14 @@ class WeekbookComponent extends Component
         }
 
         return $total;
+    }
+
+    public function setStartOfWeek()
+    {
+        $validatedData = $this->validate([
+            'weekStartDate' => 'required|date',
+        ]);
+
+        $this->startDay = Carbon::parse($validatedData['weekStartDate']);
     }
 }
