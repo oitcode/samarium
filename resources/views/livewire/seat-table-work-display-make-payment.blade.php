@@ -188,7 +188,7 @@
                 Payment type
               </span>
             </td>
-            <td class="p-0 h-100 w-50 bg-warning font-weight-bold border-0">
+            <td class="p-0 h-100 w-50 font-weight-bold border-0">
               <select class="w-100 h-100 custom-control border-0"
                   style="outline: none;"
                   wire:model.defer="sale_invoice_payment_type_id">
