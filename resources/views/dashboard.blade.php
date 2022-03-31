@@ -4,32 +4,25 @@
   @livewire ('cafe-sale-component')
   @livewire ('recent-sale-invoices-component')
   @livewire ('viewbook-component')
+  @livewire ('sale-invoice-search')
   @endif
 
-  @livewire ('sale-invoice-search')
 
   @if (false)
-  <div class="h-100">
-    <div class="d-flex justify-content-center h-100 text-success">
-      <div class="d-flex justify-content-center align-self-center">
+    @livewire ('oit-copyright')
+  @endif
 
-        {{-- Show in md or bigger screens --}}
-        <span class="badge badge-success text-white d-none d-md-block" style="font-size: 5rem;">
-          &copy;
-          OIT
-          SmartPY
-        </span>
-
-        {{-- Show in smaller than md screens --}}
-        <span class="badge badge-success text-white d-md-none" style="font-size: 2.5rem;">
-          &copy;
-          OIT
-          SmartPY
-        </span>
-      </div>
+  <div class="row">
+    <div class="col-md-3">
+      @livewire ('flash-card-total-bookings-today')
+    </div>
+    <div class="col-md-3">
+      @livewire ('flash-card-current-bookings')
+    </div>
+    <div class="col-md-3">
+      @livewire ('flash-card-total-takeaways-today')
     </div>
   </div>
-  @endif
 
 @endsection
 
