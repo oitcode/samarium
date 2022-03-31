@@ -94,7 +94,7 @@
 
       @if ($seatTable->isBooked())
       <div class="table-responsive">
-        <table class="table table-bordered table-hover border-dark">
+        <table class="table table-bordered table-hover border-dark shadow-sm">
           <thead>
             <tr class="bg-success text-white" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
               <th>--</th>
@@ -106,7 +106,7 @@
             </tr>
           </thead>
   
-          <tbody style="font-size: 1.3rem;">
+          <tbody class="bg-white" style="font-size: 1.3rem;">
             @if ($seatTable->getCurrentBooking()->hasSaleInvoice())
               @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
                 @foreach ($seatTable->getCurrentBookingItems() as $item)
@@ -138,7 +138,7 @@
             @endif
           </tbody>
   
-          <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
+          <tfoot class="bg-white">
             <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
               <strong>
               TOTAL
@@ -160,26 +160,16 @@
     </div>
   
     <div class="col-md-5">
-  
-      @if (false)
-      @livewire ('seat-table-work-display-customer', ['seatTable' => $seatTable,])
-      @endif
-
-      @if ($seatTable->isBooked() && $modes['makePayment'])
+      @if ($seatTable->isBooked() && (true || $modes['makePayment']))
         @livewire ('seat-table-work-display-make-payment', ['seatTable' => $seatTable,])
       @endif
-
-
-      <div>
-        <div class="float-right">
-        </div>
-      </div>
-      
     </div>
 
+    <div>
     @if ($modes['confirmRemoveSaleInvoiceItem'])
       @livewire ('seat-table-work-display-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
     @endif
+    </div>
 
 
     {{-- Bill total PRINT div --}}

@@ -64,6 +64,7 @@ class SeatTableWorkDisplayMakePayment extends Component
 
     protected $listeners = [
       'makePaymentPleaseUpdate' => 'mount',
+      'updatePaymentComponent' => 'mount',
     ];
 
     public function mount()

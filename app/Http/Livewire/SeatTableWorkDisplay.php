@@ -151,6 +151,8 @@ class SeatTableWorkDisplay extends Component
             $saleInvoiceItem->save();
             $saleInvoiceItem->delete();
             DB::commit();
+
+            $this->emit('updatePaymentComponent');
         } catch (\Exception $e) {
             DB::rollback();
             dd ($e);
