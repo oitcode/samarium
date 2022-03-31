@@ -140,4 +140,8 @@ class Customer extends Model
 
         return $total;
     }
+
+    public function getInititals()
+    {
+    }
 }

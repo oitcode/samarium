@@ -137,7 +137,7 @@
   @if ($customers != null && count($customers) > 0)
 
     <div class="table-responsive" style="font-size: 1.3rem;">
-      <table class="table table-bordered">
+      <table class="table table-bordered table-hover">
         <thead>
           <tr class="bg-success text-white">
             <th>
@@ -153,7 +153,7 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody class="bg-white">
           @foreach ($customers as $customer)
             <tr>
               <td>

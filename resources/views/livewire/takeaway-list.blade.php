@@ -1,6 +1,6 @@
 <div>
   <div class="table-responsive">
-    <table class="table table-bordered" style="font-size: 1.3rem;">
+    <table class="table table-bordered table-hover shadow-sm" style="font-size: 1.3rem;">
       <thead>
         <tr class="bg-success text-white">
           <th>
@@ -29,7 +29,7 @@
         </tr>
       </thead>
 
-      <tbody>
+      <tbody class="bg-white">
         @foreach ($takeaways as $takeaway)
           <tr
               wire:click="$emit('displayTakeaway', {{ $takeaway->takeaway_id }})"

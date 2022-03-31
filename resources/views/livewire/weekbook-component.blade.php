@@ -58,7 +58,7 @@
 
   @if (count($weekBook) > 0)
     <div class="table-responsive m-0 p-0">
-      <table class="table table-bordered shadow-sm" style="font-size: 1.3rem;">
+      <table class="table table-bordered table-hover shadow-sm" style="font-size: 1.3rem;">
         <thead>
           <tr class="bg-success text-white">
             <th>
@@ -106,10 +106,10 @@
 
         <tfoot class="bg-white">
           <tr>
-            <td colspan="3" class="text-right mr-3 font-weight-bold" style="font-size: 1.5rem;">
-              TOTAL
+            <td colspan="3" class="text-right mr-3 font-weight-bold" style="font-size: 2rem;">
+              Total
             </td>
-            <td class="font-weight-bold" style="font-size: 1.5rem;">
+            <td class="font-weight-bold" style="font-size: 2rem;">
               @php echo number_format($totalAmount); @endphp
             </td>
           </tr>

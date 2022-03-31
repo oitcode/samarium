@@ -35,7 +35,7 @@
             </tr>
           </thead>
 
-          <tbody>
+          <tbody class="bg-white">
             @foreach ($websiteOrders as $order)
               <tr style="font-size: 1.3rem;" role="button" wire:click="$emit('displayOnlineOrder', {{ $order->website_order_id }})">
                 <td>

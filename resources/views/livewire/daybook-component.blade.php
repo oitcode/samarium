@@ -128,7 +128,7 @@
                         wire:click=""
                         role="button">
                       <span class="text-primary">
-                      90{{ $saleInvoice->sale_invoice_id }}
+                      {{ $saleInvoice->sale_invoice_id }}
                       </span>
                     </td>
                     <td class="" style="font-size: 1rem;">
@@ -229,7 +229,7 @@
         <div class="my-4">
           @if (count($todayItems) > 0)
             <div class="table-responsive">
-              <table class="table table-bordered" style="font-size: 1.3rem;">
+              <table class="table table-bordered table-hover" style="font-size: 1.3rem;">
                 <thead>
                   <tr class="bg-success text-white">
                     <th>
@@ -241,7 +241,7 @@
                   </tr>
                 </thead>
 
-                <tbody>
+                <tbody class="bg-white">
                     @foreach ($todayItems as $item)
                       <tr>
                         <td>
