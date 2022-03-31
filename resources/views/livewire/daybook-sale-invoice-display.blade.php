@@ -94,19 +94,19 @@
                 </th>
                 <td style="font-weight: bold;">
                   @if ( $saleInvoice->payment_status == 'paid')
-                  <span class="badge badge-success">
+                  <span class="badge badge-pill badge-success">
                   Paid
                   </span>
                   @elseif ( $saleInvoice->payment_status == 'partially_paid')
-                  <span class="badge badge-warning">
+                  <span class="badge badge-pill badge-warning">
                   Partial
                   </span>
                   @elseif ( $saleInvoice->payment_status == 'pending')
-                  <span class="badge badge-danger">
+                  <span class="badge badge-pill badge-danger">
                   Pending
                   </span>
                   @else
-                  <span class="badge badge-secondary">
+                  <span class="badge badge-pill badge-secondary">
                     {{ $saleInvoice->payment_status }}
                   </span>
                   @endif
