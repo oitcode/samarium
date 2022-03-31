@@ -254,7 +254,7 @@
     <div class="table-responsive mb-0" wire:key=" BIZCUP ">
       <table class="table table-bordered mb-0">
         <tbody>
-          <tr class="border-0" style="font-size: 1.3rem; height: 50px;" wire:key="{{ $key }}">
+          <tr class="border-0" style="font-size: 1.3rem; height: 50px;" wire:key="abcdedfg">
             <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
               <span class="ml-4">
                 Return

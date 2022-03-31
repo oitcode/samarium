@@ -1,0 +1,81 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+use Carbon\Carbon;
+
+use App\SaleInvoice;
+use App\SaleInvoiceItem;
+use App\ProductCategory;
+
+class ChartSaleByCategory extends Component
+{
+    public $startDay;
+
+    public $saleByCategory;
+
+    public function mount()
+    {
+        $this->startDay = Carbon::now()->startOfWeek(Carbon::SUNDAY);
+    }
+
+    public function render()
+    {
+        $this->populateSaleByCategory();
+
+        return view('livewire.chart-sale-by-category');
+    }
+
+    public function populateSaleByCategory()
+    {
+        $this->saleByCategory = array();
+
+        $saleInvoices = SaleInvoice::whereDate('sale_invoice_date', '>=', $this->startDay)
+            ->whereDate('sale_invoice_date', '<=', $this->startDay->copy()->addDays(6))
+            ->get();
+
+        foreach ($saleInvoices as $saleInvoice) {
+            foreach ($saleInvoice->saleInvoiceItems as $saleInvoiceItem) {
+                if ($this->categoryInSaleByCategory($saleInvoiceItem->product->productCategory)) {
+                    $this->updateSaleByCategoryCount($saleInvoiceItem);
+                } else {
+                    $this->addToSaleByCategoryCount($saleInvoiceItem);
+                }
+            }
+        }
+    }
+
+    public function categoryInSaleByCategory(ProductCategory $productCategory)
+    {
+        foreach ($this->saleByCategory as $item) {
+            if ($item['productCategory']->product_category_id == $productCategory->product_category_id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function updateSaleByCategoryCount(SaleInvoiceItem $saleInvoiceItem)
+    {
+        for ($i=0; $i < count($this->saleByCategory); $i++) {
+            if ($this->saleByCategory[$i]['productCategory']->product_category_id
+              ==
+              $saleInvoiceItem->product->productCategory->product_category_id) {
+                $this->saleByCategory[$i]['quantity'] += $saleInvoiceItem->quantity;
+                break;
+            }
+        }
+    }
+
+    public function addToSaleByCategoryCount(SaleInvoiceItem $saleInvoiceItem)
+    {
+        $line = array();
+
+        $line['productCategory'] = $saleInvoiceItem->product->productCategory;
+        $line['quantity'] = $saleInvoiceItem->quantity;
+
+        $this->saleByCategory[] = $line;
+    }
+}

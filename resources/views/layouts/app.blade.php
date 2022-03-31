@@ -33,7 +33,7 @@
           <div class="float-right">
             <h1 class="text-white mr-3">
               <i class="fas fa-tv mr-3"></i>
-              SmartPY
+              cafePY
             </h1>
           </div>
           @guest

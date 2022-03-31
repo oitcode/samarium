@@ -1,21 +1,14 @@
-<div>
-  <div class="h-100">
+<div class="card h-100">
+  <div class="card-body bg-success text-white">
     <div class="d-flex justify-content-center h-100 text-success">
       <div class="d-flex justify-content-center align-self-center">
 
-        {{-- Show in md or bigger screens --}}
-        <span class="badge badge-success text-white d-none d-md-block" style="font-size: 5rem;">
+        <span class="badge badge-success text-white" style="font-size: 2rem;">
           &copy;
           OIT
-          SmartPY
+          cafePY
         </span>
 
-        {{-- Show in smaller than md screens --}}
-        <span class="badge badge-success text-white d-md-none" style="font-size: 2.5rem;">
-          &copy;
-          OIT
-          SmartPY
-        </span>
       </div>
     </div>
   </div>

@@ -1,27 +1,27 @@
 <div class="card shadow-sm">
   <div class="card-body ">
     <h2 class="">
-      Week Sales
+      Sale by category
     </h2>
     <div class="bg-white">
-      <canvas id="myChart" width="200" height="200"></canvas>
+      <canvas id="chartSaleByCategory" width="200" height="200"></canvas>
     </div>
   </div>
   <script>
-      const ctx = document.getElementById('myChart').getContext('2d');
-      const myChart = new Chart(ctx, {
-          type: 'bar',
+      const ctxSaleByCategory = document.getElementById('chartSaleByCategory').getContext('2d');
+      const chartSaleByCategory = new Chart(ctxSaleByCategory, {
+          type: 'pie',
           data: {
               labels: [
-                  @foreach ($weekSales as $key => $val)
-                    '{{ $key }}',
+                  @foreach ($saleByCategory as $category)
+                    '{{ $category["productCategory"]->name }}',
                   @endforeach
               ],
               datasets: [{
                   label: '# Total Sales',
                   data: [
-                      @foreach ($weekSales as $key => $val)
-                        {{ $val }},
+                      @foreach ($saleByCategory as $category)
+                        {{ $category["quantity"] }},
                       @endforeach
                   ],
                   backgroundColor: [
@@ -46,11 +46,13 @@
               }]
           },
           options: {
+              {{--
               scales: {
                   y: {
                       beginAtZero: true
                   }
               }
+              --}}
           }
       });
   </script>
