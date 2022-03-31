@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "chart.js": "^3.7.1",
         "font-awesome": "^4.7.0"
     }
 }

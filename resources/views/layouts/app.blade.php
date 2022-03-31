@@ -11,6 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Chartjs -->
+    <script src="{{ asset('js/chart.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,11 +22,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/all.css') }}" rel="stylesheet">
 
+
     <!-- Livewire -->
     @livewireStyles
 </head>
 <body>
-    <div id="app">
+    <div id="">
         {{-- TOP HEADER SECTION --}}
         <div class="bg-success-rm py-4 text-right d-none d-md-block mb-3" style="background-image: linear-gradient(to right, #fff, green);">
           <div class="float-right">
