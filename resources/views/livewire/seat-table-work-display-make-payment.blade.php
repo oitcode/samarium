@@ -101,48 +101,43 @@
     @endif
 
     <div class="table-responsive mb-0">
-      <table class="table table-bordered mb-0">
+      <table class="table table-bordered-rm mb-0 bg-danger">
         <tbody>
 
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold">
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0">
               <span class="ml-4">
-                TOTAL
+                Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning font-weight-bold pl-3 pt-2">
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0">
               @php echo number_format( $this->total ); @endphp
             </td>
           </tr>
 
           @foreach ($saleInvoiceAdditions as $key => $val)
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
               <span class="ml-4">
                 {{ $key }}
               </span>
-              @error('discount')
-              <div>
-                <span class="text-danger">{{ $message }}</span>
-              </div>
-              @enderror
             </td>
-            <td class="p-0 h-100 font-weight-bold">
-              <input class="w-100 h-100 font-weight-bold pl-3"
+            <td class="p-0 h-100 font-weight-bold border-0">
+              <input class="w-100 h-90 font-weight-bold pl-3 border-0"
                   type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
                   wire:keydown.enter="calculateGrandTotal" wire:change="calculateGrandTotal" />
             </td>
           </tr>
           @endforeach
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold">
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0">
               <span class="ml-4">
                 GRAND TOTAL
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning font-weight-bold pl-3 pt-2">
+            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 pt-2 border-0" style="font-size: 2.5rem;">
               @php echo number_format( $this->grand_total ); @endphp
             </td>
           </tr>
@@ -168,8 +163,8 @@
       <table class="table table-bordered mb-0">
         <tbody>
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light-rm border-0">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
               <span class="ml-4">
                 Tender Amount
               </span>
@@ -179,19 +174,23 @@
               </div>
               @enderror
             </td>
-            <td class="p-0 h-100 font-weight-bold">
-              <input class="w-100 h-100 font-weight-bold" type="text" wire:model.defer="tender_amount" />
+            <td class="p-0 h-100 font-weight-bold border-0">
+              <input class="w-100 h-100 font-weight-bold border-0"
+                  type="text"
+                  style="font-size: 2.5rem; background-color: #afa; outline: none;"
+                  wire:model.defer="tender_amount" />
             </td>
           </tr>
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold">
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0">
               <span class="ml-4">
                 Payment type
               </span>
             </td>
-            <td class="p-0 h-100 w-50 bg-warning font-weight-bold">
+            <td class="p-0 h-100 w-50 bg-warning font-weight-bold border-0">
               <select class="w-100 h-100 custom-control border-0"
+                  style="outline: none;"
                   wire:model.defer="sale_invoice_payment_type_id">
                 <option>---</option>
 
@@ -236,13 +235,13 @@
     <div class="table-responsive mb-0" wire:key=" BIZCUP ">
       <table class="table table-bordered mb-0">
         <tbody>
-          <tr style="font-size: 1.3rem; height: 50px;" wire:key="{{ $key }}">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
+          <tr class="border-0" style="font-size: 1.3rem; height: 50px;" wire:key="{{ $key }}">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
               <span class="ml-4">
                 Tender amount
               </span>
             </td>
-            <td>
+            <td class="border-0" style="font-size: 2.5rem;">
               {{ $tender_amount }}
             </td>
           </tr>
@@ -250,6 +249,27 @@
       </table>
     </div>
     @endif
+    </div>
+
+    <div class="table-responsive mb-0" wire:key=" BIZCUP ">
+      <table class="table table-bordered mb-0">
+        <tbody>
+          <tr class="border-0" style="font-size: 1.3rem; height: 50px;" wire:key="{{ $key }}">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
+              <span class="ml-4">
+                Return
+              </span>
+            </td>
+            <td class="text-danger border-0" style="font-size: 2.5rem;">
+              @if ($modes['paid'])
+                {{ $returnAmount }}
+              @else
+                &nbsp;
+              @endif
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="p-3 m-0">
@@ -281,14 +301,6 @@
             style="width: 120px; height: 70px; font-size: 1.3rem; background-color: orange">
           PRINT
         </button>
-        <button wire:loading class="btn">
-          <span class="spinner-border text-info mr-3" role="status">
-          </span>
-        </button>
-        <span class="float-right font-weight-bold mt-3 mr-3" style="font-size: 1.5rem;">
-          RETURN &nbsp;&nbsp;&nbsp;&nbsp;
-          {{ $returnAmount }}
-        </span>
       @endif
     </div>
   </div>
