@@ -232,7 +232,7 @@
       </table>
     </div>
 
-    <div class="table-responsive mb-0" wire:key=" BIZCUP ">
+    <div class="table-responsive mb-0" wire:key=" FCBAYERN ">
       <table class="table table-bordered mb-0">
         <tbody>
           <tr class="border-0" style="font-size: 1.3rem; height: 50px;" wire:key="{{ $key }}">

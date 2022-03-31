@@ -352,7 +352,7 @@ class SeatTableWorkDisplayMakePayment extends Component
     public function exitMultiplePaymentsMode()
     {
         $this->multiplePayments = array();
-        $this->tender_amount = 0;
+        $this->tender_amount = '';
         $this->exitMode('multiplePayments');
     }
 
