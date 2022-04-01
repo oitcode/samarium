@@ -1,18 +1,23 @@
-<div class="card mb-3 shadow">
-  <div class="card-header @if ($seatTable->isBooked()) @else bg-success-rm @endif" style="{{--background-image: linear-gradient(to right, #5a5,
-  green); @if ($seatTable->isBooked()) background-color: orange; @endif--}}">
-
+<div class="card mb-3 shadow @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white h-100"
+    wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})"
+    role="button"
+>
+  <div class="card-header @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
     <div class="float-left">
-      <h2 class="badge @if ($seatTable->isBooked()) badge-danger @else badge-success @endif" style="font-size: 1.7rem;">
+      <h2 class="badge" style="font-size: 1.7rem;">
         {{ $seatTable->name }}
       </h2>
     </div>
-    <div class="float-right text-secondary" style="font-size: 1.5rem;">
+    <div class="float-right" style="font-size: 1.5rem;">
         @if ($seatTable->isBooked())
           <i class="fas fa-rupee-sign mr-3"></i>
           @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
         @else
         @endif
+    </div>
+    <div wire:loading class="float-right" style="font-size: 1.5rem;">
+      <span class="spinner-border text-white mr-3" role="status">
+      </span>
     </div>
     <div class="clearfix">
     </div>
@@ -20,16 +25,17 @@
   </div>
 
   <div class="card-body p-0">
+    @if ($seatTable->getCurrentBooking())
     <div class="row" style="margin: auto;">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="table-responsive">
-          <table class="table">
-            <tr class="text-success" style="font-size: 1.3rem;">
-              <td>
+          <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
+            <tr class="border-0" style="font-size: 1.3rem;">
+              <td class="border-0">
                 <i class="fas fa-clock mr-3"></i>
                 Start time
               </td>
-              <td class="font-weight-bold">
+              <td class="font-weight-bold border-0">
                 @if ($seatTable->getCurrentBooking())
                   {{ $seatTable->getCurrentBooking()->created_at->format('h:i') }}
                 @else
@@ -37,12 +43,12 @@
                 @endif
               </td>
             </tr>
-            <tr class="text-secondary" style="font-size: 1.3rem;">
-              <td>
+            <tr class="border-0" style="font-size: 1.3rem;">
+              <td class="border-0">
                 <i class="fas fa-shopping-cart mr-3"></i>
                 Total items
               </td>
-              <td class="font-weight-bold">
+              <td class="font-weight-bold border-0">
                 @if ($seatTable->isBooked())
                   {{ $seatTable->getCurrentBookingTotalItems() }}
                 @else
@@ -50,60 +56,25 @@
                 @endif
               </td>
             </tr>
-            @if (false)
-            <tr style="font-size: 1.3rem;">
-              <td>
-                <i class="fas fa-rupee-sign mr-3"></i>
-                Total bill amount
-              </td>
-              <td class="font-weight-bold">
-                @if ($seatTable->isBooked())
-                  {{ $seatTable->getCurrentBookingTotalAmount() }}
-                @else
-                  NA
-                @endif
-              </td>
-            </tr>
-            @endif
           </table>
         </div>
       </div>
-
-      @if ($seatTable->isBooked())
-      <div class="col-md-4 bg-danger-rm text-white" wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})"
-      style="background-color: orange;"
-      role="button">
-        <div class="d-flex justify-content-center h-100">
-          <div class="justify-content-center align-self-center text-center">
-            <h3 class="h5 font-weight-bold p-4">
-              BOOKED
-            </h3>
-            <button wire:loading class="btn">
-              <span class="spinner-border text-info mr-3" role="status">
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-      @else
-      <div class="col-md-4 bg-success text-white" wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})"
-      style="{{--background-color: green;--} font-weight: bold;"
-      role="button">
-        <div class="d-flex justify-content-center h-100">
-          <div class="justify-content-center align-self-center text-center">
-            <h3 class="h5 font-weight-bold p-4">
-              OPEN
-            </h3>
-            <button wire:loading class="btn">
-              <span class="spinner-border text-info mr-3" role="status">
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-      @endif
-
     </div>
+    @else
+      <div class="d-flex flex-column justify-content-center p-3">
+
+        <div class="">
+          <h2 class="h3 mb-4">
+            OPEN
+          </h2>
+        </div>
+
+        <div class="">
+          <i class="fas fa-plus-circle fa-2x"></i>
+        </div>
+
+      </div>
+    @endif
 
     @if (false)
     <div class="p-2">
