@@ -1,9 +1,13 @@
-<div class="card mb-3 shadow @if ($seatTable->isBooked()) bg-danger-rm @else bg-success text-white @endif h-100"
+<div class="card mb-3 shadow @if ($seatTable->isBooked()) bg-danger text-white  @else bg-success text-white @endif h-100"
     wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})"
+
+    {{--
     @if ($seatTable->isBooked())
       style="background-color: orange;"
     @else
     @endif
+    --}}
+
     role="button"
 >
   <div class="card-header @if ($seatTable->isBooked()) bg-danger-rm @else bg-success text-white @endif">
@@ -33,7 +37,7 @@
     <div class="row" style="margin: auto;">
       <div class="col-md-12">
         <div class="table-responsive">
-          <table class="table @if ($seatTable->isBooked()) bg-danger-rm @else bg-success @endif text-white-rm">
+          <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
             <tr class="border-0" style="font-size: 1.3rem;">
               <td class="border-0">
                 <i class="fas fa-clock mr-3"></i>
