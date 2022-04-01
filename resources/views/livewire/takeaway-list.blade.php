@@ -43,32 +43,17 @@
             <td>
               {{ $takeaway->created_at->format('H:i A') }}
             </td>
-            @if (false)
-            <td>
-              @if ($takeaway->status == 'open')
-                <span class="badge badge-danger">
-                  Open
-                </span>
-              @elseif ($takeaway->status == 'closed')
-                <span class="badge badge-success">
-                  Closed
-                </span>
-              @else
-                {{ $takeaway->status }}
-              @endif
-            </td>
-            @endif
             <td>
               @if ($takeaway->saleInvoice->payment_status == 'pending')
-                <span class="badge badge-danger">
+                <span class="badge badge-pill badge-danger">
                   Pending
                 </span>
               @elseif ($takeaway->saleInvoice->payment_status == 'partially_paid')
-                <span class="badge badge-warning">
+                <span class="badge badge-pill badge-warning">
                   Partial
                 </span>
               @elseif ($takeaway->saleInvoice->payment_status == 'paid')
-                <span class="badge badge-success">
+                <span class="badge badge-pill badge-success">
                   Paid
                 </span>
               @else
