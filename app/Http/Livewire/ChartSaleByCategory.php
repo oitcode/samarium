@@ -44,6 +44,16 @@ class ChartSaleByCategory extends Component
                 }
             }
         }
+
+        usort($this->saleByCategory, function ($a, $b) {
+            if ($b['quantity'] < $a['quantity']) {
+                return -1;
+            } else if ($b['quantity'] == $a['quantity']) {
+                return 0;
+            } else {
+                return 1;
+            }
+        });
     }
 
     public function categoryInSaleByCategory(ProductCategory $productCategory)
