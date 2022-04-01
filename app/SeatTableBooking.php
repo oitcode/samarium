@@ -75,13 +75,9 @@ class SeatTableBooking extends Model
 
     public function getTotalAmount()
     {
-        $total = 0;
-
-        foreach ($this->saleInvoice->saleInvoiceItems as $item) {
-            $total +=  $item->getTotalAmount();
+        if ($this->saleInvoice) {
+            return $this->saleInvoice->getTotalAmount();
         }
-
-        return $total;
     }
 
     public function hasSaleInvoice()
