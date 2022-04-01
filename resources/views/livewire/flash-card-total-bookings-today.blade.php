@@ -18,7 +18,7 @@
 
       <div class="d-flex flex-column justify-content-center ml-5">
         <div class="d-flex justify-content-end">
-          <i class="fas fa-compass fa-2x"></i>
+          <i class="fas fa-check-circle fa-2x"></i>
         </div>
       </div>
 

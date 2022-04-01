@@ -14,10 +14,10 @@
 
   <div class="row mb-4">
     <div class="col-md-3">
-      @livewire ('flash-card-total-bookings-today')
+      @livewire ('flash-card-current-bookings')
     </div>
     <div class="col-md-3">
-      @livewire ('flash-card-current-bookings')
+      @livewire ('flash-card-total-bookings-today')
     </div>
     <div class="col-md-3">
       @livewire ('flash-card-total-takeaways-today')
