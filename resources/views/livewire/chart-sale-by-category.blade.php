@@ -1,16 +1,16 @@
-<div class="card shadow-sm">
+<div class="card shadow-sm h-100">
   <div class="card-body ">
     <h2 class="">
       Sale by category
     </h2>
     <div class="bg-white">
-      <canvas id="chartSaleByCategory" width="200" height="200"></canvas>
+      <canvas id="chartSaleByCategory"></canvas>
     </div>
   </div>
   <script>
       const ctxSaleByCategory = document.getElementById('chartSaleByCategory').getContext('2d');
       const chartSaleByCategory = new Chart(ctxSaleByCategory, {
-          type: 'pie',
+          type: 'line',
           data: {
               labels: [
                   @foreach ($saleByCategory as $category)

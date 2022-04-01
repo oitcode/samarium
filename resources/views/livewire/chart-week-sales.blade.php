@@ -1,4 +1,4 @@
-<div class="card shadow-sm">
+<div class="card shadow-sm h-100">
   <div class="card-body ">
     <h2 class="">
       Week Sales
