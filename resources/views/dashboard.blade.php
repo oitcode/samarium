@@ -22,9 +22,11 @@
     <div class="col-md-3">
       @livewire ('flash-card-total-takeaways-today')
     </div>
+    @if (false)
     <div class="col-md-3">
       @livewire ('oit-copyright')
     </div>
+    @endif
   </div>
 
   <div class="row mb-4">
