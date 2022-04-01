@@ -1,8 +1,12 @@
-<div class="card mb-3 shadow @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white h-100"
+<div class="card mb-3 shadow @if ($seatTable->isBooked()) bg-danger-rm @else bg-success text-white @endif h-100"
     wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})"
+    @if ($seatTable->isBooked())
+      style="background-color: orange;"
+    @else
+    @endif
     role="button"
 >
-  <div class="card-header @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
+  <div class="card-header @if ($seatTable->isBooked()) bg-danger-rm @else bg-success text-white @endif">
     <div class="float-left">
       <h2 class="badge" style="font-size: 1.7rem;">
         {{ $seatTable->name }}
@@ -10,7 +14,7 @@
     </div>
     <div class="float-right" style="font-size: 1.5rem;">
         @if ($seatTable->isBooked())
-          <i class="fas fa-rupee-sign mr-3"></i>
+          Rs
           @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
         @else
         @endif
@@ -29,7 +33,7 @@
     <div class="row" style="margin: auto;">
       <div class="col-md-12">
         <div class="table-responsive">
-          <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
+          <table class="table @if ($seatTable->isBooked()) bg-danger-rm @else bg-success @endif text-white-rm">
             <tr class="border-0" style="font-size: 1.3rem;">
               <td class="border-0">
                 <i class="fas fa-clock mr-3"></i>
@@ -61,17 +65,18 @@
       </div>
     </div>
     @else
-      <div class="d-flex flex-column justify-content-center p-3">
+      <div class="d-flex flex-column justify-content-center p-3 h-100">
 
-        <div class="">
-          <h2 class="h3 mb-4">
+        @if (true)
+        <div class="d-flex justify-content-between">
+          <h2 class="h3 ml-4-rm">
             OPEN
           </h2>
         </div>
-
-        <div class="">
-          <i class="fas fa-plus-circle fa-2x"></i>
-        </div>
+        @endif
+          <div class="mr-4">
+            <i class="fas fa-plus-circle fa-3x"></i>
+          </div>
 
       </div>
     @endif
