@@ -230,8 +230,10 @@ class SeatTableWorkDisplayMakePayment extends Component
 
                     if ($this->tender_amount < $this->grand_total) {
                         $this->returnAmount = 0;
+                        $finalPaymentStatus = 'partially_paid';
                     } else {
                         $this->returnAmount = $this->tender_amount - $this->grand_total;
+                        $finalPaymentStatus = 'paid';
                     }
                 } else {
                     /* Make sale_invoice_payment */
