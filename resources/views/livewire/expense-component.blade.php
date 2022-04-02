@@ -1,9 +1,6 @@
 <div class="">
-  <h3 class="">
-    Expense
-  </h3>
-
   <!-- Menu tool bar -->
+  @if (false)
   <div class="bg-light border p-2">
   
     <div class="float-left mr-3">
@@ -44,35 +41,6 @@
       </div>
     </div>
 
-    <div class="float-left mr-3">
-      <div class="dropdown">
-        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-chart-area text-secondary mr-2"></i>
-          Report
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" wire:click="enterReportMode">
-            <i class="fas fa-chart-area text-secondary mr-2"></i>
-            View report
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="float-right mr-3">
-      <button class="btn text-danger" wire:click="$emit('exitDisplay')">
-        <i class="fas fa-times mr-2"></i>
-        Close
-      </button>
-    </div>
-  
-    <div class="float-right mr-3">
-      <button class="btn text-secondary" wire:click="$refresh">
-        <i class="fas fa-sync mr-2 text-primary"></i>
-        Refresh
-      </button>
-    </div>
-
     <div class="float-right mr-3" wire:loading>
       <div class="spinner-border text-primary" role="status">
       </div>
@@ -82,6 +50,16 @@
   
     <div class="clearfix">
     </div>
+  </div>
+  @endif 
+
+  <div class="mb-3">
+    <button class="btn btn-success m-0"
+        style="height: 100px; width: 225px; font-size: 1.5rem;"
+        wire:click="enterCreateMode">
+      <i class="fas fa-plus-circle mr-3"></i>
+      New
+    </button>
   </div>
   <!-- ./Menu tool bar -->
 
@@ -104,10 +82,10 @@
     @livewire ('expense-category-list')
   @elseif ($createMode)
     @livewire ('expense-create')
-  @elseif ($listMode)
-    @livewire ('expense-list')
   @elseif ($reportMode)
     @livewire ('chart-expense-by-category')
+  @else
+    @livewire ('expense-list')
   @endif
 
 </div>

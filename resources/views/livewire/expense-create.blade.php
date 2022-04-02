@@ -1,17 +1,20 @@
 <div class="card">
-  <div class="card-body">
+  <div class="card-body" style="font-size: 1.3rem;">
   
-    <h3 class="h5">Create new expense</h3>
+    <h3 class="h5 text-secondary">Create new expense</h3>
   
     <div class="form-group">
       <label for="">Title</label>
-      <input type="text" class="form-control" wire:model.defer="name">
+      <input type="text"
+          class="form-control"
+          wire:model.defer="name"
+          style="font-size: 1.3rem;">
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Category</label>
-      <select class="custom-select" wire:model.defer="expense_category_id">
+      <select class="custom-select" wire:model.defer="expense_category_id" style="font-size: 1.3rem;">
         <option>---</option>
         @foreach($expenseCategories as $expenseCategory)
           <option value="{{ $expenseCategory->expense_category_id }}">{{ $expenseCategory->name }}</option>
@@ -22,13 +25,13 @@
 
     <div class="form-group">
       <label for="">Amount</label>
-      <input type="text" class="form-control" wire:model.defer="amount">
+      <input type="text" class="form-control" wire:model.defer="amount" style="font-size: 1.3rem;">
       @error('amount') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Payment Type</label>
-      <select class="custom-select" wire:model.defer="expense_payment_type_id">
+      <select class="custom-select" wire:model.defer="expense_payment_type_id" style="font-size: 1.3rem;">
         <option>---</option>
         @foreach($expensePaymentTypes as $expensePaymentType)
           <option value="{{ $expensePaymentType->expense_payment_type_id }}">{{ $expensePaymentType->name }}</option>
@@ -37,8 +40,18 @@
       @error('expense_payment_type_id') <span class="text-danger">{{ $message }}</span>@enderror
     </div>
   
-    <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
-    <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreateMode')">Cancel</button>
+    <div class="mt-4" style="font-size: 1.3rem;">
+      <button type="submit"
+          class="btn btn-success" wire:click="store"
+          style="font-size: 1.3rem;">
+        Submit
+      </button>
+      <button type="submit"
+          class="btn btn-danger" wire:click="$emit('exitCreateMode')"
+          style="font-size: 1.3rem;">
+        Cancel
+      </button>
+    </div>
   
   </div>
 </div>
