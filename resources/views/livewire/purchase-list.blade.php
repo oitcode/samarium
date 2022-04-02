@@ -31,7 +31,7 @@
             Date
           </th>
           <th>
-            Time
+            Items
           </th>
           @if (false)
           <th>
@@ -62,7 +62,9 @@
               {{ $purchase->created_at->toDateString() }}
             </td>
             <td>
-              {{ $purchase->created_at->format('H:i A') }}
+              @foreach ($purchase->purchaseItems as $purchaseItem )
+                {{ $purchaseItem->product->name }}
+              @endforeach
             </td>
             @if (false)
             <td>
