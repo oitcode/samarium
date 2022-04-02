@@ -14,7 +14,7 @@ class ExpenseList extends Component
 
     public function render()
     {
-        $this->expenses = Expense::all();
+        $this->expenses = Expense::orderBy('expense_id', 'desc')->get();
         $this->calculateTotal();
 
         return view('livewire.expense-list');
