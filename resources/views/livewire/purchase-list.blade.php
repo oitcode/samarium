@@ -1,4 +1,25 @@
 <div>
+
+  <div class="my-3 text-secondary" style="font-size: 1.3rem;">
+    @if (false)
+    <i class="fas fa-calendar mr-2"></i>
+    @endif
+
+    <input type="date" wire:model.defer="startDay" class="mr-3">
+    <input type="date" wire:model.defer="endDay" class="mr-3">
+
+    <button class="btn btn-success" wire:click="render">
+      Go
+    </button>
+  </div>
+
+  <div class="my-4 py-4 px-3 border bg-white shadow-sm">
+    <h2>
+        Total:
+        @php echo number_format($total); @endphp
+    </h2>
+  </div>
+
   <div class="table-responsive">
     <table class="table table-bordered" style="font-size: 1.3rem;">
       <thead>
