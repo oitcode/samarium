@@ -1,6 +1,6 @@
 <div>
 
-  <div class="my-3 text-secondary" style="font-size: 1.3rem;">
+  <div class="my-3 text-secondary py-3" style="font-size: 1.3rem;">
     @if (false)
     <i class="fas fa-calendar mr-2"></i>
     @endif
@@ -11,6 +11,12 @@
     <button class="btn btn-success" wire:click="getPurchasesForDateRange">
       Go
     </button>
+
+    <button wire:loading class="btn">
+      <span class="spinner-border text-info mr-3" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </span>
   </div>
 
   <div class="my-4 py-4 px-3 border bg-white shadow-sm">
