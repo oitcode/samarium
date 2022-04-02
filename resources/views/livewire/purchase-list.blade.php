@@ -5,10 +5,10 @@
     <i class="fas fa-calendar mr-2"></i>
     @endif
 
-    <input type="date" wire:model.defer="startDay" class="mr-3">
-    <input type="date" wire:model.defer="endDay" class="mr-3">
+    <input type="date" wire:model.defer="startDate" class="mr-3">
+    <input type="date" wire:model.defer="endDate" class="mr-3">
 
-    <button class="btn btn-success" wire:click="render">
+    <button class="btn btn-success" wire:click="getPurchasesForDateRange">
       Go
     </button>
   </div>
