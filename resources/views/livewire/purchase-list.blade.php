@@ -60,15 +60,15 @@
             @endif
             <td>
               @if ($purchase->payment_status == 'pending')
-                <span class="badge badge-danger">
+                <span class="badge badge-pill badge-danger">
                   Pending
                 </span>
               @elseif ($purchase->payment_status == 'partially_paid')
-                <span class="badge badge-warning">
+                <span class="badge badge-pill badge-warning">
                   Partial
                 </span>
               @elseif ($purchase->payment_status == 'paid')
-                <span class="badge badge-success">
+                <span class="badge badge-pill badge-success">
                   Paid
                 </span>
               @else
@@ -76,14 +76,25 @@
               @endif
             </td>
             <td>
-              {{ $purchase->getPendingAmount() }}
+              @php echo number_format( $purchase->getPendingAmount() ); @endphp
             </td>
             <td>
-              {{ $purchase->getTotalAmount() }}
+              @php echo number_format( $purchase->getTotalAmount() ); @endphp
             </td>
           </tr>
         @endforeach
       </tbody>
+
+      <tfoot>
+        <tr style="font-size: 1.8rem;">
+          <th colspan="5" class="text-right pl-3">
+            Total
+          </th>
+          <td>
+              @php echo number_format($total); @endphp
+          </td>
+        </tr>
+      </tfoot>
     </table>
   </div>
 </div>
