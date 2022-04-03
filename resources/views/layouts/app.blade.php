@@ -222,11 +222,11 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="{{ route('dashboard-purchase') }}">
-                  <i class="fas fa-star text-secondary"></i>
+                  <i class="fas fa-shopping-cart text-secondary mr-2"></i>
                   Purchase
                 </a>
                 <a class="dropdown-item" href="{{ route('dashboard-expense') }}">
-                  <i class="fas fa-star text-secondary"></i>
+                  <i class="fas fa-tools text-secondary mr-2"></i>
                   Expense
                 </a>
               </div>
@@ -241,16 +241,20 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="">
-                  <i class="fas fa-user text-secondary"></i>
+                  <i class="fas fa-user text-secondary mr-2"></i>
                   {{ Auth::user()->name }}
                 </a>
                 <a class="dropdown-item" href="{{ route('company') }}">
-                  <i class="fas fa-user text-secondary"></i>
+                  <i class="fas fa-user text-secondary mr-2"></i>
                   Company
                 </a>
                 <a class="dropdown-item" href="{{ route('dashboard-accounting') }}">
-                  <i class="fas fa-user text-secondary"></i>
+                  <i class="fas fa-book text-secondary mr-2"></i>
                   Accounting
+                </a>
+                <a class="dropdown-item" href="{{ route('dashboard-accounting') }}">
+                  <i class="fas fa-cog text-secondary mr-2"></i>
+                  Settings
                 </a>
               </div>
             </div>
