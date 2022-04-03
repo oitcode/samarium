@@ -1,6 +1,6 @@
 <div class="card shadow-sm">
-  <div class="card-header bg-success" style="{{--background-color: orange;--}}">
-    <h1 class="text-white" style="font-size: 1.8rem;">
+  <div class="card-header bg-success-rm" style="{{--background-color: orange;--}}">
+    <h1 class="text-white-rm" style="font-size: 1.3rem;">
       Add product
     </h1>
   </div>
@@ -13,7 +13,7 @@
           <tr style="font-size: 1.3rem; height: 50px;">
             <td class="w-50 p-0 bg-info-rm font-weight-bold">
               <span class="ml-4">
-                NAME
+                Name
               </span>
             </td>
             <td class="p-0 h-100 bg-warning font-weight-bold">
@@ -24,7 +24,7 @@
           <tr style="font-size: 1.3rem; height: 50px;">
             <td class="w-50 p-0 bg-info-rm font-weight-bold">
               <span class="ml-4">
-                CATEGORY
+                Category
               </span>
             </td>
             <td class="p-0 h-100 bg-warning font-weight-bold">
@@ -44,7 +44,7 @@
           <tr style="font-size: 1.3rem; height: 50px;">
             <td class="w-50 p-0 bg-info-rm font-weight-bold">
               <span class="ml-4">
-                DESCRIPTION
+                Description
               </span>
             </td>
             <td class="p-0 h-100 bg-warning font-weight-bold">
@@ -57,7 +57,7 @@
           <tr style="font-size: 1.3rem; height: 50px;">
             <td class="w-50 p-0 bg-info-rm font-weight-bold">
               <span class="ml-4">
-                PRICE
+                Price
               </span>
             </td>
             <td class="p-0 h-100 bg-warning font-weight-bold">
@@ -68,7 +68,7 @@
           <tr style="font-size: 1.3rem; height: 50px;">
             <td class="w-50 p-0 bg-info-rm font-weight-bold">
               <span class="ml-4">
-                STOCK COUNT
+                Stock count
               </span>
             </td>
             <td class="p-0 h-100 bg-warning font-weight-bold">
@@ -79,7 +79,7 @@
           <tr style="font-size: 1.3rem; height: 50px;">
             <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
               <span class="ml-4">
-                IMAGE
+                Image
               </span>
             </td>
               
@@ -94,11 +94,11 @@
 
     <div class="p-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
       <button class="btn btn-lg btn-success mr-3" wire:click="store" style="{{--width: 130px; height: 80px; font-size: 1.3rem;--}}">
-        CONFIRM
+        Confirm
       </button>
 
       <button class="btn btn-lg btn-danger mr-3" wire:click="$emit('exitMakePaymentMode')" style="{{--width: 120px; height: 80px; font-size: 1.3rem;--}}">
-        CANCEL
+        Cancel
       </button>
       <button wire:loading class="btn">
         <span class="spinner-border text-info mr-3" role="status">

@@ -3,12 +3,12 @@
 
     {{-- Show in bigger screens --}}
     <div class="bg-info-rm mb-4 d-none d-md-block">
-      <button class="btn btn-success m-0" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="setPreviousDay">
+      <button class="btn btn-success-rm m-0 border shadow-sm bg-white" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left mr-3"></i>
         Previous
       </button>
 
-      <button class="btn btn-danger m-0" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="setNextDay">
+      <button class="btn btn-danger-rm m-0 border shadow-sm bg-white" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="setNextDay">
         <i class="fas fa-arrow-right mr-3"></i>
         Next
       </button>
@@ -23,7 +23,7 @@
 
       <div class="shadow-sm-rm float-right" style="width: 500px;">
         <div class="card">
-          <div class="card-body p-0 bg-success text-white">
+          <div class="card-body p-0 bg-success-rm text-white-rm">
             <div class="p-4">
               <h2 class="font-weight-bold" style="font-size: 2rem;">
                 <i class="fas fa-rupee-sign mr-3"></i>
@@ -110,7 +110,7 @@
           <div class="table-responsive">
             <table class="table table-sm-rm table-bordered table-hover shadow-sm">
               <thead>
-                <tr class="bg-success text-white" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+                <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
                   <th style="width: 100px;">Bill no</th>
                   <th style="width: 200px;">Time</th>
                   <th style="width: 200px;">Table</th>
@@ -231,7 +231,7 @@
             <div class="table-responsive">
               <table class="table table-bordered table-hover" style="font-size: 1.3rem;">
                 <thead>
-                  <tr class="bg-success text-white">
+                  <tr class="bg-success-rm text-white-rm">
                     <th>
                       Item
                     </th>

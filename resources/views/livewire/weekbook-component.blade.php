@@ -2,14 +2,14 @@
 
   {{-- Top Menu --}}
   <div class="mb-4">
-    <button class="btn btn-success m-0 p-3"
+    <button class="btn btn-success-rm m-0 p-3 border shadow-sm bg-white"
         wire:click="goToPreviousWeek"
         style="height: 100px; width: 225px; font-size: 1.5rem;"
     >
       <i class="fas fa-arrow-left mr-3"></i>
       Previous 
     </button>
-    <button class="btn btn-danger mx-0 p-3 pr-5"
+    <button class="btn btn-danger-rm mx-0 p-3 pr-5 border shadow-sm bg-white"
         wire:click="goToNextWeek"
         style="height: 100px; width: 225px; font-size: 1.5rem;"
     >
@@ -23,7 +23,7 @@
       </div>
     </button>
 
-    <button class="btn btn-success p-3 pr-5 float-right" wire:click="goToNextWeek" style="font-size:1.3rem;">
+    <button class="btn btn-success-rm p-3 pr-5 float-right border shadow-sm bg-white" wire:click="" style="font-size:1.3rem;">
       <h2>
         <i class="fas fa-rupee-sign mr-3"></i>
         @php echo number_format($totalAmount); @endphp
@@ -60,7 +60,7 @@
     <div class="table-responsive m-0 p-0">
       <table class="table table-bordered table-hover shadow-sm" style="font-size: 1.3rem;">
         <thead>
-          <tr class="bg-success text-white">
+          <tr class="bg-success-rm text-white-rm">
             <th>
               Date
             </th>

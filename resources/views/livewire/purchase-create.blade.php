@@ -16,7 +16,7 @@
 
     <div class="col-md-7">
       <div class="card mb-0">
-        <div class="card-header bg-success text-white">
+        <div class="card-header bg-success-rm text-white-rm">
           <h1 class="d-inline" style="font-size: 2rem;">
             Purchase ID:
             {{ $purchase->purchase_id }}
@@ -37,7 +37,7 @@
       <div class="table-responsive">
         <table class="table table-bordered table-hover border-dark">
           <thead>
-            <tr class="bg-success text-white" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+            <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
               <th>--</th>
               <th>#</th>
               <th>Item</th>
@@ -48,7 +48,7 @@
             </tr>
           </thead>
   
-          <tbody style="font-size: 1.3rem;">
+          <tbody class="bg-white" style="font-size: 1.3rem;">
             @if (count($purchase->purchaseItems) > 0)
               @foreach ($purchase->purchaseItems as $item)
               <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">

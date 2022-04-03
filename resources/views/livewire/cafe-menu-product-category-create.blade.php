@@ -1,6 +1,6 @@
 <div class="card shadow-sm">
-  <div class="card-header bg-success" style="{{--background-color: orange;--}}">
-    <h1 class="text-white" style="font-size: 1.8rem;">
+  <div class="card-header bg-success-rm" style="{{--background-color: orange;--}}">
+    <h1 class="text-white-rm" style="font-size: 1.3rem;">
       Add product category
     </h1>
   </div>
@@ -39,11 +39,11 @@
 
     <div class="p-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
       <button class="btn btn-lg btn-success mr-3" wire:click="store" style="{{--width: 130px; height: 80px; font-size: 1.3rem;--}}">
-        CONFIRM
+        Confirm
       </button>
 
       <button class="btn btn-lg btn-danger mr-3" wire:click="$emit('exitMakePaymentMode')" style="{{--width: 120px; height: 80px; font-size: 1.3rem;--}}">
-        CANCEL
+        Cancel
       </button>
 
       <button wire:loading class="btn">

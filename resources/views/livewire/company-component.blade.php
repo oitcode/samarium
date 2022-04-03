@@ -78,11 +78,11 @@
     </div>
 
     @if ($company)
-      <button type="submit" class="btn btn-primary p-3" wire:click="update" style="font-size: 1.3rem;">
+      <button type="submit" class="btn btn-success p-3" wire:click="update" style="font-size: 1.3rem;">
         Update
       </button>
     @else
-      <button type="submit" class="btn btn-primary p-3" wire:click="store" style="font-size: 1.3rem;">
+      <button type="submit" class="btn btn-success p-3" wire:click="store" style="font-size: 1.3rem;">
         Craete
       </button>
     @endif

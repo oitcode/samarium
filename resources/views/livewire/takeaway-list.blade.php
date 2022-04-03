@@ -2,7 +2,7 @@
   <div class="table-responsive">
     <table class="table table-bordered table-hover shadow-sm" style="font-size: 1.3rem;">
       <thead>
-        <tr class="bg-success text-white">
+        <tr class="bg-success-rm text-white-rm">
           <th>
             ID
           </th>

@@ -4,7 +4,7 @@
     @if (!is_null($expenses) && count($expenses) > 0)
       <table class="table table-hover table-valign-middle" style="font-size: 1.3rem;">
         <thead>
-          <tr class="bg-success text-white">
+          <tr class="bg-success-rm text-white-rm">
             <th>Date</th>
             <th>Expense</th>
             <th>Category</th>

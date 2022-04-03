@@ -21,7 +21,7 @@
       </div>
 
       {{-- Categories Bar --}}
-      <div class="mb-4 p-3 border-rm shadow-sm d-flex-rm">
+      <div class="mb-0 p-3 border-rm shadow-sm d-flex-rm">
 
 
         {{-- Show in smaller screens --}}
@@ -67,7 +67,7 @@
             </div>
             @foreach ($productCategories as $productCategory)
               <div class="col-md-2 border p-0">
-                <button class="btn btn-danger w-100 h-100" style="font-size: 1.1rem;" wire:click="selectCategory('{{ $productCategory->product_category_id }}')">
+                <button class="btn btn-danger-rm w-100 h-100 bg-white" style="font-size: 1.1rem;" wire:click="selectCategory('{{ $productCategory->product_category_id }}')">
                   {{ $productCategory->name }}
                 </button>
               </div>

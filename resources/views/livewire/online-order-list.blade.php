@@ -5,7 +5,7 @@
       <div class="table-responsive mb-3">
         <table class="table table-bordered table-hover">
           <thead>
-            <tr class="text-secondary-rm bg-success text-white" style="font-size: 1.3rem;">
+            <tr class="text-secondary-rm bg-success-rm text-white-rm" style="font-size: 1.3rem;">
               <th style="width: 120px;">
                 Order ID
               </th>
@@ -124,7 +124,7 @@
     <div class="col-md-2">
 
       <div class="card">
-        <div class="card-body p-0 bg-danger text-white">
+        <div class="card-body p-0 bg-danger-rm text-white-rm">
           <div class="p-4">
             <h2>
               New
@@ -137,7 +137,7 @@
       </div>
 
       <div class="card">
-        <div class="card-body p-0 bg-danger-rm text-white-rm" style="background-color: orange;">
+        <div class="card-body p-0 bg-danger-rm text-white-rm" style="{{--background-color: orange;--}}">
           <div class="p-4">
             <h2>
               Today
@@ -151,7 +151,7 @@
 
 
       <div class="card">
-        <div class="card-body p-0 bg-success text-white">
+        <div class="card-body p-0 bg-success-rm text-white-rm">
           <div class="p-4">
             <h2>
               Total

@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header bg-success text-white">
+  <div class="card-header bg-success-rm text-white-rm">
     <h1 class="" style="font-size: 1.5rem;">
       Payment
     </h1>

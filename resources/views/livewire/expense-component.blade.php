@@ -1,28 +1,28 @@
 <div class="">
   <!-- Menu tool bar -->
   <div class="mb-3">
-    <button class="btn btn-success m-0"
+    <button class="btn btn-success-rm m-0 border shadow-sm"
         style="height: 100px; width: 225px; font-size: 1.5rem;"
         wire:click="enterCreateMode">
       <i class="fas fa-plus-circle mr-3"></i>
       New
     </button>
 
-    <button class="btn btn-success m-0"
+    <button class="btn btn-success-rm m-0 border shadow-sm"
         style="height: 100px; width: 225px; font-size: 1.5rem;"
         wire:click="enterCreateMode">
       <i class="fas fa-list mr-3"></i>
       List
     </button>
 
-    <button class="btn btn-success m-0"
+    <button class="btn btn-success-rm m-0 border shadow-sm"
         style="height: 100px; width: 225px; font-size: 1.5rem;"
         wire:click="enterCreateMode">
       <i class="fas fa-chart-line mr-3"></i>
       Report
     </button>
 
-    <button class="btn btn-success m-0"
+    <button class="btn btn-success-rm m-0 border shadow-sm"
         style="height: 100px; width: 225px; font-size: 1.5rem;"
         wire:click="enterCreateMode">
       <i class="fas fa-search mr-3"></i>
