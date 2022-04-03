@@ -116,6 +116,8 @@ class PurchaseAddItem extends Component
         $this->product_id = '';
         $this->quantity = '';
         $this->price = '';
+        $this->purchase_price_per_unit = '';
+        $this->unit = '';
         $this->total = null;
 
         $this->selectedProduct = null;
