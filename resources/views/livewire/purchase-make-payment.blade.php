@@ -16,7 +16,7 @@
                 Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0">
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: 2.5rem;">
               @php echo number_format( $this->total ); @endphp
             </td>
           </tr>
