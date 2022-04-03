@@ -9,7 +9,7 @@
 
     <div class="col-md-7">
       <div class="card mb-0">
-        <div class="card-header bg-success text-white">
+        <div class="card-header bg-success-rm text-white-rm">
           <h1 class="d-inline" style="font-size: 2rem;">
             {{ $seatTable->name }}
           </h2>
@@ -67,25 +67,6 @@
             </div>
 
             <div class="col-md-4">
-              @if (false)
-              @if ($seatTable->isBooked())
-                <div class="d-flex justify-content-center h-100 bg-danger text-white">
-                  <div class="d-flex justify-content-center align-self-center">
-                    <h3 class="h5 font-weight-bold p-3">
-                      BOOKED
-                    </h3>
-                  </div>
-                </div>
-              @else
-                <div class="d-flex justify-content-center h-100 bg-success text-white">
-                  <div class="d-flex justify-content-center align-self-center">
-                    <h3 class="h5 font-weight-bold p-3">
-                      OPEN
-                    </h3>
-                  </div>
-                </div>
-              @endif
-              @endif
             </div>
           </div>
 
@@ -96,7 +77,7 @@
       <div class="table-responsive">
         <table class="table table-bordered table-hover border-dark shadow-sm">
           <thead>
-            <tr class="bg-success text-white" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+            <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
               <th>--</th>
               <th>#</th>
               <th>Item</th>
