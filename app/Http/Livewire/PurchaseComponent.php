@@ -19,6 +19,7 @@ class PurchaseComponent extends Component
     protected $listeners = [
         'clearModes',
         'displayPurchase',
+        'exitPurchaseDisplay',
     ];
 
     public function render()
@@ -52,5 +53,12 @@ class PurchaseComponent extends Component
         $purchase = Purchase::find($purchaseId);
         $this->displayingPurchase = $purchase;
         $this->enterMode('display');
+    }
+
+    public function exitPurchaseDisplay()
+    {
+        $this->displayingPurchase = null;
+
+        $this->exitMode('display');
     }
 }
