@@ -20,6 +20,7 @@ class PurchaseComponent extends Component
         'clearModes',
         'displayPurchase',
         'exitPurchaseDisplay',
+        'exitPurchaseCreate',
     ];
 
     public function render()
@@ -60,5 +61,10 @@ class PurchaseComponent extends Component
         $this->displayingPurchase = null;
 
         $this->exitMode('display');
+    }
+
+    public function exitPurchaseCreate()
+    {
+        $this->exitMode('create');
     }
 }

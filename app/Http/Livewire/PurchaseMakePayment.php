@@ -25,6 +25,10 @@ class PurchaseMakePayment extends Component
 
     public $purchasePaymentTypes;
 
+    protected $listeners = [
+        'itemAddedToPurchase' => 'render',
+    ];
+
     public function render()
     {
         $this->purchasePaymentTypes = PurchasePaymentType::all();

@@ -1,5 +1,11 @@
 <div>
 
+  <div class="d-flex mb-0 p-2 justify-content-end bg-light-rm border" style="background-color: #eee;">
+    <button class="btn btn-danger border rounded-circle" wire:click="$emit('exitPurchaseCreate')">
+      <i class="fas fa-times fa-2x-rm"></i>
+    </button>
+  </div>
+
   @if (true)
     @if (true || $modes['addItem'])
       @livewire ('purchase-add-item', ['purchase' => $purchase,])
@@ -93,103 +99,9 @@
   
     <div class="col-md-5">
       <div>
-
-
-
-
-@if (! $modes['paid'])
-<div class="card shadow">
-  <div class="card-header bg-success text-white">
-    <h1 class="" style="font-size: 1.5rem;">
-      Payment
-    </h1>
-  </div>
-  <div class="card-body p-0">
-
-    <div class="table-responsive mb-0">
-      <table class="table table-bordered mb-0">
-        <tbody>
-
-
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold">
-              <span class="ml-4">
-                TOTAL
-              </span>
-            </td>
-            <td class="p-0 h-100 bg-warning font-weight-bold pl-3 pt-2">
-              @php echo number_format( $purchase->getTotalAmount() ); @endphp
-            </td>
-          </tr>
-
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold">
-              <span class="ml-4">
-                GRAND TOTAL
-              </span>
-            </td>
-            <td class="p-0 h-100 bg-warning font-weight-bold pl-3 pt-2">
-              @php echo number_format( $purchase->getTotalAmount() ); @endphp
-            </td>
-          </tr>
-
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
-              <span class="ml-4">
-                Paid Amount
-              </span>
-              @error('paid_amount')
-              <div>
-                <span class="text-danger">{{ $message }}</span>
-              </div>
-              @enderror
-            </td>
-            <td class="p-0 h-100 font-weight-bold">
-              <input class="w-100 h-100 font-weight-bold" type="text" wire:model.defer="paid_amount" />
-            </td>
-          </tr>
-
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold">
-              <span class="ml-4">
-                Payment type
-              </span>
-            </td>
-            <td class="p-0 h-100 w-50 bg-warning font-weight-bold">
-              <select class="w-100 h-100 custom-control border-0"
-                  wire:model.defer="purchase_payment_type_id">
-                <option>---</option>
-
-                @foreach ($purchasePaymentTypes as $purchasePaymentType)
-                  <option value="{{ $purchasePaymentType->purchase_payment_type_id }}">
-                    {{ $purchasePaymentType->name }}
-                  </option>
-                @endforeach
-              </select>
-            </td>
-          </tr>
-
-
-
-        </tbody>
-      </table>
-    </div>
-
-    <div class="p-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
-      <button
-          onclick="this.disabled=true;"
-          class="btn btn-lg btn-success mr-3"
-          wire:click="savePayment"
-          style="width: 130px; height: 70px; font-size: 1.3rem;">
-        CONFIRM
-      </button>
-    </div>
-  </div>
-</div>
-@endif
-
-
-
+        @if (! $modes['paid'])
+          @livewire ('purchase-make-payment', ['purchase' => $purchase,])
+        @endif
       </div>
     </div>
 

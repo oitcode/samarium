@@ -1,11 +1,17 @@
 <div>
 
-  <div class="border">
+  <div class="border shadow bg-white">
     <div class="d-flex mb-0 p-2 justify-content-end bg-light-rm border" style="background-color: #eee;">
       <button class="btn btn-danger border rounded-circle" wire:click="$emit('exitPurchaseDisplay')">
         <i class="fas fa-times fa-2x-rm"></i>
       </button>
     </div>
+
+    @if ($purchase->payment_status == 'pending')
+      @if (true || $modes['addItem'])
+        @livewire ('purchase-add-item', ['purchase' => $purchase,])
+      @endif
+    @endif
 
     <div class="row">
 

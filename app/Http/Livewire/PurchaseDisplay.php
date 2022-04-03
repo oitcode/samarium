@@ -14,6 +14,7 @@ class PurchaseDisplay extends Component
 
     protected $listeners = [
         'exitMakePaymentMode',
+        'itemAddedToPurchase' => 'render',
     ];
 
     public function render()
