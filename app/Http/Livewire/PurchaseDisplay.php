@@ -8,8 +8,21 @@ class PurchaseDisplay extends Component
 {
     public $purchase;
 
+    public $modes = [
+        'payment' => true,
+    ];
+
+    protected $listeners = [
+        'exitMakePaymentMode',
+    ];
+
     public function render()
     {
         return view('livewire.purchase-display');
+    }
+
+    public function exitMakePaymentMode()
+    {
+        $this->modes['payment'] = false;
     }
 }

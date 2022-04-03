@@ -83,46 +83,55 @@
           Payments
         </h2>
 
-        <div class="table-responsive" style="font-size: 1.3rem;">
-          <table class="table table-bordered">
-            <thead>
-              <tr class="bg-success text-white">
-                <th>
-                  Date
-                </th>
-                <th>
-                  Type
-                </th>
-                <th>
-                  Amount
-                </th>
-              </tr>
-            </thead>
-            <tbody class="bg-white">
-              @foreach ($purchase->purchasePayments as $purchasePayment )
-                <tr>
-                  <td>
-                    {{ $purchasePayment->payment_date }}
-                  </td>
-                  <td>
-                    {{ $purchasePayment->purchasePaymentType->name }}
-                  </td>
-                  <td>
-                    {{ $purchasePayment->amount }}
-                  </td>
+        @if (count($purchase->purchasePayments) > 0)
+          <div class="table-responsive" style="font-size: 1.3rem;">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="bg-success text-white">
+                  <th>
+                    Date
+                  </th>
+                  <th>
+                    Type
+                  </th>
+                  <th>
+                    Amount
+                  </th>
                 </tr>
-              @endforeach
-            </tbody>
-            <tfoot>
-            </tfoot>
-          </table>
-        </div>
+              </thead>
+              <tbody class="bg-white">
+                @foreach ($purchase->purchasePayments as $purchasePayment )
+                  <tr>
+                    <td>
+                      {{ $purchasePayment->payment_date }}
+                    </td>
+                    <td>
+                      {{ $purchasePayment->purchasePaymentType->name }}
+                    </td>
+                    <td>
+                      {{ $purchasePayment->amount }}
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+              <tfoot>
+              </tfoot>
+            </table>
+          </div>
+        @else
+          <div class="my-3 text-secondary">
+            No payments
+          </div>
+        @endif
       </div>
 
     </div>
   
     <div class="col-md-5">
       <div>
+        @if ($modes['payment'] && $purchase->payment_status != 'paid')
+          @livewire ('purchase-make-payment', ['purchase' => $purchase,])
+        @endif
       </div>
     </div>
 
