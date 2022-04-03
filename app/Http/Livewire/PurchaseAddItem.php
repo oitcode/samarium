@@ -104,7 +104,7 @@ class PurchaseAddItem extends Component
         $this->price = $product->selling_price;
         $this->quantity = 1;
         if ($this->purchase_price_per_unit) {
-            $this->total = $this->purchase_price_unit * $this->quantity;
+            $this->total = $this->purchase_price_per_unit * $this->quantity;
         }
 
         $this->selectedProduct = $product;
