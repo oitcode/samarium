@@ -1,58 +1,5 @@
 <div class="">
   <!-- Menu tool bar -->
-  @if (false)
-  <div class="bg-light border p-2">
-  
-    <div class="float-left mr-3">
-      <div class="dropdown">
-        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-shopping-cart text-secondary mr-2"></i>
-          Expense
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" wire:click="enterCreateMode">
-            <i class="fas fa-plus text-secondary mr-2"></i>
-            Create
-          </button>
-          <button class="dropdown-item" wire:click="enterListMode">
-            <i class="fas fa-list text-secondary mr-2"></i>
-            List
-          </button>
-        </div>
-      </div>
-    </div>
-  
-    <div class="float-left mr-3">
-      <div class="dropdown">
-        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-folder text-secondary mr-2"></i>
-          Expense category
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" wire:click="enterCategoryCreateMode">
-            <i class="fas fa-plus text-secondary mr-2"></i>
-            Create
-          </button>
-          <button class="dropdown-item" wire:click="enterCategoryListMode">
-            <i class="fas fa-list text-secondary mr-2"></i>
-            List
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="float-right mr-3" wire:loading>
-      <div class="spinner-border text-primary" role="status">
-      </div>
-      <span>Loading ...</span>
-    </div>
-
-  
-    <div class="clearfix">
-    </div>
-  </div>
-  @endif 
-
   <div class="mb-3">
     <button class="btn btn-success m-0"
         style="height: 100px; width: 225px; font-size: 1.5rem;"
@@ -60,6 +7,35 @@
       <i class="fas fa-plus-circle mr-3"></i>
       New
     </button>
+
+    <button class="btn btn-success m-0"
+        style="height: 100px; width: 225px; font-size: 1.5rem;"
+        wire:click="enterCreateMode">
+      <i class="fas fa-list mr-3"></i>
+      List
+    </button>
+
+    <button class="btn btn-success m-0"
+        style="height: 100px; width: 225px; font-size: 1.5rem;"
+        wire:click="enterCreateMode">
+      <i class="fas fa-chart-line mr-3"></i>
+      Report
+    </button>
+
+    <button class="btn btn-success m-0"
+        style="height: 100px; width: 225px; font-size: 1.5rem;"
+        wire:click="enterCreateMode">
+      <i class="fas fa-search mr-3"></i>
+      Search
+    </button>
+
+    <button class="btn btn-warning m-0 float-right"
+        style="height: 100px; width: 225px; font-size: 1.5rem;"
+        wire:click="enterCreateMode">
+      Expense
+    </button>
+    <div class="clearfix">
+    </div>
   </div>
   <!-- ./Menu tool bar -->
 

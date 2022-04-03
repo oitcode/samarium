@@ -1,7 +1,7 @@
 <div>
 
-  <div class="border shadow bg-white">
-    <div class="d-flex mb-0 p-2 justify-content-end bg-light-rm border" style="background-color: #eee;">
+  <div class="border shadow mb-3">
+    <div class="d-flex mb-0 p-2 justify-content-end bg-success-rm text-white-rm border" style="background-color: #eee;">
       <button class="btn btn-danger border rounded-circle" wire:click="$emit('exitPurchaseDisplay')">
         <i class="fas fa-times fa-2x-rm"></i>
       </button>
@@ -23,7 +23,7 @@
               <table class="table">
                 <tbody>
 
-                  <tr class="bg-success text-white">
+                  <tr class="bg-success-rm text-white-rm">
                     <th>
                       Purchase ID
                     </th>
@@ -74,7 +74,7 @@
         <div class="table-responsive">
           <table class="table table-bordered table-hover">
             <thead>
-              <tr class="bg-success text-white" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+              <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
                 <th>#</th>
                 <th>Item</th>
                 <th>Quantity</th>
@@ -137,7 +137,7 @@
             <div class="table-responsive" style="font-size: 1.3rem;">
               <table class="table table-bordered mb-0">
                 <thead>
-                  <tr class="bg-success text-white">
+                  <tr class="bg-success-rm text-white-rm">
                     <th>
                       Date
                     </th>

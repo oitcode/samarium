@@ -1,27 +1,24 @@
 <div>
-  <h2>
-    Payments
-  </h2>
 
-  <hr />
-
-  <div class="mb-3 p-3">
-    Total: {{ count($saleInvoice->saleInvoicePayments) }}
+  <div class="bg-white">
+    <h2 class="mt-5 m-3">
+      Payments
+    </h2>
+    <div class="ml-3 mb-1 p-1">
+      Total: {{ count($saleInvoice->saleInvoicePayments) }}
+    </div>
   </div>
 
   @foreach ($saleInvoice->saleInvoicePayments as $payment)
-  <div class="bg-success">
-    &nbsp;
-  </div>
-  <div class="table-responsive mb-4 shadow">
-    <table class="table" style="font-size: 1.3rem;">
+  <div class="table-responsive shadow">
+    <table class="table bg-white" style="font-size: 1.3rem;">
       <tbody>
 
         <tr class="bg-success-rm text-white-rm" style="{{--font-size: 2rem; background-color: #dff;--}}">
           <td>
             Paid By
           </td>
-          <td style="font-size: 2rem;">
+          <td style="font-size: 1.3rem;">
             @if ($payment->deposited_by)
               {{ $payment->deposited_by }}
             @else

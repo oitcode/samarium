@@ -1,5 +1,6 @@
 <div>
 
+  @if (false)
   <div class="my-3 text-secondary py-3" style="font-size: 1.3rem;">
     @if (false)
     <i class="fas fa-calendar mr-2"></i>
@@ -25,6 +26,7 @@
         @php echo number_format($total); @endphp
     </h2>
   </div>
+  @endif
 
   <div class="table-responsive">
     <table class="table table-bordered" style="font-size: 1.3rem;">
