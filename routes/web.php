@@ -60,6 +60,9 @@ Route::get('/dashboard/onlineorder', 'OnlineOrderController@index')->name('onlin
 /* Online Order */
 Route::get('/dashboard/accounting', 'AccountingController@index')->name('dashboard-accounting');
 
+/* Settings */
+Route::get('/dashboard/settings', 'SettingsController@index')->name('dashboard-settings');
+
 /* Website routes */
 // Route::get('/website', 'WebsiteController@homePage')->name('website-home');
 

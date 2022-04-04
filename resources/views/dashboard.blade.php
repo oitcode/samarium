@@ -12,6 +12,7 @@
     @livewire ('oit-copyright')
   @endif
 
+  @if (true)
   <div class="row mb-4">
     <div class="col-md-3">
       @livewire ('flash-card-current-bookings')
@@ -22,13 +23,15 @@
     <div class="col-md-3">
       @livewire ('flash-card-total-takeaways-today')
     </div>
-    @if (false)
     <div class="col-md-3">
-      @livewire ('oit-copyright')
+      @if (false)
+        @livewire ('oit-copyright')
+      @endif
     </div>
-    @endif
   </div>
+  @endif
 
+  @if (true)
   <div class="row mb-4">
     <div class="col-md-3">
       @livewire ('chart-week-sales', key(rand()))
@@ -42,11 +45,13 @@
     </div>
     @endif
   </div>
+  @endif
 
+  @if (false)
   <div class="mb-4">
-    <div style="width: 300px; height: 300px;">
-    </div>
+    @livewire ('settings-component')
   </div>
+  @endif
 
 
 @endsection

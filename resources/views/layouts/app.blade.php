@@ -180,10 +180,11 @@
           </a>
         </div>
 
+        @if (false)
         <div class="text-center border">
-          <a class="btn btn-info-rm w-100 h-100 p-4 font-weight-bold text-left text-white"
+          <a class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left text-white"
               href="{{ route('logout') }}"
-              style="font-size: 1rem;background-color: #6c6;"
+              style="font-size: 1rem;{{--background-color: #6c6;--}}"
               onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();"
           >
@@ -195,6 +196,7 @@
               @csrf
           </form>
         </div>
+        @endif
       </div>
 
     </div>
@@ -203,14 +205,6 @@
       {{-- TOP HEADER SECTION --}}
       @if (true)
       <div class="bg-white py-2 text-right d-none d-md-block mb-3 border-bottom-rm">
-        @if (false)
-          <div class="float-right">
-            <h1 class="text-white mr-3">
-              <i class="fas fa-tv mr-3"></i>
-              cafePY
-            </h1>
-          </div>
-        @endif
         @guest
         @else
 
@@ -245,17 +239,29 @@
                   {{ Auth::user()->name }}
                 </a>
                 <a class="dropdown-item" href="{{ route('company') }}">
-                  <i class="fas fa-user text-secondary mr-2"></i>
+                  <i class="fas fa-home text-secondary mr-2"></i>
                   Company
                 </a>
                 <a class="dropdown-item" href="{{ route('dashboard-accounting') }}">
                   <i class="fas fa-book text-secondary mr-2"></i>
                   Accounting
                 </a>
-                <a class="dropdown-item" href="{{ route('dashboard-accounting') }}">
+                <a class="dropdown-item" href="{{ route('dashboard-settings') }}">
                   <i class="fas fa-cog text-secondary mr-2"></i>
                   Settings
                 </a>
+                <div class="dropdown-divider mb-0"></div>
+                <a class="dropdown-item mb-0" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"
+                >
+                  <i class="fas fa-power-off mr-2 text-warning-rm"></i>
+                  Logout
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
               </div>
             </div>
           </div>
