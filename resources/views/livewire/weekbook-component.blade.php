@@ -25,7 +25,9 @@
 
     <button class="btn btn-success-rm p-3 pr-5 float-right border shadow-sm bg-white" wire:click="" style="font-size:1.3rem;">
       <h2>
-        <i class="fas fa-rupee-sign mr-3"></i>
+        <span class="mr-2">
+          Rs
+        </span>
         @php echo number_format($totalAmount); @endphp
       <h2>
     </button>

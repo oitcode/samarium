@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\SaleInvoicePaymentType;
 use App\PurchasePaymentType;
 use App\ExpensePaymentType;
+use App\SaleInvoiceAdditionHeading;
 
 class SettingsComponent extends Component
 {
@@ -14,9 +15,14 @@ class SettingsComponent extends Component
     public $purchasePaymentTypes;
     public $expensePaymentTypes;
 
+    public $saleInvoiceAdditionHeadings;
+
     public $new_sale_invoice_payment_type_name;
     public $new_purchase_payment_type_name;
     public $new_expense_payment_type_name;
+
+    public $new_sale_invoice_addition_heading_name;
+    public $new_sale_invoice_addition_heading_effect;
 
     public $modes = [
     ];
@@ -25,6 +31,7 @@ class SettingsComponent extends Component
         'createSaleInvoicePaymentType' => false,
         'createPurchasePaymentType' => false,
         'createExpensePaymentType' => false,
+        'createSaleInvoiceAdditionHeading' => false,
     ];
 
     public function render()
@@ -32,6 +39,8 @@ class SettingsComponent extends Component
         $this->saleInvoicePaymentTypes = SaleInvoicePaymentType::all();
         $this->purchasePaymentTypes = PurchasePaymentType::all();
         $this->expensePaymentTypes = ExpensePaymentType::all();
+
+        $this->saleInvoiceAdditionHeadings = SaleInvoiceAdditionHeading::all();
 
         return view('livewire.settings-component');
     }
@@ -105,5 +114,20 @@ class SettingsComponent extends Component
         $expensePaymentType->save();
 
         $this->exitMultiMode('createExpensePaymentType');
+    }
+
+    public function storeSaleInvoiceAdditionHeading()
+    {
+        $validatedData = $this->validate([
+            'new_sale_invoice_addition_heading_name' => 'required',
+            'new_sale_invoice_addition_heading_effect' => 'required',
+        ]);
+
+        $saleInvoiceAdditionHeading = new SaleInvoiceAdditionHeading;
+        $saleInvoiceAdditionHeading->name = $validatedData['new_sale_invoice_addition_heading_name'];
+        $saleInvoiceAdditionHeading->effect = $validatedData['new_sale_invoice_addition_heading_effect'];
+        $saleInvoiceAdditionHeading->save();
+
+        $this->exitMultiMode('createSaleInvoiceAdditionHeading');
     }
 }

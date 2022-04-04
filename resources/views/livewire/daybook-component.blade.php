@@ -26,7 +26,9 @@
           <div class="card-body p-0 bg-success-rm text-white-rm">
             <div class="p-4">
               <h2 class="font-weight-bold" style="font-size: 2rem;">
-                <i class="fas fa-rupee-sign mr-3"></i>
+                <span class="mr-2">
+                  Rs
+                </span>
                 @php echo number_format( $totalSaleAmount ); @endphp
               </h2>
             </div>

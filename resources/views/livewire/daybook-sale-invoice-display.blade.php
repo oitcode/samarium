@@ -47,38 +47,50 @@
                     {{ $saleInvoice->created_at->toDateString() }}
                   </td>
                 </tr>
-                <tr class="text-secondary" style="font-size: 1.3rem;">
-                  <th class="pl-3">
-                    Total
-                  </th>
-                  <td class="text-danger" style="font-weight: bold;">
-                    @if (false)
-                    NRs
-                    &nbsp;&nbsp;
-                    @endif
-                    @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
-                  </td>
-                </tr>
 
-                @if ($saleInvoice->saleInvoiceAdditions)
-                  @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
-                    <tr class="text-secondary" style="font-size: 1.3rem;">
-                      <th class="pl-3">
-                        {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
-                      </th>
-                      <td class="text-danger" style="font-weight: bold;">
-                        @if (false)
-                        NRs
-                        &nbsp;&nbsp;
-                        @endif
-                        @php echo number_format( $saleInvoiceAddition->amount ); @endphp
-                      </td>
-                    </tr>
-                    <tr class="text-secondary" style="font-size: 1.3rem;">
-                      <th class="pl-3">
+                @if (false)
+                  <tr class="text-secondary" style="font-size: 1.3rem;">
+                    <th class="pl-3">
+                      Total
+                    </th>
+                    <td class="text-dark" style="font-weight: bold; font-size: 1.5rem;">
+                      @if (false)
+                      NRs
+                      &nbsp;&nbsp;
+                      @endif
+                      @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
+                    </td>
+                  </tr>
+
+                  @if ($saleInvoice->saleInvoiceAdditions)
+                    @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
+                      <tr class="text-secondary border-0" style="font-size: 1.3rem;">
+                        <th class="pl-3 border-0">
+                          {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
+                        </th>
+                        <td
+                            class="
+                              @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'plus')
+                                text-dark
+                              @elseif ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
+                                text-danger
+                              @endif
+                              border-0
+                            "
+                            style="font-weight: bold;">
+                          @if (false)
+                          NRs
+                          &nbsp;&nbsp;
+                          @endif
+                          @php echo number_format( $saleInvoiceAddition->amount ); @endphp
+                        </td>
+                      </tr>
+                    @endforeach
+                    <tr class="text-secondary border-0" style="font-size: 1.3rem;">
+                      <th class="pl-3 border-0">
                         Grand Total
                       </th>
-                      <td class="text-danger" style="font-weight: bold;">
+                      <td class="text-dark border-0" style="font-weight: bold; font-size: 1.5rem;">
                         @if (false)
                         NRs
                         &nbsp;&nbsp;
@@ -86,7 +98,7 @@
                         @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                       </td>
                     </tr>
-                  @endforeach
+                  @endif
                 @endif
 
                 <tr class="text-secondary" style="font-size: 1.3rem;">
@@ -167,11 +179,19 @@
               </td>
             </tr>
             @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
-              <tr>
-                <td colspan="4" style="font-size: 1.3rem;" class="font-weight-bold text-right">
+              <tr class="border-0">
+                <td colspan="4" style="font-size: 1.3rem;"
+                    class="
+                      font-weight-bold text-right border-0
+                    ">
                   {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                 </td>
-                <td style="font-size: 1.3rem;" class="font-weight-bold">
+                <td style="font-size: 1.3rem;"
+                    class="
+                      @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
+                        text-danger
+                      @endif
+                      font-weight-bold border-0">
                   @if (false)
                   NRs
                   &nbsp;&nbsp;
@@ -181,13 +201,13 @@
               </tr>
             @endforeach
 
-            <tr>
-              <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+            <tr class="border-0">
+              <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right border-0">
                 <strong>
-                GRAND TOTAL
+                Grand total
                 </strong>
               </td>
-              <td style="font-size: 1.5rem;" class="font-weight-bold">
+              <td style="font-size: 1.5rem;" class="font-weight-bold border-0">
                 @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
               </td>
             </tr>

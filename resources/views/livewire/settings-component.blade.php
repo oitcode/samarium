@@ -136,33 +136,99 @@
         {{-- Cretae expensePaymentType --}}
 
         @if ($multiModes['createExpensePaymentType'])
-          <div class="form-group">
-            <label for="">Name</label>
-            <input type="text"
-                class="form-control"
-                wire:model.defer="new_expense_payment_type_name"
-                style="font-size: 1.3rem;">
-            @error('new_expense_payment_type_name')
-              <span class="text-danger">{{ $message }}</span>
-            @enderror
-          </div>
+          <div class="my-2 p-3 border shadow-sm" style="max-width: 500px;">
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text"
+                  class="form-control"
+                  wire:model.defer="new_expense_payment_type_name"
+                  style="font-size: 1.3rem;">
+              @error('new_expense_payment_type_name')
+                <span class="text-danger">{{ $message }}</span>
+              @enderror
+            </div>
 
-          <div class="mt-4" style="font-size: 1.3rem;">
-            <button type="submit"
-                class="btn btn-success"
-                wire:click="storeExpensePaymentType"
-                style="font-size: 1rem;">
-              Submit
-            </button>
-            <button type="submit"
-                class="btn btn-danger"
-                wire:click="exitMultiMode('createExpensePaymentType')"
-                style="font-size: 1rem;">
-              Cancel
-            </button>
+            <div class="mt-4" style="font-size: 1.3rem;">
+              <button type="submit"
+                  class="btn btn-success"
+                  wire:click="storeExpensePaymentType"
+                  style="font-size: 1rem;">
+                Submit
+              </button>
+              <button type="submit"
+                  class="btn btn-danger"
+                  wire:click="exitMultiMode('createExpensePaymentType')"
+                  style="font-size: 1rem;">
+                Cancel
+              </button>
+            </div>
           </div>
         @endif
       </div>
+
+      {{-- Sale invoice additions --}}
+      <div class="mb-4">
+        <h3 class="h5 text-secondary">Sale invoice additions</h3>
+        <div>
+          @foreach ($saleInvoiceAdditionHeadings as $saleInvoiceAdditionHeading)
+            <span class="badge badge-light border p-2">
+              @if ($saleInvoiceAdditionHeading->effect == 'plus')
+                <i class="fas fa-plus mr-2"></i>
+              @elseif ($saleInvoiceAdditionHeading->effect == 'minus')
+                <i class="fas fa-minus mr-2"></i>
+              @endif
+              {{ $saleInvoiceAdditionHeading->name }}
+            </span>
+          @endforeach
+          <button class="btn" wire:click="enterMultiMode('createSaleInvoiceAdditionHeading')">
+            <i class="fas fa-plus-circle mr-2"></i>
+            New
+          </button>
+        </div>
+
+        @if ($multiModes['createSaleInvoiceAdditionHeading'])
+          <div class="my-2 p-3 border shadow-sm" style="max-width: 500px;">
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text"
+                  class="form-control"
+                  wire:model.defer="new_sale_invoice_addition_heading_name"
+                  style="font-size: 1.3rem;">
+              @error('new_sale_invoice_addition_heading_name')
+                <span class="text-danger">{{ $message }}</span>
+              @enderror
+            </div>
+
+            <div class="form-group">
+              <label>Effect</label>
+              <select class="custom-select" wire:model.defer="new_sale_invoice_addition_heading_effect" style="font-size: 1.3rem;">
+                <option>---</option>
+                  <option value="plus">Plus</option>
+                  <option value="minus">Minus</option>
+              </select>
+              @error ('new_sale_invoice_addition_heading_effect')
+                <span class="text-danger">{{ $message }}</span>
+              @enderror
+            </div>
+
+            <div class="mt-4" style="font-size: 1.3rem;">
+              <button type="submit"
+                  class="btn btn-success"
+                  wire:click="storeSaleInvoiceAdditionHeading"
+                  style="font-size: 1rem;">
+                Submit
+              </button>
+              <button type="submit"
+                  class="btn btn-danger"
+                  wire:click="exitMultiMode('createSaleInvoiceAdditionHeading')"
+                  style="font-size: 1rem;">
+                Cancel
+              </button>
+            </div>
+          </div>
+        @endif
+      </div>
+
     </div>
   </div>
 </div>
