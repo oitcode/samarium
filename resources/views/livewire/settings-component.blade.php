@@ -172,9 +172,9 @@
         <div>
           @foreach ($saleInvoiceAdditionHeadings as $saleInvoiceAdditionHeading)
             <span class="badge badge-light border p-2">
-              @if ($saleInvoiceAdditionHeading->effect == 'plus')
+              @if (strtolower($saleInvoiceAdditionHeading->effect) == 'plus')
                 <i class="fas fa-plus mr-2"></i>
-              @elseif ($saleInvoiceAdditionHeading->effect == 'minus')
+              @elseif (strtolower($saleInvoiceAdditionHeading->effect) == 'minus')
                 <i class="fas fa-minus mr-2"></i>
               @endif
               {{ $saleInvoiceAdditionHeading->name }}
