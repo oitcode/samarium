@@ -13,16 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     // return view('welcome');
-//     // return redirect('/dashboard');
-// });
 
-Route::get('/', 'WebsiteController@homePage')->name('website-home');
-
+/*
+ *-----------------------------------------------------------------------------
+ * Authorization routes
+ *-----------------------------------------------------------------------------
+ *
+ * Default authorization routes provide by laravel.
+ *
+ *
+ */
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*
+ *-----------------------------------------------------------------------------
+ * Dashboard routes
+ *-----------------------------------------------------------------------------
+ *
+ * Routes for the dashboard side of this application.
+ *
+ *
+ */
 
 /* Dashboard */
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
@@ -35,7 +46,6 @@ Route::get('/dashboard/customer', 'CustomerController@index')->name('customer');
 
 /* Sale */
 Route::get('/dashboard/sale', 'SaleController@takeaway')->name('sale');
-//Route::get('/dashboard/sale', function() {})->name('sale');
 
 /* Daybook */
 Route::get('/dashboard/daybook', 'DaybookController@index')->name('daybook');
@@ -63,18 +73,34 @@ Route::get('/dashboard/accounting', 'AccountingController@index')->name('dashboa
 /* Settings */
 Route::get('/dashboard/settings', 'SettingsController@index')->name('dashboard-settings');
 
-/* Website routes */
-// Route::get('/website', 'WebsiteController@homePage')->name('website-home');
-
 /* Company */
 Route::get('/dashboard/company', 'CompanyController@index')->name('company');
 
-/* Product View */
-Route::get('/product/{id}/{name}', 'WebsiteController@productView')->name('website-product-view');
+
+
+/*
+ *-----------------------------------------------------------------------------
+ * Website routes
+ *-----------------------------------------------------------------------------
+ *
+ * Routes for the website side of this application.
+ *
+ *
+ */
+
+
+/* Website home page */
+Route::get('/', 'WebsiteController@homePage')->name('website-home');
 
 /* Product category page. Shows all product of this category  */
 Route::get('/product/category/{id}/{name}', 'WebsiteController@productCategoryProductList')->name('website-product-category-product-list');
 
+/* Product View */
+Route::get('/product/{id}/{name}', 'WebsiteController@productView')->name('website-product-view');
+
 /* Checkout page  */
 Route::get('/checkout', 'WebsiteController@checkout')->name('website-checkout');
 
+
+// Todo: Need to get rid of this route
+// Route::get('/home', 'HomeController@index')->name('home');
