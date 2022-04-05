@@ -50,8 +50,24 @@
         </div>
 
         <div class="text-center border">
-          <a href="{{ route('dashboard') }}" class="btn btn-warning w-100 h-100 p-4 font-weight-bold text-left" style="font-size: 1rem;
-          background-color: orange;">
+          <a href="{{ route('dashboard') }}"
+              class="btn
+              @if(Route::current()->getName() == 'dashboard')
+                btn-success-rm
+              @else
+                btn-success-rm
+              @endif
+              w-100 h-100 p-4 font-weight-bold text-left"
+              style="font-size: 1rem;
+              background-color: orange;
+              {{--
+                @if(Route::current()->getName() == 'dashboard')
+                  background-color: #008450;
+                @endif
+              --}}
+              "
+              >
+
             <i class="fas fa-tv mr-3"></i>
             DASHBOARD
           </a>
@@ -59,10 +75,14 @@
 
         <div class="text-center border">
           <a href="{{ route('sale') }}"
-            class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
-
+            class="btn 
+              @if(Route::current()->getName() == 'sale')
+                btn-success
+              @else
+                btn-success
+              @endif
+            w-100 h-100 p-4 font-weight-bold text-left"
             style="font-size: 1rem;
-
               @if(Route::current()->getName() == 'sale')
                 background-color: #008450;
               @endif
@@ -77,10 +97,15 @@
         @if (true)
         <div class="text-center border">
           <a href="{{ route('cafesale') }}"
-            class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+            class="btn
+              @if(Route::current()->getName() == 'cafesale')
+                btn-success
+              @else
+                btn-success
+              @endif
+            w-100 h-100 p-4 font-weight-bold text-left"
 
             style="font-size: 1rem;
-
               @if(Route::current()->getName() == 'cafesale')
                 background-color: #008450;
               @endif
@@ -95,10 +120,14 @@
 
         <div class="text-center border">
           <a href="{{ route('menu') }}"
-            class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
-
+            class="btn
+              @if(Route::current()->getName() == 'menu')
+                btn-success
+              @else
+                btn-success
+              @endif
+            w-100 h-100 p-4 font-weight-bold text-left"
             style="font-size: 1rem;
-
               @if(Route::current()->getName() == 'menu')
                 background-color: #008450;
               @endif
@@ -113,14 +142,17 @@
         @can ('is-admin')
           <div class="text-center border">
             <a href="{{ route('daybook') }}"
-              class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
-
+              class="btn
+                @if(Route::current()->getName() == 'daybook')
+                  btn-success
+                @else
+                  btn-success
+                @endif
+              w-100 h-100 p-4 font-weight-bold text-left"
               style="font-size: 1rem;
-
                 @if(Route::current()->getName() == 'daybook')
                   background-color: #008450;
                 @endif
-
               ">
 
               <i class="fas fa-book mr-3"></i>
@@ -131,14 +163,18 @@
 
           <div class="text-center border">
             <a href="{{ route('weekbook') }}"
-              class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+              class="btn
+                @if(Route::current()->getName() == 'weekbook')
+                  btn-success
+                @else
+                  btn-success
+                @endif
+              w-100 h-100 p-4 font-weight-bold text-left"
 
               style="font-size: 1rem;
-
                 @if(Route::current()->getName() == 'weekbook')
                   background-color: #008450;
                 @endif
-
               ">
 
               <i class="fas fa-book mr-3"></i>
@@ -149,10 +185,15 @@
 
           <div class="text-center border">
           <a href="{{ route('customer') }}"
-            class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+            class="btn
+              @if(Route::current()->getName() == 'customer')
+                btn-success
+              @else
+                  btn-success
+              @endif
+            w-100 h-100 p-4 font-weight-bold text-left"
 
             style="font-size: 1rem;
-
               @if(Route::current()->getName() == 'customer')
                 background-color: #008450;
               @endif
@@ -165,10 +206,15 @@
 
         <div class="text-center border">
           <a href="{{ route('online-order') }}"
-            class="btn btn-success w-100 h-100 p-4 font-weight-bold text-left"
+            class="btn
+              @if(Route::current()->getName() == 'online-order')
+                btn-success
+              @else
+                  btn-success
+              @endif
+            w-100 h-100 p-4 font-weight-bold text-left"
 
             style="font-size: 1rem;
-
               @if(Route::current()->getName() == 'online-order')
                 background-color: #008450;
               @endif

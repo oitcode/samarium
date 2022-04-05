@@ -20,7 +20,7 @@ class CafeMenuComponent extends Component
     ];
 
     public $modes = [
-        'showFullMenuList' => true,
+        'showFullMenuList' => false,
         'updateProduct' => false,
         'updateProductCategory' => false,
     ];

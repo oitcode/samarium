@@ -14,9 +14,11 @@
 
   @if (true)
   <div class="row mb-4">
+    @if(true)
     <div class="col-md-3">
       @livewire ('flash-card-current-bookings')
     </div>
+    @endif
     <div class="col-md-3">
       @livewire ('flash-card-total-bookings-today')
     </div>

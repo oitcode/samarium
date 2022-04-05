@@ -1,9 +1,43 @@
 <div>
+  @if (true)
+  <div class="mb-3">
+    <button class="btn btn-success-rm m-0 border shadow-sm" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('create')">
+      <i class="fas fa-plus-circle mr-3"></i>
+      New
+    </button>
+
+    <button class="btn btn-success-rm m-0 border shadow-sm" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('create')">
+      <i class="fas fa-list mr-3"></i>
+      List
+    </button>
+
+    <button class="btn btn-success-rm m-0 border shadow-sm" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('create')">
+      <i class="fas fa-chart-line mr-3"></i>
+      Report
+    </button>
+
+    <button class="btn btn-success-rm m-0 border shadow-sm" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('create')">
+      <i class="fas fa-search mr-3"></i>
+      Search
+    </button>
+
+    <button wire:loading class="btn m-0"
+        style="height: 100px; width: 225px; font-size: 1.5rem;">
+      <span class="spinner-border text-info mr-3" role="status">
+      </span>
+    </button>
+
+
+    <div class="clearfix">
+    </div>
+  </div>
+  @endif
 
   <div class="row">
 
     <div class="col-md-8">
       {{-- Search Bar --}}
+      @if (false)
       <div class="mb-4 p-3 border-rm shadow-sm d-flex-rm">
 
         <div class="float-left mr-3">
@@ -19,9 +53,10 @@
         <div class="clearfix">
         </div>
       </div>
+      @endif
 
       {{-- Categories Bar --}}
-      <div class="mb-0 p-3 border-rm shadow-sm d-flex-rm">
+      <div class="mb-0 p-3 pb-0 border-rm d-flex-rm">
 
 
         {{-- Show in smaller screens --}}
@@ -87,6 +122,7 @@
           @livewire ('cafe-menu-product-category-edit', ['productCategory' => $updatingProductCategory,])
         @else
           @if ($products != null && count($products) > 0)
+            @if (false)
             @foreach ($products as $product)
               <div class="col-md-4 mb-3">
                 <div class="card">
@@ -151,6 +187,28 @@
                 </div>
               </div>
             @endforeach
+            @endif
+            <div class="table-responsive">
+              <table class="table table-hover" style="font-size: 1.3rem;">
+                <thead>
+                </thead>
+                <tbody>
+                  @foreach ($products as $product)
+                    <tr>
+                <td>
+                  <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 75px; height: 75px;">
+                </td>
+                      <td>
+                        {{ $product->name }}
+                      </td>
+                      <td>
+                        {{ $product->selling_price }}
+                      </td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
           @endif
         @endif
       </div>
