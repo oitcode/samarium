@@ -8,12 +8,12 @@
   </div>
 
   {{-- Show in smaller screens --}}
-  <div class="d-md-none">
+  <div class="d-md-none-rm">
     <div class="table-responsive">
       <table class="table">
         <tbody>
           @foreach ($productCategory->products as $product)
-            <tr>
+            <tr wire:key="{{ $loop->index }}">
               <td>
                 <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 75px; height: 75px;">
               </td>
@@ -28,7 +28,8 @@
               </td>
               <td>
                 <button href="" class="btn text-danger border-danger"
-                  wire:click="$emit('updateProduct', {{ $product->product_id }})">
+                    wire:click="addItemToCartB({{ $product->product_id }})"
+                    wire:key="{{ $loop->index }}">
                   <i class="fas fa-shopping-cart"></i>
                   Cart
                 </button>
@@ -43,10 +44,12 @@
   {{-- Show in bigger screens --}}
   <div class="d-none d-md-block">
     @if (count($productCategory->products) > 0)
-      <div class="row">
+      <div class="row" wire:key="{{ rand() }}">
         @foreach ($productCategory->products as $product)
           <div class="col-md-4 mb-4">
+            {{--
             @livewire ('website-product-list-display', ['product' => $product,])
+            --}}
           </div>
         @endforeach
       </div>
