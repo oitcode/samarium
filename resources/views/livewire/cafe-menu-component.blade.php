@@ -202,6 +202,16 @@
                         {{ $product->name }}
                       </td>
                       <td>
+                        @if ($product->stock_count)
+                          {{ $product->stock_count }}
+                        @else
+                          <div style="font-size: 1rem;">
+                            <i class="fas fa-warning mr-3 text-danger"></i>
+                            No info
+                          </div>
+                        @endif
+                      </td>
+                      <td>
                         {{ $product->selling_price }}
                       </td>
                     </tr>
