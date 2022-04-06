@@ -96,6 +96,12 @@ class TakeawayWork extends Component
             $saleInvoiceItem->delete_reason = 'Removed by user';
             $saleInvoiceItem->save();
             $saleInvoiceItem->delete();
+
+            /* Reverse stock count */
+            $product = $saleInvoiceItem->product;
+            $product->stock_count += $saleInvoiceItem->quantity;
+            $product->save();
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();

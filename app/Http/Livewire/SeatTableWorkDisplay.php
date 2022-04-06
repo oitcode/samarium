@@ -150,6 +150,12 @@ class SeatTableWorkDisplay extends Component
             $saleInvoiceItem->delete_reason = 'Removed by user';
             $saleInvoiceItem->save();
             $saleInvoiceItem->delete();
+
+            /* Reverse stock count */
+            $product = $saleInvoiceItem->product;
+            $product->stock_count += $saleInvoiceItem->quantity;
+            $product->save();
+
             DB::commit();
 
             $this->emit('updatePaymentComponent');
