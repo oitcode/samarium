@@ -203,6 +203,9 @@
                     <th>
                       Price
                     </th>
+                    <th>
+                      Action
+                    </th>
                   </tr>
                 </thead>
 
@@ -227,6 +230,12 @@
                       </td>
                       <td>
                         {{ $product->selling_price }}
+                      </td>
+                      <td>
+                        <button href="" class="btn text-primary border-primary rounded-circle"
+                          wire:click="$emit('updateProduct', {{ $product->product_id }})">
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
                       </td>
                     </tr>
                   @endforeach
