@@ -141,6 +141,7 @@
                       <div class="col-md-6">
                         <div class="table-responsive">
                           <table class="table">
+
                             <tbody style="font-size: 1.3rem;">
                               @if (false)
                               <tr>
@@ -190,8 +191,21 @@
             @endif
             <div class="table-responsive">
               <table class="table table-hover" style="font-size: 1.3rem;">
+
                 <thead>
+                  <tr>
+                    <th colspan="2">
+                      Item
+                    </th>
+                    <th>
+                      Stock
+                    </th>
+                    <th>
+                      Price
+                    </th>
+                  </tr>
                 </thead>
+
                 <tbody>
                   @foreach ($products as $product)
                     <tr>
