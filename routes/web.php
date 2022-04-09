@@ -104,3 +104,29 @@ Route::get('/checkout', 'WebsiteController@checkout')->name('website-checkout');
 
 // Todo: Need to get rid of this route
 // Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+ *-----------------------------------------------------------------------------
+ * Consultancy site route
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+if (env('SITE_TYPE') == 'ecs') {
+    Route::get('/', 'WebsiteController@bia')->name('website-home');
+    Route::get('/contactus', 'WebsiteController@contactUs')->name('website-ecs-contact-us');
+    Route::get('/gallery', 'WebsiteController@gallery')->name('website-ecs-gallery');
+    Route::get('/abroadstudy/usa', 'WebsiteController@abroadStudyUsa')->name('website-ecs-usa');
+    Route::get('/abroadstudy/uk', 'WebsiteController@abroadStudyUk')->name('website-ecs-uk');
+    Route::get('/abroadstudy/australia', 'WebsiteController@abroadStudyAustralia')->name('website-ecs-australia');
+    Route::get('/abroadstudy/newzealand', 'WebsiteController@abroadStudyNewzealand')->name('website-ecs-newzealand');
+    Route::get('/abroadstudy/japan', 'WebsiteController@abroadStudyJapan')->name('website-ecs-japan');
+    Route::get('/toefl', 'WebsiteController@toefl')->name('website-ecs-toefl');
+    Route::get('/ielts', 'WebsiteController@ielts')->name('website-ecs-ielts');
+    Route::get('/pte', 'WebsiteController@pte')->name('website-ecs-pte');
+} else {
+    Route::get('/', 'WebsiteController@homePage')->name('website-home');
+}
+
+Route::get('/bia/pte', 'WebsiteController@pte')->name('website-pte');

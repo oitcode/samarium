@@ -95,4 +95,6 @@
       </span>
     </button>
   </div>
+
+  @livewire ('gallery-component')
 </div>

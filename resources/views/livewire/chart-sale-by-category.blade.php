@@ -1,7 +1,11 @@
 <div class="card shadow-sm h-100">
   <div class="card-body ">
     <h2 class="">
-      Sale by category
+      @if (env('SITE_TYPE') == 'erp')
+        Sale by category
+      @elseif (env('SITE_TYPE') == 'ecs')
+        Revenue by category
+      @endif
     </h2>
     <div class="bg-white">
       <canvas id="chartSaleByCategory"></canvas>

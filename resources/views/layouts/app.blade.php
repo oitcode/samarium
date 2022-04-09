@@ -73,6 +73,7 @@
           </a>
         </div>
 
+        @if (env('SITE_TYPE') == 'erp')
         <div class="text-center border">
           <a href="{{ route('sale') }}"
             class="btn 
@@ -94,7 +95,6 @@
           </a>
         </div>
 
-        @if (true)
         <div class="text-center border">
           <a href="{{ route('cafesale') }}"
             class="btn
@@ -183,48 +183,94 @@
             </a>
           </div>
 
-          <div class="text-center border">
-          <a href="{{ route('customer') }}"
-            class="btn
-              @if(Route::current()->getName() == 'customer')
-                btn-success
-              @else
+          @if (env('SITE_TYPE') == 'erp')
+            <div class="text-center border">
+            <a href="{{ route('customer') }}"
+              class="btn
+                @if(Route::current()->getName() == 'customer')
                   btn-success
-              @endif
-            w-100 h-100 p-4 font-weight-bold text-left"
+                @else
+                    btn-success
+                @endif
+              w-100 h-100 p-4 font-weight-bold text-left"
 
-            style="font-size: 1rem;
-              @if(Route::current()->getName() == 'customer')
-                background-color: #008450;
-              @endif
-            ">
-              <i class="fas fa-users mr-3"></i>
-              CUSTOMER
-            </a>
-          </div>
+              style="font-size: 1rem;
+                @if(Route::current()->getName() == 'customer')
+                  background-color: #008450;
+                @endif
+              ">
+                <i class="fas fa-users mr-3"></i>
+                CUSTOMER
+              </a>
+            </div>
+          @elseif (env('SITE_TYPE') == 'ecs')
+            <div class="text-center border">
+            <a href="{{ route('customer') }}"
+              class="btn
+                @if(Route::current()->getName() == 'customer')
+                  btn-success
+                @else
+                    btn-success
+                @endif
+              w-100 h-100 p-4 font-weight-bold text-left"
+
+              style="font-size: 1rem;
+                @if(Route::current()->getName() == 'customer')
+                  background-color: #008450;
+                @endif
+              ">
+                <i class="fas fa-users mr-3"></i>
+                STUDENTS
+              </a>
+            </div>
+          @endif
         @endcan
 
-        <div class="text-center border">
-          <a href="{{ route('online-order') }}"
-            class="btn
-              @if(Route::current()->getName() == 'online-order')
-                btn-success
-              @else
+        @if (env('SITE_TYPE') == 'erp')
+          <div class="text-center border">
+            <a href="{{ route('online-order') }}"
+              class="btn
+                @if(Route::current()->getName() == 'online-order')
                   btn-success
-              @endif
-            w-100 h-100 p-4 font-weight-bold text-left"
+                @else
+                    btn-success
+                @endif
+              w-100 h-100 p-4 font-weight-bold text-left"
 
-            style="font-size: 1rem;
-              @if(Route::current()->getName() == 'online-order')
-                background-color: #008450;
-              @endif
-            ">
+              style="font-size: 1rem;
+                @if(Route::current()->getName() == 'online-order')
+                  background-color: #008450;
+                @endif
+              ">
 
-            <i class="fas fa-satellite-dish mr-3"></i>
-            ONLINE ORDER
+              <i class="fas fa-satellite-dish mr-3"></i>
+              ONLINE ORDER
 
-          </a>
-        </div>
+            </a>
+          </div>
+        @elseif (env('SITE_TYPE') == 'ecs')
+          <div class="text-center border">
+            <a href="{{ route('online-order') }}"
+              class="btn
+                @if(Route::current()->getName() == 'online-order')
+                  btn-success
+                @else
+                    btn-success
+                @endif
+              w-100 h-100 p-4 font-weight-bold text-left"
+
+              style="font-size: 1rem;
+                @if(Route::current()->getName() == 'online-order')
+                  background-color: #008450;
+                @endif
+              ">
+
+              <i class="fas fa-comment mr-3"></i>
+              CONTACT MESSAGES
+
+            </a>
+          </div>
+        @endif
 
         @if (false)
         <div class="text-center border">

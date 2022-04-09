@@ -1,39 +1,27 @@
 @extends('layouts.app')
 @section ('content')
-  @if (false)
-  @livewire ('cafe-sale-component')
-  @livewire ('recent-sale-invoices-component')
-  @livewire ('viewbook-component')
-  @livewire ('sale-invoice-search')
-  @endif
 
-
-  @if (false)
-    @livewire ('oit-copyright')
-  @endif
-
-  @if (true)
+  @if (env('SITE_TYPE') == 'erp')
   <div class="row mb-4">
-    @if(true)
+
+    @if (env('SITE_TYPE') == 'erp')
     <div class="col-md-3">
       @livewire ('flash-card-current-bookings')
     </div>
     @endif
+
     <div class="col-md-3">
       @livewire ('flash-card-total-bookings-today')
     </div>
-    <div class="col-md-3">
-      @livewire ('flash-card-total-takeaways-today')
-    </div>
-    <div class="col-md-3">
-      @if (false)
-        @livewire ('oit-copyright')
-      @endif
-    </div>
-  </div>
-  @endif
 
-  @if (true)
+    @if (env('SITE_TYPE') == 'erp')
+      <div class="col-md-3">
+        @livewire ('flash-card-total-takeaways-today')
+      </div>
+    @endif
+
+  </div>
+
   <div class="row mb-4">
     <div class="col-md-3">
       @livewire ('chart-week-sales', key(rand()))
@@ -47,16 +35,8 @@
     </div>
     @endif
   </div>
+  @elseif (env('SITE_TYPE') == 'ecs')
+    WELCOME!!!
   @endif
-
-  @if (false)
-  <div class="mb-4">
-    @livewire ('settings-component')
-  </div>
-  @endif
-
 
 @endsection
-
-
-

@@ -84,7 +84,7 @@ class CompanyComponent extends Component
             'email' => 'required',
             'address' => 'required',
             'pan_number' => 'nullable',
-            // 'logo_image' => 'image',
+            'logo_image' => 'nullable|image',
 
             'fb_link' => 'nullable|url',
             'twitter_link' => 'nullable|url',
@@ -93,8 +93,10 @@ class CompanyComponent extends Component
             'tiktok_link' => 'nullable|url',
         ]);
 
-        // $imagePath = $this->logo_image->store('company', 'public');
-        // $validatedData['logo_image_path'] = $imagePath;
+        if ($this->logo_image) {
+            $imagePath = $this->logo_image->store('company', 'public');
+            $validatedData['logo_image_path'] = $imagePath;
+        }
 
         $company = Company::first();
 

@@ -18,7 +18,7 @@ class CafeMenuProductEdit extends Component
     public $selling_price;
     public $description;
     public $product_category_id;
-    public $stock_count = null;
+    public $stock_count;
     public $image;
 
     public $productCategories;
@@ -43,7 +43,7 @@ class CafeMenuProductEdit extends Component
             'product_category_id' => 'required|integer',
             'description' => 'required',
             'selling_price' => 'required|integer',
-            'stock_count' => 'nullable|integer',
+            'stock_count' => 'nullable',
             'image' => 'nullable|image',
         ]);
 
@@ -53,6 +53,10 @@ class CafeMenuProductEdit extends Component
         }
 
         $this->product->update($validatedData);
+
+        if ($this->stock_count == '0') {
+            $this->product->stock_count = 0;
+        }
 
         session()->flash('success', 'Product Updated');
         // $this->resetInputFields();
