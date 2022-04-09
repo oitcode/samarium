@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductCategory;
 use App\Company;
+use App\Webpage;
 
 class WebsiteController extends Controller
 {
@@ -198,6 +199,24 @@ class WebsiteController extends Controller
         $company = Company::first();
 
         return view('ecs.pte')
+            ->with('company', $company);
+    }
+
+    public function webpage()
+    {
+        $company = Company::first();
+
+        $permalink = '/' . request()->path();
+
+        $webpage = Webpage::where('permalink', $permalink)->first();
+
+        return 'Webpage created at: ' . $webpage->created_at;
+    }
+
+    public function menuDemo()
+    {
+        $company = Company::first();
+        return view('menu-demo')
             ->with('company', $company);
     }
 }

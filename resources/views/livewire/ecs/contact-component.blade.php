@@ -14,7 +14,6 @@
             <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
             <div class="d-flex flex-column justify-content-center ml-3">
               <div class="mt-3">
-                Budhanilkantha International Academy
               </div>
             </div>
           </div>
