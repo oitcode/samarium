@@ -36,7 +36,7 @@
     @endif
   </div>
   @elseif (env('SITE_TYPE') == 'ecs')
-    WELCOME!!!
+    @livewire ('webpage-component')
   @endif
 
 @endsection

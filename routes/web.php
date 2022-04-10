@@ -140,5 +140,3 @@ foreach ($webpages as $webpage) {
 }
 
 Route::get('/ecs/menudemo', 'WebsiteController@menuDemo')->name('website-menu-demo');
-
-

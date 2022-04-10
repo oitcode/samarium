@@ -210,7 +210,9 @@ class WebsiteController extends Controller
 
         $webpage = Webpage::where('permalink', $permalink)->first();
 
-        return 'Webpage created at: ' . $webpage->created_at;
+        return view('oit-webpage')
+            ->with('company', $company)
+            ->with('webpage', $webpage);
     }
 
     public function menuDemo()
