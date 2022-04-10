@@ -140,3 +140,16 @@ foreach ($webpages as $webpage) {
 }
 
 Route::get('/ecs/menudemo', 'WebsiteController@menuDemo')->name('website-menu-demo');
+
+
+/*
+ *-----------------------------------------------------------------------------
+ * CMS
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+
+Route::get('/cms/webpage', 'CmsWebpageController@index')->name('dashboard-cms-webpage');
+Route::get('/cms/navMenu', 'CmsNavMenuController@index')->name('dashboard-cms-nav-menu');

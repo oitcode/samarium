@@ -36,10 +36,10 @@
     @endif
   </div>
   @elseif (env('SITE_TYPE') == 'ecs')
-    @if (true)
+    @if (false)
       @livewire ('cms.nav-menu-component')
+      @livewire ('ecs.webpage-component')
     @endif
-    @livewire ('ecs.webpage-component')
   @endif
 
 @endsection

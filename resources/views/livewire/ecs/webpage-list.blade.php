@@ -16,7 +16,7 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody class="bg-white">
           @foreach ($webpages as $webpage)
             <tr wire:click="$emit('displayWebpage', {{ $webpage->webpage_id }})" role="button">
               <td>
