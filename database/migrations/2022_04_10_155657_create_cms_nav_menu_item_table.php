@@ -16,14 +16,15 @@ class CreateCmsNavMenuItemTable extends Migration
         Schema::create('cms_nav_menu_item', function (Blueprint $table) {
             $table->bigIncrements('cms_nav_menu_item_id');
 
-            $table->string('name');
-
             /*
              * Foreign key to cms_nav_menu table.
              */
             $table->unsignedBigInteger('cms_nav_menu_id');
             $table->foreign('cms_nav_menu_id', 'fk_cms_nav_menu_item__cms_nav_menu')
                 ->references('cms_nav_menu_id')->on('cms_nav_menu');
+
+            $table->integer('order');
+            $table->string('name');
 
             /*
              * Foreign key to webpage table.

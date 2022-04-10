@@ -21,7 +21,7 @@ class CmsNavMenuItem extends Model
     protected $primaryKey = 'cms_nav_menu_item_id';
 
     protected $fillable = [
-         'name', 'cms_nav_menu_id', 'webpage_id',
+         'cms_nav_menu_id', 'order', 'name', 'webpage_id',
     ];
 
 

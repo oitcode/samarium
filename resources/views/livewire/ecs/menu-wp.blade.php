@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
   
-          @foreach ($cmsNavMenu->cmsNavMenuItems as $cmsNavMenuItem)
+          @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
             <li class="nav-item text-white mr-3 pr-3">
               <a class="nav-link text-white" href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
-                {{ $cmsNavMenuItem->webpage->name }}
+                {{ $cmsNavMenuItem->name }}
               </a>
             </li>
           @endforeach

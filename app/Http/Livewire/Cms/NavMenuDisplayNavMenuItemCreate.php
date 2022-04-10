@@ -35,9 +35,19 @@ class NavMenuDisplayNavMenuItemCreate extends Component
         $cmsNavMenuItem->cms_nav_menu_id = $this->cmsNavMenu->cms_nav_menu_id;
         $cmsNavMenuItem->webpage_id = $validatedData['webpage_id'];
         $cmsNavMenuItem->name = $validatedData['name'];
+        $cmsNavMenuItem->order = $this->getHighestMenuItemOrder() + 1;
 
         $cmsNavMenuItem->save();
 
         $this->emit('cmsNavMenuItemAdded');
+    }
+
+    public function getHighestMenuItemOrder()
+    {
+        if ($this->cmsNavMenu->cmsNavMenuItems) {
+            return $this->cmsNavMenu->cmsNavMenuItems()->max('order');
+        } else {
+            return 0;
+        } 
     }
 }

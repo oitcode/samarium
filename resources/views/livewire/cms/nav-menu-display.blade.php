@@ -16,13 +16,23 @@
         <table class="table">
 
           <thead>
+            <th>
+            </th>
             <th>Name</th>
             <th>Webpage</th>
           </thead>
 
           <tbody>
-            @foreach ($cmsNavMenu->cmsNavMenuItems as $cmsNavMenuItem)
+            @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
               <tr>
+                <td>
+                  <button class="btn border rounded-circle p-2" wire:click="moveUp({{ $cmsNavMenuItem }})">
+                    <i class="fas fa-arrow-up"></i>
+                  </button>
+                  <button class="btn border rounded-circle p-2" wire:click="moveDown({{ $cmsNavMenuItem }})">
+                    <i class="fas fa-arrow-down"></i>
+                  </button>
+                </td>
                 <td>
                   {{ $cmsNavMenuItem->name }}
                 </td>
