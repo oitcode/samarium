@@ -4,24 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Webpage extends Model
+class CmsNavMenu extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'webpage';
+    protected $table = 'cms_nav_menu';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'webpage_id';
+    protected $primaryKey = 'cms_nav_menu_id';
 
     protected $fillable = [
-         'name', 'permalink',
+         'name',
     ];
 
 
@@ -37,15 +37,6 @@ class Webpage extends Model
      */
     public function cmsNavMenuItems()
     {
-        return $this->hasMany('App\CmsNavMenuItem', 'webpage_id', 'webpage_id');
-    }
-
-    /*
-     * webpage_content table.
-     *
-     */
-    public function webpageContents()
-    {
-        return $this->hasMany('App\WebpageContent', 'webpage_id', 'webpage_id');
+        return $this->hasMany('App\CmsNavMenuItem', 'cms_nav_menu_id', 'cms_nav_menu_id');
     }
 }

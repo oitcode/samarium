@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Ecs;
 
 use Livewire\Component;
 
@@ -12,6 +12,6 @@ class WebpageList extends Component
     {
         $this->webpages = Webpage::all();
 
-        return view('livewire.webpage-list');
+        return view('livewire.ecs.webpage-list');
     }
 }
