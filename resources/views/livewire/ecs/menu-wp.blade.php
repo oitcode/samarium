@@ -9,11 +9,28 @@
       <ul class="navbar-nav mr-auto">
   
           @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
-            <li class="nav-item text-white mr-3 pr-3">
-              <a class="nav-link text-white" href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
-                {{ $cmsNavMenuItem->name }}
-              </a>
-            </li>
+            @if ($cmsNavMenuItem->type == 'item')
+              <li class="nav-item text-white mr-3 pr-3">
+                <a class="nav-link text-white" href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
+                  {{ $cmsNavMenuItem->name }}
+                </a>
+              </li>
+            @else
+              <li class="nav-item dropdown mr-3">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown-{{ $loop->iteration }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ $cmsNavMenuItem->name }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{ $loop->iteration }}">
+                  @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
+                    @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
+                      <a class="dropdown-item" href="">
+                        {{ $cmsNavMenuDropdownItem->name }}
+                      </a>
+                    @endforeach
+                  @endif
+                </div>
+              </li>
+            @endif
           @endforeach
       </ul>
     </div>

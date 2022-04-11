@@ -4,24 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CmsNavMenuItem extends Model
+class CmsNavMenuDropdownItem extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'cms_nav_menu_item';
+    protected $table = 'cms_nav_menu_dropdown_item';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'cms_nav_menu_item_id';
+    protected $primaryKey = 'cms_nav_menu_dropdown_item_id';
 
     protected $fillable = [
-         'cms_nav_menu_id', 'order', 'name', 'type', 'webpage_id',
+         'cms_nav_menu_item_id', 'order', 'name', 'webpage_id',
     ];
 
 
@@ -35,9 +35,9 @@ class CmsNavMenuItem extends Model
      * nav_menu table.
      *
      */
-    public function cmsNavMenu()
+    public function cmsNavMenuItem()
     {
-        return $this->belongsTo('App\CmsNavMenu', 'cms_nav_menu_id', 'cms_nav_menu_id');
+        return $this->belongsTo('App\CmsNavMenuItem', 'cms_nav_menu_item_id', 'cms_nav_menu_item_id');
     }
 
     /*
@@ -47,14 +47,5 @@ class CmsNavMenuItem extends Model
     public function webpage()
     {
         return $this->belongsTo('App\Webpage', 'webpage_id', 'webpage_id');
-    }
-
-    /*
-     * cms_nav_menu_dropdown_item table.
-     *
-     */
-    public function cmsNavMenuDropdownItems()
-    {
-        return $this->hasMany('App\CmsNavMenuDropdownItem', 'cms_nav_menu_item_id', 'cms_nav_menu_item_id');
     }
 }

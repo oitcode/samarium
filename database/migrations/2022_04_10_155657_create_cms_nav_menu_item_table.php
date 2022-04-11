@@ -26,10 +26,12 @@ class CreateCmsNavMenuItemTable extends Migration
             $table->integer('order');
             $table->string('name');
 
+            $table->string('type');
+
             /*
              * Foreign key to webpage table.
              */
-            $table->unsignedBigInteger('webpage_id');
+            $table->unsignedBigInteger('webpage_id')->nullable();
             $table->foreign('webpage_id', 'fk_cms_nav_menu_item__webpage')
                 ->references('webpage_id')->on('webpage');
 

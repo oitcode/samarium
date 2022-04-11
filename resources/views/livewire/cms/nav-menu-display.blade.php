@@ -20,6 +20,7 @@
             </th>
             <th>Name</th>
             <th>Webpage</th>
+            <th>Action</th>
           </thead>
 
           <tbody>
@@ -37,7 +38,21 @@
                   {{ $cmsNavMenuItem->name }}
                 </td>
                 <td>
-                  {{ $cmsNavMenuItem->webpage->name }}
+                  @if ($cmsNavMenuItem->webpage)
+                    {{ $cmsNavMenuItem->webpage->name }}
+                  @else
+                    NA
+                  @endif
+                </td>
+                <td>
+                  <button class="btn p-2 border rounded-circle">
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  @if ($cmsNavMenuItem->type == 'dropdown')
+                    <button class="btn p-2 border rounded-circle" wire:click="editDropdown({{ $cmsNavMenuItem }})">
+                      <i class="fas fa-plus-circle"></i>
+                    </button>
+                  @endif
                 </td>
               </tr>
             @endforeach
@@ -53,5 +68,7 @@
 
     @if ($modes['createNavMenuItem'])
       @livewire ('cms.nav-menu-display-nav-menu-item-create', ['cmsNavMenu' => $cmsNavMenu,])
+    @elseif ($modes['createNavMenuDropdownItem'])
+      @livewire ('cms.nav-menu-display-nav-menu-dropdown-item-create', ['cmsNavMenuItem' => $editingDropdown,])
     @endif
 </div>

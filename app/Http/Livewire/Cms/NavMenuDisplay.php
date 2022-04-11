@@ -10,13 +10,18 @@ class NavMenuDisplay extends Component
 {
     public $cmsNavMenu;
 
+    public $editingDropdown;
+
     public $modes = [
         'createNavMenuItem' =>false,
+        'createNavMenuDropdownItem' =>false,
     ];
 
     protected $listeners = [
         'cmsNavMenuItemAdded',
         'exitCreateCmsNavMenuItemMode',
+        'cmsNavMenuDropdownItemAdded' => 'exitCreateCmsNavMenuDropdownItemMode',
+        'exitCreateCmsNavMenuDropdownItemMode',
     ];
 
     public function render()
@@ -111,5 +116,17 @@ class NavMenuDisplay extends Component
             ->first();
 
         return $nextItem;
+    }
+
+    public function exitCreateCmsNavMenuDropdownItemMode()
+    {
+        $this->editingDropdown = null;
+        $this->exitMode('createNavMenuDropdownItem');
+    }
+
+    public function editDropdown(CmsNavMenuItem $cmsNavMenuItem)
+    {
+        $this->editingDropdown = $cmsNavMenuItem;
+        $this->enterMode('createNavMenuDropdownItem');
     }
 }

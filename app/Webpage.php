@@ -41,6 +41,15 @@ class Webpage extends Model
     }
 
     /*
+     * nav_menu_dropdown_item table.
+     *
+     */
+    public function cmsNavMenuDropdownItems()
+    {
+        return $this->hasMany('App\CmsNavMenuDropdownItem', 'webpage_id', 'webpage_id');
+    }
+
+    /*
      * webpage_content table.
      *
      */

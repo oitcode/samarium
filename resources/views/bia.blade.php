@@ -77,7 +77,9 @@
 
     {{-- Top navigation menu --}}
     {{-- Product category menu --}}
+    @if (false)
     @include ('partials.ecs.top-menu')
+    @endif
     @livewire ('ecs.menu-wp')
 
     {{-- Content goes here !!! --}}

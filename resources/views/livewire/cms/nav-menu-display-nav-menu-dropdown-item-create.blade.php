@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body" style="font-size: 1.3rem;">
   
-    <h3 class="h5 text-secondary">Add item to menu</h3>
+    <h3 class="h5 text-secondary">Add item to menu dropdown</h3>
   
     <div class="form-group">
       <label for="">Name</label>
@@ -10,16 +10,6 @@
           wire:model.defer="name"
           style="font-size: 1.3rem;">
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-    </div>
-
-    <div class="form-group">
-      <label>Type</label>
-      <select class="custom-select" wire:model.defer="o_type" style="font-size: 1.3rem;">
-        <option>---</option>
-          <option value="item">Link</option>
-          <option value="dropdown">Dropdown</option>
-      </select>
-      @error('o_type') <span class="text-danger">{{ $message }}</span>@enderror
     </div>
 
     <div class="form-group">
@@ -40,7 +30,7 @@
         Submit
       </button>
       <button type="submit"
-          class="btn btn-danger" wire:click="$emit('exitCreateCmsNavMenuItemMode')"
+          class="btn btn-danger" wire:click="$emit('exitCreateCmsNavMenuDropdownItemMode')"
           style="font-size: 1.3rem;">
         Cancel
       </button>
