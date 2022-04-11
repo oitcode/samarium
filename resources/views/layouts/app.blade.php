@@ -358,6 +358,7 @@
             </div>
           </div>
 
+          @if (env('SITE_TYPE') == 'ecs')
           <div class="float-right mx-4 px-4 text-white border-right-rm" style="font-size: 1.3rem;">
             <div class="dropdown">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -376,6 +377,7 @@
               </div>
             </div>
           </div>
+          @endif
 
           <div class="float-right mx-4 px-4 border-left-rm" style="font-size: 1.3rem;">
             @livewire ('online-order-counter')

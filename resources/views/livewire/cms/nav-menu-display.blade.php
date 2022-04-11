@@ -35,7 +35,17 @@
                   </button>
                 </td>
                 <td>
-                  {{ $cmsNavMenuItem->name }}
+                  <div>
+                    {{ $cmsNavMenuItem->name }}
+                  </div>
+                  @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
+                    <div class="my-4">
+                      @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
+                        {{ $cmsNavMenuDropdownItem->name }}
+                        <br />
+                      @endforeach
+                    </div>
+                  @endif
                 </td>
                 <td>
                   @if ($cmsNavMenuItem->webpage)
