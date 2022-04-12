@@ -48,7 +48,7 @@
           <td class="p-0 h-100">
             <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
           </td>
-          <td>
+          <td class="p-0">
             <select class="w-100 h-100 custom-control border-0" wire:model.defer="unit" wire:change="">
               <option>---</option>
               <option value="pcs">PCS</option>

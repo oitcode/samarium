@@ -12,8 +12,8 @@ class PurchaseList extends Component
 {
     public $purchases;
 
-    public $startDate;
-    public $endDate;
+    public $startDate = null;
+    public $endDate = null;
     public $total = 0;
 
     public $deletingPurchase = null;
@@ -29,11 +29,12 @@ class PurchaseList extends Component
 
     public function mount()
     {
-        $this->purchases = Purchase::orderBy('purchase_id', 'desc')->get();
+        $this->startDate = date('Y-m-d');
     }
 
     public function render()
     {
+        $this->getPurchasesForDateRange();
         $this->calculateTotal();
         return view('livewire.purchase-list');
     }
@@ -129,5 +130,6 @@ class PurchaseList extends Component
     {
         $this->deletingPurchase = null;
         $this->exitMode('confirmDeletePurchase');
+        $this->getPurchasesForDateRange();
     }
 }

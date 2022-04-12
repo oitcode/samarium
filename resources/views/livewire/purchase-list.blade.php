@@ -33,7 +33,7 @@
   @if (true)
   @if (!is_null($purchases) && count($purchases) > 0)
   <div class="table-responsive">
-    <table class="table table-hover table-bordered" style="font-size: 1.3rem;">
+    <table class="table table-bordered" style="font-size: 1.3rem;">
       <thead>
         <tr class="bg-success-rm text-white-rm">
           <th>
