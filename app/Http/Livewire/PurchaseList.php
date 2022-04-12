@@ -14,7 +14,7 @@ class PurchaseList extends Component
 
     public $startDate;
     public $endDate;
-    public $total;
+    public $total = 0;
 
     public $deletingPurchase = null;
 
@@ -27,12 +27,14 @@ class PurchaseList extends Component
         'exitConfirmPurchaseDelete',
     ];
 
-    public function render()
+    public function mount()
     {
         $this->purchases = Purchase::orderBy('purchase_id', 'desc')->get();
+    }
 
+    public function render()
+    {
         $this->calculateTotal();
-
         return view('livewire.purchase-list');
     }
 

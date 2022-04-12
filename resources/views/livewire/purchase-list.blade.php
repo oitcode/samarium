@@ -1,33 +1,37 @@
 <div>
 
-  @if (false)
+
+  @if (true)
   <div class="my-3 text-secondary py-3" style="font-size: 1.3rem;">
-    @if (false)
+    @if (true)
     <i class="fas fa-calendar mr-2"></i>
     @endif
 
-    <input type="date" wire:model.defer="startDate" class="mr-3">
-    <input type="date" wire:model.defer="endDate" class="mr-3">
+    <input type="date" wire:model.defer="startDate" class="mr-3" />
+    <input type="date" wire:model.defer="endDate" class="mr-3" />
 
     <button class="btn btn-success" wire:click="getPurchasesForDateRange">
       Go
     </button>
 
     <button wire:loading class="btn">
-      <span class="spinner-border text-info mr-3" role="status">
+      <div class="spinner-border text-info mr-3" role="status">
         <span class="sr-only">Loading...</span>
       </div>
-    </span>
+    </button>
   </div>
 
   <div class="my-4 py-4 px-3 border bg-white shadow-sm">
     <h2>
         Total:
-        @php echo number_format($total); @endphp
+        @php echo number_format( $total ); @endphp
     </h2>
   </div>
+
   @endif
 
+  @if (true)
+  @if (!is_null($purchases) && count($purchases) > 0)
   <div class="table-responsive">
     <table class="table table-hover table-bordered" style="font-size: 1.3rem;">
       <thead>
@@ -63,7 +67,7 @@
 
       <tbody>
         @foreach ($purchases as $purchase)
-          <tr>
+          <tr wire:key="{{ rand() }}">
             <td>
               {{ $purchase->purchase_id }}
             </td>
@@ -134,8 +138,14 @@
       </tfoot>
     </table>
   </div>
-
+  @else
+    <div class="p-3 text-secondary">
+      No purchases
+    </div>
+  @endif
+  @endif
   @if ($modes['confirmDeletePurchase'])
     @livewire ('purchase-list-purchase-delete-confirm', ['purchase' => $deletingPurchase,])
   @endif
+
 </div>

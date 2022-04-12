@@ -23,8 +23,7 @@
     </button>
 
     <button class="btn btn-warning m-0 float-right"
-        style="height: 100px; width: 225px; font-size: 1.5rem;"
-        wire:click="enterCreateMode">
+        style="height: 100px; width: 225px; font-size: 1.5rem;">
       Purchase
     </button>
 
