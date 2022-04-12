@@ -112,7 +112,6 @@
               <button class="btn p-2 border mr-3" 
                   wire:click="$emit('displayPurchase', {{ $purchase->purchase_id }})">
                 <i class="fas fa-folder-open text-primary"></i>
-                View
               </button>
               <button class="btn p-2 border mr-3"
                   wire:click="enterConfirmDeletePurchaseMode({{ $purchase }})">
