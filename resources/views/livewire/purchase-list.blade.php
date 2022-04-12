@@ -59,7 +59,7 @@
           <th>
             Amount
           </th>
-          <th>
+          <th style="width: 200px;">
             Action
           </th>
         </tr>
