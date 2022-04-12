@@ -6,20 +6,14 @@ use Livewire\Component;
 
 class ExpenseComponent extends Component
 {
-    public $categoryCreateMode = false;
-    public $categoryListMode = false;
-
-    public $createMode = false;
-    public $listMode = false;
-
-    public $reportMode = false;
+    public $modes = [
+        'create' => false,
+        'list' => true,
+        'display' => true,
+    ];
 
     protected $listeners = [
-        'exitCategoryCreateMode',
-        'expenseCategoryCreated' => 'acknowledgeExpenseCategoryCreated',
-
         'exitCreateMode',
-        'ackExpenseCreated',
     ];
 
     public function render()
@@ -27,79 +21,29 @@ class ExpenseComponent extends Component
         return view('livewire.expense-component');
     }
 
+    /* Clear modes */
     public function clearModes()
     {
-        $this->exitCategoryCreateMode();
-        $this->exitCategoryListMode();
-
-        $this->exitCreateMode();
-        $this->exitListMode();
-
-        $this->exitReportMode();
+        foreach ($this->modes as $key => $val) {
+            $this->modes[$key] = false;
+        }
     }
 
-    public function enterCategoryCreateMode()
+    /* Enter and exit mode */
+    public function enterMode($modeName)
     {
         $this->clearModes();
-        $this->categoryCreateMode = true;
+
+        $this->modes[$modeName] = true;
     }
 
-    public function exitCategoryCreateMode()
+    public function exitMode($modeName)
     {
-        $this->categoryCreateMode = false;
-    }
-
-    public function acknowledgeExpenseCategoryCreated()
-    {
-        session()->flash('message', 'Expense category added');
-    }
-
-    public function enterCategoryListMode()
-    {
-        $this->clearModes();
-        $this->categoryListMode = true;
-    }
-
-    public function exitCategoryListMode()
-    {
-        $this->categoryListMode = false;
-    }
-
-    public function enterCreateMode()
-    {
-        $this->clearModes();
-        $this->createMode = true;
+        $this->modes[$modeName] = false;
     }
 
     public function exitCreateMode()
     {
-        $this->createMode = false;
-    }
-
-    public function ackExpenseCreated()
-    {
-        session()->flash('message', 'Expense added');
-    }
-
-    public function enterListMode()
-    {
-        $this->clearModes();
-        $this->listMode = true;
-    }
-
-    public function exitListMode()
-    {
-        $this->listMode = false;
-    }
-
-    public function enterReportMode()
-    {
-        $this->clearModes();
-        $this->reportMode = true;
-    }
-
-    public function exitReportMode()
-    {
-        $this->reportMode = false;
+        $this->exitMode('create');
     }
 }
