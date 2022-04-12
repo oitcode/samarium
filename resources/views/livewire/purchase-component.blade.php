@@ -7,7 +7,7 @@
       New
     </button>
 
-    <button class="btn btn-success-rm m-0 border shadow-sm" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('create')">
+    <button class="btn btn-success-rm m-0 border shadow-sm" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('list')">
       <i class="fas fa-list mr-3"></i>
       List
     </button>
@@ -42,10 +42,10 @@
 
   @if ($modes['create'])
     @livewire ('purchase-create')
+  @elseif ($modes['list'])
+    @livewire ('purchase-list')
   @elseif ($modes['display'])
     @livewire ('purchase-display', ['purchase' => $displayingPurchase,])
-  @else
-    @livewire ('purchase-list')
   @endif
 
 </div>

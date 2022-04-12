@@ -55,14 +55,15 @@
           <th>
             Amount
           </th>
+          <th>
+            Action
+          </th>
         </tr>
       </thead>
 
       <tbody>
         @foreach ($purchases as $purchase)
-          <tr
-              wire:click="$emit('displayPurchase', {{ $purchase->purchase_id }})"
-              role="button">
+          <tr>
             <td>
               {{ $purchase->purchase_id }}
             </td>
@@ -70,26 +71,16 @@
               {{ $purchase->created_at->toDateString() }}
             </td>
             <td>
-              @foreach ($purchase->purchaseItems as $purchaseItem )
-                {{ $purchaseItem->product->name }}
-              @endforeach
-            </td>
-            @if (false)
-            <td>
-              @if ($takeaway->status == 'open')
-                <span class="badge badge-danger">
-                  Open
-                </span>
-              @elseif ($takeaway->status == 'closed')
-                <span class="badge badge-success">
-                  Closed
-                </span>
+              @if ($purchase->purchaseItems)
+                @foreach ($purchase->purchaseItems as $purchaseItem )
+                  {{ $purchaseItem->product->name }}
+                @endforeach
               @else
-                {{ $takeaway->status }}
+                NONE
               @endif
             </td>
-            @endif
             <td>
+              @if ($purchase)
               @if ($purchase->payment_status == 'pending')
                 <span class="badge badge-pill badge-danger">
                   Pending
@@ -105,12 +96,25 @@
               @else
                 {{ $purchase->payment_status }}
               @endif
+              @endif
             </td>
             <td>
               @php echo number_format( $purchase->getPendingAmount() ); @endphp
             </td>
             <td>
               @php echo number_format( $purchase->getTotalAmount() ); @endphp
+            </td>
+            <td>
+              <button class="btn p-2 border mr-3" 
+                  wire:click="$emit('displayPurchase', {{ $purchase->purchase_id }})">
+                <i class="fas fa-folder-open text-primary"></i>
+                View
+              </button>
+              <button class="btn p-2 border mr-3"
+                  wire:click="enterConfirmDeletePurchaseMode({{ $purchase }})">
+                <i class="fas fa-trash text-danger"></i>
+                Delete
+              </button>
             </td>
           </tr>
         @endforeach
@@ -124,8 +128,14 @@
           <td>
               @php echo number_format($total); @endphp
           </td>
+          <td>
+          </td>
         </tr>
       </tfoot>
     </table>
   </div>
+
+  @if ($modes['confirmDeletePurchase'])
+    @livewire ('purchase-list-purchase-delete-confirm', ['purchase' => $deletingPurchase,])
+  @endif
 </div>

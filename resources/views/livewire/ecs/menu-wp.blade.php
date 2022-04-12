@@ -23,7 +23,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{ $loop->iteration }}">
                   @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
                     @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
-                      <a class="dropdown-item" href="">
+                      <a class="dropdown-item" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
                         {{ $cmsNavMenuDropdownItem->name }}
                       </a>
                     @endforeach

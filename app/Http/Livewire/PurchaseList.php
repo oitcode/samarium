@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 use App\Purchase;
 
@@ -15,16 +16,45 @@ class PurchaseList extends Component
     public $endDate;
     public $total;
 
-    public function mount()
-    {
-        $this->purchases = Purchase::orderBy('purchase_id', 'desc')->get();
-    }
+    public $deletingPurchase = null;
+
+    public $modes = [
+        'confirmDeletePurchase' => false,
+    ];
+
+    protected $listeners = [
+        'purchaseDeleted' => 'ackPurchaseDeleted',
+        'exitConfirmPurchaseDelete',
+    ];
 
     public function render()
     {
+        $this->purchases = Purchase::orderBy('purchase_id', 'desc')->get();
+
         $this->calculateTotal();
 
         return view('livewire.purchase-list');
+    }
+
+    /* Clear modes */
+    public function clearModes()
+    {
+        foreach ($this->modes as $key => $val) {
+            $this->modes[$key] = false;
+        }
+    }
+
+    /* Enter and exit mode */
+    public function enterMode($modeName)
+    {
+        $this->clearModes();
+
+        $this->modes[$modeName] = true;
+    }
+
+    public function exitMode($modeName)
+    {
+        $this->modes[$modeName] = false;
     }
 
     public function calculateTotal()
@@ -74,5 +104,25 @@ class PurchaseList extends Component
         }
 
         $this->purchases = $purchases;
+    }
+
+    public function enterConfirmDeletePurchaseMode(Purchase $purchase)
+    {
+        $this->deletingPurchase = $purchase;
+
+        $this->enterMode('confirmDeletePurchase');
+    }
+
+    public function exitConfirmPurchaseDelete()
+    {
+        $this->deletingPurchase = null;
+
+        $this->exitMode('confirmDeletePurchase');
+    }
+
+    public function ackPurchaseDeleted()
+    {
+        $this->deletingPurchase = null;
+        $this->exitMode('confirmDeletePurchase');
     }
 }

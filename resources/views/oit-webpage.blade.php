@@ -17,10 +17,10 @@
     @else
     <div class="container-fluid bg-light border py-4">
     @endif
-      <div class="container" style="font-size: 1.3rem;">
+      <div class="container" style="font-size: 1.2rem;">
           <div class="row my-4">
             @if ($i % 2 == 0)
-              <div class="col-md-6">
+              <div class="col-md-6 text-dark">
                 {{ $webpageContent->body }}
               </div>
               <div class="col-md-6">

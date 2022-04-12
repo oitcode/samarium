@@ -8,9 +8,11 @@ use App\Purchase;
 
 class PurchaseComponent extends Component
 {
+    public $displayingPurchase = null;
+
     public $modes = [
         'create' => false,
-        'list' => false,
+        'list' => true,
         'display' => false,
         'update' => false,
         'delete' => false,
