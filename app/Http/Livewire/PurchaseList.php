@@ -100,9 +100,12 @@ class PurchaseList extends Component
         if ($validatedData['endDate']) {
             $purchases = Purchase::whereDate('created_at', '>=', $validatedData['startDate'])
                 ->whereDate('created_at', '<=', $validatedData['endDate'])
+                ->orderBy('purchase_id', 'desc')
                 ->get();
         } else {
-            $purchases = Purchase::whereDate('created_at', $validatedData['startDate'])->get();
+            $purchases = Purchase::whereDate('created_at', $validatedData['startDate'])
+                ->orderBy('purchase_id', 'desc')
+                ->get();
         }
 
         $this->purchases = $purchases;
