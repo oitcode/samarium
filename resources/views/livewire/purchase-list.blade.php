@@ -117,7 +117,6 @@
               <button class="btn p-2 border mr-3"
                   wire:click="enterConfirmDeletePurchaseMode({{ $purchase }})">
                 <i class="fas fa-trash text-danger"></i>
-                Delete
               </button>
             </td>
           </tr>
