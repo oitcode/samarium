@@ -39,7 +39,7 @@
           <th>
             ID
           </th>
-          <th>
+          <th style="width: 200px;">
             Date
           </th>
           <th>
