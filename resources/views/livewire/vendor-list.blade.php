@@ -22,6 +22,7 @@
                 </a>
               </td>
               <td>
+                {{ $vendor->getBalance() }}
               </td>
               <td>
                 <span class="btn btn-tool btn-sm" wire:click="">

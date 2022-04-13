@@ -1,112 +1,95 @@
-<div class="my-3 bg-white-rm border" style="font-size: 1.3rem;">
-  <div class="bg-success text-white p-3">
-    <h2 class="">
-      Receive sale invoice payment
-    </h2>
-  </div>
+<x-box-create title="Receive sale invoice payment">
 
-  <div class="row mb-3-rm" style="margin:auto;">
-    <div class="col-md-3 p-0 bg-light border">
-
-      <div class="table-responsive mb-0">
-        <table class="table table-bordered mb-0">
-          <tbody>
-            <tr>
-              <th class="text-secondary">
-                Invoice ID
-              </th>
-              <td>
-                {{ $saleInvoice->sale_invoice_id }}
-              </td>
-            </tr>
-
-            <tr>
-              <th class="text-secondary">
-                Invoice date
-              </th>
-              <td>
-                {{ $saleInvoice->sale_invoice_date }}
-              </td>
-            </tr>
-
-            <tr>
-              <th class="text-secondary">
-                Total
-              </th>
-              <td>
-                {{ $saleInvoice->getTotalAmount() }}
-              </td>
-            </tr>
-
-            <tr class="mb-0">
-              <th class="text-secondary">
-                Pending
-              </th>
-              <td class="text-danger">
-                {{ $saleInvoice->getPendingAmount() }}
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="col-md-6 p-0 bg-light border">
-    </div>
-
-    <div class="col-md-3 p-0 bg-light border">
+  <div class="row">
+    <div class="col-md-3">
       <div class="table-responsive">
-        <table class="table table-bordered">
-          <tbody>
-            <tr>
-              <th class="text-secondary">
-                Customer
-              </th>
-              <td>
-                {{ $saleInvoice->customer->name }}
-              </td>
-            </tr>
-
-            <tr>
-              <th class="text-secondary">
-                VAT num
-              </th>
-              <td>
-                {{ $saleInvoice->customer->pan_num }}
-              </td>
-            </tr>
-
-            <tr>
-              <th class="text-secondary">
-                Phone
-              </th>
-              <td>
-                {{ $saleInvoice->customer->phone }}
-              </td>
-            </tr>
-
-            <tr>
-              <th class="text-secondary">
-                Address
-              </th>
-              <td>
-                {{ $saleInvoice->customer->address }}
-              </td>
-            </tr>
-
-          </tbody>
+        <table class="table table-sm">
+          <tr class="border-0">
+            <td class="border-0">Sale invoice ID</td>
+            <td class="border-0">{{ $saleInvoice->sale_invoice_id }}</td>
+          </tr>
+          <tr class="border-0">
+            <td class="border-0">Date</td>
+            <td class="border-0">{{ $saleInvoice->sale_invoice_date }}</td>
+          </tr>
+          <tr class="border-0">
+            <td class="border-0">Total</td>
+            <td class="border-0" style="font-size: 1.3rem;">
+              Rs
+              @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
+            </td>
+          </tr>
+          <tr class="border-0">
+            <td class="border-0">Pending</td>
+            <td class="border-0 text-danger" style="font-size: 1.3rem;">
+              Rs
+              @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
+            </td>
+          </tr>
         </table>
       </div>
     </div>
 
+    <div class="col-md-3">
+      <div>
+        <i class="fas fa-user text-secondary mr-3"></i>
+        {{ $saleInvoice->customer->name}}
+      </div>
+
+      <div>
+        @if ($saleInvoice->customer->phone)
+          <i class="fas fa-phone text-secondary mr-3"></i>
+          {{ $saleInvoice->customer->phone}}
+        @else
+          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
+          <span class="text-secondary">
+          Phone unknown
+          </span>
+        @endif
+      </div>
+
+      <div>
+        @if ($saleInvoice->customer->email)
+          {{ $saleInvoice->customer->email}}
+        @else
+          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
+          <span class="text-secondary">
+          Email unknown
+          </span>
+        @endif
+      </div>
+
+      <div>
+        @if ($saleInvoice->customer->address)
+          {{ $saleInvoice->customer->address}}
+        @else
+          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
+          <span class="text-secondary">
+          Address unknown
+          </span>
+        @endif
+      </div>
+
+      <div>
+        @if ($saleInvoice->customer->pan_num)
+          {{ $saleInvoice->customer->pan_num}}
+        @else
+          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
+          <span class="text-secondary">
+          PAN number unknown
+          </span>
+        @endif
+      </div>
+    </div>
   </div>
 
-  <div class="bg-light border p-2">
+  <div class="bg-light p-2">
     <div class="mt-2 font-weight-bold">
       Payment date
     </div>
     <div class="mb-3">
       {{ $payment_date }}
+      <br />
       <span class="badge badge-pill badge-secondary" style="font-size: 1rem;">
         {{ Carbon\Carbon::parse($payment_date)->format('l') }}
       <span>
@@ -117,20 +100,20 @@
 
     <div class="form-group">
       <label for="">Amount *</label>
-      <input type="text" class="form-control" wire:model.defer="pay_amount">
+      <input type="text" class="form-control" wire:model.defer="pay_amount" style="font-size: 1.3rem;">
       @error('pay_amount') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label for="">Deposited by</label>
-      <input type="text" class="form-control" wire:model.defer="deposited_by">
+      <input type="text" class="form-control" wire:model.defer="deposited_by" style="font-size: 1.3rem;">
       @error('deposited_by') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label for="">Payment type</label>
       <select class="w-100 h-100 custom-control"
-          wire:model.defer="sale_invoice_payment_type_id">
+          wire:model.defer="sale_invoice_payment_type_id" style="font-size: 1.3rem;">
         <option>---</option>
 
         @foreach ($saleInvoicePaymentTypes as $saleInvoicePaymentType)
@@ -145,7 +128,7 @@
 
   <div class="p-3">
     <button type="submit" class="btn btn-success" wire:click="store" style="font-size: 1.3rem;">Submit</button>
-    <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreateMode')" style="font-size: 1.3rem;">Cancel</button>
+    <button type="submit" class="btn btn-danger" wire:click="$emit('exitSaleInvoicePaymentCreateMode')" style="font-size: 1.3rem;">Cancel</button>
   </div>
 
-</div>
+</x-box-create>

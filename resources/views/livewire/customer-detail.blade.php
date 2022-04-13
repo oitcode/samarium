@@ -1,133 +1,116 @@
 <div class="bg-white p-3 border shadow">
 
-  @if (true)
-  <div class=" mb-4">
+  <h2 class="my-4">
+    {{ $customer->name }}
+  </h2>
 
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card border-0">
-          <div class="card-header bg-white border-0">
-            <i class="fas fa-user mr-2"></i>
-            <span style="font-size: 1.5rem;">
-            {{ $customer->name }}
-            </span>
-          </div>
-          <div class="card-body p-0">
+  <div class="row">
+    <div class="col-md-3">
 
-            <div class="table-responsive">
-              <table class="table table-sm">
-                <tbody style="font-size: 1.3rem;">
-                  <tr class="border-0">
-                    <th class="border-0">
-                      <span class="badge mr-2">
-                      <i class="fas fa-phone"></i>
-                      </span>
-                        {{ $customer->phone }}
-                    </th>
-                  </tr>
-                  <tr class="border-0">
-                    <th class="border-0">
-                      <span class="badge mr-2">
-                      <i class="fas fa-envelope"></i>
-                      </span>
-                        {{ $customer->email }}
-                    </th>
-                  </tr>
-                  <tr class="border-0">
-                    <th class="border-0">
-                      <i class="fas fa-map-marker-alt"></i>
-                      {{ $customer->address }}
-                    </th>
-                  </tr>
-                  <tr class="border-0">
-                    <th class="border-0">
-                      PAN: 
-                      {{ $customer->pan_number }}
-                    </th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-          </div>
-        </div>
+      <div>
+        @if ($customer->phone)
+          <i class="fas fa-phone text-secondary mr-3"></i>
+          {{ $customer->phone}}
+        @else
+          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
+          <span class="text-secondary">
+          Phone unknown
+          </span>
+        @endif
       </div>
 
-      <div class="col-md-4">
-        <h2>
-          BALANCE
-        </h2>
-        <div class="text-danger" style="font-size: 2rem;">
-          Rs
-          @php echo number_format( $customer->getBalance() ); @endphp
-        </div>
+      <div>
+        @if ($customer->email)
+          {{ $customer->email}}
+        @else
+          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
+          <span class="text-secondary">
+          Email unknown
+          </span>
+        @endif
       </div>
 
-      <div class="col-md-4">
+      <div>
+        @if ($customer->address)
+          {{ $customer->address}}
+        @else
+          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
+          <span class="text-secondary">
+          Address unknown
+          </span>
+        @endif
+      </div>
+
+      <div>
+        @if ($customer->pan_num)
+          {{ $customer->pan_num}}
+        @else
+          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
+          <span class="text-secondary">
+          PAN number unknown
+          </span>
+        @endif
       </div>
     </div>
 
-  </div>
-  @endif
-
-  <div class="bg-info-rm mb-4">
-    <button class="btn btn-success-rm m-0"
-      style="height: 100px; width: 225px;
-
-        @if ($modes['salesHistory'])
-          background-color: #008450;
-        @endif
-
-        font-size: 1.5rem;"
-      wire:click="enterMode('salesHistory')">
-
-      <i class="fas fa-list mr-3"></i>
-      Sales history
-
-    </button>
-
-    <button class="btn btn-success-rm m-0"
-      style="height: 100px; width: 225px;
-
-        @if ($modes['customerPaymentCreate'])
-          background-color: #008450;
-        @endif
-
-        font-size: 1.5rem;"
-      wire:click="enterMode('customerPaymentCreate')">
-
-      <i class="fas fa-rupee-sign mr-3"></i>
-      Payment
-
-    </button>
-
-    <button class="btn btn-success-rm m-0"
-      style="height: 100px; width: 225px;
-
-        @if ($modes['ledger'])
-          background-color: #008450;
-        @endif
-
-        font-size: 1.5rem;"
-      wire:click="enterMode('ledger')">
-
-      <i class="fas fa-book mr-3"></i>
-      Ledger
-
-    </button>
-
-    <button wire:loading class="btn btn-danger-rm" style="height: 100px; width: 225px; font-size: 1.5rem;">
-      <div class="spinner-border text-info mr-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-      <span class="ml-3 text-secondary" style="font-size: 1rem;">
-        Loading...
+    <div class="col-md-3">
+      <h2 class="h5 text-secondary">
+        Balance
+      </h2>
+      <span class="text-danger" style="font-size: 1.5rem;">
+      Rs
+      @php echo number_format( $customer->getBalance() ); @endphp
       </span>
-    </button>
-
+    </div>
   </div>
 
+  {{-- Toolbar --}}
+  <div class="my-4">
+    <div class="mb-3">
+      <button class="btn
+          @if ($modes['salesHistory'])
+            btn-success text-white
+          @endif
+          m-0 border shadow-sm badge-pill mr-3"
+          style="font-size: 1.3rem;" wire:click="enterMode('salesHistory')">
+        <i class="fas fa-shopping-cart mr-3"></i>
+        Sales history
+      </button>
 
+      <button class="btn
+          @if ($modes['customerPaymentCreate'])
+            btn-success text-white
+          @endif
+          m-0 border shadow-sm badge-pill mr-3"
+          style="font-size: 1.3rem;" wire:click="enterMode('customerPaymentCreate')">
+        <i class="fas fa-donate mr-3"></i>
+        Payment
+      </button>
+
+      @if (false)
+      <button class="btn
+          @if ($modes['ledger'])
+            btn-success text-white
+          @endif
+          m-0 border shadow-sm badge-pill mr-3"
+          style="font-size: 1.3rem;" wire:click="enterMode('ledger')">
+        <i class="fas fa-key mr-3"></i>
+        Ledger
+      </button>
+      @endif
+
+      <button wire:loading class="btn m-0"
+          style="height: 100px; width: 225px; font-size: 1.5rem;">
+        <span class="spinner-border text-info mr-3" role="status">
+        </span>
+      </button>
+
+
+      <div class="clearfix">
+      </div>
+    </div>
+  </div>
+  {{-- ./Toolbar --}}
 
   @if ($modes['salesHistory'])
     @livewire ('customer-sale-list', ['customer' => $customer,])

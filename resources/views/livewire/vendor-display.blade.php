@@ -55,7 +55,7 @@
         <h2 class="h5 text-secondary">
           Balance
         </h2>
-        <span style="font-size: 1.5rem;">
+        <span class="text-danger" style="font-size: 1.5rem;">
         Rs
         @php echo number_format( $vendor->getBalance() ); @endphp
         </span>
@@ -63,7 +63,7 @@
     </div>
 
     {{-- Toolbar --}}
-    <div class="my-3">
+    <div class="my-4">
       <div class="mb-3">
         <button class="btn
             @if ($modes['purchaseList'])

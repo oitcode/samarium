@@ -3,7 +3,7 @@
     <div class="table-responsive">
       <table class="table table-sm table-bordered table-hover">
         <thead>
-          <tr class="bg-success text-white" style="font-size: 1.3rem;">
+          <tr class="text-secondary" style="font-size: 1.1rem;">
             <th>ID</th>
             <th>Date</th>
             <th>Customer</th>
@@ -16,7 +16,7 @@
         </thead>
         <tbody>
           @foreach ($saleInvoices as $saleInvoice)
-            <tr style="font-size: 1.3rem;">
+            <tr style="font-size: 1.1rem;">
               <td>
                 {{ $saleInvoice->sale_invoice_id }}
               </td>

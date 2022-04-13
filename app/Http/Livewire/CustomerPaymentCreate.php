@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 use App\SaleInvoice;
 use App\SaleInvoicePayment;
@@ -36,14 +37,24 @@ class CustomerPaymentCreate extends Component
 
         $amountRemaining = $this->pay_amount;
 
-        /* Check if pending sale invoice to pay */
-        foreach ($this->customer->getPendingSaleInvoices() as $saleInvoice) {
-            /* Stop if no amount remaining. */
-            if ($amountRemaining <= 0) {
-                break;
+        DB::beginTransaction();
+
+        try {
+            /* Check if pending sale invoice to pay */
+            foreach ($this->customer->getPendingSaleInvoices() as $saleInvoice) {
+                /* Stop if no amount remaining. */
+                if ($amountRemaining <= 0) {
+                    break;
+                }
+
+                $amountRemaining = $this->receiveSaleInvoicePayment($saleInvoice, $amountRemaining, $this->deposited_by);
             }
 
-            $amountRemaining = $this->receiveSaleInvoicePayment($saleInvoice, $amountRemaining, $this->deposited_by);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd ($e);
+            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
 
         /* TODO */
@@ -74,6 +85,7 @@ class CustomerPaymentCreate extends Component
             $retval = $amountAvailable - $saleInvoice->getPendingAmount();
         }
 
+        $saleInvoicePayment->sale_invoice_payment_type_id = $this->sale_invoice_payment_type_id;
         $saleInvoicePayment->save();
         $saleInvoice->save();
 

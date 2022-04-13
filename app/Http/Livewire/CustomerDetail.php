@@ -21,7 +21,9 @@ class CustomerDetail extends Component
 
     protected $listeners = [
         'customerPaymentMade',
-        'receiveSaleInvoicePayment'
+        'receiveSaleInvoicePayment',
+        'exitCustomerPaymentCreateMode',
+        'exitSaleInvoicePaymentCreateMode',
     ];
 
     public function render()
@@ -45,6 +47,11 @@ class CustomerDetail extends Component
         $this->modes[$modeName] = true;
     }
 
+    public function exitMode($modeName)
+    {
+        $this->modes[$modeName] = false;
+    }
+
     public function customerPaymentMade($amountRemaining)
     {
         $this->clearModes();
@@ -57,5 +64,16 @@ class CustomerDetail extends Component
         $this->paymentReceivingSaleInvoice = $saleInvoice;
 
         $this->enterMode('saleInvoicePaymentCreate');
+    }
+
+    public function exitCustomerPaymentCreateMode()
+    {
+        $this->exitMode('customerPaymentCreate');
+    }
+
+    public function exitSaleInvoicePaymentCreateMode()
+    {
+        $this->paymentReceivingSaleInvoice = null;
+        $this->exitMode('saleInvoicePaymentCreate');
     }
 }

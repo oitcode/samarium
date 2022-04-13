@@ -4,6 +4,8 @@
     <button class="btn
         @if ($modes['create'])
           btn-success text-white
+        @else
+          bg-white
         @endif
         m-0 border shadow-sm badge-pill mr-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('create')">
@@ -14,6 +16,8 @@
     <button class="btn
         @if ($modes['list'])
           btn-success text-white
+        @else
+          bg-white
         @endif
         m-0 border shadow-sm badge-pill mr-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('list')">
@@ -21,13 +25,13 @@
       List
     </button>
 
-    <button class="btn btn-success-rm m-0 border shadow-sm badge-pill mr-3"
+    <button class="btn m-0 bg-white border shadow-sm badge-pill mr-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="">
       <i class="fas fa-chart-line mr-3"></i>
       Report
     </button>
 
-    <button class="btn btn-success-rm m-0 border shadow-sm badge-pill mr-3"
+    <button class="btn m-0 bg-white border shadow-sm badge-pill mr-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="">
       <i class="fas fa-search mr-3"></i>
       Search

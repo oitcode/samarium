@@ -1,9 +1,4 @@
 <div>
-  <div class="bg-success text-white mb-3 p-3">
-    <h2>
-      Customer Ledger
-    </h2>
-  </div>
 
   <div class="row py-3">
     <div class="col-md-3">
@@ -60,9 +55,9 @@
 
   <div class="p-3-rm mb-3 border">
     <div class="table-responsive">
-      <table class="table table-sm table-bordered" style="font-size: 1.3rem;">
+      <table class="table table-sm table-bordered" style="font-size: 1.1rem;">
         <thead>
-          <tr class="bg-success text-white">
+          <tr class="text-secondary">
             <th>Bill ID</th>
             <th>Bill date</th>
             <th>Customer</th>

@@ -1,7 +1,7 @@
 <div>
 
   {{-- Search Bar --}}
-  <div class="mb-4 p-3 border shadow-sm d-flex-rm">
+  <div class="mb-4 p-3 bg-white border">
 
     @if (false)
     <div class="float-left mr-3">
@@ -41,7 +41,7 @@
     </div>
 
     <div class="float-right mr-3">
-      <button class="btn btn-danger h-100 p-3" style="font-size: 1.3rem;" wire:click="getCreditors">
+      <button class="btn btn-danger h-100 p-3 badge-pill" style="font-size: 1.3rem;" wire:click="getCreditors">
         Creditors
       </button>
     </div>
@@ -62,7 +62,7 @@
   {{-- Customer table --}}
   @if ($customers != null && count($customers) > 0)
 
-    <div class="table-responsive" style="font-size: 1.3rem;">
+    <div class="table-responsive" style="font-size: 1.1rem;">
       <table class="table table-bordered table-hover">
         <thead>
           <tr class="text-secondary">
