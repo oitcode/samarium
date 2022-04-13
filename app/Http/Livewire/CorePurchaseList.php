@@ -25,7 +25,7 @@ class CorePurchaseList extends Component
     public function fillPurchases()
     {
         if ($this->vendor) {
-            $this->purchases = $this->vendor->purchases;
+            $this->purchases = $this->vendor->purchases()->orderBy('purchase_id', 'desc')->get();
         }
     }
 }
