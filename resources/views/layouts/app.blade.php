@@ -319,6 +319,10 @@
                   <i class="fas fa-users text-secondary mr-2"></i>
                   Vendors
                 </a>
+                <a class="dropdown-item" href="{{ route('dashboard-report') }}">
+                  <i class="fas fa-chart-line text-secondary mr-2"></i>
+                  Report
+                </a>
               </div>
             </div>
           </div>

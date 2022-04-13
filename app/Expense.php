@@ -51,4 +51,16 @@ class Expense extends Model
     {
         return $this->hasMany('App\ExpensePayment', 'expense_id', 'expense_id');
     }
+
+
+    /*-------------------------------------------------------------------------
+     * Methods
+     *-------------------------------------------------------------------------
+     *
+     */
+
+    public function getTotalAmount()
+    {
+        return $this->amount;
+    }
 }
