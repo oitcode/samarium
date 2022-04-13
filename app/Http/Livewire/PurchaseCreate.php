@@ -7,6 +7,7 @@ use App\Traits\MiscTrait;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
+use App\Vendor;
 use App\Purchase;
 use App\PurchasePaymentType;
 use App\PurchasePayment;
@@ -16,6 +17,9 @@ class PurchaseCreate extends Component
     use MiscTrait;
 
     public $purchase;
+    public $vendor_id;
+
+    public $vendors = null;
 
     public $modes = [
         'addItem' => true,
@@ -38,6 +42,7 @@ class PurchaseCreate extends Component
     public function render()
     {
         $this->purchasePaymentTypes = PurchasePaymentType::all();
+        $this->vendors = Vendor::all();
 
         return view('livewire.purchase-create');
     }
@@ -104,5 +109,15 @@ class PurchaseCreate extends Component
             dd ($e);
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
+    }
+
+    public function linkPurchaseToVendor()
+    {
+        $validatedData = $this->validate([
+            'vendor_id' => 'required|integer',
+        ]);
+
+        $this->purchase->vendor_id = $validatedData['vendor_id'];
+        $this->purchase->save();
     }
 }

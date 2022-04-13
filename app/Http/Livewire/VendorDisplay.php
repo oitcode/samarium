@@ -4,29 +4,24 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-use App\Vendor;
-
-class VendorComponent extends Component
+class VendorDisplay extends Component
 {
-    public $displayingVendor = null;
+    public $vendor;
 
     public $modes = [
-        'create' => false,
-        'list' => false,
-        'display' => false,
-        'update' => false,
-        'delete' => false,
+        'purchaseList' => false,
+        'pendingBills' => false,
+        'settle' => false,
     ];
 
     protected $listeners = [
-        'clearModes',
-        'displayVendor',
-        'exitCreateMode',
+        'exitSettlement',
+        'vendorSettlementMade' => 'exitSettlement',
     ];
 
     public function render()
     {
-        return view('livewire.vendor-component');
+        return view('livewire.vendor-display');
     }
 
     /* Clear modes */
@@ -50,15 +45,8 @@ class VendorComponent extends Component
         $this->modes[$modeName] = false;
     }
 
-    public function exitCreateMode()
+    public function exitSettlement()
     {
-        $this->exitMode('create');
-    }
-
-    public function displayVendor(Vendor $vendor)
-    {
-        $this->displayingVendor = $vendor;
-
-        $this->enterMode('display');
+        $this->exitMode('settle');
     }
 }

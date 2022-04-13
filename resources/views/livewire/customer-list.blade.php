@@ -65,7 +65,7 @@
     <div class="table-responsive" style="font-size: 1.3rem;">
       <table class="table table-bordered table-hover">
         <thead>
-          <tr class="bg-success-rm text-white-rm">
+          <tr class="text-secondary">
             <th>
               <i class="fas fa-user mr-2"></i>
               Name

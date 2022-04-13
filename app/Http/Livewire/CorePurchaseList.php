@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class CorePurchaseList extends Component
+{
+    public $purchases;
+
+    public $options = [
+        'all' => 'false',
+        'vendor' => 'false',
+    ];
+
+    public $vendor = null;
+
+    public function render()
+    {
+        $this->fillPurchases();
+
+        return view('livewire.core-purchase-list');
+    }
+
+    public function fillPurchases()
+    {
+        if ($this->vendor) {
+            $this->purchases = $this->vendor->purchases;
+        }
+    }
+}

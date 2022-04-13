@@ -1,40 +1,27 @@
-<x-box-list title="Vendor list">
+<div>
   @if ($vendors != null && count($vendors) > 0)
-    <div class="table-responsive">
-      <table class="table table-sm table-hover">
+    <div class="table-responsive bg-white border shadow">
+      <table class="table table-hover">
         <thead>
-          <tr class="text-secondary">
+          <tr class="text-secondary" style="font-size: 1.1rem;">
             <th>ID</th>
             <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>PAN Num</th>
+            <th>Pending</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($vendors as $vendor)
-            <tr>
+            <tr style="font-size: 1.1rem;">
               <td>
                 {{ $vendor->vendor_id }}
               </td>
               <td>
-                <a href="" wire:click.prevent="">
+                <a href="" wire:click.prevent="$emit('displayVendor', {{ $vendor }})">
                 {{ $vendor->name }}
                 </a>
               </td>
               <td>
-                {{ $vendor->phone }}
-              </td>
-              <td>
-                {{ $vendor->email }}
-              </td>
-              <td>
-                {{ $vendor->address }}
-              </td>
-              <td>
-                {{ $vendor->pan_num }}
               </td>
               <td>
                 <span class="btn btn-tool btn-sm" wire:click="">
@@ -55,4 +42,4 @@
       No vendors.
     </div>
   @endif
-</x-box-list>
+</div>

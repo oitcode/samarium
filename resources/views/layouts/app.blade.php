@@ -315,6 +315,10 @@
                   <i class="fas fa-tools text-secondary mr-2"></i>
                   Expense
                 </a>
+                <a class="dropdown-item" href="{{ route('dashboard-vendor') }}">
+                  <i class="fas fa-users text-secondary mr-2"></i>
+                  Vendors
+                </a>
               </div>
             </div>
           </div>

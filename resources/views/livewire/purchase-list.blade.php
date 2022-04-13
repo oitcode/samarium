@@ -32,15 +32,18 @@
 
   @if (true)
   @if (!is_null($purchases) && count($purchases) > 0)
-  <div class="table-responsive">
-    <table class="table table-bordered" style="font-size: 1.3rem;">
+  <div class="table-responsive bg-white">
+    <table class="table table-bordered" style="font-size: 1.1rem;">
       <thead>
-        <tr class="bg-success-rm text-white-rm">
+        <tr class="text-secondary">
           <th>
             ID
           </th>
           <th style="width: 200px;">
             Date
+          </th>
+          <th>
+            Vendor
           </th>
           <th>
             Items
@@ -73,6 +76,12 @@
             </td>
             <td class="" style="font-size: 1rem;">
               {{ $purchase->created_at->toDateString() }}
+            </td>
+            <td>
+              @if ($purchase->vendor)
+                {{ $purchase->vendor->name }}
+              @else
+              @endif
             </td>
             <td>
               @if ($purchase->purchaseItems)
@@ -124,7 +133,7 @@
 
       <tfoot>
         <tr style="font-size: 1.8rem;">
-          <th colspan="5" class="text-right pl-3">
+          <th colspan="6" class="text-right pl-3">
             Total
           </th>
           <td>

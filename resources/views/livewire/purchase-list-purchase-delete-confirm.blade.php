@@ -4,7 +4,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">
-                <i class="fas fa-exclamation-triangle text-danger mr-2"></i>
+                <i class="fas fa-exclamation-circle text-danger mr-2"></i>
                   Delete purchase?
               </h5>
             </div>

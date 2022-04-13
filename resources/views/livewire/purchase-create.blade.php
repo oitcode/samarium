@@ -98,6 +98,35 @@
     </div>
   
     <div class="col-md-5">
+
+      <div class="mb-4">
+
+        <table class="table shadow">
+          <tr class="bg-white">
+            <td>
+              Vendor
+            </td>
+            <td>
+              <select class="w-50 custom-control-rm" wire:model.defer="vendor_id">
+                <option>---</option>
+
+                @foreach ($vendors as $vendor)
+                  <option value="{{ $vendor->vendor_id }}">
+                    {{ $vendor->name }}
+                  </option>
+                @endforeach
+              </select>
+            </td>
+            <td>
+              <button class="btn border" wire:click="linkPurchaseToVendor">
+                Confirm
+              </button>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
       <div>
         @if (! $modes['paid'])
           @livewire ('purchase-make-payment', ['purchase' => $purchase,])

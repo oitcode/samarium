@@ -78,6 +78,9 @@ Route::get('/dashboard/settings', 'SettingsController@index')->name('dashboard-s
 /* Company */
 Route::get('/dashboard/company', 'CompanyController@index')->name('company');
 
+/* Vendor */
+Route::get('/dashboard/vendor', 'VendorController@index')->name('dashboard-vendor');
+
 
 
 /*

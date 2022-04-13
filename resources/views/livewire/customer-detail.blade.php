@@ -1,60 +1,46 @@
-<div>
-  @if (false)
-  <x-menu-bar-horizontal>
-    @if (true)
-    <x-menu-item fa-class="fas fa-arrow-right" title="Sales hitory" click-method="enterMode('salesHistory')" />
-    <x-menu-item fa-class="fas fa-hand-holding-usd" title="Payment" click-method="enterMode('customerPaymentCreate')" />
-    <x-menu-item fa-class="fas fa-list" title="Ledger" click-method="enterMode('ledger')" />
-    @endif
-
-  </x-menu-bar-horizontal>
-  @endif
-
-
-
-
-
+<div class="bg-white p-3 border shadow">
 
   @if (true)
   <div class=" mb-4">
 
     <div class="row">
       <div class="col-md-4">
-        <div class="card">
-          <div class="card-header bg-warning-rm" {{--style="background-image: linear-gradient(to right, #7B3F00, #8B3F00);"--}}>
-            <span style="font-size: 1.3rem;">
+        <div class="card border-0">
+          <div class="card-header bg-white border-0">
+            <i class="fas fa-user mr-2"></i>
+            <span style="font-size: 1.5rem;">
             {{ $customer->name }}
             </span>
           </div>
           <div class="card-body p-0">
 
             <div class="table-responsive">
-              <table class="table">
+              <table class="table table-sm">
                 <tbody style="font-size: 1.3rem;">
-                  <tr>
-                    <th>
+                  <tr class="border-0">
+                    <th class="border-0">
                       <span class="badge mr-2">
                       <i class="fas fa-phone"></i>
                       </span>
                         {{ $customer->phone }}
                     </th>
                   </tr>
-                  <tr>
-                    <th>
+                  <tr class="border-0">
+                    <th class="border-0">
                       <span class="badge mr-2">
                       <i class="fas fa-envelope"></i>
                       </span>
                         {{ $customer->email }}
                     </th>
                   </tr>
-                  <tr>
-                    <th>
+                  <tr class="border-0">
+                    <th class="border-0">
                       <i class="fas fa-map-marker-alt"></i>
                       {{ $customer->address }}
                     </th>
                   </tr>
-                  <tr>
-                    <th>
+                  <tr class="border-0">
+                    <th class="border-0">
                       PAN: 
                       {{ $customer->pan_number }}
                     </th>
@@ -67,17 +53,13 @@
         </div>
       </div>
 
-      <div class="col-md-4 bg-success text-white">
-        <div class="d-flex justify-content-center h-100">
-          <div class="justify-content-center align-self-center text-center">
-            <h2>
-              BALANCE
-            </h2>
-            <div style="font-size: 2rem;">
-              <i class="fas fa-rupee-sign"></i>
-              @php echo number_format( $customer->getBalance() ); @endphp
-            </div>
-          </div>
+      <div class="col-md-4">
+        <h2>
+          BALANCE
+        </h2>
+        <div class="text-danger" style="font-size: 2rem;">
+          Rs
+          @php echo number_format( $customer->getBalance() ); @endphp
         </div>
       </div>
 
@@ -89,7 +71,7 @@
   @endif
 
   <div class="bg-info-rm mb-4">
-    <button class="btn btn-success m-0"
+    <button class="btn btn-success-rm m-0"
       style="height: 100px; width: 225px;
 
         @if ($modes['salesHistory'])
@@ -104,7 +86,7 @@
 
     </button>
 
-    <button class="btn btn-success m-0"
+    <button class="btn btn-success-rm m-0"
       style="height: 100px; width: 225px;
 
         @if ($modes['customerPaymentCreate'])
@@ -119,7 +101,7 @@
 
     </button>
 
-    <button class="btn btn-success m-0"
+    <button class="btn btn-success-rm m-0"
       style="height: 100px; width: 225px;
 
         @if ($modes['ledger'])

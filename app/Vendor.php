@@ -41,4 +41,33 @@ class Vendor extends Model
     {
         return $this->hasMany('App\Purchase', 'vendor_id', 'vendor_id');
     }
+
+
+    /*-------------------------------------------------------------------------
+     * Methods
+     *-------------------------------------------------------------------------
+     *
+     */
+
+    /*
+     * get balance.
+     *
+     */
+    public function getBalance()
+    {
+        $total = 0;
+
+        foreach ($this->purchases as $purchase) {
+            $total += $purchase->getPendingAmount();
+        }
+
+        return $total;
+    }
+
+    public function getPendingPurchases()
+    {
+        $purchases = $this->purchases()->where('payment_status', '!=', 'paid')->get();
+
+        return $purchases;
+    }
 }
