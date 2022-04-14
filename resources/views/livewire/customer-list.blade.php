@@ -63,7 +63,7 @@
   @if ($customers != null && count($customers) > 0)
 
     <div class="table-responsive" style="font-size: 1.1rem;">
-      <table class="table table-bordered table-hover">
+      <table class="table table-hover">
         <thead>
           <tr class="text-secondary">
             <th>
@@ -81,7 +81,7 @@
 
         <tbody class="bg-white">
           @foreach ($customers as $customer)
-            <tr>
+            <tr class="border">
               <td>
                 @if ($customer->getBalance() > 0)
                   <i class="fas fa-circle mr-3 text-danger"></i>
