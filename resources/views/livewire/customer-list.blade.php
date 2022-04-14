@@ -104,9 +104,9 @@
               </td>
               <td>
 
-                <button class="btn btn-success"
+                <button class="btn btn-success-rm border border-primary rounded-circle text-primary"
                     wire:click="$emit('displayCustomer', {{ $customer->customer_id }})">
-                  View
+                  <i class="fas fa-folder"></i>
                 </button>
               </td>
             </tr>
