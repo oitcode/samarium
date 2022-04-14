@@ -84,9 +84,9 @@
             <tr>
               <td>
                 @if ($customer->getBalance() > 0)
-                  <i class="fas fa-circle mr-3 text-success"></i>
-                @else
                   <i class="fas fa-circle mr-3 text-danger"></i>
+                @else
+                  <i class="fas fa-circle mr-3 text-success"></i>
                 @endif
                 {{ $customer->name }}
               </td>
