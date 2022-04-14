@@ -2,9 +2,11 @@
 
   <div class="border">
     <div class="d-flex mb-0 p-2 justify-content-end bg-success-rm text-white-rm border" style="background-color: #eee;">
+      @if (false)
       <button class="btn border mr-3" wire:click="enterMode('showPayments')">
         Show payments
       </button>
+      @endif
       <button class="btn btn-danger border rounded-circle" wire:click="$emit('exitDisplaySaleInvoiceMode')">
         <i class="fas fa-times fa-2x-rm"></i>
       </button>
@@ -27,7 +29,9 @@
                     @if ($saleInvoice->customer)
                       {{ $saleInvoice->customer->name }}
                     @else
-                      ??
+                      <span class="text-secondary">
+                        ??
+                      </span>
                     @endif
                   </td>
                 </tr>
@@ -123,8 +127,33 @@
                       {{ $saleInvoice->payment_status }}
                     </span>
                     @endif
+                   <button class="btn" wire:click="enterMode('showPayments')">
+                     Show payments
+                   </button>
                   </td>
                 </tr>
+
+                @if ($modes['showPayments'])
+                  <tr class="text-secondary" style="font-size: 1.3rem;">
+                    <th class="pl-3">
+                      Payments
+                    </th>
+                    <td style="font-weight: bold;">
+                      @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
+                        <div>
+                        Rs
+                        {{ $saleInvoicePayment->amount }}
+                        <span class="badge badge-pill ml-3">
+                        {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+                        </span>
+                        <span class="badge badge-pill ml-3">
+                        {{ $saleInvoicePayment->payment_date }}
+                        </span>
+                        </div>
+                      @endforeach
+                    </td>
+                  </tr>
+                @endif
               </tbody>
             </table>
           </div>
@@ -218,8 +247,10 @@
     </div>
 
     {{-- Show payments if needed --}}
+    @if (false)
     @if ($modes['showPayments'])
       @livewire ('daybook-sale-invoice-display-show-payments', ['saleInvoice' => $saleInvoice,])
+    @endif
     @endif
   </div>
 </div>

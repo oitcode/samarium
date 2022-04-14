@@ -180,6 +180,12 @@
                         {{ $saleInvoice->payment_status }}
                       </span>
                       @endif
+
+                      @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
+                      <span class="badge badge-pill badge-primary ml-3">
+                        {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+                      </span>
+                      @endforeach
                     </td>
                     <td>
                       {{ $saleInvoice->getPendingAmount() }}
