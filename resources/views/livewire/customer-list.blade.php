@@ -70,11 +70,11 @@
               <i class="fas fa-user mr-2"></i>
               Name
             </th>
+            <th>Pending balance</th>
             <th>
               <i class="fas fa-phone mr-2"></i>
               Phone
             </th>
-            <th>Pending balance</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -90,9 +90,6 @@
                 @endif
                 {{ $customer->name }}
               </td>
-              <td class="text-secondary" style="font-size: 1.1rem;">
-                {{ $customer->phone }}
-              </td>
               <td>
                 @if ($customer->getBalance() > 0)
                   <span class="text-danger font-weight-bold">
@@ -101,6 +98,9 @@
                 @else
                   @php echo number_format( $customer->getBalance() ); @endphp
                 @endif
+              </td>
+              <td class="text-secondary" style="font-size: 1.1rem;">
+                {{ $customer->phone }}
               </td>
               <td>
 
