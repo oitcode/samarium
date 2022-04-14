@@ -21,6 +21,7 @@
 
 
 
+      @if (! $modes['displaySaleInvoice'])
       <div class="shadow-sm-rm float-right" style="width: 500px;">
         <div class="card">
           <div class="card-body p-0 bg-success-rm text-white-rm">
@@ -35,6 +36,8 @@
           </div>
         </div>
       </div>
+      @endif
+
       <div class="clearfix">
       </div>
 

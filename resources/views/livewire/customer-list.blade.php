@@ -83,9 +83,14 @@
           @foreach ($customers as $customer)
             <tr>
               <td>
+                @if ($customer->getBalance() > 0)
+                  <i class="fas fa-circle mr-3 text-success"></i>
+                @else
+                  <i class="fas fa-circle mr-3 text-danger"></i>
+                @endif
                 {{ $customer->name }}
               </td>
-              <td>
+              <td class="text-secondary" style="font-size: 1.1rem;">
                 {{ $customer->phone }}
               </td>
               <td>
