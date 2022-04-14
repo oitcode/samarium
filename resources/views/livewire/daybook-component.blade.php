@@ -182,7 +182,7 @@
                       @endif
 
                       @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
-                      <span class="badge badge-pill badge-primary ml-3">
+                      <span class="badge badge-pill ml-3">
                         {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
                       </span>
                       @endforeach
