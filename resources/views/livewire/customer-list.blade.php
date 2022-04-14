@@ -62,8 +62,8 @@
   {{-- Customer table --}}
   @if ($customers != null && count($customers) > 0)
 
-    <div class="table-responsive" style="font-size: 1.1rem;">
-      <table class="table table-hover">
+    <div class="table-responsive border" style="font-size: 1.1rem;">
+      <table class="table table-hover mb-0">
         <thead>
           <tr class="text-secondary">
             <th>
