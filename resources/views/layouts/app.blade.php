@@ -44,7 +44,7 @@
             <i class="fas fa-dot-circle fa-2x-rm mr-3" style="font-size: 1.3rem;"></i>
             @endif
             <span class="" style="font-size: 1.3rem;">
-            Khajanchi
+            OPay
             </span>
           </a>
         </div>
