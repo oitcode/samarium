@@ -33,6 +33,8 @@ class SeatTableWorkDisplayMakePayment extends Component
     public $service_charge = 0;
     public $grand_total;
 
+    public $discount_percentage = null;
+
     public $returnAmount;
 
     /* Customer to which sale_invoice will be made */
@@ -434,5 +436,14 @@ class SeatTableWorkDisplayMakePayment extends Component
 
             $saleInvoicePayment->save();
         }
+    }
+
+    public function calculateDiscount()
+    {
+        $dp = (float) $this->discount_percentage;
+        $this->saleInvoiceAdditions['Discount'] = ($dp / 100) * $this->seatTable->getCurrentBooking()->saleInvoice->getTotalAmountRaw();
+        $this->saleInvoiceAdditions['Discount'] = ceil ($this->saleInvoiceAdditions['Discount']);
+
+        $this->calculateGrandTotal();
     }
 }

@@ -119,9 +119,28 @@
           @foreach ($saleInvoiceAdditions as $key => $val)
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
             <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
-              <span class="ml-4">
-                {{ $key }}
-              </span>
+              {{-- Hard code for discount . Temp. Todo permanent design/fix --}} 
+              @if (strtolower($key) == 'discount')
+                <div class="ml-4">
+                  {{ $key }}
+                  <select
+                      class="bg-white border border-secondary badge-pill"
+                      wire:model="discount_percentage"
+                      wire:change="calculateDiscount">
+                    <option value="--">--</option>
+                    <option value="5">5 %</option>
+                    <option value="10">10 %</option>
+                    <option value="15">15 %</option>
+                    <option value="20">20 %</option>
+                    <option value="25">25 %</option>
+                    <option value="50">50 %</option>
+                  </select>
+                </div>
+              @else
+                <span class="ml-4">
+                  {{ $key }}
+                </span>
+              @endif
             </td>
             <td class="p-0 h-100 font-weight-bold border-0">
               <input class="w-100 h-90 font-weight-bold pl-3 border-0"
