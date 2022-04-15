@@ -84,6 +84,8 @@ Route::get('/dashboard/vendor', 'VendorController@index')->name('dashboard-vendo
 /* Report */
 Route::get('/dashboard/report', 'ReportController@index')->name('dashboard-report');
 
+/* Report */
+Route::get('/dashboard/changePassword', 'ChangePasswordController@index')->name('dashboard-change-password');
 
 
 /*

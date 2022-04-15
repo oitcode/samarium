@@ -1,6 +1,12 @@
 <div class="card shadow-sm h-100">
   <div class="card-body p-0">
 
+    <div class="m-3">
+      <h2>
+        Net Calculation
+      </h2>
+    </div>
+
     <div class="my-3 text-secondary p-3" style="font-size: 1.3rem;">
 
       <div>

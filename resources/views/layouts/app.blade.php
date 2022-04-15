@@ -350,6 +350,10 @@
                   <i class="fas fa-cog text-secondary mr-2"></i>
                   Settings
                 </a>
+                <a class="dropdown-item" href="{{ route('dashboard-change-password') }}">
+                  <i class="fas fa-key text-secondary mr-2"></i>
+                  Change password
+                </a>
                 <div class="dropdown-divider mb-0"></div>
                 <a class="dropdown-item mb-0" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
