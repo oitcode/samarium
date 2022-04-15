@@ -224,7 +224,7 @@
             <div class="col-md-3">
               <div class="card shadow">
                 <div class="card-body">
-                  <h2 class="mb-5 text-success font-weight-bold">
+                  <h2 class="mb-5 text-dark font-weight-bold">
                     {{ $key }}
                   </h2>
                   <h3 class="text-secondary font-weight-bold">
@@ -236,39 +236,56 @@
             </div>
           @endforeach
 
+          {{-- Pending Amount --}}
+          <div class="col-md-3">
+            <div class="card shadow">
+              <div class="card-body">
+                <h2 class="mb-5 text-danger font-weight-bold">
+                  Pending
+                </h2>
+                <h3 class="text-secondary font-weight-bold">
+                  Rs
+                  @php echo number_format( $netPendingAmount ); @endphp
+                </h3>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         {{-- Daybook item count div --}}
         <div class="my-4">
-          @if (count($todayItems) > 0)
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover" style="font-size: 1.3rem;">
-                <thead>
-                  <tr class="bg-success-rm text-white-rm">
-                    <th>
-                      Item
-                    </th>
-                    <th>
-                      Quantity
-                    </th>
-                  </tr>
-                </thead>
+          <div class="w-50">
+            @if (count($todayItems) > 0)
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover" style="font-size: 1.3rem;">
+                  <thead>
+                    <tr class="bg-success-rm text-white-rm">
+                      <th>
+                        Item
+                      </th>
+                      <th>
+                        Quantity
+                      </th>
+                    </tr>
+                  </thead>
 
-                <tbody class="bg-white">
-                    @foreach ($todayItems as $item)
-                      <tr>
-                        <td>
-                          {{ $item['product']->name }}
-                        </td>
-                        <td>
-                          {{ $item['quantity'] }}
-                        </td>
-                      <tr>
-                    @endforeach
-                </tbody>
-              </table>
-            </div>
-          @endif
+                  <tbody class="bg-white">
+                      @foreach ($todayItems as $item)
+                        <tr>
+                          <td>
+                            {{ $item['product']->name }}
+                          </td>
+                          <td>
+                            {{ $item['quantity'] }}
+                          </td>
+                        <tr>
+                      @endforeach
+                  </tbody>
+                </table>
+              </div>
+            @endif
+          </div>
         </div>
 
 

@@ -36,6 +36,8 @@ class DaybookComponent extends Component
     public $todayItems = array();
     public $weekBook = array();
 
+    public $netPendingAmount;
+
     public $modes = [
         'displaySaleInvoice' => false,
     ];
@@ -66,6 +68,8 @@ class DaybookComponent extends Component
                 $this->getPaymentTotalByType($saleInvoices, $saleInvoicePaymentType->sale_invoice_payment_type_id)
             );
         }
+
+        $this->calculateNetPendingAmount($saleInvoices);
 
         $this->getSaleItemQuantity($saleInvoices);
 
@@ -261,4 +265,14 @@ class DaybookComponent extends Component
         $this->todayItems[] = $line;
     }
 
+    public function calculateNetPendingAmount($saleInvoices)
+    {
+        $pendingAmount = 0;
+
+        foreach ($saleInvoices as $saleInvoice) {
+            $pendingAmount += $saleInvoice->getPendingAmount();
+        }
+
+        $this->netPendingAmount = $pendingAmount;
+    }
 }
