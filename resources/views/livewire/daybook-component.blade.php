@@ -155,6 +155,7 @@
                     </td>
                     <td>
                       @if ($saleInvoice->customer)
+                        <i class="fas fa-circle text-success mr-3"></i>
                         {{ $saleInvoice->customer->name }}
                       @else
                         <i class="fas fa-exclamation-circle text-warning mr-3"></i>
