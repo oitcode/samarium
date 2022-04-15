@@ -44,7 +44,7 @@
             <i class="fas fa-dot-circle fa-2x-rm mr-3" style="font-size: 1.3rem;"></i>
             @endif
             <span class="" style="font-size: 1.3rem;">
-            OPay
+            Khajanchi
             </span>
           </a>
         </div>
@@ -243,8 +243,8 @@
                 @endif
               ">
 
-              <i class="fas fa-satellite-dish mr-3"></i>
-              ONLINE ORDER
+              <i class="fas fa-tv mr-3"></i>
+              WEBORDER
 
             </a>
           </div>
