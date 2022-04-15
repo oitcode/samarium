@@ -157,8 +157,9 @@
                       @if ($saleInvoice->customer)
                         {{ $saleInvoice->customer->name }}
                       @else
-                        <span class="text-secondary">
-                          CASH
+                        <i class="fas fa-exclamation-circle text-warning mr-3"></i>
+                        <span class="text-secondary" style="font-size: 1rem;">
+                          Unknown
                         </span>
                       @endif
                     </td>
