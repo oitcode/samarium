@@ -23,14 +23,18 @@
       Category
     </button>
 
-    @if (false)
-    <button class="btn btn-success-rm m-0 border shadow-sm badge-pill"
+    <button class="btn
+        @if ($modes['list'])
+          btn-success
+        @endif
+        m-0 border shadow-sm badge-pill"
         style="height: 75px; width: 150px; font-size: 1.3rem;"
-        wire:click="">
+        wire:click="enterMode('list')">
       <i class="fas fa-list mr-3"></i>
       List
     </button>
 
+    @if (false)
     <button class="btn btn-success-rm m-0 border shadow-sm badge-pill"
         style="height: 75px; width: 150px; font-size: 1.3rem;"
         wire:click="">
@@ -78,7 +82,7 @@
         @livewire ('cafe-menu-product-edit', ['product' => $updatingProduct,])
       @elseif ($modes['updateProductCategory'])
         @livewire ('cafe-menu-product-category-edit', ['productCategory' => $updatingProductCategory,])
-      @else
+      @elseif ($modes['list'])
       {{-- Categories Bar --}}
       <div class="mb-0 p-3 pb-0 border-rm d-flex-rm">
 
@@ -202,5 +206,42 @@
     <div class="col-md-4">
     </div>
   </div>
+      @else
+        <div class="row">
+          <div class="col-md-3 shadow-sm p-0 mr-5">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="d-flex w-100">
+                  <div class="p-3">
+                    <h2 class="text-secondary mb-4" style="font-size: 1.3rem;">Products</h2>
+                    <h2>{{ $totalProducts }}</h2>
+                  </div>
+                  <div class="d-flex justify-content-center w-50">
+                    <div class="d-flex flex-column justify-content-center">
+                      <i class="fas fa-tv fa-2x text-success"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 shadow-sm p-0 mr-5">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="d-flex w-100">
+                  <div class="p-3">
+                    <h2 class="text-secondary mb-4" style="font-size: 1.3rem;">Categories</h2>
+                    <h2>{{ $totalProductCategories }}</h2>
+                  </div>
+                  <div class="d-flex justify-content-center w-50">
+                    <div class="d-flex flex-column justify-content-center">
+                      <i class="fas fa-th-large fa-2x text-success"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       @endif
 </div>

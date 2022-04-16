@@ -15,6 +15,9 @@ class CafeMenuComponent extends Component
     public $updatingProduct;
     public $updatingProductCategory;
 
+    public $totalProducts;
+    public $totalProductCategories;
+
     public $productSearch = [
         'name' => null,
     ];
@@ -25,6 +28,7 @@ class CafeMenuComponent extends Component
         'updateProductCategory' => false,
         'createProduct' => false,
         'createProductCategory' => false,
+        'list' => false,
     ];
 
     protected $listeners = [
@@ -41,7 +45,9 @@ class CafeMenuComponent extends Component
     public function mount()
     {
         $this->productCategories = ProductCategory::all();
-        // $this->products = Product::all();
+
+        $this->totalProducts = Product::count();
+        $this->totalProductCategories = ProductCategory::count();
     }
 
     public function render()
@@ -84,7 +90,7 @@ class CafeMenuComponent extends Component
 
     public function selectCategory($productCategoryId)
     {
-        $this->clearModes();
+        // $this->clearModes();
 
         $productCategory = ProductCategory::find($productCategoryId);
 
