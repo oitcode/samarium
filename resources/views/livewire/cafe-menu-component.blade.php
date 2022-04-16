@@ -4,8 +4,10 @@
     <button class="btn
         @if ($modes['createProduct'])
           btn-success
+        @else
+          bg-white
         @endif
-        m-0 border shadow-sm badge-pill"
+        m-0 border shadow-sm badge-pill mr-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;"
         wire:click="enterMode('createProduct')">
       <i class="fas fa-plus-circle mr-3"></i>
@@ -15,8 +17,10 @@
     <button class="btn
         @if ($modes['createProductCategory'])
           btn-success
+        @else
+          bg-white
         @endif
-        m-0 border shadow-sm badge-pill"
+        m-0 border shadow-sm badge-pill mr-3"
         style="height: 75px; {{-- width: 150px; --}} font-size: 1.3rem;"
         wire:click="enterMode('createProductCategory')">
       <i class="fas fa-plus-circle mr-3"></i>
@@ -26,8 +30,10 @@
     <button class="btn
         @if ($modes['list'])
           btn-success
+        @else
+          bg-white
         @endif
-        m-0 border shadow-sm badge-pill"
+        m-0 border shadow-sm badge-pill mr-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;"
         wire:click="enterMode('list')">
       <i class="fas fa-list mr-3"></i>
