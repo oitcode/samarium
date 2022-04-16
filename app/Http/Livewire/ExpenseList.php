@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Log;
 
 use App\Expense;
 
@@ -13,6 +14,17 @@ class ExpenseList extends Component
     public $startDate = null;
     public $endDate = null;
     public $total = 0;
+
+    public $deletingExpense = null;
+
+    public $modes = [
+        'confirmDeleteExpense' => false,
+    ];
+
+    protected $listeners = [
+        'expenseDeleted' => 'ackExpenseDeleted',
+        'exitConfirmExpenseDelete',
+    ];
 
     public function mount()
     {
@@ -25,6 +37,27 @@ class ExpenseList extends Component
         $this->calculateTotal();
 
         return view('livewire.expense-list');
+    }
+
+    /* Clear modes */
+    public function clearModes()
+    {
+        foreach ($this->modes as $key => $val) {
+            $this->modes[$key] = false;
+        }
+    }
+
+    /* Enter and exit mode */
+    public function enterMode($modeName)
+    {
+        $this->clearModes();
+
+        $this->modes[$modeName] = true;
+    }
+
+    public function exitMode($modeName)
+    {
+        $this->modes[$modeName] = false;
     }
 
     public function calculateTotal()
@@ -55,27 +88,52 @@ class ExpenseList extends Component
          *
          */
 
-        if ($validatedData['endDate']) {
-            if (! $validatedData['startDate']) {
-                return;
+        try {
+            if ($validatedData['endDate']) {
+                if (! $validatedData['startDate']) {
+                    return;
+                }
+
+                if ($validatedData['startDate'] > $validatedData['endDate']) {
+                    return;
+                }
             }
 
-            if ($validatedData['startDate'] > $validatedData['endDate']) {
-                return;
+            if ($validatedData['endDate']) {
+                $expenses = Expense::whereDate('created_at', '>=', $validatedData['startDate'])
+                    ->whereDate('created_at', '<=', $validatedData['endDate'])
+                    ->orderBy('expense_id', 'desc')
+                    ->get();
+            } else {
+                $expenses = Expense::whereDate('created_at', $validatedData['startDate'])
+                    ->orderBy('expense_id', 'desc')
+                    ->get();
             }
-        }
-
-        if ($validatedData['endDate']) {
-            $expenses = Expense::whereDate('created_at', '>=', $validatedData['startDate'])
-                ->whereDate('created_at', '<=', $validatedData['endDate'])
-                ->orderBy('expense_id', 'desc')
-                ->get();
-        } else {
-            $expenses = Expense::whereDate('created_at', $validatedData['startDate'])
-                ->orderBy('expense_id', 'desc')
-                ->get();
+        } catch(\Throwable $e) {
+            Log::error($e);
         }
 
         $this->expenses = $expenses;
+    }
+
+    public function enterConfirmDeleteExpenseMode(Expense $expense)
+    {
+        $this->deletingExpense = $expense;
+
+        $this->enterMode('confirmDeleteExpense');
+    }
+
+    public function exitConfirmExpenseDelete()
+    {
+        $this->deletingExpense = null;
+
+        $this->exitMode('confirmDeleteExpense');
+    }
+
+    public function ackExpenseDeleted()
+    {
+        //$this->deletingExpense = null;
+        //$this->exitMode('confirmDeleteExpense');
+        //$this->getExpensesForDateRange();
     }
 }

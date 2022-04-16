@@ -71,7 +71,7 @@
                   <i class="fas fa-folder-open text-primary"></i>
                 </button>
                 <button class="btn p-2 border rounded-circle mr-3"
-                    wire:click="">
+                    wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
                   <i class="fas fa-trash text-danger"></i>
                 </button>
               </td>
@@ -101,4 +101,8 @@
     
     </div>
   </div>
+
+  @if ($modes['confirmDeleteExpense'])
+    @livewire ('expense-list-expense-delete-confirm', ['expense' => $deletingExpense,])
+  @endif
 </div>
