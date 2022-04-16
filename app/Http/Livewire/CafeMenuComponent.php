@@ -93,7 +93,7 @@ class CafeMenuComponent extends Component
 
     public function ackProductCategoryAdded()
     {
-        //
+        $this->productCategories = ProductCategory::all();
     }
 
     public function ackProductAdded()
