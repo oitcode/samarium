@@ -30,7 +30,7 @@
     @error('pan_num') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
-  <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
-  <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreateMode')">Cancel</button>
+  <button type="submit" class="btn btn-success" style="font-size: 1.1rem;" wire:click="store">Submit</button>
+  <button type="submit" class="btn btn-danger" style="font-size: 1.1rem;" wire:click="$emit('exitCreateMode')">Cancel</button>
 
 </x-box-create>

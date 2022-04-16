@@ -21,10 +21,23 @@ class CustomerComponent extends Component
     protected $listeners = [
         'clearModes',
         'displayCustomer',
+        'exitCreateMode',
     ];
+
+    public $totalCustomers;
+    public $totalDebtors;
 
     public function render()
     {
+        $this->totalCustomers = Customer::count();
+
+        $this->totalDebtors = 0;
+        foreach (Customer::all() as $customer) {
+            if ($customer->getBalance()) {
+                $this->totalDebtors++;
+            }
+        }
+
         return view('livewire.customer-component');
     }
 
@@ -55,5 +68,10 @@ class CustomerComponent extends Component
 
         $this->displayingCustomer = $customer;
         $this->enterMode('display');
+    }
+
+    public function exitCreateMode()
+    {
+        $this->exitMode('create');
     }
 }

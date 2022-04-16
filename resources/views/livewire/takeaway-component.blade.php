@@ -1,7 +1,7 @@
 <div>
   @if (! $modes['create'] && ! $modes['display'])
   <div class="mb-3">
-    <button class="btn btn-success m-0" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('create')">
+    <button class="btn btn-success m-0 badge-pill" style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('create')">
       <i class="fas fa-plus-circle mr-3"></i>
       New
     </button>
