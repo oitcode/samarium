@@ -56,6 +56,7 @@ class CafeMenuProductCreate extends Component
         $this->product_category_id = '';
         $this->description = '';
         $this->selling_price = '';
+        $this->stock_count = '';
         $this->image = null;
     }
 }

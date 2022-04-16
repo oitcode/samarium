@@ -23,6 +23,8 @@ class CafeMenuComponent extends Component
         'showFullMenuList' => false,
         'updateProduct' => false,
         'updateProductCategory' => false,
+        'createProduct' => false,
+        'createProductCategory' => false,
     ];
 
     protected $listeners = [
@@ -31,6 +33,9 @@ class CafeMenuComponent extends Component
         'exitUpdateProductMode',
         'updateProduct',
         'updateProductCategory',
+        'exitCreateProductMode',
+        'exitCreateProductCategoryMode',
+        'exitUpdateProductCategoryMode',
     ];
 
     public function mount()
@@ -98,7 +103,8 @@ class CafeMenuComponent extends Component
 
     public function ackProductAdded()
     {
-        $this->render();
+        $this->exitMode('createProduct');
+        session()->flash('message', 'Product added');
     }
 
     public function updateProduct($productId)
@@ -128,5 +134,15 @@ class CafeMenuComponent extends Component
         $this->updatingProductCategory = null;
 
         $this->exitMode('updateProductCategory');
+    }
+
+    public function exitCreateProductMode()
+    {
+        $this->exitMode('createProduct');
+    }
+
+    public function exitCreateProductCategoryMode()
+    {
+        $this->exitMode('createProductCategory');
     }
 }
