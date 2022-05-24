@@ -21,17 +21,29 @@
           <div class="row my-4">
             @if ($i % 2 == 0)
               <div class="col-md-6 text-dark">
-                {{ $webpageContent->body }}
+                @if ($webpageContent->webpage_content_type == 'image')
+                  <img src="{{ asset('storage/' . $webpageContent->content) }}" class="img-fluid">
+                @else
+                  {!! $webpageContent->content !!}
+                @endif
               </div>
+              @if (false)
               <div class="col-md-6">
                 <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid">
               </div>
+              @endif
             @else
+              @if (false)
               <div class="col-md-6">
                 <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid">
               </div>
+              @endif
               <div class="col-md-6">
-                {{ $webpageContent->body }}
+                @if ($webpageContent->webpage_content_type == 'image')
+                  <img src="{{ asset('storage/' . $webpageContent->content) }}" class="img-fluid">
+                @else
+                  {!! $webpageContent->content !!}
+                @endif
               </div>
             @endif
           </div>

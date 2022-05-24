@@ -23,8 +23,9 @@ class CreateWebpageContentTable extends Migration
             $table->foreign('webpage_id', 'fk_webpage_content__webpage')
                 ->references('webpage_id')->on('webpage');
 
-            $table->text('body');
-            $table->string('image_path');
+            $table->integer('position');
+            $table->string('webpage_content_type');
+            $table->text('content');
 
             $table->timestamps();
         });
