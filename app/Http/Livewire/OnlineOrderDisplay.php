@@ -26,4 +26,11 @@ class OnlineOrderDisplay extends Component
         $this->websiteOrder->save();
         $this->render();
     }
+
+    public function markAsDelivered()
+    {
+        $this->websiteOrder->status = 'delivered';
+        $this->websiteOrder->save();
+        $this->render();
+    }
 }

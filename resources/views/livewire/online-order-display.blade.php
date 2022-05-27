@@ -10,7 +10,7 @@
       <div class="mb-4">
 
         <div class="table-responsive">
-          <table class="table table-bordered-rm" style="font-size: 1.1rem;">
+          <table class="table table-bordered-rm border" style="font-size: 1.1rem;">
             <tbody>
 
               <tr>
@@ -63,6 +63,30 @@
                     </span>
                   @else
                     {{ $websiteOrder->status }}
+                  @endif
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Action
+                </td>
+                <td>
+                  @if ($websiteOrder->status == 'new')
+                    <button class="btn btn-success mr-3" wire:click="acceptOrder">
+                      <i class="fas fa-check-circle mr-2"></i>
+                      Accept
+                    </button>
+
+                    <button class="btn btn-danger mr-3" wire:click="rejectOrder">
+                      <i class="fas fa-times-circle mr-2"></i>
+                      Reject
+                    </button>
+                  @elseif ($websiteOrder->status == 'open')
+                    <button class="btn btn-success mr-3" wire:click="markAsDelivered">
+                      <i class="fas fa-check-circle mr-2"></i>
+                      Mark delivered
+                    </button>
                   @endif
                 </td>
               </tr>
@@ -135,15 +159,6 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div>
-        <button class="btn btn-success mr-3" wire:click="acceptOrder">
-          Accept
-        </button>
-
-        <button class="btn btn-danger mr-3" wire:click="rejectOrder">
-          Reject
-        </button>
-      </div>
     </div>
   </div>
 

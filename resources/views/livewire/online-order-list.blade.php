@@ -70,7 +70,7 @@
                     <span class="badge badge-pill badge-secondary">
                       {{ $order->status }}
                     </span>
-                  @elseif ($order->status == 'closed')
+                  @elseif ($order->status == 'delivered')
                     <span class="badge badge-pill badge-success">
                       {{ $order->status }}
                     </span>
