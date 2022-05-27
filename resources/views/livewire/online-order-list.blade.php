@@ -51,7 +51,7 @@
                   {{ $order->phone }}
                 </td>
                 <td class="text-secondary-rm" style="">
-                  {{ $order->address }}
+                  {{ \Illuminate\Support\Str::limit($order->address, 15, $end=' ...') }}
                 </td>
                 <td class="text-secondary-rm" style="">
                   Rs
