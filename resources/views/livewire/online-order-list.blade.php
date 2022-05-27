@@ -3,7 +3,7 @@
     <div class="col-md-10">
       @if ($websiteOrders != null && count($websiteOrders) > 0)
       <div class="table-responsive mb-3">
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered-rm table-hover border">
           <thead>
             <tr class="text-secondary-rm bg-success-rm text-white-rm" style="font-size: 1.3rem;">
               <th style="width: 120px;">
@@ -11,9 +11,6 @@
               </th>
               <th style="width: 200px;">
                 Date
-              </th>
-              <th style="width: 200px;">
-                Product
               </th>
               <th style="width: 200px;">
                 Phone
@@ -41,44 +38,40 @@
                 <td>
                   {{ $order->website_order_id }}
                 </td>
-                <td class="text-secondary" style="font-size: 1.1rem;">
+                <td class="" style="font-size: 1.1rem;">
                   @if ($order->created_at->isToday())
                     <span class="text-success" style="font-weight: bold;">
                       Today
                     </span>
                   @else
-                    {{ $order->created_at }}
-                  @endif
-                </td>
-                <td>
-                  @if ($order->product)
-                    {{ $order->product->name }}
+                    {{ $order->created_at->toDateString() }}
                   @endif
                 </td>
                 <td class="pl-3">
                   {{ $order->phone }}
                 </td>
-                <td class="text-secondary" style="font-size: 1rem;">
+                <td class="text-secondary-rm" style="">
                   {{ $order->address }}
                 </td>
-                <td class="text-secondary" style="font-size: 1rem;">
+                <td class="text-secondary-rm" style="">
+                  Rs
                   @php echo number_format( $order->getTotalAmount() ); @endphp
                 </td>
                 <td>
                   @if ($order->status == 'new')
-                    <span class="badge badge-danger">
+                    <span class="badge badge-pill badge-danger">
                       {{ $order->status }}
                     </span>
                   @elseif ($order->status == 'open')
-                    <span class="badge badge-warning" style="background-color: orange;">
+                    <span class="badge badge-pill badge-warning" style="background-color: orange;">
                       {{ $order->status }}
                     </span>
                   @elseif ($order->status == 'rejected')
-                    <span class="badge badge-secondary">
+                    <span class="badge badge-pill badge-secondary">
                       {{ $order->status }}
                     </span>
                   @elseif ($order->status == 'closed')
-                    <span class="badge badge-success">
+                    <span class="badge badge-pill badge-success">
                       {{ $order->status }}
                     </span>
                   @else

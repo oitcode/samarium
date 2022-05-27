@@ -8,22 +8,73 @@
     <div class="col-md-6">
 
       <div class="mb-4">
-        <div>
-          Date: {{ $websiteOrder->created_at->toDateString() }}
+
+        <div class="table-responsive">
+          <table class="table table-bordered-rm" style="font-size: 1.1rem;">
+            <tbody>
+
+              <tr>
+                <td>
+                  Date
+                </td>
+                <td>
+                  {{ $websiteOrder->created_at->toDateString() }}
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Phone
+                </td>
+                <td>
+                  {{ $websiteOrder->phone }}
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Address
+                </td>
+                <td>
+                  {{ $websiteOrder->address }}
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Status
+                </td>
+                <td>
+                  @if ($websiteOrder->status == 'new')
+                    <span class="badge badge-danger">
+                      New
+                    </span>
+                  @elseif ($websiteOrder->status == 'open')
+                    <span class="badge badge-warning">
+                      Open
+                    </span>
+                  @elseif ($websiteOrder->status == 'delivered')
+                    <span class="badge badge-success">
+                      Delivered
+                    </span>
+                  @elseif ($websiteOrder->status == 'rejected')
+                    <span class="badge badge-secondary">
+                      Rejected
+                    </span>
+                  @else
+                    {{ $websiteOrder->status }}
+                  @endif
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
         </div>
-        <div>
-          Phone: {{ $websiteOrder->phone }}
-        </div>
-        <div>
-          Address: {{ $websiteOrder->address }}
-        </div>
-        <div>
-          Status: {{ $websiteOrder->status }}
-        </div>
+
       </div>
 
       <div class="table-responsive">
-        <table class="table table-hover table-bordered">
+        <table class="table table-hover table-bordered" style="font-size: 1.1rem;">
           <thead>
             <tr>
               <th>Item</th>

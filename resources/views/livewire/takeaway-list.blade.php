@@ -26,6 +26,9 @@
           <th>
             Amount
           </th>
+          <th>
+            Action
+          </th>
         </tr>
       </thead>
 
@@ -65,6 +68,16 @@
             </td>
             <td>
               {{ $takeaway->getTotalAmount() }}
+            </td>
+            <td>
+              <button class="btn p-2 border mr-3" 
+                  wire:click="{{--$emit('displayPurchase', {{ $purchase->purchase_id }})--}}">
+                <i class="fas fa-folder-open text-primary"></i>
+              </button>
+              <button class="btn p-2 border mr-3"
+                  wire:click="{{--enterConfirmDeletePurchaseMode({{ $purchase }})--}}">
+                <i class="fas fa-trash text-danger"></i>
+              </button>
             </td>
           </tr>
         @endforeach
