@@ -1,6 +1,6 @@
 <div>
   <div class="table-responsive">
-    <table class="table table-bordered table-hover shadow-sm" style="font-size: 1.3rem;">
+    <table class="table table-bordered-rm table-hover shadow-sm border" style="font-size: 1.3rem;">
       <thead>
         <tr class="bg-success-rm text-white-rm">
           <th>
@@ -35,7 +35,7 @@
       <tbody class="bg-white">
         @foreach ($takeaways as $takeaway)
           <tr
-              wire:click="$emit('displayTakeaway', {{ $takeaway->takeaway_id }})"
+              {{-- wire:click="$emit('displayTakeaway', {{ $takeaway->takeaway_id }})" --}}
               role="button">
             <td>
               {{ $takeaway->takeaway_id }}
@@ -70,6 +70,7 @@
               {{ $takeaway->getTotalAmount() }}
             </td>
             <td>
+              @if (false)
               <button class="btn p-2 border mr-3" 
                   wire:click="{{--$emit('displayPurchase', {{ $purchase->purchase_id }})--}}">
                 <i class="fas fa-folder-open text-primary"></i>
@@ -78,6 +79,23 @@
                   wire:click="{{--enterConfirmDeletePurchaseMode({{ $purchase }})--}}">
                 <i class="fas fa-trash text-danger"></i>
               </button>
+              @endif
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-cog text-secondary"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">
+                    <i class="fas fa-file text-primary mr-2"></i>
+                    View
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="fas fa-trash text-danger mr-2"></i>
+                    Delete
+                  </a>
+                </div>
+              </div>
+
             </td>
           </tr>
         @endforeach
