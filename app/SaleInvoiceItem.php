@@ -66,6 +66,7 @@ class SaleInvoiceItem extends Model
      */
     public function getTotalAmount()
     {
-        return $this->product->selling_price * $this->quantity;
+        // return $this->product->selling_price * $this->quantity;
+        return $this->price_per_unit * $this->quantity;
     }
 }

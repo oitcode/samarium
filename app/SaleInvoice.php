@@ -102,7 +102,8 @@ class SaleInvoice extends Model
         $total = 0;
 
         foreach ($this->saleInvoiceItems as $saleInvoiceItem) {
-            $totalPrice = $saleInvoiceItem->product->selling_price * $saleInvoiceItem->quantity;;
+            //$totalPrice = $saleInvoiceItem->product->selling_price * $saleInvoiceItem->quantity;;
+            $totalPrice = $saleInvoiceItem->price_per_unit * $saleInvoiceItem->quantity;
             $total += $totalPrice;
         }
 
@@ -211,7 +212,8 @@ class SaleInvoice extends Model
         $total = 0;
 
         foreach ($this->saleInvoiceItems as $saleInvoiceItem) {
-            $totalPrice = $saleInvoiceItem->product->selling_price * $saleInvoiceItem->quantity;;
+            //$totalPrice = $saleInvoiceItem->product->selling_price * $saleInvoiceItem->quantity;;
+            $totalPrice = $saleInvoiceItem->price_per_unit * $saleInvoiceItem->quantity;
             $total += $totalPrice;
         }
 

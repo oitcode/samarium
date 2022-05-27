@@ -221,7 +221,7 @@
         
         <div class="row mt-5">
           @foreach ($paymentByType as $key => $val)
-            <div class="col-md-3">
+            <div class="col-md-2 mb-4">
               <div class="card shadow">
                 <div class="card-body">
                   <h2 class="mb-5 text-dark font-weight-bold">
@@ -237,7 +237,7 @@
           @endforeach
 
           {{-- Pending Amount --}}
-          <div class="col-md-3">
+          <div class="col-md-2">
             <div class="card shadow">
               <div class="card-body">
                 <h2 class="mb-5 text-danger font-weight-bold">

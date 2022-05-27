@@ -103,6 +103,7 @@ class SeatTableWorkDisplayAddItem extends Component
             $saleInvoiceItem->sale_invoice_id = $saleInvoice->sale_invoice_id;
             $saleInvoiceItem->product_id = $this->product_id;
             $saleInvoiceItem->quantity = $this->quantity;
+            $saleInvoiceItem->price_per_unit = Product::find($this->product_id)->selling_price;
 
             $saleInvoiceItem->save();
 
