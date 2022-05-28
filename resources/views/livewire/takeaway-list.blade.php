@@ -1,4 +1,11 @@
 <div>
+
+  <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+    <div class="spinner-border text-info mr-3" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </button>
+
   <div class="table-responsive">
     <table class="table table-bordered-rm table-hover shadow-sm border" style="font-size: 1.3rem;">
       <thead>
