@@ -141,11 +141,11 @@ if (env('SITE_TYPE') == 'ecs') {
 
 Route::get('/bia/pte', 'WebsiteController@pte')->name('website-pte');
 
-$webpages = Webpage::all();
-
-foreach ($webpages as $webpage) {
-    Route::get('/'. $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-'. $webpage->permalink);
-}
+// $webpages = Webpage::all();
+// 
+// foreach ($webpages as $webpage) {
+//     Route::get('/'. $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-'. $webpage->permalink);
+// }
 
 Route::get('/ecs/menudemo', 'WebsiteController@menuDemo')->name('website-menu-demo');
 

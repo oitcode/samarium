@@ -35,8 +35,8 @@
       <tbody class="bg-white">
         @foreach ($takeaways as $takeaway)
           <tr
-              {{-- wire:click="$emit('displayTakeaway', {{ $takeaway->takeaway_id }})" --}}
-              role="button">
+              {{--  --}}
+              >
             <td>
               {{ $takeaway->takeaway_id }}
             </td>
@@ -85,14 +85,14 @@
                   <i class="fas fa-cog text-secondary"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">
+                  <button class="dropdown-item" wire:click="$emit('displayTakeaway', {{ $takeaway->takeaway_id }})">
                     <i class="fas fa-file text-primary mr-2"></i>
                     View
-                  </a>
-                  <a class="dropdown-item" href="#">
+                  </button>
+                  <button class="dropdown-item" wire:click="confirmDeleteTakeaway({{ $takeaway }})">
                     <i class="fas fa-trash text-danger mr-2"></i>
                     Delete
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -102,4 +102,8 @@
       </tbody>
     </table>
   </div>
+
+  @if ($modes['confirmDelete'])
+    @livewire ('takeaway-list-confirm-delete', ['takeaway' => $deletingTakeaway,])
+  @endif
 </div>

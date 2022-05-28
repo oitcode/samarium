@@ -10,10 +10,60 @@ class TakeawayList extends Component
 {
     public $takeaways;
 
+    public $deletingTakeaway = null;
+
+    public $modes = [
+        'confirmDelete' => false,
+    ];
+
+    protected $listeners = [
+        'exitConfirmTakeawayDelete',
+        'takeawayDeleted' => 'ackTakeawayDeleted',
+    ];
+
     public function render()
     {
         $this->takeaways = Takeaway::orderBy('takeaway_id', 'desc')->get();
 
         return view('livewire.takeaway-list');
+    }
+
+    /* Clear modes */
+    public function clearModes()
+    {
+        foreach ($this->modes as $key => $val) {
+            $this->modes[$key] = false;
+        }
+    }
+
+    /* Enter and exit mode */
+    public function enterMode($modeName)
+    {
+        $this->clearModes();
+
+        $this->modes[$modeName] = true;
+    }
+
+    public function exitMode($modeName)
+    {
+        $this->modes[$modeName] = false;
+    }
+
+    public function confirmDeleteTakeaway(Takeaway $takeaway)
+    {
+        $this->deletingTakeaway = $takeaway;
+
+        $this->enterMode('confirmDelete');
+    }
+
+    public function exitConfirmTakeawayDelete()
+    {
+        $this->deletingTakeaway = null;
+        $this->exitMode('confirmDelete');
+    }
+
+    public function ackTakeawayDeleted()
+    {
+        $this->render();
     }
 }
