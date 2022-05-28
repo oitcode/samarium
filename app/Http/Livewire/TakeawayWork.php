@@ -18,14 +18,14 @@ class TakeawayWork extends Component
 
     public $modes = [
         'addItem' => true,
-        'makePayment' => false,
+        'makePayment' => true,
         'confirmRemoveSaleInvoiceItem' => false,
     ];
 
     protected $listeners = [
         'exitAddItemMode',
         'exitMakePaymentMode',
-        'itemAddedToTakeaway' => 'render',
+        'itemAddedToTakeaway',
         'removeItemFromCurrentBooking',
         'exitDeleteSaleInvoiceItem',
     ];
@@ -118,5 +118,11 @@ class TakeawayWork extends Component
     {
         $this->deletingSaleInvoiceItem = null;
         $this->exitMode('confirmRemoveSaleInvoiceItem');
+    }
+
+    public function itemAddedToTakeaway()
+    {
+        $this->emit('makePaymentPleaseUpdate');
+        $this->render();
     }
 }

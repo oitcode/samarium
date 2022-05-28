@@ -1,4 +1,4 @@
-<div class="mb-5 border bg-light shadow">
+<div class="mb-3 border bg-light shadow-rm">
 
   <div class="table-responsive m-0">
     <table class="table table-bordered m-0">

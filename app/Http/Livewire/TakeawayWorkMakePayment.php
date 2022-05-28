@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Traits\MiscTrait;
+
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
@@ -11,10 +13,16 @@ use App\SaleInvoicePaymentType;
 use App\SaleInvoicePayment;
 use App\SaleInvoiceAddition;
 use App\SaleInvoiceAdditionHeading;
-use App\Takeaway;
+
+use App\JournalEntry;
+use App\JournalEntryItem;
+use App\AbAccount;
+use App\LedgerEntry;
 
 class TakeawayWorkMakePayment extends Component
 {
+    use MiscTrait;
+
     public $takeaway;
 
     public $total;
@@ -24,6 +32,8 @@ class TakeawayWorkMakePayment extends Component
     public $discount = 0;
     public $service_charge = 0;
     public $grand_total;
+
+    public $discount_percentage = null;
 
     public $returnAmount;
 
@@ -45,9 +55,18 @@ class TakeawayWorkMakePayment extends Component
     public $saleInvoicePaymentTypes;
     public $sale_invoice_payment_type_id;
 
+    /* Multiple payments */
+    public $multiPayments = array();
+
     public $modes = [
         'paid' => false,
         'customer' => false,
+        'multiplePayments' => false,
+    ];
+
+    protected $listeners = [
+      'makePaymentPleaseUpdate' => 'mount',
+      'updatePaymentComponent' => 'mount',
     ];
 
     public function mount()
@@ -74,6 +93,11 @@ class TakeawayWorkMakePayment extends Component
       $this->calculateGrandTotal();
     }
 
+    public function updatedMultiPayments()
+    {
+      $this->calculateTenderAmount();
+    }
+
     /* Clear modes */
     public function clearModes()
     {
@@ -85,7 +109,7 @@ class TakeawayWorkMakePayment extends Component
     /* Enter and exit mode */
     public function enterMode($modeName)
     {
-        $this->clearModes();
+        // $this->clearModes();
 
         $this->modes[$modeName] = true;
     }
@@ -95,12 +119,21 @@ class TakeawayWorkMakePayment extends Component
         $this->modes[$modeName] = false;
     }
 
+    public function enterModeSingle($modeName)
+    {
+        $this->modes[$modeName] = true;
+    }
+
     public function store()
     {
-        $validatedData = $this->validate([
-            'tender_amount' => 'required|integer',
-            'sale_invoice_payment_type_id' => 'required|integer',
-        ]);
+        if ($this->modes['multiplePayments']) {
+            // TODO
+        } else {
+            $validatedData = $this->validate([
+                'tender_amount' => 'required|integer',
+                'sale_invoice_payment_type_id' => 'required|integer',
+            ]);
+        }
 
         if ($this->modes['customer']) {
             $validatedData2 = $this->validate([
@@ -121,8 +154,8 @@ class TakeawayWorkMakePayment extends Component
         $this->calculateGrandTotal();
 
         /* Get current booking/invoice amount */
-        $currentBookingAmount = $saleInvoice->getTotalAmount();
-        $currentBookingGrandAmount = $saleInvoice->getTotalAmount();
+        $currentBookingAmount = $this->takeaway->saleInvoice->getPendingAmount();
+        $currentBookingGrandAmount = $this->takeaway->saleInvoice->getTotalAmount();
 
         /* If no customer do not take less payments !!! */
         if (! $this->modes['customer'] && $this->tender_amount < $this->grand_total) {
@@ -151,6 +184,15 @@ class TakeawayWorkMakePayment extends Component
                         $customer->pan_number = $this->customer_pan;;
                     }
 
+                    $customer->save();
+
+                    /* Make an ab_account of this customer */
+                    $abAccount = new AbAccount;
+                    $abAccount->name = $customer->name . ' ' . $customer->phone;
+                    $abAccount->save();
+
+                    /* Link the ab_account to the customer */
+                    $customer->ab_account_id = $abAccount->ab_account_id;
                     $customer->save();
                 }
             }
@@ -184,25 +226,38 @@ class TakeawayWorkMakePayment extends Component
 
             /* If payment received then create a payment record. */
             if ($this->tender_amount > 0) {
-                /* Make sale_invoice_payment */
-                $saleInvoicePayment = new SaleInvoicePayment;
+                /* If multipayments then do accordingly */
+                if ($this->modes['multiplePayments']) {
+                    $this->makeMultiplePayments($saleInvoice);
 
-                $saleInvoicePayment->sale_invoice_payment_type_id = $validatedData['sale_invoice_payment_type_id'];
-
-                $saleInvoicePayment->payment_date = date('Y-m-d');
-                $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;
-
-                if ($this->tender_amount < $this->grand_total) {
-                    $saleInvoicePayment->amount = $this->tender_amount;
-                    $this->returnAmount = 0;
-                    $finalPaymentStatus = 'partially_paid';
+                    if ($this->tender_amount < $this->grand_total) {
+                        $this->returnAmount = 0;
+                        $finalPaymentStatus = 'partially_paid';
+                    } else {
+                        $this->returnAmount = $this->tender_amount - $this->grand_total;
+                        $finalPaymentStatus = 'paid';
+                    }
                 } else {
-                    $saleInvoicePayment->amount = $this->grand_total;
-                    $this->returnAmount = $this->tender_amount - $this->grand_total;
-                    $finalPaymentStatus = 'paid';
-                }
+                    /* Make sale_invoice_payment */
+                    $saleInvoicePayment = new SaleInvoicePayment;
 
-                $saleInvoicePayment->save();
+                    $saleInvoicePayment->sale_invoice_payment_type_id = $validatedData['sale_invoice_payment_type_id'];
+
+                    $saleInvoicePayment->payment_date = date('Y-m-d');
+                    $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;
+
+                    if ($this->tender_amount < $this->grand_total) {
+                        $saleInvoicePayment->amount = $this->tender_amount;
+                        $this->returnAmount = 0;
+                        $finalPaymentStatus = 'partially_paid';
+                    } else {
+                        $saleInvoicePayment->amount = $this->grand_total;
+                        $this->returnAmount = $this->tender_amount - $this->grand_total;
+                        $finalPaymentStatus = 'paid';
+                    }
+
+                    $saleInvoicePayment->save();
+                }
             }
 
 
@@ -210,13 +265,16 @@ class TakeawayWorkMakePayment extends Component
             $saleInvoice->payment_status = $finalPaymentStatus;
             $saleInvoice->save();
 
-            /* Update status of takeaway */
+
             $this->takeaway->status = 'closed';
             $this->takeaway->save();
 
+            /* Make accounting entries */
+            //$this->makeAccountingEntry($saleInvoice);
+
             DB::commit();
 
-            $this->enterMode('paid');
+            $this->enterModeSingle('paid');
         } catch (\Exception $e) {
             DB::rollback();
             dd ($e);
@@ -226,12 +284,6 @@ class TakeawayWorkMakePayment extends Component
 
     public function finishPayment()
     {
-        // $booking = $this->seatTable->getCurrentBooking();
-        // if ($booking) {
-        //     $booking->status = 'closed';
-        //     $booking->save();
-        // }
-
         $this->emit('exitMakePaymentMode');
     }
 
@@ -271,5 +323,120 @@ class TakeawayWorkMakePayment extends Component
                 dd('Sale invoice addition heading configurations gone wrong! Contact your service provider.');
             }
         }
+    }
+
+    public function createPersonalAccount($name)
+    {
+        $abAccount = new AbAccount;
+
+        $abAccount->name = $name;
+
+        $abAccount->save();
+
+        return $abAccount->getKey();
+    }
+
+    public function enterMultiplePaymentsMode()
+    {
+        foreach (SaleInvoicePaymentType::all() as $saleInvoicePaymentType) {
+            $this->multiPayments[$saleInvoicePaymentType->name] = 0;
+        }
+
+        $this->enterMode('multiplePayments');
+
+        $this->calculateTenderAmount();
+    }
+
+    public function exitMultiplePaymentsMode()
+    {
+        $this->multiplePayments = array();
+        $this->tender_amount = '';
+        $this->exitMode('multiplePayments');
+    }
+
+    public function calculateTenderAmount()
+    {
+        if ($this->modes['multiplePayments']) {
+            $tenderAmount = 0;
+
+            foreach ($this->multiPayments as $key => $val) {
+                if ($val) {
+                    $tenderAmount += $val;
+                }
+            }
+
+            $this->tender_amount = $tenderAmount;
+        } else {
+            dd('Whoops!');
+        }
+    }
+
+    public function makeMultiplePayments($saleInvoice)
+    {
+        $remainingAmount = $this->grand_total;
+
+        foreach ($this->multiPayments as $key => $val) {
+
+            /* Ignore cash first */
+            if (strtolower($key) == 'cash') {
+                continue;
+            }
+
+            /* Ignore zero values */
+            if ($val == 0) {
+                continue;
+            }
+
+            $saleInvoicePayment = new SaleInvoicePayment;
+
+            $saleInvoicePayment->sale_invoice_payment_type_id =
+                SaleInvoicePaymentType::where('name', $key)->first()->sale_invoice_payment_type_id;
+
+            $saleInvoicePayment->payment_date = date('Y-m-d');
+            $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;
+            $saleInvoicePayment->amount = $val;
+
+            $saleInvoicePayment->save();
+
+            $remainingAmount -= $val;
+        }
+
+        foreach ($this->multiPayments as $key => $val) {
+
+            /* Do only for cash */
+            if (strtolower($key) != 'cash') {
+                continue;
+            }
+
+            /* Ignore zero values */
+            if ($val == 0) {
+                continue;
+            }
+
+            $saleInvoicePayment = new SaleInvoicePayment;
+
+            $saleInvoicePayment->sale_invoice_payment_type_id =
+                SaleInvoicePaymentType::where('name', $key)->first()->sale_invoice_payment_type_id;
+
+            $saleInvoicePayment->payment_date = date('Y-m-d');
+            $saleInvoicePayment->sale_invoice_id = $saleInvoice->sale_invoice_id;
+
+            if ($val < $remainingAmount) {
+                $saleInvoicePayment->amount = $val;
+            } else {
+                $saleInvoicePayment->amount = $remainingAmount;
+            }
+
+            $saleInvoicePayment->save();
+        }
+    }
+
+    public function calculateDiscount()
+    {
+        $dp = (float) $this->discount_percentage;
+        $this->saleInvoiceAdditions['Discount'] = ($dp / 100) * $this->takeaway->saleInvoice->getTotalAmountRaw();
+        $this->saleInvoiceAdditions['Discount'] = ceil ($this->saleInvoiceAdditions['Discount']);
+
+        $this->calculateGrandTotal();
     }
 }
