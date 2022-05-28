@@ -12,6 +12,9 @@ class TakeawayList extends Component
 
     public $deletingTakeaway = null;
 
+    public $todayTakeawayCount;
+    public $totalTakeawayCount;
+
     public $modes = [
         'confirmDelete' => false,
     ];
@@ -24,6 +27,8 @@ class TakeawayList extends Component
     public function render()
     {
         $this->takeaways = Takeaway::orderBy('takeaway_id', 'desc')->get();
+        $this->totalTakeawayCount = Takeaway::count();
+        $this->todayTakeawayCount = Takeaway::whereDate('created_at', date('Y-m-d'))->count();
 
         return view('livewire.takeaway-list');
     }

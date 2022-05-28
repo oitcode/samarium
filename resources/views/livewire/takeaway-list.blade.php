@@ -6,6 +6,15 @@
     </div>
   </button>
 
+  <div class="d-flex mb-4 pl-3" style="font-size: 1rem;">
+    <div class="mr-4">
+      Today : {{ $todayTakeawayCount }}
+    </div>
+    <div class="mr-4">
+      Total : {{ $totalTakeawayCount }}
+    </div>
+  </div>
+
   <div class="table-responsive">
     <table class="table table-bordered-rm table-hover shadow-sm border" style="font-size: 1.3rem;">
       <thead>

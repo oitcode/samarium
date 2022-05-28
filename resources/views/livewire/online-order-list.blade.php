@@ -1,4 +1,17 @@
 <div>
+
+  <div class="d-flex mb-4 pl-3" style="font-size: 1rem;">
+    <div class="mr-4">
+      New : {{ $newOrderCount }}
+    </div>
+    <div class="mr-4">
+      Today : {{ $todayOrderCount }}
+    </div>
+    <div class="mr-4">
+      Total : {{ $totalOrderCount }}
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-10">
       @if ($websiteOrders != null && count($websiteOrders) > 0)
@@ -114,8 +127,11 @@
         </div>
       @endif
     </div>
+
+
     <div class="col-md-2">
 
+      @if (false)
       <div class="card">
         <div class="card-body p-0 bg-danger-rm text-white-rm">
           <div class="p-4">
@@ -155,6 +171,7 @@
           </div>
         </div>
       </div>
+      @endif
 
     </div>
   </div>
