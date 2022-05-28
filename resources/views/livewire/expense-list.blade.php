@@ -66,6 +66,7 @@
               </td>
   
               <td>
+                @if (false)
                 <button class="btn p-2 border rounded-circle mr-3" 
                     wire:click="">
                   <i class="fas fa-folder-open text-primary"></i>
@@ -74,6 +75,23 @@
                     wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
                   <i class="fas fa-trash text-danger"></i>
                 </button>
+                @endif
+
+                <div class="dropdown">
+                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-cog text-secondary"></i>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <button class="dropdown-item" wire:click="">
+                      <i class="fas fa-file text-primary mr-2"></i>
+                      View
+                    </button>
+                    <button class="dropdown-item" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
+                      <i class="fas fa-trash text-danger mr-2"></i>
+                      Delete
+                    </button>
+                  </div>
+                </div>
               </td>
     
             </tr>
