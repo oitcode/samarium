@@ -89,7 +89,7 @@
               @endif
             ">
 
-            <i class="fas fa-shopping-cart mr-3"></i>
+            <i class="fas fa-shipping-fast mr-3"></i>
             TAKEAWAY
 
           </a>
@@ -243,7 +243,7 @@
                 @endif
               ">
 
-              <i class="fas fa-tv mr-3"></i>
+              <i class="fas fa-cloud-download-alt mr-3"></i>
               WEBORDER
 
             </a>

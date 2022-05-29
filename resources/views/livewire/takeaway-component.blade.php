@@ -24,8 +24,9 @@
       Search
     </button>
 
-    <button class="btn btn-warning m-0 float-right"
+    <button class="btn btn-success m-0 float-right"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
+      <i class="fas fa-shipping-fast mr-3"></i>
       Takeaway
     </button>
 
