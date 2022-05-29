@@ -34,8 +34,9 @@
       Search
     </button>
 
-    <button class="btn btn-warning m-0 float-right"
+    <button class="btn btn-danger m-0 float-right"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
+      <i class="fas fa-shopping-cart mr-3"></i>
       Purchase
     </button>
 

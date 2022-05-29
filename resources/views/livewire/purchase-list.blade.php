@@ -21,11 +21,11 @@
     </button>
   </div>
 
-  <div class="my-4 py-4 px-3 border bg-white shadow-sm">
-    <h2>
-        Total:
-        @php echo number_format( $total ); @endphp
-    </h2>
+  <div class="my-4 pl-2 font-weight-bold" style="font-size: 1rem;">
+    <span style="font-size: 1.3rem;">
+    Total:
+    @php echo number_format( $total ); @endphp
+    </span>
   </div>
 
   @endif
