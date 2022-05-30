@@ -38,7 +38,11 @@ class TakeawayWorkMakePayment extends Component
     public $returnAmount;
 
     /* Customer to which sale_invoice will be made */
-    public $customer;
+    public $customer = null;
+    public $customer_id;
+
+    /* List of customers */
+    public $customers;
 
     /* Customer info */
     public $customer_name;
@@ -81,6 +85,8 @@ class TakeawayWorkMakePayment extends Component
 
         $this->total = $this->takeaway->saleInvoice->getTotalAmountRaw();
         $this->grand_total = $this->takeaway->saleInvoice->getTotalAmount();
+
+        $this->customers = Customer::all();
     }
 
     public function render()
@@ -129,19 +135,16 @@ class TakeawayWorkMakePayment extends Component
         if ($this->modes['multiplePayments']) {
             // TODO
         } else {
-            $validatedData = $this->validate([
-                'tender_amount' => 'required|integer',
-                'sale_invoice_payment_type_id' => 'required|integer',
-            ]);
-        }
-
-        if ($this->modes['customer']) {
-            $validatedData2 = $this->validate([
-                'customer_name' => 'required',
-                'customer_phone' => 'required',
-                'customer_address' => 'nullable',
-                'customer_pan' => 'nullable',
-            ]);
+            if ($this->tender_amount == 0) {
+                $validatedData = $this->validate([
+                    'tender_amount' => 'required|integer',
+                ]);
+            } else {
+                $validatedData = $this->validate([
+                    'tender_amount' => 'required|integer',
+                    'sale_invoice_payment_type_id' => 'required|integer',
+                ]);
+            }
         }
 
         /* Get the sale_invoice */
@@ -157,8 +160,13 @@ class TakeawayWorkMakePayment extends Component
         $currentBookingAmount = $this->takeaway->saleInvoice->getPendingAmount();
         $currentBookingGrandAmount = $this->takeaway->saleInvoice->getTotalAmount();
 
+        /* Get the customer if given */
+        if ($this->customer_id && $this->customer_id != '---') {
+            $this->customer = Customer::find($this->customer_id);
+        }
+
         /* If no customer do not take less payments !!! */
-        if (! $this->modes['customer'] && $this->tender_amount < $this->grand_total) {
+        if (! $this->customer && $this->tender_amount < $this->grand_total) {
             return;
         }
 
@@ -170,42 +178,12 @@ class TakeawayWorkMakePayment extends Component
          */
 
         try {
-            if ($this->modes['customer']) {
-                $customer = Customer::where('phone', $this->customer_phone)->first();
-                if (! $customer) {
-                    $customer = new Customer;
 
-                    $customer->name = $this->customer_name;
-                    $customer->phone = $this->customer_phone;;
-                    if ($this->customer_address) {
-                        $customer->address = $this->customer_address;;
-                    }
-                    if ($this->customer_pan) {
-                        $customer->pan_number = $this->customer_pan;;
-                    }
-
-                    $customer->save();
-
-                    /* Make an ab_account of this customer */
-                    $abAccount = new AbAccount;
-                    $abAccount->name = $customer->name . ' ' . $customer->phone;
-                    $abAccount->save();
-
-                    /* Link the ab_account to the customer */
-                    $customer->ab_account_id = $abAccount->ab_account_id;
-                    $customer->save();
-                }
-            }
-
-            /*
-             *
-             * Todo: Make payment against an invoice
-             *
+            /* Link to customer if needed.
+             * Todo: This code should be somewhere else.
              */
-
-
-            if ($this->modes['customer']) {
-                $saleInvoice->customer_id = $customer->customer_id;
+            if ($this->customer) {
+                $saleInvoice->customer_id = $this->customer->customer_id;
                 $saleInvoice->save();
             }
 

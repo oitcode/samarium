@@ -5,83 +5,26 @@
     </h1>
   </div>
   <div class="card-body p-0">
-    @if ($modes['customer'])
-      <div class="p-3">
-        <button class="btn btn-danger mr-3" wire:click="exitMode('customer')">
-          No Customer
-        </button>
-
-        <button wire:loading class="btn">
-          <span class="spinner-border text-info mr-3" role="status">
-          </span>
-        </button>
-
-      </div>
-
+    @if (true || $modes['customer'])
       <div class="table-responsive mb-0">
         <table class="table mb-0">
           <tbody>
-            <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
+            <tr style="font-size: 1.3rem; height: 50px;">
               <td class="w-50 p-0 bg-info-rm font-weight-bold">
                 <span class="ml-4">
-                  Customer Name
+                  Customer
                 </span>
-                @error('customer_name')
-                <div>
-                  <span class="text-danger">{{ $message }}</span>
-                </div>
-                @enderror
               </td>
-              <td class="p-0 h-100 bg-warning font-weight-bold">
-                <input class="w-100 h-100 font-weight-bold" type="text" wire:model.defer="customer_name" />
-              </td>
-            </tr>
+              <td class="p-0 h-100 w-50 font-weight-bold border-0">
+                <select class="w-100 h-100 custom-control border-0" wire:model.defer="customer_id">
+                  <option>---</option>
 
-            <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
-                <span class="ml-4">
-                  Customer Phone
-                </span>
-                @error('tender_amount')
-                <div>
-                  <span class="text-danger">{{ $message }}</span>
-                </div>
-                @enderror
-              </td>
-              <td class="p-0 h-100 font-weight-bold">
-                <input class="w-100 h-100 font-weight-bold" type="text" wire:model.defer="customer_phone" wire:keydown.enter="fetchCustomerData"/>
-              </td>
-            </tr>
-
-            <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
-                <span class="ml-4">
-                  Customer Address
-                </span>
-                @error('tender_amount')
-                <div>
-                  <span class="text-danger">{{ $message }}</span>
-                </div>
-                @enderror
-              </td>
-              <td class="p-0 h-100 font-weight-bold">
-                <input class="w-100 h-100 font-weight-bold" type="text" wire:model="customer_address" />
-              </td>
-            </tr>
-
-            <tr style="font-size: 1.3rem; height: 50px;" class="bg-light">
-              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
-                <span class="ml-4">
-                  Customer PAN
-                </span>
-                @error('tender_amount')
-                <div>
-                  <span class="text-danger">{{ $message }}</span>
-                </div>
-                @enderror
-              </td>
-              <td class="p-0 h-100 font-weight-bold">
-                <input class="w-100 h-100 font-weight-bold" type="text" wire:model="customer_pan" />
+                  @foreach ($customers as $customer)
+                    <option value="{{ $customer->customer_id }}">
+                      {{ $customer->name }}
+                    </option>
+                  @endforeach
+                </select>
               </td>
             </tr>
           </tbody>

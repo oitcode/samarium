@@ -10,18 +10,12 @@
     <div class="col-md-7">
       <div class="card mb-3 shadow">
         <div class="card-header bg-success-rm text-white-rm">
-          <h1 class="badge badge-success" style="font-size: 2rem;">
+          <h1 class="" style="font-size: 2rem;">
             Takeaway
             @if ($takeaway)
             {{ $takeaway->takeaway_id}}
             @endif
           </h1>
-          <span class="badge badge-success">
-            Sale Invoice Id
-            @if ($takeaway)
-            {{ $takeaway->saleInvoice->sale_invoice_id }}
-            @endif
-          </span>
         </div>
       
         <div class="card-body p-0">
