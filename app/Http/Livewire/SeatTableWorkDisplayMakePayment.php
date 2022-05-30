@@ -129,10 +129,16 @@ class SeatTableWorkDisplayMakePayment extends Component
         if ($this->modes['multiplePayments']) {
             // TODO
         } else {
-            $validatedData = $this->validate([
-                'tender_amount' => 'required|integer',
-                'sale_invoice_payment_type_id' => 'required|integer',
-            ]);
+            if ($this->tender_amount == 0) {
+                $validatedData = $this->validate([
+                    'tender_amount' => 'required|integer',
+                ]);
+            } else {
+                $validatedData = $this->validate([
+                    'tender_amount' => 'required|integer',
+                    'sale_invoice_payment_type_id' => 'required|integer',
+                ]);
+            }
         }
 
         if ($this->modes['customer']) {
