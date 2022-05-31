@@ -41,7 +41,7 @@
         <div class="text-center border-rm">
           <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-4 font-weight-bold text-left text-danger" style="font-size: 1rem;">
             @if (true)
-            <i class="fas fa-dot-circle fa-2x-rm mr-3" style="font-size: 1.3rem;"></i>
+            <i class="far fa-check-circle fa-2x-rm mr-3" style="font-size: 1.3rem;"></i>
             @endif
             <span class="" style="font-size: 1.3rem;">
             OPay
@@ -300,40 +300,13 @@
         @guest
         @else
 
-          <div class="float-right mx-4-rm mr-4 px-4-rm text-white" style="font-size: 1.3rem;">
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-list text-secondry mr-2"></i>
-                More
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="{{ route('dashboard-purchase') }}">
-                  <i class="fas fa-shopping-cart text-secondary mr-2"></i>
-                  Purchase
-                </a>
-                <a class="dropdown-item" href="{{ route('dashboard-expense') }}">
-                  <i class="fas fa-tools text-secondary mr-2"></i>
-                  Expense
-                </a>
-                <a class="dropdown-item" href="{{ route('dashboard-vendor') }}">
-                  <i class="fas fa-users text-secondary mr-2"></i>
-                  Vendors
-                </a>
-                <a class="dropdown-item" href="{{ route('dashboard-report') }}">
-                  <i class="fas fa-chart-line text-secondary mr-2"></i>
-                  Report
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="float-right mx-4 px-4 text-white border-right-rm" style="font-size: 1.3rem;">
+          <div class="float-right text-white border-right-rm" style="font-size: 1.3rem;">
             <div class="dropdown">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-cog text-secondry mr-2"></i>
                 {{ Auth::user()->name }}
               </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="">
                   <i class="fas fa-user text-secondary mr-2"></i>
                   {{ Auth::user()->name }}
@@ -357,7 +330,7 @@
                 <div class="dropdown-divider mb-0"></div>
                 <a class="dropdown-item" href="">
                   <i class="fas fa-history text-secondary mr-2"></i>
-                  v0.1.1
+                  v0.1.2
                 </a>
                 <div class="dropdown-divider mb-0"></div>
                 <a class="dropdown-item mb-0" href="{{ route('logout') }}"
@@ -371,6 +344,33 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="float-right mx-4-rm mr-4-rm px-4-rm text-white" style="font-size: 1.3rem;">
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-list text-secondry mr-2"></i>
+                More
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <a class="dropdown-item" href="{{ route('dashboard-purchase') }}">
+                  <i class="fas fa-shopping-cart text-secondary mr-2"></i>
+                  Purchase
+                </a>
+                <a class="dropdown-item" href="{{ route('dashboard-expense') }}">
+                  <i class="fas fa-tools text-secondary mr-2"></i>
+                  Expense
+                </a>
+                <a class="dropdown-item" href="{{ route('dashboard-vendor') }}">
+                  <i class="fas fa-users text-secondary mr-2"></i>
+                  Vendors
+                </a>
+                <a class="dropdown-item" href="{{ route('dashboard-report') }}">
+                  <i class="fas fa-chart-line text-secondary mr-2"></i>
+                  Report
+                </a>
               </div>
             </div>
           </div>

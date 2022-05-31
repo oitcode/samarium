@@ -33,7 +33,8 @@
       Search
     </button>
 
-    <button class="btn btn-danger m-0 float-right"
+    <button class="btn btn-primary-rm m-0 float-right border bg-white text-secondary"
+        wire:click="clearModes"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <i class="fas fa-wrench mr-3"></i>
       Expense

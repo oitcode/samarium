@@ -37,7 +37,8 @@
       Search
     </button>
 
-    <button class="btn btn-success m-0 float-right"
+    <button class="btn btn-success-rm m-0 float-right border"
+        wire:click="clearModes"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <i class="fas fa-truck mr-3"></i>
       Vendors

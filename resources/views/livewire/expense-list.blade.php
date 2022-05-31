@@ -30,7 +30,7 @@
     <div class="card-body p-0">
     
       @if (!is_null($expenses) && count($expenses) > 0)
-        <table class="table" style="font-size: 1.3rem;">
+        <table class="table" style="font-size: 1.1rem;">
           <thead>
             <tr class="bg-success-rm text-white-rm">
               <th>ID</th>
