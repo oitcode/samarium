@@ -113,7 +113,7 @@
       <div class="col-md-12">
         @if ( true {{--$saleInvoices != null && count($saleInvoices) > 0--}})
           <div class="table-responsive">
-            <table class="table table-sm-rm table-bordered table-hover shadow-sm">
+            <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
               <thead>
                 <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
                   <th style="width: 100px;">Bill no</th>

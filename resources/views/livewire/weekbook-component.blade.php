@@ -60,7 +60,7 @@
 
   @if (count($weekBook) > 0)
     <div class="table-responsive m-0 p-0">
-      <table class="table table-bordered table-hover shadow-sm" style="font-size: 1.3rem;">
+      <table class="table table-bordered-rm table-hover shadow-sm border" style="font-size: 1.1rem;">
         <thead>
           <tr class="bg-success-rm text-white-rm">
             <th>
