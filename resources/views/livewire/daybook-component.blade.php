@@ -120,7 +120,7 @@
                   <th style="width: 200px;">Time</th>
                   <th style="width: 200px;">Table</th>
                   <th>Customer</th>
-                  <th style="width: 200px;">Payment Status</th>
+                  <th class="border" style="width: 200px;">Payment Status</th>
                   <th style="width: 200px;">Pending Amount</th>
                   <th style="width: 200px;">Total</th>
                 </tr>
@@ -164,7 +164,7 @@
                         </span>
                       @endif
                     </td>
-                    <td>
+                    <td class="border">
                       @if ( $saleInvoice->payment_status == 'paid')
                       <span class="badge badge-pill badge-success">
                       Paid
