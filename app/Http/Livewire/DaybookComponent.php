@@ -38,6 +38,8 @@ class DaybookComponent extends Component
 
     public $netPendingAmount;
 
+    public $todaySaleInvoiceCount;
+
     public $modes = [
         'displaySaleInvoice' => false,
     ];
@@ -54,6 +56,8 @@ class DaybookComponent extends Component
     public function render()
     {
         $saleInvoices = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->orderBy('sale_invoice_id', 'desc')->paginate(100);
+
+        $this->todaySaleInvoiceCount = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->count();
 
         $this->totalAmount = $this->getTotalAmount($saleInvoices);
         // $this->totalCashAmount = $this->getTotalCashAmount();

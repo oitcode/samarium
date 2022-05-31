@@ -55,6 +55,7 @@
       </button>
     </div>
 
+
     {{-- Show in smaller screens --}}
     <div class="bg-info-rm mb-4 d-md-none">
       <button class="btn btn-success m-0" style="font-size: 1.5rem;" wire:click="setPreviousDay">
@@ -108,12 +109,16 @@
 
     </div>
 
+    <div class="my-3">
+      Bills: {{ $todaySaleInvoiceCount }}
+    </div>
+
   @if (! $modes['displaySaleInvoice'])
     <div class="row">
       <div class="col-md-12">
         @if ( true {{--$saleInvoices != null && count($saleInvoices) > 0--}})
-          <div class="table-responsive">
-            <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
+          <div class="table-responsive mb-0">
+            <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
               <thead>
                 <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
                   <th style="width: 100px;">Bill no</th>
@@ -219,36 +224,28 @@
           </div>
         @endif
         
-        <div class="row mt-5">
+        <div class="row mt-0 border m-0 pt-3 bg-white text-success">
           @foreach ($paymentByType as $key => $val)
             <div class="col-md-2 mb-4">
-              <div class="card shadow">
-                <div class="card-body">
-                  <h2 class="mb-5 text-dark font-weight-bold">
+                  <h2 class="text-muted mb-3 font-weight-bold h5">
                     {{ $key }}
                   </h2>
-                  <h3 class="text-secondary font-weight-bold">
+                  <h3 class="text-dark font-weight-bold h4">
                     Rs
                     @php echo number_format( $val ); @endphp
                   </h3>
-                </div>
-              </div>
             </div>
           @endforeach
 
           {{-- Pending Amount --}}
           <div class="col-md-2">
-            <div class="card shadow">
-              <div class="card-body">
-                <h2 class="mb-5 text-danger font-weight-bold">
+                <h2 class="text-muted mb-3 font-weight-bold h5">
                   Pending
                 </h2>
-                <h3 class="text-secondary font-weight-bold">
+                <h3 class="text-danger font-weight-bold h4">
                   Rs
                   @php echo number_format( $netPendingAmount ); @endphp
                 </h3>
-              </div>
-            </div>
           </div>
 
         </div>
