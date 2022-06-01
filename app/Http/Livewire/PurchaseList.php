@@ -132,4 +132,14 @@ class PurchaseList extends Component
         $this->exitMode('confirmDeletePurchase');
         $this->getPurchasesForDateRange();
     }
+
+    public function setPreviousDay()
+    {
+        $this->startDate = Carbon::create($this->startDate)->subDay()->toDateString();
+    }
+
+    public function setNextDay()
+    {
+        $this->startDate = Carbon::create($this->startDate)->addDay()->toDateString();
+    }
 }

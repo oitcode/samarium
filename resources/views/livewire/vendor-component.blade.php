@@ -25,6 +25,7 @@
       List
     </button>
 
+    @if (false)
     <button class="btn m-0 bg-white border shadow-sm badge-pill mr-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="">
       <i class="fas fa-chart-line mr-3"></i>
@@ -36,6 +37,7 @@
       <i class="fas fa-search mr-3"></i>
       Search
     </button>
+    @endif
 
     <button class="btn btn-success-rm m-0 float-right border"
         wire:click="clearModes"

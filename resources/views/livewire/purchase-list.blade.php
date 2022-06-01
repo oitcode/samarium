@@ -2,8 +2,8 @@
 
 
   @if (true)
-  <div class="my-3 text-secondary py-3" style="font-size: 1.3rem;">
-    @if (true)
+  <div class="mt-3 text-secondary py-3" style="font-size: 1.3rem;">
+    @if (false)
     <i class="fas fa-calendar mr-2"></i>
     @endif
 
@@ -18,6 +18,15 @@
       <div class="spinner-border text-info mr-3" role="status">
         <span class="sr-only">Loading...</span>
       </div>
+    </button>
+  </div>
+
+  <div class="mt-0 text-secondary py-3" style="font-size: 1.3rem;">
+    <button class="btn btn-success" wire:click="setPreviousDay">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <button class="btn btn-success" wire:click="setNextDay">
+      <i class="fas fa-arrow-right"></i>
     </button>
   </div>
 
@@ -153,7 +162,7 @@
     </table>
   </div>
   @else
-    <div class="p-3 text-secondary">
+    <div class="pl-3 text-muted">
       No purchases
     </div>
   @endif

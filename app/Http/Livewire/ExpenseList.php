@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 use App\Expense;
 
@@ -135,5 +136,15 @@ class ExpenseList extends Component
         //$this->deletingExpense = null;
         //$this->exitMode('confirmDeleteExpense');
         //$this->getExpensesForDateRange();
+    }
+
+    public function setPreviousDay()
+    {
+        $this->startDate = Carbon::create($this->startDate)->subDay()->toDateString();
+    }
+
+    public function setNextDay()
+    {
+        $this->startDate = Carbon::create($this->startDate)->addDay()->toDateString();
     }
 }
