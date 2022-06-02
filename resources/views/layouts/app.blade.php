@@ -39,9 +39,9 @@
       <div class="d-none d-md-block">
 
         <div class="text-center border-rm">
-          <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-4 font-weight-bold text-left text-danger" style="font-size: 1rem;">
+          <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-3 pl-4 font-weight-bold text-left text-secondary" style="font-size: 1rem;">
             @if (true)
-            <i class="far fa-check-circle fa-2x-rm mr-3" style="font-size: 1.3rem;"></i>
+            <i class="far fa-check-circle fa-2x-rm mr-3 text-info" style="font-size: 1.3rem;"></i>
             @endif
             <span class="" style="font-size: 1.3rem;">
             OPay
@@ -53,18 +53,18 @@
           <a href="{{ route('dashboard') }}"
               class="btn
               @if(Route::current()->getName() == 'dashboard')
-                btn-success-rm
+                btn-success
               @else
-                btn-success-rm
+                btn-success
               @endif
               w-100 h-100 p-4 font-weight-bold text-left"
               style="font-size: 1rem;
-              background-color: orange;
               {{--
+              background-color: orange;
+              --}}
                 @if(Route::current()->getName() == 'dashboard')
                   background-color: #008450;
                 @endif
-              --}}
               "
               >
 
@@ -330,7 +330,7 @@
                 <div class="dropdown-divider mb-0"></div>
                 <a class="dropdown-item" href="">
                   <i class="fas fa-history text-secondary mr-2"></i>
-                  v0.1.2
+                  v0.1.3
                 </a>
                 <div class="dropdown-divider mb-0"></div>
                 <a class="dropdown-item mb-0" href="{{ route('logout') }}"
