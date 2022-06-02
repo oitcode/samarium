@@ -58,14 +58,14 @@
 
     {{-- Show in smaller screens --}}
     <div class="bg-info-rm mb-4 d-md-none">
-      <button class="btn btn-success m-0" style="font-size: 1.5rem;" wire:click="setPreviousDay">
+      <button class="btn btn-success-rm m-0" style="font-size: 1.5rem;" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left mr-3"></i>
         @if (false)
         Previous
         @endif
       </button>
 
-      <button class="btn btn-danger m-0" style="font-size: 1.5rem;" wire:click="setNextDay">
+      <button class="btn btn-danger-rm m-0" style="font-size: 1.5rem;" wire:click="setNextDay">
         <i class="fas fa-arrow-right mr-3"></i>
         @if (false)
         Next
@@ -82,16 +82,12 @@
       </button>
 
 
-      <div class="py-2">
-        <button class="btn btn-success mr-2" style="font-size: 1.5rem;" wire:click="">
-          <i class="fas fa-calendar mr-3"></i>
+      <div class="py-2 px-2" style="font-size: 1.1rem;">
+        <i class="fas fa-calendar mr-3"></i>
+        <span class="mr-3">
           {{ $daybookDate }}
-        </button>
-
-        <button class="btn btn-danger m-0" style="font-size: 1.5rem;" wire:click="">
-          <i class="fas fa-calendar mr-3"></i>
-          {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
-        </button>
+        </span>
+        {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
       </div>
 
       <div class="shadow-sm-rm" style="width: 500px;">
@@ -109,7 +105,7 @@
 
     </div>
 
-    <div class="my-3">
+    <div class="my-3 px-2">
       Bills: {{ $todaySaleInvoiceCount }}
     </div>
 

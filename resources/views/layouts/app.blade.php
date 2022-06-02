@@ -297,7 +297,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('sale') }}">
           <i class="fas fa-shipping-fast mr-3"></i>
           Takeaway
         </a>
@@ -355,52 +355,53 @@
             <i class="fas fa-chart-line text-secondary mr-2"></i>
             Report
           </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="mobTopMenuDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-cog text-secondry mr-2"></i>
-          {{ Auth::user()->name }}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="mobTopMenuDropdown2">
-          <a class="dropdown-item" href="">
-            <i class="fas fa-user text-secondary mr-2"></i>
+      @guest
+      @else
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="mobTopMenuDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-cog text-secondry mr-2"></i>
             {{ Auth::user()->name }}
           </a>
-          <a class="dropdown-item" href="{{ route('company') }}">
-            <i class="fas fa-home text-secondary mr-2"></i>
-            Company
-          </a>
-          <a class="dropdown-item" href="{{ route('dashboard-accounting') }}">
-            <i class="fas fa-book text-secondary mr-2"></i>
-            Accounting
-          </a>
-          <a class="dropdown-item" href="{{ route('dashboard-settings') }}">
-            <i class="fas fa-cog text-secondary mr-2"></i>
-            Settings
-          </a>
-          <a class="dropdown-item" href="{{ route('dashboard-change-password') }}">
-            <i class="fas fa-key text-secondary mr-2"></i>
-            Change password
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="">
-            <i class="fas fa-history text-secondary mr-2"></i>
-            v0.1.3
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();"
-          >
-            <i class="fas fa-power-off mr-2 text-warning-rm"></i>
-            Logout
-          </a>
-        </div>
-      </li>
+          <div class="dropdown-menu" aria-labelledby="mobTopMenuDropdown2">
+            <a class="dropdown-item" href="">
+              <i class="fas fa-user text-secondary mr-2"></i>
+              {{ Auth::user()->name }}
+            </a>
+            <a class="dropdown-item" href="{{ route('company') }}">
+              <i class="fas fa-home text-secondary mr-2"></i>
+              Company
+            </a>
+            <a class="dropdown-item" href="{{ route('dashboard-accounting') }}">
+              <i class="fas fa-book text-secondary mr-2"></i>
+              Accounting
+            </a>
+            <a class="dropdown-item" href="{{ route('dashboard-settings') }}">
+              <i class="fas fa-cog text-secondary mr-2"></i>
+              Settings
+            </a>
+            <a class="dropdown-item" href="{{ route('dashboard-change-password') }}">
+              <i class="fas fa-key text-secondary mr-2"></i>
+              Change password
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="">
+              <i class="fas fa-history text-secondary mr-2"></i>
+              v0.1.3
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();"
+            >
+              <i class="fas fa-power-off mr-2 text-warning-rm"></i>
+              Logout
+            </a>
+          </div>
+        </li>
+      @endguest
 
     </ul>
   </div>
