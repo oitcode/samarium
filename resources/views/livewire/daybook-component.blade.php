@@ -126,7 +126,7 @@
                   <th style="width: 200px;">Table</th>
                   <th>Customer</th>
                   <th class="border" style="width: 200px;">Payment Status</th>
-                  <th style="width: 200px;">Pending Amount</th>
+                  <th class="border" style="width: 200px;">Pending Amount</th>
                   <th style="width: 200px;">Total</th>
                 </tr>
               </thead>
@@ -194,7 +194,7 @@
                       </span>
                       @endforeach
                     </td>
-                    <td>
+                    <td class="border">
                       {{ $saleInvoice->getPendingAmount() }}
                     </td>
                     <td class="font-weight-bold">
