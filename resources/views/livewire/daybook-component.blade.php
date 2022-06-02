@@ -118,9 +118,9 @@
               <thead>
                 <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
                   <th style="width: 100px;">Bill no</th>
-                  <th style="width: 200px;">Time</th>
-                  <th style="width: 200px;">Table</th>
-                  <th>Customer</th>
+                  <th class="d-none d-md-table-cell" style="width: 200px;">Time</th>
+                  <th class="d-none d-md-table-cell" style="width: 200px;">Table</th>
+                  <th class="d-none d-md-table-cell">Customer</th>
                   <th class="border" style="width: 200px;">Payment Status</th>
                   <th class="border" style="width: 200px;">Pending Amount</th>
                   <th style="width: 200px;">Total</th>
@@ -137,7 +137,7 @@
                       {{ $saleInvoice->sale_invoice_id }}
                       </span>
                     </td>
-                    <td class="" style="font-size: 1rem;">
+                    <td class="d-none d-md-table-cell" style="font-size: 1rem;">
                       @if (false)
                       <div>
                         {{ $saleInvoice->sale_invoice_date }}
@@ -147,14 +147,14 @@
                         {{ $saleInvoice->created_at->format('H:i A') }}
                       </div>
                     </td>
-                    <td class="">
+                    <td class="d-none d-md-table-cell">
                       @if ($saleInvoice->seatTableBooking)
                       {{ $saleInvoice->seatTableBooking->seatTable->name }}
                       @else
                         Takeaway
                       @endif
                     </td>
-                    <td>
+                    <td class="d-none d-md-table-cell">
                       @if ($saleInvoice->customer)
                         <i class="fas fa-circle text-success mr-3"></i>
                         {{ $saleInvoice->customer->name }}
