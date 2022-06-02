@@ -36,87 +36,89 @@
   </div>
 
   @if (!is_null($expenses) && count($expenses) > 0)
-    <table class="table" style="font-size: 1.1rem;">
-      <thead>
-        <tr class="bg-success-rm text-white-rm">
-          <th>ID</th>
-          <th>Date</th>
-          <th>Expense</th>
-          <th>Category</th>
-          <th>Amount</th>
-          <th>Action</th>
-        </tr>
-      </thead>
+    <div class="table-responsive bg-white">
+      <table class="table border mb-0" style="font-size: 1.1rem;">
+        <thead>
+          <tr class="bg-success-rm text-white-rm">
+            <th>ID</th>
+            <th>Date</th>
+            <th>Expense</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
   
-      <tbody>
-        @foreach($expenses as $expense)
-        <tr>
-          <td>
-            {{ $expense->expense_id }}
-          </td>
+        <tbody>
+          @foreach($expenses as $expense)
+          <tr>
+            <td>
+              {{ $expense->expense_id }}
+            </td>
   
-          <td class="" style="font-size: 1rem;">
-            {{ $expense->date }}
-          </td>
+            <td class="" style="font-size: 1rem;">
+              {{ $expense->date }}
+            </td>
   
-          <td>
-            {{ $expense->name }}
-          </td>
+            <td>
+              {{ $expense->name }}
+            </td>
   
-          <td>
-            {{ $expense->expenseCategory->name }}
-          </td>
+            <td>
+              {{ $expense->expenseCategory->name }}
+            </td>
   
-          <td>
-            @php echo number_format( $expense->amount ); @endphp
-          </td>
+            <td>
+              @php echo number_format( $expense->amount ); @endphp
+            </td>
   
-          <td>
-            @if (false)
-            <button class="btn p-2 border rounded-circle mr-3" 
-                wire:click="">
-              <i class="fas fa-folder-open text-primary"></i>
-            </button>
-            <button class="btn p-2 border rounded-circle mr-3"
-                wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
-              <i class="fas fa-trash text-danger"></i>
-            </button>
-            @endif
-
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-cog text-secondary"></i>
+            <td>
+              @if (false)
+              <button class="btn p-2 border rounded-circle mr-3" 
+                  wire:click="">
+                <i class="fas fa-folder-open text-primary"></i>
               </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <button class="dropdown-item" wire:click="">
-                  <i class="fas fa-file text-primary mr-2"></i>
-                  View
+              <button class="btn p-2 border rounded-circle mr-3"
+                  wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
+                <i class="fas fa-trash text-danger"></i>
+              </button>
+              @endif
+
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-cog text-secondary"></i>
                 </button>
-                <button class="dropdown-item" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
-                  <i class="fas fa-trash text-danger mr-2"></i>
-                  Delete
-                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <button class="dropdown-item" wire:click="">
+                    <i class="fas fa-file text-primary mr-2"></i>
+                    View
+                  </button>
+                  <button class="dropdown-item" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
+                    <i class="fas fa-trash text-danger mr-2"></i>
+                    Delete
+                  </button>
+                </div>
               </div>
-            </div>
-          </td>
+            </td>
   
-        </tr>
-        @endforeach
-      </tbody>
+          </tr>
+          @endforeach
+        </tbody>
   
-      <tfoot>
-        <tr style="font-size: 1.8rem;">
-          <th colspan="4" class="text-right mr-3">
-            Total
-          </th>
-          <td>
-            @php echo number_format( $total ); @endphp
-          </td>
-          <td>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+        <tfoot>
+          <tr style="font-size: 1.8rem;">
+            <th colspan="4" class="text-right mr-3">
+              Total
+            </th>
+            <td>
+              @php echo number_format( $total ); @endphp
+            </td>
+            <td>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   @else
     <div class="pl-3 text-muted">
       No expenses

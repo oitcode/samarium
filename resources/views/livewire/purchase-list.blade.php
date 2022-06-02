@@ -42,7 +42,7 @@
   @if (true)
   @if (!is_null($purchases) && count($purchases) > 0)
   <div class="table-responsive bg-white">
-    <table class="table table-bordered-rm border" style="font-size: 1.1rem;">
+    <table class="table table-bordered-rm border mb-0" style="font-size: 1.1rem;">
       <thead>
         <tr class="text-secondary">
           <th>
