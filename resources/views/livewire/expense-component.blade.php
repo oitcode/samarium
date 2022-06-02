@@ -35,7 +35,7 @@
     </button>
     @endif
 
-    <button class="btn btn-primary-rm m-0 float-right border bg-white text-secondary"
+    <button class="btn btn-primary-rm m-0 float-right border-rm bg-white-rm text-primary-rm"
         wire:click="clearModes"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <i class="fas fa-wrench mr-3"></i>

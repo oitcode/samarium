@@ -39,7 +39,7 @@
     </button>
     @endif
 
-    <button class="btn btn-success-rm m-0 float-right border"
+    <button class="btn btn-success-rm m-0 float-right border-rm"
         wire:click="clearModes"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <i class="fas fa-truck mr-3"></i>

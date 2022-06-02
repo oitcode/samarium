@@ -18,7 +18,7 @@
       <div class="table-responsive mb-3">
         <table class="table table-bordered-rm table-hover border">
           <thead>
-            <tr class="text-secondary-rm bg-success-rm text-white-rm" style="font-size: 1.3rem;">
+            <tr class="text-secondary-rm bg-success-rm text-white-rm" style="font-size: 1.1rem;">
               <th style="width: 120px;">
                 Order ID
               </th>
@@ -47,7 +47,7 @@
 
           <tbody class="bg-white">
             @foreach ($websiteOrders as $order)
-              <tr style="font-size: 1.3rem;" role="button" wire:click="$emit('displayOnlineOrder', {{ $order->website_order_id }})">
+              <tr style="font-size: 1.1rem;" role="button" wire:click="$emit('displayOnlineOrder', {{ $order->website_order_id }})">
                 <td>
                   {{ $order->website_order_id }}
                 </td>

@@ -32,7 +32,7 @@
     </button>
     @endif
 
-    <button class="btn btn-success-rm m-0 float-right border"
+    <button class="btn btn-success-rm m-0 float-right"
         wire:click="clearModes"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <i class="fas fa-cloud-download-alt"></i>
