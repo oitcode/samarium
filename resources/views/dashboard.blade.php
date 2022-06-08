@@ -4,7 +4,7 @@
   @if (env('SITE_TYPE') == 'erp')
 
     {{-- Show on bigger screens --}}
-    <div class="d-none d-md-block">
+    <div class="">
       <div class="row mb-4">
 
         @if (env('SITE_TYPE') == 'erp')
@@ -27,6 +27,7 @@
     </div>
 
     {{-- Show on smaller screens --}}
+    @if (false)
     <div class="d-md-none">
       <div class="row mb-4">
 
@@ -63,6 +64,7 @@
 
       </div>
     </div>
+    @endif
 
     @if (false)
     <div class="row mb-4">
