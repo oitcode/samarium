@@ -29,6 +29,10 @@ class SeatTableWorkDisplayAddItem extends Component
 
     public $selectedProduct = null;
 
+    public $modes = [
+        'showMobForm' => false,
+    ];
+
 
     public function mount()
     {
@@ -42,26 +46,29 @@ class SeatTableWorkDisplayAddItem extends Component
         return view('livewire.seat-table-work-display-add-item');
     }
 
+    /* Clear modes */
+    public function clearModes()
+    {
+        foreach ($this->modes as $key => $val) {
+            $this->modes[$key] = false;
+        }
+    }
+
+    /* Enter and exit mode */
+    public function enterMode($modeName)
+    {
+        $this->clearModes();
+
+        $this->modes[$modeName] = true;
+    }
+
+    public function exitMode($modeName)
+    {
+        $this->modes[$modeName] = false;
+    }
+
     public function addItemToSeatTableBooking()
     {
-        /*
-        $seatTableBookingItem = new SeatTableBookingItem;
-
-        $seatTableBookingItem->seat_table_booking_id = $this->seat_table_booking_id;
-        $seatTableBookingItem->product_id = $this->product_id;
-        $seatTableBookingItem->quantity = $this->quantity;
-
-        $seatTableBookingItem->save();
-
-        $product = Product::find($this->product_id);
-
-        if ($product->stock_count != null) {
-          $product->stock_count -=  $this->quantity;
-          $product->save();
-        }
-        */
-
-
         if (! $this->selectedProduct) {
             return;
         }
@@ -190,5 +197,10 @@ class SeatTableWorkDisplayAddItem extends Component
 
         $saleInvoice->total_amount += $product->selling_price * $quantity;
         $saleInvoice->save();
+    }
+
+    public function showAddItemFormMob()
+    {
+        $this->enterMode('showMobForm');
     }
 }
