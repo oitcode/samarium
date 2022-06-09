@@ -11,7 +11,7 @@ class CustomerSaleList extends Component
 
     public function render()
     {
-        $this->saleInvoices = $this->customer->saleInvoices;
+        $this->saleInvoices = $this->customer->saleInvoices()->orderBy('sale_invoice_id', 'DESC')->get();
 
         return view('livewire.customer-sale-list');
     }
