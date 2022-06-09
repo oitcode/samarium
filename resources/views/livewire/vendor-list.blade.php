@@ -17,9 +17,7 @@
                 {{ $vendor->vendor_id }}
               </td>
               <td>
-                <a href="" wire:click.prevent="$emit('displayVendor', {{ $vendor }})">
                 {{ $vendor->name }}
-                </a>
               </td>
               <td>
                 {{ $vendor->getBalance() }}
@@ -30,14 +28,16 @@
                     <i class="fas fa-cog text-secondary"></i>
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button class="dropdown-item" wire:click="">
+                    <button class="dropdown-item" wire:click="$emit('displayVendor', {{ $vendor }})">
                       <i class="fas fa-file text-primary mr-2"></i>
                       View
                     </button>
+                    @if (false)
                     <button class="dropdown-item" wire:click="">
                       <i class="fas fa-trash text-danger mr-2"></i>
                       Delete
                     </button>
+                    @endif
                   </div>
                 </div>
               </td>
