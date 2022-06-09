@@ -11,6 +11,7 @@
             <th>Payment</th>
             <th>Pending</th>
             <th>Amount</th>
+            <th>Action</th>
           </tr>
         </thead>
 
@@ -64,6 +65,23 @@
               </td>
               <td>
                 {{ $purchase->getTotalAmount() }}
+              </td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-cog text-secondary"></i>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <button class="dropdown-item" wire:click="">
+                      <i class="fas fa-money-check-alt text-primary mr-2"></i>
+                      Receive payment
+                    </button>
+                    <button class="dropdown-item" wire:click="">
+                      <i class="fas fa-print text-primary mr-2"></i>
+                      Print
+                    </button>
+                  </div>
+                </div>
               </td>
             </tr>
           @endforeach

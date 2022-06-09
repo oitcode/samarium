@@ -69,6 +69,7 @@ class CustomerInvoicePaymentCreate extends Component
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
 
-        $this->emit('clearModes');
+        $this->emitUp('customerSiPaymentMade');
+        //$this->emitUp('customerPaymentMade', 0);
     }
 }

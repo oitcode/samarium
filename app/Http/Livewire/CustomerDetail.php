@@ -24,6 +24,7 @@ class CustomerDetail extends Component
         'receiveSaleInvoicePayment',
         'exitCustomerPaymentCreateMode',
         'exitSaleInvoicePaymentCreateMode',
+        'customerSiPaymentMade',
     ];
 
     public function render()
@@ -55,6 +56,11 @@ class CustomerDetail extends Component
     public function customerPaymentMade($amountRemaining)
     {
         $this->clearModes();
+    }
+
+    public function customerSiPaymentMade()
+    {
+        $this->exitMode('saleInvoicePaymentCreate');
     }
 
     public function receiveSaleInvoicePayment($saleInvoiceId)

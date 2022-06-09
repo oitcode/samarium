@@ -74,7 +74,7 @@
           m-0 border shadow-sm badge-pill mr-3"
           style="font-size: 1.3rem;" wire:click="enterMode('salesHistory')">
         <i class="fas fa-shopping-cart mr-3"></i>
-        Sales history
+        Sales
       </button>
 
       <button class="btn
@@ -83,8 +83,8 @@
           @endif
           m-0 border shadow-sm badge-pill mr-3"
           style="font-size: 1.3rem;" wire:click="enterMode('customerPaymentCreate')">
-        <i class="fas fa-donate mr-3"></i>
-        Payment
+        <i class="fas fa-key mr-3"></i>
+        Settle
       </button>
 
       @if (false)

@@ -75,6 +75,7 @@
           Purchases
         </button>
 
+        @if (false)
         <button class="btn
             @if ($modes['pendingBills'])
               btn-success text-white
@@ -84,6 +85,7 @@
           <i class="fas fa-ban mr-3"></i>
           Pending bills
         </button>
+        @endif
 
         <button class="btn
             @if ($modes['settle'])
