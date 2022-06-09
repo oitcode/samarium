@@ -1,7 +1,8 @@
 <div class="mb-4">
 
   {{-- Top Menu --}}
-  <div class="mb-4">
+  {{-- Show in bigger screens --}}
+  <div class="mb-4 d-none d-md-block">
     <button class="btn btn-success-rm m-0 p-3 border shadow-sm bg-white"
         wire:click="goToPreviousWeek"
         style="height: 100px; width: 225px; font-size: 1.5rem;"
@@ -29,10 +30,63 @@
           Rs
         </span>
         @php echo number_format($totalAmount); @endphp
-      <h2>
+      </h2>
     </button>
     <div class="clearfix">
     </div>
+  </div>
+
+  {{-- Show in smaller screens --}}
+  <div class="bg-info-rm mb-4 d-md-none">
+    <button class="btn btn-success-rm m-0" style="font-size: 1.5rem;" wire:click="goToPreviousWeek">
+      <i class="fas fa-arrow-left mr-3"></i>
+      @if (false)
+      Previous
+      @endif
+    </button>
+
+    <button class="btn btn-danger-rm m-0" style="font-size: 1.5rem;" wire:click="goToNextWeek">
+      <i class="fas fa-arrow-right mr-3"></i>
+      @if (false)
+      Next
+      @endif
+    </button>
+
+    <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+      <div class="spinner-border text-info mr-3" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <span class="ml-3 text-secondary" style="font-size: 1rem;">
+        Loading...
+      </span>
+    </button>
+
+
+    <div class="py-2 px-2" style="font-size: 1.1rem;">
+      <i class="fas fa-calendar mr-2"></i>
+      {{ Carbon\Carbon::parse($startDay)->format('Y F d') }}
+      &nbsp;&nbsp;
+      {{ Carbon\Carbon::parse($startDay)->format('l') }}
+      <br />
+      <i class="fas fa-calendar mr-2"></i>
+      {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('Y F d') }}
+      &nbsp;&nbsp;
+      {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('l') }}
+    </div>
+
+    <div class="shadow-sm-rm" style="width: 500px;">
+      <div class="card">
+        <div class="card-body p-0 bg-success text-white">
+          <div class="p-4">
+            <h2 class="font-weight-bold" style="font-size: 2rem;">
+              <i class="fas fa-rupee-sign mr-3"></i>
+              @php echo number_format( $totalAmount ); @endphp
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="d-none d-md-block my-3 text-secondary" style="font-size: 1.3rem;">
