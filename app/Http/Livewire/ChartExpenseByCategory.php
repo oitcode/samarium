@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 use App\Expense;
 
-class ExpenseReport extends Component
+class ChartExpenseByCategory extends Component
 {
     public $expenses = null;
 
@@ -18,14 +18,12 @@ class ExpenseReport extends Component
 
     public $expenseByCategory = array();
 
-    public $modes = [
-        'showChart' => true,
-    ];
-
+    /*
     public function mount()
     {
         $this->startDate = date('Y-m-d');
     }
+    */
 
     public function render()
     {
@@ -33,34 +31,7 @@ class ExpenseReport extends Component
         $this->getExpenseByCategory();
         $this->calculateTotal();
 
-        return view('livewire.expense-report');
-    }
-
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function enableChartAndGoOn()
-    {
-        $this->enterMode('showChart');
-        $this->getExpensesForDateRange();
+        return view('livewire.chart-expense-by-category');
     }
 
     public function getExpensesForDateRange()
