@@ -10,6 +10,7 @@ class ExpenseComponent extends Component
         'create' => false,
         'list' => true,
         'display' => true,
+        'report' => false,
     ];
 
     protected $listeners = [

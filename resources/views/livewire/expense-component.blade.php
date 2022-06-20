@@ -21,6 +21,16 @@
       List
     </button>
 
+    <button class="btn
+        @if ($modes['report'])
+          btn-success text-white
+        @endif
+        m-0 border shadow-sm badge-pill mr-3"
+        style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('report')">
+      <i class="fas fa-paper-plane mr-3"></i>
+      Report
+    </button>
+
     @if (false)
     <button class="btn btn-success-rm m-0 border shadow-sm badge-pill mr-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="">
@@ -71,6 +81,8 @@
     @livewire ('expense-create')
   @elseif ($modes['list'])
     @livewire ('expense-list')
+  @elseif ($modes['report'])
+    @livewire ('expense-report')
   @endif
 
 </div>
