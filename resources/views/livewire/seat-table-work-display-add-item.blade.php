@@ -110,7 +110,7 @@
   <div class="d-md-none mb-3">
     <button class="btn btn-success ml-3" wire:click="showAddItemFormMob">
       Add item
-    </div>
+    </button>
 
     @if ($modes['showMobForm'])
       FOOBAR
