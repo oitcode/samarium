@@ -90,6 +90,8 @@ class ExpenseReport extends Component
 
     public function getExpenseByCategory()
     {
+        $this->expenseByCategory = array();
+
         foreach ($this->expenses as $expense) {
             if (array_key_exists($expense->expenseCategory->name, $this->expenseByCategory)) {
                 $this->expenseByCategory[$expense->expenseCategory->name] += $expense->amount;
