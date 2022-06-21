@@ -31,17 +31,20 @@
 
   {{-- Show in smaller screens --}}
 
-  <div class="d-md-none p-3 bg-white border d-flex">
-    <h2 class="h3 mr-4">
-      Curent bookings
-    </h2>
-    <h2 class="h3 mr-4 badge badge-success badge-pill" style="font-size: 1.1rem;">
-      {{ $currentBookingsCount }}
-    </h2>
+  <div class="d-md-none px-3 d-flex mb-3">
+    <div class="border d-flex p-3 w-100 bg-success text-white rounded shadow">
+      <i class="fas fa-coffee fa-2x mr-3"></i>
+      <h2 class="h4 mr-4">
+        Curent bookings
+      </h2>
+      <h2 class="h4 mr-4 badge badge-success-rm badge-pill" style="font-size: 1.1rem;">
+        {{ $currentBookingsCount }}
+      </h2>
   
-    <div class="h3 font-weight-bold">
-      Rs
-      @php echo number_format( $currentBookingsTotalAmount ); @endphp
+      <div class="h3 font-weight-bold">
+        Rs
+        @php echo number_format( $currentBookingsTotalAmount ); @endphp
+      </div>
     </div>
   </div>
 

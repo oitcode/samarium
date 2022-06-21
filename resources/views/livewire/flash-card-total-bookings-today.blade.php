@@ -31,17 +31,21 @@
 
   {{-- Show in smaller screens --}}
 
-  <div class="d-md-none p-3 bg-white border d-flex">
-    <h2 class="h3 mr-4">
-      Today bookings
-    </h2>
-    <h2 class="h3 mr-4 badge badge-primary badge-pill" style="font-size: 1.1rem;">
-      {{ $count }}
-    </h2>
+  <div class="d-md-none px-3 d-flex mb-3">
+    <div class="border d-flex p-3 w-100 bg-light text-primary rounded shadow">
+      <i class="fas fa-check-circle fa-2x mr-3"></i>
+      <h2 class="h4 mr-4">
+        Today bookings
+      </h2>
+      <h2 class="h4 mr-4 badge badge-success-rm badge-pill" style="font-size: 1.1rem;">
+        {{ $count }}
+      </h2>
   
-    <div class="h3 font-weight-bold">
-      Rs
-      @php echo number_format( $todayBookingsTotalAmount ); @endphp
+      <div class="h3 font-weight-bold">
+        Rs
+        @php echo number_format( $todayBookingsTotalAmount ); @endphp
+      </div>
     </div>
   </div>
+
 </div>
