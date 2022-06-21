@@ -130,7 +130,9 @@ class SeatTableWorkDisplayAddItem extends Component
         $this->resetInputFields();
         $this->emit('itemAddedToBooking');
 
-
+        if ($this->modes['showMobForm']) {
+            $this->exitMode('showMobForm');
+        }
     }
 
     public function updateProductList()
@@ -202,5 +204,10 @@ class SeatTableWorkDisplayAddItem extends Component
     public function showAddItemFormMob()
     {
         $this->enterMode('showMobForm');
+    }
+
+    public function hideAddItemFormMob()
+    {
+        $this->exitMode('showMobForm');
     }
 }

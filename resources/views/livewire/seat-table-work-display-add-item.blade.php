@@ -108,12 +108,25 @@
 
   {{-- Show in smaller screen --}}
   <div class="d-md-none mb-3">
-    <button class="btn btn-success ml-3" wire:click="showAddItemFormMob">
+    @if (! $modes['showMobForm'])
+    <button class="btn btn-success ml-3" wire:click="showAddItemFormMob" style="font-size: 1.3rem;">
       Add item
+    </button>
+    @else
+    <button class="btn btn-danger ml-3" wire:click="hideAddItemFormMob" style="font-size: 1.3rem;">
+      Cancel
+    </button>
+    @endif
+
+    <button wire:loading class="btn">
+      <span class="spinner-border text-info mr-3" role="status">
+      </span>
     </button>
 
     @if ($modes['showMobForm'])
-      FOOBAR
+      <div>
+        @include ('partials.mob.add-item-form')
+      </div>
     @endif
   </div>
 

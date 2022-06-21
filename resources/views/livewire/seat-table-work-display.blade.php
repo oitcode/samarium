@@ -79,10 +79,10 @@
           <thead>
             <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
               <th>--</th>
-              <th>#</th>
+              <th class="d-none d-md-table-cell">#</th>
               <th>Item</th>
               <th>Price</th>
-              <th>Quantity</th>
+              <th>Qty</th>
               <th>Amount</th>
             </tr>
           </thead>
@@ -97,7 +97,7 @@
                     <i class="fas fa-trash text-danger"></i>
                     </a>
                   </td>
-                  <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+                  <td class="d-none d-md-table-cell text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
                   <td>
                     <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                     {{ $item->product->name }}
@@ -123,18 +123,22 @@
           </tbody>
   
           <tfoot class="bg-white">
-            <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
-              <strong>
-              TOTAL
-              </strong>
-            </td>
-            <td style="font-size: 1.5rem;" class="font-weight-bold">
-              @if ($seatTable->isBooked())
-                @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
-              @else
-                0
-              @endif
-            </td>
+            @if (false)
+            <tr>
+              <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+                <strong>
+                TOTAL
+                </strong>
+              </td>
+              <td style="font-size: 1.5rem;" class="font-weight-bold">
+                @if ($seatTable->isBooked())
+                  @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
+                @else
+                  0
+                @endif
+              </td>
+            </tr>
+            @endif
           </tfoot>
   
         </table>
