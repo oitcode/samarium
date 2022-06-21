@@ -74,8 +74,8 @@
       </div>
 
       @if ($seatTable->isBooked())
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover border-dark shadow-sm">
+      <div class="table-responsive mb-0">
+        <table class="table table-bordered table-hover border-dark shadow-sm mb-0">
           <thead>
             <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
               <th>--</th>
@@ -122,9 +122,8 @@
             @endif
           </tbody>
   
-          <tfoot class="bg-white">
-            @if (false)
-            <tr>
+          <tbody class="bg-white">
+            <tr class="d-none d-md-table-row">
               <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
                 <strong>
                 TOTAL
@@ -138,8 +137,22 @@
                 @endif
               </td>
             </tr>
-            @endif
-          </tfoot>
+
+            <tr class="d-md-none">
+              <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+                <strong>
+                TOTAL
+                </strong>
+              </td>
+              <td style="font-size: 1.5rem;" class="font-weight-bold">
+                @if ($seatTable->isBooked())
+                  @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
+                @else
+                  0
+                @endif
+              </td>
+            </tr>
+          </tbody>
   
         </table>
       </div>
@@ -148,9 +161,11 @@
     </div>
   
     <div class="col-md-5">
-      @if ($seatTable->isBooked() && (true || $modes['makePayment']))
-        @livewire ('seat-table-work-display-make-payment', ['seatTable' => $seatTable,])
-      @endif
+      @can ('is-admin')
+        @if ($seatTable->isBooked() && (true || $modes['makePayment']))
+          @livewire ('seat-table-work-display-make-payment', ['seatTable' => $seatTable,])
+        @endif
+      @endcan
     </div>
 
     <div>
