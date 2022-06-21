@@ -1,4 +1,4 @@
-<div>
+<div class="p-3 p-md-0">
 
   @if (true || ! $modes['create'] && ! $modes['display'])
   <div class="mb-3">
@@ -36,7 +36,7 @@
     </button>
     @endif
 
-    <button class="btn btn-primary-rm m-0 float-right border-rm bg-white-rm text-secondary-rm"
+    <button class="btn btn-primary-rm m-0 float-right border-rm bg-white-rm text-secondary-rm d-none d-md-block"
         wire:click="clearModes"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <i class="fas fa-shopping-cart mr-3"></i>

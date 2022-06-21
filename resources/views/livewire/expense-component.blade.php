@@ -1,11 +1,11 @@
-<div class="">
+<div class="p-3 p-md-0">
   <!-- Menu tool bar -->
   <div class="mb-3">
     <button class="btn
         @if ($modes['create'])
           btn-success text-white
         @endif
-        m-0 border shadow-sm badge-pill mr-3"
+        m-0 border shadow-sm badge-pill mr-3 mb-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('create')">
       <i class="fas fa-plus-circle mr-3"></i>
       New
@@ -15,7 +15,7 @@
         @if ($modes['list'])
           btn-success text-white
         @endif
-        m-0 border shadow-sm badge-pill mr-3"
+        m-0 border shadow-sm badge-pill mr-3 mb-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('list')">
       <i class="fas fa-list mr-3"></i>
       List
@@ -25,7 +25,7 @@
         @if ($modes['report'])
           btn-success text-white
         @endif
-        m-0 border shadow-sm badge-pill mr-3"
+        m-0 border shadow-sm badge-pill mr-3 mb-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('report')">
       <i class="fas fa-paper-plane mr-3"></i>
       Report
@@ -45,7 +45,7 @@
     </button>
     @endif
 
-    <button class="btn btn-primary-rm m-0 float-right border-rm bg-white-rm text-primary-rm"
+    <button class="btn btn-primary-rm m-0 float-right border-rm bg-white-rm text-primary-rm d-none d-md-block"
         wire:click="clearModes"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <i class="fas fa-wrench mr-3"></i>
