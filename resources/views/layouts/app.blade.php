@@ -290,49 +290,69 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ route('dashboard') }}">
-          <i class="fas fa-tv mr-3"></i>
-          Dashboard 
-        </a>
-      </li>
+      @can ('is-admin')
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ route('dashboard') }}">
+            <i class="fas fa-tv mr-3"></i>
+            Dashboard 
+          </a>
+        </li>
+      @endcan
+
+      @can ('is-admin')
       <li class="nav-item">
         <a class="nav-link" href="{{ route('sale') }}">
           <i class="fas fa-shipping-fast mr-3"></i>
           Takeaway
         </a>
       </li>
+      @endcan
+
       <li class="nav-item">
         <a class="nav-link" href="{{ route('cafesale') }}">
           <i class="fas fa-table mr-3"></i>
           Tables
         </a>
       </li>
+
+      @can ('is-admin')
       <li class="nav-item">
         <a class="nav-link" href="{{ route('menu') }}">
           <i class="fas fa-list mr-3"></i>
           Menu
         </a>
       </li>
+      @endcan
+
+      @can ('is-admin')
       <li class="nav-item">
         <a class="nav-link" href="{{ route('daybook') }}">
           <i class="fas fa-book mr-3"></i>
           Daybook
         </a>
       </li>
+      @endcan
+
+      @can ('is-admin')
       <li class="nav-item">
         <a class="nav-link" href="{{ route('weekbook') }}">
           <i class="fas fa-book mr-3"></i>
           Weekbook
         </a>
       </li>
+      @endcan
+
+      @can ('is-admin')
       <li class="nav-item">
         <a class="nav-link" href="{{ route('online-order') }}">
           <i class="fas fa-cloud-download-alt mr-3"></i>
           Weborder
         </a>
       </li>
+      @endcan
 
+
+      @can ('is-admin')
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="mobTopMenuDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-list text-secondry mr-2"></i>
@@ -357,6 +377,7 @@
           </a>
         </div>
       </li>
+      @endcan
 
       @guest
       @else
@@ -370,18 +391,24 @@
               <i class="fas fa-user text-secondary mr-2"></i>
               {{ Auth::user()->name }}
             </a>
+            @can ('is-admin')
             <a class="dropdown-item" href="{{ route('company') }}">
               <i class="fas fa-home text-secondary mr-2"></i>
               Company
             </a>
+            @endcan
+            @can ('is-admin')
             <a class="dropdown-item" href="{{ route('dashboard-accounting') }}">
               <i class="fas fa-book text-secondary mr-2"></i>
               Accounting
             </a>
+            @endcan
+            @can ('is-admin')
             <a class="dropdown-item" href="{{ route('dashboard-settings') }}">
               <i class="fas fa-cog text-secondary mr-2"></i>
               Settings
             </a>
+            @endcan
             <a class="dropdown-item" href="{{ route('dashboard-change-password') }}">
               <i class="fas fa-key text-secondary mr-2"></i>
               Change password
