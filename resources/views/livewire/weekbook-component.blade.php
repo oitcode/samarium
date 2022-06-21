@@ -1,4 +1,4 @@
-<div class="mb-4">
+<div class="mb-4 p-3 p-md-0">
 
   {{-- Top Menu --}}
   {{-- Show in bigger screens --}}

@@ -1,4 +1,4 @@
-<div>
+<div class="p-3 p-md-0">
   <div class="p-0" style="">
 
     {{-- Show in bigger screens --}}
@@ -121,8 +121,13 @@
                   <th class="d-none d-md-table-cell" style="width: 200px;">Time</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Table</th>
                   <th class="d-none d-md-table-cell">Customer</th>
-                  <th class="border" style="width: 200px;">Payment Status</th>
-                  <th class="border" style="width: 200px;">Pending Amount</th>
+                  <th class="border" style="width: 200px;">
+                    <span class="d-none d-md-inline">
+                      Payment
+                    </span>
+                    Status
+                  </th>
+                  <th class="border d-none d-md-table-cell" style="width: 200px;">Pending Amount</th>
                   <th style="width: 200px;">Total</th>
                 </tr>
               </thead>
@@ -190,7 +195,7 @@
                       </span>
                       @endforeach
                     </td>
-                    <td class="border">
+                    <td class="border d-none d-md-table-cell">
                       {{ $saleInvoice->getPendingAmount() }}
                     </td>
                     <td class="font-weight-bold">
@@ -199,6 +204,7 @@
                   </tr>
                 @endforeach
               </tbody>
+              @if (false)
               <tfoot>
                 <tr class="bg-success-rm text-white-rm" style="font-size: 1.5rem; {{--background-image: linear-gradient(to right, white, #abc);--}}">
                   <td class="font-weight-bold text-right" colspan="6">
@@ -209,6 +215,7 @@
                   </td>
                 </tr>
               </tfoot>
+              @endif
             </table>
           </div>
           <div>
@@ -245,45 +252,39 @@
           </div>
 
         </div>
-
-        {{-- Daybook item count div --}}
-        <div class="my-4">
-          <div class="w-50">
-            @if (count($todayItems) > 0)
-              <div class="table-responsive">
-                <table class="table table-bordered table-hover" style="font-size: 1.3rem;">
-                  <thead>
-                    <tr class="bg-success-rm text-white-rm">
-                      <th>
-                        Item
-                      </th>
-                      <th>
-                        Quantity
-                      </th>
-                    </tr>
-                  </thead>
-
-                  <tbody class="bg-white">
-                      @foreach ($todayItems as $item)
-                        <tr>
-                          <td>
-                            {{ $item['product']->name }}
-                          </td>
-                          <td>
-                            {{ $item['quantity'] }}
-                          </td>
-                        <tr>
-                      @endforeach
-                  </tbody>
-                </table>
-              </div>
-            @endif
-          </div>
-        </div>
-
-
       </div>
+
+      {{-- Daybook item count div --}}
       <div class="col-md-6">
+        @if (count($todayItems) > 0)
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover" style="font-size: 1.3rem;">
+              <thead>
+                <tr class="bg-success-rm text-white-rm">
+                  <th>
+                    Item
+                  </th>
+                  <th>
+                    Quantity
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody class="bg-white">
+                  @foreach ($todayItems as $item)
+                    <tr>
+                      <td>
+                        {{ $item['product']->name }}
+                      </td>
+                      <td>
+                        {{ $item['quantity'] }}
+                      </td>
+                    <tr>
+                  @endforeach
+              </tbody>
+            </table>
+          </div>
+        @endif
       </div>
     </div>
   @else

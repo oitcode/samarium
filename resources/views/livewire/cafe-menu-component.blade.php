@@ -1,4 +1,4 @@
-<div>
+<div class="p-3 p-md-0">
   @if (true)
   <div class="mb-3">
     <button class="btn
@@ -68,7 +68,7 @@
   </div>
   @endif
 
-  <div class="row">
+  <div class="row" style="margin: auto;">
 
     <div class="col-md-8">
 
