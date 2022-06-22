@@ -74,7 +74,9 @@
       </div>
 
       @if ($seatTable->isBooked())
-      <div class="table-responsive mb-0">
+
+      {{-- Show in bigger screens --}}
+      <div class="table-responsive mb-0 d-none d-md-block">
         <table class="table table-bordered table-hover border-dark shadow-sm mb-0">
           <thead>
             <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
@@ -156,6 +158,42 @@
   
         </table>
       </div>
+
+      {{-- Show in smaller screens --}}
+      <div class="table-responsive d-md-none border">
+        <table class="table">
+          @if ($seatTable->getCurrentBooking()->hasSaleInvoice())
+            @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
+              @foreach ($seatTable->getCurrentBookingItems() as $item)
+              <tr style="font-size: 1.1rem;" class="font-weight-bold text-white-rm">
+                <td>
+                  <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                </td>
+                <td>
+                  {{ $item->product->name }}
+                  <br />
+                  <span class="text-primary mr-3">
+                    Rs @php echo number_format( $item->product->selling_price ); @endphp
+                  </span>
+                  <span class="text-secondary" style="font-size: 1rem;">
+                    Qty: {{ $item->quantity }}
+                  </span>
+                </td>
+                <td>
+                  @php echo number_format( $item->getTotalAmount() ); @endphp
+                </td>
+                <td>
+                  <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
+                  <i class="fas fa-trash text-danger"></i>
+                  </a>
+                </td>
+              </tr>
+              @endforeach
+            @endif
+          @endif
+        </table>
+      </div>
+
       @endif
 
     </div>

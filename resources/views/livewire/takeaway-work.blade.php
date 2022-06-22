@@ -10,7 +10,7 @@
     <div class="col-md-7">
       <div class="card mb-3 shadow">
         <div class="card-header bg-success-rm text-white-rm">
-          <h1 class="" style="font-size: 2rem;">
+          <h1 class="h4">
             Takeaway
             @if ($takeaway)
             {{ $takeaway->takeaway_id}}
@@ -21,7 +21,9 @@
         <div class="card-body p-0">
   
           @if ($takeaway)
-          <div class="table-responsive">
+
+          {{-- Show in bigger screens --}}
+          <div class="table-responsive d-none d-md-block">
             <table class="table table-bordered table-hover border-dark mb-0">
               <thead>
                 <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
@@ -29,7 +31,7 @@
                   <th>#</th>
                   <th>Item</th>
                   <th>Price</th>
-                  <th>Quantity</th>
+                  <th>Qty</th>
                   <th>Amount</th>
                 </tr>
               </thead>
@@ -81,6 +83,41 @@
                 </td>
               </tfoot>
   
+            </table>
+          </div>
+
+          {{-- Show in smaller screens --}}
+          <div class="table-responsive d-md-none">
+            <table class="table">
+              @if ($takeaway)
+                @if (count($takeaway->saleInvoice->saleInvoiceItems) > 0)
+                  @foreach ($takeaway->saleInvoice->saleInvoiceItems as $item)
+                  <tr style="font-size: 1.1rem;" class="font-weight-bold text-white-rm">
+                    <td>
+                      <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                    </td>
+                    <td>
+                      {{ $item->product->name }}
+                      <br />
+                      <span class="text-primary mr-3">
+                        Rs @php echo number_format( $item->product->selling_price ); @endphp
+                      </span>
+                      <span class="text-secondary" style="font-size: 1rem;">
+                        Qty: {{ $item->quantity }}
+                      </span>
+                    </td>
+                    <td>
+                      @php echo number_format( $item->getTotalAmount() ); @endphp
+                    </td>
+                    <td>
+                      <a href="" wire:click.prevent="confirmRemoveItemFromTakeaway({{ $item->sale_invoice_item_id }})" class="">
+                      <i class="fas fa-trash text-danger"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  @endforeach
+                @endif
+              @endif
             </table>
           </div>
           @endif
