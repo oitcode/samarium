@@ -80,7 +80,9 @@
         <table class="table table-bordered table-hover border-dark shadow-sm mb-0">
           <thead>
             <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+              @can ('is-admin')
               <th>--</th>
+              @endcan
               <th class="d-none d-md-table-cell">#</th>
               <th>Item</th>
               <th>Price</th>
@@ -94,11 +96,14 @@
               @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
                 @foreach ($seatTable->getCurrentBookingItems() as $item)
                 <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
+                  @can ('is-admin')
                   <td>
                     <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
                     <i class="fas fa-trash text-danger"></i>
                     </a>
                   </td>
+                  @endcan
+
                   <td class="d-none d-md-table-cell text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
                   <td>
                     <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
@@ -124,6 +129,7 @@
             @endif
           </tbody>
   
+          @can ('is-admin')
           <tbody class="bg-white">
             <tr class="d-none d-md-table-row">
               <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
@@ -155,6 +161,7 @@
               </td>
             </tr>
           </tbody>
+          @endcan
   
         </table>
       </div>
@@ -182,11 +189,13 @@
                 <td>
                   @php echo number_format( $item->getTotalAmount() ); @endphp
                 </td>
+                @can ('is-admin')
                 <td>
                   <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
                   <i class="fas fa-trash text-danger"></i>
                   </a>
                 </td>
+                @endcan
               </tr>
               @endforeach
             @endif
