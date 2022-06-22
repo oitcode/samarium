@@ -18,25 +18,23 @@
   <div class="table-responsive">
     <table class="table table-bordered-rm table-hover shadow-sm border" style="font-size: 1.3rem;">
       <thead>
-        <tr class="bg-success-rm text-white-rm">
+        <tr class="bg-success bg-md-light text-white text-md-dark">
           <th>
             ID
           </th>
-          <th>
+          <th class="d-none d-md-table-cell">
             Date
           </th>
-          <th>
+          <th class="d-none d-md-table-cell">
             Time
           </th>
-          @if (false)
           <th>
+            <span class="d-none d-md-inline">
+              Payment
+            </span>
             Status
           </th>
-          @endif
-          <th>
-            Payment Status
-          </th>
-          <th>
+          <th class="d-none d-md-table-cell">
             Pending
           </th>
           <th>
@@ -56,10 +54,10 @@
             <td>
               {{ $takeaway->takeaway_id }}
             </td>
-            <td class="" style="font-size: 1rem;">
+            <td class="d-none d-md-table-cell" style="font-size: 1rem;">
               {{ $takeaway->created_at->toDateString() }}
             </td>
-            <td>
+            <td class="d-none d-md-table-cell">
               {{ $takeaway->created_at->format('H:i A') }}
             </td>
             <td>
@@ -79,7 +77,7 @@
                 {{ $takeaway->saleInvoice->payment_status }}
               @endif
             </td>
-            <td>
+            <td class="d-none d-md-table-cell">
               {{ $takeaway->getPendingAmount() }}
             </td>
             <td>
