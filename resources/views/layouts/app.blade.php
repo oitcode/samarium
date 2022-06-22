@@ -49,6 +49,7 @@
           </a>
         </div>
 
+        @can ('is-admin')
         <div class="text-center border">
           <a href="{{ route('dashboard') }}"
               class="btn
@@ -72,8 +73,10 @@
             DASHBOARD
           </a>
         </div>
+        @endcan
 
         @if (env('SITE_TYPE') == 'erp')
+        @can ('is-admin')
         <div class="text-center border">
           <a href="{{ route('sale') }}"
             class="btn 
@@ -94,6 +97,7 @@
 
           </a>
         </div>
+        @endcan
 
         <div class="text-center border">
           <a href="{{ route('cafesale') }}"
@@ -118,6 +122,7 @@
         </div>
         @endif
 
+        @can ('is-admin')
         <div class="text-center border">
           <a href="{{ route('menu') }}"
             class="btn
@@ -138,6 +143,7 @@
 
           </a>
         </div>
+        @endcan
 
         @can ('is-admin')
           <div class="text-center border">
@@ -227,6 +233,7 @@
         @endcan
 
         @if (env('SITE_TYPE') == 'erp')
+          @can ('is-admin')
           <div class="text-center border">
             <a href="{{ route('online-order') }}"
               class="btn
@@ -248,6 +255,7 @@
 
             </a>
           </div>
+          @endcan
         @elseif (env('SITE_TYPE') == 'ecs')
           <div class="text-center border">
             <a href="{{ route('online-order') }}"
