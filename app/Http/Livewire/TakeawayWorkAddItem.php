@@ -28,6 +28,10 @@ class TakeawayWorkAddItem extends Component
 
     public $selectedProduct = null;
 
+    public $modes = [
+        'showMobForm' => false,
+    ];
+
 
     public function mount()
     {
@@ -39,6 +43,27 @@ class TakeawayWorkAddItem extends Component
         $this->productCategories = ProductCategory::where('does_sell', 'yes')->get();
 
         return view('livewire.takeaway-work-add-item');
+    }
+
+    /* Clear modes */
+    public function clearModes()
+    {
+        foreach ($this->modes as $key => $val) {
+            $this->modes[$key] = false;
+        }
+    }
+
+    /* Enter and exit mode */
+    public function enterMode($modeName)
+    {
+        $this->clearModes();
+
+        $this->modes[$modeName] = true;
+    }
+
+    public function exitMode($modeName)
+    {
+        $this->modes[$modeName] = false;
     }
 
     public function addItemToTakeaway()
@@ -88,6 +113,10 @@ class TakeawayWorkAddItem extends Component
 
         $this->resetInputFields();
         $this->emit('itemAddedToTakeaway');
+
+        if ($this->modes['showMobForm']) {
+            $this->exitMode('showMobForm');
+        }
     }
 
     public function updateProductList()
@@ -154,5 +183,15 @@ class TakeawayWorkAddItem extends Component
 
         $saleInvoice->total_amount += $product->selling_price * $quantity;
         $saleInvoice->save();
+    }
+
+    public function showAddItemFormMob()
+    {
+        $this->enterMode('showMobForm');
+    }
+
+    public function hideAddItemFormMob()
+    {
+        $this->exitMode('showMobForm');
     }
 }
