@@ -95,7 +95,7 @@
 
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
             <td class="w-50 p-0 bg-info-rm font-weight-bold border-0">
-              <span class="ml-4">
+              <span class="ml-4 d-inline-block">
                 GRAND TOTAL
               </span>
             </td>
@@ -127,7 +127,7 @@
 
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light-rm border-0">
             <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
-              <span class="ml-4">
+              <span class="ml-4 d-inline-block">
                 Tender Amount
               </span>
               @error('tender_amount')
