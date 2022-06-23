@@ -20,4 +20,13 @@
     @endif
   </div>
 
+  <div class="row p-2 bg-white border">
+    <div class="col-md-6">
+      @livewire ('report-product-sales-count')
+    </div>
+    <div class="col-md-6">
+    </div>
+  </div>
+
+
 </div>
