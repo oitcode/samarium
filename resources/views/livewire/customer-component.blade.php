@@ -1,4 +1,4 @@
-<div>
+<div class="p-3 p-md-0">
 
   <div class="mb-3">
     <button class="btn
@@ -44,7 +44,7 @@
   @elseif ($modes['display'])
     @livewire ('customer-detail', ['customer' => $displayingCustomer,])
   @else
-    <div class="row">
+    <div class="row" style="margin: auto;">
       <div class="col-md-3 shadow-sm p-0 mr-5">
         <div class="card">
           <div class="card-body p-0">
