@@ -15,13 +15,13 @@
     </button>
 
     {{-- Show in smaller screens --}}
-    <button class="btn m-0 border shadow-sm badge-pill mr-3 mb-3 d-md-none"
+    <button class="btn m-0 border shadow-sm badge-pill mr-3 mb-3 d-md-none bg-white"
         style="font-size: 1.3rem;"
         wire:click="enterMode('create')">
       <i class="fas fa-plus-circle mr-3"></i>
       New
     </button>
-    <button class="btn m-0 border shadow-sm badge-pill mr-3 mb-3 d-md-none"
+    <button class="btn m-0 border shadow-sm badge-pill mr-3 mb-3 d-md-none bg-white"
         style="font-size: 1.3rem;" wire:click="enterMode('list')">
       <i class="fas fa-list mr-3"></i>
       List

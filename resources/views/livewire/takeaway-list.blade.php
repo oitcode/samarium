@@ -15,7 +15,8 @@
     </div>
   </div>
 
-  <div class="table-responsive">
+  {{-- Show in bigger screens --}}
+  <div class="table-responsive d-none d-md-block">
     <table class="table table-bordered-rm table-hover shadow-sm border" style="font-size: 1.3rem;">
       <thead>
         <tr class="bg-success bg-md-light text-white text-md-dark">
@@ -116,6 +117,81 @@
       </tbody>
     </table>
   </div>
+
+  {{-- Show in smaller screens --}}
+  <div class="table-responsive d-md-none border bg-white">
+    <table class="table">
+      <tbody>
+        @foreach ($takeaways as $takeaway)
+        <tr>
+          <td>
+            {{ $takeaway->takeaway_id }}
+          </td>
+
+          <td>
+            <p>
+              @if (\Carbon\Carbon::today()->toDateString() == $takeaway->created_at->toDateString())
+                <i class="fas fa-star mr-2 text-primary"></i>
+                <span class="badge-rm badge-pill-rm badge-primary-rm text-primary">
+                  Today
+                </span>
+
+              @else
+                <span class="text-secondary-rm" style="font-size: 1rem;">
+                  {{ $takeaway->created_at->toDateString() }}
+                </span>
+              @endif
+            </p>
+            <p>
+              {{ $takeaway->created_at->format('H:i A') }}
+            </p>
+          </td>
+
+          <td>
+            <p class="h5">
+              Rs
+              {{ $takeaway->getTotalAmount() }}
+            </p>
+
+            @if ($takeaway->saleInvoice->payment_status == 'pending')
+              <span class="badge badge-pill badge-danger">
+                Pending
+              </span>
+            @elseif ($takeaway->saleInvoice->payment_status == 'partially_paid')
+              <span class="badge badge-pill badge-warning">
+                Partial
+              </span>
+            @elseif ($takeaway->saleInvoice->payment_status == 'paid')
+              <span class="badge badge-pill badge-success">
+                Paid
+              </span>
+            @else
+              {{ $takeaway->saleInvoice->payment_status }}
+            @endif
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-cog text-secondary"></i>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button class="dropdown-item" wire:click="$emit('displayTakeaway', {{ $takeaway->takeaway_id }})">
+                  <i class="fas fa-file text-primary mr-2"></i>
+                  View
+                </button>
+                <button class="dropdown-item" wire:click="confirmDeleteTakeaway({{ $takeaway }})">
+                  <i class="fas fa-trash text-danger mr-2"></i>
+                  Delete
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+
 
   @if ($modes['confirmDelete'])
     @livewire ('takeaway-list-confirm-delete', ['takeaway' => $deletingTakeaway,])
