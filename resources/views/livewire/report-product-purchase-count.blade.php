@@ -1,5 +1,5 @@
 <div>
-  <h2 class="h5">
+  <h2 class="h3 mt-3">
     Product purchase count
   </h2>
 
@@ -12,7 +12,7 @@
     <input type="date" wire:model.defer="startDate" class="mr-3" />
     <input type="date" wire:model.defer="endDate" class="mr-3" />
 
-    <button class="btn btn-success" wire:click="getExpensesForDateRange">
+    <button class="btn btn-success" wire:click="getPurchasesForDateRange">
       Go
     </button>
 
@@ -23,17 +23,34 @@
     </button>
   </div>
 
-  <div class="table-responsive border">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Count</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-  </div>
+  @if (count($todayItems) > 0)
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover" style="font-size: 1.3rem;">
+        <thead>
+          <tr class="bg-success-rm text-white-rm">
+            <th>
+              Item
+            </th>
+            <th>
+              Quantity
+            </th>
+          </tr>
+        </thead>
+
+        <tbody class="bg-white">
+            @foreach ($todayItems as $item)
+              <tr>
+                <td>
+                  {{ $item['product']->name }}
+                </td>
+                <td>
+                  {{ $item['quantity'] }}
+                </td>
+              <tr>
+            @endforeach
+        </tbody>
+      </table>
+    </div>
+  @endif
 
 </div>

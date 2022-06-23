@@ -20,11 +20,12 @@
     @endif
   </div>
 
-  <div class="row p-2 bg-white border">
-    <div class="col-md-6">
+  <div class="row p-2">
+    <div class="col-md-5 bg-white border mr-3">
       @livewire ('report-product-sales-count')
     </div>
-    <div class="col-md-6">
+    <div class="col-md-5 bg-white border">
+      @livewire ('report-product-purchase-count')
     </div>
   </div>
 
