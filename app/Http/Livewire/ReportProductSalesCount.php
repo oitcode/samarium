@@ -4,10 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 
 use App\SaleInvoice;
 use App\SaleInvoiceItem;
 use App\Product;
+use App\ProductCategory;
 
 class ReportProductSalesCount extends Component
 {
@@ -16,17 +18,22 @@ class ReportProductSalesCount extends Component
 
     public $todayItems = array();
 
+    public $productCategories;
+    public $products;
+
+    public $search_product_category_id;
+    public $search_product_id;
+
     public function mount()
     {
+        $this->productCategories = ProductCategory::all();
+        $this->products = Product::all(); 
+
         $this->startDate = date('Y-m-d');
     }
 
     public function render()
     {
-        $saleInvoices = $this->getSaleInvoicesForDateRange();
-
-        $this->getSaleItemQuantity($saleInvoices);
-
         return view('livewire.report-product-sales-count');
     }
 
@@ -41,6 +48,29 @@ class ReportProductSalesCount extends Component
                 } else {
                     $this->addToTodayItemsCount($saleInvoiceItem);
                 }
+            }
+        }
+
+        usort($this->todayItems, function ($a, $b) {
+            if ($b['quantity'] < $a['quantity']) {
+                return -1;
+            } else if ($b['quantity'] == $a['quantity']) {
+                return 0;
+            } else {
+                return 1;
+            }
+        });
+    }
+
+    public function getSaleInvoiceItemQuantity($saleInvoiceItems)
+    {
+        $this->todayItems = array();
+
+        foreach ($saleInvoiceItems as $saleInvoiceItem) {
+            if ($this->itemInTodayItems($saleInvoiceItem->product)) {
+                $this->updateTodayItemsCount($saleInvoiceItem);
+            } else {
+                $this->addToTodayItemsCount($saleInvoiceItem);
             }
         }
 
@@ -125,5 +155,50 @@ class ReportProductSalesCount extends Component
         }
 
         return $saleInvoices;
+    }
+
+    public function getCount()
+    {
+        if (!$this->endDate) {
+            $this->endDate = $this->startDate;
+        }
+
+        if ($this->search_product_id) {
+            /* Get for specific product */
+            $saleInvoiceItems = SaleInvoiceItem::where('product_id', $this->search_product_id)
+                ->whereDate('created_at', '>=', $this->startDate)
+                ->whereDate('created_at', '<=', $this->endDate)
+                ->get();
+            $this->getSaleInvoiceItemQuantity($saleInvoiceItems);
+        } else if ($this->search_product_category_id) {
+            $saleInvoiceItems = new Collection;
+
+            /* Get for specific product category */
+            $productCategory = ProductCategory::find($this->search_product_category_id);
+            $products = $productCategory->products;
+
+            foreach ($products as $product) {
+                $items = SaleInvoiceItem::where('product_id', $product->product_id)
+                    ->whereDate('created_at', '>=', $this->startDate)
+                    ->whereDate('created_at', '<=', $this->endDate)
+                    ->get();
+                $saleInvoiceItems = $saleInvoiceItems->merge($items);
+            }
+
+            $this->getSaleInvoiceItemQuantity($saleInvoiceItems);
+        } else {
+            /* Get for all products */
+            $saleInvoiceItems = SaleInvoiceItem::whereDate('created_at', '>=', $this->startDate)
+                ->whereDate('created_at', '<=', $this->endDate)
+                ->get();
+            $this->getSaleInvoiceItemQuantity($saleInvoiceItems);
+        }
+    }
+
+    public function updateProducts()
+    {
+        /* Todo: Fix this! This line should be removed */
+        $this->todayItems = array();
+        $this->products = Product::where('product_category_id', $this->search_product_category_id)->get();
     }
 }

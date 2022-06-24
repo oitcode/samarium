@@ -1,21 +1,60 @@
 <div>
-  <h2 class="h3 mt-3">
+  <h2 class="h3 mt-4 mb-5">
     Product sales count
   </h2>
 
   {{-- Date bar --}}
-  <div class="mt-3 text-secondary py-3" style="font-size: 1.3rem;">
-    @if (false)
-    <i class="fas fa-calendar mr-2"></i>
-    @endif
+  <div class="my-3 text-secondary" style="font-size: 1.3rem;">
 
     <input type="date" wire:model.defer="startDate" class="mr-3" />
     <input type="date" wire:model.defer="endDate" class="mr-3" />
 
-    <button class="btn btn-success" wire:click="getSaleInvoicesForDateRange">
+  </div>
+
+  {{-- Product bar --}}
+  <div class="d-flex flex-wrap my-3" style="font-size: 1.1rem;">
+
+      <div class="mr-3">
+        <label>Category</label>
+        <select class="custom-control" wire:model.defer="search_product_category_id" wire:change="updateProducts">
+          <option>---</option>
+          @foreach ($productCategories as $productCategory)
+            <option value="{{ $productCategory->product_category_id }}">
+              {{ $productCategory->name }}
+            </option>
+          @endforeach
+        </select>
+      </div>
+
+      <div class="mr-3">
+        <label>Product</label>
+        <select class="custom-control"
+            wire:model.defer="search_product_id"
+            >
+          <option>---</option>
+          @foreach ($products as $product)
+            <option value="{{ $product->product_id }}">
+              {{ $product->name }}
+            </option>
+          @endforeach
+        </select>
+      </div>
+
+      @if (false)
+      <div>
+        <label>Name</label>
+        <br />
+        <input type="text">
+      </div>
+      @endif
+
+  </div>
+
+  {{-- Go button --}}
+  <div class="my-3">
+    <button class="btn btn-success" wire:click="getCount">
       Go
     </button>
-
     <button wire:loading class="btn">
       <div class="spinner-border text-info mr-3" role="status">
         <span class="sr-only">Loading...</span>
@@ -23,11 +62,12 @@
     </button>
   </div>
 
-  @if (count($todayItems) > 0)
+
+  @if ($todayItems && count($todayItems) > 0)
     <div class="table-responsive">
       <table class="table table-bordered table-hover" style="font-size: 1.3rem;">
         <thead>
-          <tr class="bg-success-rm text-white-rm">
+          <tr class="bg-success text-white">
             <th>
               Item
             </th>

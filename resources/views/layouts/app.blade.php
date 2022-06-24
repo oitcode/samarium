@@ -424,7 +424,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="">
               <i class="fas fa-history text-secondary mr-2"></i>
-              v0.1.5
+              v0.1.6
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -481,7 +481,7 @@
                 <div class="dropdown-divider mb-0"></div>
                 <a class="dropdown-item" href="">
                   <i class="fas fa-history text-secondary mr-2"></i>
-                  v0.1.5
+                  v0.1.6
                 </a>
                 <div class="dropdown-divider mb-0"></div>
                 <a class="dropdown-item mb-0" href="{{ route('logout') }}"
