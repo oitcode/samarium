@@ -1,13 +1,14 @@
 <div class="p-3 p-md-0">
-  @if (true)
-  <div class="mb-3">
+
+  {{-- Show in bigger screens --}}
+  <div class="mb-3 d-none d-md-block">
     <button class="btn
         @if ($modes['createProduct'])
           btn-success
         @else
           bg-white
         @endif
-        m-0 border shadow-sm badge-pill mr-3"
+        m-0 border shadow-sm badge-pill mr-3 mb-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;"
         wire:click="enterMode('createProduct')">
       <i class="fas fa-plus-circle mr-3"></i>
@@ -23,7 +24,7 @@
         m-0 border shadow-sm badge-pill mr-3"
         style="height: 75px; {{-- width: 150px; --}} font-size: 1.3rem;"
         wire:click="enterMode('createProductCategory')">
-      <i class="fas fa-plus-circle mr-3"></i>
+      <i class="fas fa-plus-circle mr-3 mb-3"></i>
       Category
     </button>
 
@@ -36,25 +37,9 @@
         m-0 border shadow-sm badge-pill mr-3"
         style="height: 75px; width: 150px; font-size: 1.3rem;"
         wire:click="enterMode('list')">
-      <i class="fas fa-list mr-3"></i>
+      <i class="fas fa-list mr-3 mb-3"></i>
       List
     </button>
-
-    @if (false)
-    <button class="btn btn-success-rm m-0 border shadow-sm badge-pill"
-        style="height: 75px; width: 150px; font-size: 1.3rem;"
-        wire:click="">
-      <i class="fas fa-chart-line mr-3"></i>
-      Report
-    </button>
-
-    <button class="btn btn-success-rm m-0 border shadow-sm badge-pill"
-        style="height: 75px; width: 150px; font-size: 1.3rem;"
-        wire:click="">
-      <i class="fas fa-search mr-3"></i>
-      Search
-    </button>
-    @endif
 
     <button wire:loading class="btn m-0"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
@@ -66,7 +51,59 @@
     <div class="clearfix">
     </div>
   </div>
-  @endif
+
+  {{-- Show in smaller screens --}}
+  <div class="mb-3 d-md-none">
+    <button class="btn
+        @if ($modes['createProduct'])
+          btn-success
+        @else
+          bg-white
+        @endif
+        m-0 border shadow-sm badge-pill mr-3 mb-3"
+        style="font-size: 1rem;"
+        wire:click="enterMode('createProduct')">
+      <i class="fas fa-plus-circle mr-3"></i>
+      Add product
+    </button>
+
+    <button class="btn
+        @if ($modes['createProductCategory'])
+          btn-success
+        @else
+          bg-white
+        @endif
+        m-0 border shadow-sm badge-pill mr-3 mb-3"
+        style="font-size: 1rem;"
+        wire:click="enterMode('list')">
+      <i class="fas fa-list mr-3"></i>
+      List
+    </button>
+
+    <button wire:loading class="btn m-0"
+        style="font-size: 1.5rem;">
+      <span class="spinner-border text-info mr-3" role="status">
+      </span>
+    </button>
+
+    <div class="d-inline-block float-right">
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-cog text-secondary"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="font-size: 1rem;">
+          <button class="dropdown-item py-2" wire:click="enterMode('createProductCategory')">
+            <i class="fas fa-plus-circle text-primary mr-2"></i>
+            Add product category
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="clearfix">
+    </div>
+  </div>
 
   <div class="row" style="margin: auto;">
 
@@ -214,7 +251,7 @@
   </div>
       @else
         <div class="row">
-          <div class="col-md-3 shadow-sm p-0 mr-5">
+          <div class="col-md-3 shadow-sm p-0 mr-5 mb-4">
             <div class="card">
               <div class="card-body p-0">
                 <div class="d-flex w-100">
@@ -231,7 +268,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 shadow-sm p-0 mr-5">
+          <div class="col-md-3 shadow-sm p-0 mr-5 mb-4">
             <div class="card">
               <div class="card-body p-0">
                 <div class="d-flex w-100">

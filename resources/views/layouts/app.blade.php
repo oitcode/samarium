@@ -36,6 +36,8 @@
   <div id="">
   <div class="row">
     <div class="col-md-2">
+
+      {{-- Show in bigger screens --}}
       <div class="d-none d-md-block">
 
         <div class="text-center border-rm">
