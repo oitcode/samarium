@@ -87,6 +87,9 @@ Route::get('/dashboard/report', 'ReportController@index')->name('dashboard-repor
 /* Report */
 Route::get('/dashboard/changePassword', 'ChangePasswordController@index')->name('dashboard-change-password');
 
+/* Stock */
+Route::get('/dashboard/inventory', 'InventoryController@index')->name('dashboard-inventory');
+
 
 /*
  *-----------------------------------------------------------------------------

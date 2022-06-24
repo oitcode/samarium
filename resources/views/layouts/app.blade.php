@@ -383,6 +383,10 @@
             <i class="fas fa-chart-line text-secondary mr-2"></i>
             Report
           </a>
+          <a class="dropdown-item" href="{{ route('dashboard-inventory') }}">
+            <i class="fas fa-dolly text-secondary mr-2"></i>
+            Inventory
+          </a>
         </div>
       </li>
       @endcan
@@ -521,6 +525,10 @@
                 <a class="dropdown-item" href="{{ route('dashboard-report') }}">
                   <i class="fas fa-chart-line text-secondary mr-2"></i>
                   Report
+                </a>
+                <a class="dropdown-item" href="{{ route('dashboard-inventory') }}">
+                  <i class="fas fa-dolly-flatbed text-secondary mr-2"></i>
+                  Inventory
                 </a>
               </div>
             </div>
