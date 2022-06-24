@@ -9,7 +9,7 @@
 
       <div class="mb-4">
 
-        <div class="table-responsive">
+        <div class="table-responsive bg-white">
           <table class="table table-bordered-rm border" style="font-size: 1.1rem;">
             <tbody>
 
@@ -97,10 +97,10 @@
 
       </div>
 
-      <div class="table-responsive">
+      <div class="table-responsive bg-white">
         <table class="table table-hover table-bordered" style="font-size: 1.1rem;">
           <thead>
-            <tr>
+            <tr class="bg-success text-white">
               <th>Item</th>
               <th>Quantity</th>
               <th>Rate</th>

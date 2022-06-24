@@ -74,12 +74,12 @@
       {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('l') }}
     </div>
 
-    <div class="shadow-sm-rm" style="width: 500px;">
+    <div class="shadow-sm-rm" style="">
       <div class="card">
         <div class="card-body p-0 bg-success text-white">
           <div class="p-4">
             <h2 class="font-weight-bold" style="font-size: 2rem;">
-              <i class="fas fa-rupee-sign mr-3"></i>
+              Rs
               @php echo number_format( $totalAmount ); @endphp
             </h2>
           </div>
@@ -89,6 +89,7 @@
 
   </div>
 
+  {{-- Show in bigger screens --}}
   <div class="d-none d-md-block my-3 text-secondary" style="font-size: 1.3rem;">
     <div class="row">
       <div class="col-md-3">
@@ -113,7 +114,8 @@
   </div>
 
   @if (count($weekBook) > 0)
-    <div class="table-responsive m-0 p-0">
+    {{-- Show in bigger screens --}}
+    <div class="table-responsive m-0 p-0 d-none d-md-block">
       <table class="table table-bordered-rm table-hover shadow-sm border" style="font-size: 1.1rem;">
         <thead>
           <tr class="bg-success-rm text-white-rm">
@@ -172,5 +174,58 @@
         </tfoot>
       </table>
     </div>
+
+    {{-- Show in smaller screens --}}
+    <div class="table-responsive m-0 p-0 d-md-none border">
+      <table class="table table-bordered-rm table-hover shadow-sm mb-0">
+        @if (true)
+        <thead>
+          <tr class="bg-success text-white">
+            <th>
+              Day
+            </th>
+            <th>
+              Bills
+            </th>
+            <th>
+              Total
+            </th>
+          </tr>
+        </thead>
+        @endif
+
+        <tbody class="bg-white">
+            @foreach ($weekBook as $day)
+              <tr> 
+                <td>
+                  @if (\Carbon\Carbon::today() == $day['day'])
+                    <span class="badge badge-success">
+                      TODAY
+                    </span>
+
+                  @else
+                    <span class="text-secondary" style="font-size: 1rem;">
+                      {{ $day['day']->format('Y F d') }}
+                    </span>
+                  @endif
+                  <div>
+                    {{ $day['day']->format('l') }}
+                  </div>
+                </td>
+                <td>
+                  {{ $day['totalBills'] }}
+                </td>
+                <td style="font-size: 1rem;">
+                Rs
+                @php echo number_format( $day['totalAmount'] ); @endphp
+                </td>
+              <tr>
+            @endforeach
+        </tbody>
+
+      </table>
+    </div>
+
+
   @endif
 </div>

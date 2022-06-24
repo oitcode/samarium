@@ -1,15 +1,9 @@
 <div>
 
   {{-- Search Bar --}}
-  <div class="mb-4 p-3 bg-white border">
 
-    @if (false)
-    <div class="float-left mr-3">
-        <h2 class="text-secondary">
-          Search
-        </h2>
-    </div>
-    @endif
+  {{-- Show in bigger screens --}}
+  <div class="mb-4 p-3 bg-white border d-none d-md-block">
 
     <div class="float-left mr-3">
       <div>
@@ -47,6 +41,49 @@
     </div>
 
     <div class="clearfix">
+    </div>
+  </div>
+
+  {{-- Show in smaller screens --}}
+  <div class="mb-4 p-3 bg-white border d-md-none">
+
+    <div class=" mb-3">
+      <button class="btn btn-danger h-100 badge-pill" style="font-size: 1.1rem;" wire:click="getCreditors">
+        Creditors
+      </button>
+    </div>
+
+    <div class="mb-3">
+
+      <div class=" mb-3">
+        <div>
+          <label class="text-secondary">
+            <i class="fas fa-user mr-3"></i>
+            Name
+          </label>
+        </div>
+        <input type="text" wire:model.defer="customerSearch.name" style="font-size: 1.1rem;" wire:keydown.enter="search" />
+      </div>
+
+      <div class="">
+        <div>
+          <label class="text-secondary">
+            <i class="fas fa-phone mr-3"></i>
+            Phone
+          </label>
+        </div>
+        <input type="text" wire:model.defer="customerSearch.phone" style="font-size: 1.1rem;" wire:keydown.enter="search" />
+      </div>
+
+      <div class="mr-3">
+        <div>
+        &nbsp;
+        </div>
+        <button class="btn btn-success" style="font-size: 1.3rem;" wire:click="search">
+          Search
+        </button>
+      </div>
+
     </div>
   </div>
 

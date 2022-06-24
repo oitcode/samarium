@@ -15,7 +15,9 @@
   <div class="row">
     <div class="col-md-10">
       @if ($websiteOrders != null && count($websiteOrders) > 0)
-      <div class="table-responsive mb-3">
+
+      {{-- Show in bigger screens --}}
+      <div class="table-responsive mb-3 d-none d-md-block">
         <table class="table table-bordered-rm table-hover border">
           <thead>
             <tr class="text-secondary-rm bg-success-rm text-white-rm" style="font-size: 1.1rem;">
@@ -67,6 +69,114 @@
                   {{ \Illuminate\Support\Str::limit($order->address, 15, $end=' ...') }}
                 </td>
                 <td class="text-secondary-rm" style="">
+                  Rs
+                  @php echo number_format( $order->getTotalAmount() ); @endphp
+                </td>
+                <td>
+                  @if ($order->status == 'new')
+                    <span class="badge badge-pill badge-danger">
+                      {{ $order->status }}
+                    </span>
+                  @elseif ($order->status == 'open')
+                    <span class="badge badge-pill badge-warning" style="background-color: orange;">
+                      {{ $order->status }}
+                    </span>
+                  @elseif ($order->status == 'rejected')
+                    <span class="badge badge-pill badge-secondary">
+                      {{ $order->status }}
+                    </span>
+                  @elseif ($order->status == 'delivered')
+                    <span class="badge badge-pill badge-success">
+                      {{ $order->status }}
+                    </span>
+                  @else
+                    <span class="badge">
+                      {{ $order->status }}
+                    </span>
+                  @endif
+                </td>
+
+                @if (false)
+                <td>
+                  @if ($order->status == 'new')
+                    <button class="btn btn-success mr-3" wire:click="updateStatus({{ $order }}, 'new', 'open')">
+                      Accept
+                    </button>
+
+                    <button class="btn btn-danger mr-3" wire:click="updateStatus({{ $order }}, 'new', 'rejected')">
+                      Reject
+                    </button>
+                  @elseif ($order->status == 'open')
+                    <button class="btn btn-success mr-3" wire:click="updateStatus({{ $order }}, 'open', 'closed')">
+                      Close
+                    </button>
+                  @endif
+                </td>
+                @endif
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+
+      {{-- Show in smaller screens --}}
+      <div class="table-responsive mb-3 d-md-none">
+        <table class="table table-bordered-rm table-hover border">
+          @if (false)
+          <thead>
+            <tr class="text-secondary-rm bg-success-rm text-white-rm" style="font-size: 1.1rem;">
+              <th style="width: 120px;">
+                Order ID
+              </th>
+              <th style="width: 200px;">
+                Date
+              </th>
+              <th style="width: 200px;">
+                Phone
+              </th>
+              <th style="width: 200px;">
+                Address
+              </th>
+              <th>
+                Total
+              </th>
+              <th>
+                Status
+              </th>
+              @if (false)
+              <th>
+                Action
+              </th>
+              @endif
+            </tr>
+          </thead>
+          @endif
+
+          <tbody class="bg-white">
+            @foreach ($websiteOrders as $order)
+              <tr role="button" wire:click="$emit('displayOnlineOrder', {{ $order->website_order_id }})">
+                <td>
+                  {{ $order->website_order_id }}
+                  <div>
+                    @if ($order->created_at->isToday())
+                      <i class="fas fa-star mr-3 text-primary"></i>
+                      <span class="text-primary" style="font-weight: bold;">
+                        Today
+                      </span>
+                    @else
+                      {{ $order->created_at->toDateString() }}
+                    @endif
+                  <div>
+                </td>
+                <td class="" style="font-size: 1.1rem;">
+                </td>
+                <td class="pl-3">
+                  {{ $order->phone }}
+                  <div>
+                    {{ \Illuminate\Support\Str::limit($order->address, 15, $end=' ...') }}
+                  <div>
+                </td>
+                <td class="text-secondary-rm" style="font-size: 1rem;">
                   Rs
                   @php echo number_format( $order->getTotalAmount() ); @endphp
                 </td>
