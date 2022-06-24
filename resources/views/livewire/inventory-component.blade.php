@@ -31,20 +31,6 @@
       Report
     </button>
 
-    @if (false)
-    <button class="btn btn-success-rm m-0 border shadow-sm badge-pill mr-3"
-        style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="">
-      <i class="fas fa-chart-line mr-3"></i>
-      Report
-    </button>
-
-    <button class="btn btn-success-rm m-0 border shadow-sm badge-pill mr-3"
-        style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="">
-      <i class="fas fa-search mr-3"></i>
-      Search
-    </button>
-    @endif
-
     <button class="btn btn-primary-rm m-0 float-right border-rm bg-white-rm text-primary-rm d-none d-md-block"
         wire:click="clearModes"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
@@ -63,4 +49,32 @@
     </div>
   </div>
   <!-- ./Menu tool bar -->
+
+  {{-- Simple list --}}
+  <div class="table-responsive bg-white border" style="font-size: 1.1rem;">
+    <table class="table">
+      <thead>
+        <tr class="bg-success text-white">
+          <th>Item</th>
+          <th>Stock</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @foreach ($products as $product)
+          @if (! is_null($product->stock_count))
+            <tr>
+              <td>
+                {{ $product->name }}
+              </td>
+              <td>
+                {{ $product->stock_count }}
+              </td>
+            </tr>
+          @endif
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+
 </div>
