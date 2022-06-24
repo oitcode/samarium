@@ -122,7 +122,7 @@ class SeatTableWorkDisplayAddItem extends Component
         /* Do inventory management */
         $product = Product::find($this->product_id);
 
-        if ($product->stock_count != null) {
+        if (! is_null($product->stock_count)) {
           $product->stock_count -=  $this->quantity;
           $product->save();
         }

@@ -182,7 +182,7 @@
                         {{ $product->name }}
                       </td>
                       <td>
-                        @if ($product->stock_count)
+                        @if (! is_null($product->stock_count))
                           {{ $product->stock_count }}
                         @else
                           <div style="font-size: 1rem;">
