@@ -113,7 +113,9 @@
     <div class="row">
       <div class="col-md-12">
         @if ( true {{--$saleInvoices != null && count($saleInvoices) > 0--}})
-          <div class="table-responsive mb-0">
+
+          {{-- Show in bigger screens --}}
+          <div class="table-responsive d-none d-md-block">
             <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
               <thead>
                 <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
@@ -218,18 +220,96 @@
               @endif
             </table>
           </div>
+
+          {{-- Show in smaller screens --}}
+          <div class="table-responsive d-md-none bg-white border">
+            <table class="table">
+              <tbody>
+                @foreach ($saleInvoices as $saleInvoice)
+                  <tr class="" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
+                    <td class="text-secondary-rm"
+                        style="font-size: 1rem;"
+                        wire:click=""
+                        role="button">
+                      <span class="text-primary">
+                      {{ $saleInvoice->sale_invoice_id }}
+                      </span>
+                      <div>
+                        @if ($saleInvoice->seatTableBooking)
+                        {{ $saleInvoice->seatTableBooking->seatTable->name }}
+                        @else
+                          Takeaway
+                        @endif
+                      </div>
+                      <div>
+                        {{ $saleInvoice->created_at->format('H:i A') }}
+                      </div>
+                    </td>
+                    <td class="d-none d-md-table-cell">
+                      @if ($saleInvoice->customer)
+                        <i class="fas fa-circle text-success mr-3"></i>
+                        {{ $saleInvoice->customer->name }}
+                      @else
+                        <i class="fas fa-exclamation-circle text-warning mr-3"></i>
+                        <span class="text-secondary" style="font-size: 1rem;">
+                          Unknown
+                        </span>
+                      @endif
+                    </td>
+                    <td>
+                      @if ( $saleInvoice->payment_status == 'paid')
+                      <span class="badge badge-pill badge-success">
+                      Paid
+                      </span>
+                      @elseif ( $saleInvoice->payment_status == 'partially_paid')
+                      <span class="badge badge-pill badge-warning">
+                      Partial
+                      </span>
+                      @elseif ( $saleInvoice->payment_status == 'pending')
+                      <span class="badge badge-pill badge-danger">
+                        Pending
+                      </span>
+                      @else
+                      <span class="badge badge-pill badge-secondary">
+                        {{ $saleInvoice->payment_status }}
+                      </span>
+                      @endif
+
+                      @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
+                      <span class="badge badge-pill ml-3">
+                        {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+                      </span>
+                      @endforeach
+                    </td>
+                    <td class="border d-none d-md-table-cell">
+                      {{ $saleInvoice->getPendingAmount() }}
+                    </td>
+                    <td class="font-weight-bold" style="font-size: 1rem;">
+                      Rs
+                      @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+
+          {{-- Nav links for pagination -- TODO -- --}}
           <div>
             {{ $saleInvoices->links() }}
           </div>
+
         @else
           <div class="text-secondary py-3 px-3" style="font-size: 1.5rem;">
             No sales.
           </div>
         @endif
         
-        <div class="row mt-0 border m-0 pt-3 bg-white text-success">
+        {{-- Payment by types --}}
+        <div class="row my-4 border m-0 p-3 bg-white text-success d-flex">
+
           @foreach ($paymentByType as $key => $val)
-            <div class="col-md-2 mb-4">
+            <div class="mb-4 mr-4">
                   <h2 class="text-muted mb-3 font-weight-bold h5">
                     {{ $key }}
                   </h2>
@@ -241,7 +321,7 @@
           @endforeach
 
           {{-- Pending Amount --}}
-          <div class="col-md-2">
+          <div class="">
                 <h2 class="text-muted mb-3 font-weight-bold h5">
                   Pending
                 </h2>
@@ -252,6 +332,7 @@
           </div>
 
         </div>
+
       </div>
 
       {{-- Daybook item count div --}}
