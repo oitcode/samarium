@@ -245,17 +245,6 @@
                         {{ $saleInvoice->created_at->format('H:i A') }}
                       </div>
                     </td>
-                    <td class="d-none d-md-table-cell">
-                      @if ($saleInvoice->customer)
-                        <i class="fas fa-circle text-success mr-3"></i>
-                        {{ $saleInvoice->customer->name }}
-                      @else
-                        <i class="fas fa-exclamation-circle text-warning mr-3"></i>
-                        <span class="text-secondary" style="font-size: 1rem;">
-                          Unknown
-                        </span>
-                      @endif
-                    </td>
                     <td>
                       @if ( $saleInvoice->payment_status == 'paid')
                       <span class="badge badge-pill badge-success">
@@ -280,6 +269,13 @@
                         {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
                       </span>
                       @endforeach
+
+                      <div>
+                        @if ($saleInvoice->customer)
+                          <i class="fas fa-circle text-success mr-3"></i>
+                          {{ $saleInvoice->customer->name }}
+                        @endif
+                      </div>
                     </td>
                     <td class="border d-none d-md-table-cell">
                       {{ $saleInvoice->getPendingAmount() }}
