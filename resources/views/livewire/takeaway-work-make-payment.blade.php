@@ -138,7 +138,7 @@
             </td>
             <td class="p-0 h-100 font-weight-bold border-0">
               <input class="w-100 h-100 font-weight-bold border-0"
-                  type="number"
+                  type="text"
                   style="font-size: 2.5rem; background-color: #afa; outline: none;"
                   wire:model.defer="tender_amount" />
             </td>
