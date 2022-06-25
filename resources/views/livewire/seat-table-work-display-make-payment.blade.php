@@ -10,7 +10,7 @@
         <table class="table mb-0">
           <tbody>
             <tr style="font-size: 1.3rem; height: 50px;">
-              <td class="w-50 p-0 bg-info-rm font-weight-bold">
+              <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
                 <span class="ml-4">
                   Customer
                 </span>
@@ -48,20 +48,20 @@
         <tbody>
 
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0">
+          <tr style="height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4">
                 Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0">
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
               @php echo number_format( $this->total ); @endphp
             </td>
           </tr>
 
           @foreach ($saleInvoiceAdditions as $key => $val)
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
+          <tr style="height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               {{-- Hard code for discount . Temp. Todo permanent design/fix --}} 
               @if (strtolower($key) == 'discount')
                 <div class="ml-4">
@@ -85,7 +85,7 @@
                 </span>
               @endif
             </td>
-            <td class="p-0 h-100 font-weight-bold border-0">
+            <td class="p-0 h-100 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <input class="w-100 h-90 font-weight-bold pl-3 border-0"
                   type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
                   wire:keydown.enter="calculateGrandTotal" wire:change="calculateGrandTotal" />
@@ -94,9 +94,9 @@
           @endforeach
 
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4 d-inline-block">
-                GRAND TOTAL
+                Grand total
               </span>
             </td>
             <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 pt-2 border-0" style="font-size: 2.5rem;">
@@ -125,8 +125,8 @@
       <table class="table table-bordered mb-0">
         <tbody>
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light-rm border-0">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
+          <tr style="height: 50px;" class="bg-light-rm border-0">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4 d-inline-block">
                 Tender Amount
               </span>
@@ -144,13 +144,13 @@
             </td>
           </tr>
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0">
+          <tr style="height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4">
                 Payment type
               </span>
             </td>
-            <td class="p-0 h-100 w-50 font-weight-bold border-0">
+            <td class="p-0 h-100 w-50 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <select class="w-100 h-100 custom-control border-0"
                   style="outline: none;"
                   wire:model.defer="sale_invoice_payment_type_id">
@@ -174,13 +174,13 @@
       <table class="table table-bordered mb-0">
         <tbody>
           @foreach ($multiPayments as $key => $val)
-            <tr style="font-size: 1.3rem; height: 50px;" wire:key="{{ $key }}">
-              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
+            <tr style="height: 50px;" wire:key="{{ $key }}">
+              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
                 <span class="ml-4">
                   {{ $key }}
                 </span>
               </td>
-              <td class="p-0 h-100 w-50 bg-warning font-weight-bold">
+              <td class="p-0 h-100 w-50 bg-warning font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
                 <input type="text"
                     class="w-100 h-100 font-weight-bold" 
                     wire:model="multiPayments.{{ $key }}"
@@ -197,8 +197,8 @@
     <div class="table-responsive mb-0" wire:key=" FCBAYERN ">
       <table class="table table-bordered mb-0">
         <tbody>
-          <tr class="border-0" style="font-size: 1.3rem; height: 50px;" wire:key="{{ $key }}">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
+          <tr class="border-0" style="height: 50px;" wire:key="{{ $key }}">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4">
                 Tender amount
               </span>
@@ -216,8 +216,8 @@
     <div class="table-responsive mb-0" wire:key=" BIZCUP ">
       <table class="table table-bordered mb-0">
         <tbody>
-          <tr class="border-0" style="font-size: 1.3rem; height: 50px;" wire:key="abcdedfg">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
+          <tr class="border-0" style="height: 50px;" wire:key="abcdedfg">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4">
                 Return
               </span>
@@ -238,10 +238,10 @@
       @if (! $modes['paid'])
       <button
           onclick="this.disabled=true;"
-          class="btn btn-lg btn-success mr-3"
+          class="btn btn-success mr-3"
           wire:click="store"
-          style="width: 130px; height: 70px; font-size: 1.3rem;">
-        CONFIRM
+          style="font-size: 1.3rem;">
+        Confirm
       </button>
 
       <button wire:loading class="btn">

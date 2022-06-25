@@ -22,104 +22,113 @@
   
           @if ($takeaway)
 
-          {{-- Show in bigger screens --}}
-          <div class="table-responsive d-none d-md-block">
-            <table class="table table-bordered table-hover border-dark mb-0">
-              <thead>
-                <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
-                  <th>--</th>
-                  <th>#</th>
-                  <th>Item</th>
-                  <th>Price</th>
-                  <th>Qty</th>
-                  <th>Amount</th>
-                </tr>
-              </thead>
+            @if (count($takeaway->saleInvoice->saleInvoiceItems) > 0)
+            {{-- Show in bigger screens --}}
+            <div class="table-responsive d-none d-md-block">
+              <table class="table table-bordered table-hover border-dark mb-0">
+                <thead>
+                  <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+                    <th>--</th>
+                    <th>#</th>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
   
-              <tbody style="font-size: 1.3rem;">
+                <tbody style="font-size: 1.3rem;">
+                  @if ($takeaway)
+                    @if (count($takeaway->saleInvoice->saleInvoiceItems) > 0)
+                      @foreach ($takeaway->saleInvoice->saleInvoiceItems as $item)
+                      <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
+                        <td>
+                          <a href="" wire:click.prevent="confirmRemoveItemFromTakeaway({{ $item->sale_invoice_item_id }})" class="">
+                          <i class="fas fa-trash text-danger"></i>
+                          </a>
+                        </td>
+                        <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+                        <td>
+                          <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                          {{ $item->product->name }}
+                        </td>
+                        <td>
+                          @php echo number_format( $item->product->selling_price ); @endphp
+                        </td>
+                        <td>
+                          <span class="badge badge-pill-rm badge-success">
+                            {{ $item->quantity }}
+                          </span>
+                        </td>
+                        <td>
+                          @php echo number_format( $item->getTotalAmount() ); @endphp
+                        </td>
+                      </tr>
+                      @endforeach
+                    @endif
+                  @endif
+                </tbody>
+  
+                <tfoot class="">
+                  <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+                    <strong>
+                    TOTAL
+                    </strong>
+                  </td>
+                  <td style="font-size: 1.5rem;" class="font-weight-bold">
+                    @if ($takeaway)
+                      @php echo number_format( $takeaway->saleInvoice->getTotalAmount() ); @endphp
+                    @else
+                      0
+                    @endif
+                  </td>
+                </tfoot>
+  
+              </table>
+            </div>
+
+            {{-- Show in smaller screens --}}
+            <div class="table-responsive d-md-none">
+              <table class="table">
                 @if ($takeaway)
                   @if (count($takeaway->saleInvoice->saleInvoiceItems) > 0)
                     @foreach ($takeaway->saleInvoice->saleInvoiceItems as $item)
-                    <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
-                      <td>
-                        <a href="" wire:click.prevent="confirmRemoveItemFromTakeaway({{ $item->sale_invoice_item_id }})" class="">
-                        <i class="fas fa-trash text-danger"></i>
-                        </a>
-                      </td>
-                      <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+                    <tr style="font-size: 1.1rem;" class="font-weight-bold text-white-rm">
                       <td>
                         <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                      </td>
+                      <td>
                         {{ $item->product->name }}
-                      </td>
-                      <td>
-                        @php echo number_format( $item->product->selling_price ); @endphp
-                      </td>
-                      <td>
-                        <span class="badge badge-pill-rm badge-success">
-                          {{ $item->quantity }}
+                        <br />
+                        <span class="text-primary mr-3">
+                          Rs @php echo number_format( $item->product->selling_price ); @endphp
+                        </span>
+                        <span class="text-secondary" style="font-size: 1rem;">
+                          Qty: {{ $item->quantity }}
                         </span>
                       </td>
                       <td>
                         @php echo number_format( $item->getTotalAmount() ); @endphp
                       </td>
+                      <td>
+                        <a href="" wire:click.prevent="confirmRemoveItemFromTakeaway({{ $item->sale_invoice_item_id }})" class="">
+                        <i class="fas fa-trash text-danger"></i>
+                        </a>
+                      </td>
                     </tr>
                     @endforeach
                   @endif
                 @endif
-              </tbody>
-  
-              <tfoot class="">
-                <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
-                  <strong>
-                  TOTAL
-                  </strong>
-                </td>
-                <td style="font-size: 1.5rem;" class="font-weight-bold">
-                  @if ($takeaway)
-                    @php echo number_format( $takeaway->saleInvoice->getTotalAmount() ); @endphp
-                  @else
-                    0
-                  @endif
-                </td>
-              </tfoot>
-  
-            </table>
-          </div>
-
-          {{-- Show in smaller screens --}}
-          <div class="table-responsive d-md-none">
-            <table class="table">
-              @if ($takeaway)
-                @if (count($takeaway->saleInvoice->saleInvoiceItems) > 0)
-                  @foreach ($takeaway->saleInvoice->saleInvoiceItems as $item)
-                  <tr style="font-size: 1.1rem;" class="font-weight-bold text-white-rm">
-                    <td>
-                      <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
-                    </td>
-                    <td>
-                      {{ $item->product->name }}
-                      <br />
-                      <span class="text-primary mr-3">
-                        Rs @php echo number_format( $item->product->selling_price ); @endphp
-                      </span>
-                      <span class="text-secondary" style="font-size: 1rem;">
-                        Qty: {{ $item->quantity }}
-                      </span>
-                    </td>
-                    <td>
-                      @php echo number_format( $item->getTotalAmount() ); @endphp
-                    </td>
-                    <td>
-                      <a href="" wire:click.prevent="confirmRemoveItemFromTakeaway({{ $item->sale_invoice_item_id }})" class="">
-                      <i class="fas fa-trash text-danger"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  @endforeach
-                @endif
-              @endif
-            </table>
-          </div>
+              </table>
+            </div>
+            @else
+              <div class="p-4 bg-white border text-muted">
+                <p>
+                  <i class="fas fa-exclamation-circle mr-3"></i>
+                  No items
+                <p>
+              </div>
+            @endif
           @endif
 
         </div>

@@ -144,13 +144,13 @@
             </td>
           </tr>
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
+          <tr style="height: 50px;" class="bg-light border-0">
             <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4">
                 Payment type
               </span>
             </td>
-            <td class="p-0 h-100 w-50 font-weight-bold border-0">
+            <td class="p-0 h-100 w-50 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <select class="w-100 h-100 custom-control border-0"
                   style="outline: none;"
                   wire:model.defer="sale_invoice_payment_type_id">
@@ -180,7 +180,7 @@
                   {{ $key }}
                 </span>
               </td>
-              <td class="p-0 h-100 w-50 bg-warning font-weight-bold">
+              <td class="p-0 h-100 w-50 bg-warning font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
                 <input type="text"
                     class="w-100 h-100 font-weight-bold" 
                     wire:model="multiPayments.{{ $key }}"

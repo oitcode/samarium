@@ -7,7 +7,7 @@
     @endif
   <div class="row">
 
-    <div class="col-md-7">
+    <div class="col-md-7 mb-3">
       <div class="card mb-0">
         <div class="card-header bg-success-rm text-white-rm">
           <h1 class="d-inline" style="font-size: 2rem;">
@@ -24,186 +24,168 @@
       
         <div class="card-body p-0">
   
+          {{-- Book table row --}}
           <div class="row" style="margin:auto;">
             <div class="col-md-8">
-              <div class="d-inline">
                 @if ($seatTable->isBooked())
-                  @if (false)
-                  <button class="btn btn-danger mr-3 h-100" wire:click="closeTable">
-                    Close
-                  </button>
-                  <button class="btn btn-success mr-3 h-100"
-                      onclick="
-                          console.log('Bayern ');
-
-                          var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-    
-                          mywindow.document.write('<html><head><title>' + document.title  + '</title>');
-                          mywindow.document.write('</head><body >');
-                          mywindow.document.write(document.getElementById('printDiv').innerHTML);
-                          mywindow.document.write('</body></html>');
-    
-                          mywindow.document.close();
-                          mywindow.focus();
-    
-                          mywindow.print();
-                          mywindow.close();
-
-
-
-                          console.log('Munich')">
-                    Print
-                  @endif
-                  </button>
-
                 @else
-                  <button onclick="this.disabled=true;" class="btn btn-success mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="bookSeatTable">
-                    <i class="fas fa-check mr-3"></i>
-                    Book table
-                  </button>
+                  <div class="py-4">
+                    <button onclick="this.disabled=true;" class="btn btn-success mr-3" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="bookSeatTable">
+                      <i class="fas fa-check mr-3"></i>
+                      Book table
+                    </button>
+                  </div>
                 @endif
-              </div>
-
             </div>
 
             <div class="col-md-4">
             </div>
           </div>
+          {{-- ./Book table row --}}
 
+          @if ($seatTable->isBooked())
+
+            @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
+            {{-- Show in bigger screens --}}
+            <div class="table-responsive mb-0 d-none d-md-block">
+              <table class="table table-bordered table-hover border-dark shadow-sm mb-0">
+                <thead>
+                  <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+                    @can ('is-admin')
+                    <th>--</th>
+                    @endcan
+                    <th class="d-none d-md-table-cell">#</th>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+  
+                <tbody class="bg-white" style="font-size: 1.3rem;">
+                  @if ($seatTable->getCurrentBooking()->hasSaleInvoice())
+                    @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
+                      @foreach ($seatTable->getCurrentBookingItems() as $item)
+                      <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
+                        @can ('is-admin')
+                        <td>
+                          <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
+                          <i class="fas fa-trash text-danger"></i>
+                          </a>
+                        </td>
+                        @endcan
+
+                        <td class="d-none d-md-table-cell text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+                        <td>
+                          <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                          {{ $item->product->name }}
+                        </td>
+                        <td>
+                          {{--
+                          @php echo number_format( $item->product->selling_price ); @endphp
+                          --}}
+                          @php echo number_format( $item->price_per_unit ); @endphp
+                        </td>
+                        <td>
+                          <span class="badge badge-pill-rm badge-success">
+                            {{ $item->quantity }}
+                          </span>
+                        </td>
+                        <td>
+                          @php echo number_format( $item->getTotalAmount() ); @endphp
+                        </td>
+                      </tr>
+                      @endforeach
+                    @endif
+                  @endif
+                </tbody>
+  
+                @can ('is-admin')
+                <tbody class="bg-white">
+                  <tr class="d-none d-md-table-row">
+                    <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+                      <strong>
+                      TOTAL
+                      </strong>
+                    </td>
+                    <td style="font-size: 1.5rem;" class="font-weight-bold">
+                      @if ($seatTable->isBooked())
+                        @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
+                      @else
+                        0
+                      @endif
+                    </td>
+                  </tr>
+
+                  <tr class="d-md-none">
+                    <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+                      <strong>
+                      TOTAL
+                      </strong>
+                    </td>
+                    <td style="font-size: 1.5rem;" class="font-weight-bold">
+                      @if ($seatTable->isBooked())
+                        @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
+                      @else
+                        0
+                      @endif
+                    </td>
+                  </tr>
+                </tbody>
+                @endcan
+  
+              </table>
+            </div>
+
+            {{-- Show in smaller screens --}}
+            <div class="table-responsive d-md-none border">
+              <table class="table">
+                @if ($seatTable->getCurrentBooking()->hasSaleInvoice())
+                  @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
+                    @foreach ($seatTable->getCurrentBookingItems() as $item)
+                    <tr style="font-size: 1.1rem;" class="font-weight-bold text-white-rm">
+                      <td>
+                        <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                      </td>
+                      <td>
+                        {{ $item->product->name }}
+                        <br />
+                        <span class="text-primary mr-3">
+                          Rs @php echo number_format( $item->product->selling_price ); @endphp
+                        </span>
+                        <span class="text-secondary" style="font-size: 1rem;">
+                          Qty: {{ $item->quantity }}
+                        </span>
+                      </td>
+                      <td>
+                        @php echo number_format( $item->getTotalAmount() ); @endphp
+                      </td>
+                      @can ('is-admin')
+                      <td>
+                        <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
+                        <i class="fas fa-trash text-danger"></i>
+                        </a>
+                      </td>
+                      @endcan
+                    </tr>
+                    @endforeach
+                  @endif
+                @endif
+              </table>
+            </div>
+
+            @else
+              <div class="p-4 bg-white border text-muted">
+                <p>
+                  <i class="fas fa-exclamation-circle mr-3"></i>
+                  No items
+                <p>
+              </div>
+            @endif
+      @endif
         </div>
       </div>
 
-      @if ($seatTable->isBooked())
-
-      {{-- Show in bigger screens --}}
-      <div class="table-responsive mb-0 d-none d-md-block">
-        <table class="table table-bordered table-hover border-dark shadow-sm mb-0">
-          <thead>
-            <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
-              @can ('is-admin')
-              <th>--</th>
-              @endcan
-              <th class="d-none d-md-table-cell">#</th>
-              <th>Item</th>
-              <th>Price</th>
-              <th>Qty</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-  
-          <tbody class="bg-white" style="font-size: 1.3rem;">
-            @if ($seatTable->getCurrentBooking()->hasSaleInvoice())
-              @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
-                @foreach ($seatTable->getCurrentBookingItems() as $item)
-                <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
-                  @can ('is-admin')
-                  <td>
-                    <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
-                    <i class="fas fa-trash text-danger"></i>
-                    </a>
-                  </td>
-                  @endcan
-
-                  <td class="d-none d-md-table-cell text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
-                  <td>
-                    <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
-                    {{ $item->product->name }}
-                  </td>
-                  <td>
-                    {{--
-                    @php echo number_format( $item->product->selling_price ); @endphp
-                    --}}
-                    @php echo number_format( $item->price_per_unit ); @endphp
-                  </td>
-                  <td>
-                    <span class="badge badge-pill-rm badge-success">
-                      {{ $item->quantity }}
-                    </span>
-                  </td>
-                  <td>
-                    @php echo number_format( $item->getTotalAmount() ); @endphp
-                  </td>
-                </tr>
-                @endforeach
-              @endif
-            @endif
-          </tbody>
-  
-          @can ('is-admin')
-          <tbody class="bg-white">
-            <tr class="d-none d-md-table-row">
-              <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
-                <strong>
-                TOTAL
-                </strong>
-              </td>
-              <td style="font-size: 1.5rem;" class="font-weight-bold">
-                @if ($seatTable->isBooked())
-                  @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
-                @else
-                  0
-                @endif
-              </td>
-            </tr>
-
-            <tr class="d-md-none">
-              <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right">
-                <strong>
-                TOTAL
-                </strong>
-              </td>
-              <td style="font-size: 1.5rem;" class="font-weight-bold">
-                @if ($seatTable->isBooked())
-                  @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
-                @else
-                  0
-                @endif
-              </td>
-            </tr>
-          </tbody>
-          @endcan
-  
-        </table>
-      </div>
-
-      {{-- Show in smaller screens --}}
-      <div class="table-responsive d-md-none border">
-        <table class="table">
-          @if ($seatTable->getCurrentBooking()->hasSaleInvoice())
-            @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
-              @foreach ($seatTable->getCurrentBookingItems() as $item)
-              <tr style="font-size: 1.1rem;" class="font-weight-bold text-white-rm">
-                <td>
-                  <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
-                </td>
-                <td>
-                  {{ $item->product->name }}
-                  <br />
-                  <span class="text-primary mr-3">
-                    Rs @php echo number_format( $item->product->selling_price ); @endphp
-                  </span>
-                  <span class="text-secondary" style="font-size: 1rem;">
-                    Qty: {{ $item->quantity }}
-                  </span>
-                </td>
-                <td>
-                  @php echo number_format( $item->getTotalAmount() ); @endphp
-                </td>
-                @can ('is-admin')
-                <td>
-                  <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
-                  <i class="fas fa-trash text-danger"></i>
-                  </a>
-                </td>
-                @endcan
-              </tr>
-              @endforeach
-            @endif
-          @endif
-        </table>
-      </div>
-
-      @endif
 
     </div>
   
