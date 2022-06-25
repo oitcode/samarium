@@ -90,6 +90,7 @@
         {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
       </div>
 
+      @if (! $modes['displaySaleInvoice'])
       <div class="shadow-sm-rm">
         <div class="card">
           <div class="card-body p-0 bg-success text-white">
@@ -102,6 +103,7 @@
           </div>
         </div>
       </div>
+      @endif
 
     </div>
 
