@@ -1,9 +1,6 @@
 <div>
 
   <div class="mt-3 text-secondary py-3" style="font-size: 1.3rem;">
-    @if (false)
-    <i class="fas fa-calendar mr-2"></i>
-    @endif
 
     <input type="date" wire:model.defer="startDate" class="mr-3" />
     <input type="date" wire:model.defer="endDate" class="mr-3" />
@@ -30,13 +27,14 @@
 
   <div class="my-4 pl-2 font-weight-bold" style="font-size: 1rem;">
     <span style="font-size: 1.3rem;">
-    Total:
+    Total: Rs
     @php echo number_format( $total ); @endphp
     </span>
   </div>
 
   @if (!is_null($expenses) && count($expenses) > 0)
-    <div class="table-responsive bg-white">
+    {{-- Show in bigger screens --}}
+    <div class="table-responsive bg-white d-none d-md-block">
       <table class="table border mb-0" style="font-size: 1.1rem;">
         <thead>
           <tr class="bg-success-rm text-white-rm">
@@ -111,6 +109,74 @@
               Total
             </th>
             <td>
+              @php echo number_format( $total ); @endphp
+            </td>
+            <td>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    {{-- Show in smaller screens --}}
+    <div class="table-responsive bg-white d-md-none">
+      <table class="table border mb-0">
+  
+        <tbody>
+          @foreach($expenses as $expense)
+          <tr>
+            <td>
+              {{ $expense->expense_id }}
+              <div>
+                {{ $expense->date }}
+              </div>
+            </td>
+  
+            <td>
+              <div class="font-weight-bold" style="font-size: 0.9rem;">
+              {{ $expense->name }}
+              <div>
+                <span class="badge badge-pill badge-primary">
+                  {{ $expense->expenseCategory->name }}
+                </span>
+              </div>
+            </td>
+  
+            <td class="font-weight-bold" style="font-size: 1rem;">
+              Rs
+              @php echo number_format( $expense->amount ); @endphp
+            </td>
+  
+            <td>
+
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-cog text-secondary"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <button class="dropdown-item" wire:click="">
+                    <i class="fas fa-file text-primary mr-2"></i>
+                    View
+                  </button>
+                  <button class="dropdown-item" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
+                    <i class="fas fa-trash text-danger mr-2"></i>
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </td>
+  
+          </tr>
+          @endforeach
+        </tbody>
+  
+        <tfoot>
+          <tr style="font-size: 1.1rem;">
+            <th colspan="2" class="text-right mr-3">
+              Total
+            </th>
+            <td>
+              Rs
               @php echo number_format( $total ); @endphp
             </td>
             <td>
