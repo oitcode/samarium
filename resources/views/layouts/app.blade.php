@@ -309,14 +309,12 @@
         </li>
       @endcan
 
-      @can ('is-admin')
       <li class="nav-item">
         <a class="nav-link" href="{{ route('sale') }}">
           <i class="fas fa-shipping-fast mr-3"></i>
           Takeaway
         </a>
       </li>
-      @endcan
 
       <li class="nav-item">
         <a class="nav-link" href="{{ route('cafesale') }}">
