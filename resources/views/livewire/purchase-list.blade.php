@@ -41,7 +41,9 @@
 
   @if (true)
   @if (!is_null($purchases) && count($purchases) > 0)
-  <div class="table-responsive bg-white">
+
+  {{-- Show in bigger screens --}}
+  <div class="table-responsive bg-white d-none d-md-block">
     <table class="table table-bordered-rm border mb-0" style="font-size: 1.1rem;">
       <thead>
         <tr class="text-secondary">
@@ -159,6 +161,118 @@
           </td>
         </tr>
       </tfoot>
+    </table>
+  </div>
+
+  {{-- Show in smaller screens --}}
+  <div class="table-responsive bg-white d-md-none">
+    <table class="table table-bordered-rm border mb-0">
+      @if (false)
+      <thead>
+        <tr class="text-secondary">
+          <th>
+            ID
+          </th>
+          <th style="width: 200px;">
+            Date
+          </th>
+          <th>
+            Vendor
+          </th>
+          <th>
+            Items
+          </th>
+          @if (false)
+          <th>
+            Status
+          </th>
+          @endif
+          <th>
+            Payment Status
+          </th>
+          <th>
+            Pending
+          </th>
+          <th>
+            Amount
+          </th>
+          <th style="width: 200px;">
+            Action
+          </th>
+        </tr>
+      </thead>
+      @endif
+
+      <tbody>
+        @foreach ($purchases as $purchase)
+          <tr wire:key="{{ rand() }}">
+            <td>
+              {{ $purchase->purchase_id }}
+              <div>
+                {{ $purchase->created_at->toDateString() }}
+              </div>
+              <div>
+                @if ($purchase->vendor)
+                  {{ $purchase->vendor->name }}
+                @else
+                @endif
+              </div>
+            </td>
+            <td>
+              @if ($purchase->purchaseItems)
+                @foreach ($purchase->purchaseItems as $purchaseItem )
+                  {{ $purchaseItem->product->name }}
+                @endforeach
+              @else
+                NONE
+              @endif
+            </td>
+            <td>
+              <span class="font-weight-bold" style="font-size: 1rem;">
+              Rs
+              @php echo number_format( $purchase->getTotalAmount() ); @endphp
+              </span>
+              <div>
+                @if ($purchase)
+                  @if ($purchase->payment_status == 'pending')
+                    <span class="badge badge-pill badge-danger">
+                      Pending
+                    </span>
+                  @elseif ($purchase->payment_status == 'partially_paid')
+                    <span class="badge badge-pill badge-warning">
+                      Partial
+                    </span>
+                  @elseif ($purchase->payment_status == 'paid')
+                    <span class="badge badge-pill badge-success">
+                      Paid
+                    </span>
+                  @else
+                    {{ $purchase->payment_status }}
+                  @endif
+                @endif
+              </div>
+            </td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-cog text-secondary"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <button class="dropdown-item" wire:click="$emit('displayPurchase', {{ $purchase->purchase_id }})">
+                    <i class="fas fa-file text-primary mr-2"></i>
+                    View
+                  </button>
+                  <button class="dropdown-item" wire:click="enterConfirmDeletePurchaseMode({{ $purchase }})">
+                    <i class="fas fa-trash text-danger mr-2"></i>
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        @endforeach
+      </tbody>
+
     </table>
   </div>
   @else

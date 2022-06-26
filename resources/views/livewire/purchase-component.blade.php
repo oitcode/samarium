@@ -1,7 +1,8 @@
 <div class="p-3 p-md-0">
 
   @if (true || ! $modes['create'] && ! $modes['display'])
-  <div class="mb-3">
+  {{-- Show in bigger screens --}}
+  <div class="mb-3 d-none d-md-block">
     <button class="btn
         @if ($modes['create'])
           btn-success text-white
@@ -41,6 +42,39 @@
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <i class="fas fa-shopping-cart mr-3"></i>
       Purchase
+    </button>
+
+    <button wire:loading class="btn m-0"
+        style="height: 100px; width: 225px; font-size: 1.5rem;">
+      <span class="spinner-border text-info mr-3" role="status">
+      </span>
+    </button>
+
+
+    <div class="clearfix">
+    </div>
+  </div>
+
+  {{-- Show in smaller screens --}}
+  <div class="mb-3 d-md-none">
+    <button class="btn
+        @if ($modes['create'])
+          btn-success text-white
+        @endif
+        m-0 border shadow-sm badge-pill mr-3"
+        style="font-size: 1.1rem;" wire:click="enterMode('create')">
+      <i class="fas fa-plus-circle mr-3"></i>
+      New
+    </button>
+
+    <button class="btn
+        @if ($modes['list'])
+          btn-success text-white
+        @endif
+        m-0 border shadow-sm badge-pill mr-3"
+        style="font-size: 1.1rem;" wire:click="enterMode('list')">
+      <i class="fas fa-list mr-3"></i>
+      List
     </button>
 
     <button wire:loading class="btn m-0"
