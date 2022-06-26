@@ -200,17 +200,6 @@
       {{-- Show in smaller screens --}}
       <div class="table-responsive bg-white mb-0 d-md-none mt-3">
         <table class="table table-bordered-rm table-hover border-dark shadow-sm mb-0">
-          @if (false)
-          <thead>
-            <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem; background-color: #eee;">
-              <th>#</th>
-              <th>Item</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          @endif
 
           <tbody style="font-size: 1.3rem;">
             @foreach ($saleInvoice->saleInvoiceItems as $item)
@@ -237,7 +226,7 @@
         </table>
       </div>
 
-      <div class="table-responsive">
+      <div class="table-responsive d-md-none">
         <table class="table">
 
           <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
