@@ -12,11 +12,14 @@ class CustomerDetail extends Component
 
     public $paymentReceivingSaleInvoice;
 
+    public $displayingSaleInvoice = null;
+
     public $modes = [
         'salesHistory' => false,
         'customerPaymentCreate' => false,
         'saleInvoicePaymentCreate' => false,
         'ledger' => false,
+        'saleInvoiceDisplay' => false,
     ];
 
     protected $listeners = [
@@ -25,7 +28,10 @@ class CustomerDetail extends Component
         'exitCustomerPaymentCreateMode',
         'exitSaleInvoicePaymentCreateMode',
         'customerSiPaymentMade',
+        'displaySaleInvoice',
+        'exitSaleInvoiceDisplayMode',
     ];
+
 
     public function render()
     {
@@ -81,5 +87,18 @@ class CustomerDetail extends Component
     {
         $this->paymentReceivingSaleInvoice = null;
         $this->exitMode('saleInvoicePaymentCreate');
+    }
+
+    public function displaySaleInvoice(SaleInvoice $saleInvoice)
+    {
+        $this->displayingSaleInvoice = $saleInvoice; 
+
+        $this->enterMode('saleInvoiceDisplay');
+    }
+
+    public function exitSaleInvoiceDisplayMode()
+    {
+        $this->exitMode('saleInvoiceDisplay');
+        $this->enterMode('salesHistory');
     }
 }

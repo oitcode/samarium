@@ -87,24 +87,11 @@
         Settle
       </button>
 
-      @if (false)
-      <button class="btn
-          @if ($modes['ledger'])
-            btn-success text-white
-          @endif
-          m-0 border shadow-sm badge-pill mr-3"
-          style="font-size: 1.3rem;" wire:click="enterMode('ledger')">
-        <i class="fas fa-key mr-3"></i>
-        Ledger
-      </button>
-      @endif
-
       <button wire:loading class="btn m-0"
           style="height: 100px; width: 225px; font-size: 1.5rem;">
         <span class="spinner-border text-info mr-3" role="status">
         </span>
       </button>
-
 
       <div class="clearfix">
       </div>
@@ -124,8 +111,8 @@
     @livewire ('customer-invoice-payment-create', ['saleInvoice' => $paymentReceivingSaleInvoice,])
   @endif
 
-  @if ($modes['ledger'])
-    @livewire ('customer-ledger', ['customer' => $customer,])
+  @if ($modes['saleInvoiceDisplay'])
+    @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
   @endif
 
 </div>

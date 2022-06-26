@@ -53,21 +53,15 @@
                 @endif
               </td>
               <td>
-                @if (false)
-                  @if ($saleInvoice->getPendingAmount() > 0)
-                  <button class="btn btn-danger mr-3" wire:click="$emit('receiveSaleInvoicePayment', {{ $saleInvoice->sale_invoice_id }})">
-                    Receive payment
-                  </button>
-                  @endif
-                  <button class="btn btn-primary mr-3" wire:click="$emit('receiveSaleInvoicePayment', {{ $saleInvoice->sale_invoice_id }})">
-                    Print
-                  </button>
-                @endif
                 <div class="dropdown">
                   <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-cog text-secondary"></i>
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <button class="dropdown-item" wire:click="$emit('displaySaleInvoice', {{ $saleInvoice }})">
+                      <i class="fas fa-folder text-primary mr-2"></i>
+                      View bill
+                    </button>
                     <button class="dropdown-item" wire:click="$emit('receiveSaleInvoicePayment', {{ $saleInvoice->sale_invoice_id }})">
                       <i class="fas fa-money-check-alt text-primary mr-2"></i>
                       Receive payment
