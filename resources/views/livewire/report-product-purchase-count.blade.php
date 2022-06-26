@@ -1,5 +1,5 @@
 <div>
-  <h2 class="h3 mt-3">
+  <h2 class="h4 mt-3">
     Product purchase count
   </h2>
 

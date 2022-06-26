@@ -1,6 +1,6 @@
 <div class="card shadow-sm h-100">
   <div class="card-body ">
-    <h2 class="">
+    <h2 class="h4">
       @if (env('SITE_TYPE') == 'erp')
         Week Sales
       @elseif (env('SITE_TYPE') == 'ecs')

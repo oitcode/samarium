@@ -2,12 +2,12 @@
   <div class="card-body p-0">
 
     <div class="m-3">
-      <h2>
+      <h2 class="h4">
         Net Calculation
       </h2>
     </div>
 
-    <div class="my-3 text-secondary p-3" style="font-size: 1.3rem;">
+    <div class="my-3 text-secondary p-3" style="font-size: calc(1rem + 0.2vw);">
 
       <div>
         <i class="fas fa-calendar mr-2"></i>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="table-responsive mb-0">
-      <table class="table mb-0" style="font-size: 1.3rem;">
+      <table class="table mb-0" style="font-size: calc(1rem + 0.2vw);">
         <tbody>
 
           <tr>
