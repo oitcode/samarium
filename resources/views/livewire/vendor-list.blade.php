@@ -1,6 +1,6 @@
 <div>
   @if ($vendors != null && count($vendors) > 0)
-    <div class="table-responsive bg-white border shadow">
+    <div class="table-responsive bg-white border shadow-sm">
       <table class="table table-hover">
         <thead>
           <tr class="text-secondary" style="font-size: 1.1rem;">
