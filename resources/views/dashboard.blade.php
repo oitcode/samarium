@@ -6,7 +6,6 @@
     {{-- Show on smaller screens --}}
     <div class="row p-3 justify-content-between-rm bg-light-rm mb-4 d-md-none" style="margin: auto;">
 
-      @can ('is-admin')
       <div class="col-6 mr-3-rm mb-3 p-0 pr-3">
         <a href="{{ route('sale') }}" class="btn btn-success p-3 w-100" style="font-size: 1.3rem;">
           <i class="fas fa-shipping-fast mr-3"></i>
@@ -14,7 +13,6 @@
           Takeaway
         </a>
       </div>
-      @endcan
 
       <div class="col-6 mr-3-rm mb-3 p-0 pr-3">
         <a href="{{ route('cafesale') }}" class="btn btn-success p-3 w-100" style="font-size: 1.3rem;">
