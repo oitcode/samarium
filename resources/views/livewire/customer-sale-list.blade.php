@@ -31,13 +31,13 @@
                 </a>
               </td>
               <td>
-                {{ $saleInvoice->getTotalAmount() }}
+                @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
               </td>
               <td>
-                {{ $saleInvoice->getPaidAmount() }}
+                @php echo number_format( $saleInvoice->getPaidAmount() ); @endphp
               </td>
               <td>
-                {{ $saleInvoice->getPendingAmount() }}
+                @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
               </td>
               <td>
                 @if (strtolower($saleInvoice->payment_status) === 'pending')
