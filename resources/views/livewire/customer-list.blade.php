@@ -99,47 +99,21 @@
   {{-- Customer table --}}
   @if ($customers != null && count($customers) > 0)
 
-    <div class="table-responsive border" style="font-size: 1.1rem;">
+    <div class="table-responsive border">
       <table class="table table-hover mb-0">
         <thead>
-          <tr class="text-secondary">
-            <th>
-              <i class="fas fa-user mr-2"></i>
-              Name
-            </th>
-            <th>Pending balance</th>
-            <th>
-              <i class="fas fa-phone mr-2"></i>
-              Phone
-            </th>
-            <th>Action</th>
+          <tr class="bg-success text-white" style="font-size: 1rem;">
+            <th></th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Balance</th>
           </tr>
         </thead>
 
         <tbody class="bg-white">
           @foreach ($customers as $customer)
             <tr class="border">
-              <td>
-                @if ($customer->getBalance() > 0)
-                  <i class="fas fa-circle mr-3 text-danger"></i>
-                @else
-                  <i class="fas fa-circle mr-3 text-success"></i>
-                @endif
-                {{ $customer->name }}
-              </td>
-              <td>
-                @if ($customer->getBalance() > 0)
-                  <span class="text-danger font-weight-bold">
-                    @php echo number_format( $customer->getBalance() ); @endphp
-                  </span>
-                @else
-                  @php echo number_format( $customer->getBalance() ); @endphp
-                @endif
-              </td>
-              <td class="text-secondary" style="font-size: 1.1rem;">
-                {{ $customer->phone }}
-              </td>
-              <td>
+              <td style="width: 5vw;">
 
                 @if (false)
                 <button class="btn btn-success-rm border border-primary rounded-circle text-primary"
@@ -159,6 +133,30 @@
                     </button>
                   </div>
                 </div>
+              </td>
+              <td>
+                @if (false)
+                <i class="fas fa-user mr-3 text-muted"></i>
+                @endif
+                <span style="font-size: calc(1rem + 0.1vw);">
+                  {{ ucwords($customer->name) }}
+                </span>
+              </td>
+              <td class="text-secondary-rm" style="font-size: 1rem;">
+                {{ $customer->phone }}
+              </td>
+              <td>
+                @if ($customer->getBalance() > 0)
+                  <span class="text-muted mr-1" style="font-size: 0.9rem;">
+                    Rs
+                  </span>
+                  <span class="text-danger-rm font-weight-bold">
+                    @php echo number_format( $customer->getBalance() ); @endphp
+                  </span>
+                @else
+                  Rs
+                  @php echo number_format( $customer->getBalance() ); @endphp
+                @endif
               </td>
             </tr>
           @endforeach
