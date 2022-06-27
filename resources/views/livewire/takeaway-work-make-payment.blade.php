@@ -240,7 +240,7 @@
           onclick="this.disabled=true;"
           class="btn btn btn-success mr-3"
           wire:click="store"
-          style="{{--width: 130px; height: 70px;--}} font-size: 1.1rem;">
+          style="font-size: 1.1rem;">
         Confirm
       </button>
 

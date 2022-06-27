@@ -30,6 +30,10 @@ class PurchaseAddItem extends Component
 
     public $selectedProduct = null;
 
+    public $modes = [
+        'showMobForm' => false,
+    ];
+
 
     public function mount()
     {
@@ -41,6 +45,27 @@ class PurchaseAddItem extends Component
         $this->productCategories = ProductCategory::all();
 
         return view('livewire.purchase-add-item');
+    }
+
+    /* Clear modes */
+    public function clearModes()
+    {
+        foreach ($this->modes as $key => $val) {
+            $this->modes[$key] = false;
+        }
+    }
+
+    /* Enter and exit mode */
+    public function enterMode($modeName)
+    {
+        $this->clearModes();
+
+        $this->modes[$modeName] = true;
+    }
+
+    public function exitMode($modeName)
+    {
+        $this->modes[$modeName] = false;
     }
 
     public function addItemToPurchase()
@@ -90,6 +115,10 @@ class PurchaseAddItem extends Component
 
         $this->resetInputFields();
         $this->emit('itemAddedToPurchase');
+
+        if ($this->modes['showMobForm']) {
+            $this->exitMode('showMobForm');
+        }
     }
 
     public function updateProductList()
@@ -159,5 +188,15 @@ class PurchaseAddItem extends Component
         $product = $purchaseItem->product;
 
         $purchase->save();
+    }
+
+    public function showAddItemFormMob()
+    {
+        $this->enterMode('showMobForm');
+    }
+
+    public function hideAddItemFormMob()
+    {
+        $this->exitMode('showMobForm');
     }
 }

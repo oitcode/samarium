@@ -1,6 +1,6 @@
 <div class="p-3 p-md-0">
 
-  @if (true || ! $modes['create'] && ! $modes['display'])
+  @if (! $modes['create'] && ! $modes['display'])
   {{-- Show in bigger screens --}}
   <div class="mb-3 d-none d-md-block">
     <button class="btn

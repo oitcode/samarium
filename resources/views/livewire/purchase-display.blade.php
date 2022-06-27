@@ -1,11 +1,6 @@
 <div>
 
   <div class="">
-    <div class="d-flex mb-0 p-2 justify-content-end bg-success-rm text-white-rm border" style="background-color: #eee;">
-      <button class="btn btn-danger border rounded-circle" wire:click="$emit('exitPurchaseDisplay')">
-        <i class="fas fa-times fa-2x-rm"></i>
-      </button>
-    </div>
 
     @if ($purchase->payment_status == 'pending')
       @if (true || $modes['addItem'])

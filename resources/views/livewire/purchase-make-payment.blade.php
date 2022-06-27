@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header bg-success-rm text-white-rm">
-    <h1 class="" style="font-size: 1.5rem;">
+    <h1 class="h4">
       Payment
     </h1>
   </div>
@@ -10,13 +10,13 @@
       <table class="table table-bordered-rm mb-0 bg-danger">
         <tbody>
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0">
+          <tr style="height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 pt-2 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4">
                 Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: 2.5rem;">
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
               @php echo number_format( $this->total ); @endphp
             </td>
           </tr>
@@ -44,8 +44,8 @@
       <table class="table table-bordered mb-0">
         <tbody>
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light-rm border-0">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
+          <tr style="height: 50px;" class="bg-light-rm border-0">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4">
                 Paid Amount
               </span>
@@ -63,8 +63,8 @@
             </td>
           </tr>
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0">
+          <tr style="height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4">
                 Payment type
               </span>
@@ -138,8 +138,8 @@
           onclick="this.disabled=true;"
           class="btn btn-lg btn-success mr-3"
           wire:click="store"
-          style="width: 130px; height: 70px; font-size: 1.3rem;">
-        CONFIRM
+          style="font-size: 1.1rem;">
+        Confirm
       </button>
 
       <button wire:loading class="btn">
