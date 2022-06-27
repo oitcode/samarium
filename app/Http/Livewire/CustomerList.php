@@ -19,7 +19,7 @@ class CustomerList extends Component
 
     public function mount()
     {
-        $this->customers = Customer::all();
+        $this->customers = Customer::orderBy('name', 'ASC')->get();
     }
 
     public function render()
