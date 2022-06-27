@@ -155,7 +155,7 @@
                 <td>
                   {{ $day['totalBills'] }}
                 </td>
-                <td>
+                <td class="font-weight-bold">
                 @php echo number_format( $day['totalAmount'] ); @endphp
                 </td>
               <tr>
@@ -215,7 +215,7 @@
                 <td>
                   {{ $day['totalBills'] }}
                 </td>
-                <td style="font-size: 1rem;">
+                <td class="font-weight-bold" style="font-size: 1rem;">
                 Rs
                 @php echo number_format( $day['totalAmount'] ); @endphp
                 </td>
