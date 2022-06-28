@@ -1,13 +1,13 @@
-<div>
+<div class="border bg-white">
 
-  <div class="my-4 text-center">
-    <h1>
-      {{ $company->name }}
+  <div class="p-3">
+    <h1 class="h4 text-primary">
+      Trial Balance
     </h1>
-    <h2>
-      Unadjusted Trial Balance
+    <h2 class="h5">
+      {{ $company->name }}
     </h2>
-    <h2>
+    <h2 class="h6">
       {{ \Carbon\Carbon::now()->toDateString() }}
     </h2>
   </div>
@@ -17,10 +17,10 @@
     $creditBalance = 0;
   @endphp
 
-  <div class="table-responsive" style="font-size: 1.3rem;">
-    <table class="table table-bordered bg-white">
+  <div class="table-responsive" style="font-size: 1rem;">
+    <table class="table table-bordered bg-white mb-0">
       <thead>
-        <tr>
+        <tr class="border" style="border-width: 10px;">
           <th>Account</th>
           <th>Debit Balance</th>
           <th>Credit Balance</th>

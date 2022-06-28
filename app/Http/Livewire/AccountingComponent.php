@@ -12,10 +12,14 @@ class AccountingComponent extends Component
 
     public $modes = [
         'create' => false,
-        'list' => true,
-        'viewJournalEntry' => false,
-        'displayLedger' => false,
+        'list' => false,
+        'journal' => false,
+        'ledger' => false,
         'trialBalance' => false,
+
+        'incomeStatement' => false,
+        'balanceSheet' => false,
+        'cashFlow' => false,
     ];
 
     protected $listeners = [
