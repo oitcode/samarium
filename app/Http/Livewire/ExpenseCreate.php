@@ -60,7 +60,7 @@ class ExpenseCreate extends Component
             $expensePayment->save();
 
             /* Make accounting entries */
-            // $this->makeExpenseAccountingEntry($expense);
+            $this->makeExpenseAccountingEntry($expense);
 
             DB::commit();
 

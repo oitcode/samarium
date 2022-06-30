@@ -1,6 +1,17 @@
 <div>
+
+  {{-- Date picker --}}
+  <div class="my-3 px-3 text-secondary" style="font-size: 1.3rem;">
+
+    <input type="date" wire:model.defer="startDate" class="mr-3" />
+    <input type="date" wire:model.defer="endDate" class="mr-3" />
+
+  </div>
+
+
+  {{-- Journal entry table --}}
   <div class="table-responsive bg-white">
-    <table class="table table-bordered table-striped-rm" style="font-size: 1.3rem;">
+    <table class="table table-sm table-bordered table-striped-rm mb-0" style="font-size: 1.3rem;">
       <thead>
         <tr class="bg-success text-white">
           <th>Date</th>

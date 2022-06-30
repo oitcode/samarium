@@ -21,8 +21,8 @@ class Vendor extends Model
     protected $primaryKey = 'vendor_id';
 
     protected $fillable = [
-         'name', 'phone',
-         'email', 'address',
+         'name', 'ab_account_id',
+         'phone', 'email', 'address',
          'pan_num',
     ];
 

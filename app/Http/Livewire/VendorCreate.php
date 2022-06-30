@@ -3,8 +3,10 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 use App\Vendor;
+use App\AbAccount;
 
 class VendorCreate extends Component
 {
@@ -29,7 +31,25 @@ class VendorCreate extends Component
             'pan_num' => 'nullable',
         ]);
 
-        Vendor::create($validatedData);
+        DB::beginTransaction();
+
+        try {
+            /* Create an ab_account for vendor */
+            $abAccount = new AbAccount;
+            $abAccount->name = $validatedData['name'];
+            $abAccount->save();
+
+            $validatedData['ab_account_id'] = $abAccount->ab_account_id;
+
+            /* Create vendor */
+            Vendor::create($validatedData);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd ($e);
+            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
+        }
 
         $this->emit('clearModes');
     }

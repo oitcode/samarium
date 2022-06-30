@@ -3,8 +3,10 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 use App\Customer;
+use App\AbAccount;
 
 class CustomerCreate extends Component
 {
@@ -29,7 +31,25 @@ class CustomerCreate extends Component
             'pan_num' => 'nullable',
         ]);
 
-        Customer::create($validatedData);
+        DB::beginTransaction();
+
+        try {
+            /* Create an ab_account for customer */
+            $abAccount = new AbAccount;
+            $abAccount->name = $validatedData['name'] . ' ' . $validatedData['phone'];
+            $abAccount->save();
+
+            $validatedData['ab_account_id'] = $abAccount->ab_account_id;
+
+            /* Create customer */
+            Customer::create($validatedData);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd ($e);
+            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
+        }
 
         $this->emit('clearModes');
     }

@@ -18,33 +18,37 @@ trait MiscTrait
 
         if ($saleInvoice->payment_status == 'paid') {
 
-            /* Cash/BankSaving account debit */
-            if (strtolower($saleInvoice->saleInvoicePayments()->first()->saleInvoicePaymentType->name) == 'cash') {
-                $accName = 'cash';
-            } else if (strtolower($saleInvoice->saleInvoicePayments()->first()->saleInvoicePaymentType->name) == 'card') {
-                $accName = 'banksaving';
-            } else if (strtolower($saleInvoice->saleInvoicePayments()->first()->saleInvoicePaymentType->name) == 'fonepay') {
-                $accName = 'banksaving';
-            }
-            $this->makeJournalEntryItem($journalEntry, $accName, $saleInvoice->getTotalAmount(), 'debit');
+            foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment) {
+                /* Cash/BankSaving account debit */
+                if (strtolower($saleInvoicePayment->saleInvoicePaymentType->name) == 'cash') {
+                    $accName = 'cash';
+                } else if (strtolower($saleInvoicePayment->saleInvoicePaymentType->name) == 'card') {
+                    $accName = 'banksaving';
+                } else if (strtolower($saleInvoicePayment->saleInvoicePaymentType->name) == 'fonepay') {
+                    $accName = 'banksaving';
+                }
 
+                $this->makeJournalEntryItem($journalEntry, $accName, $saleInvoicePayment->amount, 'debit');
+            }
 
             /* Sales account credit */
             $this->makeJournalEntryItem($journalEntry, 'sales', $saleInvoice->getTotalAmount(), 'credit');
 
         } else if ($saleInvoice->payment_status == 'partially_paid') {
-            /*
-             * Cash account debit
-             */
 
-            $journalEntryItem = new JournalEntryItem;
+            /* Paymented accounts debit */
+            foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment) {
+                /* Cash/BankSaving account debit */
+                if (strtolower($saleInvoicePayment->saleInvoicePaymentType->name) == 'cash') {
+                    $accName = 'cash';
+                } else if (strtolower($saleInvoicePayment->saleInvoicePaymentType->name) == 'card') {
+                    $accName = 'banksaving';
+                } else if (strtolower($saleInvoicePayment->saleInvoicePaymentType->name) == 'fonepay') {
+                    $accName = 'banksaving';
+                }
 
-            $journalEntryItem->journal_entry_id = $journalEntry->journal_entry_id;
-            $journalEntryItem->ab_account_id = AbAccount::where('name', 'cash')->first()->getKey();
-            $journalEntryItem->type = 'debit';
-            $journalEntryItem->amount = $saleInvoice->getPaidAmount();
-
-            $journalEntryItem->save();
+                $this->makeJournalEntryItem($journalEntry, $accName, $saleInvoicePayment->amount, 'debit');
+            }
 
             /*
              * Customer account debit
@@ -115,6 +119,7 @@ trait MiscTrait
 
         $this->makeLedgerEntry($journalEntry);
     }
+
     public function makeLedgerEntry($journalEntry)
     {
         /* Find single side and multiple sides */
@@ -207,8 +212,8 @@ trait MiscTrait
             /* Purchase account debit */
             $this->makeJournalEntryItem($journalEntry, 'purchase', $purchase->getTotalAmount(), 'debit');
 
-
             /* Vendor account credit (account payable) */
+            $vendorName = $purchase->vendor->name;
             $this->makeJournalEntryItem($journalEntry, $vendorName, $purchase->getPendingAmount(), 'credit');
 
             /* Cash/Bank account credit */
@@ -227,6 +232,7 @@ trait MiscTrait
             $this->makeJournalEntryItem($journalEntry, 'purchase', $purchase->getTotalAmount(), 'debit');
 
             /* Vendor account credit (account payable) */
+            $vendorName = $purchase->vendor->name;
             $this->makeJournalEntryItem($journalEntry, $vendorName, $purchase->getPendingAmount(), 'credit');
         } else {
           dd('Whoops');

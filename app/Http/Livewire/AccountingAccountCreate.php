@@ -9,9 +9,14 @@ use App\AbAccount;
 class AccountingAccountCreate extends Component
 {
     public $name;
+    public $parent_account_id;
+
+    public $abAccounts;
 
     public function render()
     {
+        $this->abAccounts = AbAccount::all();
+
         return view('livewire.accounting-account-create');
     }
 

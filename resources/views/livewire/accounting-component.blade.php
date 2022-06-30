@@ -1,7 +1,7 @@
 <div>
 
   {{-- Top tool bar --}}
-  <div class="mb-3 border bg-white">
+  <div class="mb-3 border bg-white shadow">
 
     <div class="dropdown d-inline mr-0">
       <button class="btn btn-light dropdown-toggle p-3" type="button"

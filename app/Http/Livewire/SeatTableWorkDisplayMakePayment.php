@@ -249,7 +249,7 @@ class SeatTableWorkDisplayMakePayment extends Component
             $booking->save();
 
             /* Make accounting entries */
-            //$this->makeAccountingEntry($saleInvoice);
+            $this->makeAccountingEntry($saleInvoice);
 
             DB::commit();
 

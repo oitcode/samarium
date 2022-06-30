@@ -243,12 +243,14 @@ class TakeawayWorkMakePayment extends Component
             $saleInvoice->payment_status = $finalPaymentStatus;
             $saleInvoice->save();
 
-
             $this->takeaway->status = 'closed';
             $this->takeaway->save();
 
+            /* Todo bugP1: This was used to fix THE bug. Why was this needed???? */
+            $saleInvoice = SaleInvoice::find($saleInvoice->sale_invoice_id);
+
             /* Make accounting entries */
-            //$this->makeAccountingEntry($saleInvoice);
+            $this->makeAccountingEntry($saleInvoice);
 
             DB::commit();
 
