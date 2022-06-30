@@ -13,14 +13,14 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonAccount">
 
+        <button class="dropdown-item" wire:click="enterMode('list')" style="font-size: 1rem;">
+          <i class="fas fa-list text-primary mr-2"></i>
+          Chart of accounts
+        </button>
+
         <button class="dropdown-item" wire:click="enterMode('create')" style="font-size: 1rem;">
           <i class="fas fa-plus-circle text-primary mr-2"></i>
           Create new
-        </button>
-
-        <button class="dropdown-item" wire:click="enterMode('list')" style="font-size: 1rem;">
-          <i class="fas fa-list text-primary mr-2"></i>
-          List
         </button>
 
       </div>

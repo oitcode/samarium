@@ -20,7 +20,7 @@
   <div class="table-responsive" style="font-size: 1rem;">
     <table class="table table-bordered bg-white mb-0">
       <thead>
-        <tr class="border" style="border-width: 10px;">
+        <tr class="border bg-success text-white" style="border-width: 10px;">
           <th>Account</th>
           <th>Debit Balance</th>
           <th>Credit Balance</th>

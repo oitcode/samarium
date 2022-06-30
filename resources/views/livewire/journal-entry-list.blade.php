@@ -11,7 +11,7 @@
 
   {{-- Journal entry table --}}
   <div class="table-responsive bg-white">
-    <table class="table table-sm table-bordered table-striped-rm mb-0" style="font-size: 1.3rem;">
+    <table class="table table-sm table-bordered table-striped-rm mb-0" style="font-size: 1rem;">
       <thead>
         <tr class="bg-success text-white">
           <th>Date</th>

@@ -25,6 +25,7 @@ class AccountingComponent extends Component
     protected $listeners = [
         'abAccountAdded',
         'displayAbAccountLedger',
+        'exitCreateMode',
     ];
 
     public function render()
@@ -65,5 +66,10 @@ class AccountingComponent extends Component
         $this->displayingLedgerAbAccount = $abAccount;
 
         $this->enterMode('displayLedger');
+    }
+
+    public function exitCreateMode()
+    {
+        $this->exitMode('create');
     }
 }

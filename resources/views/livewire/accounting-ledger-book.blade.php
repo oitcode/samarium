@@ -29,24 +29,23 @@
 
   @if (! is_null($selectedAbAccount))
     <div>
-      <h2 class="my-4 mx-3">
+      <h2 class="my-4 mx-3 text-primary">
         {{ $selectedAbAccount->name }}
         A/c 
-        Ledger book
       </h2>
     
       <div class="table-responsive bg-white">
         <table class="table table-bordered table-striped mb-0">
           <thead>
-            <tr>
+            <tr class="bg-success text-white">
               <th>Date</th>
               <th>Particulars</th>
               <th>Journal Entry ID</th>
-              <th>Amount ID</th>
+              <th>Amount</th>
               <th>Date</th>
               <th>Particulars</th>
               <th>Journal Entry ID</th>
-              <th>Amount ID</th>
+              <th>Amount</th>
             </tr>
           </thead>
     
