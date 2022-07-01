@@ -21,7 +21,7 @@ class AbAccount extends Model
     protected $primaryKey = 'ab_account_id';
 
     protected $fillable = [
-         'name',
+         'name', 'ab_account_type_id', 'increase_type',
     ];
 
 

@@ -1,6 +1,6 @@
-<div class="border bg-white">
+<div class="border bg-white-rm">
 
-  <div class="p-3">
+  <div class="p-3 mt-3 mb-4">
     <h1 class="h4 text-primary">
       Trial Balance
     </h1>
@@ -8,7 +8,7 @@
       {{ $company->name }}
     </h2>
     <h2 class="h6">
-      {{ \Carbon\Carbon::now()->toDateString() }}
+      {{ \Carbon\Carbon::now()->format('d F Y') }}
     </h2>
   </div>
 
@@ -17,8 +17,8 @@
     $creditBalance = 0;
   @endphp
 
-  <div class="table-responsive" style="font-size: 1rem;">
-    <table class="table table-bordered bg-white mb-0">
+  <div class="table-responsive" style="font-size: 1.1rem;">
+    <table class="table table-bordered table-striped bg-white mb-0">
       <thead>
         <tr class="border bg-success text-white" style="border-width: 10px;">
           <th>Account</th>
@@ -35,7 +35,7 @@
             </td>
             <td>
               @if ($account->hasDebitBalance())
-                {{ $account->getLedgerBalance() }}
+                @php echo number_format( $account->getLedgerBalance() ); @endphp
 
                 @php
                   $debitBalance += $account->getLedgerBalance();
@@ -45,7 +45,7 @@
             </td>
             <td>
               @if ($account->hasCreditBalance())
-                {{ $account->getLedgerBalance() * (-1) }}
+                @php echo number_format( $account->getLedgerBalance() * (-1) ); @endphp
 
                 @php
                   $creditBalance += $account->getLedgerBalance() * (-1);
@@ -59,15 +59,15 @@
       </tbody>
 
       <tfoot>
-        <tr>
+        <tr class="bg-primary-rm text-white-rm" style="background-color: #efe;">
           <th>
-            TOTAL
+            Total
           </th>
           <td class="font-weight-bold">
-            {{ $debitBalance }}
+            @php echo number_format( $debitBalance ); @endphp
           </td>
           <td class="font-weight-bold">
-            {{ $creditBalance }}
+            @php echo number_format( $creditBalance ); @endphp
           </td>
         </tr>
       </tfoot>

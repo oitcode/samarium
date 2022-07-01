@@ -74,6 +74,26 @@
       </div>
     </div>
 
+    <div class="dropdown d-inline mr-0">
+      <button class="btn btn-light dropdown-toggle p-3" type="button"
+          id="dropdownMenuButtonMore" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"
+          style="font-size: 1rem;"
+      >
+        More
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonMore">
+        <button class="dropdown-item" wire:click="enterMode('accountTypeList')" style="font-size: 1rem;">
+          <i class="fas fa-list text-primary mr-2"></i>
+          List account types
+        </button>
+        <button class="dropdown-item" wire:click="enterMode('accountTypeCreate')" style="font-size: 1rem;">
+          <i class="fas fa-plus-circle text-primary mr-2"></i>
+          Create account type
+        </button>
+      </div>
+    </div>
+
     <button wire:loading class="btn">
       <div class="spinner-border text-info mr-3" role="status">
         <span class="sr-only">Loading...</span>
@@ -97,5 +117,9 @@
     @livewire ('accounting-balance-sheet')
   @elseif ($modes['cashFlow'])
     @livewire ('accounting-cash-flow')
+  @elseif ($modes['accountTypeList'])
+    @livewire ('accounting-account-type-list')
+  @elseif ($modes['accountTypeCreate'])
+    @livewire ('accounting-account-type-create')
   @endif
 </div>

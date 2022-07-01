@@ -1,8 +1,16 @@
 <div class="border bg-white p-3">
 
-  <h1 class="h4 text-primary mb-4">
-    Income statement
-  </h1>
+  <div class="mt-3 mb-4 border-bottom">
+    <h1 class="h4 text-primary">
+      Income statement
+    </h1>
+    <h2 class="h5">
+      {{ $company->name }}
+    </h2>
+    <h2 class="h6">
+      {{ \Carbon\Carbon::now()->format('d F Y') }}
+    </h2>
+  </div>
 
   {{-- Revenue --}}
   <div class="mb-3">

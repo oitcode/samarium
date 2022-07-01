@@ -20,12 +20,17 @@ class AccountingComponent extends Component
         'incomeStatement' => false,
         'balanceSheet' => false,
         'cashFlow' => false,
+
+        'accountTypeList' => false,
+        'accountTypeCreate' => false,
     ];
 
     protected $listeners = [
         'abAccountAdded',
         'displayAbAccountLedger',
         'exitCreateMode',
+
+        'exitAccountTypeCreateMode',
     ];
 
     public function render()
@@ -71,5 +76,10 @@ class AccountingComponent extends Component
     public function exitCreateMode()
     {
         $this->exitMode('create');
+    }
+
+    public function exitAccountTypeCreateMode()
+    {
+        $this->exitMode('accountTypeCreate');
     }
 }

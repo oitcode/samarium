@@ -5,9 +5,12 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 use App\AbAccount;
+use App\Company;
 
 class AccountingIncomeStatement extends Component
 {
+    public $company;
+
     public $revenueItems = array();
     public $cogsItems = array();
     public $expenseItems = array();
@@ -19,8 +22,11 @@ class AccountingIncomeStatement extends Component
     public $grossProfit;
     public $netProfit;
 
+
     public function render()
     {
+        $this->company = Company::first();
+
         $this->populateRevenue();
         $this->populateCogs();
         $this->populateExpense();
