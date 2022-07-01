@@ -1,4 +1,4 @@
-<div class="border bg-white-rm p-3" style="background-color: #ffe">
+<div class="border bg-white-rm p-3" {{-- style="background-color: #ffe" --}}>
 
   <h1 class="h4 text-primary mb-3">
     Cash flow statement
@@ -37,7 +37,7 @@
 
   {{-- Operations --}}
   <div class="mb-3">
-    <h2 class="h5 p-2 bg-primary text-white">
+    <h2 class="h5 p-2 bg-primary-rm text-primary">
       Cash flow from operations
     </h2>
 
@@ -52,14 +52,14 @@
 
   {{-- Investing --}}
   <div class="mb-3">
-    <h2 class="h5 p-2 bg-primary text-white">
+    <h2 class="h5 p-2 bg-primary-rm text-primary">
       Cash flow from investing
     </h2>
   </div>
 
   {{-- Financing --}}
   <div class="mb-3">
-    <h2 class="h5 p-2 bg-primary text-white">
+    <h2 class="h5 p-2 bg-primary-rm text-primary">
       Cash flow from financing
     </h2>
   </div>
