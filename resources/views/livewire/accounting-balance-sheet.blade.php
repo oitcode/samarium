@@ -30,7 +30,8 @@
         Current assets
       </div>
       <div class="col-6">
-        Rs 12,857
+        Rs
+        @php echo number_format( $assetTotal ); @endphp
       </div>
     </div>
 
@@ -39,7 +40,7 @@
         Non-current assets
       </div>
       <div class="col-6">
-        Rs 2,500
+        Rs 0
       </div>
     </div>
 
@@ -56,7 +57,8 @@
         Current liabilities
       </div>
       <div class="col-6">
-        Rs 12,857
+        Rs
+        @php echo number_format( $liabilityTotal ); @endphp
       </div>
     </div>
 
@@ -65,7 +67,7 @@
         Non-current liabilities
       </div>
       <div class="col-6">
-        Rs 2,500
+        Rs 0
       </div>
     </div>
   </div>
@@ -81,7 +83,8 @@
         Equity
       </div>
       <div class="col-6" style="font-size: 1rem;">
-        Rs 12,857
+        Rs
+        @php echo number_format( $equityTotal ); @endphp
       </div>
     </div>
   </div>

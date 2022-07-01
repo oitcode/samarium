@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Customer;
 use App\AbAccount;
+use App\AbAccountType;
 
 class CustomerCreate extends Component
 {
@@ -37,6 +38,7 @@ class CustomerCreate extends Component
             /* Create an ab_account for customer */
             $abAccount = new AbAccount;
             $abAccount->name = $validatedData['name'] . ' ' . $validatedData['phone'];
+            $abAccount->ab_account_type_id = AbAccountType::where('name', 'Asset')->first()->getKey();
             $abAccount->save();
 
             $validatedData['ab_account_id'] = $abAccount->ab_account_id;

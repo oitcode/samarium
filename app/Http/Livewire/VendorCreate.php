@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Vendor;
 use App\AbAccount;
+use App\AbAccountType;
 
 class VendorCreate extends Component
 {
@@ -37,6 +38,7 @@ class VendorCreate extends Component
             /* Create an ab_account for vendor */
             $abAccount = new AbAccount;
             $abAccount->name = $validatedData['name'];
+            $abAccount->ab_account_type_id = AbAccountType::where('name', 'Liabilities')->first()->getKey();
             $abAccount->save();
 
             $validatedData['ab_account_id'] = $abAccount->ab_account_id;

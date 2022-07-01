@@ -23,7 +23,8 @@
           {{ $revenueItem['name'] }}
         </div>
         <div class="col-6">
-          {{ $revenueItem['amount'] }}
+          Rs
+          @php echo number_format( $revenueItem['amount'] ); @endphp
         </div>
       </div>
     @endforeach
@@ -40,7 +41,8 @@
           {{ $cogsItem['name'] }}
         </div>
         <div class="col-6">
-          {{ $cogsItem['amount'] }}
+          Rs
+          @php echo number_format( $cogsItem['amount'] ); @endphp
         </div>
       </div>
     @endforeach
@@ -53,7 +55,8 @@
         Gross profit
       </div>
       <div class="col-6">
-        {{ $grossProfit }}
+        Rs
+        @php echo number_format( $grossProfit ); @endphp
       </div>
     </div>
   </div>
@@ -69,7 +72,8 @@
           {{ $expenseItem['name'] }}
         </div>
         <div class="col-6">
-          {{ $expenseItem['amount'] }}
+          Rs
+          @php echo number_format( $expenseItem['amount'] ); @endphp
         </div>
       </div>
     @endforeach
@@ -82,7 +86,8 @@
         Net profit
       </div>
       <div class="col-6">
-        {{ $netProfit }}
+        Rs
+        @php echo number_format( $netProfit ); @endphp
       </div>
     </div>
   </div>

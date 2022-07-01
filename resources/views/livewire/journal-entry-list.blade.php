@@ -50,13 +50,15 @@
 
               <td>
                 @if ($journalEntryItem->type == 'debit')
-                  {{ $journalEntryItem->amount }}
+                  Rs
+                  @php echo number_format( $journalEntryItem->amount ); @endphp
                 @endif
               </td>
 
               <td>
                 @if ($journalEntryItem->type == 'credit')
-                  {{ $journalEntryItem->amount }}
+                  Rs
+                  @php echo number_format( $journalEntryItem->amount ); @endphp
                 @endif
               </td>
             </tr>
