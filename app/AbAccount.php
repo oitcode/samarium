@@ -32,6 +32,15 @@ class AbAccount extends Model
      */
 
     /*
+     * ab_account_type table.
+     *
+     */
+    public function abAccountType()
+    {
+        return $this->belongsTo('App\AbAccountType', 'ab_account_type_id', 'ab_account_type_id');
+    }
+
+    /*
      * journal_entry_item table.
      *
      */

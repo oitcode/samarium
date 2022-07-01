@@ -23,4 +23,20 @@ class AbAccountType extends Model
     protected $fillable = [
          'name', 'parent_ab_account_type_id',
     ];
+
+
+    /*-------------------------------------------------------------------------
+     * Relationships
+     *-------------------------------------------------------------------------
+     *
+     */
+
+    /*
+     * ab_account table.
+     *
+     */
+    public function abAccounts()
+    {
+        return $this->hasMany('App\AbAccount', 'ab_account_type_id', 'ab_account_type_id');
+    }
 }

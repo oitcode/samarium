@@ -11,16 +11,26 @@
   </div>
 
   <div class="form-group">
-    <label>Parent account</label>
-    <select class="custom-select" wire:model.defer="parent_account_id">
+    <label>Account type</label>
+    <select class="custom-select" wire:model.defer="ab_account_type_id">
       <option>---</option>
-      @foreach ($abAccounts as $abAccount)
-        <option value="{{ $abAccount->ab_account_id }}">
-          {{ $abAccount->name }}
+      @foreach ($abAccountTypes as $abAccountType)
+        <option value="{{ $abAccountType->ab_account_type_id }}">
+          {{ $abAccountType->name }}
         </option>
       @endforeach
     </select>
-    @error('parent_account_id') <span class="text-danger">{{ $message }}</span> @enderror
+    @error('ab_account_type_id') <span class="text-danger">{{ $message }}</span> @enderror
+  </div>
+
+  <div class="form-group">
+    <label>Increase type</label>
+    <select class="custom-select" wire:model.defer="increase_type">
+      <option>---</option>
+        <option value="debit">Debit</option>
+        <option value="credit">Credit</option>
+    </select>
+    @error('increase_type') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="py-3">

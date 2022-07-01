@@ -34,6 +34,14 @@
               {{ $abAccount->name }}
             </td>
             <td>
+              @if ($abAccount->abAccountType)
+                {{ $abAccount->abAccountType->name }}
+              @else
+                <div class="text-muted" style="font-size: 0.9rem;">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  Not set
+                </div>
+              @endif
             </td>
             <td>
               <span class="text-muted mr-1" style="font-size: 0.9rem;">

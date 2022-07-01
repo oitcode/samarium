@@ -5,17 +5,19 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 use App\AbAccount;
+use App\AbAccountType;
 
 class AccountingAccountCreate extends Component
 {
     public $name;
-    public $parent_account_id;
+    public $ab_account_type_id;
+    public $increase_type;
 
-    public $abAccounts;
+    public $abAccountTypes;
 
     public function render()
     {
-        $this->abAccounts = AbAccount::all();
+        $this->abAccountTypes = AbAccountType::all();
 
         return view('livewire.accounting-account-create');
     }
@@ -24,6 +26,8 @@ class AccountingAccountCreate extends Component
     {
         $validatedData = $this->validate([
             'name' => 'required',
+            'ab_account_type_id' => 'required|integer',
+            'increase_type' => 'required',
         ]);
 
         AbAccount::create($validatedData);
