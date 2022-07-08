@@ -104,13 +104,22 @@ class CafeMenuComponent extends Component
 
     public function ackProductCategoryAdded()
     {
+        /* Todo: Can this line be removed? */
         $this->productCategories = ProductCategory::all();
+
+        session()->flash('message', 'Product category added');
+
+        $this->clearModes();
+        $this->mount();
     }
 
     public function ackProductAdded()
     {
-        $this->exitMode('createProduct');
         session()->flash('message', 'Product added');
+
+        $this->exitMode('createProduct');
+
+        $this->mount();
     }
 
     public function updateProduct($productId)

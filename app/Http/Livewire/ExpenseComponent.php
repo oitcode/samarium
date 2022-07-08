@@ -11,10 +11,14 @@ class ExpenseComponent extends Component
         'list' => true,
         'display' => true,
         'report' => false,
+
+        'createCategory' => false,
     ];
 
     protected $listeners = [
         'exitCreateMode',
+        'expenseCategoryCreated',
+        'exitCategoryCreateMode',
     ];
 
     public function render()
@@ -46,5 +50,17 @@ class ExpenseComponent extends Component
     public function exitCreateMode()
     {
         $this->exitMode('create');
+    }
+
+    public function expenseCategoryCreated()
+    {
+        session()->flash('message', 'Expense category added');
+
+        $this->exitMode('createCategory');
+    }
+
+    public function exitCategoryCreateMode()
+    {
+        $this->exitMode('createCategory');
     }
 }

@@ -109,13 +109,18 @@
 
     <div class="col-md-8">
 
-    @if (session()->has('message'))
-      <div>
-        <div class="alert alert-success">
-          {{ session('message') }}
+      <!-- Flash message div -->
+      @if (session()->has('message'))
+        <div class="p-2">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle mr-3"></i>
+            {{ session('message') }}
+            <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         </div>
-      </div>
-    @endif
+      @endif
 
       @if ($modes['createProduct'])
         @livewire ('cafe-menu-product-create')

@@ -1,45 +1,46 @@
-<div class="border bg-white-rm p-3" {{-- style="background-color: #ffe" --}}>
+<div class="border bg-white p-3" {{-- style="background-color: #ffe" --}}>
 
-  <h1 class="h4 text-primary mb-3">
-    Cash flow statement
-  </h1>
+  {{-- Top info / Banner --}}
+  <div class="border-bottom mb-4">
+    <h1 class="h4 text-primary mb-3">
+      Cash flow statement
+    </h1>
+    <p>
+      For the Year Ending: 
+      2078-79
+    </p>
+  </div>
 
   {{-- Accounting year info --}}
-  <div class="mb-3 d-flex justify-content-end">
+  <div class="mb-3">
 
-    <div class="col-md-3">
-      <div class="table-responsive" style="max-widht: 500px !important;">
-        <table class="table">
-
-          <tr>
-            <td>
-              For the Year Ending: 
-            </td>
-            <td>
-              2078-79
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              Cash at the beginning of year
-            </td>
-            <td>
-              Rs 190,534
-            </td>
-          </tr>
-
-        </table>
+      <div class="row border-bottom">
+        <div class="col-md-6">
+          <h2 class="h5 bg-primary-rm text-primary">
+            Cash at the beginning of year
+          </h2>
+        </div>
+        <div class="col-md-6">
+          Rs
+          10,000
+        </div>
       </div>
-    </div>
 
   </div>
 
   {{-- Operations --}}
-  <div class="mb-3">
-    <h2 class="h5 p-2 bg-primary-rm text-primary">
-      Cash flow from operations
-    </h2>
+  <div class="mb-3 border-bottom">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="h5 p-2 bg-primary-rm text-primary">
+          Cash flow from operations
+        </h2>
+      </div>
+      <div class="col-md-6">
+        Rs
+        @php echo number_format( $netProfit ); @endphp
+      </div>
+    </div>
 
     <h3 class="h6 text-primary">
       Additions to cash
@@ -51,14 +52,14 @@
   </div>
 
   {{-- Investing --}}
-  <div class="mb-3">
+  <div class="mb-3 border-bottom">
     <h2 class="h5 p-2 bg-primary-rm text-primary">
       Cash flow from investing
     </h2>
   </div>
 
   {{-- Financing --}}
-  <div class="mb-3">
+  <div class="mb-3 border-bottom">
     <h2 class="h5 p-2 bg-primary-rm text-primary">
       Cash flow from financing
     </h2>

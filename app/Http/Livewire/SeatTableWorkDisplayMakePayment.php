@@ -86,6 +86,8 @@ class SeatTableWorkDisplayMakePayment extends Component
         $this->total = $this->seatTable->getCurrentBookingTotalAmount();
         $this->grand_total = $this->seatTable->getCurrentBookingGrandTotalAmount();
 
+        $this->saleInvoiceAdditions['VAT'] = $this->calculateCurrentBookingVat();
+
         $this->customers = Customer::all();
     }
 
@@ -423,5 +425,10 @@ class SeatTableWorkDisplayMakePayment extends Component
         $this->saleInvoiceAdditions['Discount'] = ceil ($this->saleInvoiceAdditions['Discount']);
 
         $this->calculateGrandTotal();
+    }
+
+    public function calculateCurrentBookingVat()
+    {
+        return ceil(0.13 * $this->total);
     }
 }

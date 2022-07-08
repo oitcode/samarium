@@ -24,6 +24,16 @@
     </button>
 
     <button class="btn
+        @if ($modes['createCategory'])
+          btn-success text-white
+        @endif
+        m-0 border shadow-sm badge-pill mr-3 mb-3"
+        style="height: 75px; {{-- width: 150px; --}} font-size: 1.3rem;" wire:click="enterMode('createCategory')">
+      <i class="fas fa-plus-circle mr-3"></i>
+      Category
+    </button>
+
+    <button class="btn
         @if ($modes['report'])
           btn-success text-white
         @endif
@@ -85,6 +95,10 @@
           <i class="fas fa-cog text-secondary"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="font-size: 1rem;">
+          <button class="dropdown-item py-2" wire:click="enterMode('createCategory')">
+            <i class="fas fa-plus-circle text-primary mr-2"></i>
+            New category
+          </button>
           <button class="dropdown-item py-2" wire:click="enterMode('report')">
             <i class="fas fa-paper-plane text-primary mr-2"></i>
             Report
@@ -102,6 +116,7 @@
   @if (session()->has('message'))
     <div class="p-2">
       <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle mr-3"></i>
         {{ session('message') }}
         <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -117,6 +132,8 @@
     @livewire ('expense-list')
   @elseif ($modes['report'])
     @livewire ('expense-report')
+  @elseif ($modes['createCategory'])
+    @livewire ('expense-category-create')
   @endif
 
 </div>
