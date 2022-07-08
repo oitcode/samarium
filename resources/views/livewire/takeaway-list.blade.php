@@ -79,10 +79,10 @@
               @endif
             </td>
             <td class="d-none d-md-table-cell">
-              {{ $takeaway->getPendingAmount() }}
+              @php echo number_format( $takeaway->getPendingAmount() ); @endphp
             </td>
             <td>
-              {{ $takeaway->getTotalAmount() }}
+              @php echo number_format( $takeaway->getTotalAmount() ); @endphp
             </td>
             <td>
               @if (false)
@@ -150,7 +150,7 @@
           <td>
             <p class="h5">
               Rs
-              {{ $takeaway->getTotalAmount() }}
+              @php echo number_format( $takeaway->getTotalAmount() ); @endphp
             </p>
 
             @if ($takeaway->saleInvoice->payment_status == 'pending')
