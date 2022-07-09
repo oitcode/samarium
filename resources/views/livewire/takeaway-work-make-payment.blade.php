@@ -79,6 +79,10 @@
                     <option value="50">50 %</option>
                   </select>
                 </div>
+              @elseif (strtolower($key) == 'vat')
+                <div class="ml-4">
+                  {{ $key }} (13 %)
+                </div>
               @else
                 <span class="ml-4">
                   {{ $key }}
@@ -86,9 +90,15 @@
               @endif
             </td>
             <td class="p-0 h-100 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
-              <input class="w-100 h-90 font-weight-bold pl-3 border-0"
-                  type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
-                  wire:keydown.enter="calculateGrandTotal" wire:change="calculateGrandTotal" />
+              @if (strtolower($key) == 'vat')
+                <span class="ml-3">
+                  {{ $val }}
+                </span>
+              @else
+                <input class="w-100 h-90 font-weight-bold pl-3 border-0"
+                    type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                    wire:keydown.enter="calculateGrandTotal" wire:change="calculateGrandTotal" />
+              @endif
             </td>
           </tr>
           @endforeach

@@ -84,7 +84,11 @@ class TakeawayWorkMakePayment extends Component
         }
 
         $this->total = $this->takeaway->saleInvoice->getTotalAmountRaw();
-        $this->grand_total = $this->takeaway->saleInvoice->getTotalAmount();
+
+        $this->saleInvoiceAdditions['VAT'] = $this->calculateTakeawayVat();
+
+        //$this->grand_total = $this->takeaway->saleInvoice->getTotalAmount();
+        $this->calculateGrandTotal();
 
         $this->customers = Customer::all();
     }
@@ -418,5 +422,10 @@ class TakeawayWorkMakePayment extends Component
         $this->saleInvoiceAdditions['Discount'] = ceil ($this->saleInvoiceAdditions['Discount']);
 
         $this->calculateGrandTotal();
+    }
+
+    public function calculateTakeawayVat()
+    {
+        return ceil(0.13 * $this->total);
     }
 }
