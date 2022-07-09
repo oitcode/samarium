@@ -84,9 +84,12 @@ class SeatTableWorkDisplayMakePayment extends Component
         }
 
         $this->total = $this->seatTable->getCurrentBookingTotalAmount();
-        $this->grand_total = $this->seatTable->getCurrentBookingGrandTotalAmount();
 
         $this->saleInvoiceAdditions['VAT'] = $this->calculateCurrentBookingVat();
+
+        // $this->grand_total = $this->seatTable->getCurrentBookingGrandTotalAmount();
+        $this->calculateGrandTotal();
+
 
         $this->customers = Customer::all();
     }
