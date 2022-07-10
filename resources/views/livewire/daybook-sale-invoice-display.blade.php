@@ -189,11 +189,7 @@
                 Taxable amount
               </td>
               <td style="font-size: 1.1rem;"
-                  class="
-                    @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
-                      text-danger
-                    @endif
-                    font-weight-bold border-0 pr-4">
+                  class=" font-weight-bold border-0 pr-4">
                 @php echo number_format( $saleInvoice->getTaxableAmount() ); @endphp
               </td>
             </tr>
