@@ -59,48 +59,91 @@
             </td>
           </tr>
 
+          {{-- Deal with non-taxes additions first --}}
           @foreach ($saleInvoiceAdditions as $key => $val)
-          <tr style="height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
-              {{-- Hard code for discount . Temp. Todo permanent design/fix --}} 
-              @if (strtolower($key) == 'discount')
-                <div class="ml-4">
-                  {{ $key }}
-                  <select
-                      class="bg-white border border-secondary badge-pill"
-                      wire:model="discount_percentage"
-                      wire:change="calculateDiscount">
-                    <option value="--">--</option>
-                    <option value="5">5 %</option>
-                    <option value="10">10 %</option>
-                    <option value="15">15 %</option>
-                    <option value="20">20 %</option>
-                    <option value="25">25 %</option>
-                    <option value="50">50 %</option>
-                  </select>
-                </div>
-              @elseif (strtolower($key) == 'vat')
-                <div class="ml-4">
-                  {{ $key }} (13 %)
-                </div>
-              @else
-                <span class="ml-4">
-                  {{ $key }}
-                </span>
-              @endif
+
+            @if (strtolower($key) == 'vat')
+              @continue
+            @else
+            <tr style="height: 50px;" class="bg-light border-0">
+              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+                {{-- Hard code for discount . Temp. Todo permanent design/fix --}} 
+                @if (strtolower($key) == 'discount')
+                  <div class="ml-4">
+                    {{ $key }}
+                    <select
+                        class="bg-white border border-secondary badge-pill"
+                        wire:model="discount_percentage"
+                        wire:change="calculateDiscount">
+                      <option value="--">--</option>
+                      <option value="5">5 %</option>
+                      <option value="10">10 %</option>
+                      <option value="15">15 %</option>
+                      <option value="20">20 %</option>
+                      <option value="25">25 %</option>
+                      <option value="50">50 %</option>
+                    </select>
+                  </div>
+                @elseif (strtolower($key) == 'vat')
+                  <div class="ml-4">
+                    {{ $key }} (13 %)
+                  </div>
+                @else
+                  <span class="ml-4">
+                    {{ $key }}
+                  </span>
+                @endif
+              </td>
+              <td class="p-0 h-100 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+                @if (strtolower($key) == 'vat')
+                  <span class="ml-3">
+                    {{ $val }}
+                  </span>
+                @else
+                  <input class="w-100 h-90 font-weight-bold pl-3 border-0"
+                      type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                      wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
+                @endif
+              </td>
+            </tr>
+            @endif
+          @endforeach
+
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+              <span class="ml-4 d-inline-block">
+                Taxable amount
+              </span>
             </td>
-            <td class="p-0 h-100 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
-              @if (strtolower($key) == 'vat')
-                <span class="ml-3">
-                  {{ $val }}
-                </span>
-              @else
-                <input class="w-100 h-90 font-weight-bold pl-3 border-0"
-                    type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
-                    wire:keydown.enter="calculateGrandTotal" wire:change="calculateGrandTotal" />
-              @endif
+            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
+              @php echo number_format( $this->taxable_amount ); @endphp
             </td>
           </tr>
+
+          {{-- Deal with taxes (VAT, etc) additions now/next/atLast --}}
+          @foreach ($saleInvoiceAdditions as $key => $val)
+
+            {{-- Todo: Wont there be any other taxes other than vat? --}}
+            @if (strtolower($key) != 'vat')
+              @continue
+            @else
+            <tr style="height: 50px;" class="bg-light border-0">
+              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+                @if (strtolower($key) == 'vat')
+                  <div class="ml-4">
+                    {{ $key }} (13 %)
+                  </div>
+                @else
+                  <span class="ml-4">
+                    {{ $key }}
+                  </span>
+                @endif
+              </td>
+              <td class="p-2 h-100 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+                @php echo number_format( $val ); @endphp
+              </td>
+            </tr>
+            @endif
           @endforeach
 
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">

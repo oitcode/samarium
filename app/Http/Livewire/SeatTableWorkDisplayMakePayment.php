@@ -96,7 +96,6 @@ class SeatTableWorkDisplayMakePayment extends Component
         /* Calculate Grand Total */
         $this->calculateGrandTotal();
 
-
         $this->customers = Customer::all();
     }
 
