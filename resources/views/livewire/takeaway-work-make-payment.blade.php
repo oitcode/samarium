@@ -139,7 +139,7 @@
                   </span>
                 @endif
               </td>
-              <td class="p-2 h-100 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+              <td class="pl-3 h-100 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
                 @php echo number_format( $val ); @endphp
               </td>
             </tr>
