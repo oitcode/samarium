@@ -454,4 +454,11 @@ class SeatTableWorkDisplayMakePayment extends Component
     {
         return ceil(0.13 * $this->taxable_amount);
     }
+
+    public function updateNumbers()
+    {
+        $this->calculateTaxableAmount();
+        $this->saleInvoiceAdditions['VAT'] = $this->calculateCurrentBookingVat();
+        $this->calculateGrandTotal();
+    }
 }

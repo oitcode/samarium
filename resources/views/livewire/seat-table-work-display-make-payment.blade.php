@@ -51,7 +51,7 @@
           <tr style="height: 50px;" class="bg-light border-0">
             <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4">
-                Total
+                SubTotal
               </span>
             </td>
             <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
@@ -100,7 +100,7 @@
               @else
                 <input class="w-100 h-90 font-weight-bold pl-3 border-0"
                     type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
-                    wire:keydown.enter="calculateTaxableAmount" wire:change="calculateTaxableAmount" />
+                    wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
               @endif
             </td>
           </tr>
