@@ -33,6 +33,9 @@ class SeatTableWorkDisplayMakePayment extends Component
     public $service_charge = 0;
     public $grand_total;
 
+    /* Amount before taxes (VAT, etc) */
+    public $taxable_amount;
+
     public $discount_percentage = null;
 
     public $returnAmount;
@@ -85,9 +88,12 @@ class SeatTableWorkDisplayMakePayment extends Component
 
         $this->total = $this->seatTable->getCurrentBookingTotalAmount();
 
+        /* Calculate total before taxes. */
+        $this->calculateTaxableAmount();
+
         $this->saleInvoiceAdditions['VAT'] = $this->calculateCurrentBookingVat();
 
-        // $this->grand_total = $this->seatTable->getCurrentBookingGrandTotalAmount();
+        /* Calculate Grand Total */
         $this->calculateGrandTotal();
 
 
@@ -291,6 +297,14 @@ class SeatTableWorkDisplayMakePayment extends Component
 
     public function calculateGrandTotal()
     {
+        /* Todo: Any validation needed ? */
+
+        /* Todo: Really Hard code VAT ? Better way? */
+        $this->grand_total = $this->taxable_amount + $this->saleInvoiceAdditions['VAT'] ;
+    }
+
+    public function calculateTaxableAmount()
+    {
         /* TODO
         $validatedData = $this->validate([
             'discount' => 'required|integer',
@@ -298,16 +312,22 @@ class SeatTableWorkDisplayMakePayment extends Component
         ]);
         */
 
-        $this->grand_total = $this->total;
+        $this->taxable_amount = $this->total;
 
         foreach ($this->saleInvoiceAdditions as $key => $val) {
+
+            /* Dont add VAT (or any other taxes) while calculating taxable amount. */
+            if ($key == 'VAT') {
+                continue;
+            }
+
             if (strtolower(SaleInvoiceAdditionHeading::where('name', $key)->first()->effect) == 'plus') {
                 if (is_numeric($val)) {
-                    $this->grand_total += $val;
+                    $this->taxable_amount += $val;
                 }
             } else if (strtolower(SaleInvoiceAdditionHeading::where('name', $key)->first()->effect) == 'minus') {
                 if (is_numeric($val)) {
-                    $this->grand_total -= $val;
+                    $this->taxable_amount -= $val;
                 }
             } else {
                 dd('Sale invoice addition heading configurations gone wrong! Contact your service provider.');
@@ -432,6 +452,6 @@ class SeatTableWorkDisplayMakePayment extends Component
 
     public function calculateCurrentBookingVat()
     {
-        return ceil(0.13 * $this->total);
+        return ceil(0.13 * $this->taxable_amount);
     }
 }
