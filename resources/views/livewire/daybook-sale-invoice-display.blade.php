@@ -13,92 +13,94 @@
         <div class="card-body p-0">
 
 
-          <div class="table-responsive">
-            <table class="table">
-              <tbody>
-                <tr class="">
-                  <th class="pl-3" style="font-size: calc(1rem + 0.2vw);">
-                    Customer
-                  </th>
-                  <td style="font-weight: bold;" style="font-size: calc(1rem + 0.2vw);">
-                    @if ($saleInvoice->customer)
-                      {{ $saleInvoice->customer->name }}
-                    @else
-                      <span class="text-secondary">
-                        ??
-                      </span>
-                    @endif
-                  </td>
-                </tr>
-                <tr class="text-secondary">
-                  <th class="pl-3" style="font-size: calc(1rem + 0.2vw);">
-                    Bill ID
-                  </th>
-                  <td style="font-size: calc(1rem + 0.2vw);">
-                    {{ $saleInvoice->sale_invoice_id }}
-                  </td>
-                </tr>
-                <tr class="text-secondary">
-                  <th class="pl-3" style="font-size: calc(1rem + 0.2vw);">
-                    Bill Date
-                  </th>
-                  <td style="font-weight: bold;">
-                    {{ $saleInvoice->created_at->toDateString() }}
-                  </td>
-                </tr>
+          <div class="row p-4" style="margin: auto; {{-- background-color: #ffe; --}}">
 
-                <tr class="text-secondary">
-                  <th class="pl-3" style="font-size: calc(1rem + 0.2vw);">
-                    Payment Status
-                  </th>
-                  <td style="font-weight: bold;">
-                    @if ( $saleInvoice->payment_status == 'paid')
-                    <span class="badge badge-pill badge-success">
-                    Paid
-                    </span>
-                    @elseif ( $saleInvoice->payment_status == 'partially_paid')
-                    <span class="badge badge-pill badge-warning">
-                    Partial
-                    </span>
-                    @elseif ( $saleInvoice->payment_status == 'pending')
-                    <span class="badge badge-pill badge-danger">
-                    Pending
-                    </span>
-                    @else
-                    <span class="badge badge-pill badge-secondary">
-                      {{ $saleInvoice->payment_status }}
-                    </span>
-                    @endif
-                   <button class="btn" wire:click="enterMode('showPayments')">
-                     Show payments
-                   </button>
-                  </td>
-                </tr>
-
-                @if ($modes['showPayments'])
-                  <tr class="text-secondary" style="font-size: 1.3rem;">
-                    <th class="pl-3">
-                      Payments
-                    </th>
-                    <td style="font-weight: bold;">
-                      @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
-                        <div>
-                        Rs
-                        {{ $saleInvoicePayment->amount }}
-                        <span class="badge badge-pill ml-3">
-                        {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
-                        </span>
-                        <span class="badge badge-pill ml-3">
-                        {{ $saleInvoicePayment->payment_date }}
-                        </span>
-                        </div>
-                      @endforeach
-                    </td>
-                  </tr>
+            <div class="col-md-3 mb-3">
+              <div class="text-muted-rm mb-1">
+                Customer
+              </div>
+              <div class="h6">
+                @if ($saleInvoice->customer)
+                  {{ $saleInvoice->customer->name }}
+                @else
+                  <span class="text-secondary">
+                    ??
+                  </span>
                 @endif
-              </tbody>
-            </table>
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <div class="text-muted-rm mb-1">
+                Invoice ID
+              </div>
+              <div class="h6">
+                {{ $saleInvoice->sale_invoice_id }}
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <div class="text-muted-rm mb-1">
+                Invoice Date
+              </div>
+              <div class="h6">
+                {{ $saleInvoice->created_at->toDateString() }}
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <div>
+                Payment Status
+              </div>
+              <div>
+                @if ( $saleInvoice->payment_status == 'paid')
+                <span class="badge badge-pill badge-success">
+                Paid
+                </span>
+                @elseif ( $saleInvoice->payment_status == 'partially_paid')
+                <span class="badge badge-pill badge-warning">
+                Partial
+                </span>
+                @elseif ( $saleInvoice->payment_status == 'pending')
+                <span class="badge badge-pill badge-danger">
+                Pending
+                </span>
+                @else
+                <span class="badge badge-pill badge-secondary">
+                  {{ $saleInvoice->payment_status }}
+                </span>
+                @endif
+               <div>
+                 <div class="text-primary" style="font-size: 0.8rem;" role="button" wire:click="enterMode('showPayments')">
+                   Show payments
+                 </div>
+               </div>
+               @if ($modes['showPayments'])
+                 <div>
+                   <div>
+                     Payments
+                   </div>
+                   <div>
+                     @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
+                       <div>
+                       Rs
+                       {{ $saleInvoicePayment->amount }}
+                       <span class="badge badge-pill ml-3">
+                       {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+                       </span>
+                       <span class="badge badge-pill ml-3">
+                       {{ $saleInvoicePayment->payment_date }}
+                       </span>
+                       </div>
+                     @endforeach
+                   </div>
+                 </div>
+               @endif
+              </div>
+            </div>
+
           </div>
+
         </div>
       </div>
 
