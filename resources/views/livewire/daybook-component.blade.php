@@ -120,8 +120,8 @@
           <div class="table-responsive d-none d-md-block">
             <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
               <thead>
-                <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
-                  <th style="width: 100px;">Bill no</th>
+                <tr class="bg-success text-white" style="font-size: 1rem;{{-- background-color: orange;--}}">
+                  <th style="width: 100px;">Invoice no</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Time</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Table</th>
                   <th class="d-none d-md-table-cell">Customer</th>
@@ -135,7 +135,7 @@
                   <th style="width: 200px;">Total</th>
                 </tr>
               </thead>
-              <tbody class="bg-white" style="font-size: 1.3rem;">
+              <tbody class="bg-white" style="font-size: 1rem;">
                 @foreach ($saleInvoices as $saleInvoice)
                   <tr class="" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
                     <td class="text-secondary-rm"
@@ -165,7 +165,7 @@
                     </td>
                     <td class="d-none d-md-table-cell">
                       @if ($saleInvoice->customer)
-                        <i class="fas fa-circle text-success mr-3"></i>
+                        <i class="fas fa-user-circle text-muted mr-2"></i>
                         {{ $saleInvoice->customer->name }}
                       @else
                         <i class="fas fa-exclamation-circle text-warning mr-3"></i>
@@ -200,7 +200,7 @@
                       @endforeach
                     </td>
                     <td class="border d-none d-md-table-cell">
-                      {{ $saleInvoice->getPendingAmount() }}
+                      @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
                     </td>
                     <td class="font-weight-bold">
                       @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp

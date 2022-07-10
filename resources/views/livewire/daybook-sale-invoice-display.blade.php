@@ -1,8 +1,8 @@
 <div>
 
   <div class="border shadow mb-5">
-    <div class="d-flex mb-0 p-2 justify-content-end bg-success-rm text-white-rm border" style="background-color: #eee;">
-      <button class="btn btn-danger border rounded-circle" wire:click="$emit('exitDisplaySaleInvoiceMode')">
+    <div class="d-flex mb-0 p-2 justify-content-end bg-success text-white-rm border" style="{{--background-color: #eee;--}}">
+      <button class="btn btn-light border rounded-circle" wire:click="$emit('exitDisplaySaleInvoiceMode')">
         <i class="fas fa-times fa-2x-rm"></i>
       </button>
     </div>
@@ -13,18 +13,20 @@
         <div class="card-body p-0">
 
 
-          <div class="row p-4" style="margin: auto; {{-- background-color: #ffe; --}}">
+          <div class="row p-4" style="margin: auto;">
 
             <div class="col-md-3 mb-3">
               <div class="text-muted-rm mb-1">
                 Customer
               </div>
-              <div class="h6">
+              <div class="h5">
                 @if ($saleInvoice->customer)
+                  <i class="fas fa-user-circle text-muted mr-2"></i>
                   {{ $saleInvoice->customer->name }}
                 @else
-                  <span class="text-secondary">
-                    ??
+                  <i class="fas fa-exclamation-circle text-muted mr-2"></i>
+                  <span class="text-muted">
+                    None
                   </span>
                 @endif
               </div>
@@ -34,7 +36,7 @@
               <div class="text-muted-rm mb-1">
                 Invoice ID
               </div>
-              <div class="h6">
+              <div class="h5">
                 {{ $saleInvoice->sale_invoice_id }}
               </div>
             </div>
@@ -43,7 +45,7 @@
               <div class="text-muted-rm mb-1">
                 Invoice Date
               </div>
-              <div class="h6">
+              <div class="h5">
                 {{ $saleInvoice->created_at->toDateString() }}
               </div>
             </div>
@@ -84,7 +86,7 @@
                      @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
                        <div>
                        Rs
-                       {{ $saleInvoicePayment->amount }}
+                       @php echo number_format( $saleInvoicePayment->amount ); @endphp
                        <span class="badge badge-pill ml-3">
                        {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
                        </span>
@@ -108,9 +110,9 @@
 
       {{-- Show in bigger screens --}}
       <div class="table-responsive bg-white mb-0 d-none d-md-block">
-        <table class="table table-sm table-bordered table-hover border-dark shadow-sm mb-0">
+        <table class="table table-sm table-bordered-rm table-hover border-dark shadow-sm mb-0">
           <thead>
-            <tr class="bg-success-rm text-white-rm" style="font-size: 1.1rem; background-color: #eee;">
+            <tr class="bg-success-rm text-white-rm" style="font-size: 1.1rem; background-color: #fff;">
               <th>#</th>
               <th>Item</th>
               <th>Price</th>
@@ -225,7 +227,7 @@
             <tr class="border-0">
               <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right border-0 pr-4">
                 <strong>
-                Grand total
+                Total
                 </strong>
               </td>
               <td style="font-size: 1.5rem;" class="font-weight-bold border-0">

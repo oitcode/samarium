@@ -61,7 +61,7 @@
                 btn-success
               @endif
               w-100 h-100 p-4 font-weight-bold text-left"
-              style="font-size: 1rem;
+              style="font-size: 0.8rem;
               {{--
               background-color: orange;
               --}}
@@ -88,7 +88,7 @@
                 btn-success
               @endif
             w-100 h-100 p-4 font-weight-bold text-left"
-            style="font-size: 1rem;
+            style="font-size: 0.8rem;
               @if(Route::current()->getName() == 'sale')
                 background-color: #008450;
               @endif
@@ -111,7 +111,7 @@
               @endif
             w-100 h-100 p-4 font-weight-bold text-left"
 
-            style="font-size: 1rem;
+            style="font-size: 0.8rem;
               @if(Route::current()->getName() == 'cafesale')
                 background-color: #008450;
               @endif
@@ -134,7 +134,7 @@
                 btn-success
               @endif
             w-100 h-100 p-4 font-weight-bold text-left"
-            style="font-size: 1rem;
+            style="font-size: 0.8rem;
               @if(Route::current()->getName() == 'menu')
                 background-color: #008450;
               @endif
@@ -157,7 +157,7 @@
                   btn-success
                 @endif
               w-100 h-100 p-4 font-weight-bold text-left"
-              style="font-size: 1rem;
+              style="font-size: 0.8rem;
                 @if(Route::current()->getName() == 'daybook')
                   background-color: #008450;
                 @endif
@@ -179,7 +179,7 @@
                 @endif
               w-100 h-100 p-4 font-weight-bold text-left"
 
-              style="font-size: 1rem;
+              style="font-size: 0.8rem;
                 @if(Route::current()->getName() == 'weekbook')
                   background-color: #008450;
                 @endif
@@ -202,7 +202,7 @@
                 @endif
               w-100 h-100 p-4 font-weight-bold text-left"
 
-              style="font-size: 1rem;
+              style="font-size: 0.8rem;
                 @if(Route::current()->getName() == 'customer')
                   background-color: #008450;
                 @endif
@@ -222,7 +222,7 @@
                 @endif
               w-100 h-100 p-4 font-weight-bold text-left"
 
-              style="font-size: 1rem;
+              style="font-size: 0.8rem;
                 @if(Route::current()->getName() == 'customer')
                   background-color: #008450;
                 @endif
@@ -246,7 +246,7 @@
                 @endif
               w-100 h-100 p-4 font-weight-bold text-left"
 
-              style="font-size: 1rem;
+              style="font-size: 0.8rem;
                 @if(Route::current()->getName() == 'online-order')
                   background-color: #008450;
                 @endif
@@ -269,7 +269,7 @@
                 @endif
               w-100 h-100 p-4 font-weight-bold text-left"
 
-              style="font-size: 1rem;
+              style="font-size: 0.8rem;
                 @if(Route::current()->getName() == 'online-order')
                   background-color: #008450;
                 @endif
