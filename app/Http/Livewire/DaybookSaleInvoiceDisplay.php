@@ -4,13 +4,22 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use App\SaleInvoiceAdditionHeading;
+
 class DaybookSaleInvoiceDisplay extends Component
 {
     public $saleInvoice;
 
+    public $has_vat;
+
     public $modes = [
         'showPayments' => false,
     ];
+
+    public function mount()
+    {
+        $this->has_vat = $this->hasVat();
+    }
 
     public function render()
     {
@@ -36,5 +45,14 @@ class DaybookSaleInvoiceDisplay extends Component
     public function exitMode($modeName)
     {
         $this->modes[$modeName] = false;
+    }
+
+    public function hasVat()
+    {
+        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

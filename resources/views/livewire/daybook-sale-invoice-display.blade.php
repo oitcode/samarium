@@ -185,18 +185,21 @@
             @endforeach
 
             {{-- Taxable amount --}}
-            <tr class="border-0">
-              <td colspan="4" style="font-size: 1.1rem;"
-                  class="
-                    font-weight-bold text-right border-0 pr-4
-                  ">
-                Taxable amount
-              </td>
-              <td style="font-size: 1.1rem;"
-                  class=" font-weight-bold border-0 pr-4">
-                @php echo number_format( $saleInvoice->getTaxableAmount() ); @endphp
-              </td>
-            </tr>
+            {{-- Todo: Only vat? --}}
+            @if ($has_vat)
+              <tr class="border-0">
+                <td colspan="4" style="font-size: 1.1rem;"
+                    class="
+                      font-weight-bold text-right border-0 pr-4
+                    ">
+                  Taxable amount
+                </td>
+                <td style="font-size: 1.1rem;"
+                    class=" font-weight-bold border-0 pr-4">
+                  @php echo number_format( $saleInvoice->getTaxableAmount() ); @endphp
+                </td>
+              </tr>
+            @endif
 
             {{--Tax sale invoice additions --}}
             @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)

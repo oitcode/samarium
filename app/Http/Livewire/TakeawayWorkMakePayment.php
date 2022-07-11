@@ -36,6 +36,8 @@ class TakeawayWorkMakePayment extends Component
     /* Amount before taxes (VAT, etc) */
     public $taxable_amount;
 
+    public $has_vat = false;
+
     public $discount_percentage = null;
 
     public $returnAmount;
@@ -78,6 +80,8 @@ class TakeawayWorkMakePayment extends Component
 
     public function mount()
     {
+        $this->has_vat = $this->hasVat();
+
         $this->saleInvoicePaymentTypes = SaleInvoicePaymentType::all();
 
         $this->saleInvoiceAdditionHeadings = SaleInvoiceAdditionHeading::all();
@@ -91,7 +95,9 @@ class TakeawayWorkMakePayment extends Component
         /* Calculate total before taxes. */
         $this->calculateTaxableAmount();
 
-        $this->saleInvoiceAdditions['VAT'] = $this->calculateTakeawayVat();
+        if ($this->has_vat) {
+            $this->saleInvoiceAdditions['VAT'] = $this->calculateTakeawayVat();
+        }
 
         /* Calculate Grand Total */
         $this->calculateGrandTotal();
@@ -106,6 +112,7 @@ class TakeawayWorkMakePayment extends Component
 
     public function updatedSaleInvoiceAdditions()
     {
+      $this->updateNumbers();
       $this->calculateGrandTotal();
     }
 
@@ -294,7 +301,11 @@ class TakeawayWorkMakePayment extends Component
         /* Todo: Any validation needed ? */
 
         /* Todo: Really Hard code VAT ? Better way? */
-        $this->grand_total = $this->taxable_amount + $this->saleInvoiceAdditions['VAT'] ;
+        if ($this->has_vat) {
+            $this->grand_total = $this->taxable_amount + $this->saleInvoiceAdditions['VAT'] ;
+        } else {
+            $this->grand_total = $this->taxable_amount;
+        }
     }
 
     public function calculateTaxableAmount()
@@ -441,6 +452,7 @@ class TakeawayWorkMakePayment extends Component
         $this->saleInvoiceAdditions['Discount'] = ($dp / 100) * $this->takeaway->saleInvoice->getTotalAmountRaw();
         $this->saleInvoiceAdditions['Discount'] = ceil ($this->saleInvoiceAdditions['Discount']);
 
+        $this->updateNumbers();
         $this->calculateGrandTotal();
     }
 
@@ -452,7 +464,20 @@ class TakeawayWorkMakePayment extends Component
     public function updateNumbers()
     {
         $this->calculateTaxableAmount();
-        $this->saleInvoiceAdditions['VAT'] = $this->calculateTakeawayVat();
+
+        if ($this->has_vat) {
+            $this->saleInvoiceAdditions['VAT'] = $this->calculateTakeawayVat();
+        }
+
         $this->calculateGrandTotal();
+    }
+
+    public function hasVat()
+    {
+        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

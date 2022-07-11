@@ -5,43 +5,32 @@
     </h1>
   </div>
   <div class="card-body p-0">
-    @if (true || $modes['customer'])
-      <div class="table-responsive mb-0">
-        <table class="table mb-0">
-          <tbody>
-            <tr style="font-size: 1.3rem; height: 50px;">
-              <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
-                <span class="ml-4">
-                  Customer
-                </span>
-              </td>
-              <td class="p-0 h-100 w-50 font-weight-bold border-0">
-                <select class="w-100 h-100 custom-control border-0" wire:model.defer="customer_id">
-                  <option>---</option>
 
-                  @foreach ($customers as $customer)
-                    <option value="{{ $customer->customer_id }}">
-                      {{ $customer->name }}
-                    </option>
-                  @endforeach
-                </select>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    @else
-      <div class="p-3">
-        <button class="btn btn-success mr-3" wire:click="enterMode('customer')">
-          Customer
-        </button>
+    {{-- Customer --}}
+    <div class="table-responsive mb-0">
+      <table class="table mb-0">
+        <tbody>
+          <tr style="font-size: 1.3rem; height: 50px;">
+            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
+              <span class="ml-4">
+                Customer
+              </span>
+            </td>
+            <td class="p-0 h-100 w-50 font-weight-bold border-0">
+              <select class="w-100 h-100 custom-control border-0" wire:model.defer="customer_id">
+                <option>---</option>
 
-        <button wire:loading class="btn">
-          <span class="spinner-border text-info mr-3" role="status">
-          </span>
-        </button>
-      </div>
-    @endif
+                @foreach ($customers as $customer)
+                  <option value="{{ $customer->customer_id }}">
+                    {{ $customer->name }}
+                  </option>
+                @endforeach
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="table-responsive mb-0">
       <table class="table table-bordered-rm mb-0 bg-danger">
@@ -51,7 +40,7 @@
           <tr style="height: 50px;" class="bg-light border-0">
             <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4">
-                SubTotal
+                Subtotal
               </span>
             </td>
             <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
@@ -107,6 +96,8 @@
           @endif
           @endforeach
 
+          {{-- Todo: Only vat? Any other taxes? --}}
+          @if ($has_vat)
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
             <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4 d-inline-block">
@@ -117,6 +108,7 @@
               @php echo number_format( $this->taxable_amount ); @endphp
             </td>
           </tr>
+          @endif
 
 
           {{-- Deal with taxes (VAT, etc) additions now/next/atLast --}}
@@ -148,7 +140,7 @@
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
             <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
               <span class="ml-4 d-inline-block">
-                Grand total
+                Total
               </span>
             </td>
             <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 pt-2 border-0" style="font-size: 2.5rem;">
