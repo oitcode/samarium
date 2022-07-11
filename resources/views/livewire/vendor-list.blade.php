@@ -3,7 +3,7 @@
     <div class="table-responsive bg-white border shadow-sm">
       <table class="table table-hover">
         <thead>
-          <tr class="text-secondary" style="font-size: 1.1rem;">
+          <tr class="bg-success text-white" style="font-size: 1.1rem;">
             <th>ID</th>
             <th>Name</th>
             <th>Pending</th>
