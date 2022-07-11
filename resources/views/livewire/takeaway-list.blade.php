@@ -17,7 +17,7 @@
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
-    <table class="table table-bordered-rm table-hover shadow-sm border" style="font-size: 1.3rem;">
+    <table class="table table-sm table-bordered-rm table-hover shadow-sm border">
       <thead>
         <tr class="bg-success bg-md-light text-white text-md-dark">
           <th>
@@ -49,9 +49,7 @@
 
       <tbody class="bg-white">
         @foreach ($takeaways as $takeaway)
-          <tr
-              {{--  --}}
-              >
+          <tr>
             <td>
               {{ $takeaway->takeaway_id }}
             </td>

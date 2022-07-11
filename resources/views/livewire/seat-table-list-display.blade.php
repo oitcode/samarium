@@ -5,23 +5,15 @@
       h-100
       d-none d-md-block"
       wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})"
-  
-      {{--
-      @if ($seatTable->isBooked())
-        style="background-color: orange;"
-      @else
-      @endif
-      --}}
-  
       role="button"
   >
     <div class="card-header @if ($seatTable->isBooked()) bg-danger-rm @else bg-success text-white @endif">
       <div class="float-left">
-        <h2 class="badge" style="font-size: 1.7rem;">
+        <h2 class="badge" style="font-size: 1.3rem;">
           {{ $seatTable->name }}
         </h2>
       </div>
-      <div class="float-right" style="font-size: 1.5rem;">
+      <div class="float-right" style="font-size: 1rem;">
           @if ($seatTable->isBooked())
             Rs
             @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
@@ -43,10 +35,10 @@
         <div class="col-md-12">
           <div class="table-responsive">
             <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
-              <tr class="border-0" style="font-size: 1.3rem;">
+              <tr class="border-0" style="font-size: 1rem;">
                 <td class="border-0">
                   <i class="fas fa-clock mr-3"></i>
-                  Start time
+                  Start
                 </td>
                 <td class="font-weight-bold border-0">
                   @if ($seatTable->getCurrentBooking())
@@ -56,10 +48,10 @@
                   @endif
                 </td>
               </tr>
-              <tr class="border-0" style="font-size: 1.3rem;">
+              <tr class="border-0" style="font-size: 1rem;">
                 <td class="border-0">
                   <i class="fas fa-shopping-cart mr-3"></i>
-                  Total items
+                  Items
                 </td>
                 <td class="font-weight-bold border-0">
                   @if ($seatTable->isBooked())

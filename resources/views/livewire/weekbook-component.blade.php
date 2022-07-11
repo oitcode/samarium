@@ -90,7 +90,7 @@
   </div>
 
   {{-- Show in bigger screens --}}
-  <div class="d-none d-md-block my-3 text-secondary" style="font-size: 1.3rem;">
+  <div class="d-none d-md-block my-3 text-secondary" style="font-size: 1rem;">
     <div class="row">
       <div class="col-md-3">
         <i class="fas fa-calendar mr-2"></i>
@@ -104,7 +104,7 @@
         {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('l') }}
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-4">
         <input type="date" wire:model.defer="weekStartDate" class="ml-5">
         <button class="btn btn-success" wire:click="setStartOfWeek">
           Go
@@ -118,7 +118,7 @@
     <div class="table-responsive m-0 p-0 d-none d-md-block">
       <table class="table table-bordered-rm table-hover shadow-sm border" style="font-size: 1.1rem;">
         <thead>
-          <tr class="bg-success-rm text-white-rm">
+          <tr class="bg-success text-white">
             <th>
               Date
             </th>

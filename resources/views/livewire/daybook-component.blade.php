@@ -124,7 +124,7 @@
                   <th style="width: 100px;">Invoice no</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Time</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Table</th>
-                  <th class="d-none d-md-table-cell">Customer</th>
+                  <th class="d-none d-md-table-cell" style="width: 500px;">Customer</th>
                   <th class="border" style="width: 200px;">
                     <span class="d-none d-md-inline">
                       Payment

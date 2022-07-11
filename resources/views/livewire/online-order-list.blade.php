@@ -20,7 +20,7 @@
       <div class="table-responsive mb-3 d-none d-md-block">
         <table class="table table-bordered-rm table-hover border">
           <thead>
-            <tr class="text-secondary-rm bg-success-rm text-white-rm" style="font-size: 1.1rem;">
+            <tr class="bg-success text-white" style="font-size: 1.1rem;">
               <th style="width: 120px;">
                 Order ID
               </th>
