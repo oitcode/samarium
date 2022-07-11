@@ -19,7 +19,7 @@
   <div class="table-responsive d-none d-md-block">
     <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
       <thead>
-        <tr class="bg-success text-white p-4">
+        <tr class="bg-success text-white p-4" style="font-size: 1.1rem;">
           <th>
             ID
           </th>
