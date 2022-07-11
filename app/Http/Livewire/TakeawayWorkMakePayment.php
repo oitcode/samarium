@@ -267,7 +267,7 @@ class TakeawayWorkMakePayment extends Component
             $saleInvoice = SaleInvoice::find($saleInvoice->sale_invoice_id);
 
             /* Make accounting entries */
-            $this->makeAccountingEntry($saleInvoice);
+            // $this->makeAccountingEntry($saleInvoice);
 
             DB::commit();
 

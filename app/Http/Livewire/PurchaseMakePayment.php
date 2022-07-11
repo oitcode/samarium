@@ -97,7 +97,7 @@ class PurchaseMakePayment extends Component
             }
 
             /* Make accounting entries */
-            $this->makePurchaseAccountingEntry($this->purchase);
+            // $this->makePurchaseAccountingEntry($this->purchase);
 
             DB::commit();
 
