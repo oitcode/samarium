@@ -17,9 +17,9 @@
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
-    <table class="table table-sm table-bordered-rm table-hover shadow-sm border">
+    <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
       <thead>
-        <tr class="bg-success bg-md-light text-white text-md-dark">
+        <tr class="bg-success text-white p-4">
           <th>
             ID
           </th>
@@ -79,7 +79,7 @@
             <td class="d-none d-md-table-cell">
               @php echo number_format( $takeaway->getPendingAmount() ); @endphp
             </td>
-            <td>
+            <td class="font-weight-bold">
               @php echo number_format( $takeaway->getTotalAmount() ); @endphp
             </td>
             <td>
