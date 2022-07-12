@@ -64,8 +64,7 @@ class ExpenseCreate extends Component
 
             DB::commit();
 
-            $this->emit('ackExpenseCreated');
-            $this->emit('exitCreateMode');
+            $this->emit('expenseCreated');
         } catch (\Exception $e) {
             DB::rollback();
             dd ($e);

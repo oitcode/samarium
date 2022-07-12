@@ -19,6 +19,7 @@ class ExpenseComponent extends Component
         'exitCreateMode',
         'expenseCategoryCreated',
         'exitCategoryCreateMode',
+        'expenseCreated',
     ];
 
     public function render()
@@ -49,6 +50,13 @@ class ExpenseComponent extends Component
 
     public function exitCreateMode()
     {
+        $this->exitMode('create');
+    }
+
+    public function expenseCreated()
+    {
+        session()->flash('message', 'Expense added');
+
         $this->exitMode('create');
     }
 

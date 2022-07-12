@@ -22,6 +22,8 @@ class VendorComponent extends Component
         'clearModes',
         'displayVendor',
         'exitCreateMode',
+
+        'vendorCreated' => 'ackVendorCreated',
     ];
 
     public function render()
@@ -60,5 +62,12 @@ class VendorComponent extends Component
         $this->displayingVendor = $vendor;
 
         $this->enterMode('display');
+    }
+
+    public function ackVendorCreated()
+    {
+        session()->flash('message', 'Vendor created');
+
+        $this->exitMode('create');
     }
 }

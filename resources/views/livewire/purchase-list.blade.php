@@ -46,7 +46,7 @@
   <div class="table-responsive bg-white d-none d-md-block">
     <table class="table table-bordered-rm border mb-0" style="font-size: 1.1rem;">
       <thead>
-        <tr class="text-secondary">
+        <tr class="bg-success text-white">
           <th>
             ID
           </th>

@@ -29,13 +29,13 @@
       <div>
       &nbsp;
       </div>
-      <button class="btn btn-success" style="font-size: 1.3rem;" wire:click="search">
+      <button class="btn btn-success" style="font-size: 1rem;" wire:click="search">
         Search
       </button>
     </div>
 
     <div class="float-right mr-3">
-      <button class="btn btn-danger h-100 p-3 badge-pill" style="font-size: 1.3rem;" wire:click="getCreditors">
+      <button class="btn btn-danger h-100 p-3 badge-pill" style="font-size: 1rem;" wire:click="getCreditors">
         Creditors
       </button>
     </div>

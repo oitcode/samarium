@@ -37,7 +37,7 @@
     <div class="table-responsive bg-white d-none d-md-block">
       <table class="table border mb-0" style="font-size: 1.1rem;">
         <thead>
-          <tr class="bg-success-rm text-white-rm">
+          <tr class="bg-success text-white">
             <th>ID</th>
             <th>Date</th>
             <th>Expense</th>

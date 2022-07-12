@@ -53,6 +53,6 @@ class VendorCreate extends Component
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
 
-        $this->emit('clearModes');
+        $this->emit('vendorCreated');
     }
 }

@@ -79,6 +79,20 @@
     </div>
   </div>
 
+
+  <!-- Flash message div -->
+  @if (session()->has('message'))
+    <div class="p-2">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle mr-3"></i>
+        {{ session('message') }}
+        <button type="button" class="close text-danger border" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  @endif
+
   @if ($modes['create'])
     @livewire ('vendor-create')
   @elseif ($modes['display'])
