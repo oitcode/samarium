@@ -3,19 +3,11 @@
   {{-- Top Menu --}}
   {{-- Show in bigger screens --}}
   <div class="mb-4 d-none d-md-block">
-    <button class="btn btn-success-rm m-0 p-3 border shadow-sm bg-white"
-        wire:click="goToPreviousWeek"
-        style="height: 100px; width: 225px; font-size: 1.5rem;"
-    >
-      <i class="fas fa-arrow-left mr-3"></i>
-      Previous 
+    <button class="btn btn-success-rm m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
+      <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm text-success"></i>
     </button>
-    <button class="btn btn-danger-rm mx-0 p-3 pr-5 border shadow-sm bg-white"
-        wire:click="goToNextWeek"
-        style="height: 100px; width: 225px; font-size: 1.5rem;"
-    >
-      <i class="fas fa-arrow-right mr-3"></i>
-      Next
+    <button class="btn btn-danger-rm mx-0 p-0 badge-pill bg-white" wire:click="goToNextWeek">
+      <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm text-success"></i>
     </button>
 
     <button wire:loading class="btn btn-danger-rm" style="">

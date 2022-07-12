@@ -3,18 +3,12 @@
 
     {{-- Show in bigger screens --}}
     <div class="bg-info-rm mb-4 d-none d-md-block">
-      <button class="btn btn-success-rm mr-4 p-3 border shadow-sm bg-white badge-pill" style="font-size: 1.3rem;" wire:click="setPreviousDay">
-        <i class="fas fa-arrow-left mr-3-rm"></i>
-        @if (true)
-        Prev
-        @endif
+      <button class="btn btn-success-rm mr-4 p-0 bg-white badge-pill" wire:click="setPreviousDay">
+        <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm text-success"></i>
       </button>
 
-      <button class="btn btn-danger-rm m-0 p-3  border shadow-sm bg-white badge-pill" style="font-size: 1.3rem;" wire:click="setNextDay">
-        <i class="fas fa-arrow-right mr-3-rm"></i>
-        @if (true)
-        Next
-        @endif
+      <button class="btn btn-danger-rm m-0 p-0 bg-white badge-pill" wire:click="setNextDay">
+        <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm text-success"></i>
       </button>
 
       <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
@@ -140,90 +134,83 @@
                 </tr>
               </thead>
 
-              @if (count($saleInvoices) > 0)
                 <tbody class="bg-white" style="font-size: 1rem;">
-                  @foreach ($saleInvoices as $saleInvoice)
-                    <tr class="" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
-                      <td class="text-secondary-rm"
-                          style="font-size: 1rem;"
-                          wire:click=""
-                          role="button">
-                        <span class="text-primary">
-                        {{ $saleInvoice->sale_invoice_id }}
-                        </span>
-                      </td>
-                      <td class="d-none d-md-table-cell" style="font-size: 1rem;">
-                        @if (false)
-                        <div>
-                          {{ $saleInvoice->sale_invoice_date }}
-                        </div>
-                        @endif
-                        <div>
-                          {{ $saleInvoice->created_at->format('H:i A') }}
-                        </div>
-                      </td>
-                      <td class="d-none d-md-table-cell">
-                        @if ($saleInvoice->seatTableBooking)
-                        {{ $saleInvoice->seatTableBooking->seatTable->name }}
-                        @else
-                          Takeaway
-                        @endif
-                      </td>
-                      <td class="d-none d-md-table-cell">
-                        @if ($saleInvoice->customer)
-                          <i class="fas fa-user-circle text-muted mr-2"></i>
-                          {{ $saleInvoice->customer->name }}
-                        @else
-                          <i class="fas fa-exclamation-circle text-warning mr-3"></i>
-                          <span class="text-secondary" style="font-size: 1rem;">
-                            Unknown
+                  @if (count($saleInvoices) > 0)
+                    @foreach ($saleInvoices as $saleInvoice)
+                      <tr class="" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
+                        <td class="text-secondary-rm"
+                            style="font-size: 1rem;"
+                            wire:click=""
+                            role="button">
+                          <span class="text-primary">
+                          {{ $saleInvoice->sale_invoice_id }}
                           </span>
-                        @endif
-                      </td>
-                      <td class="border">
-                        @if ( $saleInvoice->payment_status == 'paid')
-                        <span class="badge badge-pill badge-success">
-                        Paid
-                        </span>
-                        @elseif ( $saleInvoice->payment_status == 'partially_paid')
-                        <span class="badge badge-pill badge-warning">
-                        Partial
-                        </span>
-                        @elseif ( $saleInvoice->payment_status == 'pending')
-                        <span class="badge badge-pill badge-danger">
-                          Pending
-                        </span>
-                        @else
-                        <span class="badge badge-pill badge-secondary">
-                          {{ $saleInvoice->payment_status }}
-                        </span>
-                        @endif
+                        </td>
+                        <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+                          @if (false)
+                          <div>
+                            {{ $saleInvoice->sale_invoice_date }}
+                          </div>
+                          @endif
+                          <div>
+                            {{ $saleInvoice->created_at->format('H:i A') }}
+                          </div>
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                          @if ($saleInvoice->seatTableBooking)
+                          {{ $saleInvoice->seatTableBooking->seatTable->name }}
+                          @else
+                            Takeaway
+                          @endif
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                          @if ($saleInvoice->customer)
+                            <i class="fas fa-user-circle text-muted mr-2"></i>
+                            {{ $saleInvoice->customer->name }}
+                          @else
+                            <i class="fas fa-exclamation-circle text-warning mr-3"></i>
+                            <span class="text-secondary" style="font-size: 1rem;">
+                              Unknown
+                            </span>
+                          @endif
+                        </td>
+                        <td class="border">
+                          @if ( $saleInvoice->payment_status == 'paid')
+                          <span class="badge badge-pill badge-success">
+                          Paid
+                          </span>
+                          @elseif ( $saleInvoice->payment_status == 'partially_paid')
+                          <span class="badge badge-pill badge-warning">
+                          Partial
+                          </span>
+                          @elseif ( $saleInvoice->payment_status == 'pending')
+                          <span class="badge badge-pill badge-danger">
+                            Pending
+                          </span>
+                          @else
+                          <span class="badge badge-pill badge-secondary">
+                            {{ $saleInvoice->payment_status }}
+                          </span>
+                          @endif
 
-                        @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
-                        <span class="badge badge-pill ml-3">
-                          {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
-                        </span>
-                        @endforeach
-                      </td>
-                      <td class="border d-none d-md-table-cell">
-                        @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
-                      </td>
-                      <td class="font-weight-bold">
-                        @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
-                      </td>
-                    </tr>
-                  @endforeach
+                          @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
+                          <span class="badge badge-pill ml-3">
+                            {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+                          </span>
+                          @endforeach
+                        </td>
+                        <td class="border d-none d-md-table-cell">
+                          @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
+                        </td>
+                        <td class="font-weight-bold">
+                          @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
+                        </td>
+                      </tr>
+                    @endforeach
+                  @else
+                    {{-- Todo --}} 
+                  @endif
                 </tbody>
-              @else
-                <tbody>
-                  <tr>
-                    <td class="p-4 text-muted" colspan="7">
-                      <i class="fas fa-exclamation-circle mr-3"></i>
-                      No sales
-                    </td>
-                  </tr>
-                </tbody>
-              @endif
               @if (false)
               <tfoot>
                 <tr class="bg-success-rm text-white-rm" style="font-size: 1.5rem; {{--background-image: linear-gradient(to right, white, #abc);--}}">

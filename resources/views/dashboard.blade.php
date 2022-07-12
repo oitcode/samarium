@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section ('content')
 
-  @if (true)
+  @if (false)
   <div class="border-rm mb-3">
     @include ('partials.quick-links')
   </div>
@@ -84,14 +84,31 @@
     <div class="d-none d-md-block">
 
       {{-- TODAY --}}
+      @if (false)
       <h2 class="h5 text-muted mb-3">
         TODAY
       </h2>
+      @endif
 
       <div class="row mb-4">
 
         @if (env('SITE_TYPE') == 'erp')
 
+          @if (false)
+          <div class="col-md-1 d-flex flex-column justify-content-center">
+            <i class="fas fa-arrow-alt-circle-down fa-3x mr-3-rm text-success"></i>
+          </div>
+
+          <div class="col-md-1 d-flex flex-column justify-content-center">
+            <i class="fas fa-arrows-alt fa-3x mr-3-rm text-success"></i>
+          </div>
+
+          <div class="col-md-1 d-flex flex-column justify-content-center">
+            <i class="fas fa-undo fa-3x mr-3-rm text-success"></i>
+          </div>
+          @endif
+
+          @if (true)
           <div class="col-md-2">
             @livewire ('flash-card-total-bookings-today')
           </div>
@@ -101,6 +118,8 @@
               @livewire ('flash-card-total-takeaways-today')
             </div>
           @endif
+          @endif
+
         @endif
 
       </div>
@@ -108,9 +127,6 @@
       <hr />
 
       {{-- NOW --}}
-      <h2 class="h5 text-muted mb-3">
-        NOW
-      </h2>
 
       <div class="row mb-4">
 

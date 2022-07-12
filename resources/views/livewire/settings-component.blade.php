@@ -1,8 +1,9 @@
 <div>
   <div class="card">
-    <div class="card-header ">
+    <div class="card-header bg-success text-white">
 
-      <h2 class="d-inline">
+      <h2 class="h4">
+        <i class="fas fa-cog mr-2"></i>
         Settings
       </h2>
 
