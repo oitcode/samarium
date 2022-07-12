@@ -76,12 +76,15 @@
 
     {{-- Show on bigger screens --}}
     <div class="d-none d-md-block">
+
+      {{-- TODAY --}}
+      <h2 class="h5 text-muted mb-3">
+        TODAY
+      </h2>
+
       <div class="row mb-4">
 
         @if (env('SITE_TYPE') == 'erp')
-          <div class="col-md-3">
-            @livewire ('flash-card-current-bookings')
-          </div>
 
           <div class="col-md-3">
             @livewire ('flash-card-total-bookings-today')
@@ -92,6 +95,23 @@
               @livewire ('flash-card-total-takeaways-today')
             </div>
           @endif
+        @endif
+
+      </div>
+
+      <hr />
+
+      {{-- NOW --}}
+      <h2 class="h5 text-muted mb-3">
+        NOW
+      </h2>
+
+      <div class="row mb-4">
+
+        @if (env('SITE_TYPE') == 'erp')
+          <div class="col-md-3">
+            @livewire ('flash-card-current-bookings')
+          </div>
         @endif
 
       </div>
@@ -144,6 +164,27 @@
       @livewire ('cms.nav-menu-component')
       @livewire ('ecs.webpage-component')
     @endif
+  @endif
+
+  @if (false)
+  <div class="border-top mt-5">
+    <div class="row">
+      <div class="col-md-2">
+        <i class="fas fa-edit fa-3x"></i>
+      </div>
+      <div class="col-md-2">
+        <i class="fas fa-download fa-3x"></i>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
   @endif
 
 @endsection
