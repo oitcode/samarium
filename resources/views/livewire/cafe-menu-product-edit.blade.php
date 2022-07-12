@@ -53,6 +53,15 @@
     </div>
 
     <div class="form-group">
+      <label for="">Stock applicable</label>
+      <select class="custom-select" wire:model.defer="stock_applicable" style="font-size: 1.3rem;">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      @error('stock_applicable') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
       <label for="">Stock count</label>
       <input type="text"
           class="form-control"

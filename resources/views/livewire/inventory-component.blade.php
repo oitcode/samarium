@@ -56,16 +56,20 @@
       <thead>
         <tr class="bg-success text-white">
           <th>Item</th>
+          <th>Stock applicable</th>
           <th>Stock</th>
         </tr>
       </thead>
 
       <tbody>
         @foreach ($products as $product)
-          @if (! is_null($product->stock_count))
+          @if ($product->stock_applicable == 'yes')
             <tr>
               <td>
                 {{ $product->name }}
+              </td>
+              <td>
+                {{ $product->stock_applicable }}
               </td>
               <td>
                 {{ $product->stock_count }}
