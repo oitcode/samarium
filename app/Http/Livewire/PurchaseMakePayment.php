@@ -26,6 +26,8 @@ class PurchaseMakePayment extends Component
     public $paid_amount;
     public $purchase_payment_type_id;
     public $total;
+    public $vat;
+    public $grand_total;
 
     public $purchasePaymentTypes;
 
@@ -38,6 +40,8 @@ class PurchaseMakePayment extends Component
         $this->purchasePaymentTypes = PurchasePaymentType::all();
 
         $this->total = $this->purchase->getTotalAmount();
+
+        $this->updateNumbers();
 
         return view('livewire.purchase-make-payment');
     }
@@ -113,5 +117,15 @@ class PurchaseMakePayment extends Component
     public function finishPayment()
     {
         $this->emit('exitMakePaymentMode');
+    }
+
+    public function updateNumbers()
+    {
+        $this->grand_total = $this->total + $this->vat;
+    }
+
+    public function updatedVat()
+    {
+        $this->updateNumbers();
     }
 }

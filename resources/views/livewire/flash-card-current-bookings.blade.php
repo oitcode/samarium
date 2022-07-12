@@ -8,18 +8,18 @@
         <div class="">
           <div class="d-flex justify-content-between">
 
-            <h2 class="h4 mb-4">
+            <h2 class="h5 mb-4">
               Current bookings
             </h2>
 
-            <i class="fas fa-bell fa-2x"></i>
+            <i class="fas fa-bell fa-2x-rm"></i>
           </div>
 
-          <h2 class="h1">
+          <h2 class="h2">
             {{ $currentBookingsCount }}
           </h2>
   
-          <div class="h4 font-weight-bold mt-3">
+          <div class="h5 font-weight-bold mt-3">
             Rs
             @php echo number_format( $currentBookingsTotalAmount ); @endphp
           </div>

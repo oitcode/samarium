@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section ('content')
 
+  @if (true)
+  <div class="border-rm mb-3">
+    @include ('partials.quick-links')
+  </div>
+  @endif
+
   @if (env('SITE_TYPE') == 'erp')
 
     {{-- Show on smaller screens --}}
@@ -86,12 +92,12 @@
 
         @if (env('SITE_TYPE') == 'erp')
 
-          <div class="col-md-3">
+          <div class="col-md-2">
             @livewire ('flash-card-total-bookings-today')
           </div>
 
           @if (env('SITE_TYPE') == 'erp')
-            <div class="col-md-3">
+            <div class="col-md-2">
               @livewire ('flash-card-total-takeaways-today')
             </div>
           @endif
@@ -109,7 +115,7 @@
       <div class="row mb-4">
 
         @if (env('SITE_TYPE') == 'erp')
-          <div class="col-md-3">
+          <div class="col-md-2">
             @livewire ('flash-card-current-bookings')
           </div>
         @endif
@@ -164,27 +170,6 @@
       @livewire ('cms.nav-menu-component')
       @livewire ('ecs.webpage-component')
     @endif
-  @endif
-
-  @if (false)
-  <div class="border-top mt-5">
-    <div class="row">
-      <div class="col-md-2">
-        <i class="fas fa-edit fa-3x"></i>
-      </div>
-      <div class="col-md-2">
-        <i class="fas fa-download fa-3x"></i>
-      </div>
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-2">
-      </div>
-    </div>
-  </div>
   @endif
 
 @endsection

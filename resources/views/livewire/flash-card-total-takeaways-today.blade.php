@@ -8,18 +8,18 @@
         <div class="">
           <div class="d-flex justify-content-between">
 
-            <h2 class="h4 mb-4">
+            <h2 class="h5 mb-4">
               Takeaways
             </h2>
 
-            <i class="fas fa-skating fa-2x text-muted"></i>
+            <i class="fas fa-skating fa-2x-rm text-muted"></i>
           </div>
 
-          <h2 class="h1">
+          <h2 class="h2">
             {{ $count }}
           </h2>
   
-          <div class="h4 font-weight-bold mt-3">
+          <div class="h5 font-weight-bold mt-3">
             Rs
             @php echo number_format( $todayTakeawaysTotalAmount ); @endphp
           </div>
