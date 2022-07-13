@@ -49,11 +49,11 @@
 
           <tbody class="bg-white">
             @foreach ($websiteOrders as $order)
-              <tr style="font-size: 1.1rem;" role="button" wire:click="$emit('displayOnlineOrder', {{ $order->website_order_id }})">
+              <tr style="" role="button" wire:click="$emit('displayOnlineOrder', {{ $order->website_order_id }})">
                 <td>
                   {{ $order->website_order_id }}
                 </td>
-                <td class="" style="font-size: 1.1rem;">
+                <td class="" style="">
                   @if ($order->created_at->isToday())
                     <span class="text-success" style="font-weight: bold;">
                       Today
@@ -68,7 +68,7 @@
                 <td class="text-secondary-rm" style="">
                   {{ \Illuminate\Support\Str::limit($order->address, 15, $end=' ...') }}
                 </td>
-                <td class="text-secondary-rm" style="">
+                <td class="text-secondary-rm font-weight-bold" style="font-size: 0.9rem;">
                   Rs
                   @php echo number_format( $order->getTotalAmount() ); @endphp
                 </td>
