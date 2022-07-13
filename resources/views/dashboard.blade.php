@@ -109,31 +109,47 @@
           @endif
 
           @if (true)
-          <div class="col-md-2">
-            @livewire ('flash-card-total-bookings-today')
-          </div>
 
-          @if (env('SITE_TYPE') == 'erp')
             <div class="col-md-2">
-              @livewire ('flash-card-total-takeaways-today')
+              @livewire ('flash-card-total-sales-today')
             </div>
-          @endif
+
+            <div class="col-md-2">
+              @livewire ('flash-card-total-purchase-today')
+            </div>
+
+            <div class="col-md-2">
+              @livewire ('flash-card-total-expense-today')
+            </div>
+
+            @if (false)
+              <div class="col-md-2">
+                @livewire ('flash-card-total-bookings-today')
+              </div>
+
+              @if (env('SITE_TYPE') == 'erp')
+                <div class="col-md-2">
+                  @livewire ('flash-card-total-takeaways-today')
+                </div>
+              @endif
+            @endif
           @endif
 
         @endif
 
       </div>
 
-      <hr />
 
       {{-- NOW --}}
 
       <div class="row mb-4">
 
-        @if (env('SITE_TYPE') == 'erp')
-          <div class="col-md-2">
-            @livewire ('flash-card-current-bookings')
-          </div>
+        @if (false)
+          @if (env('SITE_TYPE') == 'erp')
+            <div class="col-md-2">
+              @livewire ('flash-card-current-bookings')
+            </div>
+          @endif
         @endif
 
       </div>
