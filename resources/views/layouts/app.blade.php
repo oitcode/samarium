@@ -455,6 +455,37 @@
         @guest
         @else
 
+          <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
+            <a href="{{ route('dashboard-purchase') }}" class="btn btn-light p-3">
+              <i class="fas fa-shopping-cart text-muted mr-2"></i>
+              Purchase
+            </a>
+          </div>
+          <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
+            <a href="{{ route('dashboard-expense') }}" class="btn btn-light p-3">
+              <i class="fas fa-tools text-muted mr-2"></i>
+              Expense
+            </a>
+          </div>
+          <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
+            <a href="{{ route('dashboard-vendor') }}" class="btn btn-light p-3">
+              <i class="fas fa-users text-muted mr-2"></i>
+              Vendors
+            </a>
+          </div>
+          <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
+            <a href="{{ route('dashboard-report') }}" class="btn btn-light p-3">
+              <i class="fas fa-chart-line text-muted mr-2"></i>
+              Report
+            </a>
+          </div>
+          <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
+            <a href="{{ route('dashboard-inventory') }}" class="btn btn-light p-3">
+              <i class="fas fa-dolly text-muted mr-2"></i>
+              Inventory
+            </a>
+          </div>
+
           <div class="float-right text-white border-right-rm" style="font-size: 1.3rem;">
             <div class="dropdown">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -503,6 +534,7 @@
             </div>
           </div>
 
+          @if (false)
           <div class="float-right mx-4-rm mr-4-rm px-4-rm text-white" style="font-size: 1.3rem;">
             <div class="dropdown">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -533,6 +565,7 @@
               </div>
             </div>
           </div>
+          @endif
 
           @if (env('SITE_TYPE') == 'ecs')
           <div class="float-right mx-4 px-4 text-white border-right-rm" style="font-size: 1.3rem;">
