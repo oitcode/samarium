@@ -22,6 +22,8 @@ class CustomerComponent extends Component
         'clearModes',
         'displayCustomer',
         'exitCreateMode',
+
+        'customerCreated' => 'ackCustomerCreated',
     ];
 
     public $totalCustomers;
@@ -72,6 +74,13 @@ class CustomerComponent extends Component
 
     public function exitCreateMode()
     {
+        $this->exitMode('create');
+    }
+
+    public function ackCustomerCreated()
+    {
+        session()->flash('message', 'Customer created');
+
         $this->exitMode('create');
     }
 }

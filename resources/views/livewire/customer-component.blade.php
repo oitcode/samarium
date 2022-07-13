@@ -92,6 +92,21 @@
     </div>
   </div>
 
+
+  <!-- Flash message div -->
+  @if (session()->has('message'))
+    <div class="p-2">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle mr-3"></i>
+        {{ session('message') }}
+        <button type="button" class="close text-danger border" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  @endif
+
+
   @if ($modes['create'])
     @livewire ('customer-create')
   @elseif ($modes['list'])
@@ -102,15 +117,15 @@
     <div class="row" style="margin: auto;">
       <div class="col-md-3 shadow-sm p-0 mr-5 mb-4">
         <div class="card">
-          <div class="card-body p-0">
+          <div class="card-body p-0 bg-success text-white">
             <div class="d-flex w-100">
               <div class="p-3">
-                <h2 class="text-secondary mb-4" style="font-size: 1.3rem;">Customers</h2>
+                <h2 class="mb-4" style="font-size: 1.3rem;">Customers</h2>
                 <h2>{{ $totalCustomers }}</h2>
               </div>
               <div class="d-flex justify-content-center w-50">
                 <div class="d-flex flex-column justify-content-center">
-                  <i class="fas fa-users fa-2x text-success"></i>
+                  <i class="fas fa-users fa-2x"></i>
                 </div>
               </div>
             </div>
@@ -119,15 +134,15 @@
       </div>
       <div class="col-md-3 shadow-sm p-0 mr-5 mb-4">
         <div class="card">
-          <div class="card-body p-0">
+          <div class="card-body p-0 bg-danger text-white">
             <div class="d-flex w-100">
               <div class="p-3">
-                <h2 class="text-secondary mb-4" style="font-size: 1.3rem;">Debtors</h2>
+                <h2 class="mb-4" style="font-size: 1.3rem;">Debtors</h2>
                 <h2>{{ $totalDebtors }}</h2>
               </div>
               <div class="d-flex justify-content-center w-50">
                 <div class="d-flex flex-column justify-content-center">
-                  <i class="fas fa-exclamation-circle fa-2x text-danger"></i>
+                  <i class="fas fa-exclamation-circle fa-2x"></i>
                 </div>
               </div>
             </div>

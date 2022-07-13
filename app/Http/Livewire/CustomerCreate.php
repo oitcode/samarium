@@ -47,12 +47,12 @@ class CustomerCreate extends Component
             Customer::create($validatedData);
 
             DB::commit();
+
+            $this->emit('customerCreated');
         } catch (\Exception $e) {
             DB::rollback();
             dd ($e);
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
-
-        $this->emit('clearModes');
     }
 }

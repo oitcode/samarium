@@ -156,10 +156,10 @@
 
         <tfoot class="bg-white">
           <tr>
-            <td colspan="3" class="text-right mr-3 font-weight-bold" style="font-size: 2rem;">
+            <td colspan="3" class="text-right mr-3 font-weight-bold" style="font-size: 1.3rem;">
               Total
             </td>
-            <td class="font-weight-bold" style="font-size: 2rem;">
+            <td class="font-weight-bold" style="font-size: 1.3rem;">
               @php echo number_format($totalAmount); @endphp
             </td>
           </tr>
