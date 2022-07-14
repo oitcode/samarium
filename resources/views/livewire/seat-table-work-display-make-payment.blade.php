@@ -58,7 +58,7 @@
                 Subtotal
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(0.6rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
               @php echo number_format( $this->total ); @endphp
             </td>
           </tr>
@@ -104,6 +104,7 @@
               @else
                 <input class="w-100 h-90 font-weight-bold pl-3 border-0"
                     type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                    style="font-size: calc(1rem + 0.2vw);"
                     wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
               @endif
             </td>
@@ -145,7 +146,7 @@
                   </span>
                 @endif
               </td>
-              <td class="pl-3 h-100 font-weight-bold border-0" style="font-size: calc(0.6rem + 0.2vw);">
+              <td class="pl-3 h-100 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
                 @php echo number_format( $val ); @endphp
               </td>
             </tr>
@@ -158,7 +159,7 @@
                 Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1.3rem + 0.2vw);">
               @php echo number_format( $this->grand_total ); @endphp
             </td>
           </tr>
@@ -185,9 +186,9 @@
               @enderror
             </td>
             <td class="p-0 h-100 font-weight-bold border-0">
-              <input class="w-100 h-100 font-weight-bold border-0"
+              <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
-                  style="font-size: calc(1rem + 0.2vw); background-color: #afa; outline: none;"
+                  style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
                   wire:model.defer="tender_amount" />
             </td>
           </tr>
