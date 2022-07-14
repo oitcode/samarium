@@ -11,7 +11,7 @@
     <div class="table-responsive m-0">
       <table class="table table-bordered m-0">
         <thead>
-          <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;">
+          <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
             <th>Search Item</th>
             <th>Category</th>
             <th>Item</th>
@@ -73,13 +73,13 @@
     <div class="p-2 m-0" style="{{--background-image: linear-gradient(to right, white, #abc);--}}">
       <div class="row">
         <div class="col-md-8">
-          <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSeatTableBooking" style="width: 110px; height: 70px; font-size: 1.3rem;">
+          <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSeatTableBooking" style="font-size: calc(0.7rem + 0.2vw);">
             <i class="fas fa-plus mr-2"></i>
             Add
           </button>
   
           @if (true)
-          <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="width: 110px; height: 70px; font-size: 1.3rem;">
+          <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="font-size: calc(0.7rem + 0.2vw);">
             Reset
           </button>
           @endif
@@ -93,7 +93,7 @@
         @if ($selectedProduct != null)
           <div class="col-md-4" style="height: 50px;">
             <div class="float-right">
-              <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 80px;">
+              <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
             </div>
             <div class="clearfix">
             </div>

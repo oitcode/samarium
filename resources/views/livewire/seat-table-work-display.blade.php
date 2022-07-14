@@ -10,9 +10,11 @@
     <div class="col-md-7 mb-3">
       <div class="card mb-0">
         <div class="card-header bg-success-rm text-white-rm">
-          <h1 class="d-inline" style="font-size: 2rem;">
+          @if (true)
+          <h1 class="d-inline" style="font-size: calc(1rem + 0.2vw);">
             {{ $seatTable->name }}
           </h2>
+          @endif
 
           <div class="d-inline">
             <button wire:loading class="btn">
@@ -48,25 +50,25 @@
             @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
             {{-- Show in bigger screens --}}
             <div class="table-responsive mb-0 d-none d-md-block">
-              <table class="table table-bordered table-hover border-dark shadow-sm mb-0">
+              <table class="table table-bordered-rm table-hover border-dark shadow-sm mb-0">
                 <thead>
-                  <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+                  <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
                     @can ('is-admin')
                     <th>--</th>
                     @endcan
                     <th class="d-none d-md-table-cell">#</th>
-                    <th>Item</th>
+                    <th colspan="2">Item</th>
                     <th>Price</th>
                     <th>Qty</th>
                     <th>Amount</th>
                   </tr>
                 </thead>
   
-                <tbody class="bg-white" style="font-size: 1.3rem;">
+                <tbody class="bg-white" style="font-size: calc(0.6rem + 0.2vw);">
                   @if ($seatTable->getCurrentBooking()->hasSaleInvoice())
                     @if ($seatTable->isBooked() && count($seatTable->getCurrentBookingItems()) > 0)
                       @foreach ($seatTable->getCurrentBookingItems() as $item)
-                      <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
+                      <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm">
                         @can ('is-admin')
                         <td>
                           <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
@@ -76,8 +78,10 @@
                         @endcan
 
                         <td class="d-none d-md-table-cell text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+                        <td style="width: 35px;">
+                          <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 25px; height: 25px;">
+                        </td>
                         <td>
-                          <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                           {{ $item->product->name }}
                         </td>
                         <td>
@@ -103,12 +107,12 @@
                 @can ('is-admin')
                 <tbody class="bg-white">
                   <tr class="d-none d-md-table-row">
-                    <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+                    <td colspan="6" style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold text-right">
                       <strong>
-                      TOTAL
+                      Total
                       </strong>
                     </td>
-                    <td style="font-size: 1.5rem;" class="font-weight-bold">
+                    <td style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold">
                       @if ($seatTable->isBooked())
                         @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
                       @else
