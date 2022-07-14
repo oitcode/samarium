@@ -8,7 +8,7 @@
           btn-success text-white
         @endif
         m-0 border shadow-sm badge-pill mr-3"
-        style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('create')">
+        style="font-size: 1.1rem;" wire:click="enterMode('create')">
       <i class="fas fa-plus-circle mr-3"></i>
       New
     </button>
@@ -18,7 +18,7 @@
           btn-success text-white
         @endif
         m-0 border shadow-sm badge-pill mr-3"
-        style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('list')">
+        style="font-size: 1.1rem;" wire:click="enterMode('list')">
       <i class="fas fa-list mr-3"></i>
       List
     </button>
@@ -39,7 +39,7 @@
 
     <button class="btn btn-primary-rm m-0 float-right border-rm bg-white-rm text-secondary-rm d-none d-md-block"
         wire:click="clearModes"
-        style="height: 100px; width: 225px; font-size: 1.5rem;">
+        style="font-size: 1.3rem;">
       <i class="fas fa-shopping-cart mr-3"></i>
       Purchase
     </button>

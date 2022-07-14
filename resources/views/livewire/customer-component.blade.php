@@ -9,7 +9,7 @@
           bg-white
         @endif
         m-0 border shadow-sm badge-pill mr-3"
-        style="height: 75px; width: 150px; font-size: 1.3rem;"
+        style="font-size: 1.1rem;"
         wire:click="enterMode('create')">
       <i class="fas fa-plus-circle mr-3"></i>
       New
@@ -22,7 +22,7 @@
           bg-white
         @endif
         m-0 border shadow-sm badge-pill mr-3"
-        style="height: 75px; width: 150px; font-size: 1.3rem;"
+        style="font-size: 1.1rem;"
         wire:click="enterMode('list')">
       <i class="fas fa-list mr-3"></i>
       List

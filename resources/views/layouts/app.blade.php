@@ -35,7 +35,7 @@
 <body>
   <div id="">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-1">
 
       {{-- Show in bigger screens --}}
       <div class="d-none d-md-block">
@@ -43,10 +43,14 @@
         <div class="text-center border-rm">
           <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-3 pl-4 font-weight-bold text-left text-secondary" style="font-size: 1rem;">
             @if (true)
-            <i class="far fa-check-circle fa-2x-rm mr-3 text-info" style="font-size: 1.3rem;"></i>
+            <div class="d-flex justify-content-center">
+              <i class="far fa-check-circle fa-2x-rm text-info" style="font-size: 1.3rem;"></i>
+            </div>
             @endif
             <span class="" style="font-size: 1.3rem;">
-            OPay
+            @if (false)
+              OPay
+            @endif
             </span>
           </a>
         </div>
@@ -60,8 +64,8 @@
               @else
                 btn-success
               @endif
-              w-100 h-100 p-4 font-weight-bold text-left"
-              style="font-size: 0.8rem;
+              w-100 h-100 py-3 font-weight-bold text-left"
+              style="font-size: calc(0.6rem + 0.15vw);
               {{--
               background-color: orange;
               --}}
@@ -71,8 +75,17 @@
               "
               >
 
-            <i class="fas fa-tv mr-3"></i>
-            DASHBOARD
+            <div class="d-flex flex-column">
+              <div class="d-flex justify-content-center">
+                <i class="fas fa-tv"></i>
+              </div>
+              <div class="d-flex justify-content-center">
+                @if (true)
+                  Dashboard
+                @endif
+              </div>
+            </div>
+
           </a>
         </div>
         @endcan
@@ -87,15 +100,23 @@
               @else
                 btn-success
               @endif
-            w-100 h-100 p-4 font-weight-bold text-left"
-            style="font-size: 0.8rem;
+            w-100 h-100 p-4-rm font-weight-bold text-left"
+            style="font-size: calc(0.6rem + 0.15vw);
               @if(Route::current()->getName() == 'sale')
                 background-color: #008450;
               @endif
             ">
 
-            <i class="fas fa-shipping-fast mr-3"></i>
-            TAKEAWAY
+            <div class="d-flex flex-column">
+              <div class="d-flex justify-content-center">
+                <i class="fas fa-shipping-fast"></i>
+              </div>
+              <div class="d-flex justify-content-center">
+                @if (true)
+                  Takeaway
+                @endif
+              </div>
+            </div>
 
           </a>
         </div>
@@ -109,16 +130,24 @@
               @else
                 btn-success
               @endif
-            w-100 h-100 p-4 font-weight-bold text-left"
+            w-100 h-100 p-4-rm font-weight-bold text-left"
 
-            style="font-size: 0.8rem;
+            style="font-size: calc(0.6rem + 0.15vw);
               @if(Route::current()->getName() == 'cafesale')
                 background-color: #008450;
               @endif
             ">
 
-            <i class="fas fa-table mr-3"></i>
-            TABLES
+            <div class="d-flex flex-column">
+              <div class="d-flex justify-content-center">
+                <i class="fas fa-table"></i>
+              </div>
+              <div class="d-flex justify-content-center">
+                @if (true)
+                  Tables
+                @endif
+              </div>
+            </div>
 
           </a>
         </div>
@@ -133,15 +162,23 @@
               @else
                 btn-success
               @endif
-            w-100 h-100 p-4 font-weight-bold text-left"
-            style="font-size: 0.8rem;
+            w-100 h-100 p-4-rm font-weight-bold text-left"
+            style="font-size: calc(0.6rem + 0.15vw);
               @if(Route::current()->getName() == 'menu')
                 background-color: #008450;
               @endif
             ">
 
-            <i class="fas fa-list mr-3"></i>
-            MENU
+            <div class="d-flex flex-column">
+              <div class="d-flex justify-content-center">
+                <i class="fas fa-list"></i>
+              </div>
+              <div class="d-flex justify-content-center">
+                @if (true)
+                  Menu
+                @endif
+              </div>
+            </div>
 
           </a>
         </div>
@@ -156,15 +193,23 @@
                 @else
                   btn-success
                 @endif
-              w-100 h-100 p-4 font-weight-bold text-left"
-              style="font-size: 0.8rem;
+              w-100 h-100 p-4-rm font-weight-bold text-left"
+              style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'daybook')
                   background-color: #008450;
                 @endif
               ">
 
-              <i class="fas fa-book mr-3"></i>
-              DAYBOOK
+            <div class="d-flex flex-column">
+              <div class="d-flex justify-content-center">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="d-flex justify-content-center">
+                @if (true)
+                  Daybook
+                @endif
+              </div>
+            </div>
 
             </a>
           </div>
@@ -177,16 +222,24 @@
                 @else
                   btn-success
                 @endif
-              w-100 h-100 p-4 font-weight-bold text-left"
+              w-100 h-100 p-4-rm font-weight-bold text-left"
 
-              style="font-size: 0.8rem;
+              style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'weekbook')
                   background-color: #008450;
                 @endif
               ">
 
-              <i class="fas fa-book mr-3"></i>
-              WEEKBOOK
+            <div class="d-flex flex-column">
+              <div class="d-flex justify-content-center">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="d-flex justify-content-center">
+                @if (true)
+                  Weekbook
+                @endif
+              </div>
+            </div>
 
             </a>
           </div>
@@ -200,15 +253,23 @@
                 @else
                     btn-success
                 @endif
-              w-100 h-100 p-4 font-weight-bold text-left"
+              w-100 h-100 p-4-rm font-weight-bold text-left"
 
-              style="font-size: 0.8rem;
+              style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'customer')
                   background-color: #008450;
                 @endif
               ">
-                <i class="fas fa-users mr-3"></i>
-                CUSTOMER
+                <div class="d-flex flex-column">
+                  <div class="d-flex justify-content-center">
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    @if (true)
+                      Customer
+                    @endif
+                  </div>
+                </div>
               </a>
             </div>
           @elseif (env('SITE_TYPE') == 'ecs')
@@ -220,15 +281,27 @@
                 @else
                     btn-success
                 @endif
-              w-100 h-100 p-4 font-weight-bold text-left"
+              w-100 h-100 p-4-rm font-weight-bold text-left"
 
-              style="font-size: 0.8rem;
+              style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'customer')
                   background-color: #008450;
                 @endif
               ">
                 <i class="fas fa-users mr-3"></i>
-                STUDENTS
+                @if (false)
+                  Students
+                @endif
+                <div class="d-flex flex-column">
+                  <div class="d-flex justify-content-center">
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    @if (true)
+                      Students
+                    @endif
+                  </div>
+                </div>
               </a>
             </div>
           @endif
@@ -244,16 +317,24 @@
                 @else
                     btn-success
                 @endif
-              w-100 h-100 p-4 font-weight-bold text-left"
+              w-100 h-100 p-4-rm font-weight-bold text-left"
 
-              style="font-size: 0.8rem;
+              style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'online-order')
                   background-color: #008450;
                 @endif
               ">
 
-              <i class="fas fa-cloud-download-alt mr-3"></i>
-              WEBORDER
+              <div class="d-flex flex-column">
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-cloud-download-alt"></i>
+                </div>
+                <div class="d-flex justify-content-center">
+                  @if (true)
+                    Webborder
+                  @endif
+                </div>
+              </div>
 
             </a>
           </div>
@@ -267,16 +348,18 @@
                 @else
                     btn-success
                 @endif
-              w-100 h-100 p-4 font-weight-bold text-left"
+              w-100 h-100 p-4-rm font-weight-bold text-left"
 
-              style="font-size: 0.8rem;
+              style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'online-order')
                   background-color: #008450;
                 @endif
               ">
 
               <i class="fas fa-comment mr-3"></i>
-              CONTACT MESSAGES
+              @if (false)
+                Contact messages
+              @endif
 
             </a>
           </div>
@@ -448,7 +531,7 @@
 
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-11">
       {{-- TOP HEADER SECTION --}}
       @if (true)
       <div class="bg-white py-2 text-right d-none d-md-block mb-3 border-bottom-rm">

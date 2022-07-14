@@ -4,12 +4,12 @@
 
     {{-- Show in bigger screens --}}
     <button class="btn border shadow-sm m-0 badge-pill mr-3 d-none d-md-inline-block"
-        style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('create')">
+        style="{{-- height: 75px; width: 150px; --}} font-size: 1.1rem;" wire:click="enterMode('create')">
       <i class="fas fa-plus-circle mr-3"></i>
       New
     </button>
     <button class="btn border shadow-sm m-0 badge-pill mr-3 d-none d-md-inline-block"
-        style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('list')">
+        style="{{-- height: 75px; width: 150px; --}} font-size: 1.1rem;" wire:click="enterMode('list')">
       <i class="fas fa-list mr-3"></i>
       List
     </button>
@@ -28,7 +28,7 @@
     </button>
 
     <button class="btn btn-success m-0 float-right d-none d-md-block"
-        style="height: 100px; width: 225px; font-size: 1.5rem;">
+        style="{{-- height: 100px; width: 225px; --}} font-size: 1.3rem;">
       <i class="fas fa-shipping-fast mr-3"></i>
       Takeaway
     </button>

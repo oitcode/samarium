@@ -1,5 +1,6 @@
 <div>
   <!-- Menu tool bar -->
+  @if (false)
   <div class="mb-3">
     <button class="btn
         @if (true || $modes['create'])
@@ -48,6 +49,7 @@
     <div class="clearfix">
     </div>
   </div>
+  @endif
   <!-- ./Menu tool bar -->
 
   {{-- Simple list --}}

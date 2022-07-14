@@ -5,14 +5,14 @@
 
     <button class="btn
         m-0 border shadow-sm badge-pill mr-3"
-        style="height: 75px; width: 150px; font-size: 1.3rem;" wire:click="enterMode('list')">
+        style="font-size: 1.1rem;" wire:click="enterMode('list')">
       <i class="fas fa-list mr-3"></i>
       List
     </button>
 
     <button class="btn btn-success-rm m-0 float-right"
         wire:click="clearModes"
-        style="height: 100px; width: 225px; font-size: 1.5rem;">
+        style="font-size: 1.3rem;">
       <i class="fas fa-cloud-download-alt"></i>
       Online orders
     </button>
