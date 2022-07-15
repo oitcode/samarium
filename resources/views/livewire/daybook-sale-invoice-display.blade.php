@@ -112,7 +112,7 @@
       <div class="table-responsive bg-white mb-0 d-none d-md-block">
         <table class="table table-sm table-bordered-rm table-hover border-dark shadow-sm mb-0">
           <thead>
-            <tr class="bg-success-rm text-white-rm" style="font-size: 1.1rem; background-color: #fff;">
+            <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.8rem + 0.2vw);">
               <th>#</th>
               <th>Item</th>
               <th>Price</th>
@@ -123,7 +123,7 @@
 
           <tbody style="font-size: 1.1rem;">
             @foreach ($saleInvoice->saleInvoiceItems as $item)
-            <tr style="font-size: 1.1rem;" class="font-weight-bold text-white-rm">
+            <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm">
               <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
               <td>
                 <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
@@ -149,12 +149,12 @@
 
           <tfoot class="bg-success-rm text-white-rm">
             <tr>
-              <td colspan="4" style="font-size: 1.1rem;" class="font-weight-bold text-right pr-4">
+              <td colspan="4" style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold text-right pr-4">
                 <strong>
                 Subtotal
                 </strong>
               </td>
-              <td style="font-size: 1.3rem;" class="font-weight-bold">
+              <td style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold">
                 @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
               </td>
             </tr>
@@ -167,13 +167,13 @@
               @endif
 
               <tr class="border-0">
-                <td colspan="4" style="font-size: 1.1rem;"
+                <td colspan="4" style="font-size: calc(0.8rem + 0.2vw);"
                     class="
                       font-weight-bold text-right border-0 pr-4
                     ">
                   {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                 </td>
-                <td style="font-size: 1.1rem;"
+                <td style="font-size: calc(0.8rem + 0.2vw);"
                     class="
                       @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                         text-danger
@@ -188,13 +188,13 @@
             {{-- Todo: Only vat? --}}
             @if ($has_vat)
               <tr class="border-0">
-                <td colspan="4" style="font-size: 1.1rem;"
+                <td colspan="4" style="font-size: calc(0.8rem + 0.2vw);"
                     class="
                       font-weight-bold text-right border-0 pr-4
                     ">
                   Taxable amount
                 </td>
-                <td style="font-size: 1.1rem;"
+                <td style="font-size: calc(0.8rem + 0.2vw);"
                     class=" font-weight-bold border-0 pr-4">
                   @php echo number_format( $saleInvoice->getTaxableAmount() ); @endphp
                 </td>
@@ -209,14 +209,14 @@
               @endif
 
               <tr class="border-0">
-                <td colspan="4" style="font-size: 1.1rem;"
+                <td colspan="4" style="font-size: calc(0.8rem + 0.2vw);"
                     class="
                       font-weight-bold text-right border-0 pr-4
                     ">
                   {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                   (13 %)
                 </td>
-                <td style="font-size: 1.1rem;"
+                <td style="font-size: calc(0.8rem + 0.2vw);"
                     class="
                       @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                         text-danger
@@ -228,12 +228,12 @@
             @endforeach
 
             <tr class="border-0">
-              <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right border-0 pr-4">
+              <td colspan="4" style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold text-right border-0 pr-4">
                 <strong>
                 Total
                 </strong>
               </td>
-              <td style="font-size: 1.5rem;" class="font-weight-bold border-0">
+              <td style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold border-0">
                 @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
               </td>
             </tr>

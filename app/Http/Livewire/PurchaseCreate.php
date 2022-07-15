@@ -24,10 +24,12 @@ class PurchaseCreate extends Component
     public $modes = [
         'addItem' => true,
         'paid' => false,
+        'payment' => true,
     ];
 
     protected $listeners = [
         'itemAddedToPurchase' => 'render',
+        'exitMakePaymentMode',
     ];
 
     public $purchasePaymentTypes;
@@ -119,5 +121,14 @@ class PurchaseCreate extends Component
 
         $this->purchase->vendor_id = $validatedData['vendor_id'];
         $this->purchase->save();
+
+        $this->refresh();
+        // $this->render();
+    }
+
+    public function exitMakePaymentMode()
+    {
+        $this->modes['payment'] = false;
+        $this->enterMode('paid');
     }
 }

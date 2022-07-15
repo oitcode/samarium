@@ -1,6 +1,6 @@
 <div>
   @if ($takeaway)
-    @if (! $takeaway->saleInvoice->isPaid() && $modes['addItem'])
+    @if ($takeaway->status == 'open' && $modes['addItem'])
       @livewire ('takeaway-work-add-item', ['takeaway' => $takeaway,])
     @endif
   @endif
@@ -9,7 +9,7 @@
 
     <div class="col-md-7">
       <div class="card mb-3 shadow">
-        <div class="card-header bg-success-rm text-white-rm">
+        <div class="card-header bg-success text-white">
           <h1 class="h4">
             Takeaway
             @if ($takeaway)
@@ -21,13 +21,114 @@
         <div class="card-body p-0">
   
           @if ($takeaway)
+            @if ($takeaway->status != 'open')
+      <div class="card mb-0 shadow-sm">
+        <div class="card-body p-0">
+
+
+          <div class="row p-4" style="margin: auto;">
+
+            <div class="col-md-3 mb-3">
+              <div class="text-muted-rm mb-1">
+                Customer
+              </div>
+              <div class="h5">
+                @if ($takeaway->saleInvoice->customer)
+                  <i class="fas fa-user-circle text-muted mr-2"></i>
+                  {{ $takeaway->saleInvoice->customer->name }}
+                @else
+                  <i class="fas fa-exclamation-circle text-muted mr-2"></i>
+                  <span class="text-muted">
+                    None
+                  </span>
+                @endif
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <div class="text-muted-rm mb-1">
+                Invoice ID
+              </div>
+              <div class="h5">
+                {{ $takeaway->saleInvoice->sale_invoice_id }}
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <div class="text-muted-rm mb-1">
+                Invoice Date
+              </div>
+              <div class="h5">
+                {{ $takeaway->saleInvoice->created_at->toDateString() }}
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <div>
+                Payment Status
+              </div>
+              <div>
+                @if ( $takeaway->saleInvoice->payment_status == 'paid')
+                <span class="badge badge-pill badge-success">
+                Paid
+                </span>
+                @elseif ( $takeaway->saleInvoice->payment_status == 'partially_paid')
+                <span class="badge badge-pill badge-warning">
+                Partial
+                </span>
+                @elseif ( $takeaway->saleInvoice->payment_status == 'pending')
+                <span class="badge badge-pill badge-danger">
+                Pending
+                </span>
+                @else
+                <span class="badge badge-pill badge-secondary">
+                  {{ $takeaway->saleInvoice->payment_status }}
+                </span>
+                @endif
+               <div>
+                 <div class="text-primary" style="font-size: 0.8rem;" role="button" wire:click="enterMode('showPayments')">
+                   Show payments
+                 </div>
+               </div>
+               @if (false && $modes['showPayments'])
+                 <div>
+                   <div>
+                     Payments
+                   </div>
+                   <div>
+                     @foreach ($takeaway->saleInvoice->saleInvoicePayments as $saleInvoicePayment)
+                       <div>
+                       Rs
+                       @php echo number_format( $saleInvoicePayment->amount ); @endphp
+                       <span class="badge badge-pill ml-3">
+                       {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+                       </span>
+                       <span class="badge badge-pill ml-3">
+                       {{ $saleInvoicePayment->payment_date }}
+                       </span>
+                       </div>
+                     @endforeach
+                   </div>
+                 </div>
+               @endif
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+            @endif
+          @endif
+
+          @if ($takeaway)
 
             @if (count($takeaway->saleInvoice->saleInvoiceItems) > 0)
             {{-- Show in bigger screens --}}
             <div class="table-responsive d-none d-md-block">
-              <table class="table table-bordered table-hover border-dark mb-0">
+              <table class="table table-bordered-rm table-hover border-dark mb-0">
                 <thead>
-                  <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+                  <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.8rem + 0.2vw);">
                     <th>--</th>
                     <th>#</th>
                     <th>Item</th>
@@ -41,7 +142,7 @@
                   @if ($takeaway)
                     @if (count($takeaway->saleInvoice->saleInvoiceItems) > 0)
                       @foreach ($takeaway->saleInvoice->saleInvoiceItems as $item)
-                      <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
+                      <tr style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold text-white-rm">
                         <td>
                           <a href="" wire:click.prevent="confirmRemoveItemFromTakeaway({{ $item->sale_invoice_item_id }})" class="">
                           <i class="fas fa-trash text-danger"></i>
@@ -70,12 +171,12 @@
                 </tbody>
   
                 <tfoot class="">
-                  <td colspan="5" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+                  <td colspan="5" style="font-size: calc(1.3rem + 0.2vw);" class="font-weight-bold text-right">
                     <strong>
-                    TOTAL
+                    Total
                     </strong>
                   </td>
-                  <td style="font-size: 1.5rem;" class="font-weight-bold">
+                  <td style="font-size: calc(1.3rem + 0.2vw);" class="font-weight-bold">
                     @if ($takeaway)
                       @php echo number_format( $takeaway->saleInvoice->getTotalAmount() ); @endphp
                     @else

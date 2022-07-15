@@ -11,24 +11,24 @@
         <tbody>
 
           <tr style="height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 pt-2 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="w-50 p-0 pt-2 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4">
                 Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-4 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-4 pt-2 border-0" style="font-size: calc(0.8rem + 0.2vw);">
               @php echo number_format( $this->total ); @endphp
             </td>
           </tr>
 
           @if (false)
           <tr style="height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 pt-2 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="w-50 p-0 pt-2 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4">
                 VAT
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <input class="w-100 h-90 font-weight-bold pl-3 border-0"
                   type="text" wire:model.debounce.500ms="vat"
                   wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
@@ -36,7 +36,7 @@
           </tr>
 
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4 d-inline-block">
                 Total
               </span>
@@ -71,7 +71,7 @@
         <tbody>
 
           <tr style="height: 50px;" class="bg-light-rm border-0">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4">
                 Paid Amount
               </span>
@@ -90,7 +90,7 @@
           </tr>
 
           <tr style="height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4">
                 Payment type
               </span>

@@ -1,114 +1,225 @@
-<div>
+<div class="">
 
-  <div class="border">
-    <div class="d-flex mb-0 p-2 justify-content-end bg-success-rm text-white-rm border" style="background-color: #eee;">
-      <button class="btn btn-danger border rounded-circle" wire:click="$emit('exitSaleInvoiceDisplayMode')">
+  <div class="border p-3">
+    @if (false)
+    <div class="d-flex mb-0 p-2 justify-content-end bg-success text-white border">
+      <button class="btn btn-light border rounded-circle" wire:click="$emit('exitSaleInvoiceDisplayMode')">
         <i class="fas fa-times fa-2x-rm"></i>
       </button>
     </div>
+    @endif
+
+    {{-- Company Info --}}
+    <div class="d-flex justify-content-between p-3 border-bottom mb-3">
+      <div class="">
+        <img src="{{ asset('img/kimchi_ramen_logo_1.jpg') }}" style="width: 50px; height: 50px;">
+        <h1 class="h5 mt-2 mb-0" style="color: orange;">
+          Mister Kimchi Ramen
+        </h1>
+        <h2 class="h6 mb-2 text-muted" style="font-size: 0.7rem;">
+          PAN No: 611718420
+        </h2>
+        <h2 class="h6 mb-0" style="font-size: 0.8rem;">
+          Baluwatar, Kathmandu 4, Nepal
+        </h2>
+        <h3 class="h6 mb-0" style="font-size: 0.8rem;">
+          +977 9803567191
+        </h3>
+        <h3 class="h6 mb-0" style="font-size: 0.8rem;">
+          mister.kimchi.ramen@gmail.com
+        </h3>
+      </div>
+
+      <div class="">
+        @if (true)
+        <div class="mb-3 p-2 bg-primary-rm text-white text-center" style="background-color: orange;">
+          SALE INVOICE
+        </div>
+        @endif
+        <div class="mb-1">
+          <div class="h6 text-muted-rm mb-1" style="font-size: 0.8rem;">
+            <span class="text-muted" style="font-size: 0.6rem">
+              ID:
+            </span>
+            <span>
+              {{ $saleInvoice->sale_invoice_id }}
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-1">
+          <div class="text-muted-rm mb-1" style="font-size: 0.8rem;">
+            <span class="text-muted" style="font-size: 0.6rem">
+              Date:
+            </span>
+            <span>
+              {{ $saleInvoice->created_at->toDateString() }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     {{-- Main Info --}}
-    <div class="shadow">
-      <div class="card mb-0 shadow-sm">
+    <div class="shadow-rm">
+      <div class="card mb-0 shadow-sm border-0">
         <div class="card-body p-0">
 
 
-          <div class="table-responsive">
-            <table class="table">
-              <tbody>
-                <tr class="">
-                  <th class="pl-3" style="font-size: calc(1rem + 0.2vw);">
-                    Customer
-                  </th>
-                  <td style="font-weight: bold;" style="font-size: calc(1rem + 0.2vw);">
-                    @if ($saleInvoice->customer)
-                      {{ $saleInvoice->customer->name }}
-                    @else
-                      <span class="text-secondary">
-                        ??
-                      </span>
-                    @endif
-                  </td>
-                </tr>
-                <tr class="text-secondary">
-                  <th class="pl-3" style="font-size: calc(1rem + 0.2vw);">
-                    Bill ID
-                  </th>
-                  <td style="font-size: calc(1rem + 0.2vw);">
-                    {{ $saleInvoice->sale_invoice_id }}
-                  </td>
-                </tr>
-                <tr class="text-secondary">
-                  <th class="pl-3" style="font-size: calc(1rem + 0.2vw);">
-                    Bill Date
-                  </th>
-                  <td style="font-weight: bold;">
-                    {{ $saleInvoice->created_at->toDateString() }}
-                  </td>
-                </tr>
+          <div class="row-rm" style="margin: auto;">
 
-                <tr class="text-secondary">
-                  <th class="pl-3" style="font-size: calc(1rem + 0.2vw);">
-                    Payment Status
-                  </th>
-                  <td style="font-weight: bold;">
-                    @if ( $saleInvoice->payment_status == 'paid')
-                    <span class="badge badge-pill badge-success">
-                    Paid
-                    </span>
-                    @elseif ( $saleInvoice->payment_status == 'partially_paid')
-                    <span class="badge badge-pill badge-warning">
-                    Partial
-                    </span>
-                    @elseif ( $saleInvoice->payment_status == 'pending')
-                    <span class="badge badge-pill badge-danger">
-                    Pending
-                    </span>
-                    @else
-                    <span class="badge badge-pill badge-secondary">
-                      {{ $saleInvoice->payment_status }}
-                    </span>
-                    @endif
-                   <button class="btn" wire:click="enterMode('showPayments')">
-                     Show payments
-                   </button>
-                  </td>
-                </tr>
+            <div class="col-md-3-rm mb-3 border-bottom">
+              <div class="h5 text-muted mb-2">
+                Customer
+              </div>
 
-                @if ($modes['showPayments'])
-                  <tr class="text-secondary" style="font-size: 1.3rem;">
-                    <th class="pl-3">
-                      Payments
-                    </th>
-                    <td style="font-weight: bold;">
-                      @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
-                        <div>
-                        Rs
-                        {{ $saleInvoicePayment->amount }}
-                        <span class="badge badge-pill ml-3">
-                        {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+              @if ($saleInvoice->customer)
+              <div class="col-md-3 p-0">
+                <table class="table table-sm">
+                  <tr class="border-0 m-0 p-0">
+                    <td class="w-25 pl-0 border-0 m-0 p-0" style="font-size: 0.8rem;">
+                      Name
+                    </td>
+                    <td class="border-0 m-0 p-0 h5">
+                      @if ($saleInvoice->customer)
+                        @if (false)
+                          <i class="fas fa-user-circle text-muted mr-2"></i>
+                        @endif
+                        {{ $saleInvoice->customer->name }}
+                      @else
+                        <i class="fas fa-exclamation-circle text-muted mr-2"></i>
+                        <span class="text-muted">
+                          None
                         </span>
-                        <span class="badge badge-pill ml-3">
-                        {{ $saleInvoicePayment->payment_date }}
-                        </span>
-                        </div>
-                      @endforeach
+                      @endif
                     </td>
                   </tr>
+                  <tr class="border-0 m-0 p-0">
+                    <td class="pl-0 border-0 m-0 p-0" style="font-size: 0.8rem;">
+                      PAN No
+                    </td>
+                    <td class="border-0 m-0 p-0">
+                      @if ($saleInvoice->customer->pan_num)
+                        {{ $saleInvoice->customer->pan_num }}
+                      @else
+                        <span class="text-muted" style="font-size: 0.5rem;">
+                          No info
+                        </span>
+                      @endif
+                    </td>
+                  </tr>
+                  <tr class="border-0 m-0 p-0">
+                    <td class="pl-0 border-0 m-0 p-0" style="font-size: 0.8rem;">
+                      Address
+                    </td>
+                    <td class="border-0 m-0 p-0">
+                      @if ($saleInvoice->customer->address)
+                        {{ $saleInvoice->customer->address }}
+                      @else
+                        <span class="text-muted" style="font-size: 0.5rem;">
+                          No info
+                        </span>
+                      @endif
+                    </td>
+                  </tr>
+                  <tr class="border-0 m-0 p-0">
+                    <td class="pl-0 border-0 m-0 p-0" style="font-size: 0.8rem;">
+                      Phone
+                    </td>
+                    <td class="border-0 m-0 p-0">
+                      @if ($saleInvoice->customer->phone)
+                        {{ $saleInvoice->customer->phone }}
+                      @else
+                        <span class="text-muted" style="font-size: 0.5rem;">
+                          No info
+                        </span>
+                      @endif
+                    </td>
+                  </tr>
+                  <tr class="border-0 m-0 p-0">
+                    <td class="pl-0 border-0 m-0 p-0" style="font-size: 0.8rem;">
+                      Email
+                    </td>
+                    <td class="border-0 m-0 p-0">
+                      @if ($saleInvoice->customer->email)
+                        {{ $saleInvoice->customer->email }}
+                      @else
+                        <span class="text-muted" style="font-size: 0.5rem;">
+                          No info
+                        </span>
+                      @endif
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              @endif
+
+            </div>
+
+
+            <div class="col-md-3-rm mb-3">
+              <div>
+                Payment Status
+              </div>
+              <div>
+                @if ( $saleInvoice->payment_status == 'paid')
+                <span class="badge badge-pill badge-success">
+                Paid
+                </span>
+                @elseif ( $saleInvoice->payment_status == 'partially_paid')
+                <span class="badge badge-pill badge-warning">
+                Partial
+                </span>
+                @elseif ( $saleInvoice->payment_status == 'pending')
+                <span class="badge badge-pill badge-danger">
+                Pending
+                </span>
+                @else
+                <span class="badge badge-pill badge-secondary">
+                  {{ $saleInvoice->payment_status }}
+                </span>
                 @endif
-              </tbody>
-            </table>
+               <div>
+                 <div class="text-primary" style="font-size: 0.8rem;" role="button" wire:click="enterMode('showPayments')">
+                   Show payments
+                 </div>
+               </div>
+               @if ($modes['showPayments'])
+                 <div>
+                   <div>
+                     Payments
+                   </div>
+                   <div>
+                     @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
+                       <div>
+                       Rs
+                       @php echo number_format( $saleInvoicePayment->amount ); @endphp
+                       <span class="badge badge-pill ml-3">
+                       {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+                       </span>
+                       <span class="badge badge-pill ml-3">
+                       {{ $saleInvoicePayment->payment_date }}
+                       </span>
+                       </div>
+                     @endforeach
+                   </div>
+                 </div>
+               @endif
+              </div>
+            </div>
+
           </div>
+
         </div>
       </div>
 
       {{-- Items List --}}
 
       {{-- Show in bigger screens --}}
-      <div class="table-responsive bg-white mb-0 d-none d-md-block">
-        <table class="table table-bordered table-hover border-dark shadow-sm mb-0">
+      <div class="table-responsive border bg-white mb-0 d-none d-md-block">
+        <table class="table table-sm table-hover border-dark shadow-sm mb-0">
           <thead>
-            <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem; background-color: #eee;">
+            <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
               <th>#</th>
               <th>Item</th>
               <th>Price</th>
@@ -117,12 +228,12 @@
             </tr>
           </thead>
 
-          <tbody style="font-size: 1.3rem;">
+          <tbody style="">
             @foreach ($saleInvoice->saleInvoiceItems as $item)
-            <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
+            <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
               <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
               <td>
-                <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
                 {{ $item->product->name }}
               </td>
               <td>
@@ -143,31 +254,31 @@
             @endforeach
           </tbody>
 
-          <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
-            <tr>
-              <td colspan="4" style="font-size: 1.3rem;" class="font-weight-bold text-right">
+          <tfoot class="bg-success-rm text-white-rm">
+            <tr class="bg-primary-rm">
+             <td colspan="4" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right">
                 <strong>
-                TOTAL
+                Subtotal
                 </strong>
               </td>
-              <td style="font-size: 1.3rem;" class="font-weight-bold">
+              <td style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
                 @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
               </td>
             </tr>
             @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
-              <tr class="border-0">
-                <td colspan="4" style="font-size: 1.3rem;"
+              <tr class="border-0 mb-0 p-0">
+                <td colspan="4" style="font-size: calc(0.6rem + 0.2vw);"
                     class="
-                      font-weight-bold text-right border-0
+                      font-weight-bold text-right border-0 p-0 pr-1
                     ">
                   {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                 </td>
-                <td style="font-size: 1.3rem;"
+                <td style="font-size: calc(0.6rem + 0.2vw);"
                     class="
                       @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                         text-danger
                       @endif
-                      font-weight-bold border-0">
+                      font-weight-bold border-0 p-0 pl-1">
                   @if (false)
                   NRs
                   &nbsp;&nbsp;
@@ -177,13 +288,11 @@
               </tr>
             @endforeach
 
-            <tr class="border-0">
-              <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right border-0">
-                <strong>
-                Grand total
-                </strong>
+            <tr class="border-0 bg-danger-rm p-0">
+              <td colspan="4" style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold text-right border-0">
+                Total
               </td>
-              <td style="font-size: 1.5rem;" class="font-weight-bold border-0">
+              <td style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold border-0">
                 @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
               </td>
             </tr>

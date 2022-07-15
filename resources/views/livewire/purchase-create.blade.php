@@ -1,6 +1,6 @@
 <div>
 
-  @if (true)
+  @if (! $modes['paid'])
     @if (true || $modes['addItem'])
       @livewire ('purchase-add-item', ['purchase' => $purchase,])
     @endif
@@ -10,28 +10,105 @@
 
     <div class="col-md-7">
       <div class="card mb-0">
-        <div class="card-header bg-success-rm text-white-rm">
-          <h1 class="d-inline h4">
-            Purchase
-            {{ $purchase->purchase_id }}
-          </h2>
-
-          <div class="d-inline">
-            <button wire:loading class="btn">
-              <span class="spinner-border text-white mr-3" role="status" style="font-size: 1rem;">
-              </span>
-            </button>
-          </div>
-        </div>
       
         <div class="card-body p-0">
+            {{-- Top info --}}
+            <div class="row p-4" style="margin: auto;">
+
+              <div class="col-md-3 mb-3">
+                <div class="text-muted-rm mb-1">
+                  Vendor
+                </div>
+                <div class="h5">
+                  @if ($purchase->vendor)
+                    <i class="fas fa-user-circle text-muted mr-2"></i>
+                    {{ $purchase->vendor->name }}
+                  @else
+                    <i class="fas fa-exclamation-circle text-muted mr-2"></i>
+                    <span class="text-muted">
+                      None
+                    </span>
+                  @endif
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <div class="text-muted-rm mb-1">
+                  Purchase ID
+                </div>
+                <div class="h5">
+                  {{ $purchase->purchase_id }}
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <div class="text-muted-rm mb-1">
+                  Purchase Date
+                </div>
+                <div class="h5">
+                  {{ $purchase->created_at->toDateString() }}
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <div>
+                  Payment Status
+                </div>
+                <div>
+                  @if ( $purchase->payment_status == 'paid')
+                  <span class="badge badge-pill badge-success">
+                  Paid
+                  </span>
+                  @elseif ( $purchase->payment_status == 'partially_paid')
+                  <span class="badge badge-pill badge-warning">
+                  Partial
+                  </span>
+                  @elseif ( $purchase->payment_status == 'pending')
+                  <span class="badge badge-pill badge-danger">
+                  Pending
+                  </span>
+                  @else
+                  <span class="badge badge-pill badge-secondary">
+                    {{ $purchase->payment_status }}
+                  </span>
+                  @endif
+                 <div>
+                   <div class="text-primary" style="font-size: 0.8rem;" role="button" wire:click="enterMode('showPayments')">
+                     Show payments
+                   </div>
+                 </div>
+                 @if (false && $modes['showPayments'])
+                   <div>
+                     <div>
+                       Payments
+                     </div>
+                     <div>
+                       @foreach ($purchase->purchasePayments as $purchasePayment)
+                         <div>
+                         Rs
+                         @php echo number_format( $purchasePayment->amount ); @endphp
+                         <span class="badge badge-pill ml-3">
+                         {{ $purchasePayment->purchasePaymentType->name }}
+                         </span>
+                         <span class="badge badge-pill ml-3">
+                         {{ $purchasePayment->payment_date }}
+                         </span>
+                         </div>
+                       @endforeach
+                     </div>
+                   </div>
+                 @endif
+                </div>
+              </div>
+
+            </div>
           @if (count($purchase->purchaseItems) > 0)
 
           {{-- Show in bigger screens --}}
-          <div class="table-responsive d-none d-md-block">
-            <table class="table table-bordered table-hover border-dark">
+          <div class="table-responsive border d-none d-md-block">
+            <table class="table table-hover mb-0">
               <thead>
-                <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+                <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
                   <th>--</th>
                   <th>#</th>
                   <th>Item</th>
@@ -42,10 +119,10 @@
                 </tr>
               </thead>
   
-              <tbody class="bg-white" style="font-size: 1.3rem;">
+              <tbody class="bg-white" style="font-size: calc(0.6rem + 0.2vw);">
                 @if (count($purchase->purchaseItems) > 0)
                   @foreach ($purchase->purchaseItems as $item)
-                  <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
+                  <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm">
                     <td>
                       <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
                       <i class="fas fa-trash text-danger"></i>
