@@ -1,7 +1,7 @@
-<div>
+<div style="">
 
   {{-- Show in bigger screen --}}
-  <div class="mb-3 border bg-light shadow-sm d-none d-md-block">
+  <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block" style="{{-- background-color: #efe; --}}">
     @if (false)
     <h1 class="h4">
       Add Item
@@ -9,20 +9,20 @@
     @endif
   
     <div class="table-responsive m-0">
-      <table class="table table-bordered m-0">
+      <table class="table table-sm table-bordered m-0">
         <thead>
           <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
-            <th>Search Item</th>
-            <th>Category</th>
-            <th>Item</th>
-            <th>Price</th>
-            <th style="width: 100px;">Quantity</th>
-            <th>Total</th>
+            <th class="py-2" style="width: 200px;">Search Item</th>
+            <th class="py-2">Category</th>
+            <th class="py-2">Item</th>
+            <th class="py-2" style="width: 100px;">Price</th>
+            <th class="py-2" style="width: 50px;">Qty</th>
+            <th class="py-2" style="width: 100px;">Total</th>
           </tr>
         </thead>
   
         <tbody>
-          <tr class="p-0 font-weight-bold" style="height: 60px; font-size: 1.3rem;">
+          <tr class="p-0 font-weight-bold" style="height: 50px; font-size: calc(0.8rem + 0.2vw);">
             <td class="p-0 h-100">
               <input class="m-0 w-100 h-100 border-0" type="text" wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>

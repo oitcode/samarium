@@ -109,7 +109,7 @@
 
             <div class="d-flex flex-column">
               <div class="d-flex justify-content-center">
-                <i class="fas fa-shipping-fast"></i>
+                <i class="fas fa-skating"></i>
               </div>
               <div class="d-flex justify-content-center">
                 @if (true)
@@ -394,7 +394,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="{{ route('sale') }}">
-          <i class="fas fa-shipping-fast mr-3"></i>
+          <i class="fas fa-skating mr-3"></i>
           Takeaway
         </a>
       </li>

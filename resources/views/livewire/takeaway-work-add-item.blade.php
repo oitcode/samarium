@@ -1,23 +1,28 @@
-<div>
+<div style="">
 
   {{-- Show in bigger screen --}}
-  <div class="mb-3 border bg-light shadow-rm d-none d-md-block">
+  <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block" style="{{-- background-color: #efe; --}}">
+    @if (false)
+    <h1 class="h4">
+      Add Item
+    </h1>
+    @endif
   
     <div class="table-responsive m-0">
-      <table class="table table-bordered m-0">
+      <table class="table table-sm table-bordered m-0">
         <thead>
-          <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;">
-            <th>Search Item</th>
-            <th>Category</th>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
+          <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+            <th class="py-2" style="width: 200px;">Search Item</th>
+            <th class="py-2">Category</th>
+            <th class="py-2">Item</th>
+            <th class="py-2" style="width: 100px;">Price</th>
+            <th class="py-2" style="width: 50px;">Qty</th>
+            <th class="py-2" style="width: 100px;">Total</th>
           </tr>
         </thead>
   
         <tbody>
-          <tr class="p-0 font-weight-bold" style="height: 60px; font-size: 1.3rem;">
+          <tr class="p-0 font-weight-bold" style="height: 50px; font-size: calc(0.8rem + 0.2vw);">
             <td class="p-0 h-100">
               <input class="m-0 w-100 h-100 border-0" type="text" wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
@@ -68,13 +73,13 @@
     <div class="p-2 m-0" style="{{--background-image: linear-gradient(to right, white, #abc);--}}">
       <div class="row">
         <div class="col-md-8">
-          <button class="btn btn-lg btn-success mr-3" wire:click="addItemToTakeaway" style="width: 110px; height: 70px; font-size: 1.3rem;">
+          <button class="btn btn-lg btn-success mr-3" wire:click="addItemToTakeaway" style="font-size: calc(0.7rem + 0.2vw);">
             <i class="fas fa-plus mr-2"></i>
             Add
           </button>
   
           @if (true)
-          <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="width: 110px; height: 70px; font-size: 1.3rem;">
+          <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="font-size: calc(0.7rem + 0.2vw);">
             Reset
           </button>
           @endif
@@ -88,7 +93,7 @@
         @if ($selectedProduct != null)
           <div class="col-md-4" style="height: 50px;">
             <div class="float-right">
-              <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 80px;">
+              <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
             </div>
             <div class="clearfix">
             </div>
@@ -99,6 +104,7 @@
     </div>
   
   </div>
+
 
   {{-- Show in smaller screen --}}
   <div class="d-md-none mb-3">
@@ -119,8 +125,9 @@
 
     @if ($modes['showMobForm'])
       <div>
-        @include ('partials.mob.takeaway-add-item-form')
+        @include ('partials.mob.add-item-form')
       </div>
     @endif
   </div>
+
 </div>

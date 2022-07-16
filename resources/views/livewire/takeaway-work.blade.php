@@ -1,14 +1,120 @@
 <div>
+  {{-- Show in bigger screens --}}
+
+
+  <div class="row">
+
+    <div class="col-md-8">
+
+  @if (true)
   @if ($takeaway)
     @if ($takeaway->status == 'open' && $modes['addItem'])
       @livewire ('takeaway-work-add-item', ['takeaway' => $takeaway,])
     @endif
   @endif
+  @endif
 
-  <div class="row">
+      @if ($takeaway->status == 'open')
+      <div class="card mb-0 shadow-sm">
+        <div class="card-body p-0 bg-primary-rm text-white-rm" style="{{--background-color: #efe;--}}">
 
-    <div class="col-md-7">
+
+          <div class="row p-0 mt-2" style="margin: auto;">
+
+            <div class="col-md-3 mb-3-rm">
+              <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+                Customer
+              </div>
+              <div class="h5">
+                @if ($takeaway->saleInvoice->customer)
+                  <i class="fas fa-user-circle text-muted mr-2"></i>
+                  {{ $takeaway->saleInvoice->customer->name }}
+                @else
+                  @if (false)
+                  <i class="fas fa-exclamation-circle text-muted mr-2"></i>
+                  @endif
+                  <span class="text-muted" style="font-size: calc(0.6rem + 0.2vw);">
+                    None
+                  </span>
+                @endif
+              </div>
+            </div>
+
+            <div class="col-md-2 mb-3 d-flex">
+              <div>
+                <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+                  Invoice ID
+                </div>
+                <div class="h6">
+                  {{ $takeaway->saleInvoice->sale_invoice_id }}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-2 mb-3">
+              <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+                Invoice Date
+              </div>
+              <div class="h6">
+                {{ $takeaway->saleInvoice->created_at->toDateString() }}
+              </div>
+            </div>
+
+            <div class="col-md-3" style="font-size: calc(0.6rem + 0.2vw);">
+              <div class="text-muted" style="font-size: calc(0.6rem + 0.2vw);">
+                Payment Status
+              </div>
+              <div>
+                @if ( $takeaway->saleInvoice->payment_status == 'paid')
+                <span class="badge badge-pill badge-success">
+                Paid
+                </span>
+                @elseif ( $takeaway->saleInvoice->payment_status == 'partially_paid')
+                <span class="badge badge-pill badge-warning">
+                Partial
+                </span>
+                @elseif ( $takeaway->saleInvoice->payment_status == 'pending')
+                <span class="badge badge-pill badge-danger">
+                Pending
+                </span>
+                @else
+                <span class="badge badge-pill badge-secondary">
+                  {{ $takeaway->saleInvoice->payment_status }}
+                </span>
+                @endif
+               @if (false)
+               <div>
+                 <div class="text-primary" style="font-size: 0.6rem;" role="button" wire:click="enterMode('showPayments')">
+                   Show payments
+                 </div>
+               </div>
+               @endif
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="d-flex justify-content-end h-100">
+                <button class="btn btn-light h-100" style="color: green;">
+                  <i class="fas fa-skating"></i>
+                  <br/>
+                  <span style="font-size: 1.1rem;">
+                  Takeaway
+                  </span>
+                </button>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+      @endif
+
+
+
+
       <div class="card mb-3 shadow">
+      @if (false)
         <div class="card-header bg-success text-white">
           <h1 class="h4">
             Takeaway
@@ -17,6 +123,7 @@
             @endif
           </h1>
         </div>
+        @endif
       
         <div class="card-body p-0">
   
@@ -126,9 +233,9 @@
             @if (count($takeaway->saleInvoice->saleInvoiceItems) > 0)
             {{-- Show in bigger screens --}}
             <div class="table-responsive d-none d-md-block">
-              <table class="table table-bordered-rm table-hover border-dark mb-0">
+              <table class="table table-hover border-dark mb-0">
                 <thead>
-                  <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.8rem + 0.2vw);">
+                  <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
                     <th>--</th>
                     <th>#</th>
                     <th>Item</th>
@@ -142,7 +249,7 @@
                   @if ($takeaway)
                     @if (count($takeaway->saleInvoice->saleInvoiceItems) > 0)
                       @foreach ($takeaway->saleInvoice->saleInvoiceItems as $item)
-                      <tr style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold text-white-rm">
+                      <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm">
                         <td>
                           <a href="" wire:click.prevent="confirmRemoveItemFromTakeaway({{ $item->sale_invoice_item_id }})" class="">
                           <i class="fas fa-trash text-danger"></i>
@@ -150,7 +257,7 @@
                         </td>
                         <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
                         <td>
-                          <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                          <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
                           {{ $item->product->name }}
                         </td>
                         <td>
@@ -171,12 +278,12 @@
                 </tbody>
   
                 <tfoot class="">
-                  <td colspan="5" style="font-size: calc(1.3rem + 0.2vw);" class="font-weight-bold text-right">
+                  <td colspan="5" style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold text-right">
                     <strong>
                     Total
                     </strong>
                   </td>
-                  <td style="font-size: calc(1.3rem + 0.2vw);" class="font-weight-bold">
+                  <td style="font-size: calc(.0.8rem + 0.2vw);" class="font-weight-bold">
                     @if ($takeaway)
                       @php echo number_format( $takeaway->saleInvoice->getTotalAmount() ); @endphp
                     @else
@@ -237,7 +344,7 @@
 
     </div>
   
-    <div class="col-md-5">
+    <div class="col-md-4">
       @if ($takeaway->status != 'closed' && $takeaway->saleInvoice->payment_status != 'paid' && $modes['makePayment'])
         @livewire ('takeaway-work-make-payment', ['takeaway' => $takeaway,])
       @endif

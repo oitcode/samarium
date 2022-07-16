@@ -1,16 +1,144 @@
 <div>
+  {{-- Show in bigger screens --}}
+  @if (false)
+  <div class="mb-3 d-none d-md-block">
 
-    @if ($seatTable->isBooked())
-      @if (true || $modes['addItem'])
-        @livewire ('seat-table-work-display-add-item', ['seat_table_booking_id' => $seatTable->getCurrentBooking()->seat_table_booking_id,])
-      @endif
-    @endif
+    <button class="btn
+        btn-success text-white
+        m-0 border shadow-sm badge-pill mr-3"
+        style="font-size: 1.1rem;" wire:click="enterMultiMode('addItem')">
+      <i class="fas fa-plus-circle mr-3"></i>
+      Add item
+    </button>
+
+    <button wire:loading class="btn m-0"
+        style="height: 100px; width: 225px; font-size: 1.5rem;">
+      <span class="spinner-border text-info mr-3" role="status">
+      </span>
+    </button>
+
+
+    <div class="clearfix">
+    </div>
+  </div>
+  @endif
+
+
   <div class="row">
 
-    <div class="col-md-7 mb-3">
+    <div class="col-md-8 mb-3">
+
+  @if ($modes['addItem'])
+  @if ($seatTable->isBooked())
+    @if (true || $modes['addItem'])
+      @livewire ('seat-table-work-display-add-item', ['seat_table_booking_id' => $seatTable->getCurrentBooking()->seat_table_booking_id,])
+    @endif
+  @endif
+  @endif
+
+
+      @if ($seatTable->isBooked())
+      <div class="card mb-0 shadow-sm">
+        <div class="card-body p-0 bg-primary-rm text-white-rm" style="{{-- background-color: brown; --}}">
+
+
+          <div class="row p-0 mt-2" style="margin: auto;">
+
+            <div class="col-md-3 mb-3-rm">
+              <div class="text-muted mb-1 h6" style="font-size: 0.8rem;">
+                Customer
+              </div>
+              <div class="h5">
+                @if ($seatTable->getCurrentBooking()->saleInvoice->customer)
+                  <i class="fas fa-user-circle text-muted mr-2"></i>
+                  {{ $seatTable->getCurrentBooking()->saleInvoice->customer->name }}
+                @else
+                  @if (false)
+                  <i class="fas fa-exclamation-circle text-muted mr-2"></i>
+                  @endif
+                  <span class="text-muted" style="font-size: calc(0.6rem + 0.2vw);">
+                    None
+                  </span>
+                @endif
+              </div>
+            </div>
+
+            <div class="col-md-2 mb-3 d-flex">
+              <div>
+                <div class="text-muted mb-1 h6" style="font-size: 0.8rem;">
+                  Invoice ID
+                </div>
+                <div class="h6">
+                  {{ $seatTable->getCurrentBooking()->saleInvoice->sale_invoice_id }}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-2 mb-3">
+              <div class="text-muted mb-1 h6" style="font-size: 0.8rem;">
+                Invoice Date
+              </div>
+              <div class="h6">
+                {{ $seatTable->getCurrentBooking()->saleInvoice->created_at->toDateString() }}
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div style="font-size: 0.8rem;">
+                Payment Status
+              </div>
+              <div>
+                @if ( $seatTable->getCurrentBooking()->saleInvoice->payment_status == 'paid')
+                <span class="badge badge-pill badge-success">
+                Paid
+                </span>
+                @elseif ( $seatTable->getCurrentBooking()->saleInvoice->payment_status == 'partially_paid')
+                <span class="badge badge-pill badge-warning">
+                Partial
+                </span>
+                @elseif ( $seatTable->getCurrentBooking()->saleInvoice->payment_status == 'pending')
+                <span class="badge badge-pill badge-danger">
+                Pending
+                </span>
+                @else
+                <span class="badge badge-pill badge-secondary">
+                  {{ $seatTable->getCurrentBooking()->saleInvoice->payment_status }}
+                </span>
+                @endif
+               @if (false)
+               <div>
+                 <div class="text-primary" style="font-size: 0.8rem;" role="button" wire:click="enterMode('showPayments')">
+                   Show payments
+                 </div>
+               </div>
+               @endif
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="d-flex justify-content-end h-100">
+                <button class="btn btn-light text-success-rm h-100" style="color: green;">
+                  <i class="fas fa-dice-d6" style="font-size: 1rem;"></i>
+                  <br/>
+                  <span style="font-size: 1.1rem;">
+                  {{ $seatTable->name }}
+                  </span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      @endif
+
+
+
+
       <div class="card mb-0">
-        <div class="card-header bg-success-rm text-white-rm">
-          @if (true)
+        @if (false)
+        <div class="card-header bg-success-rm text-white-rm" style="background-color: #efe;">
+          @if (false)
           <h1 class="d-inline" style="font-size: calc(1rem + 0.2vw);">
             {{ $seatTable->name }}
           </h2>
@@ -23,6 +151,7 @@
             </button>
           </div>
         </div>
+        @endif
       
         <div class="card-body p-0">
   
@@ -193,7 +322,7 @@
 
     </div>
   
-    <div class="col-md-5">
+    <div class="col-md-4">
       @can ('is-admin')
         @if ($seatTable->isBooked() && (true || $modes['makePayment']))
           @livewire ('seat-table-work-display-make-payment', ['seatTable' => $seatTable,])

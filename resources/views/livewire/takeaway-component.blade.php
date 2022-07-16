@@ -29,7 +29,7 @@
 
     <button class="btn btn-success m-0 float-right d-none d-md-block"
         style="{{-- height: 100px; width: 225px; --}} font-size: 1.3rem;">
-      <i class="fas fa-shipping-fast mr-3"></i>
+      <i class="fas fa-skating mr-3"></i>
       Takeaway
     </button>
 

@@ -175,4 +175,9 @@ class SeatTableWorkDisplay extends Component
         $this->deletingSaleInvoiceItem = null;
         $this->exitMode('confirmRemoveSaleInvoiceItem');
     }
+
+    public function enterMultiMode($modeName)
+    {
+        $this->modes[$modeName] = true;
+    }
 }
