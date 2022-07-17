@@ -87,7 +87,7 @@
                   <i class="fas fa-cog text-secondary"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item" wire:click="">
+                  <button class="dropdown-item" wire:click="$emit('displayExpense', {{ $expense }})">
                     <i class="fas fa-file text-primary mr-2"></i>
                     View
                   </button>

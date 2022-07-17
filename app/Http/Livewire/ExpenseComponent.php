@@ -4,8 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use App\Expense;
+
 class ExpenseComponent extends Component
 {
+    public $displayingExpense = null;
+
     public $modes = [
         'create' => false,
         'list' => true,
@@ -20,6 +24,7 @@ class ExpenseComponent extends Component
         'expenseCategoryCreated',
         'exitCategoryCreateMode',
         'expenseCreated',
+        'displayExpense',
     ];
 
     public function render()
@@ -70,5 +75,12 @@ class ExpenseComponent extends Component
     public function exitCategoryCreateMode()
     {
         $this->exitMode('createCategory');
+    }
+
+    public function displayExpense(Expense $expense)
+    {
+        $this->displayingExpense = $expense;
+
+        $this->enterMode('display');
     }
 }

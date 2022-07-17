@@ -52,6 +52,15 @@ class Expense extends Model
         return $this->hasMany('App\ExpensePayment', 'expense_id', 'expense_id');
     }
 
+    /*
+     * expense_addition table.
+     *
+     */
+    public function expenseAdditions()
+    {
+        return $this->hasMany('App\ExpenseAddition', 'expense_id', 'expense_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods
@@ -60,6 +69,11 @@ class Expense extends Model
      */
 
     public function getTotalAmount()
+    {
+        return $this->amount;
+    }
+
+    public function getTotalAmountRaw()
     {
         return $this->amount;
     }

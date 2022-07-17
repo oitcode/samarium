@@ -5,68 +5,63 @@ namespace App\Http\Livewire;
 use App\Traits\MiscTrait;
 
 use Livewire\Component;
+
 use Illuminate\Support\Facades\DB;
 
+use App\Vendor;
 use App\Expense;
-use App\ExpenseCategory;
-use App\ExpensePayment;
 use App\ExpensePaymentType;
-
+use App\ExpensePayment;
 use App\ExpenseAddition;
 use App\ExpenseAdditionHeading;
-
-use App\Vendor;
 
 use App\JournalEntry;
 use App\JournalEntryItem;
 use App\AbAccount;
 use App\LedgerEntry;
 
-class ExpenseCreate extends Component
+
+class ExpenseWorkMakePayment extends Component
 {
     use MiscTrait;
 
-    public $expenseCategories;
-
-    public $name;
-    public $expense_category_id;
-    public $amount;
-
     public $expense;
 
-
-    /* Amounts */
     public $total;
-    public $sub_total;
-    public $expenseAdditions = array();
-    public $taxable_amount;
-    public $grand_total;
+    public $pay_by;
     public $tender_amount;
 
+    public $discount = 0;
+    public $service_charge = 0;
+    public $grand_total;
 
-    /* VAT info */
+    /* Amount before taxes (VAT, etc) */
+    public $taxable_amount;
+
     public $has_vat = false;
 
-    /* Todo: Discount in expense? */
     public $discount_percentage = null;
 
+    public $returnAmount;
 
-    /* Vendor related */
-    public $vendors;
     /* Vendor to which expense will be made */
     public $vendor = null;
     public $vendor_id;
 
+    /* List of customers */
+    public $vendors;
+
     /* Expense addition headings */
     public $expenseAdditionHeadings;
 
-    /* Expense payment types */
+    /* Expense additions */
+    public $expenseAdditions = array();
+
     public $expensePaymentTypes;
     public $expense_payment_type_id;
 
     /* Multiple payments */
     public $multiPayments = array();
-
 
     public $modes = [
         'paid' => false,
@@ -111,67 +106,7 @@ class ExpenseCreate extends Component
 
     public function render()
     {
-        $this->expenseCategories = ExpenseCategory::all();
-        $this->expensePaymentTypes = ExpensePaymentType::all();
-
-        return view('livewire.expense-create');
-    }
-
-    public function store()
-    {
-        $validatedData = $this->validate([
-            'name' => 'required',
-            'expense_category_id' => 'required|integer',
-            'sub_total' => 'required|integer',
-            'taxable_amount' => 'required|integer',
-            'grand_total' => 'required|integer',
-            'expense_payment_type_id' => 'required|integer',
-        ]);
-
-        $validatedData['date'] = date('Y-m-d');
-        $validatedData['amount'] = $validatedData['grand_total'];
-
-        DB::beginTransaction();
-
-        try {
-            $expense = Expense::create($validatedData);
-
-            /* Create Expense Additions if needed. */
-            foreach ($this->expenseAdditions as $key => $val) {
-                if ($val > 0) {
-                    $expenseAdditionHeading = ExpenseAdditionHeading::where('name', $key)->first();
-
-                    $expenseAddition = new ExpenseAddition;
-
-                    $expenseAddition->expense_id = $expense->expense_id;
-                    $expenseAddition->expense_addition_heading_id = $expenseAdditionHeading->expense_addition_heading_id;
-                    $expenseAddition->amount = $val;
-
-                    $expenseAddition->save();
-                }
-            }
-
-            /* Create expense payment */
-            $expensePayment = new ExpensePayment;
-
-            $expensePayment->payment_date = date('Y-m-d');
-            $expensePayment->expense_id = $expense->expense_id;
-            $expensePayment->expense_payment_type_id = $validatedData['expense_payment_type_id'];
-            $expensePayment->amount = $validatedData['amount'];
-
-            $expensePayment->save();
-
-            /* Make accounting entries */
-            // $this->makeExpenseAccountingEntry($expense);
-
-            DB::commit();
-
-            $this->emit('expenseCreated');
-        } catch (\Exception $e) {
-            DB::rollback();
-            dd ($e);
-            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
-        }
+        return view('livewire.expense-work-make-payment');
     }
 
     public function calculateTaxableAmount()
@@ -223,22 +158,5 @@ class ExpenseCreate extends Component
         } else {
             return false;
         }
-    }
-
-    public function updateNumbers()
-    {
-        $this->taxable_amount = $this->sub_total;
-
-        $this->calculateGrandTotal();
-    }
-
-    public function updatedSubTotal()
-    {
-        $this->updateNumbers();
-    }
-
-    public function updatedExpenseAdditions()
-    {
-        $this->updateNumbers();
     }
 }

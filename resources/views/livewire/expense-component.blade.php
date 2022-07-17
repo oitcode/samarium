@@ -130,6 +130,8 @@
     @livewire ('expense-create')
   @elseif ($modes['list'])
     @livewire ('expense-list')
+  @elseif ($modes['display'])
+    @livewire ('expense-display', ['expense' => $displayingExpense,])
   @elseif ($modes['report'])
     @livewire ('expense-report')
   @elseif ($modes['createCategory'])
