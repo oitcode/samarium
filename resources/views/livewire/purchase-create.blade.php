@@ -1,14 +1,16 @@
 <div>
 
-  @if (! $modes['paid'])
-    @if (true || $modes['addItem'])
-      @livewire ('purchase-add-item', ['purchase' => $purchase,])
-    @endif
-  @endif
 
   <div class="row">
 
-    <div class="col-md-7">
+    <div class="col-md-8">
+
+      @if (! $modes['paid'])
+        @if (true || $modes['addItem'])
+          @livewire ('purchase-add-item', ['purchase' => $purchase,])
+        @endif
+      @endif
+
       <div class="card mb-0">
       
         <div class="card-body p-0">
@@ -24,7 +26,9 @@
                     <i class="fas fa-user-circle text-muted mr-2"></i>
                     {{ $purchase->vendor->name }}
                   @else
+                    @if (false)
                     <i class="fas fa-exclamation-circle text-muted mr-2"></i>
+                    @endif
                     <span class="text-muted">
                       None
                     </span>
@@ -32,7 +36,7 @@
                 </div>
               </div>
 
-              <div class="col-md-3 mb-3">
+              <div class="col-md-2 mb-3">
                 <div class="text-muted-rm mb-1">
                   Purchase ID
                 </div>
@@ -41,7 +45,7 @@
                 </div>
               </div>
 
-              <div class="col-md-3 mb-3">
+              <div class="col-md-2 mb-3">
                 <div class="text-muted-rm mb-1">
                   Purchase Date
                 </div>
@@ -98,6 +102,18 @@
                      </div>
                    </div>
                  @endif
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="d-flex justify-content-end h-100">
+                  <button class="btn btn-light h-100" style="color: green;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <br/>
+                    <span style="font-size: 1.1rem;">
+                    Purchase
+                    </span>
+                  </button>
                 </div>
               </div>
 
@@ -254,7 +270,7 @@
 
     </div>
   
-    <div class="col-md-5 mt-3 mt-md-0">
+    <div class="col-md-4">
 
       <div class="mb-4">
 

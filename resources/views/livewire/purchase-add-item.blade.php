@@ -6,14 +6,14 @@
     <div class="table-responsive m-0">
       <table class="table table-bordered m-0">
         <thead>
-          <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;">
+          <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
             <th>Search Item</th>
             <th>Category</th>
             <th>Item</th>
-            <th>Quantity</th>
+            <th style="width: 100px;">Qty</th>
             <th>Unit</th>
-            <th>Price per unit</th>
-            <th>Total</th>
+            <th style="width: 150px;">Price per unit</th>
+            <th style="width: 150px;">Total</th>
           </tr>
         </thead>
   
