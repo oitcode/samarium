@@ -129,6 +129,7 @@
     @endif
     </div>
 
+    @if (false)
     <div class="p-0 m-0">
       @if (! $modes['paid'])
       <button
@@ -156,5 +157,6 @@
         </button>
       @endif
     </div>
+    @endif
   </div>
 </div>

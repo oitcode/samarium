@@ -7,40 +7,25 @@
 
     <div class="col-md-4">
 
-  @if (false)
-  @if ($takeaway)
-    @if ($takeaway->status == 'open' && $modes['addItem'])
-      @livewire ('takeaway-work-add-item', ['takeaway' => $takeaway,])
-    @endif
-  @endif
-  @endif
-
       @if (true || $takeaway->status == 'open')
       <div class="card mb-0 shadow-sm">
         <div class="card-body p-0 bg-primary-rm text-white-rm" style="{{--background-color: #efe;--}}">
 
 
-          <div class="row p-0 mt-2" style="margin: auto;">
+          <div class="row p-0" style="margin: auto;">
 
-            <div class="col-md-3 mb-3">
-              <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
-                Expense ID
-              </div>
-              <div class="h6">
-                xx
+            <div class="h-100 col-md-4 d-flex flex-column justify-content-center ">
+              <div>
+                <div class="text-muted mb-1 mt-3 h6" style="font-size: calc(0.6rem + 0.2vw);">
+                  Expense Date
+                </div>
+                <div class="h6">
+                  {{ date('Y-m-d') }}
+                </div>
               </div>
             </div>
 
-            <div class="col-md-4 mb-3">
-              <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
-                Expense Date
-              </div>
-              <div class="h6">
-                {{ date('Y-m-d') }}
-              </div>
-            </div>
-
-            <div class="col-md-5">
+            <div class="col-md-8">
               <div class="d-flex justify-content-end h-100">
                 <button class="btn btn-light h-100" style="color: green;">
                   <i class="fas fa-tools"></i>
@@ -61,7 +46,7 @@
 
 @if (true)
 <div class="card">
- <div class="card-body" style="font-size: 0.8rem;">
+ <div class="card-body" style="font-size: 1rem;">
   
   
     <div class="form-group">

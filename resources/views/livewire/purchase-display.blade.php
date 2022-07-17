@@ -2,15 +2,16 @@
 
   <div class="">
 
-    @if ($purchase->payment_status == 'pending')
-      @if (true || $modes['addItem'])
-        @livewire ('purchase-add-item', ['purchase' => $purchase,])
-      @endif
-    @endif
-
     <div class="row">
 
-      <div class="col-md-7">
+      <div class="col-md-8">
+
+        @if ($purchase->payment_status == 'pending')
+          @if (true || $modes['addItem'])
+            @livewire ('purchase-add-item', ['purchase' => $purchase,])
+          @endif
+        @endif
+
         <div class="card mb-3">
         
           <div class="card-body p-0">
@@ -253,7 +254,7 @@
 
       </div>
     
-      <div class="col-md-5">
+      <div class="col-md-4">
         <div>
           @if ($modes['payment'] && $purchase->payment_status != 'paid')
             @livewire ('purchase-make-payment', ['purchase' => $purchase,])

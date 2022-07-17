@@ -21,32 +21,6 @@
             </td>
           </tr>
 
-          @if (false)
-          <tr style="height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 pt-2 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
-              <span class="ml-4">
-                VAT
-              </span>
-            </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(0.8rem + 0.2vw);">
-              <input class="w-100 h-90 font-weight-bold pl-3 border-0"
-                  type="text" wire:model.debounce.500ms="vat"
-                  wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
-            </td>
-          </tr>
-
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
-              <span class="ml-4 d-inline-block">
-                Total
-              </span>
-            </td>
-            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 pt-2 border-0" style="font-size: 2.5rem;">
-              @php echo number_format( $this->grand_total ); @endphp
-            </td>
-          </tr>
-          @endif
-
           {{-- Todo: Only vat? Any other taxes? --}}
           @if ($has_vat)
           <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
@@ -91,6 +65,7 @@
             @endif
           @endforeach
 
+          @if ($has_vat)
           <tr style="height: 50px;" class="bg-light border-0">
             <td class="w-50 p-0 pt-2 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4">
@@ -100,6 +75,8 @@
             <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-4 pt-2 border-0" style="font-size: calc(0.8rem + 0.2vw);">
               @php echo number_format( $this->grand_total ); @endphp
             </td>
+          </tr>
+          @endif
 
         </tbody>
       </table>
