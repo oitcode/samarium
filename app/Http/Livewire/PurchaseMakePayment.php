@@ -10,11 +10,18 @@ use Illuminate\Support\Facades\DB;
 use App\PurchasePaymentType;
 use App\PurchasePayment;
 
+use App\PurchaseAdditionHeading;
+use App\PurchaseAddition;
+
 class PurchaseMakePayment extends Component
 {
     use MiscTrait;
 
     public $purchase;
+
+    public $has_vat = false;
+
+    public $purchaseAdditions = array();
 
     public $modes = [
         'paid' => false,
@@ -25,7 +32,9 @@ class PurchaseMakePayment extends Component
 
     public $paid_amount;
     public $purchase_payment_type_id;
+    public $taxable_amount;
     public $total;
+    public $sub_total;
     public $vat;
     public $grand_total;
 
@@ -37,9 +46,16 @@ class PurchaseMakePayment extends Component
 
     public function render()
     {
+        $this->has_vat = $this->hasVat();
+
+        foreach (PurchaseAdditionHeading::all() as $purchaseAddition) {
+            $this->purchaseAdditions += [$purchaseAddition->name => 0];
+        }
+
         $this->purchasePaymentTypes = PurchasePaymentType::all();
 
-        $this->total = $this->purchase->getTotalAmount();
+        //$this->total = $this->purchase->getTotalAmount();
+        $this->sub_total = $this->purchase->getTotalAmountRaw();
 
         $this->updateNumbers();
 
@@ -77,6 +93,21 @@ class PurchaseMakePayment extends Component
         DB::beginTransaction();
 
         try {
+            /* Make Purchase Additions if needed. */
+            foreach ($this->purchaseAdditions as $key => $val) {
+                if ($val > 0) {
+                    $purchaseAdditionHeading = PurchaseAdditionHeading::where('name', $key)->first();
+
+                    $purchaseAddition = new PurchaseAddition;
+
+                    $purchaseAddition->purchase_id = $this->purchase->purchase_id;
+                    $purchaseAddition->purchase_addition_heading_id = $purchaseAdditionHeading->purchase_addition_heading_id;
+                    $purchaseAddition->amount = $val;
+
+                    $purchaseAddition->save();
+                }
+            }
+
             $pendingAmount = $this->purchase->getPendingAmount();
 
             /* Make purchase payment */
@@ -119,13 +150,41 @@ class PurchaseMakePayment extends Component
         $this->emit('exitMakePaymentMode');
     }
 
-    public function updateNumbers()
-    {
-        $this->grand_total = $this->total + $this->vat;
-    }
-
     public function updatedVat()
     {
         $this->updateNumbers();
+    }
+
+    public function updatedPurchaesAdditions()
+    {
+        $this->updateNumbers();
+    }
+
+    public function hasVat()
+    {
+        if (PurchaseAdditionHeading::where('name', 'vat')->first()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateNumbers()
+    {
+        $this->taxable_amount = $this->sub_total;
+
+        $this->calculateGrandTotal();
+    }
+
+    public function calculateGrandTotal()
+    {
+        /* Todo: Any validation needed ? */
+
+        /* Todo: Really Hard code VAT ? Better way? */
+        if ($this->has_vat) {
+            $this->grand_total = $this->taxable_amount + $this->purchaseAdditions['VAT'] ;
+        } else {
+            $this->grand_total = $this->taxable_amount;
+        }
     }
 }

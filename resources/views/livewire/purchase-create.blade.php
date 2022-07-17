@@ -153,14 +153,41 @@
               </tbody>
   
               <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
-                <td colspan="6" style="font-size: 1.5rem;" class="font-weight-bold text-right">
-                  <strong>
-                  TOTAL
-                  </strong>
-                </td>
-                <td style="font-size: 1.5rem;">
-                  @php echo number_format( $purchase->getTotalAmount() ); @endphp
-                </td>
+                <tr>
+                  <td colspan="6" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+                    <strong>
+                    Subtotal
+                    </strong>
+                  </td>
+                  <td style="font-size: 1.5rem;">
+                    @php echo number_format( $purchase->getTotalAmountRaw() ); @endphp
+                  </td>
+                </tr>
+
+                @if ($modes['paid'])
+                  @foreach ($purchase->purchaseAdditions as $purchaseAddition)
+                    <tr>
+                      <td colspan="6" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+                        <strong>
+                        {{ $purchaseAddition->purchaseAdditionHeading->name }}
+                        </strong>
+                      </td>
+                      <td style="font-size: 1.5rem;">
+                        @php echo number_format( $purchaseAddition->amount ); @endphp
+                      </td>
+                    </tr>
+                  @endforeach
+                  <tr>
+                    <td colspan="6" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+                      <strong>
+                      Total
+                      </strong>
+                    </td>
+                    <td style="font-size: 1.5rem;">
+                      @php echo number_format( $purchase->getTotalAmount() ); @endphp
+                    </td>
+                  </tr>
+                @endif
               </tfoot>
   
             </table>

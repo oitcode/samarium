@@ -126,7 +126,7 @@
             <tbody style="font-size: 1.3rem;" class="bg-white">
               @if (count($purchase->purchaseItems) > 0)
                 @foreach ($purchase->purchaseItems as $item)
-                <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm">
+                <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm border-bottom">
                   <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
                   <td>
                     <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
@@ -152,13 +152,36 @@
             </tbody>
     
             <tfoot class="bg-white">
-              <tr style="font-size: 1.8rem;">
-                <td colspan="5" style="font-size: 1.3rem;" class="font-weight-bold text-right">
+              <tr class="border-0" style="font-size: 1.8rem;">
+                <td colspan="5" style="font-size: 1.3rem;" class="font-weight-bold text-right border-0">
+                  <strong>
+                  Subtotal
+                  </strong>
+                </td>
+                <td style="font-size: 1.3rem;" class="border-0">
+                  @php echo number_format( $purchase->getTotalAmountRaw() ); @endphp
+                </td>
+              </tr>
+
+              @foreach ($purchase->purchaseAdditions as $purchaseAddition)
+                <tr class="border-0" style="font-size: 1rem;">
+                  <td colspan="5" class="font-weight-bold text-right border-0">
+                    <strong>
+                    {{ $purchaseAddition->purchaseAdditionHeading->name }}
+                    </strong>
+                  </td>
+                  <td class="border-0">
+                    @php echo number_format( $purchaseAddition->amount ); @endphp
+                  </td>
+                </tr>
+              @endforeach
+              <tr style="font-size: 1.3rem;" class="border-0">
+                <td colspan="5" class="font-weight-bold text-right border-0">
                   <strong>
                   Total
                   </strong>
                 </td>
-                <td style="font-size: 1.3rem;">
+                <td class="border-0">
                   @php echo number_format( $purchase->getTotalAmount() ); @endphp
                 </td>
               </tr>

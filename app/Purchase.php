@@ -61,6 +61,15 @@ class Purchase extends Model
         return $this->hasMany('App\PurchasePayment', 'purchase_id', 'purchase_id');
     }
 
+    /*
+     * purchase_addition table.
+     *
+     */
+    public function purchaseAdditions()
+    {
+        return $this->hasMany('App\PurchaseAddition', 'purchase_id', 'purchase_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods
@@ -76,8 +85,19 @@ class Purchase extends Model
     {
         $total = 0;
 
+
         foreach ($this->purchaseItems as $purchaseItem) {
             $total += $purchaseItem->getTotalAmount();
+        }
+
+        foreach ($this->purchaseAdditions as $purchaseAddition)  {
+            if (strtolower($purchaseAddition->purchaseAdditionHeading->effect) == 'plus') {
+                $total += $purchaseAddition->amount;
+            } else if (strtolower($purchaseAddition->purchaseAdditionHeading->effect) == 'minus') {
+                $total -= $purchaseAddition->amount;
+            } else {
+              die ('Whoops!');
+            }
         }
 
         return $total;
@@ -96,5 +116,20 @@ class Purchase extends Model
         }
 
         return $pendingAmount;
+    }
+
+    /*
+     * Get total amount raw.
+     *
+     */
+    public function getTotalAmountRaw()
+    {
+        $total = 0;
+
+        foreach ($this->purchaseItems as $purchaseItem) {
+            $total += $purchaseItem->getTotalAmount();
+        }
+
+        return $total;
     }
 }

@@ -17,7 +17,7 @@
               </span>
             </td>
             <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-4 pt-2 border-0" style="font-size: calc(0.8rem + 0.2vw);">
-              @php echo number_format( $this->total ); @endphp
+              @php echo number_format( $this->sub_total ); @endphp
             </td>
           </tr>
 
@@ -46,6 +46,60 @@
             </td>
           </tr>
           @endif
+
+          {{-- Todo: Only vat? Any other taxes? --}}
+          @if ($has_vat)
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.6rem + 0.2vw);">
+              <span class="ml-4 d-inline-block">
+                Taxable amount
+              </span>
+            </td>
+            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(0.6rem + 0.2vw);">
+              @php echo number_format( $this->taxable_amount ); @endphp
+            </td>
+          </tr>
+          @endif
+
+          {{-- Deal with taxes (VAT, etc) additions now/next/atLast --}}
+          @foreach ($purchaseAdditions as $key => $val)
+
+            {{-- Todo: Wont there be any other taxes other than vat? --}}
+            @if (strtolower($key) != 'vat')
+              @continue
+            @else
+            <tr style="height: 50px;" class="bg-light border-0">
+              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(0.6rem + 0.2vw);">
+                @if (strtolower($key) == 'vat')
+                  <div class="ml-4">
+                    {{ $key }} (13 %)
+                  </div>
+                @else
+                  <span class="ml-4">
+                    {{ $key }}
+                  </span>
+                @endif
+              </td>
+              <td class="pl-3 h-100 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+                <input class="w-100 h-100 font-weight-bold border-0 pl-4"
+                    type="text"
+                    style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
+                    wire:keydown.enter="updateNumbers"
+                    wire:model.debounce.500ms="purchaseAdditions.{{ $key }}" />
+              </td>
+            </tr>
+            @endif
+          @endforeach
+
+          <tr style="height: 50px;" class="bg-light border-0">
+            <td class="w-50 p-0 pt-2 h-100 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+              <span class="ml-4">
+                Total
+              </span>
+            </td>
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-4 pt-2 border-0" style="font-size: calc(0.8rem + 0.2vw);">
+              @php echo number_format( $this->grand_total ); @endphp
+            </td>
 
         </tbody>
       </table>
