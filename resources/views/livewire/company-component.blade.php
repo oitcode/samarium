@@ -33,8 +33,8 @@
 
     <div class="form-group">
       <label for="">PAN Number</label>
-      <input type="text" class="form-control" wire:model.defer="pan_num" style="font-size: 1.3rem;">
-      @error('pan_num') <span class="text-danger">{{ $message }}</span> @enderror
+      <input type="text" class="form-control" wire:model.defer="pan_number" style="font-size: 1.3rem;">
+      @error('pan_number') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">

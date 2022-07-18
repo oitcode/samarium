@@ -70,7 +70,21 @@ class Expense extends Model
 
     public function getTotalAmount()
     {
-        return $this->amount;
+        $total = 0;
+
+        $total += $this->getTotalAmountRaw();
+
+        foreach ($this->expenseAdditions as $expenseAddition) {
+            if (strtolower($expenseAddition->expenseAdditionHeading->effect) == 'plus') {
+              $total += $expenseAddition->amount;
+            } else if (strtolower($expenseAddition->expenseAdditionHeading->effect) == 'minus') {
+              $total -= $expenseAddition->amount;
+            } else {
+                dd('Whoops; Expense addition heading configuration gone wrong!');
+            }
+        }
+
+        return $total;
     }
 
     public function getTotalAmountRaw()

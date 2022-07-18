@@ -3,10 +3,12 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Company;
 
 class CoreSaleInvoiceDisplay extends Component
 {
     public $saleInvoice;
+    public $company;
 
     public $modes = [
         'showPayments' => false,
@@ -14,6 +16,8 @@ class CoreSaleInvoiceDisplay extends Component
 
     public function render()
     {
+        $this->company = Company::first();
+
         return view('livewire.core-sale-invoice-display');
     }
 

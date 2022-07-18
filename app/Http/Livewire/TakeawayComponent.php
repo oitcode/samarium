@@ -18,6 +18,7 @@ class TakeawayComponent extends Component
 
     protected $listeners = [
         'displayTakeaway',
+        'exitTakeawayWork',
     ];
 
     public function render()
@@ -52,5 +53,13 @@ class TakeawayComponent extends Component
 
         $this->displayingTakeaway = $takeaway;
         $this->enterMode('display');
+    }
+
+    public function exitTakeawayWork()
+    {
+        $this->displayingTakeaway = null;
+
+        $this->exitMode('create');
+        $this->exitMode('display');
     }
 }

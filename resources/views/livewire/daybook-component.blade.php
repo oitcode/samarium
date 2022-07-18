@@ -386,6 +386,9 @@
       </div>
     </div>
   @else
-    @livewire ('daybook-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
+    @if (false)
+      @livewire ('daybook-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
+    @endif
+    @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
   @endif
 </div>

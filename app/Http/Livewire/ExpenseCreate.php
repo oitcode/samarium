@@ -129,7 +129,7 @@ class ExpenseCreate extends Component
         ]);
 
         $validatedData['date'] = date('Y-m-d');
-        $validatedData['amount'] = $validatedData['grand_total'];
+        $validatedData['amount'] = $validatedData['sub_total'];
 
         DB::beginTransaction();
 

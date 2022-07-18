@@ -10,11 +10,15 @@ use App\SeatTableBooking;
 use App\SaleInvoiceItem;
 use App\Takeaway;
 
+use App\SaleInvoiceAdditionHeading;
+
 class TakeawayWork extends Component
 {
     public $takeaway;
 
     public $deletingSaleInvoiceItem = null; 
+
+    public $has_vat;
 
     public $modes = [
         'addItem' => true,
@@ -32,6 +36,8 @@ class TakeawayWork extends Component
 
     public function render()
     {
+        $this->has_vat = $this->hasVat();
+
         return view('livewire.takeaway-work');
     }
 
@@ -124,5 +130,14 @@ class TakeawayWork extends Component
     {
         $this->emit('makePaymentPleaseUpdate');
         $this->render();
+    }
+
+    public function hasVat()
+    {
+        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

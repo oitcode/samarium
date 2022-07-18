@@ -1,4 +1,4 @@
-<div class="">
+<div class="bg-white shadow">
 
   <div class="border p-3">
     @if (false)
@@ -10,23 +10,24 @@
     @endif
 
     {{-- Company Info --}}
-    <div class="d-flex justify-content-between p-3 border-bottom mb-3">
+    <div class="d-flex justify-content-between py-3 border-bottom mb-3-rm">
       <div class="">
-        <img src="{{ asset('img/kimchi_ramen_logo_1.jpg') }}" style="width: 50px; height: 50px;">
-        <h1 class="h5 mt-2 mb-0" style="color: orange;">
-          Mister Kimchi Ramen
+        <img src="{{ asset('storage/' . $company->logo_image_path) }}" style="width: 50px; height: 50px;">
+        <h1 class="h5 mt-2 mb-0" style="color: gray;">
+          {{ $company->name }}
         </h1>
         <h2 class="h6 mb-2 text-muted" style="font-size: 0.7rem;">
-          PAN No: 611718420
+          PAN No:
+          {{ $company->pan_number }}
         </h2>
         <h2 class="h6 mb-0" style="font-size: 0.8rem;">
-          Baluwatar, Kathmandu 4, Nepal
+          {{ $company->address }}
         </h2>
         <h3 class="h6 mb-0" style="font-size: 0.8rem;">
-          +977 9803567191
+          {{ $company->phone }}
         </h3>
         <h3 class="h6 mb-0" style="font-size: 0.8rem;">
-          mister.kimchi.ramen@gmail.com
+          {{ $company->email }}
         </h3>
       </div>
 
@@ -66,9 +67,9 @@
         <div class="card-body p-0">
 
 
-          <div class="row-rm" style="margin: auto;">
+          <div class="row-rm bg-warning-rm" style="margin: auto; background-color: #efe;">
 
-            <div class="col-md-3-rm mb-3 border-bottom">
+            <div class="col-md-3-rm mb-3 border-bottom py-3">
               <div class="h5 text-muted mb-2">
                 Customer
               </div>
@@ -108,6 +109,7 @@
                       @endif
                     </td>
                   </tr>
+                  @if (false)
                   <tr class="border-0 m-0 p-0">
                     <td class="pl-0 border-0 m-0 p-0" style="font-size: 0.8rem;">
                       Address
@@ -150,13 +152,20 @@
                       @endif
                     </td>
                   </tr>
+                  @endif
                 </table>
               </div>
+              @else
+                <div class="text-muted" style="font-size: 0.6rem;">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  No info
+                </div>
               @endif
 
             </div>
 
 
+            @if (false)
             <div class="col-md-3-rm mb-3">
               <div>
                 Payment Status
@@ -207,6 +216,7 @@
                @endif
               </div>
             </div>
+            @endif
 
           </div>
 

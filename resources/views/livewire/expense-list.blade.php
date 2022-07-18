@@ -67,7 +67,7 @@
             </td>
   
             <td>
-              @php echo number_format( $expense->amount ); @endphp
+              @php echo number_format( $expense->getTotalAmount() ); @endphp
             </td>
   
             <td>
