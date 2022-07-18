@@ -2,14 +2,29 @@
   <div class="p-0" style="">
 
     {{-- Show in bigger screens --}}
+    @if (! $modes['displaySaleInvoice'])
     <div class="bg-info-rm mb-4 d-none d-md-block">
-      <button class="btn btn-success-rm mr-4 p-0 bg-white badge-pill" wire:click="setPreviousDay">
-        <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm text-success"></i>
-      </button>
+      <div class="float-left d-flex">
+        <button class="btn btn-success-rm mr-4 p-0 bg-white badge-pill" wire:click="setPreviousDay">
+          <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm text-success"></i>
+        </button>
 
-      <button class="btn btn-danger-rm m-0 p-0 bg-white badge-pill" wire:click="setNextDay">
-        <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm text-success"></i>
-      </button>
+        <button class="btn btn-danger-rm m-0 p-0 bg-white badge-pill" wire:click="setNextDay">
+          <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm text-success"></i>
+        </button>
+
+        <div class="d-none d-md-block my-3 text-secondary-rm ml-5" style="font-size: 1rem;">
+          <i class="fas fa-calendar mr-2"></i>
+          {{ Carbon\Carbon::parse($daybookDate)->format('Y F d') }}
+          &nbsp;&nbsp;
+          {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
+
+          <input type="date" wire:model.defer="daybookDate" class="ml-5">
+          <button class="btn btn-success" wire:click="render">
+            Go
+          </button>
+        </div>
+      </div>
 
       <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
         <div class="spinner-border text-info mr-3" role="status">
@@ -17,10 +32,8 @@
         </div>
       </button>
 
-
-
       @if (! $modes['displaySaleInvoice'])
-      <div class="shadow-sm-rm float-right" style="width: 500px;">
+      <div class="shadow-sm-rm float-right" style="">
         <div class="card">
           <div class="card-body p-0 bg-success-rm text-white-rm">
             <div class="p-4">
@@ -40,18 +53,8 @@
       </div>
 
     </div>
+    @endif
 
-    <div class="d-none d-md-block my-3 text-secondary" style="font-size: 1.3rem;">
-      <i class="fas fa-calendar mr-2"></i>
-      {{ Carbon\Carbon::parse($daybookDate)->format('Y F d') }}
-      &nbsp;&nbsp;
-      {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
-
-      <input type="date" wire:model.defer="daybookDate" class="ml-5">
-      <button class="btn btn-success" wire:click="render">
-        Go
-      </button>
-    </div>
 
 
     {{-- Show in smaller screens --}}
@@ -105,9 +108,11 @@
 
     </div>
 
-    <div class="my-3 px-2">
-      Bills: {{ $todaySaleInvoiceCount }}
-    </div>
+    @if (! $modes['displaySaleInvoice'])
+      <div class="my-3 px-2">
+        Bills: {{ $todaySaleInvoiceCount }}
+      </div>
+    @endif
 
   @if (! $modes['displaySaleInvoice'])
     <div class="row">
@@ -119,7 +124,7 @@
             <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
               <thead>
                 <tr class="bg-success text-white" style="font-size: 1rem;{{-- background-color: orange;--}}">
-                  <th style="width: 100px;">Invoice no</th>
+                  <th style="width: 100px;">ID</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Time</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Table</th>
                   <th class="d-none d-md-table-cell" style="width: 500px;">Customer</th>

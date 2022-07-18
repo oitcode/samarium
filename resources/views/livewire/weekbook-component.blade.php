@@ -3,18 +3,9 @@
   {{-- Top Menu --}}
   {{-- Show in bigger screens --}}
   <div class="mb-4 d-none d-md-block">
-    <button class="btn btn-success-rm m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
-      <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm text-success"></i>
-    </button>
-    <button class="btn btn-danger-rm mx-0 p-0 badge-pill bg-white" wire:click="goToNextWeek">
-      <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm text-success"></i>
-    </button>
+    <div class="float-left mr-5">
 
-    <button wire:loading class="btn btn-danger-rm" style="">
-      <div class="spinner-border text-info mr-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </button>
+    </div>
 
     <button class="btn btn-success-rm p-3 pr-5 float-right border shadow-sm bg-white" wire:click="" style="font-size:1.3rem;">
       <h2>
@@ -24,6 +15,45 @@
         @php echo number_format($totalAmount); @endphp
       </h2>
     </button>
+
+    <div class="d-flex float-left my-3 text-secondary-rm border p-3 bg-success-rm text-white-rm shadow-sm" style="background-color: #efe; font-size: 0.8rem;">
+      <button class="btn btn-success-rm m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
+        <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm text-success"></i>
+      </button>
+      <button class="btn btn-danger-rm mx-0 p-0 badge-pill bg-white" wire:click="goToNextWeek">
+        <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm text-success"></i>
+      </button>
+      <div class="mr-3 ml-5">
+        <i class="fas fa-calendar mr-2"></i>
+        {{ Carbon\Carbon::parse($startDay)->format('Y F d') }}
+        <br />
+        &nbsp; &nbsp; &nbsp;
+        {{ Carbon\Carbon::parse($startDay)->format('l') }}
+      </div>
+      <div class="">
+        <i class="fas fa-calendar mr-2"></i>
+        {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('Y F d') }}
+        <br />
+        &nbsp; &nbsp; &nbsp;
+        {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('l') }}
+      </div>
+
+      <div class="">
+        <input type="date" wire:model.defer="weekStartDate" class="ml-5">
+        <button class="btn btn-success" wire:click="setStartOfWeek">
+          Go
+        </button>
+      </div>
+    </div>
+
+    <div class="h-100 float-left d-flex flex-column justify-content-center">
+      <button wire:loading class="btn btn-danger-rm" style="">
+        <div class="spinner-border text-info mr-3" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </button>
+    </div>
+
     <div class="clearfix">
     </div>
   </div>
@@ -82,33 +112,11 @@
   </div>
 
   {{-- Show in bigger screens --}}
-  <div class="d-none d-md-block my-3 text-secondary" style="font-size: 1rem;">
-    <div class="row">
-      <div class="col-md-3">
-        <i class="fas fa-calendar mr-2"></i>
-        {{ Carbon\Carbon::parse($startDay)->format('Y F d') }}
-        &nbsp;&nbsp;
-        {{ Carbon\Carbon::parse($startDay)->format('l') }}
-        <br />
-        <i class="fas fa-calendar mr-2"></i>
-        {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('Y F d') }}
-        &nbsp;&nbsp;
-        {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('l') }}
-      </div>
-
-      <div class="col-md-4">
-        <input type="date" wire:model.defer="weekStartDate" class="ml-5">
-        <button class="btn btn-success" wire:click="setStartOfWeek">
-          Go
-        </button>
-      </div>
-    </div>
-  </div>
 
   @if (count($weekBook) > 0)
     {{-- Show in bigger screens --}}
-    <div class="table-responsive m-0 p-0 d-none d-md-block">
-      <table class="table table-bordered-rm table-hover shadow-sm border" style="font-size: 1.1rem;">
+    <div class="table-responsive m-0 p-0 d-none d-md-block shadow-sm">
+      <table class="table table-bordered-rm table-hover shadow-sm border mb-0" style="font-size: calc(0.8rem + 0.2vw);">
         <thead>
           <tr class="bg-success text-white">
             <th>
@@ -128,7 +136,7 @@
 
         <tbody class="bg-white">
             @foreach ($weekBook as $day)
-              <tr> 
+              <tr style="font-size: calc(0.6rem + 0.2vw);"> 
                 <td>
                   @if (\Carbon\Carbon::today() == $day['day'])
                     <span class="badge badge-success">
@@ -136,7 +144,7 @@
                     </span>
 
                   @else
-                    <span class="text-secondary" style="font-size: 1rem;">
+                    <span class="text-secondary">
                       {{ $day['day']->format('Y F d') }}
                     </span>
                   @endif
@@ -156,10 +164,10 @@
 
         <tfoot class="bg-white">
           <tr>
-            <td colspan="3" class="text-right mr-3 font-weight-bold" style="font-size: 1.3rem;">
+            <td colspan="3" class="text-right mr-3 font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
               Total
             </td>
-            <td class="font-weight-bold" style="font-size: 1.3rem;">
+            <td class="font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
               @php echo number_format($totalAmount); @endphp
             </td>
           </tr>

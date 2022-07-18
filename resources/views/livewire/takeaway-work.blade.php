@@ -16,36 +16,6 @@
         @endif
       @endif
 
-      @if ($takeaway->status == 'closed')
-        {{-- Tool bar --}}
-        <div class="d-flex justify-content-between mb-3-rm border p-1 bg-success text-white shadow-sm">
-          <div>
-            <button class="btn text-white">
-              <i class="fas fa-print fa-2x-rm"></i>
-              <br />
-              Print
-            </button>
-            <button class="btn text-white">
-              <i class="fas fa-file-pdf-o fa-2x-rm"></i>
-              <br />
-              PDF
-            </button>
-            <button class="btn text-white">
-              <i class="fas fa-file-excel-o fa-2x-rm"></i>
-              <br />
-              Excel
-            </button>
-          </div>
-          <div class="">
-            <button class="btn text-white" wire:click="$emit('exitTakeawayWork')">
-              <i class="fas fa-times-circle fa-2x"></i>
-              <br />
-              Close
-            </button>
-          </div>
-        </div>
-      @endif
-
       @if ($takeaway)
       <div class="card mb-0 shadow-sm">
         <div class="card-body p-0 bg-primary-rm text-white-rm" style="{{--background-color: #efe;--}}">
