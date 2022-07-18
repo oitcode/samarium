@@ -7,7 +7,10 @@ use Livewire\Component;
 use App\SaleInvoicePaymentType;
 use App\PurchasePaymentType;
 use App\ExpensePaymentType;
+
 use App\SaleInvoiceAdditionHeading;
+use App\PurchaseAdditionHeading;
+use App\ExpenseAdditionHeading;
 
 class SettingsComponent extends Component
 {
@@ -16,6 +19,8 @@ class SettingsComponent extends Component
     public $expensePaymentTypes;
 
     public $saleInvoiceAdditionHeadings;
+    public $purchaseAdditionHeadings;
+    public $expenseAdditionHeadings;
 
     public $new_sale_invoice_payment_type_name;
     public $new_purchase_payment_type_name;
@@ -24,6 +29,12 @@ class SettingsComponent extends Component
     public $new_sale_invoice_addition_heading_name;
     public $new_sale_invoice_addition_heading_effect;
 
+    public $new_purchase_addition_heading_name;
+    public $new_purchase_addition_heading_effect;
+
+    public $new_expense_addition_heading_name;
+    public $new_expense_addition_heading_effect;
+
     public $modes = [
     ];
 
@@ -31,7 +42,10 @@ class SettingsComponent extends Component
         'createSaleInvoicePaymentType' => false,
         'createPurchasePaymentType' => false,
         'createExpensePaymentType' => false,
+
         'createSaleInvoiceAdditionHeading' => false,
+        'createPurchaseAdditionHeading' => false,
+        'createExpenseAdditionHeading' => false,
     ];
 
     public function render()
@@ -41,6 +55,8 @@ class SettingsComponent extends Component
         $this->expensePaymentTypes = ExpensePaymentType::all();
 
         $this->saleInvoiceAdditionHeadings = SaleInvoiceAdditionHeading::all();
+        $this->purchaseAdditionHeadings = PurchaseAdditionHeading::all();
+        $this->expenseAdditionHeadings = ExpenseAdditionHeading::all();
 
         return view('livewire.settings-component');
     }
@@ -129,5 +145,35 @@ class SettingsComponent extends Component
         $saleInvoiceAdditionHeading->save();
 
         $this->exitMultiMode('createSaleInvoiceAdditionHeading');
+    }
+
+    public function storePurchaseAdditionHeading()
+    {
+        $validatedData = $this->validate([
+            'new_purchase_addition_heading_name' => 'required',
+            'new_purchase_addition_heading_effect' => 'required',
+        ]);
+
+        $purchaseAdditionHeading = new PurchaseAdditionHeading;
+        $purchaseAdditionHeading->name = $validatedData['new_purchase_addition_heading_name'];
+        $purchaseAdditionHeading->effect = $validatedData['new_purchase_addition_heading_effect'];
+        $purchaseAdditionHeading->save();
+
+        $this->exitMultiMode('createPurchaseAdditionHeading');
+    }
+
+    public function storeExpenseAdditionHeading()
+    {
+        $validatedData = $this->validate([
+            'new_expense_addition_heading_name' => 'required',
+            'new_expense_addition_heading_effect' => 'required',
+        ]);
+
+        $expenseAdditionHeading = new ExpenseAdditionHeading;
+        $expenseAdditionHeading->name = $validatedData['new_expense_addition_heading_name'];
+        $expenseAdditionHeading->effect = $validatedData['new_expense_addition_heading_effect'];
+        $expenseAdditionHeading->save();
+
+        $this->exitMultiMode('createExpenseAdditionHeading');
     }
 }
