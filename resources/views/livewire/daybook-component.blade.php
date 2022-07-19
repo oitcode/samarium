@@ -407,6 +407,11 @@
             <br />
             PDF
           </button>
+          <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+            <div class="spinner-border text-info mr-3" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </button>
           @if (false)
           <button class="btn text-secondary">
             <i class="fas fa-file-excel-o fa-2x-rm"></i>
