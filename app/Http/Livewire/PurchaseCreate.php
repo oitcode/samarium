@@ -122,7 +122,7 @@ class PurchaseCreate extends Component
         $this->purchase->vendor_id = $validatedData['vendor_id'];
         $this->purchase->save();
 
-        $this->refresh();
+        // $this->refresh();
         // $this->render();
     }
 

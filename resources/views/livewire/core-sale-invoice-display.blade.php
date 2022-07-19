@@ -303,9 +303,102 @@
   
           </table>
         </div>
+
+  {{-- Print --}}
+  <div class="d-none d-print-block" style="width: 100%;">
+    <table class="border-dark mb-0" style="">
+      <thead>
+        <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+          @if (false)
+          <th>#</th>
+          @endif
+          <th style="width: 500px;">Item</th>
+          <th style="width: 100px;">Price</th>
+          <th style="width: 100px;">Quantity</th>
+          <th style="width: 100px;">Amount</th>
+        </tr>
+      </thead>
+    
+      <tbody style="">
+        @foreach ($saleInvoice->saleInvoiceItems as $item)
+        <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold-rm">
+          @if (false)
+          <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+          @endif
+          <td>
+            <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
+            {{ $item->product->name }}
+          </td>
+          <td>
+            {{--
+            @php echo number_format( $item->product->selling_price ); @endphp
+            --}}
+            @php echo number_format( $item->price_per_unit); @endphp
+          </td>
+          <td>
+            <span class="badge badge-pill-rm badge-success">
+              {{ $item->quantity }}
+            </span>
+          </td>
+          <td>
+            @php echo number_format( $item->getTotalAmount() ); @endphp
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    
+      <tfoot class="bg-success-rm text-white-rm">
+        <tr class="bg-primary-rm">
+         <td colspan="3" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right pr-3">
+            <strong>
+            Subtotal
+            </strong>
+          </td>
+          <td style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
+            @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
+          </td>
+        </tr>
+        @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
+          <tr class="border-0 mb-0 p-0">
+            <td colspan="3" style="font-size: calc(0.6rem + 0.2vw);"
+                class="
+                  font-weight-bold text-right border-0 p-0 pr-3
+                ">
+              {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
+              @if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) == 'vat')
+              (13%)
+              @endif
+            </td>
+            <td style="font-size: calc(0.6rem + 0.2vw);"
+                class="
+                  @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
+                    text-danger
+                  @endif
+                  font-weight-bold border-0 p-0 pl-1">
+              @if (false)
+              NRs
+              &nbsp;&nbsp;
+              @endif
+              @php echo number_format( $saleInvoiceAddition->amount ); @endphp
+            </td>
+          </tr>
+        @endforeach
+    
+        <tr class="border-0 bg-danger-rm p-0">
+          <td colspan="3" style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold text-right border-0 pr-3">
+            Total
+          </td>
+          <td style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold border-0">
+            @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
+          </td>
+        </tr>
+      </tfoot>
+    
+    </table>
+  </div>
   
         {{-- Show in smaller screens --}}
-        <div class="table-responsive bg-white mb-0 d-md-none mt-3">
+        <div class="table-responsive bg-white mb-0 d-md-none d-print-none mt-3">
           <table class="table table-bordered-rm table-hover border-dark shadow-sm mb-0">
   
             <tbody style="font-size: 1.3rem;">
@@ -333,7 +426,7 @@
           </table>
         </div>
   
-        <div class="table-responsive d-md-none">
+        <div class="table-responsive d-md-none d-print-none">
           <table class="table">
   
             <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
@@ -389,4 +482,5 @@
   
     </div>
   </div>
+
 </div>
