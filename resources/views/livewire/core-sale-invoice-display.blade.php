@@ -1,20 +1,22 @@
 <div>
   <div>
-    @if (false)
+    @if ($display_toolbar)
       {{-- Tool bar --}}
-      <div class="d-flex justify-content-between mb-3-rm border p-1 bg-white-rm text-white-rm shadow-sm" style="background-color: #fff;">
+      <div class="d-flex justify-content-between mb-4 border p-1 bg-white-rm text-white-rm shadow-sm" style="background-color: #fff;">
         <div>
-          <button class="btn text-primary">
+          <a href="{{ route('dashboard-print-sale-invoice', $saleInvoice->sale_invoice_id) }}"
+              target="_blank"
+              class="btn text-secondary">
             <i class="fas fa-print fa-2x-rm"></i>
             <br />
             Print
-          </button>
-          <button class="btn text-danger">
+          </a>
+          <button class="btn text-secondary">
             <i class="fas fa-file-pdf-o fa-2x-rm"></i>
             <br />
             PDF
           </button>
-          <button class="btn text-success">
+          <button class="btn text-secondary">
             <i class="fas fa-file-excel-o fa-2x-rm"></i>
             <br />
             Excel
@@ -43,45 +45,58 @@
             {{ $company->name }}
           </h1>
           <h2 class="h6 mb-2 text-muted" style="font-size: 0.7rem;">
-            PAN No:
+            @if ($has_vat)
+              VAT No:
+            @else
+              PAN No:
+            @endif
             {{ $company->pan_number }}
           </h2>
-          <h2 class="h6 mb-0" style="font-size: 0.8rem;">
+          <h2 class="h6 mb-0 d-inline mr-1" style="font-size: 0.8rem;">
             {{ $company->address }}
           </h2>
-          <h3 class="h6 mb-0" style="font-size: 0.8rem;">
+          <span class="mr-1">
+            |
+          </span>
+          <h3 class="h6 mb-0 d-inline" style="font-size: 0.8rem;">
             {{ $company->phone }}
           </h3>
-          <h3 class="h6 mb-0" style="font-size: 0.8rem;">
+          @if (false)
+          <h3 class="h6 mb-0 d-inline" style="font-size: 0.8rem;">
             {{ $company->email }}
           </h3>
+          @endif
         </div>
   
         <div class="">
-          @if (true)
-          <div class="mb-3 p-2 bg-primary-rm text-white text-center" style="background-color: orange;">
-            SALE INVOICE
-          </div>
-          @endif
-          <div class="mb-1">
-            <div class="h6 text-muted-rm mb-1" style="font-size: 0.8rem;">
-              <span class="text-muted" style="font-size: 0.6rem">
-                ID:
-              </span>
-              <span>
-                {{ $saleInvoice->sale_invoice_id }}
-              </span>
-            </div>
-          </div>
+          <div class="h-100 d-flex flex-column justify-content-center">
+            <div class="bg-danger-rm border-rm mt-2">
+              @if (true)
+              <div class="mb-3 p-2 bg-primary-rm text-white text-center" style="background-color: orange;">
+                SALE INVOICE
+              </div>
+              @endif
+              <div class="mb-1">
+                <div class="h6 text-muted-rm mb-1" style="font-size: 0.8rem;">
+                  <span class="text-muted" style="font-size: 0.6rem">
+                    Bill no:
+                  </span>
+                  <span style="font-size: 1rem;">
+                    {{ $saleInvoice->sale_invoice_id }}
+                  </span>
+                </div>
+              </div>
   
-          <div class="mb-1">
-            <div class="text-muted-rm mb-1" style="font-size: 0.8rem;">
-              <span class="text-muted" style="font-size: 0.6rem">
-                Date:
-              </span>
-              <span>
-                {{ $saleInvoice->created_at->toDateString() }}
-              </span>
+              <div class="mb-1">
+                <div class="text-muted-rm mb-1" style="font-size: 0.8rem;">
+                  <span class="text-muted" style="font-size: 0.6rem">
+                    Date:
+                  </span>
+                  <span>
+                    {{ $saleInvoice->created_at->toDateString() }}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -164,3 +164,14 @@ Route::get('/ecs/menudemo', 'WebsiteController@menuDemo')->name('website-menu-de
 
 Route::get('/cms/webpage', 'CmsWebpageController@index')->name('dashboard-cms-webpage');
 Route::get('/cms/navMenu', 'CmsNavMenuController@index')->name('dashboard-cms-nav-menu');
+
+
+/*
+ *-----------------------------------------------------------------------------
+ * Print
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+Route::get('/dashboard/print/saleInvoice/{id}', 'PrintController@printSaleInvoice')->name('dashboard-print-sale-invoice');
