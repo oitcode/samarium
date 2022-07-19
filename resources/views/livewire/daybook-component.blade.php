@@ -392,6 +392,39 @@
     </div>
   @else
     @if (true)
+      {{-- Toolbar --}}
+      <div class="d-flex justify-content-between mb-4 border p-1 bg-white-rm text-white-rm shadow-sm" style="background-color: #fff;">
+        <div>
+          <a href="{{ route('dashboard-print-sale-invoice', $displayingSaleInvoice->sale_invoice_id) }}"
+              target="_blank"
+              class="btn text-secondary">
+            <i class="fas fa-print fa-2x-rm"></i>
+            <br />
+            Print
+          </a>
+          <button class="btn text-secondary">
+            <i class="fas fa-file-pdf-o fa-2x-rm"></i>
+            <br />
+            PDF
+          </button>
+          @if (false)
+          <button class="btn text-secondary">
+            <i class="fas fa-file-excel-o fa-2x-rm"></i>
+            <br />
+            Excel
+          </button>
+          @endif
+        </div>
+        @if (false)
+        <div class="">
+          <button class="btn text-dark" wire:click="">
+            <i class="fas fa-times-circle fa-2x"></i>
+            <br />
+            Close
+          </button>
+        </div>
+        @endif
+      </div>
       @livewire ('daybook-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
     @else
       @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
