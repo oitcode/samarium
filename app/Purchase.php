@@ -132,4 +132,17 @@ class Purchase extends Model
 
         return $total;
     }
+
+    public function getVatAmount()
+    {
+        $total = 0;
+
+        foreach ($this->purchaseAdditions as $purchaseAddition) {
+            if (strtolower($purchaseAddition->purchaseAdditionHeading->name) == 'vat') {
+                $total += $purchaseAddition->amount;
+            }
+        }
+
+        return $total;
+    }
 }

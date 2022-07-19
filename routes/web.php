@@ -175,3 +175,15 @@ Route::get('/cms/navMenu', 'CmsNavMenuController@index')->name('dashboard-cms-na
  *
  */
 Route::get('/dashboard/print/saleInvoice/{id}', 'PrintController@printSaleInvoice')->name('dashboard-print-sale-invoice');
+
+
+
+/*
+ *-----------------------------------------------------------------------------
+ * VAT
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+Route::get('/dashboard/vat', 'VatController@index')->name('dashboard-vat');

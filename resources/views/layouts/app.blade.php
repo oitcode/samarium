@@ -568,6 +568,12 @@
               Inventory
             </a>
           </div>
+          <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
+            <a href="{{ route('dashboard-vat') }}" class="btn btn-light p-3">
+              <i class="fas fa-solar-panel text-muted mr-2"></i>
+              VAT
+            </a>
+          </div>
 
           <div class="float-right text-white border-right-rm" style="font-size: 1.3rem;">
             <div class="dropdown">

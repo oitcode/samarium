@@ -91,4 +91,17 @@ class Expense extends Model
     {
         return $this->amount;
     }
+
+    public function getVatAmount()
+    {
+        $total = 0;
+
+        foreach ($this->expenseAdditions as $expenseAddition) {
+            if (strtolower($expenseAddition->expenseAdditionHeading->name) == 'vat') {
+                $total += $expenseAddition->amount;
+            }
+        }
+
+        return $total;
+    }
 }

@@ -228,4 +228,17 @@ class SaleInvoice extends Model
     {
         return $this->getTotalAmountRaw() + $this->getNonTaxSaleInvoiceAdditionsAmount();
     }
+
+    public function getVatAmount()
+    {
+        $total = 0;
+
+        foreach ($this->saleInvoiceAdditions as $saleInvoiceAddition) {
+            if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) == 'vat') {
+                $total += $saleInvoiceAddition->amount;
+            }
+        }
+
+        return $total;
+    }
 }
