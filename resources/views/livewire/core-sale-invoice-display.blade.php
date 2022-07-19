@@ -216,7 +216,9 @@
           <table class="table table-sm table-hover border-dark shadow-sm mb-0">
             <thead>
               <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+                @if (false)
                 <th>#</th>
+                @endif
                 <th>Item</th>
                 <th>Price</th>
                 <th>Quantity</th>
@@ -226,8 +228,10 @@
   
             <tbody style="">
               @foreach ($saleInvoice->saleInvoiceItems as $item)
-              <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
+              <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold-rm">
+                @if (false)
                 <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+                @endif
                 <td>
                   <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
                   {{ $item->product->name }}
@@ -252,7 +256,7 @@
   
             <tfoot class="bg-success-rm text-white-rm">
               <tr class="bg-primary-rm">
-               <td colspan="4" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right">
+               <td colspan="3" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right pr-3">
                   <strong>
                   Subtotal
                   </strong>
@@ -263,9 +267,9 @@
               </tr>
               @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
                 <tr class="border-0 mb-0 p-0">
-                  <td colspan="4" style="font-size: calc(0.6rem + 0.2vw);"
+                  <td colspan="3" style="font-size: calc(0.6rem + 0.2vw);"
                       class="
-                        font-weight-bold text-right border-0 p-0 pr-1
+                        font-weight-bold text-right border-0 p-0 pr-3
                       ">
                     {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                     @if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) == 'vat')
@@ -288,10 +292,10 @@
               @endforeach
   
               <tr class="border-0 bg-danger-rm p-0">
-                <td colspan="4" style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold text-right border-0">
+                <td colspan="3" style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold text-right border-0 pr-3">
                   Total
                 </td>
-                <td style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold border-0">
+                <td style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold border-0">
                   @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                 </td>
               </tr>
