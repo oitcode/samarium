@@ -100,7 +100,7 @@
               @else
                 btn-success
               @endif
-            w-100 h-100 p-4-rm font-weight-bold text-left"
+            w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
             style="font-size: calc(0.6rem + 0.15vw);
               @if(Route::current()->getName() == 'sale')
                 background-color: #008450;
@@ -130,7 +130,7 @@
               @else
                 btn-success
               @endif
-            w-100 h-100 p-4-rm font-weight-bold text-left"
+            w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
             style="font-size: calc(0.6rem + 0.15vw);
               @if(Route::current()->getName() == 'cafesale')
@@ -162,7 +162,7 @@
               @else
                 btn-success
               @endif
-            w-100 h-100 p-4-rm font-weight-bold text-left"
+            w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
             style="font-size: calc(0.6rem + 0.15vw);
               @if(Route::current()->getName() == 'menu')
                 background-color: #008450;
@@ -193,7 +193,7 @@
                 @else
                   btn-success
                 @endif
-              w-100 h-100 p-4-rm font-weight-bold text-left"
+              w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'daybook')
                   background-color: #008450;
@@ -222,7 +222,7 @@
                 @else
                   btn-success
                 @endif
-              w-100 h-100 p-4-rm font-weight-bold text-left"
+              w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'weekbook')
@@ -253,7 +253,7 @@
                 @else
                     btn-success
                 @endif
-              w-100 h-100 p-4-rm font-weight-bold text-left"
+              w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'customer')
@@ -281,7 +281,7 @@
                 @else
                     btn-success
                 @endif
-              w-100 h-100 p-4-rm font-weight-bold text-left"
+              w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'customer')
@@ -317,7 +317,7 @@
                 @else
                     btn-success
                 @endif
-              w-100 h-100 p-4-rm font-weight-bold text-left"
+              w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'online-order')
@@ -348,7 +348,7 @@
                 @else
                     btn-success
                 @endif
-              w-100 h-100 p-4-rm font-weight-bold text-left"
+              w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'online-order')
@@ -568,12 +568,14 @@
               Inventory
             </a>
           </div>
+          @if (env('HAS_VAT') == true)
           <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
             <a href="{{ route('dashboard-vat') }}" class="btn btn-light p-3">
               <i class="fas fa-solar-panel text-muted mr-2"></i>
               VAT
             </a>
           </div>
+          @endif
 
           <div class="float-right text-white border-right-rm" style="font-size: 1.3rem;">
             <div class="dropdown">
