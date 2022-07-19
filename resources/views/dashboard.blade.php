@@ -123,6 +123,25 @@
             </div>
 
             @if (false)
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md-3 border" style="background-color: #ffd;">
+              &nbsp;<br/>
+              &nbsp;<br/>
+              &nbsp;<br/>
+              &nbsp;<br/>
+              &nbsp;<br/>
+              &nbsp;<br/>
+              &nbsp;<br/>
+              &nbsp;<br/>
+              &nbsp;<br/>
+              &nbsp;<br/>
+            </div>
+            @endif
+
+
+            @if (false)
               <div class="col-md-2">
                 @livewire ('flash-card-total-bookings-today')
               </div>
