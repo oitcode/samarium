@@ -109,11 +109,17 @@
 
             <div class="d-flex flex-column">
               <div class="d-flex justify-content-center">
-                <i class="fas fa-skating"></i>
+                @if (env('CMP_TYPE') == 'cafe')
+                  <i class="fas fa-skating"></i>
+                @else
+                  <i class="fas fa-dice-d6"></i>
+                @endif
               </div>
               <div class="d-flex justify-content-center">
-                @if (true)
+                @if (env('CMP_TYPE') == 'cafe')
                   Takeaway
+                @else
+                  Sales
                 @endif
               </div>
             </div>
@@ -122,35 +128,35 @@
         </div>
         @endcan
 
-        <div class="text-center border">
-          <a href="{{ route('cafesale') }}"
-            class="btn
-              @if(Route::current()->getName() == 'cafesale')
-                btn-success
-              @else
-                btn-success
-              @endif
-            w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
-
-            style="font-size: calc(0.6rem + 0.15vw);
-              @if(Route::current()->getName() == 'cafesale')
-                background-color: #008450;
-              @endif
-            ">
-
-            <div class="d-flex flex-column">
-              <div class="d-flex justify-content-center">
-                <i class="fas fa-table"></i>
-              </div>
-              <div class="d-flex justify-content-center">
-                @if (true)
-                  Tables
+        @if (env('CMP_TYPE') == 'cafe')
+          <div class="text-center border">
+            <a href="{{ route('cafesale') }}"
+              class="btn
+                @if(Route::current()->getName() == 'cafesale')
+                  btn-success
+                @else
+                  btn-success
                 @endif
-              </div>
-            </div>
+              w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
-          </a>
-        </div>
+              style="font-size: calc(0.6rem + 0.15vw);
+                @if(Route::current()->getName() == 'cafesale')
+                  background-color: #008450;
+                @endif
+              ">
+
+                <div class="d-flex flex-column">
+                  <div class="d-flex justify-content-center">
+                    <i class="fas fa-table"></i>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                      Tables
+                  </div>
+                </div>
+
+            </a>
+          </div>
+        @endif
         @endif
 
         @can ('is-admin')
@@ -394,17 +400,24 @@
 
       <li class="nav-item">
         <a class="nav-link" href="{{ route('sale') }}">
-          <i class="fas fa-skating mr-3"></i>
-          Takeaway
+          @if (env('CMP_TYPE') == 'cafe')
+            <i class="fas fa-skating mr-3"></i>
+            Takeaway
+          @else
+            <i class="fas fa-dice-d6 mr-3"></i>
+            Sales
+          @endif
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('cafesale') }}">
-          <i class="fas fa-table mr-3"></i>
-          Tables
-        </a>
-      </li>
+      @if (env('CMP_TYPE') == 'cafe')
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('cafesale') }}">
+            <i class="fas fa-table mr-3"></i>
+            Tables
+          </a>
+        </li>
+      @endif
 
       @can ('is-admin')
       <li class="nav-item">
