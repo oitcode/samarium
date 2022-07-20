@@ -37,7 +37,7 @@
     </div>
 
     <div class="form-group">
-      <label for="">Price</label>
+      <label for="">Selling price</label>
       <input type="text"
           class="form-control"
           wire:model.defer="selling_price"
