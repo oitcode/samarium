@@ -38,7 +38,7 @@
     <div class="border p-0">
   
       {{-- Company Info --}}
-      <div class="d-flex justify-content-between pb-3 border-bottom mb-3-rm p-2" style="background-color: #fff;">
+      <div class="d-flex justify-content-between pb-3 border-bottom mb-3-rm p-2 d-print-none" style="background-color: #fff;">
         <div class="">
           <img src="{{ asset('storage/' . $company->logo_image_path) }}" style="width: 50px; height: 50px;">
           <h1 class="h5 mt-2 mb-0" style="color: gray;">
@@ -73,6 +73,68 @@
             <div class="bg-danger-rm border-rm mt-2">
               @if (true)
               <div class="mb-3 p-2 bg-primary-rm text-white text-center" style="background-color: orange;">
+                SALE INVOICE
+              </div>
+              @endif
+              <div class="mb-1">
+                <div class="h6 text-muted-rm mb-1" style="font-size: 0.8rem;">
+                  <span class="text-muted" style="font-size: 0.6rem">
+                    Bill no:
+                  </span>
+                  <span style="font-size: 1rem;">
+                    {{ $saleInvoice->sale_invoice_id }}
+                  </span>
+                </div>
+              </div>
+  
+              <div class="mb-1">
+                <div class="text-muted-rm mb-1" style="font-size: 0.8rem;">
+                  <span class="text-muted" style="font-size: 0.6rem">
+                    Date:
+                  </span>
+                  <span>
+                    {{ $saleInvoice->created_at->toDateString() }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{-- Company Info     PRINT     --}}
+      <div class="pb-3 border-bottom mb-3-rm p-2 d-none d-md-none d-print-block" style="background-color: #fff; width: 800px !important;">
+        <div class="">
+          <img src="{{ asset('storage/' . $company->logo_image_path) }}" style="width: 50px; height: 50px;">
+          <h1 class="h5 mt-2 mb-0" style="color: gray;">
+            {{ $company->name }}
+          </h1>
+          <h2 class="h6 mb-2 text-muted" style="font-size: 0.7rem;">
+            @if ($has_vat)
+              VAT No:
+            @else
+              PAN No:
+            @endif
+            {{ $company->pan_number }}
+          </h2>
+          <h2 class="h6 mb-0" style="font-size: 0.8rem;">
+            {{ $company->address }}
+          </h2>
+          <h3 class="h6 mb-0" style="font-size: 0.8rem;">
+            {{ $company->phone }}
+          </h3>
+          @if (false)
+          <h3 class="h6 mb-0" style="font-size: 0.8rem;">
+            {{ $company->email }}
+          </h3>
+          @endif
+        </div>
+  
+        <div class="">
+          <div class="">
+            <div class="border-rm mt-2">
+              @if (true)
+              <div class="my-3 border-top text-white text-center-rm" style="background-color: orange;">
                 SALE INVOICE
               </div>
               @endif
@@ -312,7 +374,7 @@
           @if (false)
           <th>#</th>
           @endif
-          <th style="width: 500px;">Item</th>
+          <th style="width: 300px;">Item</th>
           <th style="width: 100px;">Price</th>
           <th style="width: 100px;">Quantity</th>
           <th style="width: 100px;">Amount</th>
@@ -322,11 +384,7 @@
       <tbody style="">
         @foreach ($saleInvoice->saleInvoiceItems as $item)
         <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold-rm">
-          @if (false)
-          <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
-          @endif
           <td>
-            <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
             {{ $item->product->name }}
           </td>
           <td>

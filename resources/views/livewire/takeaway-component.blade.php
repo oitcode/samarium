@@ -29,8 +29,13 @@
 
     <button class="btn btn-success m-0 float-right d-none d-md-block"
         style="{{-- height: 100px; width: 225px; --}} font-size: 1.3rem;">
-      <i class="fas fa-skating mr-3"></i>
-      Takeaway
+      @if (env('CMP_TYPE') == 'cafe')
+        <i class="fas fa-skating mr-3"></i>
+        Takeaway
+      @else
+        <i class="fas fa-dice-d6 mr-3"></i>
+        Sales
+      @endif
     </button>
 
     <button wire:loading class="btn m-0"
