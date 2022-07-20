@@ -134,7 +134,7 @@
           <div class="">
             <div class="border-rm mt-2">
               @if (true)
-              <div class="my-3 border-top text-white text-center-rm" style="background-color: orange;">
+              <div class="my-3 border-top border-bottom" style="background-color: gray;">
                 SALE INVOICE
               </div>
               @endif
