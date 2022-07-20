@@ -14,12 +14,19 @@
 
       <div class="col-6 mr-3-rm mb-3 p-0 pr-3">
         <a href="{{ route('sale') }}" class="btn btn-success p-3 w-100" style="font-size: 1.3rem;">
-          <i class="fas fa-shipping-fast mr-3"></i>
-          <br/>
-          Takeaway
+          @if (env('CMP_TYPE') == 'cafe')
+            <i class="fas fa-skating mr-3"></i>
+            <br/>
+            Takeaway
+          @else
+            <i class="fas fa-dice-d6 mr-3"></i>
+            <br/>
+            Sales
+          @endif
         </a>
       </div>
 
+      @if (env('CMP_TYPE') == 'cafe')
       <div class="col-6 mr-3-rm mb-3 p-0 pr-3">
         <a href="{{ route('cafesale') }}" class="btn btn-success p-3 w-100" style="font-size: 1.3rem;">
           <i class="fas fa-table mr-3"></i>
@@ -27,16 +34,7 @@
           Tables
         </a>
       </div>
-
-      @can ('is-admin')
-      <div class="col-6 mr-3-rm mb-3 p-0 pr-3">
-        <a href="{{ route('menu') }}" class="btn btn-success p-3 w-100" style="font-size: 1.3rem;">
-          <i class="fas fa-list mr-3"></i>
-          <br/>
-          Menu
-        </a>
-      </div>
-      @endcan
+      @endif
 
       @can ('is-admin')
       <div class="col-6 mr-3-rm mb-3 p-0 pr-3">
@@ -54,6 +52,22 @@
           <i class="fas fa-book mr-3"></i>
           <br/>
           Weekbook
+        </a>
+      </div>
+      @endcan
+
+      @can ('is-admin')
+      <div class="col-6 mr-3-rm mb-3 p-0 pr-3">
+        <a href="{{ route('menu') }}" class="btn btn-success p-3 w-100" style="font-size: 1.3rem;">
+          @if (env('CMP_TYPE') == 'cafe')
+            <i class="fas fa-list mr-3"></i>
+            <br/>
+            Menu
+          @else
+            <i class="fas fa-list mr-3"></i>
+            <br/>
+            Products
+          @endif
         </a>
       </div>
       @endcan

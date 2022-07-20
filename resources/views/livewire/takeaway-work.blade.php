@@ -96,11 +96,19 @@
             <div class="col-md-2">
               <div class="d-flex justify-content-end h-100">
                 <button class="btn btn-light h-100" style="color: green;">
-                  <i class="fas fa-skating"></i>
-                  <br/>
-                  <span style="font-size: 1.1rem;">
-                  Takeaway
-                  </span>
+                  @if (env('CMP_TYPE') == 'cafe')
+                    <i class="fas fa-skating"></i>
+                    <br/>
+                    <span style="font-size: 1.1rem;">
+                      Takeaway
+                    </span>
+                  @else
+                    <i class="fas fa-dice-d6"></i>
+                    <br/>
+                    <span style="font-size: 1.1rem;">
+                      Sales
+                    </span>
+                  @endif
                 </button>
               </div>
             </div>

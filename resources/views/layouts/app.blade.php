@@ -180,8 +180,10 @@
                 <i class="fas fa-list"></i>
               </div>
               <div class="d-flex justify-content-center">
-                @if (true)
+                @if (env('CMP_TYPE') == 'cafe')
                   Menu
+                @else
+                  Products
                 @endif
               </div>
             </div>
@@ -423,7 +425,11 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('menu') }}">
           <i class="fas fa-list mr-3"></i>
-          Menu
+          @if (env('CMP_TYPE') == 'cafe')
+            Menu
+          @else
+            Products
+          @endif
         </a>
       </li>
       @endcan
@@ -495,10 +501,6 @@
             {{ Auth::user()->name }}
           </a>
           <div class="dropdown-menu" aria-labelledby="mobTopMenuDropdown2">
-            <a class="dropdown-item" href="">
-              <i class="fas fa-user text-secondary mr-2"></i>
-              {{ Auth::user()->name }}
-            </a>
             @can ('is-admin')
             <a class="dropdown-item" href="{{ route('company') }}">
               <i class="fas fa-home text-secondary mr-2"></i>
@@ -552,39 +554,81 @@
         @else
 
           <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
-            <a href="{{ route('dashboard-purchase') }}" class="btn btn-light p-3">
-              <i class="fas fa-shopping-cart text-muted mr-2"></i>
+            <a href="{{ route('dashboard-purchase') }}"
+                class="btn
+                       @if(Route::current()->getName() == 'dashboard-purchase')
+                         btn-danger
+                       @else
+                         btn-light
+                       @endif
+                    p-3">
+              <i class="fas fa-shopping-cart mr-2"></i>
               Purchase
             </a>
           </div>
           <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
-            <a href="{{ route('dashboard-expense') }}" class="btn btn-light p-3">
-              <i class="fas fa-tools text-muted mr-2"></i>
+            <a href="{{ route('dashboard-expense') }}"
+                class="btn
+                       @if(Route::current()->getName() == 'dashboard-expense')
+                         btn-danger
+                       @else
+                         btn-light
+                       @endif
+                    p-3">
+              <i class="fas fa-tools mr-2"></i>
               Expense
             </a>
           </div>
           <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
-            <a href="{{ route('dashboard-vendor') }}" class="btn btn-light p-3">
-              <i class="fas fa-users text-muted mr-2"></i>
+            <a href="{{ route('dashboard-vendor') }}"
+                class="btn
+                       @if(Route::current()->getName() == 'dashboard-vendor')
+                         btn-primary
+                       @else
+                         btn-light
+                       @endif
+                    p-3">
+              <i class="fas fa-users mr-2"></i>
               Vendors
             </a>
           </div>
           <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
-            <a href="{{ route('dashboard-report') }}" class="btn btn-light p-3">
-              <i class="fas fa-chart-line text-muted mr-2"></i>
+            <a href="{{ route('dashboard-report') }}"
+                class="btn
+                       @if(Route::current()->getName() == 'dashboard-report')
+                         btn-primary
+                       @else
+                         btn-light
+                       @endif
+                    p-3">
+              <i class="fas fa-chart-line mr-2"></i>
               Report
             </a>
           </div>
           <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
-            <a href="{{ route('dashboard-inventory') }}" class="btn btn-light p-3">
-              <i class="fas fa-dolly text-muted mr-2"></i>
+            <a href="{{ route('dashboard-inventory') }}"
+                class="btn
+                       @if(Route::current()->getName() == 'dashboard-inventory')
+                         btn-primary
+                       @else
+                         btn-light
+                       @endif
+                    p-3">
+              <i class="fas fa-dolly mr-2"></i>
               Inventory
             </a>
           </div>
           @if (env('HAS_VAT') == true)
           <div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
-            <a href="{{ route('dashboard-vat') }}" class="btn btn-light p-3">
-              <i class="fas fa-solar-panel text-muted mr-2"></i>
+            <a href="{{ route('dashboard-vat') }}"
+                class="btn
+                       @if(Route::current()->getName() == 'dashboard-vat')
+                         btn-primary
+                       @else
+                         btn-light
+                       @endif
+                    p-3">
+              <i class="fas fa-solar-panel mr-2"></i>
               VAT
             </a>
           </div>
@@ -597,10 +641,6 @@
                 {{ Auth::user()->name }}
               </button>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="">
-                  <i class="fas fa-user text-secondary mr-2"></i>
-                  {{ Auth::user()->name }}
-                </a>
                 <a class="dropdown-item" href="{{ route('company') }}">
                   <i class="fas fa-home text-secondary mr-2"></i>
                   Company
