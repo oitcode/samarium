@@ -56,7 +56,11 @@
   <div class="table-responsive bg-white border" style="font-size: 1.1rem;">
     <table class="table">
       <thead>
-        <tr class="bg-success text-white">
+        <tr class="
+            {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+            "
+            style="font-size: 1rem;">
           <th>Item</th>
           <th>Stock applicable</th>
           <th>Stock</th>

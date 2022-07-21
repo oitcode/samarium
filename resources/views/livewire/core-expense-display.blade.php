@@ -1,5 +1,41 @@
 <div class="bg-white shadow-rm">
 
+  @if (true)
+    {{-- Tool bar --}}
+    <div class="d-flex justify-content-between mb-4 border p-1 bg-white-rm text-white-rm shadow-sm" style="background-color: #fff;">
+      <div>
+        <a href=""
+            target="_blank"
+            class="btn text-secondary">
+          <i class="fas fa-print fa-2x-rm"></i>
+          <br />
+          Print
+        </a>
+        <button class="btn text-secondary">
+          <i class="fas fa-file-pdf-o fa-2x-rm"></i>
+          <br />
+          PDF
+        </button>
+        <button class="btn text-secondary">
+          <i class="fas fa-file-excel-o fa-2x-rm"></i>
+          <br />
+          Excel
+        </button>
+      </div>
+      <div class="">
+        <button class="btn text-dark" wire:click="">
+          <i class="fas fa-times-circle fa-2x"></i>
+          <br />
+          Close
+        </button>
+      </div>
+    </div>
+  @endif
+
+  <div class="bg-warning" style="font-size: 0.2rem; {{-- background-color: brown; --}}">
+  &nbsp;
+  </div>
+
   <div class="border p-0">
     @if (false)
     <div class="d-flex mb-0 p-2 justify-content-end bg-success text-white border">
@@ -35,6 +71,73 @@
           </div>
         </div>
       </div>
+
+        <div class="">
+          <span class="text-muted" style="font-size: 0.8rem;">
+          Vendor
+          </span>
+          <br/>
+          @if ($expense->vendor)
+            {{ $expense->vendor->name }}
+          @else
+            <span class="text-muted" style="font-size: 0.6rem;">
+              Unknown
+            </span>
+          @endif
+        </div>
+
+      <div>
+        <div class="text-muted-rm" style="font-size: calc(0.6rem + 0.2vw);">
+          Payment Status
+        </div>
+        <div>
+            @if ( $expense->payment_status == 'paid')
+            <span class="badge badge-pill badge-success">
+            Paid
+            </span>
+            @elseif ( $expense->payment_status == 'partially_paid')
+            <span class="badge badge-pill badge-warning">
+            Partial
+            </span>
+            @elseif ( $expense->payment_status == 'pending')
+            <span class="badge badge-pill badge-danger">
+            Pending
+            </span>
+            @else
+            <span class="badge badge-pill badge-secondary">
+              {{ $expense->payment_status }}
+            </span>
+            @endif
+        </div>
+        <div>
+          <span class="btn p-0 text-primary" style="font-size: 0.8rem;" wire:click="enterMode('showPayments')">
+            Show payments
+          </span>
+        </div>
+
+        @if ($modes['showPayments'])
+          <div>
+            <div>
+              Payments
+            </div>
+            <div>
+              @foreach ($expense->expensePayments as $expensePayment)
+                <div>
+                  Rs
+                  @php echo number_format( $expensePayment->amount ); @endphp
+                  <span class="badge badge-pill ml-3">
+                  {{ $expensePayment->expensePaymentType->name }}
+                  </span>
+                  <span class="badge badge-pill ml-3">
+                  {{ $expensePayment->payment_date }}
+                  </span>
+                </div>
+              @endforeach
+            </div>
+          </div>
+        @endif
+      </div>
+
       <div class="">
         @if (true)
         <div class="mb-3 p-2 bg-danger text-white text-center" style="{{--background-color: orange;--}}">

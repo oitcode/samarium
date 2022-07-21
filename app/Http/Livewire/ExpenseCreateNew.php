@@ -248,6 +248,12 @@ class ExpenseCreateNew extends Component
 
         $expense = $this->expense->fresh();
 
+        /* Vendor compulsory if tender amount is less than grand total. */
+        if (! $expense->vendor
+            && $validatedData['tender_amount'] < $validatedData['grand_total']) {
+            return;
+        }
+
         DB::beginTransaction();
 
         try {

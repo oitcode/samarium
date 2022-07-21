@@ -37,7 +37,11 @@
     <div class="table-responsive bg-white d-none d-md-block">
       <table class="table border mb-0" style="font-size: 1.1rem;">
         <thead>
-          <tr class="bg-success text-white">
+          <tr class="
+              {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+              "
+              style="font-size: 0.9rem;">
             <th>ID</th>
             <th>Date</th>
             <th>Expense</th>
@@ -49,12 +53,12 @@
   
         <tbody>
           @foreach($expenses as $expense)
-          <tr>
+          <tr style="font-size: 0.8rem;">
             <td>
               {{ $expense->expense_id }}
             </td>
   
-            <td class="" style="font-size: 1rem;">
+            <td class="" style="font-size: 0.8rem;">
               {{ $expense->date }}
             </td>
   

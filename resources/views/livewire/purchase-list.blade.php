@@ -44,13 +44,16 @@
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive bg-white d-none d-md-block">
-    <table class="table table-bordered-rm border mb-0" style="font-size: 1.1rem;">
+    <table class="table table-bordered-rm border mb-0" style="font-size: 1rem;">
       <thead>
-        <tr class="bg-success text-white">
+        <tr class="
+            {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+        ">
           <th>
             ID
           </th>
-          <th style="width: 200px;">
+          <th style="width: 100px;">
             Date
           </th>
           <th>
@@ -64,7 +67,7 @@
             Status
           </th>
           @endif
-          <th>
+          <th style="width: 200px;">
             Payment Status
           </th>
           <th>
@@ -81,11 +84,11 @@
 
       <tbody>
         @foreach ($purchases as $purchase)
-          <tr wire:key="{{ rand() }}">
+          <tr wire:key="{{ rand() }}" style="font-size: 0.8rem;">
             <td>
               {{ $purchase->purchase_id }}
             </td>
-            <td class="" style="font-size: 1rem;">
+            <td class="" style="font-size: 0.8rem;">
               {{ $purchase->created_at->toDateString() }}
             </td>
             <td>
@@ -98,6 +101,7 @@
               @if ($purchase->purchaseItems)
                 @foreach ($purchase->purchaseItems as $purchaseItem )
                   {{ $purchaseItem->product->name }}
+                  ,
                 @endforeach
               @else
                 NONE

@@ -45,8 +45,7 @@
             @if (true)
             <div class="d-flex justify-content-center">
               <i class="far fa-check-circle fa-2x-rm text-info" style="font-size: 1.3rem;"></i>
-            </div>
-            @endif
+            </div> @endif
             <span class="" style="font-size: 1.3rem;">
             @if (false)
               OPay
@@ -60,17 +59,14 @@
           <a href="{{ route('dashboard') }}"
               class="btn
               @if(Route::current()->getName() == 'dashboard')
-                btn-success
+                {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
               @else
-                btn-success
+                {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
               @endif
               w-100 h-100 py-3 font-weight-bold text-left"
               style="font-size: calc(0.6rem + 0.15vw);
-              {{--
-              background-color: orange;
-              --}}
                 @if(Route::current()->getName() == 'dashboard')
-                  background-color: #008450;
+                  background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
                 @endif
               "
               >
@@ -96,14 +92,14 @@
           <a href="{{ route('sale') }}"
             class="btn 
               @if(Route::current()->getName() == 'sale')
-                btn-success
+                {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
               @else
-                btn-success
+                {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
               @endif
             w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
             style="font-size: calc(0.6rem + 0.15vw);
               @if(Route::current()->getName() == 'sale')
-                background-color: #008450;
+                  background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
               @endif
             ">
 
@@ -133,15 +129,15 @@
             <a href="{{ route('cafesale') }}"
               class="btn
                 @if(Route::current()->getName() == 'cafesale')
-                  btn-success
+                  {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @else
-                  btn-success
+                  {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @endif
               w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'cafesale')
-                  background-color: #008450;
+                  background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
                 @endif
               ">
 
@@ -164,14 +160,14 @@
           <a href="{{ route('menu') }}"
             class="btn
               @if(Route::current()->getName() == 'menu')
-                btn-success
+                {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
               @else
-                btn-success
+                {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
               @endif
             w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
             style="font-size: calc(0.6rem + 0.15vw);
               @if(Route::current()->getName() == 'menu')
-                background-color: #008450;
+                background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
               @endif
             ">
 
@@ -197,14 +193,14 @@
             <a href="{{ route('daybook') }}"
               class="btn
                 @if(Route::current()->getName() == 'daybook')
-                  btn-success
+                  {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @else
-                  btn-success
+                  {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @endif
               w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'daybook')
-                  background-color: #008450;
+                  background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
                 @endif
               ">
 
@@ -226,15 +222,15 @@
             <a href="{{ route('weekbook') }}"
               class="btn
                 @if(Route::current()->getName() == 'weekbook')
-                  btn-success
+                  {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @else
-                  btn-success
+                  {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @endif
               w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'weekbook')
-                  background-color: #008450;
+                  background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
                 @endif
               ">
 
@@ -257,15 +253,15 @@
             <a href="{{ route('customer') }}"
               class="btn
                 @if(Route::current()->getName() == 'customer')
-                  btn-success
+                  {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @else
-                    btn-success
+                    {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @endif
               w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'customer')
-                  background-color: #008450;
+                  background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
                 @endif
               ">
                 <div class="d-flex flex-column">
@@ -285,15 +281,15 @@
             <a href="{{ route('customer') }}"
               class="btn
                 @if(Route::current()->getName() == 'customer')
-                  btn-success
+                  {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @else
-                    btn-success
+                    {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @endif
               w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'customer')
-                  background-color: #008450;
+                  background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
                 @endif
               ">
                 <i class="fas fa-users mr-3"></i>
@@ -321,15 +317,15 @@
             <a href="{{ route('online-order') }}"
               class="btn
                 @if(Route::current()->getName() == 'online-order')
-                  btn-success
+                  {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @else
-                    btn-success
+                    {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @endif
               w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'online-order')
-                  background-color: #008450;
+                  background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
                 @endif
               ">
 
@@ -352,15 +348,15 @@
             <a href="{{ route('online-order') }}"
               class="btn
                 @if(Route::current()->getName() == 'online-order')
-                  btn-success
+                  {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @else
-                    btn-success
+                    {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
                 @endif
               w-100 h-100 p-4-rm py-3 font-weight-bold text-left"
 
               style="font-size: calc(0.6rem + 0.15vw);
                 @if(Route::current()->getName() == 'online-order')
-                  background-color: #008450;
+                  background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
                 @endif
               ">
 

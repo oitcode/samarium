@@ -3,7 +3,11 @@
     <div class="table-responsive bg-white border shadow-sm">
       <table class="table table-hover">
         <thead>
-          <tr class="bg-success text-white" style="font-size: 1.1rem;">
+          <tr class="
+              {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+              "
+              style="font-size: 1rem;">
             <th>ID</th>
             <th>Name</th>
             <th>Pending</th>
@@ -12,7 +16,7 @@
         </thead>
         <tbody>
           @foreach ($vendors as $vendor)
-            <tr style="font-size: 1.1rem;">
+            <tr style="font-size: 0.8rem;">
               <td>
                 {{ $vendor->vendor_id }}
               </td>

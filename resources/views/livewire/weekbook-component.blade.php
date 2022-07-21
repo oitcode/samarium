@@ -16,12 +16,16 @@
       </h2>
     </button>
 
-    <div class="d-flex float-left my-3 text-secondary-rm border p-3 bg-success-rm text-white-rm shadow-sm" style="background-color: #efe; font-size: 0.8rem;">
+    <div class="d-flex float-left my-3 text-secondary-rm border p-3 bg-success-rm text-white-rm shadow-sm" style="font-size: 0.8rem;">
       <button class="btn btn-success-rm m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
-        <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm text-success"></i>
+        <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm
+            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+            "></i>
       </button>
       <button class="btn btn-danger-rm mx-0 p-0 badge-pill bg-white" wire:click="goToNextWeek">
-        <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm text-success"></i>
+        <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm
+            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+            "></i>
       </button>
       <div class="mr-3 ml-5">
         <i class="fas fa-calendar mr-2"></i>
@@ -40,7 +44,10 @@
 
       <div class="">
         <input type="date" wire:model.defer="weekStartDate" class="ml-5">
-        <button class="btn btn-success" wire:click="setStartOfWeek">
+        <button class="btn
+            {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+            "
+            wire:click="setStartOfWeek">
           Go
         </button>
       </div>
@@ -118,7 +125,10 @@
     <div class="table-responsive m-0 p-0 d-none d-md-block shadow-sm">
       <table class="table table-bordered-rm table-hover shadow-sm border mb-0" style="font-size: calc(0.8rem + 0.2vw);">
         <thead>
-          <tr class="bg-success text-white">
+          <tr class="
+              {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+              ">
             <th>
               Date
             </th>

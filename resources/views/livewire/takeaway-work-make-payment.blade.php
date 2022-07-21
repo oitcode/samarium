@@ -1,5 +1,8 @@
-<div class="card" style="background-color: #efe;">
-  <div class="card-header bg-success text-white p-0" style="">
+<div class="card">
+  <div class="card-header
+      {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+      {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+      p-0">
     <div class="d-flex justify-content-between py-1-rm">
       <div class="d-flex flex-column justify-content-center">
         <h2 class="pl-3" style="font-size: calc(1.1rem + 0.2vw);">
@@ -19,7 +22,9 @@
             Single payment
           </button>
         @else
-          <button class="btn btn-sm mr-3 text-white" wire:click="enterMultiplePaymentsMode" style="font-size: calc(1rem + 0.2vw);">
+          <button class="btn btn-sm mr-3
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}"
+              wire:click="enterMultiplePaymentsMode" style="font-size: calc(1rem + 0.2vw);">
             <i class="fas fa-ellipsis-h"></i>
             @if (false)
             Multiple payments
@@ -279,7 +284,7 @@
     <div class="table-responsive mb-0" wire:key=" BIZCUP ">
       <table class="table table-bordered mb-0">
         <tbody>
-          <tr class="border-0" style="height: 50px; background-color: #efe;" wire:key="abcdedfg">
+          <tr class="border-0" style="height: 50px;" wire:key="abcdedfg">
             <td class="w-50 p-0 pt-2 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4">
                 Return
@@ -301,7 +306,10 @@
       @if (! $modes['paid'])
       <button
           onclick="this.disabled=true;"
-          class="btn btn-success mr-3-rm w-100 py-3"
+          class="btn
+              {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+              mr-3-rm w-100 py-3"
           wire:click="store"
           style="font-size: calc(1rem + 0.2vw);">
         <i class="fas fa-check-circle mr-3"></i>

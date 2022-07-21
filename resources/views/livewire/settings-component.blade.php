@@ -1,6 +1,9 @@
 <div>
   <div class="card">
-    <div class="card-header bg-success text-white">
+    <div class="card-header
+        {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+        {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+        ">
 
       <h2 class="h4">
         <i class="fas fa-cog mr-2"></i>

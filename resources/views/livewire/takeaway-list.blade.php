@@ -19,7 +19,9 @@
   <div class="table-responsive d-none d-md-block">
     <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
       <thead>
-        <tr class="bg-success text-white p-4" style="font-size: 1.1rem;">
+        <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+            p-4" style="font-size: 1rem;">
           <th>
             ID
           </th>

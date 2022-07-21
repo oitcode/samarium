@@ -6,11 +6,13 @@
     <div class="bg-info-rm mb-4 d-none d-md-block">
       <div class="float-left d-flex">
         <button class="btn btn-success-rm mr-4 p-0 bg-white badge-pill" wire:click="setPreviousDay">
-          <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm text-success"></i>
+          <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-success') }}"></i>
         </button>
 
         <button class="btn btn-danger-rm m-0 p-0 bg-white badge-pill" wire:click="setNextDay">
-          <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm text-success"></i>
+          <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-success') }}"></i>
         </button>
 
         <div class="d-none d-md-block my-3 text-secondary-rm ml-5" style="font-size: 1rem;">
@@ -20,7 +22,7 @@
           {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
 
           <input type="date" wire:model.defer="daybookDate" class="ml-5">
-          <button class="btn btn-success" wire:click="render">
+          <button class="btn {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}" wire:click="render">
             Go
           </button>
         </div>
@@ -123,7 +125,9 @@
           <div class="table-responsive d-none d-md-block mb-5">
             <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
               <thead>
-                <tr class="bg-success text-white" style="font-size: 1rem;{{-- background-color: orange;--}}">
+                <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+                    {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}"
+                    style="font-size: 1rem;">
                   <th style="width: 100px;">ID</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Time</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Table</th>
@@ -313,7 +317,8 @@
         
         {{-- Payment by types --}}
         <div class="mt-4 border">
-          <h2 class="h5 bg-success text-white p-3 mb-0">
+          <h2 class="h5 {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }} p-3 mb-0">
             Payment by types
           </h2>
           <div class="row border-rm m-0 p-3 bg-white text-dark d-flex">
@@ -355,7 +360,8 @@
           <div class="table-responsive">
             <table class="table table-bordered table-hover" style="font-size: 1rem;">
               <thead>
-                <tr class="bg-success text-white">
+                <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+                    {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}">
                   <th colspan="2">
                     Item
                   </th>

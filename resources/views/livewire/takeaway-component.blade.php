@@ -27,7 +27,7 @@
       List
     </button>
 
-    <button class="btn btn-success m-0 float-right d-none d-md-block"
+    <button class="btn {{ env('OC_ASCENT_COLOR', 'bg-success') }} m-0 float-right d-none d-md-block"
         style="{{-- height: 100px; width: 225px; --}} font-size: 1.3rem;">
       @if (env('CMP_TYPE') == 'cafe')
         <i class="fas fa-skating mr-3"></i>

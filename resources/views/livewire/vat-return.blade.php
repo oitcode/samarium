@@ -62,7 +62,11 @@
       <div class="table-responsive border">
         <table class="table mb-0">
           <thead>
-            <tr class="bg-success text-white ">
+            <tr class="
+                {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+                {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+                "
+                style="font-size: 0.9rem;">
               <th class="w-75">
                 Category
               </th>
