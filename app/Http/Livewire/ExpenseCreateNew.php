@@ -13,6 +13,8 @@ use App\ExpenseAdditionHeading;
 use App\ExpenseItem;
 use App\ExpenseAddition;
 
+use App\Vendor;
+
 
 class ExpenseCreateNew extends Component
 {
@@ -42,16 +44,24 @@ class ExpenseCreateNew extends Component
     /* VAT related */
     public $has_vat = false;
 
+    /* Vendor related */
+    public $vendors;
+    public $vendor_id;
+
     public $item_count = 0;
 
     public $modes = [
         'multiplePayments' => false,
         'paid' => false,
+
+        'vendorSelected' => false,
     ];
 
     public function mount()
     {
         $expense = new Expense;
+
+        $this->vendors = Vendor::all();
 
         /* Todo: Below three should be dropped from database design. */
         $expense->name = 'TODO';
@@ -232,6 +242,10 @@ class ExpenseCreateNew extends Component
             'expense_payment_type_id' => 'required|integer',
         ]);
 
+        if ($validatedData['tender_amount'] > $validatedData['grand_total']) {
+            return;
+        }
+
         $expense = $this->expense->fresh();
 
         DB::beginTransaction();
@@ -278,5 +292,18 @@ class ExpenseCreateNew extends Component
             dd ($e);
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
+    }
+
+    public function linkVendorToExpense()
+    {
+        $validatedData = $this->validate([
+            'vendor_id' => 'required|integer',
+        ]);
+
+        $this->expense->vendor_id = $validatedData['vendor_id'];
+        $this->expense->save();
+        $this->expense = $this->expense->fresh();
+
+        $this->modes['vendorSelected'] = true;
     }
 }

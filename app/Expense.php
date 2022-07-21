@@ -70,6 +70,15 @@ class Expense extends Model
         return $this->hasMany('App\ExpenseAddition', 'expense_id', 'expense_id');
     }
 
+    /*
+     * vendor table.
+     *
+     */
+    public function vendor()
+    {
+        return $this->belongsTo('App\Vendor', 'vendor_id', 'vendor_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods

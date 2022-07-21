@@ -15,10 +15,10 @@
       <div class="">
         <div class="mb-1">
           <div class="h6 text-muted-rm mb-1" style="font-size: 0.8rem;">
-            <span class="text-muted" style="font-size: 1rem">
+            <span class="text-muted" style="font-size: 0.8rem">
               Expense ID:
             </span>
-            <span style="font-size: 1.2rem;">
+            <span style="font-size: 0.8rem;">
               {{ $expense->expense_id }}
             </span>
           </div>
@@ -29,7 +29,7 @@
             <span class="text-muted" style="font-size: 0.8rem">
               Date:
             </span>
-            <span style="font-size: 1rem">
+            <span style="font-size: 0.8rem">
               {{ $expense->created_at->toDateString() }}
             </span>
           </div>
@@ -43,6 +43,16 @@
         @endif
       </div>
     </div>
+
+
+     {{-- Vendor Info --}}
+     @if ($expense->vendor)
+      <div class="p-3">
+        Vendor
+        <br>
+        {{ $expense->vendor->name }}
+      </div>
+    @endif
 
     {{-- Main Info --}}
     <div class="shadow-rm">

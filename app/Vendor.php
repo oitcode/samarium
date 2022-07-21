@@ -42,6 +42,15 @@ class Vendor extends Model
         return $this->hasMany('App\Purchase', 'vendor_id', 'vendor_id');
     }
 
+    /*
+     * expense table.
+     *
+     */
+    public function expenses()
+    {
+        return $this->hasMany('App\Expense', 'vendor_id', 'vendor_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods

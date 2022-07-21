@@ -86,9 +86,14 @@ class PurchaseMakePayment extends Component
     public function store()
     {
         $validatedData = $this->validate([
+            'grand_total' => 'required|integer',
             'paid_amount' => 'required|integer',
             'purchase_payment_type_id' => 'required|integer',
         ]);
+
+        if ($validatedData['paid_amount'] > $validatedData['grand_total']) {
+            return;
+        }
 
         DB::beginTransaction();
 
