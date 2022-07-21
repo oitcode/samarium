@@ -44,6 +44,15 @@ class Expense extends Model
     }
 
     /*
+     * expense_item table.
+     *
+     */
+    public function expenseItems()
+    {
+        return $this->hasMany('App\ExpenseItem', 'expense_id', 'expense_id');
+    }
+
+    /*
      * expense_payment table.
      *
      */
@@ -72,7 +81,7 @@ class Expense extends Model
     {
         $total = 0;
 
-        $total += $this->getTotalAmountRaw();
+        $total += $this->getSubTotal();
 
         foreach ($this->expenseAdditions as $expenseAddition) {
             if (strtolower($expenseAddition->expenseAdditionHeading->effect) == 'plus') {
@@ -100,6 +109,17 @@ class Expense extends Model
             if (strtolower($expenseAddition->expenseAdditionHeading->name) == 'vat') {
                 $total += $expenseAddition->amount;
             }
+        }
+
+        return $total;
+    }
+
+    public function getSubTotal()
+    {
+        $total = 0;
+
+        foreach ($this->expenseItems as $expenseItem) {
+            $total += $expenseItem->amount;
         }
 
         return $total;

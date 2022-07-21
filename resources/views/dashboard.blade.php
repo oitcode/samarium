@@ -2,6 +2,7 @@
 @section ('content')
 
   @if (false)
+  @if (false)
   <div class="border-rm mb-3">
     @include ('partials.quick-links')
   </div>
@@ -236,5 +237,9 @@
       @livewire ('ecs.webpage-component')
     @endif
   @endif
+
+  @endif
+
+  @livewire ('expense-create-new')
 
 @endsection

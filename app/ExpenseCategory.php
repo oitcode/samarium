@@ -41,6 +41,15 @@ class ExpenseCategory extends Model
         return $this->hasMany('App\Expense', 'expense_category_id', 'expense_category_id');
     }
 
+    /*
+     * expense_item table.
+     *
+     */
+    public function expenseItems()
+    {
+        return $this->hasMany('App\ExpenseItem', 'expense_category_id', 'expense_category_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods

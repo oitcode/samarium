@@ -49,33 +49,6 @@
 
       {{-- Items List --}}
       {{-- Show in bigger screens --}}
-          @if (false)
-          <div class="card border-0">
-            <div class="card-body text-dark" style="background-color: #ffe;">
-              <h2 class="h5">
-                {{ $expense->name }}
-              </h2>
-              <h2 class="h4">
-                Rs
-                @php echo number_format( $expense->getTotalAmount() ); @endphp
-              </h2>
-              <h2 class="h6">
-                @foreach ($expense->expenseAdditions as $expenseAddition)
-                  {{ $expenseAddition->expenseAdditionHeading->name }}
-                  Rs
-                  @php echo number_format( $expenseAddition->amount ); @endphp
-                @endforeach
-              </h2>
-              <h2 class="h6">
-                {{ $expense->expenseCategory->name }}
-              </h2>
-            </div>
-          </div>
-          @endif
-
-
-
-      {{-- Show in bigger screens --}}
       <div class="table-responsive border bg-white mb-0 d-none d-md-block">
         <table class="table table-sm table-hover border-dark shadow-sm mb-0">
           <thead>
@@ -85,6 +58,8 @@
             </tr>
           </thead>
 
+          {{-- OLD EXPENSE --}}
+          @if (false)
           <tbody>
             <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
               <td>
@@ -95,30 +70,41 @@
               </td>
             </tr>
           </tbody>
+          @else
+          <tbody>
+            @foreach ($expense->expenseItems as $expenseItem)
+              <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+                <td>
+                  {{ $expenseItem->name }}
+                </td>
+                <td>
+                  @php echo number_format( $expenseItem->amount ); @endphp
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+          @endif
 
 
 
           @if (true)
 
           <tfoot class="bg-success-rm text-white-rm mt-4">
-            @if (false)
+            @if (true)
             <tr class="bg-primary-rm">
-             <td colspan="1" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right">
+             <td colspan="1" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right pr-3">
                 <strong>
                 Subtotal
                 </strong>
               </td>
               <td style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
-                @php echo number_format( $expense->getTotalAmountRaw() ); @endphp
+                @php echo number_format( $expense->getSubTotal() ); @endphp
               </td>
             </tr>
             @endif
             @foreach ($expense->expenseAdditions as $expenseAddition)
               <tr class="border-0 mb-0 p-0">
-                <td colspan="1" style="font-size: calc(0.6rem + 0.2vw);"
-                    class="
-                      font-weight-bold text-right-rm border-0 p-0 pl-1 pt-2
-                    ">
+                <td colspan="1" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right pr-3 border-0">
                   {{ $expenseAddition->expenseAdditionHeading->name }}
                   @if (strtolower($expenseAddition->expenseAdditionHeading->name) == 'vat')
                   ( 13% )
@@ -140,7 +126,7 @@
             @endforeach
 
             <tr class="border-0 bg-light text-dark p-0">
-              <td colspan="1" style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold text-right-rm border-0">
+                <td colspan="1" style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold text-right pr-3 border-0">
                 Total
               </td>
               <td style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold border-0">
