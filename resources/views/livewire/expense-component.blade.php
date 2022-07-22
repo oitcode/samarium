@@ -2,7 +2,7 @@
   <!-- Menu tool bar -->
 
   {{-- Show in bigger screens --}}
-  <div class="mb-3 d-none d-md-block">
+  <div class="mb-3-0 d-none d-md-block">
     <button class="btn
         @if ($modes['create'])
           btn-success text-white

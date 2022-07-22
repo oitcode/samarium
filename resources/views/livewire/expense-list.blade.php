@@ -1,36 +1,42 @@
 <div>
 
-  <div class="mt-3 text-secondary py-3" style="font-size: 1.3rem;">
 
-    <input type="date" wire:model.defer="startDate" class="mr-3" />
-    <input type="date" wire:model.defer="endDate" class="mr-3" />
+  <div class="mt-2-rm mb-3 text-secondary py-3-rm d-flex bg-warning-rm" style="font-size: 1rem;">
 
-    <button class="btn btn-success" wire:click="getExpensesForDateRange">
-      Go
-    </button>
+    <div class="mt-0 text-secondary py-3-rm mr-3" style="font-size: 1.3rem;">
+      <button class="btn btn-success" wire:click="setPreviousDay">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <button class="btn btn-success" wire:click="setNextDay">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+    <div>
+      <input type="date" wire:model.defer="startDate" class="mr-3" />
+      <input type="date" wire:model.defer="endDate" class="mr-3" />
+
+      <button class="btn btn-success mr-3" wire:click="getExpensesForDateRange">
+        Go
+      </button>
+    </div>
 
     <button wire:loading class="btn">
       <div class="spinner-border text-info mr-3" role="status">
         <span class="sr-only">Loading...</span>
       </div>
     </button>
+    <div class="d-flex justify-content-end flex-grow-1">
+      <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white" style="font-size: 1rem;">
+        <span class="text-dark" style="font-size: 1.5rem;">
+        Rs
+        @php echo number_format( $total ); @endphp
+        </span>
+      </div>
+    </div>
   </div>
 
-  <div class="mt-0 text-secondary py-3" style="font-size: 1.3rem;">
-    <button class="btn btn-success" wire:click="setPreviousDay">
-      <i class="fas fa-arrow-left"></i>
-    </button>
-    <button class="btn btn-success" wire:click="setNextDay">
-      <i class="fas fa-arrow-right"></i>
-    </button>
-  </div>
 
-  <div class="my-4 pl-2 font-weight-bold" style="font-size: 1rem;">
-    <span style="font-size: 1.3rem;">
-    Total: Rs
-    @php echo number_format( $total ); @endphp
-    </span>
-  </div>
+
 
   @if (!is_null($expenses) && count($expenses) > 0)
     {{-- Show in bigger screens --}}

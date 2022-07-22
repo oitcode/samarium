@@ -37,13 +37,6 @@
     </button>
     @endif
 
-    <button class="btn btn-primary-rm m-0 float-right border-rm bg-white-rm text-secondary-rm d-none d-md-block"
-        wire:click="clearModes"
-        style="font-size: 1.3rem;">
-      <i class="fas fa-shopping-cart mr-3"></i>
-      Purchase
-    </button>
-
     <button wire:loading class="btn m-0"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <span class="spinner-border text-info mr-3" role="status">
