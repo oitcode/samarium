@@ -1,7 +1,7 @@
 <div style="">
 
   {{-- Show in bigger screen --}}
-  <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block" style="{{-- background-color: #efe; --}}">
+  <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block">
     @if (false)
     <h1 class="h4">
       Add Item
@@ -70,7 +70,7 @@
       </table>
     </div>
   
-    <div class="p-2 m-0" style="{{--background-image: linear-gradient(to right, white, #abc);--}}">
+    <div class="p-2 m-0">
       <div class="row">
         <div class="col-md-8">
           <button class="btn btn-lg btn-success mr-3" wire:click="addItemToTakeaway" style="font-size: calc(0.7rem + 0.2vw);">

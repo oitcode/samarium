@@ -25,6 +25,8 @@ class PurchaseCreate extends Component
         'addItem' => true,
         'paid' => false,
         'payment' => true,
+
+        'vendorSelected' => false,
     ];
 
     protected $listeners = [
@@ -75,6 +77,7 @@ class PurchaseCreate extends Component
         $purchase = new Purchase;
         $purchase->save();
 
+        $purchase = $purchase->fresh();
         return $purchase;
     }
 
@@ -130,5 +133,18 @@ class PurchaseCreate extends Component
     {
         $this->modes['payment'] = false;
         $this->enterMode('paid');
+    }
+
+    public function linkVendorToPurchase()
+    {
+        $validatedData = $this->validate([
+            'vendor_id' => 'required|integer',
+        ]);
+
+        $this->purchase->vendor_id = $validatedData['vendor_id'];
+        $this->purchase->save();
+        $this->purchase = $this->purchase->fresh();
+
+        $this->modes['vendorSelected'] = true;
     }
 }

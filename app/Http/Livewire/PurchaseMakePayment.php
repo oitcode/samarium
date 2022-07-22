@@ -95,6 +95,12 @@ class PurchaseMakePayment extends Component
             return;
         }
 
+        /* Vendor compulsory if tender amount is less than grand total. */
+        if (! $this->purchase->vendor
+            && $validatedData['paid_amount'] < $validatedData['grand_total']) {
+            return;
+        }
+
         DB::beginTransaction();
 
         try {

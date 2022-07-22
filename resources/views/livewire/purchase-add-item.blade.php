@@ -1,7 +1,7 @@
 <div>
 
   {{-- Show in bigger screen --}}
-  <div class="mb-5 border bg-light shadow d-none d-md-block">
+  <div class="mb-3 border bg-light shadow-sm d-none d-md-block">
   
     <div class="table-responsive m-0">
       <table class="table table-bordered m-0">
@@ -10,15 +10,15 @@
             <th>Search Item</th>
             <th>Category</th>
             <th>Item</th>
-            <th style="width: 100px;">Qty</th>
+            <th style="width: 50px;">Qty</th>
             <th>Unit</th>
-            <th style="width: 150px;">Price per unit</th>
-            <th style="width: 150px;">Total</th>
+            <th style="width: 110px; font-size: 0.8rem;">Price per unit</th>
+            <th style="width: 100px;">Total</th>
           </tr>
         </thead>
   
         <tbody>
-          <tr class="p-0 font-weight-bold" style="height: 60px; font-size: 1.3rem;">
+          <tr class="p-0 font-weight-bold" style="height: 50px; font-size: calc(0.8rem + 0.2vw);">
             <td class="p-0 h-100">
               <input class="m-0 w-100 h-100 border-0" type="text" wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
@@ -72,16 +72,16 @@
       </table>
     </div>
   
-    <div class="p-3 m-0">
+    <div class="p-2 m-0">
       <div class="row">
         <div class="col-md-8">
-          <button class="btn btn-lg btn-success mr-3" wire:click="addItemToPurchase" style="width: 110px; height: 70px; font-size: 1.3rem;">
+          <button class="btn btn-lg btn-success mr-3" wire:click="addItemToPurchase" style="font-size: calc(0.7rem + 0.2vw);">
             <i class="fas fa-plus mr-2"></i>
             Add
           </button>
   
           @if (true)
-          <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="width: 110px; height: 70px; font-size: 1.3rem;">
+          <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="font-size: calc(0.7rem + 0.2vw);">
             Reset
           </button>
           @endif
@@ -95,7 +95,7 @@
         @if ($selectedProduct != null)
           <div class="col-md-4" style="height: 50px;">
             <div class="float-right">
-              <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 80px;">
+              <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
             </div>
             <div class="clearfix">
             </div>

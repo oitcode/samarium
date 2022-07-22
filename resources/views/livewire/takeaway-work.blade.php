@@ -18,7 +18,7 @@
 
       @if ($takeaway)
       <div class="card mb-0 shadow-sm">
-        <div class="card-body p-0 bg-primary-rm text-white-rm" style="{{--background-color: #efe;--}}">
+        <div class="card-body p-0 bg-primary-rm text-white-rm">
 
 
           <div class="row p-0 mt-2" style="margin: auto;">
