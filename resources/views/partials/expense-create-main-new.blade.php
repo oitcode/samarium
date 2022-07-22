@@ -7,58 +7,14 @@
       <div class="row p-0 mt-2-rm" style="margin: auto;">
   
 
-        <div class="col-md-4 mb-3-rm bg-light text-dark py-2 border-left border-right">
-          <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
-            Vendor
-          </div>
-          <div class="d-flex justify-content-between">
-            @if ($modes['vendorSelected'])
-              {{ $expense->vendor->name }}
-            @else
-              <select class="flex-grow-1" wire:model.defer="vendor_id">
-                <option>---</option>
-
-                @foreach ($vendors as $vendor)
-                  <option value="{{ $vendor->vendor_id }}">
-                    {{ $vendor->name }}
-                  </option>
-                @endforeach
-              </select>
-              <button class="btn btn-sm btn-light ml-2" wire:click="linkVendorToExpense">
-                Yes
-              </button>
-            @endif
-          </div>
-        </div>
-  
-  
-        <div class="col-md-2 py-2 bg-secondary text-white" style="font-size: calc(0.6rem + 0.2vw);">
-          <div class="text-muted-rm" style="font-size: calc(0.6rem + 0.2vw);">
-            Payment Status
-          </div>
-          <div>
-              @if ( $expense->payment_status == 'paid')
-              <span class="badge badge-pill badge-success">
-              Paid
-              </span>
-              @elseif ( $expense->payment_status == 'partially_paid')
-              <span class="badge badge-pill badge-warning">
-              Partial
-              </span>
-              @elseif ( $expense->payment_status == 'pending')
-              <span class="badge badge-pill badge-danger">
-              Pending
-              </span>
-              @else
-              <span class="badge badge-pill badge-secondary">
-                {{ $expense->payment_status }}
-              </span>
-              @endif
-          </div>
-        </div>
-        <div class="col-md-2 py-2 bg-primary text-white">
+        <div class="col-md-2 py-2
+            {{ env('OC_ASCENT_BG_COLOR', 'bg-light') }}
+            {{ env('OC_ASCENT_TEXT_COLOR', 'text-secondary') }}
+            ">
           <div class="d-flex-rm justify-content-end-rm h-100">
-            <i class="fas fa-tools"></i>
+            <i class="fas fa-tools
+                {{ env('OC_ASCENT_HL_COLOR', 'text-secondary') }}
+                "></i>
             <br/>
             <span style="font-size: 1.1rem;">
               Expense
@@ -84,6 +40,55 @@
             <div class="h6">
                 {{ $expense->date }}
             </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3-rm bg-light text-dark py-2 border-left border-right">
+          <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+            Vendor
+          </div>
+          <div class="d-flex justify-content-between">
+            @if ($modes['vendorSelected'])
+              {{ $expense->vendor->name }}
+            @else
+              <select class="flex-grow-1" wire:model.defer="vendor_id">
+                <option>---</option>
+
+                @foreach ($vendors as $vendor)
+                  <option value="{{ $vendor->vendor_id }}">
+                    {{ $vendor->name }}
+                  </option>
+                @endforeach
+              </select>
+              <button class="btn btn-sm btn-light ml-2" wire:click="linkVendorToExpense">
+                Yes
+              </button>
+            @endif
+          </div>
+        </div>
+  
+  
+        <div class="col-md-2 py-2" style="font-size: calc(0.6rem + 0.2vw);">
+          <div class="text-muted-rm" style="font-size: calc(0.6rem + 0.2vw);">
+            Payment Status
+          </div>
+          <div>
+              @if ( $expense->payment_status == 'paid')
+              <span class="badge badge-pill badge-success">
+              Paid
+              </span>
+              @elseif ( $expense->payment_status == 'partially_paid')
+              <span class="badge badge-pill badge-warning">
+              Partial
+              </span>
+              @elseif ( $expense->payment_status == 'pending')
+              <span class="badge badge-pill badge-danger">
+              Pending
+              </span>
+              @else
+              <span class="badge badge-pill badge-secondary">
+                {{ $expense->payment_status }}
+              </span>
+              @endif
           </div>
         </div>
   

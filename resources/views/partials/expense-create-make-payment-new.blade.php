@@ -1,5 +1,9 @@
 <div class="card">
-  <div class="card-header bg-success text-white" style="">
+  <div class="card-header
+      {{ env('OC_ASCENT_BG_COLOR', 'bg-light') }}
+      {{ env('OC_ASCENT_TEXT_COLOR', 'text-secondary') }}
+      text-white
+  " style="">
     <div class="d-flex justify-content-between py-1-rm">
       <div class="d-flex flex-column justify-content-center">
         <h2 class="" style="font-size: calc(1.1rem + 0.2vw);">
@@ -172,7 +176,9 @@
       @if (! $modes['paid'])
       <button
           onclick="this.disabled=true;"
-          class="btn btn-success mr-3-rm w-100 py-3"
+          class="btn
+              {{ env('OC_ASCENT_BTN_COLOR', 'btn-light') }}
+              mr-3-rm w-100 py-3"
           wire:click="store"
           style="font-size: calc(1rem + 0.2vw);">
         <i class="fas fa-check-circle mr-3"></i>

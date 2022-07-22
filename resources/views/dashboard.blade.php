@@ -241,7 +241,7 @@
   @endif
 
   @if (false)
-  @livewire ('expense-create-new')
+  @livewire ('expense-create')
   @endif
 
 @endsection

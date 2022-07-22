@@ -7,7 +7,7 @@
       <table class="table table-sm table-bordered m-0">
         <thead>
           <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
-            <th class="py-2" style="width: 200px;">Expense</th>
+            <th class="py-2" style="width: 200px;">Item</th>
             <th class="py-2">Category</th>
             <th class="py-2" style="width: 100px;">Amount</th>
           </tr>

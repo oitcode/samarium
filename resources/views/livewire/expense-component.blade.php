@@ -129,7 +129,10 @@
 
 
   @if ($modes['create'])
+    {{--
     @livewire ('expense-create')
+    --}}
+    @livewire ('expense-create-new')
   @elseif ($modes['list'])
     @livewire ('expense-list')
   @elseif ($modes['display'])
