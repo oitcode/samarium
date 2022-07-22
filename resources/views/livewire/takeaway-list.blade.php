@@ -116,6 +116,10 @@
         @endforeach
       </tbody>
     </table>
+
+    {{-- Pagination links --}}
+    {{ $takeaways->links() }}
+
   </div>
 
   {{-- Show in smaller screens --}}

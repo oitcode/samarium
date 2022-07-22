@@ -3,19 +3,20 @@
 
     {{-- Show in bigger screens --}}
     @if (! $modes['displaySaleInvoice'])
-    <div class="bg-info-rm mb-4 d-none d-md-block">
-      <div class="float-left d-flex">
-        <button class="btn btn-success-rm mr-4 p-0 bg-white badge-pill" wire:click="setPreviousDay">
+    <div class="bg-info-rm mb-4 d-none d-md-block p-0">
+      @if (true)
+      <div class="float-left d-flex bg-warning-rm">
+        <button class="btn btn-success-rm mr-4 p-0 bg-white badge-pill-rm" wire:click="setPreviousDay">
           <i class="fas fa-arrow-alt-circle-left fa-2x mr-3-rm
               {{ env('OC_ASCENT_TEXT_LB_COLOR', 'text-success') }}"></i>
         </button>
 
-        <button class="btn btn-danger-rm m-0 p-0 bg-white badge-pill" wire:click="setNextDay">
+        <button class="btn btn-danger-rm m-0 p-0 bg-white badge-pill-rm" wire:click="setNextDay">
           <i class="fas fa-arrow-alt-circle-right fa-2x mr-3-rm
               {{ env('OC_ASCENT_TEXT_LB_COLOR', 'text-success') }}"></i>
         </button>
 
-        <div class="d-none d-md-block my-3 text-secondary-rm ml-5" style="font-size: 1rem;">
+        <div class="d-none d-md-block my-3-rm text-secondary-rm ml-5" style="font-size: 1rem;">
           <i class="fas fa-calendar mr-2"></i>
           {{ Carbon\Carbon::parse($daybookDate)->format('Y F d') }}
           &nbsp;&nbsp;
@@ -27,6 +28,7 @@
           </button>
         </div>
       </div>
+      @endif
 
       <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
         <div class="spinner-border text-info mr-3" role="status">
@@ -34,12 +36,13 @@
         </div>
       </button>
 
+      @if (true)
       @if (! $modes['displaySaleInvoice'])
       <div class="shadow-sm-rm float-right" style="">
-        <div class="card">
-          <div class="card-body p-0 bg-success-rm text-white-rm">
-            <div class="p-4">
-              <h2 class="font-weight-bold" style="font-size: 2rem;">
+        <div class="card bg-white text-dark" style="">
+          <div class="card-body p-2 bg-success-rm text-white-rm">
+            <div class="p-0">
+              <h2 class="font-weight-bold pt-1" style="font-size: 1.5rem;">
                 <span class="mr-2">
                   Rs
                 </span>
@@ -49,6 +52,13 @@
           </div>
         </div>
       </div>
+      @endif
+      @endif
+
+      @if (! $modes['displaySaleInvoice'])
+        <div class="float-left mt-3-rm px-2 pt-2 ml-5">
+          Bills: {{ $todaySaleInvoiceCount }}
+        </div>
       @endif
 
       <div class="clearfix">
@@ -110,11 +120,6 @@
 
     </div>
 
-    @if (! $modes['displaySaleInvoice'])
-      <div class="my-3 px-2">
-        Bills: {{ $todaySaleInvoiceCount }}
-      </div>
-    @endif
 
   @if (! $modes['displaySaleInvoice'])
     <div class="row">
@@ -143,7 +148,7 @@
                 </tr>
               </thead>
 
-                <tbody class="bg-white" style="font-size: 1rem;">
+                <tbody class="bg-white" style="font-size: calc(0.7rem + 0.3vw);">
                   @if (count($saleInvoices) > 0)
                     @foreach ($saleInvoices as $saleInvoice)
                       <tr class="" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
@@ -155,7 +160,7 @@
                           {{ $saleInvoice->sale_invoice_id }}
                           </span>
                         </td>
-                        <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+                        <td class="d-none d-md-table-cell">
                           @if (false)
                           <div>
                             {{ $saleInvoice->sale_invoice_date }}
@@ -318,7 +323,7 @@
         {{-- Payment by types --}}
         <div class="mt-4 border">
           <h2 class="h5 {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }} p-3 mb-0">
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }} p-3 mb-0 border">
             Payment by types
           </h2>
           <div class="row border-rm m-0 p-3 bg-white text-dark d-flex">

@@ -116,7 +116,7 @@
             <i class="fas fa-check-circle mr-3"></i>
             {{ session('message') }}
             <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+              <span class="text-danger" aria-hidden="true">&times;</span>
             </button>
           </div>
         </div>

@@ -36,11 +36,13 @@ class CafeMenuProductCreate extends Component
             'description' => 'required',
             'selling_price' => 'required|integer',
             'stock_count' => 'nullable|integer',
-            'image' => 'image',
+            'image' => 'nullable|image',
         ]);
 
-        $imagePath = $this->image->store('products', 'public');
-        $validatedData['image_path'] = $imagePath;
+        if ($this->image !== null) {
+            $imagePath = $this->image->store('products', 'public');
+            $validatedData['image_path'] = $imagePath;
+        }
 
         Product::create($validatedData);
 

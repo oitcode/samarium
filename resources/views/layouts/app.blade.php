@@ -41,10 +41,10 @@
       <div class="d-none d-md-block">
 
         <div class="text-center border-rm">
-          <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-3 pl-4 font-weight-bold text-left text-secondary" style="font-size: 1rem;">
+          <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-3 pl-4 font-weight-bold text-left" style="font-size: 1rem;">
             @if (true)
             <div class="d-flex justify-content-center">
-              <i class="far fa-check-circle fa-2x-rm text-info" style="font-size: 1.3rem;"></i>
+              <i class="far fa-check-circle fa-2x-rm text-primary mr-1" style="font-size: 1.3rem;"></i>
             </div> @endif
             <span class="" style="font-size: 1.3rem;">
             @if (false)

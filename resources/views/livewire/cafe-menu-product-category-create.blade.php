@@ -15,7 +15,12 @@
     </div>
 
     <div class="form-group">
-      <label for="">Image</label>
+      <label for="">
+        Image
+        <span class="text-muted ml-1" style="font-size: 0.7rem">
+        (Optional)
+        </span>
+      </label>
       <input type="file" class="form-control" wire:model="image">
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
     </div>

@@ -3,17 +3,23 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 use App\Takeaway;
 
 class TakeawayList extends Component
 {
-    public $takeaways;
+    use WithPagination;
+
+    // public $takeaways;
 
     public $deletingTakeaway = null;
 
     public $todayTakeawayCount;
     public $totalTakeawayCount;
+     
+    /* Use bootstrap pagination theme */
+    protected $paginationTheme = 'bootstrap';
 
     public $modes = [
         'confirmDelete' => false,
@@ -26,11 +32,13 @@ class TakeawayList extends Component
 
     public function render()
     {
-        $this->takeaways = Takeaway::orderBy('takeaway_id', 'desc')->get();
+
+        $takeaways = Takeaway::orderBy('takeaway_id', 'desc')->paginate(5);
         $this->totalTakeawayCount = Takeaway::count();
         $this->todayTakeawayCount = Takeaway::whereDate('created_at', date('Y-m-d'))->count();
 
-        return view('livewire.takeaway-list');
+        return view('livewire.takeaway-list')
+            ->with('takeaways', $takeaways);
     }
 
     /* Clear modes */

@@ -15,7 +15,15 @@
           @foreach ($productCategory->products as $product)
             <tr wire:key="{{ $loop->index }}">
               <td>
-                <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 75px; height: 75px;">
+                @if ($product->image_path)
+                  <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 75px; height: 75px;">
+                @else
+                  <div class="h-100 d-flex justify-content-center">
+                    <div class="d-flex flex-columns justify-content-center">
+                    </div>
+                  </div>
+                  <i class="fas fa-check-circle fa-2x"></i>
+                @endif
               </td>
               <td>
                 <div class="mb-3">

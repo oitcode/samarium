@@ -24,11 +24,14 @@ class CafeMenuProductCategoryCreate extends Component
     {
         $validatedData = $this->validate([
             'name' => 'required',
-            'image' => 'image',
+            'image' => 'nullable|image',
         ]);
 
-        $imagePath = $this->image->store('productCategory', 'public');
-        $validatedData['image_path'] = $imagePath;
+
+        if ($this->image !== null) {
+            $imagePath = $this->image->store('productCategory', 'public');
+            $validatedData['image_path'] = $imagePath;
+        }
 
         ProductCategory::create($validatedData);
 
