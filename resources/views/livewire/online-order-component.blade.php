@@ -10,13 +10,6 @@
       List
     </button>
 
-    <button class="btn btn-success-rm m-0 float-right"
-        wire:click="clearModes"
-        style="font-size: 1.3rem;">
-      <i class="fas fa-cloud-download-alt"></i>
-      Online orders
-    </button>
-
     <button wire:loading class="btn m-0"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <span class="spinner-border text-info mr-3" role="status">

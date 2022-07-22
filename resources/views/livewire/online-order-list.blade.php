@@ -1,6 +1,6 @@
 <div>
 
-  <div class="d-flex mb-4 pl-3" style="font-size: 1rem;">
+  <div class="d-flex mb-4 pl-2" style="font-size: 1rem;">
     <div class="mr-4">
       New : {{ $newOrderCount }}
     </div>
@@ -232,7 +232,7 @@
       </div>
 
       @else
-        <div class="text-secondary" style="font-size: 1.3rem;">
+        <div class="text-secondary pl-2" style="font-size: 1rem;">
           No online orders.
         </div>
       @endif

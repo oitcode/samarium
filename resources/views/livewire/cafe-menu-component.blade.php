@@ -266,7 +266,7 @@
                   </div>
                   <div class="d-flex justify-content-center w-50">
                     <div class="d-flex flex-column justify-content-center">
-                      <i class="fas fa-tv fa-2x text-success"></i>
+                      <i class="fas fa-tv fa-2x text-muted"></i>
                     </div>
                   </div>
                 </div>
@@ -283,7 +283,7 @@
                   </div>
                   <div class="d-flex justify-content-center w-50">
                     <div class="d-flex flex-column justify-content-center">
-                      <i class="fas fa-th-large fa-2x text-success"></i>
+                      <i class="fas fa-th-large fa-2x text-muted"></i>
                     </div>
                   </div>
                 </div>

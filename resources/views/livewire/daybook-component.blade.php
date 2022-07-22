@@ -6,13 +6,13 @@
     <div class="bg-info-rm mb-4 d-none d-md-block">
       <div class="float-left d-flex">
         <button class="btn btn-success-rm mr-4 p-0 bg-white badge-pill" wire:click="setPreviousDay">
-          <i class="fas fa-arrow-alt-circle-left fa-4x mr-3-rm
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-success') }}"></i>
+          <i class="fas fa-arrow-alt-circle-left fa-2x mr-3-rm
+              {{ env('OC_ASCENT_TEXT_LB_COLOR', 'text-success') }}"></i>
         </button>
 
         <button class="btn btn-danger-rm m-0 p-0 bg-white badge-pill" wire:click="setNextDay">
-          <i class="fas fa-arrow-alt-circle-right fa-4x mr-3-rm
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-success') }}"></i>
+          <i class="fas fa-arrow-alt-circle-right fa-2x mr-3-rm
+              {{ env('OC_ASCENT_TEXT_LB_COLOR', 'text-success') }}"></i>
         </button>
 
         <div class="d-none d-md-block my-3 text-secondary-rm ml-5" style="font-size: 1rem;">

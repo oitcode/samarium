@@ -115,9 +115,9 @@
     @livewire ('customer-detail', ['customer' => $displayingCustomer,])
   @else
     <div class="row" style="margin: auto;">
-      <div class="col-md-3 shadow-sm p-0 mr-5 mb-4">
+      <div class="col-md-2 shadow-sm p-0 mr-5 mb-4">
         <div class="card">
-          <div class="card-body p-0 bg-success text-white">
+          <div class="card-body p-0 bg-white text-secondary">
             <div class="d-flex w-100">
               <div class="p-3">
                 <h2 class="mb-4" style="font-size: 1.3rem;">Customers</h2>
@@ -132,9 +132,9 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 shadow-sm p-0 mr-5 mb-4">
+      <div class="col-md-2 shadow-sm p-0 mr-5 mb-4">
         <div class="card">
-          <div class="card-body p-0 bg-danger text-white">
+          <div class="card-body p-0 bg-white text-secondary">
             <div class="d-flex w-100">
               <div class="p-3">
                 <h2 class="mb-4" style="font-size: 1.3rem;">Debtors</h2>

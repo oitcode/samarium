@@ -27,6 +27,7 @@
       List
     </button>
 
+    @if (false)
     <button class="btn {{ env('OC_ASCENT_COLOR', 'bg-success') }} m-0 float-right d-none d-md-block"
         style="{{-- height: 100px; width: 225px; --}} font-size: 1.3rem;">
       @if (env('CMP_TYPE') == 'cafe')
@@ -37,6 +38,7 @@
         Sales
       @endif
     </button>
+    @endif
 
     <button wire:loading class="btn m-0"
         style="height: 100px; width: 225px; font-size: 1.5rem;">

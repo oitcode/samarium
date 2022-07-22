@@ -73,9 +73,9 @@
 
             <div class="d-flex flex-column">
               <div class="d-flex justify-content-center">
-                <i class="fas fa-tv"></i>
+                <i class="fas fa-tv {{ env('OC_ASCENT_HL_COLOR', 'text-primary') }}"></i>
               </div>
-              <div class="d-flex justify-content-center">
+              <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR', 'text-primary') }}">
                 @if (true)
                   Dashboard
                 @endif
@@ -106,12 +106,12 @@
             <div class="d-flex flex-column">
               <div class="d-flex justify-content-center">
                 @if (env('CMP_TYPE') == 'cafe')
-                  <i class="fas fa-skating"></i>
+                  <i class="fas fa-skating {{ env('OC_ASCENT_HL_COLOR') }}"></i>
                 @else
-                  <i class="fas fa-dice-d6"></i>
+                  <i class="fas fa-dice-d6 {{ env('OC_ASCENT_HL_COLOR') }}"></i>
                 @endif
               </div>
-              <div class="d-flex justify-content-center">
+              <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR') }}">
                 @if (env('CMP_TYPE') == 'cafe')
                   Takeaway
                 @else
@@ -143,9 +143,9 @@
 
                 <div class="d-flex flex-column">
                   <div class="d-flex justify-content-center">
-                    <i class="fas fa-table"></i>
+                    <i class="fas fa-table {{ env('OC_ASCENT_HL_COLOR') }}"></i>
                   </div>
-                  <div class="d-flex justify-content-center">
+                  <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR') }}">
                       Tables
                   </div>
                 </div>
@@ -173,9 +173,9 @@
 
             <div class="d-flex flex-column">
               <div class="d-flex justify-content-center">
-                <i class="fas fa-list"></i>
+                <i class="fas fa-list {{ env('OC_ASCENT_HL_COLOR') }}"></i>
               </div>
-              <div class="d-flex justify-content-center">
+              <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR') }}">
                 @if (env('CMP_TYPE') == 'cafe')
                   Menu
                 @else
@@ -206,9 +206,9 @@
 
             <div class="d-flex flex-column">
               <div class="d-flex justify-content-center">
-                <i class="fas fa-book"></i>
+                <i class="fas fa-book {{ env('OC_ASCENT_HL_COLOR') }}"></i>
               </div>
-              <div class="d-flex justify-content-center">
+              <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR') }}">
                 @if (true)
                   Daybook
                 @endif
@@ -236,9 +236,9 @@
 
             <div class="d-flex flex-column">
               <div class="d-flex justify-content-center">
-                <i class="fas fa-book"></i>
+                <i class="fas fa-book {{ env('OC_ASCENT_HL_COLOR') }}"></i>
               </div>
-              <div class="d-flex justify-content-center">
+              <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR') }}">
                 @if (true)
                   Weekbook
                 @endif
@@ -266,9 +266,9 @@
               ">
                 <div class="d-flex flex-column">
                   <div class="d-flex justify-content-center">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-users {{ env('OC_ASCENT_HL_COLOR') }}"></i>
                   </div>
-                  <div class="d-flex justify-content-center">
+                  <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR') }}">
                     @if (true)
                       Customer
                     @endif
@@ -292,15 +292,15 @@
                   background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
                 @endif
               ">
-                <i class="fas fa-users mr-3"></i>
+                <i class="fas fa-users mr-3 {{ env('OC_ASCENT_HL_COLOR') }}"></i>
                 @if (false)
                   Students
                 @endif
                 <div class="d-flex flex-column">
                   <div class="d-flex justify-content-center">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-users text-primary"></i>
                   </div>
-                  <div class="d-flex justify-content-center">
+                  <div class="d-flex justify-content-center text-secondary">
                     @if (true)
                       Students
                     @endif
@@ -331,9 +331,9 @@
 
               <div class="d-flex flex-column">
                 <div class="d-flex justify-content-center">
-                  <i class="fas fa-cloud-download-alt"></i>
+                  <i class="fas fa-cloud-download-alt {{ env('OC_ASCENT_HL_COLOR') }}"></i>
                 </div>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR') }}">
                   @if (true)
                     Webborder
                   @endif
@@ -360,7 +360,7 @@
                 @endif
               ">
 
-              <i class="fas fa-comment mr-3"></i>
+              <i class="fas fa-comment mr-3 {{ env('OC_ASCENT_HL_COLOR') }}"></i>
               @if (false)
                 Contact messages
               @endif
@@ -556,6 +556,7 @@
                          btn-danger
                        @else
                          btn-light
+                         text-secondary
                        @endif
                     p-3">
               <i class="fas fa-shopping-cart mr-2"></i>
@@ -569,6 +570,7 @@
                          btn-danger
                        @else
                          btn-light
+                         text-secondary
                        @endif
                     p-3">
               <i class="fas fa-tools mr-2"></i>
@@ -582,6 +584,7 @@
                          btn-primary
                        @else
                          btn-light
+                         text-secondary
                        @endif
                     p-3">
               <i class="fas fa-users mr-2"></i>
@@ -595,6 +598,7 @@
                          btn-primary
                        @else
                          btn-light
+                         text-secondary
                        @endif
                     p-3">
               <i class="fas fa-chart-line mr-2"></i>
@@ -608,6 +612,7 @@
                          btn-primary
                        @else
                          btn-light
+                         text-secondary
                        @endif
                     p-3">
               <i class="fas fa-dolly mr-2"></i>
@@ -622,6 +627,7 @@
                          btn-primary
                        @else
                          btn-light
+                         text-secondary
                        @endif
                     p-3">
               <i class="fas fa-solar-panel mr-2"></i>
