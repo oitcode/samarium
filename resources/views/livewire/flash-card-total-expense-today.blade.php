@@ -8,7 +8,7 @@
         <div class="">
           <div class="d-flex justify-content-between">
 
-            <h2 class="h5 mb-4">
+            <h2 class="h5 mb-3">
               Expense
             </h2>
 
@@ -20,7 +20,7 @@
             @php echo number_format( $todayExpenseTotalAmount ); @endphp
           </h2>
   
-          <div class="mt-3">
+          <div class="mt-2">
             <span class="h5">
               {{ $count }}
             </span>
