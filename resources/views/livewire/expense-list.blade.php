@@ -51,7 +51,6 @@
             <th>ID</th>
             <th>Date</th>
             <th>Expense</th>
-            <th>Category</th>
             <th>Amount</th>
             <th>Action</th>
           </tr>
@@ -69,11 +68,9 @@
             </td>
   
             <td>
-              {{ $expense->name }}
-            </td>
-  
-            <td>
-              {{ $expense->expenseCategory->name }}
+              @foreach ($expense->expenseItems as $expenseItem)
+                {{ $expenseItem->name }}
+              @endforeach
             </td>
   
             <td>
@@ -114,8 +111,8 @@
         </tbody>
   
         <tfoot>
-          <tr style="font-size: 1.8rem;">
-            <th colspan="4" class="text-right mr-3">
+          <tr style="font-size: 1.3rem;">
+            <th colspan="3" class="text-right mr-3">
               Total
             </th>
             <td>
