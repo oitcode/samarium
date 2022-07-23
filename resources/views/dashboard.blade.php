@@ -2,7 +2,6 @@
 @section ('content')
 
   @if (false)
-  @if (false)
   <div class="border-rm mb-3">
     @include ('partials.quick-links')
   </div>
@@ -238,7 +237,6 @@
     @endif
   @endif
 
-  @endif
 
   @if (false)
   @livewire ('expense-create')
