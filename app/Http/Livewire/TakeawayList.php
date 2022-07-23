@@ -77,6 +77,9 @@ class TakeawayList extends Component
 
     public function ackTakeawayDeleted()
     {
+        $this->deletingExpense = null;
+        $this->exitMode('confirmDelete');
+
         $this->render();
     }
 }
