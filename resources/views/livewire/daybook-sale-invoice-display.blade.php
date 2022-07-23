@@ -16,6 +16,10 @@
         <div class="card-body p-0">
 
 
+          <div class="bg-warning" style="background-color: orange; font-size: 0.2rem;">
+            &nbsp;
+          </div>
+
           <div class="row p-4" style="margin: auto;">
 
             <div class="col-md-3 mb-3">
@@ -50,6 +54,19 @@
               </div>
               <div class="h5">
                 {{ $saleInvoice->created_at->toDateString() }}
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <div class="text-muted-rm mb-1">
+                Created by
+              </div>
+              <div class="h5" style="font-size: 0.7rem;">
+                @if ($saleInvoice->creator)
+                  {{ $saleInvoice->creator->name }}
+                @else
+                  Unknown
+                @endif
               </div>
             </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use App\Expense;
@@ -70,6 +71,9 @@ class ExpenseCreateNew extends Component
 
         $expense->date = date('Y-m-d');
         $expense->payment_status = 'pending';
+
+        /* User which created this record. */
+        $expense->creator_id = Auth::user()->id;
 
         $expense->save();
 

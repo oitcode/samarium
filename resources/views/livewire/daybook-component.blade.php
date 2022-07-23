@@ -137,13 +137,13 @@
                   <th class="d-none d-md-table-cell" style="width: 200px;">Time</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Table</th>
                   <th class="d-none d-md-table-cell" style="width: 500px;">Customer</th>
-                  <th class="border" style="width: 200px;">
+                  <th class="border-rm" style="width: 200px;">
                     <span class="d-none d-md-inline">
                       Payment
                     </span>
                     Status
                   </th>
-                  <th class="border d-none d-md-table-cell" style="width: 200px;">Pending Amount</th>
+                  <th class="border-rm d-none d-md-table-cell" style="width: 200px;">Pending Amount</th>
                   <th style="width: 200px;">Total</th>
                 </tr>
               </thead>
@@ -188,7 +188,7 @@
                             </span>
                           @endif
                         </td>
-                        <td class="border">
+                        <td class="border-rm">
                           @if ( $saleInvoice->payment_status == 'paid')
                           <span class="badge badge-pill badge-success">
                           Paid
@@ -213,7 +213,7 @@
                           </span>
                           @endforeach
                         </td>
-                        <td class="border d-none d-md-table-cell">
+                        <td class="border-rm d-none d-md-table-cell">
                           @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
                         </td>
                         <td class="font-weight-bold">

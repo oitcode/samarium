@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 use App\Takeaway;
 use App\SaleInvoice;
@@ -28,6 +29,9 @@ class TakeawayCreate extends Component
         $saleInvoice->sale_invoice_date = date('Y-m-d');
         $saleInvoice->takeaway_id = $takeaway->takeaway_id;
         $saleInvoice->payment_status = 'pending';
+
+        /* User which created this record. */
+        $saleInvoice->creator_id = Auth::user()->id;
 
         $saleInvoice->save();
 

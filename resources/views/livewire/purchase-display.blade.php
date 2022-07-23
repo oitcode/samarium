@@ -55,6 +55,19 @@
               </div>
 
               <div class="col-md-3 mb-3">
+                <div class="text-muted-rm mb-1">
+                  Created by
+                </div>
+                <div class="h5" style="font-size: 0.7rem;">
+                  @if ($purchase->creator)
+                    {{ $purchase->creator->name }}
+                  @else
+                    Unknown
+                  @endif
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
                 <div>
                   Payment Status
                 </div>

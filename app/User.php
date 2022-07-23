@@ -36,4 +36,39 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /*-------------------------------------------------------------------------
+     * Relationships
+     *-------------------------------------------------------------------------
+     *
+     */
+
+
+    /*
+     * sale_invoice table.
+     *
+     */
+    public function saleInvoices()
+    {
+        return $this->hasMany('App\SaleInvoice', 'creator_id', 'id');
+    }
+
+    /*
+     * purchase table.
+     *
+     */
+    public function purchases()
+    {
+        return $this->hasMany('App\Purchase', 'creator_id', 'id');
+    }
+
+    /*
+     * expense table.
+     *
+     */
+    public function expenses()
+    {
+        return $this->hasMany('App\Expense', 'creator_id', 'id');
+    }
 }

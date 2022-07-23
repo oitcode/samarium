@@ -24,7 +24,8 @@ class Purchase extends Model
     protected $primaryKey = 'purchase_id';
 
     protected $fillable = [
-         'vendor_id', 'payment_status'
+         'vendor_id', 'payment_status',
+         'creator_id',
     ];
 
 
@@ -33,6 +34,16 @@ class Purchase extends Model
      *-------------------------------------------------------------------------
      *
      */
+
+
+    /*
+     * users table.
+     *
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'creator_id', 'id');
+    }
 
     /*
      * vendor table.

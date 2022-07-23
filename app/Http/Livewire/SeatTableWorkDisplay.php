@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use App\SeatTableBooking;
@@ -83,6 +84,9 @@ class SeatTableWorkDisplay extends Component
         $saleInvoice->sale_invoice_date = date('Y-m-d');
         $saleInvoice->seat_table_booking_id = $seatTableBooking->seat_table_booking_id;
         $saleInvoice->payment_status = 'pending';
+
+        /* User which created this record. */
+        $saleInvoice->creator_id = Auth::user()->id;
 
         $saleInvoice->save();
 

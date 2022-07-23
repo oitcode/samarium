@@ -26,6 +26,7 @@ class SaleInvoice extends Model
     protected $fillable = [
          'invoice_date', 'customer_id',
          'total_amount', 'payment_status',
+         'creator_id',
     ];
 
 
@@ -34,6 +35,16 @@ class SaleInvoice extends Model
      *-------------------------------------------------------------------------
      *
      */
+
+
+    /*
+     * users table.
+     *
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'creator_id', 'id');
+    }
 
     /*
      * customer table.

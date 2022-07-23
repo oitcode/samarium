@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Traits\MiscTrait;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use App\Vendor;
@@ -75,6 +76,10 @@ class PurchaseCreate extends Component
     public function startPurchase()
     {
         $purchase = new Purchase;
+
+        /* User which created this record. */
+        $purchase->creator_id = Auth::user()->id;
+
         $purchase->save();
 
         $purchase = $purchase->fresh();

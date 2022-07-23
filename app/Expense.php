@@ -23,7 +23,7 @@ class Expense extends Model
     protected $fillable = [
         'expense_category_id', 'date',
         'name', 'amount',
-        'comment',
+        'comment', 'creator_id',
     ];
 
 
@@ -33,6 +33,15 @@ class Expense extends Model
      *
      */
 
+
+    /*
+     * users table.
+     *
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'creator_id', 'id');
+    }
 
     /*
      * expense_category table.
