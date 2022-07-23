@@ -12,4 +12,9 @@ class SeatTableListDisplay extends Component
     {
         return view('livewire.seat-table-list-display');
     }
+
+    public function displayWorkingSeatTable($seatTableId)
+    {
+        $this->emit('displayWorkingSeatTable', $seatTableId);
+    }
 }
