@@ -136,9 +136,9 @@
 
 
       <div class="card mb-0">
-        @if (false)
-        <div class="card-header bg-success-rm text-white-rm" style="background-color: #efe;">
-          @if (false)
+        @if (! $seatTable->isBooked())
+        <div class="card-header bg-success-rm text-white-rm">
+          @if (true)
           <h1 class="d-inline" style="font-size: calc(1rem + 0.2vw);">
             {{ $seatTable->name }}
           </h2>
@@ -146,7 +146,7 @@
 
           <div class="d-inline">
             <button wire:loading class="btn">
-              <span class="spinner-border text-white mr-3" role="status" style="font-size: 1rem;">
+              <span class="spinner-border text-primary mr-3" role="status" style="font-size: 1rem;">
               </span>
             </button>
           </div>

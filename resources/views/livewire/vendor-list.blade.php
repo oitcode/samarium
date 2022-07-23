@@ -24,7 +24,12 @@
                 {{ $vendor->name }}
               </td>
               <td>
-                {{ $vendor->getBalance() }}
+                <span class="text-muted mr-1" style="font-size: 0.7rem;">
+                  Rs
+                </span>
+                <span class="font-weight-bold">
+                  @php echo number_format( $vendor->getBalance() ); @endphp
+                </span>
               </td>
               <td>
                 <div class="dropdown">
