@@ -46,11 +46,11 @@
           <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
             Vendor
           </div>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex">
             @if ($modes['vendorSelected'])
               {{ $expense->vendor->name }}
             @else
-              <select class="flex-grow-1" wire:model.defer="vendor_id">
+              <select class="w-75" wire:model.defer="vendor_id">
                 <option>---</option>
 
                 @foreach ($vendors as $vendor)
