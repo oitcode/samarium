@@ -67,7 +67,7 @@ class ExpenseList extends Component
 
         if (! is_null($this->expenses) && count($this->expenses) > 0) {
             foreach ($this->expenses as $expense) {
-                $this->total += $expense->amount;
+                $this->total += $expense->getTotalAmount();
             }
         }
     }
