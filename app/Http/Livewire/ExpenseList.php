@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 use App\Expense;
@@ -25,6 +26,7 @@ class ExpenseList extends Component
     protected $listeners = [
         'expenseDeleted' => 'ackExpenseDeleted',
         'exitConfirmExpenseDelete',
+        'deleteExpenseFromList',
     ];
 
     public function mount()
@@ -133,9 +135,9 @@ class ExpenseList extends Component
 
     public function ackExpenseDeleted()
     {
-        //$this->deletingExpense = null;
-        //$this->exitMode('confirmDeleteExpense');
-        //$this->getExpensesForDateRange();
+        $this->deletingExpense = null;
+        $this->exitMode('confirmDeleteExpense');
+        $this->getExpensesForDateRange();
     }
 
     public function setPreviousDay()
@@ -146,5 +148,42 @@ class ExpenseList extends Component
     public function setNextDay()
     {
         $this->startDate = Carbon::create($this->startDate)->addDay()->toDateString();
+    }
+
+    /*
+     * Todo: This function had to be moved from delete confirm modal
+     *       to here as a code fix for bug #2 . Why?
+     *
+     *
+     */
+    public function deleteExpenseFromList(Expense $expense)
+    {
+        DB::beginTransaction();
+
+        try {
+            /* Delete expense items */
+            foreach ($expense->expenseItems as $item) {
+                /* Delete expense item */
+                $item->delete();
+            }
+
+            /* Delete expense payments */
+            foreach ($expense->expensePayments as $expensePayment) {
+                $expensePayment->delete();
+            }
+
+            /* Delete expense */
+            $expense->delete();
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd ($e);
+            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
+        }
+
+        $this->deletingExpense = null;
+        $this->exitMode('confirmDeleteExpense');
+        $this->getExpensesForDateRange();
     }
 }

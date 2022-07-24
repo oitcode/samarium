@@ -58,7 +58,7 @@
   
         <tbody>
           @foreach($expenses as $expense)
-          <tr style="font-size: 0.8rem;">
+          <tr wire:key="{{ rand() * $expense->expense_id }}" style="font-size: 0.8rem;">
             <td>
               {{ $expense->expense_id }}
             </td>
@@ -131,7 +131,7 @@
   
         <tbody>
           @foreach($expenses as $expense)
-          <tr>
+          <tr wire:key="{{ rand() }}">
             <td>
               {{ $expense->expense_id }}
               <div>

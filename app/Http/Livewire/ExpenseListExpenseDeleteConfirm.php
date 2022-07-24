@@ -18,25 +18,40 @@ class ExpenseListExpenseDeleteConfirm extends Component
 
     public function deleteExpense(Expense $expense)
     {
-        DB::beginTransaction();
 
-        try {
+        $this->emit('deleteExpenseFromList', $expense);
 
-            /* Delete expense payments */
-            foreach ($expense->expensePayments as $expensePayment) {
-                $expensePayment->delete();
-            }
 
-            /* Delete expense */
-            $expense->delete();
+        /*
+         * Todo: This had to be moved to expense-list as a fix for bug #2. 
+         *       Why?
+         */
 
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            dd ($e);
-            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
-        }
+        // DB::beginTransaction();
 
-        $this->emit('expenseDeleted');
+        // try {
+        //     /* Delete expense items */
+        //     foreach ($expense->expenseItems as $item) {
+        //         /* Delete expense item */
+        //         $item->delete();
+        //     }
+
+        //     /* Delete expense payments */
+        //     foreach ($expense->expensePayments as $expensePayment) {
+        //         $expensePayment->delete();
+        //     }
+
+        //     /* Delete expense */
+        //     $expense->delete();
+
+        //     DB::commit();
+        // } catch (\Exception $e) {
+        //     DB::rollback();
+        //     dd ($e);
+        //     session()->flash('errorDbTransaction', 'Some error in DB transaction.');
+        // }
+
+        // //dd ('Boom');
+        // $this->emit('expenseDeleted');
     }
 }
