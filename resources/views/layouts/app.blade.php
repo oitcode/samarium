@@ -545,7 +545,7 @@
     <div class="col-md-11">
       {{-- TOP HEADER SECTION --}}
       @if (true)
-      <div class="bg-white py-2 text-right d-none d-md-block mb-3 border-bottom-rm">
+      <div class="bg-white py-2-rm text-right d-none d-md-block mb-3 border-bottom-rm">
         @guest
         @else
 

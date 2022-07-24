@@ -103,7 +103,7 @@
   </div>
 
   {{-- Items grid --}}
-  <div class="card mb-3 shadow">
+  <div class="card mb-3 shadow-sm">
   
     <div class="card-body p-0">
   

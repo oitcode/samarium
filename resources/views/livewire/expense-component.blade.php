@@ -136,7 +136,14 @@
   @elseif ($modes['list'])
     @livewire ('expense-list')
   @elseif ($modes['display'])
-    @livewire ('expense-display', ['expense' => $displayingExpense,])
+    @if ($displayingExpense->creation_status == 'progress')
+      @livewire ('expense-create-new', [
+          'createNew' => false,
+          'expense' => $displayingExpense,
+      ])
+    @else
+      @livewire ('expense-display', ['expense' => $displayingExpense,])
+    @endif
   @elseif ($modes['report'])
     @livewire ('expense-report')
   @elseif ($modes['createCategory'])

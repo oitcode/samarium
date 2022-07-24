@@ -21,6 +21,8 @@ class ExpenseCreateNew extends Component
 {
     public $expense = null;
 
+    public $createNew = true;
+
     /* Add item related */
     public $selectedProduct = null;
     public $expenseCategories;
@@ -60,26 +62,28 @@ class ExpenseCreateNew extends Component
 
     public function mount()
     {
-        $expense = new Expense;
-
         $this->vendors = Vendor::all();
 
-        /* Todo: Below three should be dropped from database design. */
-        $expense->name = 'TODO';
-        $expense->amount = 1;
-        $expense->expense_category_id = 1;
+        if ($this->createNew == true) {
+            $expense = new Expense;
 
-        $expense->date = date('Y-m-d');
-        $expense->payment_status = 'pending';
+            /* Todo: Below three should be dropped from database design. */
+            $expense->name = 'TODO';
+            $expense->amount = 1;
+            $expense->expense_category_id = 1;
 
-        $expense->creation_status = 'progress';
+            $expense->date = date('Y-m-d');
+            $expense->payment_status = 'pending';
 
-        /* User which created this record. */
-        $expense->creator_id = Auth::user()->id;
+            $expense->creation_status = 'progress';
 
-        $expense->save();
+            /* User which created this record. */
+            $expense->creator_id = Auth::user()->id;
 
-        $this->expense = $expense;
+            $expense->save();
+
+            $this->expense = $expense;
+        }
 
         /* Zero fill expenseAdditions */
         foreach (ExpenseAdditionHeading::all() as $expenseAddition) {

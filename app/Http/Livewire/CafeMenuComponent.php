@@ -44,7 +44,7 @@ class CafeMenuComponent extends Component
 
     public function mount()
     {
-        $this->productCategories = ProductCategory::all();
+        $this->productCategories = ProductCategory::orderBy('name')->get();
 
         $this->totalProducts = Product::count();
         $this->totalProductCategories = ProductCategory::count();
