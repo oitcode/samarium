@@ -24,6 +24,7 @@ class Expense extends Model
         'expense_category_id', 'date',
         'name', 'amount',
         'comment', 'creator_id',
+        'creation_status',
     ];
 
 

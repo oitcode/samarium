@@ -72,6 +72,8 @@ class ExpenseCreateNew extends Component
         $expense->date = date('Y-m-d');
         $expense->payment_status = 'pending';
 
+        $expense->creation_status = 'progress';
+
         /* User which created this record. */
         $expense->creator_id = Auth::user()->id;
 
@@ -287,6 +289,7 @@ class ExpenseCreateNew extends Component
             $expensePayment->save();
 
             $expense->payment_status = 'paid';
+            $expense->creation_status = 'created';
             $expense->save();
 
             $this->expense = $expense->fresh();

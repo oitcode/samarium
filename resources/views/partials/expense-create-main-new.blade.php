@@ -50,6 +50,7 @@
             @if ($modes['vendorSelected'])
               {{ $expense->vendor->name }}
             @else
+              @if ($expense->creation_status == 'progress')
               <select class="w-75" wire:model.defer="vendor_id">
                 <option>---</option>
 
@@ -62,6 +63,9 @@
               <button class="btn btn-sm btn-light ml-2" wire:click="linkVendorToExpense">
                 Yes
               </button>
+              @else
+                None
+              @endif
             @endif
           </div>
         </div>
