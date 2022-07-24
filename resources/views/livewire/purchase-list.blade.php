@@ -155,7 +155,7 @@
       </tbody>
 
       <tfoot>
-        <tr style="font-size: 1.8rem;">
+        <tr style="font-size: 1.3rem;">
           <th colspan="6" class="text-right pl-3">
             Total
           </th>
