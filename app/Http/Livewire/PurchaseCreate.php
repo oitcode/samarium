@@ -77,6 +77,8 @@ class PurchaseCreate extends Component
     {
         $purchase = new Purchase;
 
+        $purchase->creation_status = 'progress';
+
         /* User which created this record. */
         $purchase->creator_id = Auth::user()->id;
 

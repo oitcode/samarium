@@ -142,6 +142,9 @@ class PurchaseMakePayment extends Component
             } else {
             }
 
+            $this->purchase->creation_status = 'created';
+            $this->purchase->save();
+
             /* Make accounting entries */
             // $this->makePurchaseAccountingEntry($this->purchase);
 

@@ -31,18 +31,22 @@
             @if ($modes['vendorSelected'])
               {{ $purchase->vendor->name }}
             @else
-              <select class="custom-control w-75" wire:model.defer="vendor_id">
-                <option>---</option>
+              @if ($purchase->creation_status == 'progress')
+                <select class="custom-control w-75" wire:model.defer="vendor_id">
+                  <option>---</option>
 
-                @foreach ($vendors as $vendor)
-                  <option value="{{ $vendor->vendor_id }}">
-                    {{ $vendor->name }}
-                  </option>
-                @endforeach
-              </select>
-              <button class="btn btn-sm btn-light ml-2" wire:click="linkVendorToPurchase">
-                Yes
-              </button>
+                  @foreach ($vendors as $vendor)
+                    <option value="{{ $vendor->vendor_id }}">
+                      {{ $vendor->name }}
+                    </option>
+                  @endforeach
+                </select>
+                <button class="btn btn-sm btn-light ml-2" wire:click="linkVendorToPurchase">
+                  Yes
+                </button>
+              @else
+                None
+              @endif
             @endif
           </div>
         </div>
