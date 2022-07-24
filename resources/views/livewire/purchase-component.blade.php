@@ -87,7 +87,17 @@
   @elseif ($modes['list'])
     @livewire ('purchase-list')
   @elseif ($modes['display'])
-    @livewire ('purchase-display', ['purchase' => $displayingPurchase,])
+    @if ($displayingPurchase->creation_status == 'progress')
+      @livewire ('purchase-create', [
+          'createNew' => false,
+          'purchase' => $displayingPurchase,
+      ])
+    @else
+      @if (false)
+      @livewire ('purchase-display', ['purchase' => $displayingPurchase,])
+      @endif
+      @livewire ('core-purchase-display', ['purchase' => $displayingPurchase,])
+    @endif
   @endif
 
 </div>

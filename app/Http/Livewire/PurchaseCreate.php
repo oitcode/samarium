@@ -20,6 +20,8 @@ class PurchaseCreate extends Component
     public $purchase;
     public $vendor_id;
 
+    public $createNew = true;
+
     public $vendors = null;
 
     public $modes = [
@@ -41,7 +43,15 @@ class PurchaseCreate extends Component
 
     public function mount()
     {
-        $this->purchase = $this->startPurchase();
+        if ($this->createNew == true) {
+            $this->purchase = $this->startPurchase();
+        }
+
+        if ($this->purchase) {
+            if ($this->purchase->vendor) {
+                $this->modes['vendorSelected'] = true;
+            }
+        }
     }
 
     public function render()

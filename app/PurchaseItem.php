@@ -69,5 +69,4 @@ class PurchaseItem extends Model
     {
         return $this->purchase_price_total;
     }
-
 }

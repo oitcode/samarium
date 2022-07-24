@@ -156,4 +156,15 @@ class Purchase extends Model
 
         return $total;
     }
+
+    public function getSubTotal()
+    {
+        $total = 0;
+
+        foreach ($this->purchaseItems as $purchaseItem) {
+            $total += $purchaseItem->getTotalAmount();
+        }
+
+        return $total;
+    }
 }
