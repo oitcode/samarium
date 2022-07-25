@@ -72,6 +72,13 @@ class TakeawayWorkAddItem extends Component
             return;
         }
 
+        /* Check if enough stock/inventory is available. */
+        if ($this->selectedProduct->stock_applicable == 'yes') {
+          if (! $this->stockAvailable($this->selectedProduct, $this->quantity)) {
+              return;
+          }
+        }
+
         /*
          * If same product added before just increase the count.
          * Else, create a new sale invoice item.
@@ -193,5 +200,15 @@ class TakeawayWorkAddItem extends Component
     public function hideAddItemFormMob()
     {
         $this->exitMode('showMobForm');
+    }
+
+    public function stockAvailable($product, $quantity)
+    {
+        if ($product->stock_count >= $quantity ) {
+            return true;
+        } else {
+            session()->flash('errorMessage', 'Sorry! Stock not available.');
+            return false;
+        }
     }
 }

@@ -1,5 +1,18 @@
 <div style="">
 
+  <!-- Flash message div -->
+  <div class="">
+    @if (session()->has('errorMessage'))
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fas fa-exclamation-circle mr-3"></i>
+        {{ session('errorMessage') }}
+        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+          <span class="text-danger" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    @endif
+  </div>
+
   {{-- Show in bigger screen --}}
   <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block">
     @if (false)
@@ -8,6 +21,7 @@
     </h1>
     @endif
   
+
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
@@ -94,8 +108,11 @@
           </button>
   
         </div>
+
         @if ($selectedProduct != null)
           <div class="col-md-4" style="height: 50px;">
+
+
             <div class="float-right">
               <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
             </div>

@@ -53,16 +53,17 @@
   <!-- ./Menu tool bar -->
 
   {{-- Simple list --}}
-  <div class="table-responsive bg-white border" style="font-size: 1.1rem;">
+  <div class="table-responsive bg-white border">
     <table class="table">
       <thead>
         <tr class="
             {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
             {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
             "
-            style="font-size: 1rem;">
-          <th>Item</th>
+            style="">
+          <th colspan="2">Item</th>
           <th>Stock applicable</th>
+          <th>Inventory Unit</th>
           <th>Stock</th>
         </tr>
       </thead>
@@ -71,11 +72,16 @@
         @foreach ($products as $product)
           @if ($product->stock_applicable == 'yes')
             <tr>
+              <td style="width: 50px;">
+                <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
+              </td>
               <td>
                 {{ $product->name }}
               </td>
               <td>
                 {{ $product->stock_applicable }}
+              </td>
+              <td>
               </td>
               <td>
                 {{ $product->stock_count }}
