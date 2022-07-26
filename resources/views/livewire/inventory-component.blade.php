@@ -82,9 +82,11 @@
                 {{ $product->stock_applicable }}
               </td>
               <td>
+                {{ $product->inventory_unit }}
               </td>
               <td>
                 {{ $product->stock_count }}
+                {{ $product->inventory_unit }}
               </td>
             </tr>
           @endif
