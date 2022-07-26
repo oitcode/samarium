@@ -40,15 +40,16 @@
             <tbody>
               @foreach ($products as $product)
                 <tr>
-            <td>
+            <td style="width: 50px;">
               <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
             </td>
                   <td>
                     {{ $product->name }}
                   </td>
                   <td>
-                    @if (! is_null($product->stock_count))
+                    @if ($product->stock_applicable == 'yes')
                       {{ $product->stock_count }}
+                      {{ $product->inventory_unit }}
                     @else
                       <div class="text-muted" style="font-size: 0.7rem;">
                         <i class="fas fa-exclamation-circle mr-1"></i>

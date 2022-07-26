@@ -39,7 +39,7 @@
 
   <div class="row bg-warning-rm" style="height: 100% !important;">
     <div class="col-md-6">
-      <div class="h-100 bg-info text-primary-rm" style="color: #050; font-family: monospace, sans-serif;">
+      <div class="h-100 bg-info text-white-rm" style="color: #050; font-family: monospace, sans-serif;">
         <div class="h-100 d-flex flex-column justify-content-center">
           <div class="d-flex justify-content-center">
             @include ('partials.login-left')

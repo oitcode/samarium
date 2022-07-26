@@ -1,21 +1,30 @@
 <div>
+  @if (false)
   <div class="mb-4" wire:click="$refresh">
     Refresh
   </div>
+  @endif
 
   <div class="row">
-    <div class="col-md-6">
-      <div class="p-3 bg-white border">
-        <h1 class="h4 mb-1">
-          {{ $product->name }}
-        </h1>
+    <div class="col-md-9">
+      <div class="px-3 bg-white border">
+        <div class="bg-success-rm text-white-rm">
+          <div class="bg-secondary mb-3" style="font-size: 0.2rem;">
+            &nbsp;
+          </div>
+          <h1 class="h4 mb-1">
+            {{ $product->name }}
+          </h1>
 
-        <div class="mb-3">
-          <h2 class="h6 font-weight-bold d-inline mr-2" style="font-size: 0.8rem;">
-            Category
-          </h2>
-          <div class="d-inline" style="font-size: 0.8rem;">
-          {{ $product->productCategory->name }}
+          <div class="mb-3">
+            <h2 class="h6 font-weight-bold d-inline mr-2" style="font-size: 0.8rem;">
+              Category
+            </h2>
+            <div class="d-inline" style="font-size: 0.8rem;">
+              <span class="badge badge-pill badge-info">
+                {{ $product->productCategory->name }}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -31,7 +40,7 @@
         </div>
 
 
-        <div class="mb-3 border-rm bg-light">
+        <div class="mb-3 py-3 border-rm bg-light">
           <h2 class="h6 font-weight-bold">
             Selling price
           </h2>
@@ -66,8 +75,6 @@
 
 
       </div>
-    </div>
-    <div class="col-md-3">
     </div>
     <div class="col-md-3">
       {{-- Creation and update info --}}
@@ -109,23 +116,26 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-6">
-            Inventory unit
+        @if ($product->stock_applicable == 'yes')
+          <div class="row">
+            <div class="col-6">
+              Inventory unit
+            </div>
+            <div class="col-6" style="font-size: 0.8rem;">
+              {{ $product->inventory_unit }}
+            </div>
           </div>
-          <div class="col-6" style="font-size: 0.8rem;">
-            {{ $product->inventory_unit }}
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-6">
-            Stock count
+          <div class="row">
+            <div class="col-6">
+              Stock count
+            </div>
+            <div class="col-6" style="font-size: 0.8rem;">
+              {{ $product->stock_count }}
+              {{ $product->inventory_unit }}
+            </div>
           </div>
-          <div class="col-6" style="font-size: 0.8rem;">
-            {{ $product->stock_count }}
-          </div>
-        </div>
+        @endif
 
       </div>
 

@@ -3,11 +3,11 @@
     <i class="fas fa-dice-d6 mr-5 h1"></i>
     <div>
       <h1>
-        Kimchi Ramen
+        DigiBook
       </h1>
       @if (true)
       <h2 class="h5">
-        EDB
+        Your digital book
       </h2>
       @endif
 

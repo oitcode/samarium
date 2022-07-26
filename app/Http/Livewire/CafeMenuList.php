@@ -22,6 +22,6 @@ class CafeMenuList extends Component
     {
         $productCategory = ProductCategory::find($productCategoryId);
 
-        $this->products = $productCategory->products;
+        $this->products = $productCategory->products()->where('base_product_id', null)->get();
     }
 }
