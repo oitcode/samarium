@@ -176,7 +176,7 @@ class TakeawayWorkAddItem extends Component
         $this->selectedProduct = null;
         $this->quantity = '';
 
-        $this->products = ProductCategory::find($validatedData['search_product_category_id'])->products()->where('is_base_product', false)->get();;
+        $this->products = ProductCategory::find($validatedData['search_product_category_id'])->products()->where('is_base_product', false)->get();
     }
 
     public function checkExistingItemsForProduct($saleInvoice, $productId)
