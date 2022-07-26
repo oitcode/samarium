@@ -107,7 +107,7 @@
 
   <div class="row" style="margin: auto;">
 
-    <div class="col-md-8">
+    <div class="col-md-12">
 
       <!-- Flash message div -->
       @if (session()->has('message'))
@@ -132,6 +132,8 @@
         @livewire ('cafe-menu-full-list')
       @elseif ($modes['updateProductCategory'])
         @livewire ('cafe-menu-product-category-edit', ['productCategory' => $updatingProductCategory,])
+      @elseif ($modes['displayProduct'])
+        @livewire ('cafe-menu-product-display', ['product' => $displayingProduct,])
       @elseif ($modes['list'])
         @livewire ('cafe-menu-list')
     </div>

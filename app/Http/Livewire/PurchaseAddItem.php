@@ -108,10 +108,12 @@ class PurchaseAddItem extends Component
         /* Do inventory management */
         $product = Product::find($this->product_id);
 
-        if (! is_null($product->stock_count)) {
-          $product->stock_count +=  $this->quantity;
-          $product->save();
-        }
+        // if (! is_null($product->stock_count)) {
+        //   $product->stock_count +=  $this->quantity;
+        //   $product->save();
+        // }
+
+        $this->doInventoryUpdate($product, $this->quantity, 'in');
 
         $this->resetInputFields();
         $this->emit('itemAddedToPurchase');
@@ -198,5 +200,28 @@ class PurchaseAddItem extends Component
     public function hideAddItemFormMob()
     {
         $this->exitMode('showMobForm');
+    }
+
+    public function doInventoryUpdate($product, $quantity, $direction)
+    {
+        if ($product->baseProduct) {
+            $baseProduct = $product->baseProduct;
+
+            if ($direction == 'out') {
+                $baseProduct->stock_count -= $quantity * $product->inventory_unit_consumption;
+            } else {
+                $baseProduct->stock_count += $quantity * $product->inventory_unit_consumption;
+            }
+            $baseProduct->save();
+        } else {
+            if (! is_null($product->stock_count)) {
+                if ($direction == 'out') {
+                    $product->stock_count -=  $quantity;
+                } else {
+                    $product->stock_count +=  $quantity;
+                }
+                $product->save();
+            }
+        }
     }
 }

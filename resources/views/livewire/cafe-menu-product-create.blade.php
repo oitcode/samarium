@@ -1,16 +1,19 @@
 <div>
-  <div class="row">
+  <div class="mb-4">
+    <h1 style="font-size: 1.3rem;">
+      Add product
+    </h1>
+
+  </div>
+
+  <div class="row border bg-white">
     <div class="col-md-6">
 
 
 
 
-<div class="card shadow-sm">
-  <div class="card-body p-3">
-
-    <h1 class="mb-4" style="font-size: 1.3rem;">
-      Add product
-    </h1>
+<div class="card shadow-sm border-0">
+  <div class="card-body p-3 border-0">
 
     <div class="form-group">
       <label for="">Name</label>
@@ -53,15 +56,6 @@
     </div>
 
     <div class="form-group">
-      <label for="">Stock count</label>
-      <input type="text"
-          class="form-control"
-          wire:model.defer="stock_count"
-          style="font-size: 1.3rem;">
-      @error('stock_count') <span class="text-danger">{{ $message }}</span> @enderror
-    </div>
-
-    <div class="form-group">
       <label for="">Image</label>
       <input type="file" class="form-control" wire:model="image">
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
@@ -101,26 +95,29 @@
 
     </div>
     <div class="col-md-6">
-<div class="card shadow-sm">
-  <div class="card-body p-3">
+<div class="card shadow-sm border-0">
+  <div class="card-body p-3 border-0">
 
-    <h1 class="mb-4" style="font-size: 1.3rem;">
+    <h1 class="mb-4 h5">
       Additional info
     </h1>
 
     <div class="form-group">
-      <label>Base product</label>
-      <select class="custom-select" wire:model.defer="base_product_id" style="font-size: 1.3rem;">
-        <option>---</option>
-        @if (false)
-        @foreach ($baseProducts as $baseProduct)
-          <option value="{{ $baseProduct->product_id }}">
-            {{ $baseProduct->name }}
-          </option>
-        @endforeach
-        @endif
+      <label for="">Stock applicable</label>
+      <select class="custom-select" wire:model.defer="stock_applicable" style="font-size: 1.3rem;">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
       </select>
-      @error ('base_product_id') <span class="text-danger">{{ $message }}</span>@enderror
+      @error('stock_applicable') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="">Stock count</label>
+      <input type="text"
+          class="form-control"
+          wire:model.defer="stock_count"
+          style="font-size: 1.3rem;">
+      @error('stock_count') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
@@ -133,15 +130,6 @@
     </div>
 
     <div class="form-group">
-      <label for="">Inventory Unit Consumption</label>
-      <input type="text"
-          class="form-control"
-          wire:model.defer="inventory_unit_consumption"
-          style="font-size: 1.3rem;">
-      @error ('inventory_unit_consumption') <span class="text-danger">{{ $message }}</span> @enderror
-    </div>
-
-    <div class="form-group">
       <label>Is base product</label>
       <select class="custom-select" wire:model.defer="is_base_product" style="font-size: 1.3rem;">
         <option>---</option>
@@ -150,6 +138,34 @@
       </select>
       @error ('is_base_product') <span class="text-danger">{{ $message }}</span>@enderror
     </div>
+
+    <div class="form-group">
+      <label>Base product</label>
+      <select class="custom-select" wire:model.defer="base_product_id" style="font-size: 1.3rem;">
+        <option>---</option>
+        @if (true)
+        @foreach ($baseProducts as $baseProduct)
+          <option value="{{ $baseProduct->product_id }}">
+            {{ $baseProduct->name }}
+          </option>
+        @endforeach
+        @endif
+      </select>
+      @error ('base_product_id') <span class="text-danger">{{ $message }}</span>@enderror
+    </div>
+
+
+    <div class="form-group">
+      <label for="">Inventory Unit Consumption</label>
+      <input type="text"
+          class="form-control"
+          wire:model.defer="inventory_unit_consumption"
+          style="font-size: 1.3rem;">
+      @error ('inventory_unit_consumption') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+
+
 
 
   </div>

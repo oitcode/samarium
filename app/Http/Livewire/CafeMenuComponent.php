@@ -15,6 +15,8 @@ class CafeMenuComponent extends Component
     public $updatingProduct;
     public $updatingProductCategory;
 
+    public $displayingProduct;
+
     public $totalProducts;
     public $totalProductCategories;
 
@@ -25,6 +27,7 @@ class CafeMenuComponent extends Component
     public $modes = [
         'showFullMenuList' => false,
         'updateProduct' => false,
+        'displayProduct' => false,
         'updateProductCategory' => false,
         'createProduct' => false,
         'createProductCategory' => false,
@@ -40,6 +43,8 @@ class CafeMenuComponent extends Component
         'exitCreateProductMode',
         'exitCreateProductCategoryMode',
         'exitUpdateProductCategoryMode',
+
+        'displayProduct',
     ];
 
     public function mount()
@@ -159,5 +164,12 @@ class CafeMenuComponent extends Component
     public function exitCreateProductCategoryMode()
     {
         $this->exitMode('createProductCategory');
+    }
+
+    public function displayProduct($productId)
+    {
+        $this->displayingProduct = Product::find($productId);
+
+        $this->enterMode('displayProduct');
     }
 }

@@ -35,7 +35,9 @@ class TakeawayWorkAddItem extends Component
 
     public function mount()
     {
-        $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')->get();
+        $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
+            ->where('is_base_product', false)
+            ->get();
     }
 
     public function render()
@@ -113,10 +115,12 @@ class TakeawayWorkAddItem extends Component
         /* Do inventory management */
         $product = Product::find($this->product_id);
 
-        if (! is_null($product->stock_count)) {
-          $product->stock_count -=  $this->quantity;
-          $product->save();
-        }
+        // if (! is_null($product->stock_count)) {
+        //   $product->stock_count -=  $this->quantity;
+        //   $product->save();
+        // }
+
+        $this->doInventoryUpdate($product, $this->quantity, 'out');
 
         $this->resetInputFields();
         $this->emit('itemAddedToTakeaway');
@@ -128,7 +132,9 @@ class TakeawayWorkAddItem extends Component
 
     public function updateProductList()
     {
-        $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')->get();
+        $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
+            ->where('is_base_product', false)
+            ->get();
     }
 
     public function selectItem()
@@ -170,7 +176,7 @@ class TakeawayWorkAddItem extends Component
         $this->selectedProduct = null;
         $this->quantity = '';
 
-        $this->products = ProductCategory::find($validatedData['search_product_category_id'])->products;
+        $this->products = ProductCategory::find($validatedData['search_product_category_id'])->products()->where('is_base_product', false)->get();;
     }
 
     public function checkExistingItemsForProduct($saleInvoice, $productId)
@@ -204,11 +210,43 @@ class TakeawayWorkAddItem extends Component
 
     public function stockAvailable($product, $quantity)
     {
-        if ($product->stock_count >= $quantity ) {
-            return true;
+        if ($product->baseProduct) {
+            if ($product->baseProduct->stock_count >= $quantity * $product->inventory_unit_consumption ) {
+                return true;
+            } else {
+                session()->flash('errorMessage', 'Sorry! Stock not available.');
+                return false;
+            }
         } else {
-            session()->flash('errorMessage', 'Sorry! Stock not available.');
-            return false;
+            if ($product->stock_count >= $quantity ) {
+                return true;
+            } else {
+                session()->flash('errorMessage', 'Sorry! Stock not available.');
+                return false;
+            }
+        }
+    }
+
+    public function doInventoryUpdate($product, $quantity, $direction)
+    {
+        if ($product->baseProduct) {
+            $baseProduct = $product->baseProduct;
+
+            if ($direction == 'out') {
+                $baseProduct->stock_count -= $quantity * $product->inventory_unit_consumption;
+            } else {
+                $baseProduct->stock_count += $quantity * $product->inventory_unit_consumption;
+            }
+            $baseProduct->save();
+        } else {
+            if (! is_null($product->stock_count)) {
+                if ($direction == 'out') {
+                    $product->stock_count -=  $quantity;
+                } else {
+                    $product->stock_count +=  $quantity;
+                }
+                $product->save();
+            }
         }
     }
 }

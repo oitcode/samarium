@@ -67,6 +67,10 @@
                         <i class="fas fa-cog text-secondary"></i>
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button class="dropdown-item" wire:click="$emit('displayProduct', {{ $product->product_id }})">
+                          <i class="fas fa-file text-primary mr-2"></i>
+                          View
+                        </button>
                         <button class="dropdown-item" wire:click="$emit('updateProduct', {{ $product->product_id }})">
                           <i class="fas fa-pencil-alt text-primary mr-2"></i>
                           Update

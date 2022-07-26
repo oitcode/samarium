@@ -12,7 +12,7 @@ class InventoryComponent extends Component
 
     public function render()
     {
-        $this->products = Product::all();
+        $this->products = Product::where('base_product_id', null)->get();
 
         return view('livewire.inventory-component');
     }
