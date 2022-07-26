@@ -1,3 +1,10 @@
+<div>
+  <div class="row">
+    <div class="col-md-6">
+
+
+
+
 <div class="card shadow-sm">
   <div class="card-body p-3">
 
@@ -60,6 +67,16 @@
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
+    <div class="form-group">
+      <label>Is active</label>
+      <select class="custom-select" wire:model.defer="is_active" style="font-size: 1.3rem;">
+        <option>---</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+      </select>
+      @error ('is_active') <span class="text-danger">{{ $message }}</span>@enderror
+    </div>
+
     <div class="p-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
       <button class="btn btn-lg badge-pill btn-success mr-3" wire:click="store">
         Confirm
@@ -72,6 +89,71 @@
         <span class="spinner-border text-info mr-3" role="status">
         </span>
       </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+    </div>
+    <div class="col-md-6">
+<div class="card shadow-sm">
+  <div class="card-body p-3">
+
+    <h1 class="mb-4" style="font-size: 1.3rem;">
+      Additional info
+    </h1>
+
+    <div class="form-group">
+      <label>Base product</label>
+      <select class="custom-select" wire:model.defer="base_product_id" style="font-size: 1.3rem;">
+        <option>---</option>
+        @if (false)
+        @foreach ($baseProducts as $baseProduct)
+          <option value="{{ $baseProduct->product_id }}">
+            {{ $baseProduct->name }}
+          </option>
+        @endforeach
+        @endif
+      </select>
+      @error ('base_product_id') <span class="text-danger">{{ $message }}</span>@enderror
+    </div>
+
+    <div class="form-group">
+      <label for="">Inventory unit</label>
+      <input type="text"
+          class="form-control"
+          wire:model.defer="inventory_unit"
+          style="font-size: 1.3rem;">
+      @error ('inventory_unit') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="">Inventory Unit Consumption</label>
+      <input type="text"
+          class="form-control"
+          wire:model.defer="inventory_unit_consumption"
+          style="font-size: 1.3rem;">
+      @error ('inventory_unit_consumption') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
+      <label>Is base product</label>
+      <select class="custom-select" wire:model.defer="is_base_product" style="font-size: 1.3rem;">
+        <option>---</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+      </select>
+      @error ('is_base_product') <span class="text-danger">{{ $message }}</span>@enderror
+    </div>
+
+
+  </div>
+</div>
     </div>
   </div>
 </div>

@@ -21,9 +21,11 @@ class Product extends Model
     protected $primaryKey = 'product_id';
 
     protected $fillable = [
-         'name', 'product_category_id', 'description',
-         'selling_price', 'stock_count', 'image_path',
-         'stock_applicable',
+         'name', 'product_category_id', 'base_product_id',
+         'description', 'selling_price', 'stock_count',
+         'image_path', 'stock_applicable',
+         'inventory_unit', 'inventory_unit_consumption',
+         'is_active', 'is_base_product',
     ];
 
 
