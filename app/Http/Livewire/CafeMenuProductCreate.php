@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 
 use App\Product;
@@ -72,13 +73,24 @@ class CafeMenuProductCreate extends Component
             $validatedData['image_path'] = $imagePath;
         }
 
-        $product = Product::create($validatedData);
+        DB::beginTransaction();
 
-        if ($this->base_product_id != '---') {
-            $product->base_product_id = $this->base_product_id;
-            $product->inventory_unit_consumption = $this->inventory_unit_consumption;
-            $product->save();
-            $product = $product->fresh();
+        try {
+            $product = Product::create($validatedData);
+
+            if (! is_null($this->base_product_id) && $this->base_product_id != '---') {
+                dd($this->base_product_id);
+
+                $product->base_product_id = $this->base_product_id;
+                $product->inventory_unit_consumption = $this->inventory_unit_consumption;
+                $product->save();
+                $product = $product->fresh();
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd ($e);
+            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
 
         session()->flash('success', 'Product Added');
