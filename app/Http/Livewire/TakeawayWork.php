@@ -89,7 +89,8 @@ class TakeawayWork extends Component
         $saleInvoiceItem = SaleInvoiceItem::find($saleInvoiceItemId);
 
         $this->deletingSaleInvoiceItem = $saleInvoiceItem;
-        $this->enterMode('confirmRemoveSaleInvoiceItem');
+        // $this->enterMode('confirmRemoveSaleInvoiceItem');
+        $this->modes['confirmRemoveSaleInvoiceItem'] = true;
     }
 
     public function removeItemFromCurrentBooking($saleInvoiceItemId)
@@ -168,9 +169,9 @@ class TakeawayWork extends Component
             $baseProduct->save();
         } else {
             if ($direction == 'in') {
-                $product->stock_count += $saleInvoiceItem->quantity; 
+                $product->stock_count += $quantity; 
             } else if ($direction == 'out') {
-                $product->stock_count -= $saleInvoiceItem->quantity; 
+                $product->stock_count -= $quantity; 
             } else {
                 dd('Whoops! Inventory update gone wrong!');
             }
