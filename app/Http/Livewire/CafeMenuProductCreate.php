@@ -23,6 +23,7 @@ class CafeMenuProductCreate extends Component
     /* Stock/inventory related */
     public $stock_applicable = 'no';
     public $inventory_unit;
+    public $opening_stock_count = null;
     public $stock_count = null;
     public $stock_notification_count;
     public $is_base_product = 'no';
@@ -82,10 +83,12 @@ class CafeMenuProductCreate extends Component
         /* Stock/inventory related*/
         if ($validatedData['stock_applicable'] == 'yes') {
             $validatedData += $this->validate([
-                'stock_count' => 'required|integer',
+                'opening_stock_count' => 'required|integer',
                 'stock_notification_count' => 'nullable|integer',
                 'inventory_unit' => 'required',
             ]);
+
+            $validatedData['stock_count'] = $validatedData['opening_stock_count'];
         }
 
         /* Make booleans in validatedData */

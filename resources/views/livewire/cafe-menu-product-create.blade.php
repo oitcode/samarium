@@ -124,9 +124,9 @@
       <label for="">Opening stock count</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="stock_count"
+          wire:model.defer="opening_stock_count"
           style="font-size: 1.3rem;">
-      @error('stock_count') <span class="text-danger">{{ $message }}</span> @enderror
+      @error('opening_stock_count') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
