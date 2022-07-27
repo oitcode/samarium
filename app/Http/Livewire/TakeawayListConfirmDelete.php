@@ -26,6 +26,7 @@ class TakeawayListConfirmDelete extends Component
 
         /* Delete sale invoice items. */
         foreach ($saleInvoice->saleInvoiceItems as $saleInvoiceItem) {
+            $this->updateInventory($saleInvoiceItem);
             $saleInvoiceItem->delete();
         }
 
@@ -39,5 +40,21 @@ class TakeawayListConfirmDelete extends Component
         $takeaway->delete();
 
         $this->emit('takeawayDeleted');
+    }
+
+    public function updateInventory($saleInvoiceItem)
+    {
+        $product = $saleInvoiceItem->product;
+
+        if ($product->baseProduct) {
+            $baseProduct = $product->baseProduct;
+
+            $additionQty = $product->inventory_unit_consumption * $saleInvoiceItem->quantity;
+            $baseProduct->stock_count += $additionQty;
+            $baseProduct->save();
+        } else {
+            $product->stock_count += $saleInvoiceItem->quantity; 
+            $product->save();
+        }
     }
 }

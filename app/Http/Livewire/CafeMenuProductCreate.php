@@ -109,8 +109,6 @@ class CafeMenuProductCreate extends Component
             $product = Product::create($validatedData);
 
             if (! is_null($this->base_product_id) && $this->base_product_id != '---') {
-                dd($this->base_product_id);
-
                 $product->base_product_id = $this->base_product_id;
                 $product->inventory_unit_consumption = $this->inventory_unit_consumption;
                 $product->save();
