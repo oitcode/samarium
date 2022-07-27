@@ -54,7 +54,7 @@
 
   {{-- Simple list --}}
   <div class="table-responsive bg-white border">
-    <table class="table">
+    <table class="table mb-0">
       <thead>
         <tr class="
             {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
@@ -71,11 +71,17 @@
       <tbody>
         @foreach ($products as $product)
           @if ($product->stock_applicable == 'yes')
-            <tr>
+            <tr
+                class="
+                  @if ($product->stock_count <= $product->stock_notification_count)
+                    bg-danger text-white
+                  @endif
+                "
+            >
               <td style="width: 50px;">
                 <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
               </td>
-              <td>
+              <td class="font-weight-bold">
                 {{ $product->name }}
               </td>
               <td>

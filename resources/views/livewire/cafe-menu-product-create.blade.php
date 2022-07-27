@@ -130,6 +130,15 @@
     </div>
 
     <div class="form-group">
+      <label for="">Low stock notification count</label>
+      <input type="text"
+          class="form-control"
+          wire:model.defer="stock_notification_count"
+          style="font-size: 1.3rem;">
+      @error('stock_notification_count') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
       <label>Is base product</label>
       <select class="custom-select" wire:model.defer="is_base_product" style="font-size: 1.3rem;">
         <option>---</option>

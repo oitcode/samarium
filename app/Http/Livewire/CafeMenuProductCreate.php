@@ -20,10 +20,11 @@ class CafeMenuProductCreate extends Component
     public $image;
     public $is_active;
 
-    /* Stock/inentory related */
+    /* Stock/inventory related */
     public $stock_applicable = 'no';
     public $inventory_unit;
     public $stock_count = null;
+    public $stock_notification_count;
     public $is_base_product = 'no';
     public $base_product_id;
     public $inventory_unit_consumption;
@@ -82,6 +83,7 @@ class CafeMenuProductCreate extends Component
         if ($validatedData['stock_applicable'] == 'yes') {
             $validatedData += $this->validate([
                 'stock_count' => 'required|integer',
+                'stock_notification_count' => 'nullable|integer',
                 'inventory_unit' => 'required',
             ]);
         }
