@@ -30,10 +30,7 @@ class PurchaseListPurchaseDeleteConfirm extends Component
                 $item->delete();
 
                 /* Update stock_count for product */
-                if ($product->stock_count) {
-                    $product->stock_count += $quantity;
-                    $product->save();
-                }
+                $this->updateInventory($product, $quantity, 'out');
             }
 
             /* Delete purchase additions */
@@ -59,4 +56,31 @@ class PurchaseListPurchaseDeleteConfirm extends Component
         $this->emit('purchaseDeleted');
     }
 
+    public function updateInventory($product, $quantity, $direction)
+    {
+        if ($product->baseProduct) {
+            $baseProduct = $product->baseProduct;
+            $diffQty = $product->inventory_unit_consumption * $quantity;
+
+            if ($direction == 'in') {
+                $baseProduct->stock_count += $diffQty;
+            } else if ($direction == 'out') {
+                $baseProduct->stock_count -= $diffQty;
+            } else {
+                dd('Whoops! Inventory update gone wrong!');
+            }
+
+            $baseProduct->save();
+        } else {
+            if ($direction == 'in') {
+                $product->stock_count += $quantity; 
+            } else if ($direction == 'out') {
+                $product->stock_count -= $quantity; 
+            } else {
+                dd('Whoops! Inventory update gone wrong!');
+            }
+
+            $product->save();
+        }
+    }
 }
