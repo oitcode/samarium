@@ -24,9 +24,14 @@ class TakeawayListConfirmDelete extends Component
             $saleInvoicePayment->delete();
         }
 
-        /* Now delete sale invoice. First delete sale invoice items, then sale invoice. */
+        /* Delete sale invoice items. */
         foreach ($saleInvoice->saleInvoiceItems as $saleInvoiceItem) {
             $saleInvoiceItem->delete();
+        }
+
+        /* Delete sale invoice additions. */
+        foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition) {
+            $saleInvoiceAddition->delete();
         }
 
         $saleInvoice->delete();

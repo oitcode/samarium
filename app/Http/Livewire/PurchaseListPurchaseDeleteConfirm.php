@@ -36,6 +36,11 @@ class PurchaseListPurchaseDeleteConfirm extends Component
                 }
             }
 
+            /* Delete purchase additions */
+            foreach ($purchase->purchaseAdditions as $purchaseAddition) {
+                $purchaseAddition->delete();
+            }
+
             /* Delete purchase payments */
             foreach ($purchase->purchasePayments as $purchasePayment) {
                 $purchasePayment->delete();

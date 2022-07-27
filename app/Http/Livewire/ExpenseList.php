@@ -167,6 +167,11 @@ class ExpenseList extends Component
                 $item->delete();
             }
 
+            /* Delete expense additions payments */
+            foreach ($expense->expenseAdditions as $expenseAddition) {
+                $expenseAddition->delete();
+            }
+
             /* Delete expense payments */
             foreach ($expense->expensePayments as $expensePayment) {
                 $expensePayment->delete();
