@@ -87,7 +87,7 @@ class PurchaseAddItem extends Component
             $purchaseItem->quantity += $this->quantity;
             $purchaseItem->save();
 
-            $this->updatePurchaseTotalAmount($this->purchase, $purchaseItem, $this->quantity);
+            $this->updatePurchaseItemTotalAmount($this->purchase, $purchaseItem, $this->quantity);
         } else {
             /* Add purchase_item to purchase */
             $purchaseItem = new PurchaseItem;
@@ -107,11 +107,6 @@ class PurchaseAddItem extends Component
 
         /* Do inventory management */
         $product = Product::find($this->product_id);
-
-        // if (! is_null($product->stock_count)) {
-        //   $product->stock_count +=  $this->quantity;
-        //   $product->save();
-        // }
 
         $this->doInventoryUpdate($product, $this->quantity, 'in');
 
@@ -185,11 +180,12 @@ class PurchaseAddItem extends Component
         return null;
     }
 
-    public function updatePurchaseTotalAmount($purchase, $purchaseItem, $quantity)
+    public function updatePurchaseItemTotalAmount($purchase, $purchaseItem, $quantity)
     {
         $product = $purchaseItem->product;
 
-        $purchase->save();
+        $purchaseItem->purchase_price_total += $purchaseItem->purchase_price_per_unit * $quantity;
+        $purchaseItem->save();
     }
 
     public function showAddItemFormMob()

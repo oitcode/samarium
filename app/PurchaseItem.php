@@ -67,6 +67,6 @@ class PurchaseItem extends Model
      */
     public function getTotalAmount()
     {
-        return $this->purchase_price_total;
+        return $this->quantity * $this->purchase_price_per_unit;
     }
 }
