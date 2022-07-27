@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Vendor;
 use App\Purchase;
+use App\PurchaseItem;
 use App\PurchasePaymentType;
 use App\PurchasePayment;
 
@@ -24,17 +25,22 @@ class PurchaseCreate extends Component
 
     public $vendors = null;
 
+    public $deletingPurchaseItem;
+
     public $modes = [
         'addItem' => true,
         'paid' => false,
         'payment' => true,
 
         'vendorSelected' => false,
+        'deletingPurchaseItemMode' => false,
     ];
 
     protected $listeners = [
         'itemAddedToPurchase' => 'render',
         'exitMakePaymentMode',
+        'exitConfirmPurchaseItemDelete',
+        'purchaseItemDeleted' => 'ackPurchaseItemDeleted',
     ];
 
     public $purchasePaymentTypes;
@@ -163,5 +169,26 @@ class PurchaseCreate extends Component
         $this->purchase = $this->purchase->fresh();
 
         $this->modes['vendorSelected'] = true;
+    }
+
+    public function confirmRemoveItemFromPurchase($purchaseItemId)
+    {
+        $purchaseItem = PurchaseItem::find($purchaseItemId);
+
+        $this->deletingPurchaseItem = $purchaseItem;
+        $this->modes['deletingPurchaseItemMode'] = true;
+    }
+
+    public function exitConfirmPurchaseItemDelete()
+    {
+        $this->deletingPurchaseItem = null;
+        $this->modes['deletingPurchaseItemMode'] = false;
+    }
+
+    public function ackPurchaseItemDeleted()
+    {
+        $this->exitConfirmPurchaseItemDelete();
+
+        $this->purchase = $this->purchase->fresh();
     }
 }

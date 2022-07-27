@@ -168,7 +168,7 @@
                   @foreach ($purchase->purchaseItems as $item)
                   <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm">
                     <td>
-                      <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
+                      <a href="" wire:click.prevent="confirmRemoveItemFromPurchase({{ $item->purchase_item_id }})" class="">
                       <i class="fas fa-trash text-danger"></i>
                       </a>
                     </td>
@@ -307,5 +307,12 @@
     </div>
 
   </div>
+
+  {{-- Purchase item delete confirm --}}
+  @if ($modes['deletingPurchaseItemMode'])
+    @livewire ('purchase-create-confirm-purchase-item-delete', [
+        'purchaseItem' => $deletingPurchaseItem,
+    ])
+  @endif
 
 </div>
