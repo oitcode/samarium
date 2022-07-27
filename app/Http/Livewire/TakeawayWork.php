@@ -99,14 +99,24 @@ class TakeawayWork extends Component
         DB::beginTransaction();
 
         try {
+            $product = $saleInvoiceItem->product;
+            $quantity = $saleInvoiceItem->quantity;
+
             $saleInvoiceItem->delete_reason = 'Removed by user';
             $saleInvoiceItem->save();
             $saleInvoiceItem->delete();
 
             /* Reverse stock count */
-            $product = $saleInvoiceItem->product;
-            $product->stock_count += $saleInvoiceItem->quantity;
-            $product->save();
+            $this->updateInventory($product, $quantity, 'in');
+
+            // $product->stock_count += $quantity;
+            // $product->save();
+
+            /*
+             * This needed for bugfix #11. If this is not added
+             * then the takeaway item list does not update in the UI.
+             */
+            $this->takeaway = $this->takeaway->fresh();
 
             DB::commit();
         } catch (\Exception $e) {
@@ -138,6 +148,34 @@ class TakeawayWork extends Component
             return true;
         } else {
             return false;
+        }
+    }
+
+    public function updateInventory($product, $quantity, $direction)
+    {
+        if ($product->baseProduct) {
+            $baseProduct = $product->baseProduct;
+            $diffQty = $product->inventory_unit_consumption * $quantity;
+
+            if ($direction == 'in') {
+                $baseProduct->stock_count += $diffQty;
+            } else if ($direction == 'out') {
+                $baseProduct->stock_count -= $diffQty;
+            } else {
+                dd('Whoops! Inventory update gone wrong!');
+            }
+
+            $baseProduct->save();
+        } else {
+            if ($direction == 'in') {
+                $product->stock_count += $saleInvoiceItem->quantity; 
+            } else if ($direction == 'out') {
+                $product->stock_count -= $saleInvoiceItem->quantity; 
+            } else {
+                dd('Whoops! Inventory update gone wrong!');
+            }
+
+            $product->save();
         }
     }
 }
