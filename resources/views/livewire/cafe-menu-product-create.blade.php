@@ -55,6 +55,19 @@
       @error('selling_price') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
+
+  </div>
+</div>
+
+
+
+
+
+
+
+    </div>
+    <div class="col-md-6 pt-3">
+
     <div class="form-group">
       <label for="">Image</label>
       <input type="file" class="form-control" wire:model="image">
@@ -71,32 +84,19 @@
       @error ('is_active') <span class="text-danger">{{ $message }}</span>@enderror
     </div>
 
-    <div class="p-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
-      <button class="btn btn-lg badge-pill btn-success mr-3" wire:click="store">
-        Confirm
-      </button>
-
-      <button class="btn btn-lg badge-pill btn-danger mr-3" wire:click="$emit('exitCreateProductMode')">
-        Cancel
-      </button>
-      <button wire:loading class="btn">
-        <span class="spinner-border text-info mr-3" role="status">
-        </span>
+    <div class="pt-3">
+      <button class="btn btn-success" wire:click="makeStockApplicable">
+        Stock applicable
       </button>
     </div>
-  </div>
-</div>
 
 
 
 
 
-
-
-    </div>
-    <div class="col-md-6">
-<div class="card shadow-sm border-0">
-  <div class="card-body p-3 border-0">
+@if ($modes['stockApplicable'])
+<div class="card shadow-sm border-0 mt-3">
+  <div class="card-body p-0 border-0">
 
     <h1 class="mb-4 h5">
       Additional info
@@ -112,21 +112,21 @@
     </div>
 
     <div class="form-group">
-      <label for="">Stock count</label>
-      <input type="text"
-          class="form-control"
-          wire:model.defer="stock_count"
-          style="font-size: 1.3rem;">
-      @error('stock_count') <span class="text-danger">{{ $message }}</span> @enderror
-    </div>
-
-    <div class="form-group">
       <label for="">Inventory unit</label>
       <input type="text"
           class="form-control"
           wire:model.defer="inventory_unit"
           style="font-size: 1.3rem;">
       @error ('inventory_unit') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="">Opening stock count</label>
+      <input type="text"
+          class="form-control"
+          wire:model.defer="stock_count"
+          style="font-size: 1.3rem;">
+      @error('stock_count') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
@@ -170,6 +170,21 @@
 
   </div>
 </div>
+@endif
+
+    <div class="py-4 m-0">
+      <button class="btn btn-lg badge-pill btn-success mr-3" wire:click="store">
+        Confirm
+      </button>
+
+      <button class="btn btn-lg badge-pill btn-danger mr-3" wire:click="$emit('exitCreateProductMode')">
+        Cancel
+      </button>
+      <button wire:loading class="btn">
+        <span class="spinner-border text-info mr-3" role="status">
+        </span>
+      </button>
+    </div>
     </div>
   </div>
 </div>

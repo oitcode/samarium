@@ -21,10 +21,10 @@ class CafeMenuProductCreate extends Component
     public $is_active;
 
     /* Stock/inentory related */
-    public $stock_applicable;
+    public $stock_applicable = 'no';
     public $inventory_unit;
     public $stock_count = null;
-    public $is_base_product;
+    public $is_base_product = 'no';
     public $base_product_id;
     public $inventory_unit_consumption;
 
@@ -32,12 +32,37 @@ class CafeMenuProductCreate extends Component
 
     public $productCategories;
 
+    public $modes = [
+        'stockApplicable' => false,
+    ];
+
     public function render()
     {
         $this->productCategories = ProductCategory::all();
         $this->baseProducts = Product::where('is_base_product', true)->get();
 
         return view('livewire.cafe-menu-product-create');
+    }
+
+    /* Clear modes */
+    public function clearModes()
+    {
+        foreach ($this->modes as $key => $val) {
+            $this->modes[$key] = false;
+        }
+    }
+
+    /* Enter and exit mode */
+    public function enterMode($modeName)
+    {
+        $this->clearModes();
+
+        $this->modes[$modeName] = true;
+    }
+
+    public function exitMode($modeName)
+    {
+        $this->modes[$modeName] = false;
     }
 
     public function store()
@@ -107,5 +132,12 @@ class CafeMenuProductCreate extends Component
         $this->selling_price = '';
         $this->stock_count = '';
         $this->image = null;
+    }
+
+    public function makeStockApplicable()
+    {
+        $this->stock_applicable = 'yes';
+
+        $this->enterMode('stockApplicable');
     }
 }
