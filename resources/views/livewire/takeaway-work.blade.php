@@ -17,6 +17,13 @@
       @endif
 
       @if ($takeaway)
+      {{-- Component loading indicator line --}}
+      <div class="w-100" wire:loading.class="bg-info w-100" style="font-size: 0.2rem;">
+        <div>
+          &nbsp;
+        </div>
+      </div>
+
       <div class="card mb-0 shadow-sm">
         <div class="card-body p-0 bg-primary-rm text-white-rm">
 
