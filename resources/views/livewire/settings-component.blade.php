@@ -360,6 +360,20 @@
                 </div>
               </div>
             @endif
+
+          </div>
+
+        </div>
+        {{-- Back date setting --}}
+        <div class="col-md-2">
+          <div class="my-3">
+            <h2 class="h6">
+              Allow back date entry?
+            </h2>
+            <select>
+              <option value="yes">Yes</option>
+              <option value="yes">No</option>
+            </select>
           </div>
         </div>
       </div>
