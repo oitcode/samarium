@@ -66,7 +66,7 @@
               Date:
             </span>
             <span style="font-size: 0.8rem">
-              {{ $purchase->created_at->toDateString() }}
+              {{ $purchase->purchase_date }}
             </span>
           </div>
         </div>

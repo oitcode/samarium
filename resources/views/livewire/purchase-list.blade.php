@@ -90,7 +90,7 @@
               {{ $purchase->purchase_id }}
             </td>
             <td class="" style="font-size: 0.8rem;">
-              {{ $purchase->created_at->toDateString() }}
+              {{ $purchase->purchase_date }}
             </td>
             <td>
               @if ($purchase->vendor)
