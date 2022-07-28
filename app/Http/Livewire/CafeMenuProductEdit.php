@@ -22,11 +22,16 @@ class CafeMenuProductEdit extends Component
     public $stock_count;
     public $image;
 
+    public $baseProducts;
+    public $base_product_id;
+    public $inventory_unit_consumption;
+
     public $productCategories;
 
     public function render()
     {
         $this->productCategories = ProductCategory::all();
+        $this->baseProducts = Product::where('is_base_product', true)->get();
 
         $this->name = $this->product->name;
         $this->selling_price = $this->product->selling_price;
@@ -34,6 +39,11 @@ class CafeMenuProductEdit extends Component
         $this->product_category_id = $this->product->product_category_id;
         $this->stock_applicable = $this->product->stock_applicable;
         $this->stock_count = $this->product->stock_count;
+        $this->inventory_unit_consumption = $this->product->inventory_unit_consumption;
+
+        if ($this->product->baseProduct) {
+            $this->base_product_id = $this->product->baseProduct->base_product_id;
+        }
 
         return view('livewire.cafe-menu-product-edit');
     }
@@ -48,6 +58,8 @@ class CafeMenuProductEdit extends Component
             'stock_applicable' => 'required',
             'stock_count' => 'nullable|integer',
             'image' => 'nullable|image',
+            'base_product_id' => 'nullable|integer',
+            'inventory_unit_consumption' => 'integer',
         ]);
 
         if ($this->image !== null) {

@@ -71,6 +71,30 @@
     </div>
 
     <div class="form-group">
+      <label>Base product</label>
+      <select class="custom-select" wire:model.defer="base_product_id" style="font-size: 1.3rem;">
+        <option>---</option>
+        @if (true)
+        @foreach ($baseProducts as $baseProduct)
+          <option value="{{ $baseProduct->product_id }}">
+            {{ $baseProduct->name }}
+          </option>
+        @endforeach
+        @endif
+      </select>
+      @error ('base_product_id') <span class="text-danger">{{ $message }}</span>@enderror
+    </div>
+
+    <div class="form-group">
+      <label for="">Inventory Unit Consumption</label>
+      <input type="text"
+          class="form-control"
+          wire:model.defer="inventory_unit_consumption"
+          style="font-size: 1.3rem;">
+      @error ('inventory_unit_consumption') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
       <label for="">Image</label>
       <input type="file" class="form-control" wire:model="image">
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
