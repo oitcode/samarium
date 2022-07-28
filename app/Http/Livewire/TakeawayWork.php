@@ -20,10 +20,13 @@ class TakeawayWork extends Component
 
     public $has_vat;
 
+    public $sale_invoice_date;
+
     public $modes = [
         'addItem' => true,
         'makePayment' => true,
         'confirmRemoveSaleInvoiceItem' => false,
+        'backDate' => false,
     ];
 
     protected $listeners = [
@@ -37,6 +40,7 @@ class TakeawayWork extends Component
     public function render()
     {
         $this->has_vat = $this->hasVat();
+        $this->sale_invoice_date = $this->takeaway->saleInvoice->sale_invoice_date;
 
         return view('livewire.takeaway-work');
     }
@@ -77,6 +81,11 @@ class TakeawayWork extends Component
     public function exitMode($modeName)
     {
         $this->modes[$modeName] = false;
+    }
+
+    public function enterModeSilent($modeName)
+    {
+        $this->modes[$modeName] = true;
     }
 
     public function exitMakePaymentMode()
@@ -178,5 +187,20 @@ class TakeawayWork extends Component
 
             $product->save();
         }
+    }
+
+    public function changeSaleInvoiceDate()
+    {
+        $validatedData = $this->validate([
+            'sale_invoice_date' => 'required|date',
+        ]);
+
+        $saleInvoice = $this->takeaway->saleInvoice;
+        $saleInvoice->sale_invoice_date = $validatedData['sale_invoice_date'];
+        $saleInvoice->save();
+
+        $this->takeaway = $this->takeaway->fresh();
+        $this->modes['backDate'] = false;
+        $this->render();
     }
 }

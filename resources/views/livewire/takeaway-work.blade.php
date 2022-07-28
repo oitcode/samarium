@@ -42,6 +42,7 @@
               </div>
             </div>
 
+            @if (true)
             <div class="col-md-2 mb-3 d-flex">
               <div>
                 <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
@@ -52,17 +53,34 @@
                 </div>
               </div>
             </div>
+            @endif
 
-            <div class="col-md-2 mb-3">
+            <div class="col-md-3 mb-3">
               <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
                 Invoice Date
               </div>
-              <div class="h6">
-                {{ $takeaway->saleInvoice->created_at->toDateString() }}
-              </div>
+              @if ($modes['backDate'])
+                <div class="">
+                  <div class="d-flex-rm">
+                    <input type="date" wire:model.defer="sale_invoice_date">
+                    <div class="mt-2">
+                      <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
+                        <i class="fas fa-check-circle text-success"></i>
+                      </button>
+                      <button class="btn btn-light" wire:click="exitMode('backDate')">
+                        <i class="fas fa-times-circle text-danger"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              @else
+                <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
+                  {{ $takeaway->saleInvoice->sale_invoice_date }}
+                </div>
+              @endif
             </div>
 
-            <div class="col-md-3" style="font-size: calc(0.6rem + 0.2vw);">
+            <div class="col-md-2" style="font-size: calc(0.6rem + 0.2vw);">
               <div class="text-muted" style="font-size: calc(0.6rem + 0.2vw);">
                 Payment Status
               </div>
@@ -93,8 +111,9 @@
                @endif
               </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 bg-warning-rm">
               <div class="d-flex justify-content-end h-100">
+                @if (true)
                 <button class="btn btn-light h-100" style="color: green;">
                   @if (env('CMP_TYPE') == 'cafe')
                     <i class="fas fa-skating"></i>
@@ -110,8 +129,11 @@
                     </span>
                   @endif
                 </button>
+                @endif
               </div>
             </div>
+
+
 
 
           </div>
