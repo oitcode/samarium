@@ -66,7 +66,7 @@
               Date:
             </span>
             <span style="font-size: 0.8rem">
-              {{ $expense->created_at->toDateString() }}
+              {{ $expense->date }}
             </span>
           </div>
         </div>
