@@ -1,7 +1,9 @@
 <div>
   <div class="row">
     <div class="col-md-8">
-      @include ('partials.expense-create-add-item-new')
+      @if ($expense->creation_status != 'created')
+        @include ('partials.expense-create-add-item-new')
+      @endif
       @include ('partials.expense-create-main-new')
     </div>
 
