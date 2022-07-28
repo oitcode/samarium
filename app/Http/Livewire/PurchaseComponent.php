@@ -63,6 +63,7 @@ class PurchaseComponent extends Component
         $this->displayingPurchase = null;
 
         $this->exitMode('display');
+        $this->enterMode('list');
     }
 
     public function exitPurchaseCreate()
