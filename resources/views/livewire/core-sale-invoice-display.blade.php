@@ -93,7 +93,7 @@
                     Date:
                   </span>
                   <span>
-                    {{ $saleInvoice->created_at->toDateString() }}
+                    {{ $saleInvoice->sale_invoice_date }}
                   </span>
                 </div>
               </div>

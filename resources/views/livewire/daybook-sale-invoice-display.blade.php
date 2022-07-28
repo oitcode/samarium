@@ -53,7 +53,7 @@
                 Invoice Date
               </div>
               <div class="h5">
-                {{ $saleInvoice->created_at->toDateString() }}
+                {{ $saleInvoice->sale_invoice_date }}
               </div>
             </div>
 

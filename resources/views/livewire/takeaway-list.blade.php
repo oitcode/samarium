@@ -56,7 +56,12 @@
               {{ $takeaway->takeaway_id }}
             </td>
             <td class="d-none d-md-table-cell" style="font-size: 1rem;">
-              {{ $takeaway->created_at->toDateString() }}
+              {{--
+                  Todo: Should show takeaway date
+                  if needed then set appropriate date for
+                  back dated takeaway entries
+              --}}
+              {{ $takeaway->saleInvoice->sale_invoice_date }}
             </td>
             <td class="d-none d-md-table-cell">
               {{ $takeaway->created_at->format('H:i A') }}
