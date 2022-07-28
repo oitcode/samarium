@@ -27,6 +27,8 @@ class PurchaseCreate extends Component
 
     public $deletingPurchaseItem;
 
+    public $purchase_date;
+
     public $modes = [
         'addItem' => true,
         'paid' => false,
@@ -34,6 +36,8 @@ class PurchaseCreate extends Component
 
         'vendorSelected' => false,
         'deletingPurchaseItemMode' => false,
+
+        'backDate' => false,
     ];
 
     protected $listeners = [
@@ -84,6 +88,11 @@ class PurchaseCreate extends Component
         $this->modes[$modeName] = true;
     }
 
+    public function enterModeSilent($modeName)
+    {
+        $this->modes[$modeName] = true;
+    }
+
     public function exitMode($modeName)
     {
         $this->modes[$modeName] = false;
@@ -93,6 +102,7 @@ class PurchaseCreate extends Component
     {
         $purchase = new Purchase;
 
+        $purchase->purchase_date = date('Y-m-d');
         $purchase->creation_status = 'progress';
 
         /* User which created this record. */
@@ -190,5 +200,20 @@ class PurchaseCreate extends Component
         $this->exitConfirmPurchaseItemDelete();
 
         $this->purchase = $this->purchase->fresh();
+    }
+
+    public function changePurchaseDate()
+    {
+        $validatedData = $this->validate([
+            'purchase_date' => 'required|date',
+        ]);
+
+        $purchase = $this->purchase;
+        $purchase->purchase_date = $validatedData['purchase_date'];
+        $purchase->save();
+
+        $this->purchase = $purchase->fresh();
+        $this->modes['backDate'] = false;
+        $this->render();
     }
 }

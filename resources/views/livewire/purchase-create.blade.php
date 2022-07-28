@@ -11,6 +11,13 @@
         @endif
       @endif
 
+      {{-- Component loading indicator line --}}
+      <div class="w-100" wire:loading.class="bg-info w-100" style="font-size: 0.2rem;">
+        <div>
+          &nbsp;
+        </div>
+      </div>
+
       <div class="card mb-0">
       
         <div class="card-body p-0">
@@ -52,28 +59,6 @@
         </div>
 
 
-
-            @if (false)
-            <div class="col-md-3 mb-3-rm">
-              <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
-                Vendor
-              </div>
-              <div class="h5">
-                @if ($purchase->vendor)
-                  <i class="fas fa-user-circle text-muted mr-2"></i>
-                  {{ $purchase->vendor->name }}
-                @else
-                  @if (false)
-                  <i class="fas fa-exclamation-circle text-muted mr-2"></i>
-                  @endif
-                  <span class="text-muted" style="font-size: calc(0.6rem + 0.2vw);">
-                    None
-                  </span>
-                @endif
-              </div>
-            </div>
-            @endif
-
             <div class="col-md-2 mb-3 d-flex">
               <div>
                 <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
@@ -89,9 +74,25 @@
               <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
                 Purchase Date
               </div>
-              <div class="h6">
-                {{ $purchase->created_at->toDateString() }}
-              </div>
+              @if ($modes['backDate'])
+                <div class="">
+                  <div class="d-flex-rm">
+                    <input type="date" wire:model.defer="purchase_date">
+                    <div class="mt-2">
+                      <button class="btn btn-light" wire:click="changePurchaseDate">
+                        <i class="fas fa-check-circle text-success"></i>
+                      </button>
+                      <button class="btn btn-light" wire:click="exitMode('backDate')">
+                        <i class="fas fa-times-circle text-danger"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              @else
+                  <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
+                    {{ $purchase->purchase_date }}
+                  </div>
+              @endif
             </div>
 
             <div class="col-md-3" style="font-size: calc(0.6rem + 0.2vw);">
