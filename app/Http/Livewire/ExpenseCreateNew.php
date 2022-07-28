@@ -58,6 +58,8 @@ class ExpenseCreateNew extends Component
         'paid' => false,
 
         'vendorSelected' => false,
+
+        'backDate' => false,
     ];
 
     public function mount()
@@ -99,6 +101,8 @@ class ExpenseCreateNew extends Component
 
         /* Calculate Grand Total */
         $this->calculateGrandTotal();
+
+        $this->expense_date = $this->expense->date;
     }
 
     public function render()
@@ -137,6 +141,11 @@ class ExpenseCreateNew extends Component
     {
         $this->clearModes();
 
+        $this->modes[$modeName] = true;
+    }
+
+    public function enterModeSilent($modeName)
+    {
         $this->modes[$modeName] = true;
     }
 
@@ -322,5 +331,23 @@ class ExpenseCreateNew extends Component
         $this->expense = $this->expense->fresh();
 
         $this->modes['vendorSelected'] = true;
+    }
+
+    public function changeExpenseDate()
+    {
+        $validatedData = $this->validate([
+            'expense_date' => 'required|date',
+        ]);
+
+        if ($this->expense) {
+            $expense = $this->expense;
+            $expense->date = $validatedData['expense_date'];
+            $expense->save();
+
+            $this->expense = $expense->fresh();
+        }
+
+        $this->modes['backDate'] = false;
+        $this->render();
     }
 }

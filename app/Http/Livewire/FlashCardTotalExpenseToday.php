@@ -13,7 +13,7 @@ class FlashCardTotalExpenseToday extends Component
 
     public function render()
     {
-        $this->count = Expense::whereDate('created_at', date('Y-m-d'))->count();
+        $this->count = Expense::whereDate('date', date('Y-m-d'))->count();
 
         $this->calculateTodayExpenseTotalAmount();
 
@@ -24,7 +24,7 @@ class FlashCardTotalExpenseToday extends Component
     {
         $total = 0;
 
-        foreach (Expense::whereDate('created_at', date('Y-m-d'))->get() as $expense) {
+        foreach (Expense::whereDate('date', date('Y-m-d'))->get() as $expense) {
             $total += $expense->getTotalAmount();
         }
 

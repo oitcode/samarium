@@ -37,9 +37,25 @@
             <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
               Date
             </div>
-            <div class="h6">
+            @if ($modes['backDate'])
+              <div class="">
+                <div class="d-flex-rm">
+                  <input type="date" wire:model.defer="expense_date">
+                  <div class="mt-2">
+                    <button class="btn btn-light" wire:click="changeExpenseDate">
+                      <i class="fas fa-check-circle text-success"></i>
+                    </button>
+                    <button class="btn btn-light" wire:click="exitMode('backDate')">
+                      <i class="fas fa-times-circle text-danger"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            @else
+              <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
                 {{ $expense->date }}
-            </div>
+              </div>
+            @endif
           </div>
         </div>
         <div class="col-md-4 mb-3-rm bg-light text-dark py-2 border-left border-right">

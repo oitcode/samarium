@@ -103,12 +103,12 @@ class ExpenseList extends Component
             }
 
             if ($validatedData['endDate']) {
-                $expenses = Expense::whereDate('created_at', '>=', $validatedData['startDate'])
-                    ->whereDate('created_at', '<=', $validatedData['endDate'])
+                $expenses = Expense::whereDate('date', '>=', $validatedData['startDate'])
+                    ->whereDate('date', '<=', $validatedData['endDate'])
                     ->orderBy('expense_id', 'desc')
                     ->get();
             } else {
-                $expenses = Expense::whereDate('created_at', $validatedData['startDate'])
+                $expenses = Expense::whereDate('date', $validatedData['startDate'])
                     ->orderBy('expense_id', 'desc')
                     ->get();
             }
