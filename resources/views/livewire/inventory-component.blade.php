@@ -52,53 +52,71 @@
   @endif
   <!-- ./Menu tool bar -->
 
-  {{-- Simple list --}}
-  <div class="table-responsive bg-white border">
-    <table class="table mb-0">
-      <thead>
-        <tr class="
-            {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
-            "
-            style="">
-          <th colspan="2">Item</th>
-          <th>Stock applicable</th>
-          <th>Inventory Unit</th>
-          <th>Stock</th>
-        </tr>
-      </thead>
+  @if ($modes['productDetail'])
+    @livewire ('inventory-product-detail', ['product' => $displayingProduct,])
+  @else
+    {{-- Simple list --}}
+    <div class="table-responsive bg-white border">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr class="
+              {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+              "
+              style="">
+            <th colspan="2">Item</th>
+            <th>Stock applicable</th>
+            <th>Inventory Unit</th>
+            <th>Stock</th>
+            <th>Action</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        @foreach ($products as $product)
-          @if ($product->stock_applicable == 'yes')
-            <tr
-                class="
-                  @if ($product->stock_count <= $product->stock_notification_count)
-                    bg-danger text-white
-                  @endif
-                "
-            >
-              <td style="width: 50px;">
-                <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
-              </td>
-              <td class="font-weight-bold">
-                {{ $product->name }}
-              </td>
-              <td>
-                {{ $product->stock_applicable }}
-              </td>
-              <td>
-                {{ $product->inventory_unit }}
-              </td>
-              <td>
-                {{ $product->stock_count }}
-                {{ $product->inventory_unit }}
-              </td>
-            </tr>
-          @endif
-        @endforeach
-      </tbody>
-    </table>
-  </div>
+        <tbody>
+          @foreach ($products as $product)
+            @if ($product->stock_applicable == 'yes')
+              <tr
+                  class="
+                    @if ($product->stock_count <= $product->stock_notification_count)
+                      bg-danger text-white
+                    @endif
+                  "
+              >
+                <td style="width: 50px;">
+                  <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
+                </td>
+                <td class="font-weight-bold">
+                  {{ $product->name }}
+                </td>
+                <td>
+                  {{ $product->stock_applicable }}
+                </td>
+                <td>
+                  {{ $product->inventory_unit }}
+                </td>
+                <td>
+                  {{ $product->stock_count }}
+                  {{ $product->inventory_unit }}
+                </td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-cog text-secondary"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <button class="dropdown-item" wire:click="displayProductDetail({{ $product }})">
+                        <i class="fas fa-file text-primary mr-2"></i>
+                        View
+                      </button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            @endif
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  @endif
 
 </div>

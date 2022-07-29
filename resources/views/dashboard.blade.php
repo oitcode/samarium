@@ -122,7 +122,7 @@
           </div>
           @endif
 
-          @if (true)
+          @if (false)
 
             <div class="col-md-2">
               @livewire ('flash-card-total-sales-today')
@@ -240,6 +240,10 @@
 
   @if (false)
   @livewire ('expense-create')
+  @endif
+
+  @if (false)
+  @livewire ('inventory-product-detail')
   @endif
 
 @endsection

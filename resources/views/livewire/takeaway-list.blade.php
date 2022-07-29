@@ -90,16 +90,6 @@
               @php echo number_format( $takeaway->getTotalAmount() ); @endphp
             </td>
             <td>
-              @if (false)
-              <button class="btn p-2 border mr-3" 
-                  wire:click="{{--$emit('displayPurchase', {{ $purchase->purchase_id }})--}}">
-                <i class="fas fa-folder-open text-primary"></i>
-              </button>
-              <button class="btn p-2 border mr-3"
-                  wire:click="{{--enterConfirmDeletePurchaseMode({{ $purchase }})--}}">
-                <i class="fas fa-trash text-danger"></i>
-              </button>
-              @endif
               <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-cog text-secondary"></i>
