@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 
@@ -95,7 +96,7 @@ class CafeMenuProductCreate extends Component
              * give this value from frontend?
              *
              */
-            $validatedData['opening_stock_date'] = date('Y-m-d');
+            $validatedData['opening_stock_timestamp'] = Carbon::now()->toDateTimeString();
 
             $validatedData['stock_count'] = $validatedData['opening_stock_count'];
         }

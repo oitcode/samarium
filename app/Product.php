@@ -26,7 +26,7 @@ class Product extends Model
          'image_path', 'stock_applicable',
          'inventory_unit', 'inventory_unit_consumption',
          'is_active', 'is_base_product', 'stock_notification_count',
-         'opening_stock_count', 'opening_stock_date',
+         'opening_stock_count', 'opening_stock_timestamp',
     ];
 
 

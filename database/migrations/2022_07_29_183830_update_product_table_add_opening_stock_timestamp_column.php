@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateProductTableAddOpeningStockDateColumn extends Migration
+class UpdateProductTableAddOpeningStockTimestampColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class UpdateProductTableAddOpeningStockDateColumn extends Migration
     public function up()
     {
         Schema::table('product', function (Blueprint $table) {
-            $table->date('opening_stock_date')->after('stock_applicable')->nullable();
+            $table->timestamp('opening_stock_timestamp')->after('stock_applicable')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class UpdateProductTableAddOpeningStockDateColumn extends Migration
     public function down()
     {
         Schema::table('product', function (Blueprint $table) {
-            $table->dropColumn('opening_stock_date');
+            $table->dropColumn('opening_stock_timestamp');
         });
     }
 }
