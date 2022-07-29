@@ -88,6 +88,15 @@ class CafeMenuProductCreate extends Component
                 'inventory_unit' => 'required',
             ]);
 
+            /*
+             * Todo
+             *
+             * Shouldnt this be better if user could
+             * give this value from frontend?
+             *
+             */
+            $validatedData['opening_stock_date'] = date('Y-m-d');
+
             $validatedData['stock_count'] = $validatedData['opening_stock_count'];
         }
 
