@@ -58,6 +58,18 @@ class Product extends Model
     }
 
     /*
+     * product table.
+     *
+     * Yes, this table has a relation with itself. Base products
+     * will have sub products.
+     *
+     */
+    public function subProducts()
+    {
+        return $this->hasMany('App\Product', 'base_product_id', 'product_id');
+    }
+
+    /*
      * sale_invoice_item table.
      *
      */

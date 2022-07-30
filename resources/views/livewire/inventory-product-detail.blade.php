@@ -8,11 +8,29 @@
       Inventory Unit:
       {{ $product->inventory_unit }}
     </div>
-    <div>
+    @if (false)
+    <div class="mr-3">
       Stock count:
       {{ $product->stock_count }}
       {{ $product->inventory_unit }}
     </div>
+    <h2 class="h6 mr-4">
+      Starting balance:
+      @if ($product->opening_stock_count)
+        {{ $product->opening_stock_count }}
+      @else
+        xx
+      @endif
+    </h2>
+    <div class="mr-3">
+      Opening stock from:
+      @if ($product->opening_stock_timestamp)
+        {{ $product->opening_stock_timestamp }}
+      @else
+        xx
+      @endif
+    </div>
+    @endif
   </div>
 
   <div class="mt-2-rm mb-3 text-secondary py-3-rm d-flex bg-warning-rm" style="font-size: 1rem;">
@@ -34,64 +52,150 @@
   </div>
 
   <div>
-    <h2 class="h6">
-      Starting balance:
-      @if ($product->opening_stock_count)
-        {{ $product->opening_stock_count }}
-      @else
-        xx
-      @endif
-    </h2>
+    <div class="d-flex bg-success-rm text-white-rm p-2 mb-3">
+      <div class="bg-success mr-3" style="font-size: 2rem;">
+        &nbsp;
+      </div>
+      <div class="d-flex flex-column justify-content-center">
+        <h2 class="h5 font-weight-bold">
+          Opening stock:
+          {{ $startingBalance }}
+          {{ $product->inventory_unit }}
+        </h2>
+      </div>
+    </div>
 
     @php
-      $balance = $product->opening_stock_count;
+      $balance = $startingBalance;
     @endphp
-    <div class="table-responsive">
-      <table class="table">
+
+    <h2 class="h5">
+      Purchases
+    </h2>
+    @if (count($purchaseItems) > 0)
+    <div class="table-responsive border mb-3 bg-white">
+      <table class="table mb-0">
         <thead>
           <tr>
             <th>Date</th>
-            <th>ID</th>
+            <th>Purchase ID</th>
             <th>Item</th>
             <th>Qty</th>
-            <th>Direction</th>
-            <th>Balance</th>
+            @if ($product->subProducts)
+              <th>Units</th>
+            @endif
           </tr>
         </thead>
 
         <tbody>
-          @if (count($saleInvoiceItems) > 0)
-            @foreach ($saleInvoiceItems as $saleInvoiceItem)
+          {{-- First show all the purchases --}}
+            @foreach ($purchaseItems as $purchaseItem)
               @php
-                $balance -= $saleInvoiceItem->quantity;
+                $balance += $purchaseItem->quantity * $purchaseItem->product->inventory_unit_consumption;
               @endphp
 
               <tr>
                 <td>
-                  {{ $saleInvoiceItem->saleInvoice->sale_invoice_date }}
+                  {{ $purchaseItem->purchase->purchase_date }}
                 </td>
                 <td>
-                  {{ $saleInvoiceItem->saleInvoice->sale_invoice_id }}
+                  {{ $purchaseItem->purchase->purchase_id }}
                 </td>
                 <td>
-                  {{ $saleInvoiceItem->product->name }}
+                  {{ $purchaseItem->product->name }}
                 </td>
                 <td>
-                  {{ $saleInvoiceItem->quantity }}
+                  {{ $purchaseItem->quantity }}
                 </td>
-                <td>
-                  Out
-                </td>
-                <td>
-                  {{ $balance }}
-                </td>
+                @if ($product->subProducts)
+                  <td>
+                    {{ $purchaseItem->quantity * $purchaseItem->product->inventory_unit_consumption }}
+                    {{ $purchaseItem->product->inventory_unit }}
+                  </td>
+                @endif
               </tr>
 
             @endforeach
-          @endif
         </tbody>
       </table>
+    </div>
+    @else
+      <div class="my-3 text-muted">
+        <i class="fas fa-exclamation-circle mr-3"></i>
+        No purchases
+      </div>
+    @endif
 
+    <h2 class="h5">
+      Sales
+    </h2>
+    @if (count($saleInvoiceItems) > 0)
+      <div class="table-responsive border mb-3 bg-white">
+        <table class="table mb-0">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Sale Invoice ID</th>
+              <th>Item</th>
+              <th>Qty</th>
+              @if ($product->subProducts)
+                <th>Units</th>
+              @endif
+            </tr>
+          </thead>
+
+          <tbody>
+            {{-- Next show all the sales --}}
+            @if (count($saleInvoiceItems) > 0)
+              @foreach ($saleInvoiceItems as $saleInvoiceItem)
+                @php
+                  $balance -= $saleInvoiceItem->quantity * $saleInvoiceItem->product->inventory_unit_consumption;
+                @endphp
+
+                <tr>
+                  <td>
+                    {{ $saleInvoiceItem->saleInvoice->sale_invoice_date }}
+                  </td>
+                  <td>
+                    {{ $saleInvoiceItem->saleInvoice->sale_invoice_id }}
+                  </td>
+                  <td>
+                    {{ $saleInvoiceItem->product->name }}
+                  </td>
+                  <td>
+                    {{ $saleInvoiceItem->quantity }}
+                  </td>
+                  @if ($product->subProducts)
+                    <td>
+                      {{ $saleInvoiceItem->quantity * $saleInvoiceItem->product->inventory_unit_consumption }}
+                      {{ $saleInvoiceItem->product->inventory_unit }}
+                    </td>
+                  @endif
+                </tr>
+
+              @endforeach
+            @endif
+          </tbody>
+        </table>
+
+      </div>
+    @else
+      <div class="my-3 text-muted">
+        <i class="fas fa-exclamation-circle mr-3"></i>
+        No sales
+      </div>
+    @endif
+    <div class="d-flex bg-success-rm text-white-rm p-2 mb-3">
+      <div class="bg-success mr-3" style="font-size: 2rem;">
+        &nbsp;
+      </div>
+      <div class="d-flex flex-column justify-content-center">
+        <h2 class="h5 font-weight-bold">
+          Closing stock:
+          {{ $balance }}
+          {{ $product->inventory_unit }}
+        </h2>
+      </div>
     </div>
   </div>
 
