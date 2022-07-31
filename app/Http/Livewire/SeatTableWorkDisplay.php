@@ -151,14 +151,15 @@ class SeatTableWorkDisplay extends Component
         DB::beginTransaction();
 
         try {
+            $product = $saleInvoiceItem->product;
+            $quantity = $saleInvoiceItem->quantity;
+
             $saleInvoiceItem->delete_reason = 'Removed by user';
             $saleInvoiceItem->save();
             $saleInvoiceItem->delete();
 
             /* Reverse stock count */
-            $product = $saleInvoiceItem->product;
-            $product->stock_count += $saleInvoiceItem->quantity;
-            $product->save();
+            $this->updateInventory($product, $quantity, 'in');
 
             DB::commit();
 
@@ -183,5 +184,33 @@ class SeatTableWorkDisplay extends Component
     public function enterMultiMode($modeName)
     {
         $this->modes[$modeName] = true;
+    }
+
+    public function updateInventory($product, $quantity, $direction)
+    {
+        if ($product->baseProduct) {
+            $baseProduct = $product->baseProduct;
+            $diffQty = $product->inventory_unit_consumption * $quantity;
+
+            if ($direction == 'in') {
+                $baseProduct->stock_count += $diffQty;
+            } else if ($direction == 'out') {
+                $baseProduct->stock_count -= $diffQty;
+            } else {
+                dd('Whoops! Inventory update gone wrong!');
+            }
+
+            $baseProduct->save();
+        } else {
+            if ($direction == 'in') {
+                $product->stock_count += $quantity; 
+            } else if ($direction == 'out') {
+                $product->stock_count -= $quantity; 
+            } else {
+                dd('Whoops! Inventory update gone wrong!');
+            }
+
+            $product->save();
+        }
     }
 }
