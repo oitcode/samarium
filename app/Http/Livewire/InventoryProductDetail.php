@@ -39,7 +39,15 @@ class InventoryProductDetail extends Component
         if ($this->product->opening_stock_timestamp == null) {
             return '<div>Product inventory setting is wrong.
             <br />
-            Please fix it.
+            Opening stock time is not given.
+            <br />
+            Contact support for assistance.</div> ';
+        }
+
+        if ($this->product->opening_stock_count == null) {
+            return '<div>Product inventory setting is wrong.
+            <br />
+            Opening stock count not given.
             <br />
             Contact support for assistance.</div> ';
         }

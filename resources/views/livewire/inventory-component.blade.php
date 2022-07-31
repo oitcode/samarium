@@ -57,7 +57,7 @@
   @else
     {{-- Simple list --}}
     <div class="table-responsive bg-white border">
-      <table class="table table-hover mb-0">
+      <table class="table table-sm table-hover mb-0">
         <thead>
           <tr class="
               {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
@@ -65,8 +65,8 @@
               "
               style="">
             <th colspan="2">Item</th>
-            <th>Stock applicable</th>
             <th>Inventory Unit</th>
+            <th>Inventory low</th>
             <th>Stock</th>
             <th>Action</th>
           </tr>
@@ -77,8 +77,10 @@
             @if ($product->stock_applicable == 'yes')
               <tr
                   class="
+                    @if (false)
                     @if ($product->stock_count <= $product->stock_notification_count)
                       bg-danger text-white
+                    @endif
                     @endif
                   "
               >
@@ -89,10 +91,13 @@
                   {{ $product->name }}
                 </td>
                 <td>
-                  {{ $product->stock_applicable }}
+                  {{ $product->inventory_unit }}
                 </td>
                 <td>
-                  {{ $product->inventory_unit }}
+                  @if ($product->stock_count <= $product->stock_notification_count)
+                    <i class="fas fa-exclamation-circle text-danger mr-3"></i>
+                  @else
+                  @endif
                 </td>
                 <td>
                   {{ $product->stock_count }}
