@@ -32,6 +32,18 @@ class InventoryProductDetail extends Component
 
     public function render()
     {
+        if ($this->product->stock_applicable == 'no') {
+            return '<div>Stock not enabled for this product</div>';
+        }
+
+        if ($this->product->opening_stock_timestamp == null) {
+            return '<div>Product inventory setting is wrong.
+            <br />
+            Please fix it.
+            <br />
+            Contact support for assistance.</div> ';
+        }
+
         $this->getTransactionsForDateRange();
 
         $this->startingBalance = $this->getStartingBalance($this->startDate);
