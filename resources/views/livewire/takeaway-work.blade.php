@@ -1,11 +1,6 @@
 <div>
-@if ($takeaway && $takeaway->status == 'closed')
-  @livewire ('core-sale-invoice-display', ['saleInvoice' => $takeaway->saleInvoice,])
-@else
-<div>
+
   {{-- Show in bigger screens --}}
-
-
   <div class="row">
 
     <div class="col-md-8">
@@ -40,9 +35,6 @@
                   <i class="fas fa-user-circle text-muted mr-2"></i>
                   {{ $takeaway->saleInvoice->customer->name }}
                 @else
-                  @if (false)
-                  <i class="fas fa-exclamation-circle text-muted mr-2"></i>
-                  @endif
                   <span class="text-muted" style="font-size: calc(0.6rem + 0.2vw);">
                     None
                   </span>
@@ -50,7 +42,6 @@
               </div>
             </div>
 
-            @if (true)
             <div class="col-md-2 mb-3 d-flex">
               <div>
                 <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
@@ -61,7 +52,6 @@
                 </div>
               </div>
             </div>
-            @endif
 
             <div class="col-md-3 mb-3">
               <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
@@ -110,18 +100,10 @@
                   {{ $takeaway->saleInvoice->payment_status }}
                 </span>
                 @endif
-               @if (false)
-               <div>
-                 <div class="text-primary" style="font-size: 0.6rem;" role="button" wire:click="enterMode('showPayments')">
-                   Show payments
-                 </div>
-               </div>
-               @endif
               </div>
             </div>
             <div class="col-md-2 bg-warning-rm">
               <div class="d-flex justify-content-end h-100">
-                @if (true)
                 <button class="btn btn-light h-100" style="color: green;">
                   @if (env('CMP_TYPE') == 'cafe')
                     <i class="fas fa-skating"></i>
@@ -137,12 +119,8 @@
                     </span>
                   @endif
                 </button>
-                @endif
               </div>
             </div>
-
-
-
 
           </div>
 
@@ -151,12 +129,9 @@
       @endif
 
 
-
-
       <div class="card mb-3 shadow">
       
         <div class="card-body p-0">
-  
 
           @if ($takeaway)
 
@@ -368,6 +343,4 @@
     @livewire ('takeaway-work-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
   @endif
 
-</div>
-@endif
 </div>

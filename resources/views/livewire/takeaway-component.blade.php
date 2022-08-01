@@ -27,25 +27,11 @@
       List
     </button>
 
-    @if (false)
-    <button class="btn {{ env('OC_ASCENT_COLOR', 'bg-success') }} m-0 float-right d-none d-md-block"
-        style="{{-- height: 100px; width: 225px; --}} font-size: 1.3rem;">
-      @if (env('CMP_TYPE') == 'cafe')
-        <i class="fas fa-skating mr-3"></i>
-        Takeaway
-      @else
-        <i class="fas fa-dice-d6 mr-3"></i>
-        Sales
-      @endif
-    </button>
-    @endif
-
     <button wire:loading class="btn m-0"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <span class="spinner-border text-info mr-3" role="status">
       </span>
     </button>
-
 
     <div class="clearfix">
     </div>
@@ -55,7 +41,11 @@
   @if ($modes['create'])
     @livewire ('takeaway-create')
   @elseif ($modes['display'])
-    @livewire ('takeaway-work', ['takeaway' => $displayingTakeaway,])
+    @if ($displayingTakeaway && $displayingTakeaway->status == 'closed')
+      @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingTakeaway->saleInvoice,])
+    @else
+      @livewire ('takeaway-work', ['takeaway' => $displayingTakeaway,])
+    @endif
   @else
     @livewire ('takeaway-list')
   @endif
