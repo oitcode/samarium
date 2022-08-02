@@ -42,14 +42,10 @@
 
         <div class="text-center border-rm">
           <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-3 pl-4 font-weight-bold text-left" style="font-size: 1rem;">
-            @if (true)
             <div class="d-flex justify-content-center">
               <i class="far fa-check-circle fa-2x-rm text-primary mr-1" style="font-size: 1.3rem;"></i>
-            </div> @endif
+            </div>
             <span class="" style="font-size: 1.3rem;">
-            @if (false)
-              OPay
-            @endif
             </span>
           </a>
         </div>
@@ -239,9 +235,7 @@
                 <i class="fas fa-book {{ env('OC_ASCENT_HL_COLOR') }}"></i>
               </div>
               <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR') }}">
-                @if (true)
-                  Weekbook
-                @endif
+                Weekbook
               </div>
             </div>
 
@@ -269,9 +263,7 @@
                     <i class="fas fa-users {{ env('OC_ASCENT_HL_COLOR') }}"></i>
                   </div>
                   <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR') }}">
-                    @if (true)
-                      Customer
-                    @endif
+                    Customer
                   </div>
                 </div>
               </a>
@@ -293,17 +285,12 @@
                 @endif
               ">
                 <i class="fas fa-users mr-3 {{ env('OC_ASCENT_HL_COLOR') }}"></i>
-                @if (false)
-                  Students
-                @endif
                 <div class="d-flex flex-column">
                   <div class="d-flex justify-content-center">
                     <i class="fas fa-users text-primary"></i>
                   </div>
                   <div class="d-flex justify-content-center text-secondary">
-                    @if (true)
-                      Students
-                    @endif
+                    Students
                   </div>
                 </div>
               </a>
@@ -334,9 +321,7 @@
                   <i class="fas fa-cloud-download-alt {{ env('OC_ASCENT_HL_COLOR') }}"></i>
                 </div>
                 <div class="d-flex justify-content-center {{ env('OC_ASCENT_HL_TXT_COLOR') }}">
-                  @if (true)
-                    Webborder
-                  @endif
+                  Webborder
                 </div>
               </div>
 
@@ -361,10 +346,6 @@
               ">
 
               <i class="fas fa-comment mr-3 {{ env('OC_ASCENT_HL_COLOR') }}"></i>
-              @if (false)
-                Contact messages
-              @endif
-
             </a>
           </div>
         @endif
