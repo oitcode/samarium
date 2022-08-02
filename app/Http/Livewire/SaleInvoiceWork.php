@@ -32,7 +32,7 @@ class SaleInvoiceWork extends Component
         'exitAddItemMode',
         'exitMakePaymentMode',
         'itemAddedToSaleInvoice',
-        'removeItemFromCurrentBooking',
+        'removeItemFromSaleInvoice',
         'exitDeleteSaleInvoiceItem',
     ];
 
@@ -72,7 +72,7 @@ class SaleInvoiceWork extends Component
             $saleInvoiceItem->delete();
 
             $this->updateInventory($product, $quantity, 'in');
-            $this->takeaway = $this->takeaway->fresh();
+            $this->saleInvoice= $this->saleInvoice->fresh();
 
             DB::commit();
         } catch (\Exception $e) {
