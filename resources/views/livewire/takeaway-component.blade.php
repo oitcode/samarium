@@ -44,7 +44,7 @@
     @if ($displayingTakeaway && $displayingTakeaway->status == 'closed')
       @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingTakeaway->saleInvoice,])
     @else
-      @livewire ('takeaway-work', ['takeaway' => $displayingTakeaway,])
+      @livewire ('sale-invoice-work', ['saleInvoice' => $displayingTakeaway->saleInvoice,])
     @endif
   @else
     @livewire ('takeaway-list')
