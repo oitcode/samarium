@@ -1,4 +1,8 @@
 <div>
+  @if ($saleInvoice->takeaway && $saleInvoice->takeaway->status == 'closed')
+    @livewire ('core-sale-invoice-display', ['saleInvoice' => $saleInvoice,])
+  @else
+<div>
 
   {{-- Show in bigger screens --}}
   <div class="row">
@@ -450,4 +454,6 @@
     @livewire ('sale-invoice-work-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
   @endif
 
+</div>
+  @endif
 </div>
