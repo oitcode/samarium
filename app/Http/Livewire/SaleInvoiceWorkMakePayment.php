@@ -252,11 +252,20 @@ class SaleInvoiceWorkMakePayment extends Component
             $saleInvoice->payment_status = $finalPaymentStatus;
             $saleInvoice->save();
 
-            /* Todo: For seat table booking? */
+
+            /* Update takeaway status */
             if ($this->saleInvoice->takeaway) {
                 $takeaway = $this->saleInvoice->takeaway;
                 $takeaway->status = 'closed';
                 $takeaway->save();
+                $this->saleInvoice = $this->saleInvoice->fresh();
+            }
+
+            /* Update seat table booking status */
+            if ($this->saleInvoice->seatTableBooking) {
+                $booking = $this->saleInvoice->seatTableBooking;
+                $booking->status = 'closed';
+                $booking->save();
                 $this->saleInvoice = $this->saleInvoice->fresh();
             }
 

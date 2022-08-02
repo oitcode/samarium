@@ -1,4 +1,9 @@
 <div>
+  @if ($seatTable->isBooked())
+    @livewire ('sale-invoice-work',
+        ['saleInvoice' => $seatTable->getCurrentBooking()->saleInvoice,])
+  @else
+<div>
   {{-- Show in bigger screens --}}
   @if (false)
   <div class="mb-3 d-none d-md-block">
@@ -478,4 +483,6 @@
     </div>
   </div >
 
+</div>
+  @endif
 </div>
