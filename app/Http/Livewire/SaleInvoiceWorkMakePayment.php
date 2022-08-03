@@ -93,7 +93,7 @@ class SaleInvoiceWorkMakePayment extends Component
         $this->calculateTaxableAmount();
 
         if ($this->has_vat) {
-            $this->saleInvoiceAdditions['VAT'] = $this->calculateTakeawayVat();
+            $this->saleInvoiceAdditions['VAT'] = $this->calculateSaleInvoiceVat();
         }
 
         /* Calculate Grand Total */
