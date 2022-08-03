@@ -1,6 +1,9 @@
 <div class="bg-white py-2-rm text-right d-none d-md-block mb-3 border-bottom-rm">
   @guest
   @else
+
+    {{-- Top menu buttons. --}}
+
     @include ('partials.app-top-menu-button', [
       'btnRoute' => 'dashboard-purchase',
       'iconFaClass' => 'fas fa-shopping-cart',
@@ -34,6 +37,8 @@
       ])
     @endif
 
+
+    {{-- User related. Is placed on top right part. --}}
     <div class="float-right text-white border-right-rm" style="font-size: 1.3rem;">
       <div class="dropdown">
         <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -77,6 +82,12 @@
         </div>
       </div>
     </div>
+
+
+    {{--
+      InDev ecs menu
+      Todo: This could be moved somewhere else
+    --}}
 
     @if (env('SITE_TYPE') == 'ecs')
     <div class="float-right mx-4 px-4 text-white border-right-rm" style="font-size: 1.3rem;">
