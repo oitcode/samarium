@@ -1,4 +1,4 @@
-{{-- Show in bigger screens --}}
+{{-- Show only in bigger screens --}}
 <div class="d-none d-md-block">
 
   {{-- Top most button in the left menu. --}}
