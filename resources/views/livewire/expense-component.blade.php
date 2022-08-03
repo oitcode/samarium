@@ -43,21 +43,11 @@
       Report
     </button>
 
-    @if (false)
-    <button class="btn btn-primary-rm m-0 float-right border-rm bg-white-rm text-primary-rm d-none d-md-block"
-        wire:click="clearModes"
-        style="font-size: 1.3rem;">
-      <i class="fas fa-wrench mr-3"></i>
-      Expense
-    </button>
-    @endif
-
     <button wire:loading class="btn m-0"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <span class="spinner-border text-info mr-3" role="status">
       </span>
     </button>
-
 
     <div class="clearfix">
     </div>
@@ -128,10 +118,9 @@
   @endif
 
 
+  {{-- Include the required component as per mode --}}
+
   @if ($modes['create'])
-    {{--
-    @livewire ('expense-create')
-    --}}
     @livewire ('expense-create-new')
   @elseif ($modes['list'])
     @livewire ('expense-list')
