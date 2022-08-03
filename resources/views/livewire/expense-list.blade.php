@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="mt-2-rm mb-3 text-secondary py-3-rm d-flex bg-warning-rm" style="font-size: 1rem;">
 
     <div class="mt-0 text-secondary py-3-rm mr-3" style="font-size: 1.3rem;">
@@ -34,9 +33,6 @@
       </div>
     </div>
   </div>
-
-
-
 
   @if (!is_null($expenses) && count($expenses) > 0)
     {{-- Show in bigger screens --}}
@@ -78,17 +74,6 @@
             </td>
   
             <td>
-              @if (false)
-              <button class="btn p-2 border rounded-circle mr-3" 
-                  wire:click="">
-                <i class="fas fa-folder-open text-primary"></i>
-              </button>
-              <button class="btn p-2 border rounded-circle mr-3"
-                  wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
-                <i class="fas fa-trash text-danger"></i>
-              </button>
-              @endif
-
               <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-cog text-secondary"></i>
