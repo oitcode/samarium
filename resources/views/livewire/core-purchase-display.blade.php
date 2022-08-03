@@ -1,38 +1,36 @@
 <div class="bg-white shadow-rm">
 
-  @if (true)
-    {{-- Tool bar --}}
-    <div class="d-flex justify-content-between mb-4 border p-1 bg-white-rm text-white-rm shadow-sm" style="background-color: #fff;">
-      <div>
-        <a href=""
-            target="_blank"
-            class="btn text-secondary">
-          <i class="fas fa-print fa-2x-rm"></i>
-          <br />
-          Print
-        </a>
-        <button class="btn text-secondary">
-          <i class="fas fa-file-pdf-o fa-2x-rm"></i>
-          <br />
-          PDF
-        </button>
-        <button class="btn text-secondary">
-          <i class="fas fa-file-excel-o fa-2x-rm"></i>
-          <br />
-          Excel
-        </button>
-      </div>
-      <div class="">
-        <button class="btn text-dark" wire:click="$emit('exitPurchaseDisplay')">
-          <i class="fas fa-times-circle fa-2x"></i>
-          <br />
-          Close
-        </button>
-      </div>
+  {{-- Top tool bar --}}
+  <div class="d-flex justify-content-between mb-4 border p-1 bg-white-rm text-white-rm shadow-sm" style="background-color: #fff;">
+    <div>
+      <a href=""
+          target="_blank"
+          class="btn text-secondary">
+        <i class="fas fa-print fa-2x-rm"></i>
+        <br />
+        Print
+      </a>
+      <button class="btn text-secondary">
+        <i class="fas fa-file-pdf-o fa-2x-rm"></i>
+        <br />
+        PDF
+      </button>
+      <button class="btn text-secondary">
+        <i class="fas fa-file-excel-o fa-2x-rm"></i>
+        <br />
+        Excel
+      </button>
     </div>
-  @endif
+    <div class="">
+      <button class="btn text-dark" wire:click="$emit('exitPurchaseDisplay')">
+        <i class="fas fa-times-circle fa-2x"></i>
+        <br />
+        Close
+      </button>
+    </div>
+  </div>
 
-  <div class="bg-warning" style="font-size: 0.2rem; {{-- background-color: brown; --}}">
+  <div class="bg-warning" style="font-size: 0.2rem;">
   &nbsp;
   </div>
 
@@ -160,9 +158,8 @@
       </div>
     </div>
 
-
-     {{-- Vendor Info --}}
-     @if ($purchase->vendor)
+    {{-- Vendor Info --}}
+    @if ($purchase->vendor)
       <div class="p-3">
         Vendor
         <br>
@@ -209,12 +206,7 @@
             @endforeach
           </tbody>
 
-
-
-          @if (true)
-
           <tfoot class="bg-success-rm text-white-rm mt-4">
-            @if (true)
             <tr class="bg-primary-rm">
              <td colspan="4" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right pr-3">
                 <strong>
@@ -225,7 +217,6 @@
                 @php echo number_format( $purchase->getSubTotal() ); @endphp
               </td>
             </tr>
-            @endif
             @foreach ($purchase->purchaseAdditions as $purchaseAddition)
               <tr class="border-0 mb-0 p-0">
                 <td colspan="4" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right pr-3 border-0">
@@ -258,17 +249,9 @@
               </td>
             </tr>
           </tfoot>
-          @endif
 
         </table>
       </div>
-
-
-
-
-
-
-
 
     </div>
 
