@@ -41,12 +41,6 @@
                       <i class="fas fa-file text-primary mr-2"></i>
                       View
                     </button>
-                    @if (false)
-                    <button class="dropdown-item" wire:click="">
-                      <i class="fas fa-trash text-danger mr-2"></i>
-                      Delete
-                    </button>
-                    @endif
                   </div>
                 </div>
               </td>
