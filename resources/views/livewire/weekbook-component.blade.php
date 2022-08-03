@@ -4,7 +4,6 @@
   {{-- Show in bigger screens --}}
   <div class="mb-4 d-none d-md-block">
     <div class="float-left mr-5">
-
     </div>
 
     <button class="btn btn-success-rm p-3 pr-5 float-right border shadow-sm bg-white" wire:click="" style="font-size:1.3rem;">
