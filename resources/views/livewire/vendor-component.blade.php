@@ -26,15 +26,6 @@
       List
     </button>
 
-    @if (false)
-    <button class="btn btn-success-rm m-0 float-right border-rm"
-        wire:click="clearModes"
-        style="font-size: 1.3rem;">
-      <i class="fas fa-truck mr-3"></i>
-      Vendors
-    </button>
-    @endif
-
     <button wire:loading class="btn m-0"
         style="height: 100px; width: 225px; font-size: 1.5rem;">
       <span class="spinner-border text-info mr-3" role="status">
@@ -81,7 +72,6 @@
     </div>
   </div>
 
-
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -95,6 +85,7 @@
     </div>
   @endif
 
+  {{-- Use required component as per mode --}}
   @if ($modes['create'])
     @livewire ('vendor-create')
   @elseif ($modes['display'])
