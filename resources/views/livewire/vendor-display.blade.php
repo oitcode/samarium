@@ -75,18 +75,6 @@
           Purchases
         </button>
 
-        @if (false)
-        <button class="btn
-            @if ($modes['pendingBills'])
-              btn-success text-white
-            @endif
-            m-0 border shadow-sm badge-pill mr-3"
-            style="font-size: 1.3rem;" wire:click="enterMode('list')">
-          <i class="fas fa-ban mr-3"></i>
-          Pending bills
-        </button>
-        @endif
-
         <button class="btn
             @if ($modes['settle'])
               btn-success text-white
@@ -103,13 +91,13 @@
           </span>
         </button>
 
-
         <div class="clearfix">
         </div>
       </div>
     </div>
     {{-- ./Toolbar --}}
 
+    {{-- Use required component as per mode --}}
     @if ($modes['purchaseList'])
       @livewire ('core-purchase-list', ['vendor' => $vendor,])
     @elseif ($modes['settle'])
