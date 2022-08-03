@@ -1,7 +1,5 @@
 <div>
 
-
-  @if (true)
   <div class="mt-2 mb-3 text-secondary py-3-rm d-flex bg-warning-rm" style="font-size: 1rem;">
 
     <div class="mt-0 text-secondary py-3-rm mr-3" style="font-size: 1.3rem;">
@@ -36,11 +34,6 @@
     </div>
   </div>
 
-
-
-  @endif
-
-  @if (true)
   @if (!is_null($purchases) && count($purchases) > 0)
 
   {{-- Show in bigger screens --}}
@@ -51,35 +44,14 @@
             {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
             {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
         ">
-          <th>
-            ID
-          </th>
-          <th style="width: 100px;">
-            Date
-          </th>
-          <th>
-            Vendor
-          </th>
-          <th>
-            Items
-          </th>
-          @if (false)
-          <th>
-            Status
-          </th>
-          @endif
-          <th style="width: 200px;">
-            Payment Status
-          </th>
-          <th>
-            Pending
-          </th>
-          <th>
-            Amount
-          </th>
-          <th style="width: 200px;">
-            Action
-          </th>
+          <th>ID</th>
+          <th style="width: 100px;">Date</th>
+          <th>Vendor</th>
+          <th>Items</th>
+          <th style="width: 200px;">Payment Status</th>
+          <th>Pending</th>
+          <th>Amount</th>
+          <th style="width: 200px;">Action</th>
         </tr>
       </thead>
 
@@ -110,21 +82,21 @@
             </td>
             <td>
               @if ($purchase)
-              @if ($purchase->payment_status == 'pending')
-                <span class="badge badge-pill badge-danger">
-                  Pending
-                </span>
-              @elseif ($purchase->payment_status == 'partially_paid')
-                <span class="badge badge-pill badge-warning">
-                  Partial
-                </span>
-              @elseif ($purchase->payment_status == 'paid')
-                <span class="badge badge-pill badge-success">
-                  Paid
-                </span>
-              @else
-                {{ $purchase->payment_status }}
-              @endif
+                @if ($purchase->payment_status == 'pending')
+                  <span class="badge badge-pill badge-danger">
+                    Pending
+                  </span>
+                @elseif ($purchase->payment_status == 'partially_paid')
+                  <span class="badge badge-pill badge-warning">
+                    Partial
+                  </span>
+                @elseif ($purchase->payment_status == 'paid')
+                  <span class="badge badge-pill badge-success">
+                    Paid
+                  </span>
+                @else
+                  {{ $purchase->payment_status }}
+                @endif
               @endif
             </td>
             <td>
@@ -172,41 +144,6 @@
   {{-- Show in smaller screens --}}
   <div class="table-responsive bg-white d-md-none">
     <table class="table table-bordered-rm border mb-0">
-      @if (false)
-      <thead>
-        <tr class="text-secondary">
-          <th>
-            ID
-          </th>
-          <th style="width: 200px;">
-            Date
-          </th>
-          <th>
-            Vendor
-          </th>
-          <th>
-            Items
-          </th>
-          @if (false)
-          <th>
-            Status
-          </th>
-          @endif
-          <th>
-            Payment Status
-          </th>
-          <th>
-            Pending
-          </th>
-          <th>
-            Amount
-          </th>
-          <th style="width: 200px;">
-            Action
-          </th>
-        </tr>
-      </thead>
-      @endif
 
       <tbody>
         @foreach ($purchases as $purchase)
@@ -285,7 +222,7 @@
       No purchases
     </div>
   @endif
-  @endif
+
   @if ($modes['confirmDeletePurchase'])
     @livewire ('purchase-list-purchase-delete-confirm', ['purchase' => $deletingPurchase,])
   @endif
