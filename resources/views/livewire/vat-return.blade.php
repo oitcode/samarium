@@ -1,13 +1,11 @@
 <div class="card border-0-rm shadow-sm">
   <div class="card-body p-0 bg-light-rm border-0">
 
-    @if (true)
     <div class="m-3">
       <h2 class="h5 text-dark">
         VAT Return
       </h2>
     </div>
-    @endif
 
     <div class="my-3 text-secondary p-3" style="font-size: calc(1rem + 0.2vw);">
 
@@ -18,16 +16,10 @@
           </div>
           <div class="d-flex" style="font-size: 1rem;">
             <div>
-              @if (false)
-              <i class="fas fa-calendar mr-2"></i>
-              @endif
               <input type="date" wire:model.defer="startDate" class="mr-3" />
             </div>
 
             <div>
-              @if (false)
-              <i class="fas fa-calendar mr-2"></i>
-              @endif
               <input type="date" wire:model.defer="endDate" class="mr-3" />
             </div>
 
@@ -67,18 +59,10 @@
                 {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
                 "
                 style="font-size: 0.9rem;">
-              <th class="w-75">
-                Category
-              </th>
-              <th>
-                Bills
-              </th>
-              <th>
-                Total 
-              </th>
-              <th>
-                Vat
-              </th>
+              <th class="w-75">Category</th>
+              <th>Bills</th>
+              <th>Total</th>
+              <th>Vat</th>
             </tr>
           </thead>
 
@@ -138,7 +122,7 @@
           to
           {{ $endDate }}
         </div>
-        <h2 class="h4 text-dark" style="{{-- color: green; --}}">
+        <h2 class="h4 text-dark">
           Rs
           @php echo number_format( $salesVat - $purchaseVat - $expenseVat ); @endphp
         </h2>
