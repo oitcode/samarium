@@ -101,6 +101,8 @@
     </button>
   </div>
 
+  {{-- Use required component as per mode --}}
+
   @if ($modes['create'])
     @livewire ('accounting-account-create')
   @elseif ($modes['journal'])
