@@ -37,13 +37,6 @@
   </div>
 
   <div class="border p-0">
-    @if (false)
-    <div class="d-flex mb-0 p-2 justify-content-end bg-success text-white border">
-      <button class="btn btn-light border rounded-circle" wire:click="$emit('exitSaleInvoiceDisplayMode')">
-        <i class="fas fa-times fa-2x-rm"></i>
-      </button>
-    </div>
-    @endif
 
     {{-- Company Info --}}
     <div class="d-flex justify-content-between p-3 border-bottom bg-success-rm text-white-rm">
@@ -184,19 +177,6 @@
             </tr>
           </thead>
 
-          {{-- OLD EXPENSE --}}
-          @if (false)
-          <tbody>
-            <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
-              <td>
-                {{ $expense->name }}
-              </td>
-              <td>
-                @php echo number_format( $expense->getTotalAmountRaw() ); @endphp
-              </td>
-            </tr>
-          </tbody>
-          @else
           <tbody>
             @foreach ($expense->expenseItems as $expenseItem)
               <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
@@ -209,9 +189,6 @@
               </tr>
             @endforeach
           </tbody>
-          @endif
-
-
 
           @if (true)
 
@@ -242,10 +219,6 @@
                         text-danger
                       @endif
                       font-weight-bold border-0 p-0 pl-1 pt-2">
-                  @if (false)
-                  NRs
-                  &nbsp;&nbsp;
-                  @endif
                   @php echo number_format( $expenseAddition->amount ); @endphp
                 </td>
               </tr>

@@ -82,19 +82,6 @@
         </div>
       @endif
   
-      @if (false)
-      <div class="p-2">
-        <button class="btn btn-danger mr-3">
-          <i class="fas fa-check mr-3"></i>
-          Clear table
-        </button>
-  
-        <button class="btn btn-success mr-3">
-          Book
-        </button>
-      </div>
-      @endif
-  
     </div>
   </div>
 
@@ -122,24 +109,12 @@
     </div>
   
     <div class="card-body p-0">
-      @if (false)
-      <div class="p-3" style="font-size: 1.5rem;">
-        @if ($seatTable->isBooked())
-          Rs
-          @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
-        @else
-        @endif
-      </div>
-      @endif
       @if ($seatTable->getCurrentBooking())
       <div class="row" style="margin: auto;">
         <div class="col-md-12">
           <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
             <tr class="border-0" style="font-size: 1.1rem;">
               <td class="border-0">
-                @if (false)
-                <i class="fas fa-clock mr-3"></i>
-                @endif
                 @if ($seatTable->getCurrentBooking())
                   {{ $seatTable->getCurrentBooking()->created_at->format('h:i') }}
                 @else
@@ -147,9 +122,6 @@
                 @endif
               </td>
               <td class="font-weight-bold border-0">
-                @if (false)
-                <i class="fas fa-shopping-cart mr-3"></i>
-                @endif
                 @if ($seatTable->isBooked())
                   {{ $seatTable->getCurrentBookingTotalItems() }}
                 @else

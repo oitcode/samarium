@@ -40,14 +40,6 @@
         </select>
       </div>
 
-      @if (false)
-      <div>
-        <label>Name</label>
-        <br />
-        <input type="text">
-      </div>
-      @endif
-
   </div>
 
   {{-- Go button --}}
