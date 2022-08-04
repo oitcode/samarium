@@ -2,9 +2,9 @@
   @if (! $modes['create'] && ! $modes['display'])
   <div class="mb-3">
 
-    <div class="d-flex">
+    <div class="d-flex-rm">
       {{-- Show in bigger screens --}}
-      <div class="d-none d-md-flex">
+      <div class="mb-3 d-none d-md-block">
         @include ('partials.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('create')",
             'btnIconFaClass' => 'fas fa-plus-circle',
@@ -18,6 +18,11 @@
             'btnText' => 'List',
             'btnCheckMode' => 'list',
         ])
+
+        @include ('partials.spinner-button')
+
+        <div class="clearfix">
+        </div>
       </div>
 
       {{-- Show in smaller screens --}}
@@ -35,12 +40,11 @@
             'btnText' => 'List',
             'btnCheckMode' => 'list',
         ])
+        @include ('partials.spinner-button')
+        <div class="clearfix">
+        </div>
       </div>
 
-      @include ('partials.spinner-button')
-
-      <div class="clearfix">
-      </div>
     </div>
   </div>
   @endif
