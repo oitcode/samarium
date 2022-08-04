@@ -1,9 +1,4 @@
 <div>
-  @if (false)
-  <div class="mb-4" wire:click="$refresh">
-    Refresh
-  </div>
-  @endif
 
   <div class="row">
     <div class="col-md-9">
@@ -71,8 +66,6 @@
           </div>
         </div>
         @endif
-
-
 
       </div>
     </div>
