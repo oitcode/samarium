@@ -2,35 +2,21 @@
 
   {{-- Show in bigger screens --}}
   <div class="mb-3 d-none d-md-block">
-    <button class="btn
-        @if ($modes['create'])
-          btn-success text-white
-        @else
-          bg-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3"
-        style="font-size: 1.1rem;" wire:click="enterMode('create')">
-      <i class="fas fa-plus-circle mr-3"></i>
-      New
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('create')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'New',
+        'btnCheckMode' => 'create',
+    ])
 
-    <button class="btn
-        @if ($modes['list'])
-          btn-success text-white
-        @else
-          bg-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3"
-        style="font-size: 1.1rem;" wire:click="enterMode('list')">
-      <i class="fas fa-list mr-3"></i>
-      List
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('list')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'list',
+    ])
 
-    <button wire:loading class="btn m-0"
-        style="height: 100px; width: 225px; font-size: 1.5rem;">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+    @include ('partials.spinner-button')
 
     <div class="clearfix">
     </div>
@@ -38,35 +24,21 @@
 
   {{-- Show in smaller screens --}}
   <div class="mb-3 d-md-none">
-    <button class="btn
-        @if ($modes['create'])
-          btn-success text-white
-        @else
-          bg-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3"
-        style="font-size: 1rem;" wire:click="enterMode('create')">
-      <i class="fas fa-plus-circle mr-3"></i>
-      New
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('create')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'New',
+        'btnCheckMode' => 'create',
+    ])
 
-    <button class="btn
-        @if ($modes['list'])
-          btn-success text-white
-        @else
-          bg-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3"
-        style="font-size: 1rem;" wire:click="enterMode('list')">
-      <i class="fas fa-list mr-3"></i>
-      List
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('list')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'list',
+    ])
 
-    <button wire:loading class="btn m-0"
-        style="font-size: 1.5rem;">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+    @include ('partials.spinner-button')
 
     <div class="clearfix">
     </div>

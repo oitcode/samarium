@@ -2,52 +2,36 @@
   <!-- Menu tool bar -->
 
   {{-- Show in bigger screens --}}
-  <div class="mb-3-0 d-none d-md-block">
-    <button class="btn
-        @if ($modes['create'])
-          btn-success text-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3 mb-3"
-        style="font-size: 1.1rem;" wire:click="enterMode('create')">
-      <i class="fas fa-plus-circle mr-3"></i>
-      New
-    </button>
+  <div class="mb-3 d-none d-md-block">
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('create')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'New',
+        'btnCheckMode' => 'create',
+    ])
 
-    <button class="btn
-        @if ($modes['list'])
-          btn-success text-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3 mb-3"
-        style="font-size: 1.1rem;" wire:click="enterMode('list')">
-      <i class="fas fa-list mr-3"></i>
-      List
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('list')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'list',
+    ])
 
-    <button class="btn
-        @if ($modes['createCategory'])
-          btn-success text-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3 mb-3"
-        style="font-size: 1.1rem;" wire:click="enterMode('createCategory')">
-      <i class="fas fa-plus-circle mr-3"></i>
-      Category
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('createCategory')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'Category',
+        'btnCheckMode' => 'createCategory',
+    ])
 
-    <button class="btn
-        @if ($modes['report'])
-          btn-success text-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3 mb-3"
-        style="font-size: 1.1rem;" wire:click="enterMode('report')">
-      <i class="fas fa-paper-plane mr-3"></i>
-      Report
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('report')",
+        'btnIconFaClass' => 'fas fa-paper-plane',
+        'btnText' => 'Report',
+        'btnCheckMode' => 'report',
+    ])
 
-    <button wire:loading class="btn m-0"
-        style="height: 100px; width: 225px; font-size: 1.5rem;">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+    @include ('partials.spinner-button')
 
     <div class="clearfix">
     </div>
@@ -55,31 +39,21 @@
 
   {{-- Show in smaller screens --}}
   <div class="mb-3 d-md-none">
-    <button class="btn
-        @if ($modes['create'])
-          btn-success text-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3 mb-3"
-        style="font-size: 1rem;" wire:click="enterMode('create')">
-      <i class="fas fa-plus-circle mr-3"></i>
-      New
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('create')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'New',
+        'btnCheckMode' => 'create',
+    ])
 
-    <button class="btn
-        @if ($modes['list'])
-          btn-success text-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3 mb-3"
-        style="font-size: 1rem;" wire:click="enterMode('list')">
-      <i class="fas fa-list mr-3"></i>
-      List
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('list')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'list',
+    ])
 
-    <button wire:loading class="btn m-0"
-        style="font-size: 1.5rem;">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+    @include ('partials.spinner-button')
 
     <div class="d-inline-block float-right">
       <div class="dropdown">
@@ -104,7 +78,7 @@
   </div>
   <!-- ./Menu tool bar -->
 
-  <!-- Flash message div -->
+  {{-- Flash message div --}}
   @if (session()->has('message'))
     <div class="p-2">
       <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -118,7 +92,7 @@
   @endif
 
 
-  {{-- Include the required component as per mode --}}
+  {{-- Use required component as per mode --}}
 
   @if ($modes['create'])
     @livewire ('expense-create-new')
