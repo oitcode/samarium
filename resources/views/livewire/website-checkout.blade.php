@@ -17,7 +17,6 @@
               </tr>
             </thead>
 
-            @if (true)
             <tbody>
               @foreach ($cartItemsProduct as $line)
                 <tr>
@@ -36,27 +35,8 @@
                 </tr>
               @endforeach
             </tbody>
-            @endif
 
             <tfoot>
-              @if (false)
-              <tr>
-                <th colspan="3" class="text-right">
-                  Discount
-                </th>
-                <td>
-                  0
-                </td>
-              </tr>
-              <tr>
-                <th colspan="3" class="text-right">
-                  Delivery charge
-                </th>
-                <td>
-                  0
-                </td>
-              </tr>
-              @endif
               <tr style="font-size: 1.3rem;">
                 <th colspan="3" class="text-right">
                   Grand Total
