@@ -83,6 +83,7 @@ class SaleInvoiceWork extends Component
 
         $this->deletingSaleInvoiceItem = null;
         $this->exitMode('confirmRemoveSaleInvoiceItem');
+        $this->emit('makePaymentPleaseUpdate');
         $this->render();
     }
 
