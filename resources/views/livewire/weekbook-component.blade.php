@@ -68,16 +68,10 @@
   <div class="bg-info-rm mb-4 d-md-none">
     <button class="btn btn-success-rm m-0" style="font-size: 1.5rem;" wire:click="goToPreviousWeek">
       <i class="fas fa-arrow-left mr-3"></i>
-      @if (false)
-      Previous
-      @endif
     </button>
 
     <button class="btn btn-danger-rm m-0" style="font-size: 1.5rem;" wire:click="goToNextWeek">
       <i class="fas fa-arrow-right mr-3"></i>
-      @if (false)
-      Next
-      @endif
     </button>
 
     <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">

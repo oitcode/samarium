@@ -18,20 +18,6 @@
     @if (count($productCategory->products) > 0)
       <div class="table-responsive">
         <table class="table table-striped table-hover" style="">
-          @if (false)
-          <thead>
-            <tr>
-              <th>
-                Item
-              </th>
-              <th>
-                Price
-              </th>
-              <th>
-              </th>
-            </tr>
-          </thead>
-          @endif
           <tbody>
             @foreach ($productCategory->products as $product)
               <tr>

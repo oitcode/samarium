@@ -23,15 +23,7 @@
         <tbody>
           @foreach ($products as $product)
             @if ($product->stock_applicable == 'yes')
-              <tr
-                  class="
-                    @if (false)
-                    @if ($product->stock_count <= $product->stock_notification_count)
-                      bg-danger text-white
-                    @endif
-                    @endif
-                  "
-              >
+              <tr class="">
                 <td style="width: 50px;">
                   <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
                 </td>
