@@ -128,24 +128,6 @@
           </tbody>
 
           <tfoot>
-            @if (false)
-            <tr>
-              <th colspan="3" class="text-right">
-                Discount
-              </th>
-              <td>
-                0
-              </td>
-            </tr>
-            <tr>
-              <th colspan="3" class="text-right">
-                Delivery charge
-              </th>
-              <td>
-                0
-              </td>
-            </tr>
-            @endif
             <tr>
               <th colspan="3" class="text-right">
                 Grand Total
