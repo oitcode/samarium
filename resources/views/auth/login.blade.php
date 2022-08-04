@@ -52,14 +52,6 @@
         <div class="d-flex justify-content-center">
           <div class="col-md-12">
         <div class="card border-0">
-            @if (false)
-            <div class="card-header bg-white text-success border-0 py-5 text-center">
-              <h2>
-                {{ __('Login') }}
-                <i class="fas fa-sign-in-alt ml-3 h5"></i>
-              </h2>
-            </div>
-            @endif
 
             <div class="card-body border">
                 <form method="POST" action="{{ route('login') }}">
