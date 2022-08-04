@@ -10,12 +10,6 @@
         <div class="table-responsive">
           <table class="table">
             <tbody style="font-size: 1.3rem;">
-              @if (false)
-              <tr>
-                <th>
-                </th>
-              </tr>
-              @endif
               <tr>
                 <th>
                   <span class="badge mr-2">

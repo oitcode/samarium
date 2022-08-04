@@ -25,20 +25,6 @@
         </div>
       </div>
     
-      @if (false)
-      <a class="carousel-control-prev" href="#carouselExampleControls"
-          onclick="$('#carouselExampleSlidesOnly').carousel('next')"
-          role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon text-primary" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls"
-          onclick="$('#carouselExampleSlidesOnly').carousel('prev')"
-          role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-      @endif
     </div>
 
     <div class="d-flex flex-column justify-content-center">

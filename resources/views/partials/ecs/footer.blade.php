@@ -22,9 +22,6 @@
   
     <div class="col-md-4" style="font-size: 1.3rem;">
       <div class="mb-2">
-        @if (false)
-        <i class="fas fa-star mr-3"></i>
-        @endif
         Social media
       </div>
       <div>
@@ -68,23 +65,12 @@
       </div>
     </div>
 
-    @if (true)
     <div class="col-md-4" style="font-size: 1rem;">
-      @if (false)
-      <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
-      @else
-        @if (false)
-        <div class="text-secondary">
-          {{ $company->tagline }}
-        </div>
-        @endif
-      @endif
       <div class="">
         <i class="fas fa-award mr-3 fa-2x"></i>
         Educational service since 2014
       </div>
     </div>
-    @endif
   </div>
   <div class="text-center-rm mt-4">
     &copy; 2022

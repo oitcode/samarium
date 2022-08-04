@@ -20,9 +20,6 @@
                           {{ $product->name }}
                         </th>
                         <td class="text-danger" style="font-size: 1.5rem;">
-                          @if (false)
-                          <i class="fas fa-rupee-sign mr-2"></i>
-                          @endif
                           Rs.
                           {{ $product->selling_price }}
                         </td>
@@ -31,11 +28,6 @@
                   </table>
                 </div>
                 <div class="text-center">
-                  @if (false)
-                  <button class="btn btn-danger px-4 py-3">
-                    Order
-                  </button>
-                  @endif
                 </div>
               </div>
             </div>
@@ -51,18 +43,10 @@
       @endif
 
       <div class="col-md-6 bg-white border">
-        @if (false)
-        @endif
-
 
         <div class="py-3 d-none d-md-block">
           <div class="">
             <div>
-              @if (false)
-              <div class="text-danger" style="font-size: 3rem;">
-                {{ $company->name }}
-              </div>
-              @endif
               <div class="" style="">
                 @foreach ($productCategories as $productCategory)
                   <div class="d-inline mr-3">

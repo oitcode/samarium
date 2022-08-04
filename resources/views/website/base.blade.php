@@ -53,20 +53,6 @@
     {{-- Content goes here !!! --}}
     @yield('content')
 
-    @if (false)
-    @foreach ($productCategories as $productCategory)
-      <div class="container">
-        <h2 class="mb-3">
-          {{ $productCategory->name }}
-        </h2>
-        <hr/>
-        @if (true)
-        @livewire ('website-product-category-product-list', ['productCategory' => $productCategory,])
-        @endif
-      </div>
-    @endforeach
-    @endif
-
     {{-- Footer --}}
     <div class="container-fluid bg-light-rm border pt-4 pb-5 text-white-rm" style="background-color: #eee;">
       <div class="container">

@@ -104,15 +104,6 @@
           </div>
         </a>
     
-    
-    
-       @if (false)
-       <div class="float-right mr-5 h-100 mt-3" style="font-size: 1.5rem; font-weight: bold;">
-         @livewire ('website-shopping-cart-badge')
-       </div>
-       @endif
-    
-    
         <div class="clearfix">
         </div>
       </div>

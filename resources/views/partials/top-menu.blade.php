@@ -1,8 +1,5 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger" style="font-size: 1.2rem;">
-    @if (false)
-    <a class="navbar-brand" href="#">Furniture Delights</a>
-    @endif
     <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
