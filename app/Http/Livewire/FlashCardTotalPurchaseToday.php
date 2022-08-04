@@ -13,7 +13,7 @@ class FlashCardTotalPurchaseToday extends Component
 
     public function render()
     {
-        $this->count = Purchase::whereDate('created_at', date('Y-m-d'))->count();
+        $this->count = Purchase::whereDate('purchase_date', date('Y-m-d'))->count();
 
         $this->calculateTodayPurchaseTotalAmount();
 
@@ -24,7 +24,7 @@ class FlashCardTotalPurchaseToday extends Component
     {
         $total = 0;
 
-        foreach (Purchase::whereDate('created_at', date('Y-m-d'))->get() as $purchase) {
+        foreach (Purchase::whereDate('purchase_date', date('Y-m-d'))->get() as $purchase) {
             $total += $purchase->getTotalAmount();
         }
 
