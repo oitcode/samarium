@@ -35,13 +35,6 @@
   </div>
 
   <div class="border p-0">
-    @if (false)
-    <div class="d-flex mb-0 p-2 justify-content-end bg-success text-white border">
-      <button class="btn btn-light border rounded-circle" wire:click="$emit('exitSaleInvoiceDisplayMode')">
-        <i class="fas fa-times fa-2x-rm"></i>
-      </button>
-    </div>
-    @endif
 
     {{-- Company Info --}}
     <div class="d-flex justify-content-between p-3 border-bottom bg-success-rm text-white-rm">
@@ -231,10 +224,6 @@
                         text-danger
                       @endif
                       font-weight-bold border-0 p-0 pl-1 pt-2">
-                  @if (false)
-                  NRs
-                  &nbsp;&nbsp;
-                  @endif
                   @php echo number_format( $purchaseAddition->amount ); @endphp
                 </td>
               </tr>

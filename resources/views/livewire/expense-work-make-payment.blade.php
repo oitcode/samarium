@@ -21,9 +21,6 @@
         @else
           <button class="btn btn-sm mr-3 text-white" wire:click="enterMultiplePaymentsMode" style="font-size: calc(1rem + 0.2vw);">
             <i class="fas fa-ellipsis-h"></i>
-            @if (false)
-            Multiple payments
-            @endif
           </button>
         @endif
       </div>
@@ -32,38 +29,9 @@
   </div>
   <div class="card-body p-0">
 
-    {{-- Customer --}}
-    @if (false)
-    <div class="table-responsive mb-0">
-      <table class="table mb-0">
-        <tbody>
-          <tr class="border-bottom" style="font-size: 1.3rem; height: 50px;">
-            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold" style="font-size: calc(0.8rem + 0.2vw);">
-              <span class="ml-4">
-                Customer
-              </span>
-            </td>
-            <td class="p-0 h-100 w-50 font-weight-bold border-0">
-              <select class="w-100 h-100 custom-control border-0" wire:model.defer="customer_id">
-                <option>---</option>
-
-                @foreach ($customers as $customer)
-                  <option value="{{ $customer->customer_id }}">
-                    {{ $customer->name }}
-                  </option>
-                @endforeach
-              </select>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    @endif
-
     <div class="table-responsive mb-0">
       <table class="table table-bordered-rm mb-0 bg-danger">
         <tbody>
-
 
           <tr style="height: 50px;" class="bg-light border-bottom">
             <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2" style="font-size: calc(0.8rem + 0.2vw);">

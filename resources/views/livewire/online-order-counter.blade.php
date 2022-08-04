@@ -1,8 +1,5 @@
 <div>
     <span style="font-size: 0.9rem;">
-      @if (false)
-      New Orders:
-      @endif
       <i class="fas fa-shopping-cart text-info mr-1"></i>
     </span>
     
