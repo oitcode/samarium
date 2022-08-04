@@ -95,14 +95,6 @@
  
 </div>
 
-@if (false)
-<div class="container-fluid bg-white py-4 border">
-  <div class="container">
-    @include ('partials.ecs.carousal')
-  </div>
-</div>
-@endif
-
 <div>
   @livewire ('ecs.contact-component')
 </div>
