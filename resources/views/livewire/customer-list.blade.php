@@ -116,13 +116,6 @@
             <tr class="border">
               <td style="width: 5vw;">
 
-                @if (false)
-                <button class="btn btn-success-rm border border-primary rounded-circle text-primary"
-                    wire:click="$emit('displayCustomer', {{ $customer->customer_id }})">
-                  <i class="fas fa-folder"></i>
-                </button>
-                @endif
-
                 <div class="dropdown">
                   <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-cog text-secondary"></i>
@@ -136,9 +129,6 @@
                 </div>
               </td>
               <td>
-                @if (false)
-                <i class="fas fa-user mr-3 text-muted"></i>
-                @endif
                 <span style="font-size: calc(1rem + 0.1vw);">
                   {{ ucwords($customer->name) }}
                 </span>
@@ -180,13 +170,6 @@
           @foreach ($customers as $customer)
             <tr class="border">
               <td style="width: 5vw;">
-
-                @if (false)
-                <button class="btn btn-success-rm border border-primary rounded-circle text-primary"
-                    wire:click="$emit('displayCustomer', {{ $customer->customer_id }})">
-                  <i class="fas fa-folder"></i>
-                </button>
-                @endif
 
                 <div class="dropdown">
                   <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

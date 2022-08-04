@@ -48,9 +48,6 @@
     @elseif ($content_type == 'paragraph_and_image')
     @endif
 
-    @if (false)
-    @endif
-
     <div class="mt-4" style="font-size: 1.3rem;">
       <button type="submit"
           class="btn btn-success" wire:click="store"

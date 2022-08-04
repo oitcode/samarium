@@ -120,9 +120,6 @@
           </div>
         
           <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
-          @if (false)
-            <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreate')">Cancel</button>
-          @endif
         </div>
       </div>
     </div>
