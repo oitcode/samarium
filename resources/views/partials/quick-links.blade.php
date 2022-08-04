@@ -1,9 +1,4 @@
 <div class="bg-white">
-  @if (false)
-  <h2 class="h5 text-muted">
-    Quick links
-  </h2>
-  @endif
   <div class="row p-3">
     <div class="col-md-2 d-flex justify-content-center bg-danger text-white border p-3 mr-3 py-5">
       <div class="text-center">

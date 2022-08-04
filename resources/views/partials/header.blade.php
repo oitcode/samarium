@@ -5,11 +5,6 @@
       <div class="float-right mr-5 mt-2" style="font-size: 1rem; font-weight: bold;">
         <div class="d-flex justify-content-center h-100">
           <div class="justify-content-center h-100 align-self-center text-center text-secondary">
-            @if (false)
-            <span class="bad badge-pill text-white mr-3" style="background-color: purple;">
-              Viber
-            </span>
-            @endif
             <span class="bad badge-pill badge-success mr-3">
               Call
             </span>
