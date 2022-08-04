@@ -1,52 +1,37 @@
 <div class="p-3 p-md-0">
 
+  {{--
+  |
+  | Toolbar
+  |
+  | Top toolbar of the component.
+  |
+  --}}
+
   {{-- Show in bigger screens --}}
   <div class="mb-3 d-none d-md-block">
-    <button class="btn
-        @if ($modes['createProduct'])
-          btn-success
-        @else
-          bg-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3 mb-3"
-        style="{{-- height: 75px; width: 150px; --}} font-size: 1.1rem;"
-        wire:click="enterMode('createProduct')">
-      <i class="fas fa-plus-circle mr-3"></i>
-      New
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('createProduct')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'New',
+        'btnCheckMode' => 'createProduct',
+    ])
 
-    <button class="btn
-        @if ($modes['createProductCategory'])
-          btn-success
-        @else
-          bg-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3 mb-3"
-        style=" {{-- height: 75px; width: 150px; --}} font-size: 1.1rem;"
-        wire:click="enterMode('createProductCategory')">
-      <i class="fas fa-plus-circle mr-3"></i>
-      Category
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('createProductCategory')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'Category',
+        'btnCheckMode' => 'createProductCategory',
+    ])
 
-    <button class="btn
-        @if ($modes['list'])
-          btn-success
-        @else
-          bg-white
-        @endif
-        m-0 border shadow-sm badge-pill mr-3 mb-3"
-        style="{{-- height: 75px; width: 150px; --}} font-size: 1.3rem;"
-        wire:click="enterMode('list')">
-      <i class="fas fa-list mr-3"></i>
-      List
-    </button>
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('list')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'list',
+    ])
 
-    <button wire:loading class="btn m-0"
-        style="height: 100px; width: 225px; font-size: 1.5rem;">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
-
+    @include ('partials.spinner-button')
 
     <div class="clearfix">
     </div>
@@ -100,7 +85,6 @@
       </div>
     </div>
 
-
     <div class="clearfix">
     </div>
   </div>
@@ -122,6 +106,7 @@
         </div>
       @endif
 
+      {{-- Use required component as per mode --}}
       @if ($modes['createProduct'])
         @livewire ('cafe-menu-product-create')
       @elseif ($modes['createProductCategory'])
