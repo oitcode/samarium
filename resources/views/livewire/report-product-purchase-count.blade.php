@@ -5,9 +5,6 @@
 
   {{-- Date bar --}}
   <div class="mt-3 text-secondary py-3" style="font-size: 1.3rem;">
-    @if (false)
-    <i class="fas fa-calendar mr-2"></i>
-    @endif
 
     <input type="date" wire:model.defer="startDate" class="mr-3" />
     <input type="date" wire:model.defer="endDate" class="mr-3" />

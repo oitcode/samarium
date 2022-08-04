@@ -207,18 +207,6 @@
         {{-- Show in smaller screens --}}
         <div class="table-responsive border d-md-none">
           <table class="table table-hover border mb-0">
-            @if (false)
-            <thead>
-              <tr class="bg-success-rm text-white-rm" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
-                <th>#</th>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th>Unit</th>
-                <th>Price per unit</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            @endif
     
             <tbody class="bg-white">
               @if (count($purchase->purchaseItems) > 0)
