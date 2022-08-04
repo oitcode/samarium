@@ -61,21 +61,14 @@
           <h3 class="h6 mb-0 d-inline" style="font-size: 0.8rem;">
             {{ $company->phone }}
           </h3>
-          @if (false)
-          <h3 class="h6 mb-0 d-inline" style="font-size: 0.8rem;">
-            {{ $company->email }}
-          </h3>
-          @endif
         </div>
   
         <div class="">
           <div class="h-100 d-flex flex-column justify-content-center">
             <div class="bg-danger-rm border-rm mt-2">
-              @if (true)
               <div class="mb-3 p-2 bg-primary-rm text-white text-center" style="background-color: orange;">
                 SALE INVOICE
               </div>
-              @endif
               <div class="mb-1">
                 <div class="h6 text-muted-rm mb-1" style="font-size: 0.8rem;">
                   <span class="text-muted" style="font-size: 0.6rem">
@@ -123,21 +116,14 @@
           <h3 class="h6 mb-0" style="font-size: 0.8rem;">
             {{ $company->phone }}
           </h3>
-          @if (false)
-          <h3 class="h6 mb-0" style="font-size: 0.8rem;">
-            {{ $company->email }}
-          </h3>
-          @endif
         </div>
   
         <div class="">
           <div class="">
             <div class="border-rm mt-2">
-              @if (true)
               <div class="my-3 border-top border-bottom" style="background-color: gray;">
                 SALE INVOICE
               </div>
-              @endif
               <div class="mb-1">
                 <div class="h6 text-muted-rm mb-1" style="font-size: 0.8rem;">
                   <span class="text-muted" style="font-size: 0.6rem">
@@ -186,9 +172,6 @@
                       </td>
                       <td class="border-0 m-0 p-0 h5">
                         @if ($saleInvoice->customer)
-                          @if (false)
-                            <i class="fas fa-user-circle text-muted mr-2"></i>
-                          @endif
                           {{ $saleInvoice->customer->name }}
                         @else
                           <i class="fas fa-exclamation-circle text-muted mr-2"></i>
@@ -212,50 +195,6 @@
                         @endif
                       </td>
                     </tr>
-                    @if (false)
-                    <tr class="border-0 m-0 p-0">
-                      <td class="pl-0 border-0 m-0 p-0" style="font-size: 0.8rem;">
-                        Address
-                      </td>
-                      <td class="border-0 m-0 p-0">
-                        @if ($saleInvoice->customer->address)
-                          {{ $saleInvoice->customer->address }}
-                        @else
-                          <span class="text-muted" style="font-size: 0.5rem;">
-                            No info
-                          </span>
-                        @endif
-                      </td>
-                    </tr>
-                    <tr class="border-0 m-0 p-0">
-                      <td class="pl-0 border-0 m-0 p-0" style="font-size: 0.8rem;">
-                        Phone
-                      </td>
-                      <td class="border-0 m-0 p-0">
-                        @if ($saleInvoice->customer->phone)
-                          {{ $saleInvoice->customer->phone }}
-                        @else
-                          <span class="text-muted" style="font-size: 0.5rem;">
-                            No info
-                          </span>
-                        @endif
-                      </td>
-                    </tr>
-                    <tr class="border-0 m-0 p-0">
-                      <td class="pl-0 border-0 m-0 p-0" style="font-size: 0.8rem;">
-                        Email
-                      </td>
-                      <td class="border-0 m-0 p-0">
-                        @if ($saleInvoice->customer->email)
-                          {{ $saleInvoice->customer->email }}
-                        @else
-                          <span class="text-muted" style="font-size: 0.5rem;">
-                            No info
-                          </span>
-                        @endif
-                      </td>
-                    </tr>
-                    @endif
                   </table>
                 </div>
                 @else
@@ -278,9 +217,6 @@
           <table class="table table-sm table-hover border-dark shadow-sm mb-0">
             <thead>
               <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
-                @if (false)
-                <th>#</th>
-                @endif
                 <th>Item</th>
                 <th>Price</th>
                 <th>Quantity</th>
@@ -291,9 +227,6 @@
             <tbody style="">
               @foreach ($saleInvoice->saleInvoiceItems as $item)
               <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold-rm">
-                @if (false)
-                <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
-                @endif
                 <td>
                   <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
                   {{ $item->product->name }}
@@ -344,10 +277,6 @@
                           text-danger
                         @endif
                         font-weight-bold border-0 p-0 pl-1">
-                    @if (false)
-                    NRs
-                    &nbsp;&nbsp;
-                    @endif
                     @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                   </td>
                 </tr>
@@ -371,9 +300,6 @@
     <table class="border-dark mb-0" style="">
       <thead>
         <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
-          @if (false)
-          <th>#</th>
-          @endif
           <th style="width: 300px;">Item</th>
           <th style="width: 100px;">Price</th>
           <th style="width: 100px;">Quantity</th>
@@ -433,10 +359,6 @@
                     text-danger
                   @endif
                   font-weight-bold border-0 p-0 pl-1">
-              @if (false)
-              NRs
-              &nbsp;&nbsp;
-              @endif
               @php echo number_format( $saleInvoiceAddition->amount ); @endphp
             </td>
           </tr>
@@ -512,10 +434,6 @@
                           text-danger
                         @endif
                         font-weight-bold border-0">
-                    @if (false)
-                    NRs
-                    &nbsp;&nbsp;
-                    @endif
                     @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                   </td>
                 </tr>
