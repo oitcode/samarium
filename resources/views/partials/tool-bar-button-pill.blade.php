@@ -1,9 +1,11 @@
 <button class="btn
     @isset($btnCheckMode)
       @isset ($modes)
-        @if ($modes[$btnCheckMode])
-          btn-success
-        @endif
+        @isset ($modes[$btnCheckMode])
+          @if ($modes[$btnCheckMode])
+            btn-success
+          @endif
+        @endisset
       @endisset
     @endisset
     border shadow-sm m-0 badge-pill mr-3"
