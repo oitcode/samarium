@@ -2,42 +2,46 @@
   @if (! $modes['create'] && ! $modes['display'])
   <div class="mb-3">
 
-    {{-- Show in bigger screens --}}
-    <button class="btn border shadow-sm m-0 badge-pill mr-3 d-none d-md-inline-block"
-        style="{{-- height: 75px; width: 150px; --}} font-size: 1.1rem;" wire:click="enterMode('create')">
-      <i class="fas fa-plus-circle mr-3"></i>
-      New
-    </button>
-    <button class="btn border shadow-sm m-0 badge-pill mr-3 d-none d-md-inline-block"
-        style="{{-- height: 75px; width: 150px; --}} font-size: 1.1rem;" wire:click="enterMode('list')">
-      <i class="fas fa-list mr-3"></i>
-      List
-    </button>
+    <div class="d-flex">
+      {{-- Show in bigger screens --}}
+      <div class="d-none d-md-flex">
+        @include ('partials.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('create')",
+            'btnIconFaClass' => 'fas fa-plus-circle',
+            'btnText' => 'New',
+        ])
 
-    {{-- Show in smaller screens --}}
-    <button class="btn m-0 border shadow-sm badge-pill mr-3 mb-3 d-md-none bg-white"
-        style="font-size: 1.3rem;"
-        wire:click="enterMode('create')">
-      <i class="fas fa-plus-circle mr-3"></i>
-      New
-    </button>
-    <button class="btn m-0 border shadow-sm badge-pill mr-3 mb-3 d-md-none bg-white"
-        style="font-size: 1.3rem;" wire:click="enterMode('list')">
-      <i class="fas fa-list mr-3"></i>
-      List
-    </button>
+        @include ('partials.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('list')",
+            'btnIconFaClass' => 'fas fa-list',
+            'btnText' => 'List',
+        ])
+      </div>
 
-    <button wire:loading class="btn m-0"
-        style="height: 100px; width: 225px; font-size: 1.5rem;">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+      {{-- Show in smaller screens --}}
+      <div class="d-flex d-md-none">
+        @include ('partials.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('create')",
+            'btnIconFaClass' => 'fas fa-plus-circle',
+            'btnText' => 'New',
+        ])
 
-    <div class="clearfix">
+        @include ('partials.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('list')",
+            'btnIconFaClass' => 'fas fa-list',
+            'btnText' => 'List',
+        ])
+      </div>
+
+      @include ('partials.spinner-button')
+
+      <div class="clearfix">
+      </div>
     </div>
   </div>
   @endif
 
+  {{-- Use required component as per mode --}}
   @if ($modes['create'])
     @livewire ('takeaway-create')
   @elseif ($modes['display'])
