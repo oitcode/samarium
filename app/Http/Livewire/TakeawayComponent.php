@@ -12,7 +12,7 @@ class TakeawayComponent extends Component
 
     public $modes = [
         'create' => false,
-        'list' => false,
+        'list' => true,
         'display' => false,
     ];
 

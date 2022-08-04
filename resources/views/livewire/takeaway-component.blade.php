@@ -9,12 +9,14 @@
             'btnClickMethod' => "enterMode('create')",
             'btnIconFaClass' => 'fas fa-plus-circle',
             'btnText' => 'New',
+            'btnCheckMode' => 'create',
         ])
 
         @include ('partials.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('list')",
             'btnIconFaClass' => 'fas fa-list',
             'btnText' => 'List',
+            'btnCheckMode' => 'list',
         ])
       </div>
 
@@ -24,12 +26,14 @@
             'btnClickMethod' => "enterMode('create')",
             'btnIconFaClass' => 'fas fa-plus-circle',
             'btnText' => 'New',
+            'btnCheckMode' => 'create',
         ])
 
         @include ('partials.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('list')",
             'btnIconFaClass' => 'fas fa-list',
             'btnText' => 'List',
+            'btnCheckMode' => 'list',
         ])
       </div>
 
