@@ -8,29 +8,6 @@
       Inventory Unit:
       {{ $product->inventory_unit }}
     </div>
-    @if (false)
-    <div class="mr-3">
-      Stock count:
-      {{ $product->stock_count }}
-      {{ $product->inventory_unit }}
-    </div>
-    <h2 class="h6 mr-4">
-      Starting balance:
-      @if ($product->opening_stock_count)
-        {{ $product->opening_stock_count }}
-      @else
-        xx
-      @endif
-    </h2>
-    <div class="mr-3">
-      Opening stock from:
-      @if ($product->opening_stock_timestamp)
-        {{ $product->opening_stock_timestamp }}
-      @else
-        xx
-      @endif
-    </div>
-    @endif
   </div>
 
   <div class="mt-2-rm mb-3 text-secondary py-3-rm d-flex bg-warning-rm" style="font-size: 1rem;">

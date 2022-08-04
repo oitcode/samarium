@@ -1,4 +1,3 @@
-
 <div>
 
   {{-- Show in bigger screens --}}
@@ -18,47 +17,19 @@
 
           <h2 class="h3 font-weight-bold">
             Rs
-            @if (false)
-            @php echo number_format( $todaySalesTotalAmount ); @endphp
-            @endif
             xx
           </h2>
   
           <div class="mt-3">
             <span class="h5">
-              @if (false)
-              {{ $count }}
-              @endif
               xx
             </span>
               bills
           </div>
         </div>
   
-  
       </div>
     </div>
   </div>
-
-  {{-- Show in smaller screens --}}
-
-  @if (false)
-  <div class="d-md-none px-3 d-flex mb-3">
-    <div class="border d-flex p-3 w-100 bg-light text-primary rounded shadow">
-      <i class="fas fa-check-circle fa-2x mr-3"></i>
-      <h2 class="h4 mr-4">
-        Sales
-      </h2>
-      <h2 class="h4 mr-4 badge badge-success-rm badge-pill" style="font-size: 1.1rem;">
-        Rs
-        @php echo number_format( $todaySalesTotalAmount ); @endphp
-      </h2>
-  
-      <div class="h3 font-weight-bold">
-        {{ $count }}
-      </div>
-    </div>
-  </div>
-  @endif
 
 </div>

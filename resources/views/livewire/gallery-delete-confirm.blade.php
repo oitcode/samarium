@@ -7,12 +7,6 @@
                 <i class="fas fa-exclamation-triangle text-danger mr-2"></i>
                 Confirm Delete
               </h5>
-              {{-- TODO --}}
-              @if (false)
-              <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">
-                <i class="fas fa-times"></i>
-              </button>
-              @endif
             </div>
       
             <div class="modal-body p-0">

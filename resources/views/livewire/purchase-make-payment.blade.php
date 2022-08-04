@@ -26,9 +26,6 @@
               {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}"
               wire:click="enterMultiplePaymentsMode" style="font-size: calc(1rem + 0.2vw);">
             <i class="fas fa-ellipsis-h"></i>
-            @if (false)
-            Multiple payments
-            @endif
           </button>
         @endif
       </div>

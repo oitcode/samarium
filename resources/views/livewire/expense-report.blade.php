@@ -29,13 +29,6 @@
 
     <div class="col-md-6">
 
-      {{-- TODO: Chart --}}
-      @if (false)
-      @if ($modes['showChart'])
-        @livewire ('chart-expense-by-category', ['startDate' => $startDate,])
-      @endif
-      @endif
-
       <div class="table-responsive border bg-white">
         <table class="table" style="font-size: 1.1rem;">
           <thead>
