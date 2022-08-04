@@ -132,23 +132,7 @@
               <span class="sr-only">Loading...</span>
             </div>
           </button>
-          @if (false)
-          <button class="btn text-secondary">
-            <i class="fas fa-file-excel-o fa-2x-rm"></i>
-            <br />
-            Excel
-          </button>
-          @endif
         </div>
-        @if (false)
-        <div class="">
-          <button class="btn text-dark" wire:click="">
-            <i class="fas fa-times-circle fa-2x"></i>
-            <br />
-            Close
-          </button>
-        </div>
-        @endif
       </div>
       @livewire ('daybook-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
     @else
@@ -181,90 +165,78 @@
                 </tr>
               </thead>
 
-                <tbody class="bg-white" style="font-size: calc(0.7rem + 0.3vw);">
-                  @if (count($saleInvoices) > 0)
-                    @foreach ($saleInvoices as $saleInvoice)
-                      <tr class="" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
-                        <td class="text-secondary-rm"
-                            style="font-size: 1rem;"
-                            wire:click=""
-                            role="button">
-                          <span class="text-primary">
-                          {{ $saleInvoice->sale_invoice_id }}
+              <tbody class="bg-white" style="font-size: calc(0.7rem + 0.3vw);">
+                @if (count($saleInvoices) > 0)
+                  @foreach ($saleInvoices as $saleInvoice)
+                    <tr class="" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
+                      <td class="text-secondary-rm"
+                          style="font-size: 1rem;"
+                          wire:click=""
+                          role="button">
+                        <span class="text-primary">
+                        {{ $saleInvoice->sale_invoice_id }}
+                        </span>
+                      </td>
+                      <td class="d-none d-md-table-cell">
+                        <div>
+                          {{ $saleInvoice->created_at->format('H:i A') }}
+                        </div>
+                      </td>
+                      <td class="d-none d-md-table-cell">
+                        @if ($saleInvoice->seatTableBooking)
+                        {{ $saleInvoice->seatTableBooking->seatTable->name }}
+                        @else
+                          Takeaway
+                        @endif
+                      </td>
+                      <td class="d-none d-md-table-cell">
+                        @if ($saleInvoice->customer)
+                          <i class="fas fa-user-circle text-muted mr-2"></i>
+                          {{ $saleInvoice->customer->name }}
+                        @else
+                          <i class="fas fa-exclamation-circle text-warning mr-3"></i>
+                          <span class="text-secondary" style="font-size: 1rem;">
+                            Unknown
                           </span>
-                        </td>
-                        <td class="d-none d-md-table-cell">
-                          <div>
-                            {{ $saleInvoice->created_at->format('H:i A') }}
-                          </div>
-                        </td>
-                        <td class="d-none d-md-table-cell">
-                          @if ($saleInvoice->seatTableBooking)
-                          {{ $saleInvoice->seatTableBooking->seatTable->name }}
-                          @else
-                            Takeaway
-                          @endif
-                        </td>
-                        <td class="d-none d-md-table-cell">
-                          @if ($saleInvoice->customer)
-                            <i class="fas fa-user-circle text-muted mr-2"></i>
-                            {{ $saleInvoice->customer->name }}
-                          @else
-                            <i class="fas fa-exclamation-circle text-warning mr-3"></i>
-                            <span class="text-secondary" style="font-size: 1rem;">
-                              Unknown
-                            </span>
-                          @endif
-                        </td>
-                        <td class="border-rm">
-                          @if ( $saleInvoice->payment_status == 'paid')
-                          <span class="badge badge-pill badge-success">
-                          Paid
-                          </span>
-                          @elseif ( $saleInvoice->payment_status == 'partially_paid')
-                          <span class="badge badge-pill badge-warning">
-                          Partial
-                          </span>
-                          @elseif ( $saleInvoice->payment_status == 'pending')
-                          <span class="badge badge-pill badge-danger">
-                            Pending
-                          </span>
-                          @else
-                          <span class="badge badge-pill badge-secondary">
-                            {{ $saleInvoice->payment_status }}
-                          </span>
-                          @endif
+                        @endif
+                      </td>
+                      <td class="border-rm">
+                        @if ( $saleInvoice->payment_status == 'paid')
+                        <span class="badge badge-pill badge-success">
+                        Paid
+                        </span>
+                        @elseif ( $saleInvoice->payment_status == 'partially_paid')
+                        <span class="badge badge-pill badge-warning">
+                        Partial
+                        </span>
+                        @elseif ( $saleInvoice->payment_status == 'pending')
+                        <span class="badge badge-pill badge-danger">
+                          Pending
+                        </span>
+                        @else
+                        <span class="badge badge-pill badge-secondary">
+                          {{ $saleInvoice->payment_status }}
+                        </span>
+                        @endif
 
-                          @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
-                          <span class="badge badge-pill ml-3">
-                            {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
-                          </span>
-                          @endforeach
-                        </td>
-                        <td class="border-rm d-none d-md-table-cell">
-                          @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
-                        </td>
-                        <td class="font-weight-bold">
-                          @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
-                        </td>
-                      </tr>
-                    @endforeach
-                  @else
-                    {{-- Todo --}} 
-                  @endif
-                </tbody>
-              @if (false)
-              <tfoot>
-                <tr class="bg-success-rm text-white-rm" style="font-size: 1.5rem; {{--background-image: linear-gradient(to right, white, #abc);--}}">
-                  <td class="font-weight-bold text-right" colspan="6">
-                    Total
-                  </td>
-                  <td class="font-weight-bold">
-                    @php echo number_format( $totalSaleAmount ); @endphp
-                  </td>
-                </tr>
-              </tfoot>
-              @endif
+                        @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
+                        <span class="badge badge-pill ml-3">
+                          {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+                        </span>
+                        @endforeach
+                      </td>
+                      <td class="border-rm d-none d-md-table-cell">
+                        @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
+                      </td>
+                      <td class="font-weight-bold">
+                        @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
+                      </td>
+                    </tr>
+                  @endforeach
+                @else
+                  {{-- Todo --}} 
+                @endif
+              </tbody>
             </table>
           </div>
 

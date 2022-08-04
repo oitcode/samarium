@@ -319,10 +319,6 @@
                         text-danger
                       @endif
                       font-weight-bold border-0">
-                  @if (false)
-                  NRs
-                  &nbsp;&nbsp;
-                  @endif
                   @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                 </td>
               </tr>

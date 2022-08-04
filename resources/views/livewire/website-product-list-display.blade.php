@@ -20,9 +20,6 @@
               </tr>
               <tr>
                 <td class="text-danger" style="font-size: 1.5rem;">
-                  @if (false)
-                  <i class="fas fa-rupee-sign mr-2"></i>
-                  @endif
                   Rs.
                   @php echo number_format( $product->selling_price ); @endphp
                   <span wire:loading class="spinner-border text-info ml-4" role="status">

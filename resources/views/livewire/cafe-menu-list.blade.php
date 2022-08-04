@@ -58,9 +58,6 @@
                       @else
                         <div class="text-muted" style="font-size: 0.7rem;">
                           <i class="fas fa-exclamation-circle mr-1"></i>
-                          @if (false)
-                          No info
-                          @endif
                         </div>
                       @endif
                     </td>

@@ -65,13 +65,6 @@
 
         <div class="form-group">
           <label for="">Stock count</label>
-          @if (false)
-          <input type="text"
-              class="form-control"
-              wire:model.defer="stock_count"
-              style="font-size: 1.3rem;">
-          @error('stock_count') <span class="text-danger">{{ $message }}</span> @enderror
-          @endif
           {{ $stock_count }}
         </div>
 
@@ -140,21 +133,6 @@
         </span>
       </button>
     </div>
-
-    @if (false)
-    <tr style="font-size: 1.3rem; height: 50px;">
-      <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
-        <span class="ml-4">
-          Image
-        </span>
-      </td>
-        
-      <td class="p-0 h-100 font-weight-bold  @error('image') border-danger @enderror">
-        <img src="{{ asset('storage/' . $product->image_path) }}" class="img-fluid">
-      </td>
-
-    </tr>
-    @endif
 
   </div>
 </div>

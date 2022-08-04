@@ -34,9 +34,6 @@
       @endif
     @endforeach
   @else
-    @if (false)
-    @livewire ('website-home-search-result', ['products' => $products,])
-    @endif
     <div>
       <div class="container">
         <div class="my-3 text-scondary">
