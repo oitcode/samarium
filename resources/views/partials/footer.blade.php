@@ -22,9 +22,6 @@
   
     <div class="col-md-4" style="font-size: 1.3rem;">
       <div class="mb-2">
-        @if (false)
-        <i class="fas fa-star mr-3"></i>
-        @endif
         Social media
       </div>
       <div>
@@ -70,13 +67,9 @@
 
     @if (true)
     <div class="col-md-4" style="font-size: 1rem;">
-      @if (false)
-      <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
-      @else
-        <div class="text-secondary">
-          {{ $company->tagline }}
-        </div>
-      @endif
+      <div class="text-secondary">
+        {{ $company->tagline }}
+      </div>
     </div>
     @endif
   </div>
