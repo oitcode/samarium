@@ -1,5 +1,12 @@
 <div>
 
+  <!-- Flash message div -->
+  @if (session()->has('message'))
+    @include ('partials.flash-message', [
+        'flashMessage' => session('message'),
+    ])
+  @endif
+
   <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
     <div class="spinner-border text-info mr-3" role="status">
       <span class="sr-only">Loading...</span>

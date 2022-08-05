@@ -19,6 +19,8 @@ class TodoList extends Component
     public $todoCount = 0;
     public $todoDisplayCount = 0;
 
+    public $deletingTodo = null;
+
 
     /* Search items */
     public $searchData = [
@@ -35,6 +37,8 @@ class TodoList extends Component
 
     protected $listeners = [
         'updateList' => 'mount',
+        'deleteInstance',
+        'exitConfirmDelete',
     ];
 
     public function mount()
@@ -98,5 +102,28 @@ class TodoList extends Component
         $this->todoDisplayCount = $this->todos->count();
 
         $this->todos = $this->todos->get();
+    }
+
+    public function confirmDeleteTodo(Todo $todo)
+    {
+        $this->deletingTodo = $todo;
+        $this->enterMode('confirmDeleteMode');
+    }
+
+    public function deleteInstance($todoId)
+    {
+        $todo = Todo::find($todoId);
+
+        $todo->delete();
+
+        session()->flash('message', 'Todo deleted');
+
+        $this->mount();
+    }
+
+    public function exitConfirmDelete()
+    {
+        $this->deletingTodo = null;
+        $this->exitMode('confirmDeleteMode');
     }
 }

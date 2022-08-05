@@ -1,3 +1,8 @@
 <div>
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+@include ('partials.confirm-delete-modal', [
+    'modelName' => 'Todo',
+    'modelId' => $todo->todo_id,
+    'mainText' => $todo->title,
+    'modalId' => 'todoConfirmDeleteModal',
+])
 </div>
