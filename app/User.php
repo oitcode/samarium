@@ -71,4 +71,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Expense', 'creator_id', 'id');
     }
+
+    /*
+     * expense table.
+     *
+     */
+    public function todos()
+    {
+        return $this->hasMany('App\Expense', 'creator_id', 'id');
+    }
 }
