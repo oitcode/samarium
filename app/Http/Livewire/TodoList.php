@@ -16,6 +16,10 @@ class TodoList extends Component
 
     public $searchToolBoxShow = false;
 
+    public $todoCount = 0;
+    public $todoDisplayCount = 0;
+
+
     /* Search items */
     public $searchData = [
         'id' => null,
@@ -28,10 +32,6 @@ class TodoList extends Component
     public $modes = [
         'confirmDeleteMode' => false,
     ];
-
-    public $todoCount = 0;
-    public $todoDisplayCount = 0;
-
 
     protected $listeners = [
         'updateList' => 'mount',

@@ -19,11 +19,13 @@ class TodoComponent extends Component
         'createMode' => false,
         'updateMode' => false,
         'deleteMode' => false,
+        'listMode' => false,
     ];
 
     protected $listeners = [
         'todoAdded' => 'finishCreate',
-        'exitCreate' => 'exitCreateMode',
+        'todoCreated' => 'finishCreate',
+        'exitCreateMode',
         'updateTodo',
         'exitUpdate' => 'exitUpdateMode',
         'deleteTodo',
@@ -57,7 +59,13 @@ class TodoComponent extends Component
 
     public function finishCreate()
     {
+        session()->flash('message', 'Todo created');
         $this->exitMode('createMode');
         $this->emit('updateList');
+    }
+
+    public function exitCreateMode()
+    {
+        $this->exitMode('createMode');
     }
 }
