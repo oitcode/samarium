@@ -17,6 +17,10 @@
         <i class="fas fa-cog text-secondary mr-2"></i>
         Settings
       </a>
+      <a class="dropdown-item" href="{{ route('dashboard-todo') }}">
+        <i class="fas fa-tasks text-secondary mr-2"></i>
+        Todo
+      </a>
       <a class="dropdown-item" href="{{ route('dashboard-change-password') }}">
         <i class="fas fa-key text-secondary mr-2"></i>
         Change password

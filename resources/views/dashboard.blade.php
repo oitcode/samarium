@@ -9,7 +9,6 @@
     --}}
     @include ('partials.mobile-dashboard-main-links')
 
-    @if (false)
     {{-- Show on bigger screens --}}
     <div class="d-none d-md-block">
     
@@ -31,11 +30,6 @@
       </div>
     
     </div>
-    @endif
-
-    @if (true)
-      @livewire ('todo-component')
-    @endif
 
   @elseif (env('SITE_TYPE') == 'ecs')
     @if (false)

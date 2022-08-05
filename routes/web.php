@@ -90,6 +90,8 @@ Route::get('/dashboard/changePassword', 'ChangePasswordController@index')->name(
 /* Stock */
 Route::get('/dashboard/inventory', 'InventoryController@index')->name('dashboard-inventory');
 
+/* Todo */
+Route::get('/dashboard/todo', 'TodoController@index')->name('dashboard-todo');
 
 /*
  *-----------------------------------------------------------------------------
