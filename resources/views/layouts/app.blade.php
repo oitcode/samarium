@@ -34,26 +34,31 @@
 </head>
 <body>
   <div id="">
-  <div class="row">
-    {{-- App left menu --}}
-    <div class="col-md-1">
-      @include ('partials.app-left-menu')
-    </div>
+    <div class="row">
+      {{-- App left menu --}}
+      <div class="col-md-1">
+        @include ('partials.app-left-menu')
+      </div>
 
-    {{-- Mobile top menu --}}
-    <div class="d-md-none col-md-12">
-      @include ('partials.mobile-top-menu')
-    </div>
+      {{-- Mobile top menu --}}
+      <div class="d-md-none col-md-12">
+        @include ('partials.mobile-top-menu')
+      </div>
 
-    <div class="col-md-11">
-      {{-- App top menu --}}
-      @include ('partials.app-top-menu')
+      <div class="col-md-11">
+        {{-- App top menu --}}
+        @include ('partials.app-top-menu')
 
-      {{-- Content goes here --}}
-      @yield('content')
+        {{-- Content goes here --}}
+        @yield('content')
 
+      </div>
     </div>
   </div>
+
+  {{-- Screen-bottom info bar --}}
+  <div class="fixed-bottom">
+    @include ('partials.app-footer')
   </div>
 
   <!-- Livewire scripts -->
