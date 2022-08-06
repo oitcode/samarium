@@ -1,6 +1,5 @@
 <div class="p-3 p-md-0">
 
-  @if (! $modes['create'] && ! $modes['display'])
   {{-- Show in bigger screens --}}
   <div class="mb-3 d-none d-md-block">
     @include ('partials.tool-bar-button-pill', [
@@ -44,7 +43,6 @@
     <div class="clearfix">
     </div>
   </div>
-  @endif
 
   {{-- Use the required component as per mode --}}
   @if ($modes['create'])

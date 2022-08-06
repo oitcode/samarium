@@ -1,5 +1,4 @@
 <div class="p-3 p-md-0">
-  @if (! $modes['create'] && ! $modes['display'])
   <div class="mb-3">
 
     <div class="d-flex-rm">
@@ -47,7 +46,6 @@
 
     </div>
   </div>
-  @endif
 
   {{-- Use required component as per mode --}}
   @if ($modes['create'])
