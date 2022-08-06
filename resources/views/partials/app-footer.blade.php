@@ -1,5 +1,5 @@
 <div class="container-fluid border bg-light-rm text-dark-rm pt-1"
-    style="color: #0047AB; background-color: #89CFF0;">
+    style="color: #0047AB; background-color: #A7C7E7;">
   <div class="d-flex justify-content-between font-weight-bold-rm">
     <div class="mr-3 border-right pr-3">
       <i class="fas fa-tv mr-1"></i>
