@@ -33,7 +33,7 @@
     @livewireStyles
 </head>
 <body>
-  <div id="">
+  <div class="mb-5">
     <div class="row">
       {{-- App left menu --}}
       <div class="col-md-1">
