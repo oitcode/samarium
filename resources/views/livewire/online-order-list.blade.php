@@ -28,12 +28,15 @@
                 Date
               </th>
               <th style="width: 200px;">
+                Time
+              </th>
+              <th style="width: 200px;">
                 Phone
               </th>
               <th style="width: 200px;">
                 Address
               </th>
-              <th>
+              <th style="width: 200px;">
                 Total
               </th>
               <th>
@@ -56,6 +59,9 @@
                   @else
                     {{ $order->created_at->toDateString() }}
                   @endif
+                </td>
+                <td class="" style="">
+                  {{ $order->created_at->format('g:i A') }}
                 </td>
                 <td class="pl-3">
                   {{ $order->phone }}
