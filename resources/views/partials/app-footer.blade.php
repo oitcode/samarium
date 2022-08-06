@@ -1,8 +1,9 @@
-<div class="container-fluid border bg-light text-dark-rm pt-1" style="color: blue;">
+<div class="container-fluid border bg-light-rm text-dark-rm pt-1"
+    style="color: #0047AB; background-color: #89CFF0;">
   <div class="d-flex justify-content-between font-weight-bold-rm">
     <div class="mr-3 border-right pr-3">
-      <i class="fas fa-coffee mr-1"></i>
-      Kimchi Ramen
+      <i class="fas fa-tv mr-1"></i>
+      {{ \App\Company::first()->name }}
     </div>
     <div class="mr-3 border-right pr-3">
       Terminal: Counter
@@ -19,8 +20,12 @@
       <i class="fas fa-clock mr-1"></i>
       <span id="clock"></span>
     </div>
+    <div class="mr-3 border-right pr-3" role="button">
+      <i class="fas fa-comment mr-1"></i>
+      Support
+    </div>
     <div class="mr-3">
-      &copy; Operating IT Pvt Ltd
+      &copy; 2022 | OIT
     </div>
   </div>
 </div>
