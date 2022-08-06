@@ -23,12 +23,21 @@
 
   @if (env('SITE_TYPE') == 'erp')
     @can ('is-admin')
-      @include ('partials.app-left-menu-button',
-          [
-              'btnRoute' => 'sale',
-              'iconFaClass' => 'fas fa-skating',
-              'btnText' => 'Takeaway',
-          ])
+      @if (env('CMP_TYPE') == 'shop')
+        @include ('partials.app-left-menu-button',
+            [
+                'btnRoute' => 'sale',
+                'iconFaClass' => 'fas fa-dice-d6',
+                'btnText' => 'Sales',
+            ])
+      @else
+        @include ('partials.app-left-menu-button',
+            [
+                'btnRoute' => 'sale',
+                'iconFaClass' => 'fas fa-skating',
+                'btnText' => 'Takeaway',
+            ])
+      @endif
     @endcan
 
     @if (env('CMP_TYPE') == 'cafe')
@@ -42,12 +51,21 @@
   @endif
 
   @can ('is-admin')
-    @include ('partials.app-left-menu-button',
-        [
-            'btnRoute' => 'menu',
-            'iconFaClass' => 'fas fa-list',
-            'btnText' => 'Menu',
-        ])
+    @if (env('CMP_TYPE') == 'cafe')
+      @include ('partials.app-left-menu-button',
+          [
+              'btnRoute' => 'menu',
+              'iconFaClass' => 'fas fa-list',
+              'btnText' => 'Menu',
+          ])
+    @else
+      @include ('partials.app-left-menu-button',
+          [
+              'btnRoute' => 'menu',
+              'iconFaClass' => 'fas fa-list',
+              'btnText' => 'Products',
+          ])
+    @endif
   @endcan
 
   @can ('is-admin')
