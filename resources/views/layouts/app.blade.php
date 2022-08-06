@@ -56,10 +56,12 @@
     </div>
   </div>
 
-  {{-- Screen-bottom info bar --}}
-  <div class="fixed-bottom">
-    @include ('partials.app-footer')
-  </div>
+  @if (env('APP_FOOTER') == true)
+    {{-- Screen-bottom info bar --}}
+    <div class="fixed-bottom">
+      @include ('partials.app-footer')
+    </div>
+  @endif
 
   <!-- Livewire scripts -->
   @livewireScripts
