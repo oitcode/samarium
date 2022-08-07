@@ -232,7 +232,7 @@
                           {{ $item->product->name }}
                         </td>
                         <td>
-                          @php echo number_format( $item->product->selling_price ); @endphp
+                          @php echo number_format( $item->price_per_unit ); @endphp
                         </td>
                         <td>
                           <span class="badge badge-pill-rm badge-success">
