@@ -12,6 +12,7 @@ class TodoComponent extends Component
 {
     use ModesTrait;
 
+    public $displayingTodo = null;
     public $updatingTodo = null;
     public $deletingTodo = null;
 
@@ -20,6 +21,7 @@ class TodoComponent extends Component
         'updateMode' => false,
         'deleteMode' => false,
         'listMode' => false,
+        'displayMode' => false,
     ];
 
     protected $listeners = [
@@ -31,6 +33,7 @@ class TodoComponent extends Component
         'deleteTodo',
         'confirmDeleteTodo',
         'exitDelete' => 'exitDeleteMode',
+        'displayTodo',
     ];
 
     public function render()
@@ -67,5 +70,11 @@ class TodoComponent extends Component
     public function exitCreateMode()
     {
         $this->exitMode('createMode');
+    }
+
+    public function displayTodo(Todo $todo)
+    {
+        $this->displayingTodo = $todo;
+        $this->enterMode('displayMode');
     }
 }

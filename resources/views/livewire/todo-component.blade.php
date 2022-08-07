@@ -39,10 +39,12 @@
   {{-- Use the required component as per mode --}}
   @if ($modes['createMode'])
     @livewire ('todo-create')
-  @elseif ($modes['updateMode'])
-    @livewire ('todo-update', ['todo' => $updatingTodo,])
   @elseif ($modes['listMode'])
     @livewire ('todo-list')
+  @elseif ($modes['displayMode'])
+    @livewire ('todo-display', ['todo' => $displayingTodo,])
+  @elseif ($modes['updateMode'])
+    @livewire ('todo-update', ['todo' => $updatingTodo,])
   @endif
 
   @if ($modes['deleteMode'])
