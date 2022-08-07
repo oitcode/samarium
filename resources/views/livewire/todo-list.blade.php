@@ -60,7 +60,7 @@
               {{ $todo->created_at->toDateString() }}
             </td>
             <td class="d-none d-md-table-cell">
-              {{ $todo->created_at->toDateString() }}
+              {{ $todo->created_at->format('g:i A') }}
             </td>
             <td class="d-none d-md-table-cell">
               {{ $todo->title }}
