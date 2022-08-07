@@ -12,7 +12,7 @@
     {{-- Show on bigger screens --}}
     <div class="d-none d-md-block">
     
-      @if (false)
+      @if (true)
         {{-- Today: Show sales, purchase, expense  --}}
         <div class="row mb-4">
           @if (env('SITE_TYPE') == 'erp')
@@ -31,7 +31,9 @@
         </div>
       @endif
 
+      @if (false)
       @livewire ('support-component')
+      @endif
     
     </div>
 
