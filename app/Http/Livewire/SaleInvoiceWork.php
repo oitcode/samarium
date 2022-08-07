@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\SaleInvoice;
 use App\SaleInvoiceItem;
 use App\SaleInvoiceAdditionHeading;
+use App\Customer;
 
 class SaleInvoiceWork extends Component
 {
@@ -21,11 +22,15 @@ class SaleInvoiceWork extends Component
     public $has_vat;
     public $sale_invoice_date;
 
+    public $customers;
+    public $customer_id;
+
     public $modes = [
         'addItem' => true,
         'makePayment' => true,
         'confirmRemoveSaleInvoiceItem' => false,
         'backDate' => false,
+        'customerSelected' => false,
     ];
 
     protected $listeners = [
@@ -40,6 +45,7 @@ class SaleInvoiceWork extends Component
     {
         $this->has_vat = $this->hasVat();
         $this->sale_invoice_date = $this->saleInvoice->sale_invoice_date;
+        $this->customers = Customer::all();
 
         return view('livewire.sale-invoice-work');
     }
@@ -149,5 +155,18 @@ class SaleInvoiceWork extends Component
         $this->takeaway = $this->takeaway->fresh();
         $this->modes['backDate'] = false;
         $this->render();
+    }
+
+    public function linkCustomerToSaleInvoice()
+    {
+        $validatedData = $this->validate([
+            'customer_id' => 'required|integer',
+        ]);
+
+        $this->saleInvoice->customer_id = $validatedData['customer_id'];
+        $this->saleInvoice->save();
+        $this->saleInvoice = $this->saleInvoice->fresh();
+
+        $this->modes['customerSelected'] = true;
     }
 }

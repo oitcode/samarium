@@ -31,6 +31,7 @@
 
           <div class="row p-0 mt-2" style="margin: auto;">
 
+            @if (false)
             <div class="col-md-3 mb-3-rm">
               <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
                 Customer
@@ -43,6 +44,45 @@
                   <span class="text-muted" style="font-size: calc(0.6rem + 0.2vw);">
                     None
                   </span>
+                @endif
+              </div>
+            </div>
+            @endif
+
+            <div class="col-md-3 mb-3-rm bg-light text-dark py-2 border-left border-right">
+              <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+                Customer
+              </div>
+              <div class="d-flex">
+                @if ($modes['customerSelected'])
+                  {{ $saleInvoice->customer->name }}
+                @else
+                  @if (
+                        (
+                          $saleInvoice->takeaway &&
+                          $saleInvoice->takeaway->status == 'open'
+                        )
+                        ||
+                        (
+                          $saleInvoice->seatTableBooking &&
+                          $saleInvoice->seatTableBooking->status == 'open'
+                        )
+                  )
+                    <select class="custom-control w-75" wire:model.defer="customer_id">
+                      <option>---</option>
+
+                      @foreach ($customers as $customer)
+                        <option value="{{ $customer->customer_id }}">
+                          {{ $customer->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    <button class="btn btn-sm btn-light ml-2" wire:click="linkCustomerToSaleInvoice">
+                      Yes
+                    </button>
+                  @else
+                    None
+                  @endif
                 @endif
               </div>
             </div>

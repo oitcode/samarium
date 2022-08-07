@@ -34,6 +34,7 @@
   </div>
   <div class="card-body p-0">
 
+    @if (false)
     {{-- Customer --}}
     <div class="table-responsive mb-0">
       <table class="table mb-0">
@@ -59,6 +60,7 @@
         </tbody>
       </table>
     </div>
+    @endif
 
     <div class="table-responsive mb-0">
       <table class="table table-bordered-rm mb-0 bg-danger">
@@ -278,6 +280,7 @@
     @endif
     </div>
 
+    @if (false)
     <div class="table-responsive mb-0" wire:key=" BIZCUP ">
       <table class="table table-bordered mb-0">
         <tbody>
@@ -298,6 +301,7 @@
         </tbody>
       </table>
     </div>
+    @endif
 
     <div class="p-0 m-0">
       @if (! $modes['paid'])

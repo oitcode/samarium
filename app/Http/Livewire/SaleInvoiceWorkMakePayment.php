@@ -174,28 +174,21 @@ class SaleInvoiceWorkMakePayment extends Component
         $currentSaleInvoiceAmount = $this->saleInvoice->getPendingAmount();
         $currentSaleInvoiceGrandAmount = $this->saleInvoice->getTotalAmount();
 
-        /* Get the customer if given */
-        if ($this->customer_id && $this->customer_id != '---') {
-            $this->customer = Customer::find($this->customer_id);
+        if (false) {
+            /* Get the customer if given */
+            if ($this->customer_id && $this->customer_id != '---') {
+                $this->customer = Customer::find($this->customer_id);
+            }
         }
 
         /* If no customer do not take less payments !!! */
-        if (! $this->customer && $this->tender_amount < $this->grand_total) {
+        if (! $this->saleInvoice->customer && $this->tender_amount < $this->grand_total) {
             return;
         }
 
         DB::beginTransaction();
 
         try {
-
-            /* Link to customer if needed.
-             * Todo: This code should be somewhere else.
-             */
-            if ($this->customer) {
-                $saleInvoice->customer_id = $this->customer->customer_id;
-                $saleInvoice->save();
-            }
-
             /* Make Sale Invoice Additions if needed. */
             foreach ($this->saleInvoiceAdditions as $key => $val) {
                 if ($val > 0) {
