@@ -43,12 +43,10 @@ class TodoList extends Component
 
     public function mount()
     {
-        $this->todos = Todo::where('status', 'pending');
+        $this->todos = Todo::orderBy('created_at', 'DESC')->get();
 
-        $this->todoCount = $this->todos->count();
+        $this->todoCount = count($this->todos);
         $this->todoDisplayCount = $this->todoCount;;
-
-        $this->todos = $this->todos->orderBy('created_at', 'DESC')->get();
     }
 
     public function render()

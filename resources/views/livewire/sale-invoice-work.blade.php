@@ -31,24 +31,6 @@
 
           <div class="row p-0 mt-2" style="margin: auto;">
 
-            @if (false)
-            <div class="col-md-3 mb-3-rm">
-              <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
-                Customer
-              </div>
-              <div class="h5">
-                @if ($saleInvoice->customer)
-                  <i class="fas fa-user-circle text-muted mr-2"></i>
-                  {{ $saleInvoice->customer->name }}
-                @else
-                  <span class="text-muted" style="font-size: calc(0.6rem + 0.2vw);">
-                    None
-                  </span>
-                @endif
-              </div>
-            </div>
-            @endif
-
             <div class="col-md-3 mb-3-rm bg-light text-dark py-2 border-left border-right">
               <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
                 Customer
