@@ -116,6 +116,7 @@ class TodoList extends Component
 
         session()->flash('message', 'Todo deleted');
 
+        $this->exitConfirmDelete();
         $this->mount();
     }
 
