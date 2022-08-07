@@ -1,4 +1,5 @@
 <div class="card">
+  @if (true)
   <div class="card-header
       {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
       {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
@@ -32,6 +33,7 @@
       @endif
     </div>
   </div>
+  @endif
   <div class="card-body p-0">
 
     @if (false)
