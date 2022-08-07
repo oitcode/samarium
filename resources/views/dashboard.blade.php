@@ -12,22 +12,26 @@
     {{-- Show on bigger screens --}}
     <div class="d-none d-md-block">
     
-      {{-- Today: Show sales, purchase, expense  --}}
-      <div class="row mb-4">
-        @if (env('SITE_TYPE') == 'erp')
-          <div class="col-md-2">
-            @livewire ('flash-card-total-sales-today')
-          </div>
+      @if (false)
+        {{-- Today: Show sales, purchase, expense  --}}
+        <div class="row mb-4">
+          @if (env('SITE_TYPE') == 'erp')
+            <div class="col-md-2">
+              @livewire ('flash-card-total-sales-today')
+            </div>
     
-          <div class="col-md-2">
-            @livewire ('flash-card-total-purchase-today')
-          </div>
+            <div class="col-md-2">
+              @livewire ('flash-card-total-purchase-today')
+            </div>
     
-          <div class="col-md-2">
-            @livewire ('flash-card-total-expense-today')
-          </div>
-        @endif
-      </div>
+            <div class="col-md-2">
+              @livewire ('flash-card-total-expense-today')
+            </div>
+          @endif
+        </div>
+      @endif
+
+      @livewire ('support-component')
     
     </div>
 
