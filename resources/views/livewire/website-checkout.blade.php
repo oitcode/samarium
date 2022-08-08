@@ -110,7 +110,6 @@
       @if (session()->has('message'))
         <div class="alert alert-success alert-dismissible fade show mx-3 my-2" role="alert">
           {{ session('message') }}
-          We will call you soon.
           <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
