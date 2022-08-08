@@ -3,9 +3,9 @@
 
     {{-- Show in bigger screens --}}
     <div class="table-responsive d-none d-md-block">
-      <table class="table table-sm table-bordered table-hover">
+      <table class="table table-sm table-hover">
         <thead>
-          <tr class="text-secondary" style="font-size: 1.1rem;">
+          <tr class="text-secondary" style="font-size: calc(0.7rem + 0.3vw);">
             <th>ID</th>
             <th>Date</th>
             <th>Customer</th>
@@ -18,11 +18,11 @@
         </thead>
         <tbody>
           @foreach ($saleInvoices as $saleInvoice)
-            <tr style="font-size: 1.1rem;">
+            <tr style="font-size: calc(0.7rem + 0.3vw);">
               <td>
                 {{ $saleInvoice->sale_invoice_id }}
               </td>
-              <td class="text-secondary" style="font-size: 1rem;">
+              <td class="text-secondary">
                 {{ $saleInvoice->sale_invoice_date }}
               </td>
               <td>
