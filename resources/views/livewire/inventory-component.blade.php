@@ -44,7 +44,7 @@
                   @if ($product->isUsedToday())
                     <i class="fas fa-check-circle text-success"></i>
                   @else
-                    <i class="fas fa-times-circle text-danger"></i>
+                    <i class="fas fa-times-circle text-muted"></i>
                   @endif
                 </td>
                 <td>
