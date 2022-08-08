@@ -124,16 +124,6 @@
               </div>
             </td>
   
-            <td>
-              <div class="font-weight-bold" style="font-size: 0.9rem;">
-              {{ $expense->name }}
-              <div>
-                <span class="badge badge-pill badge-primary">
-                  {{ $expense->expenseCategory->name }}
-                </span>
-              </div>
-            </td>
-  
             <td class="font-weight-bold" style="font-size: 1rem;">
               Rs
               @php echo number_format( $expense->amount ); @endphp

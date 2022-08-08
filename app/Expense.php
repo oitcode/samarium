@@ -24,8 +24,7 @@ class Expense extends Model
     protected $primaryKey = 'expense_id';
 
     protected $fillable = [
-        'expense_category_id', 'date',
-        'name', 'amount',
+        'date', 'amount',
         'comment', 'creator_id',
         'creation_status',
     ];

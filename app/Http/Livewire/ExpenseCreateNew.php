@@ -69,10 +69,8 @@ class ExpenseCreateNew extends Component
         if ($this->createNew == true) {
             $expense = new Expense;
 
-            /* Todo: Below three should be dropped from database design. */
-            $expense->name = 'TODO';
+            /* Todo: Set correct value of amount instead of dummy 1. */
             $expense->amount = 1;
-            $expense->expense_category_id = 1;
 
             $expense->date = date('Y-m-d');
             $expense->payment_status = 'pending';
