@@ -15,6 +15,7 @@
             <th colspan="2">Item</th>
             <th>Inventory Unit</th>
             <th>Inventory low</th>
+            <th>Used today</th>
             <th>Stock</th>
             <th>Action</th>
           </tr>
@@ -37,6 +38,11 @@
                   @if ($product->stock_count <= $product->stock_notification_count)
                     <i class="fas fa-exclamation-circle text-danger mr-3"></i>
                   @else
+                  @endif
+                </td>
+                <td>
+                  @if ($product->isUsedToday())
+                    <i class="fas fa-check-circle text-success"></i>
                   @endif
                 </td>
                 <td>

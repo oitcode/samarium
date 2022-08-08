@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Product extends Model
 {
@@ -114,5 +115,38 @@ class Product extends Model
     public function purchaseItems()
     {
         return $this->hasMany('App\PurchaseItem', 'product_id', 'product_id');
+    }
+
+    public function isUsedToday()
+    {
+        $openingStockTimestamp = $this->opening_stock_timestamp;
+
+        if (
+            count($this->purchaseItems()
+                ->whereHas('purchase',
+                    function (Builder $query)
+                      use($openingStockTimestamp) {
+                        $query->where('created_at', '>', $openingStockTimestamp)
+                            ->where('purchase_date',  date('Y-m-d'));
+                })->get()) > 0
+
+        ) {
+            return true;
+        }
+
+        if (
+            count($this->saleInvoiceItems()
+                ->whereHas('saleInvoice',
+                    function (Builder $query)
+                      use($openingStockTimestamp) {
+                        $query->where('created_at', '>', $openingStockTimestamp)
+                            ->where('sale_invoice_date',  date('Y-m-d'));
+                })->get()) > 0
+
+        ) {
+            return true;
+        }
+
+        return false;
     }
 }
