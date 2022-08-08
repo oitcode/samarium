@@ -28,7 +28,7 @@
       <div class="dropdown-divider mb-0"></div>
       <a class="dropdown-item" href="">
         <i class="fas fa-history text-secondary mr-2"></i>
-        v0.2.7
+        v0.2.8
       </a>
       <div class="dropdown-divider mb-0"></div>
       <a class="dropdown-item mb-0" href="{{ route('logout') }}"
