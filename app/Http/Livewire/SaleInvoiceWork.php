@@ -148,11 +148,11 @@ class SaleInvoiceWork extends Component
             'sale_invoice_date' => 'required|date',
         ]);
 
-        $saleInvoice = $this->takeaway->saleInvoice;
+        $saleInvoice = $this->saleInvoice;
         $saleInvoice->sale_invoice_date = $validatedData['sale_invoice_date'];
         $saleInvoice->save();
 
-        $this->takeaway = $this->takeaway->fresh();
+        $this->saleInvoice = $this->saleInvoice->fresh();
         $this->modes['backDate'] = false;
         $this->render();
     }

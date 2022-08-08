@@ -11,9 +11,22 @@ class FlashCardTotalSalesToday extends Component
     public $count;
     public $todaySalesTotalAmount;
 
+    public $transactionsDate = null;
+
+    protected $listeners = [
+        'changeDate',
+    ];
+
+    public function mount()
+    {
+        if ($this->transactionsDate == null) {
+            $this->transactionsDate = date('Y-m-d');
+        }
+    }
+
     public function render()
     {
-        $this->count = SaleInvoice::where('sale_invoice_date', date('Y-m-d'))->count();
+        $this->count = SaleInvoice::where('sale_invoice_date', $this->transactionsDate)->count();
 
         $this->calculateTodaySalesTotalAmount();
 
@@ -24,10 +37,16 @@ class FlashCardTotalSalesToday extends Component
     {
         $total = 0;
 
-        foreach (SaleInvoice::where('sale_invoice_date', date('Y-m-d'))->get() as $saleInvoice) {
+        foreach (SaleInvoice::where('sale_invoice_date', $this->transactionsDate)->get() as $saleInvoice) {
             $total += $saleInvoice->getTotalAmount();
         }
 
         $this->todaySalesTotalAmount = $total;
+    }
+
+    public function changeDate($transactionsDate)
+    {
+        $this->transactionsDate = $transactionsDate;
+        $this->render();
     }
 }
