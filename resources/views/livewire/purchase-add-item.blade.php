@@ -64,7 +64,7 @@
             </td>
             <td>
               @if ($selectedProduct)
-                @php echo number_format( $total ); @endphp
+                @php echo number_format( $total, 2 ); @endphp
               @endif
             </td>
           </tr>

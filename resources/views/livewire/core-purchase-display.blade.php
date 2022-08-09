@@ -128,7 +128,7 @@
               @foreach ($purchase->purchasePayments as $purchasePayment)
                 <div>
                   Rs
-                  @php echo number_format( $purchasePayment->amount ); @endphp
+                  @php echo number_format( $purchasePayment->amount, 2 ); @endphp
                   <span class="badge badge-pill ml-3">
                   {{ $purchasePayment->purchasePaymentType->name }}
                   </span>
@@ -193,7 +193,7 @@
                   {{ $purchaseItem->purchase_price_per_unit }}
                 </td>
                 <td>
-                  @php echo number_format( $purchaseItem->getTotalAmount() ); @endphp
+                  @php echo number_format( $purchaseItem->getTotalAmount(), 2 ); @endphp
                 </td>
               </tr>
             @endforeach
@@ -207,7 +207,7 @@
                 </strong>
               </td>
               <td style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
-                @php echo number_format( $purchase->getSubTotal() ); @endphp
+                @php echo number_format( $purchase->getSubTotal(), 2 ); @endphp
               </td>
             </tr>
             @foreach ($purchase->purchaseAdditions as $purchaseAddition)
@@ -224,7 +224,7 @@
                         text-danger
                       @endif
                       font-weight-bold border-0 p-0 pl-1 pt-2">
-                  @php echo number_format( $purchaseAddition->amount ); @endphp
+                  @php echo number_format( $purchaseAddition->amount, 2 ); @endphp
                 </td>
               </tr>
             @endforeach
@@ -234,7 +234,7 @@
                 Total
               </td>
               <td style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold border-0">
-                @php echo number_format( $purchase->getTotalAmount() ); @endphp
+                @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
               </td>
             </tr>
           </tfoot>

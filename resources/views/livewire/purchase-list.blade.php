@@ -28,7 +28,7 @@
       <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white" style="font-size: 1rem;">
         <span class="text-dark" style="font-size: 1.5rem;">
         Rs
-        @php echo number_format( $total ); @endphp
+        @php echo number_format( $total, 2 ); @endphp
         </span>
       </div>
     </div>
@@ -100,10 +100,10 @@
               @endif
             </td>
             <td>
-              @php echo number_format( $purchase->getPendingAmount() ); @endphp
+              @php echo number_format( $purchase->getPendingAmount(), 2 ); @endphp
             </td>
             <td>
-              @php echo number_format( $purchase->getTotalAmount() ); @endphp
+              @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
             </td>
             <td>
               <div class="dropdown">
@@ -132,7 +132,7 @@
             Total
           </th>
           <td>
-              @php echo number_format($total); @endphp
+              @php echo number_format($total, 2); @endphp
           </td>
           <td>
           </td>
@@ -172,7 +172,7 @@
             <td>
               <span class="font-weight-bold" style="font-size: 1rem;">
               Rs
-              @php echo number_format( $purchase->getTotalAmount() ); @endphp
+              @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
               </span>
               <div>
                 @if ($purchase)

@@ -86,8 +86,8 @@ class PurchaseMakePayment extends Component
     public function store()
     {
         $validatedData = $this->validate([
-            'grand_total' => 'required|integer',
-            'paid_amount' => 'required|integer',
+            'grand_total' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'paid_amount' => 'required|regex:/^\d+(\.\d{1,2})?$/',
             'purchase_payment_type_id' => 'required|integer',
         ]);
 

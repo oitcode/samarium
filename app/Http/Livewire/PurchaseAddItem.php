@@ -70,6 +70,7 @@ class PurchaseAddItem extends Component
 
     public function addItemToPurchase()
     {
+        /* Todo: Validation */
         if (! $this->selectedProduct) {
             return;
         }

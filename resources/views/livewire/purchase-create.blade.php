@@ -167,10 +167,10 @@
                         {{ $item->unit }}
                       </td>
                       <td>
-                        @php echo number_format( $item->purchase_price_per_unit ); @endphp
+                        @php echo number_format( $item->purchase_price_per_unit, 2 ); @endphp
                       </td>
                       <td>
-                        @php echo number_format( $item->getTotalAmount() ); @endphp
+                        @php echo number_format( $item->getTotalAmount(), 2 ); @endphp
                       </td>
                     </tr>
                     @endforeach
@@ -185,7 +185,7 @@
                       </strong>
                     </td>
                     <td style="">
-                      @php echo number_format( $purchase->getTotalAmountRaw() ); @endphp
+                      @php echo number_format( $purchase->getTotalAmountRaw(), 2 ); @endphp
                     </td>
                   </tr>
 
@@ -198,7 +198,7 @@
                           </strong>
                         </td>
                         <td>
-                          @php echo number_format( $purchaseAddition->amount ); @endphp
+                          @php echo number_format( $purchaseAddition->amount, 2 ); @endphp
                         </td>
                       </tr>
                     @endforeach
@@ -209,7 +209,7 @@
                         </strong>
                       </td>
                       <td> 
-                        @php echo number_format( $purchase->getTotalAmount() ); @endphp
+                        @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
                       </td>
                     </tr>
                   @endif
@@ -251,7 +251,7 @@
                       </td>
                       <td class="font-weight-bold" style="font-size: 1rem;">
                         Rs
-                        @php echo number_format( $item->getTotalAmount() ); @endphp
+                        @php echo number_format( $item->getTotalAmount(), 2 ); @endphp
                       </td>
                       <td>
                         <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
