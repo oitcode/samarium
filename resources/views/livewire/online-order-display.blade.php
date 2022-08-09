@@ -24,6 +24,15 @@
 
               <tr>
                 <td>
+                  Time
+                </td>
+                <td>
+                  {{ $websiteOrder->created_at->format('g:i A') }}
+                </td>
+              </tr>
+
+              <tr>
+                <td>
                   Phone
                 </td>
                 <td>
