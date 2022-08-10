@@ -28,7 +28,11 @@
       <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white" style="font-size: 1rem;">
         <span class="text-dark" style="font-size: 1.5rem;">
         Rs
-        @php echo number_format( $total, 2 ); @endphp
+        @if (is_numeric($total) && ctype_digit((string) $total))
+          @php echo number_format( $total ); @endphp
+        @else
+          @php echo number_format( $total, 2 ); @endphp
+        @endif
         </span>
       </div>
     </div>
@@ -100,10 +104,18 @@
               @endif
             </td>
             <td>
-              @php echo number_format( $purchase->getPendingAmount(), 2 ); @endphp
+              @if (is_int($purchase->getPendingAmount()))
+                @php echo number_format( $purchase->getPendingAmount() ); @endphp
+              @else
+                @php echo number_format( $purchase->getPendingAmount(), 2 ); @endphp
+              @endif
             </td>
             <td>
-              @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
+              @if (is_int($purchase->getTotalAmount()))
+                @php echo number_format( $purchase->getTotalAmount() ); @endphp
+              @else
+                @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
+              @endif
             </td>
             <td>
               <div class="dropdown">
@@ -172,7 +184,11 @@
             <td>
               <span class="font-weight-bold" style="font-size: 1rem;">
               Rs
-              @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
+              @if (is_int($purchase->getTotalAmount()))
+                @php echo number_format( $purchase->getTotalAmount() ); @endphp
+              @else
+                @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
+              @endif
               </span>
               <div>
                 @if ($purchase)
