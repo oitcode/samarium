@@ -28,7 +28,7 @@
       <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white" style="font-size: 1rem;">
         <span class="text-dark" style="font-size: 1.5rem;">
         Rs
-        @php echo number_format( $total ); @endphp
+        @php echo number_format( $total, 2 ); @endphp
         </span>
       </div>
     </div>
@@ -70,7 +70,7 @@
             </td>
   
             <td>
-              @php echo number_format( $expense->getTotalAmount() ); @endphp
+              @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
             </td>
   
             <td>
@@ -101,7 +101,7 @@
               Total
             </th>
             <td>
-              @php echo number_format( $total ); @endphp
+              @php echo number_format( $total, 2 ); @endphp
             </td>
             <td>
             </td>
@@ -126,7 +126,7 @@
   
             <td class="font-weight-bold" style="font-size: 1rem;">
               Rs
-              @php echo number_format( $expense->amount ); @endphp
+              @php echo number_format( $expense->amount, 2 ); @endphp
             </td>
   
             <td>
@@ -159,7 +159,7 @@
             </th>
             <td>
               Rs
-              @php echo number_format( $total ); @endphp
+              @php echo number_format( $total, 2 ); @endphp
             </td>
             <td>
             </td>

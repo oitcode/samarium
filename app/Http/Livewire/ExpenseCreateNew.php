@@ -157,7 +157,7 @@ class ExpenseCreateNew extends Component
         $validatedData = $this->validate([
             'add_item_name' => 'required',
             'add_item_expense_category_id' => 'required|integer',
-            'add_item_amount' => 'required|integer',
+            'add_item_amount' => 'required',
         ]);
 
         $expenseItem = new ExpenseItem;
@@ -254,8 +254,8 @@ class ExpenseCreateNew extends Component
     public function finishCreation()
     {
         $validatedData = $this->validate([
-            'tender_amount' => 'required|integer',
-            'grand_total' => 'required|integer',
+            'tender_amount' => 'required',
+            'grand_total' => 'required',
             'expense_payment_type_id' => 'required|integer',
         ]);
 

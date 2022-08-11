@@ -34,7 +34,7 @@
               </span>
             </td>
             <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
-              @php echo number_format( $sub_total ); @endphp
+              @php echo number_format( $sub_total, 2 ); @endphp
             </td>
           </tr>
           {{-- Deal with taxes (VAT, etc) additions now/next/atLast --}}
@@ -76,7 +76,7 @@
               </span>
             </td>
             <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 border-0" style="font-size: calc(1.3rem + 0.2vw);">
-              @php echo number_format( $grand_total ); @endphp
+              @php echo number_format( $grand_total, 2 ); @endphp
             </td>
           </tr>
           @endif

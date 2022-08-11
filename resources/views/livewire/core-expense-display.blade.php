@@ -130,7 +130,7 @@
               @foreach ($expense->expensePayments as $expensePayment)
                 <div>
                   Rs
-                  @php echo number_format( $expensePayment->amount ); @endphp
+                  @php echo number_format( $expensePayment->amount, 2 ); @endphp
                   <span class="badge badge-pill ml-3">
                   {{ $expensePayment->expensePaymentType->name }}
                   </span>
@@ -184,7 +184,7 @@
                   {{ $expenseItem->name }}
                 </td>
                 <td>
-                  @php echo number_format( $expenseItem->amount ); @endphp
+                  @php echo number_format( $expenseItem->amount, 2 ); @endphp
                 </td>
               </tr>
             @endforeach
@@ -201,7 +201,7 @@
                 </strong>
               </td>
               <td style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
-                @php echo number_format( $expense->getSubTotal() ); @endphp
+                @php echo number_format( $expense->getSubTotal(), 2 ); @endphp
               </td>
             </tr>
             @endif
@@ -219,7 +219,7 @@
                         text-danger
                       @endif
                       font-weight-bold border-0 p-0 pl-1 pt-2">
-                  @php echo number_format( $expenseAddition->amount ); @endphp
+                  @php echo number_format( $expenseAddition->amount, 2 ); @endphp
                 </td>
               </tr>
             @endforeach
@@ -229,7 +229,7 @@
                 Total
               </td>
               <td style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold border-0">
-                @php echo number_format( $expense->getTotalAmount() ); @endphp
+                @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
               </td>
             </tr>
           </tfoot>
