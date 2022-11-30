@@ -30,10 +30,16 @@
 
             <tbody>
               @foreach ($productCategory->products as $product)
+
+                {{-- Do not show sub products --}}
+                @if ($product->baseProduct)
+                  @continue
+                @endif
+
                 <tr>
-            <td style="width: 50px;">
-              <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
-            </td>
+                  <td style="width: 50px;">
+                    <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
+                  </td>
                   <td>
                     {{ $product->name }}
                   </td>

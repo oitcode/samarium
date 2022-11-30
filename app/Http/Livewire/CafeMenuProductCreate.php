@@ -30,6 +30,7 @@ class CafeMenuProductCreate extends Component
     public $is_base_product = 'no';
     public $base_product_id;
     public $inventory_unit_consumption;
+    public $product_type = 'normal';
 
     public $baseProducts;
 
@@ -37,6 +38,8 @@ class CafeMenuProductCreate extends Component
 
     public $modes = [
         'stockApplicable' => false,
+        'baseProduct' => false,
+        'subProduct' => false,
     ];
 
     public function render()
@@ -79,15 +82,20 @@ class CafeMenuProductCreate extends Component
             'stock_applicable' => 'required',
             'is_base_product' => 'required',
             'base_product_id' => 'nullable|integer',
+            'product_type' => 'required',
         ]);
 
         /* Stock/inventory related*/
         if ($validatedData['stock_applicable'] == 'yes') {
-            $validatedData += $this->validate([
-                'opening_stock_count' => 'required|integer',
-                'stock_notification_count' => 'nullable|integer',
-                'inventory_unit' => 'required',
-            ]);
+            if ($this->product_type != 'sub') {
+                $validatedData += $this->validate([
+                    'opening_stock_count' => 'required|integer',
+                    'stock_notification_count' => 'nullable|integer',
+                    'inventory_unit' => 'required',
+                ]);
+
+                $validatedData['stock_count'] = $validatedData['opening_stock_count'];
+            }
 
             /*
              * Todo
@@ -97,8 +105,6 @@ class CafeMenuProductCreate extends Component
              *
              */
             $validatedData['opening_stock_timestamp'] = Carbon::now()->toDateTimeString();
-
-            $validatedData['stock_count'] = $validatedData['opening_stock_count'];
         }
 
         /* Make booleans in validatedData */
@@ -106,6 +112,10 @@ class CafeMenuProductCreate extends Component
             $validatedData['is_base_product'] = true;
         } else {
             $validatedData['is_base_product'] = false;
+        }
+
+        if ($validatedData['product_type'] == 'base') {
+            $validatedData['is_base_product'] = true;
         }
 
         if ($this->image !== null) {
@@ -121,6 +131,10 @@ class CafeMenuProductCreate extends Component
             if (! is_null($this->base_product_id) && $this->base_product_id != '---') {
                 $product->base_product_id = $this->base_product_id;
                 $product->inventory_unit_consumption = $this->inventory_unit_consumption;
+                $product->save();
+                $product = $product->fresh();
+
+                $product->inventory_unit = $product->baseProduct->inventory_unit;
                 $product->save();
                 $product = $product->fresh();
             }
@@ -152,5 +166,26 @@ class CafeMenuProductCreate extends Component
         $this->stock_applicable = 'yes';
 
         $this->enterMode('stockApplicable');
+    }
+
+    public function makeStockNotApplicable()
+    {
+        $this->stock_applicable = 'no';
+
+        $this->exitMode('stockApplicable');
+    }
+
+    public function updatedProductType()
+    {
+        if ($this->product_type == 'base') {
+            $this->modes['baseProduct'] = true;
+            $this->modes['subProduct'] = false;
+        } else if ($this->product_type == 'sub') {
+            $this->modes['subProduct'] = true;
+            $this->modes['baseProduct'] = false;
+        } else {
+            $this->modes['baseProduct'] = false;
+            $this->modes['subProduct'] = false;
+        }
     }
 }
