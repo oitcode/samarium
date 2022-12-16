@@ -43,6 +43,9 @@
   @else
   <div class="p-0">
 
+    {{-- Headers header --}}
+    @include ('partials.headers-header')
+
     {{-- Header --}}
     @include ('partials.header')
 
