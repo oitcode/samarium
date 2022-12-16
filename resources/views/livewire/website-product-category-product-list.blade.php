@@ -27,7 +27,9 @@
               </td>
               <td>
                 <div class="mb-3">
-                  {{ $product->name }}
+                  <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
+                    {{ $product->name }}
+                  </a>
                 </div>
                 <div>
                   Rs
