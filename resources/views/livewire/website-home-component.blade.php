@@ -1,4 +1,9 @@
 <div>
+
+  {{-- Online store hero --}}
+  @include ('partials.os.hero')
+
+
   {{-- Show product search --}}
   <div class="container p-3 border mt-4">
     <div class="text-secondary mb-2">
