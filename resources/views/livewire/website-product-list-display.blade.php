@@ -1,55 +1,33 @@
-<div>
+<div class="h-100">
   {{-- Show in bigger screens --}}
   <div class="d-md-none">
   </div>
   {{-- Show in bigger screens --}}
-  <div class="d-none d-md-block">
+  <div class="d-none d-md-block h-100">
     <div class="card h-100 shadow">
-      <div class="text-center">
-        <img class="card-img-top img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="Card image cap"
-        style="height: 100px; width: 100px;">
-      </div>
-      <div class="card-body p-0">
-        <div class="table-responsive">
-          <table class="table">
-            <tbody>
-              <tr>
-                <th style="font-size: 1.5rem; font-weight: bold;">
-                  {{ $product->name }}
-                </th>
-              </tr>
-              <tr>
-                <td class="text-danger" style="font-size: 1.5rem;">
-                  Rs.
-                  @php echo number_format( $product->selling_price ); @endphp
-                  <span wire:loading class="spinner-border text-info ml-4" role="status">
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="p-2">
-          <div class="float-left w-50">
-            <a href="{{ route('website-product-view', [ $product->product_id, str_replace(' ', '-', $product->name),]) }}" class="w-100">
-              <button class="btn btn-warning px-4 py-3 w-100" style="background-color: orange; font-size: 1.3rem;" class="mb-3">
-                <i class="fas fa-shopping-cart mr-3"></i>
-                Order
-              </button>
-            </a>
+
+      <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
+        <img class="img-fluid w-100" src="{{ asset('storage/' . $product->image_path) }}" alt="Card image cap" style="height: 100px;">
+        <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto">
+          <div class="p-2">
+            <h2 class="h3 mt-3 mb-2" style="color: #004; font-family: Arial; font-weight: bold;">
+              {{ $product->name }}
+            </h2>
+            <div class="h5 text-secondary text-left">
+              Rs.
+              @php echo number_format( $product->selling_price ); @endphp
+            </div>
           </div>
-          <div class="float-left w-50">
-            <a href="" wire:click.prevent="addItemToCart({{ $product->product_id }})" class="w-100">
-              <button class="btn btn-success px-4 py-3 w-100" style="font-size: 1.3rem;">
-                <i class="fas fa-shopping-cart mr-3"></i>
-                Cart
-              </button>
-            </a>
-          </div>
-          <div class="clearfix">
+          <div class="mb-4 px-2">
+            <button class="btn btn-success mt-3 p-3 px-3" wire:click.prevent="addItemToCart({{ $product->product_id }})">
+              <span class="h5">
+              ADD TO CART
+              </span>
+            </button>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>

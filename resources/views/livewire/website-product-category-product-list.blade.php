@@ -8,7 +8,7 @@
   </div>
 
   {{-- Show in smaller screens --}}
-  <div class="d-md-none-rm">
+  <div class="d-md-none">
     <div class="table-responsive">
       <table class="table">
         <tbody>
@@ -57,9 +57,7 @@
       <div class="row" wire:key="{{ rand() }}">
         @foreach ($productCategory->products as $product)
           <div class="col-md-4 mb-4">
-            {{--
             @livewire ('website-product-list-display', ['product' => $product,])
-            --}}
           </div>
         @endforeach
       </div>
