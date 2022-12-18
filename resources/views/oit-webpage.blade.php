@@ -1,5 +1,18 @@
 @extends ('bia')
 
+@section ('pageAnnouncer')
+  <div class="continer-fluid o-top-page-banner">
+    <div class="o-overlay text-white">
+      <div class="container py-5">
+      <h1 style="font-family: Arial;">
+        {{ $webpage->name }}
+      </h1>
+      Home/AboutUs
+      </div>
+    </div>
+  </div>
+@endsection
+
 @section ('content')
 
   <div class="container-fluid mt-4">

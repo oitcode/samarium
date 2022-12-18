@@ -1,5 +1,5 @@
-<div class="container">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-danger" style="font-size: 1.2rem;">
+<div class="d-inline-block bg-danger">
+  <nav class="navbar navbar-light navbar-expand-lg navbar-dark-rm bg-light" style="font-size: 1.2rem;">
     <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,8 +12,8 @@
         @endphp
 
         @foreach ($productCategories as $productCategory)
-          <li class="nav-item text-white mr-3 pr-3">
-            <a class="nav-link text-white" href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+          <li class="nav-item text-white mr-3 pr-3 border">
+            <a class="nav-link text-secondary" href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
               {{ $productCategory->name }}
               <span class="sr-only">(current)</span>
             </a>

@@ -51,7 +51,9 @@
 
     {{-- Top navigation menu --}}
     {{-- Product category menu --}}
+    @if (false)
     @include ('partials.top-menu')
+    @endif
 
     {{-- Content goes here !!! --}}
     @yield('content')

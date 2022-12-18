@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom-style.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/all.css') }}" rel="stylesheet">
 
     <!-- FB OG Meta tags -->
@@ -73,11 +74,16 @@
   <div class="p-0">
 
     {{-- Header --}}
+    @include ('partials.ecs.headers-header')
+    @if (false)
     @include ('partials.ecs.header')
+    @endif
 
     {{-- Top navigation menu --}}
     {{-- Product category menu --}}
     @livewire ('ecs.menu-wp')
+
+    @yield ('pageAnnouncer')
 
     {{-- Content goes here !!! --}}
     @yield('content')

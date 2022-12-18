@@ -1,0 +1,15 @@
+.nb-bg1 {
+    background-image: url("../img/hero-3.jpg");
+}
+
+.o-overlaid {
+    background-image: url("../img/bg-image-1.jpg");
+}
+
+.o-overlay {
+   background-color: rgba(0, 0, 50, 0.8);
+}
+
+.o-top-page-banner {
+    background-image: url("../img/bg-image-3.jpg");
+}

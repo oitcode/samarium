@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Ecs;
 use Livewire\Component;
 
 use App\CmsNavMenu;
+use App\Company;
 
 class MenuWp extends Component
 {
@@ -14,6 +15,9 @@ class MenuWp extends Component
     {
         $this->cmsNavMenu = CmsNavMenu::first();
 
-        return view('livewire.ecs.menu-wp');
+        $company = Company::first();
+
+        return view('livewire.ecs.menu-wp')
+            ->with('company', $company);
     }
 }
