@@ -1,7 +1,9 @@
 <div>
 
   {{-- Online store hero --}}
+  @if (false)
   @include ('partials.os.hero')
+  @endif
 
 
   {{-- Show product search --}}
