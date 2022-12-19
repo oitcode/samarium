@@ -1,4 +1,4 @@
-<div class="sticky-top bg-white border">
+<div class="sticky-top bg-white border-bottom">
 
   <div class="container-fluid p-0 bg-warning-rm">
     <div class="d-flex justify-content-between h-100 bg-info-rm pl-2">
@@ -27,7 +27,7 @@
         @endif
       </div>
 
-      <div class="px-5 h-100-rm mt-3-rm bg-primary border border-left-primary text-white"
+      <div class="px-5 h-100-rm mt-3-rm bg-primary-rm border-rm border-left-primary text-white-rm"
           style="{{--background-color: #004;--}} font-size: 1.2rem; font-weight: bold;">
 
         {{-- Shopping cart badge (checkout link) --}}
