@@ -112,7 +112,8 @@
     @endif
   </div>
 
-  <div class="border-top text-center mt-4 pt-3">
+  <hr>
+  <div class="border-top-rm text-center mt-4 pt-3" style="color: #aaa;">
     <div>
       &copy; 2022
       {{ $company->name }}
@@ -120,7 +121,8 @@
       All rights reserved
     </div>
     <div>
-      Supported by PageWire
+      Powered by WebCms
+      <i class="fas fa-check-circle ml-2"></i> 
     </div>
   </div>
 </div>

@@ -9,8 +9,8 @@
         <div class="mr-4 d-flex flex-column justify-content-center">
             <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 40px;">
         </div>
-        <div class="mt-3 d-none d-md-block mr-5">
-          <h1 class="mt-2 text-dark" style="font-weight: bold; font-size: 2rem;">{{ $company->name }}</h1>
+        <div class="mt-3 d-none d-md-block mr-3">
+          <h1 class="mt-2 text-dark" style="font-weight: bold; font-size: 1.5rem;">{{ $company->name }}</h1>
           <div class="text-secondary">
             {{ $company->tagline }}
           </div>
@@ -18,7 +18,7 @@
       </div>
       </a>
   
-      <div class="pl-5 h-100-rm mt-3-rm flex-grow-1" style="font-size: 1.5rem; font-weight: bold;">
+      <div class="pl-5-rm h-100-rm mt-3-rm flex-grow-1" style="font-size: 1.5rem; font-weight: bold;">
         {{-- Top menu --}}
         @if (true)
           <div class="d-flex flex-column justify-content-center h-100">
