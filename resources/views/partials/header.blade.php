@@ -1,11 +1,15 @@
 <div class="sticky-top bg-white border">
 
   <div class="container-fluid p-0 bg-warning-rm">
-    <div class="d-flex justify-content-between h-100 bg-info-rm">
+    <div class="d-flex justify-content-between h-100 bg-info-rm pl-2">
+
+
+
+
       <div class="d-flex">
-        <div class="mr-4">
+        <div class="mr-4 d-flex flex-column justify-content-center">
           <a href="{{ route('website-home') }}">
-            <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
+            <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 40px;">
           </a>
         </div>
         <div class="mt-3 d-none d-md-block mr-5">
