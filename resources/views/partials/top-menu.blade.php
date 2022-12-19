@@ -12,7 +12,7 @@
         @endphp
 
         @foreach ($productCategories as $productCategory)
-          <li class="nav-item text-white mr-3 pr-3 border">
+          <li class="nav-item text-white mr-3 pr-3 border-rm">
             <a class="nav-link text-secondary" href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
               {{ $productCategory->name }}
               <span class="sr-only">(current)</span>

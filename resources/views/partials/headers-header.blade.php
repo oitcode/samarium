@@ -19,22 +19,22 @@
     </div>
 
 
+    @if (false)
     {{-- Linkedin --}}
     <div class="float-right mr-3">
       <i class="fab fa-linkedin text-primary mr-2 fa-2x"></i>
     </div>
 
-    @if (false)
     {{-- Twitter Link --}}
     <div class="float-right mr-3">
       <i class="fab fa-twitter text-primary mr-2 fa-2x"></i>
     </div>
-    @endif
 
     {{-- FB Link --}}
     <div class="float-right mr-3">
       <i class="fab fa-facebook text-primary mr-2 fa-2x"></i>
     </div>
+    @endif
 
     {{-- Phone --}}
     <div class="float-right mr-4">
