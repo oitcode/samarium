@@ -4,16 +4,23 @@
   </div>
   {{-- Show in bigger screens --}}
   <div class="d-none d-md-block h-100">
-    <div class="card h-100 shadow">
+    <div class="card h-100 shadow-sm border-0">
 
       <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-        <div class="p-0">
-          <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="Card image cap" style="{{--max-height: 100px; max-width:
-          100px;--}}">
+        <div class="d-flex flex-column justify-content-center" style="height: 150px;">
+          <div class="d-flex justify-content-center bg-warning-rm">
+            <img class="img-fluid-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="Product image" style="max-height: 100px; {{--max-width: 100px;--}}">
+          </div>
         </div>
-        <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto">
+
+        <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
           <div class="p-2">
-            <div class="mb-1">
+            <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
+              <h2 class="h6 mt-2 mb-2" style="color: #004; font-family: Arial;">
+                {{ $product->name }}
+              </h2>
+            </a>
+            <div class="mb-1" style="font-size: 0.7rem;">
               <i class="far fa-star" style="color: orange;"></i>
               <i class="far fa-star" style="color: orange;"></i>
               <i class="far fa-star" style="color: orange;"></i>
@@ -23,16 +30,25 @@
                 (0) reviews
               </span>
             </div>
-            <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
-              <h2 class="h3 mt-2 mb-2" style="color: #004; font-family: Arial; font-weight: bold;">
-                {{ $product->name }}
-              </h2>
-            </a>
-            <div class="h5 text-secondary text-left">
+            <div class="h5 text-dark text-left" style="font-weight: bold;">
               Rs.
               @php echo number_format( $product->selling_price ); @endphp
             </div>
+            @if (rand()%2 == 0)
+            <div class="h6 text-dark text-left">
+              Free shipping
+            </div>
+            @endif
+            @if (rand()%2 == 0)
+            <div class="h6 text-dark text-left">
+              Discount
+              <span class="text-success">
+                50%
+              </span>
+            </div>
+            @endif
           </div>
+          @if (false)
           <div class="mb-4 px-2">
             <button class="btn btn-success mt-3 p-3 px-3" wire:click.prevent="addItemToCart({{ $product->product_id }})">
               <span class="h5">
@@ -40,6 +56,7 @@
               </span>
             </button>
           </div>
+          @endif
         </div>
       </div>
 

@@ -1,5 +1,9 @@
 <div>
-  <div class="my-3 text-scondary">
+  <div class="mb-3 text-secondary">
+    Home > {{ $productCategory->name }}
+  </div>
+
+  <div class="my-3 mb-4 text-scondary">
     Displaying
     {{ count($productCategory->products) }}
     out of
@@ -56,7 +60,7 @@
     @if (count($productCategory->products) > 0)
       <div class="row" wire:key="{{ rand() }}">
         @foreach ($productCategory->products as $product)
-          <div class="col-md-4 mb-4">
+          <div class="col-md-3 mb-4">
             @livewire ('website-product-list-display', ['product' => $product,])
           </div>
         @endforeach
