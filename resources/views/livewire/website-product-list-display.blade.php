@@ -47,6 +47,12 @@
               </span>
             </div>
             @endif
+            <div>
+              <span class="btn p-0" wire:click.prevent="addItemToCart({{ $product->product_id }})">
+                <i class="fas fa-plus-circle mr-1"></i>
+                Cart
+              </span>
+            </div>
           </div>
           @if (false)
           <div class="mb-4 px-2">

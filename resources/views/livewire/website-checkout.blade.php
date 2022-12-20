@@ -1,12 +1,12 @@
 <div class="container my-4">
-    <h2 class="text-secondary">
-      Checkout
-    </h2>
 
     @if (session()->has('cart'))
     <div class="row">
-      <div class="col-md-6">
-        <div class="table-responsive">
+      <div class="col-md-6 bh-white">
+        <h3 class="text-secondary mb-3" style="font-family: Arial;">
+          Shopping cart
+        </h3>
+        <div class="table-responsive bg-white border">
           <table class="table">
             <thead>
               <tr>
@@ -37,9 +37,9 @@
             </tbody>
 
             <tfoot>
-              <tr style="font-size: 1.3rem;">
+              <tr style="font-size: 1rem;">
                 <th colspan="3" class="text-right">
-                  Grand Total
+                  Total
                 </th>
                 <td>
                   @php echo number_format( $cartTotalAmount ); @endphp
@@ -59,45 +59,31 @@
             </button>
           </div>
         @endif
-        <div class="card">
-          <div class="card-header p-3" style="{{--background-color: maroon;--}}">
+        <div class="card border-0">
+          <div class="card-body">
             <div class="text-secondary">
               <h3>
-                Customer details
+                Checkout
               </h3>
             </div>
-          </div>
-          <div class="card-body">
-            <div class="mb-3">
-              <label>
-                <i class="fas fa-phone mr-2"></i>
-                Phone
-                @error ('phone')
-                  <span class="text-danger ml-4">
-                    {{ $message }}
-                  </span>
-                @enderror
-              </label>
-              <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; font-size: 1.5rem; color: #555;" wire:model.defer="phone">
+            <div class="form-group">
+              <input class="form-control p-3 w-100" type="text"
+                  style="height: 50px; width: 100%; font-size: 1rem; color: #555;"
+                  placeholder="Phone"
+                  wire:model.defer="phone">
             </div>
 
-            <div class="mb-3">
-              <label>
-                <i class="fas fa-map-marker-alt mr-2"></i>
-                Address
-                @error ('address')
-                  <span class="text-danger ml-4">
-                    {{ $message }}
-                  </span>
-                @enderror
-              </label>
-              <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; font-size: 1.5rem; color: #555;" wire:model.defer="address">
+            <div class="form-group">
+              <input class="form-control p-3 w-100" type="text"
+                  style="height: 50px; width: 100%; font-size: 1rem; color: #555;"
+                  placeholder="Address"
+                  wire:model.defer="address">
             </div>
 
             <div class="row" style="">
               <div class="col-md-6">
                 <button class="btn btn-success mr-3 w-100" wire:click="store" style="font-size: 1.3rem;">
-                  <i class="fas fa-shopping-cart mr-3"></i>
+                  <i class="fas fa-check-circle mr-3"></i>
                   CONFIRM
                 </button>
               </div>
