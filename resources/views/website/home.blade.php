@@ -1,5 +1,8 @@
 @extends ('website.base')
 
+@section ('googleAnalyticsTag')
+@endsection
+
 @section ('fbOgMetaTags')
 <meta property="og:url"                content="{{ Request::url() }}" />
 <meta property="og:type"               content="article" />
