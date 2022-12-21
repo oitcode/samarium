@@ -121,7 +121,10 @@
       All rights reserved
     </div>
     <div>
-      Powered by WebCms
+      Website developed by
+      <a href="https://oit.com.np">
+        OIT
+      </a>
       <i class="fas fa-check-circle ml-2"></i> 
     </div>
   </div>
