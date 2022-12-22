@@ -2,7 +2,7 @@
 
   <div class="row mb-5">
     <div class="col-md-6">
-      <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="Card image cap">
+      <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}">
     </div>
     <div class="col-md-6 py-3">
       <h2 class="ml-2 mb-4" style="font-weight: bold;">
