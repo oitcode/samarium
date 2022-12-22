@@ -2,39 +2,47 @@
 
   <div class="row mb-5">
     <div class="col-md-6">
-      <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}">
+      <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 250px;">
     </div>
     <div class="col-md-6 py-3">
-      <h2 class="ml-2 mb-4" style="font-weight: bold;">
+      <h1 class="h4 ml-2 mb-3" style="font-weight: bold;">
         {{ $product->name }}
-      </h2>
-      <h3 class="h4 ml-2 mb-4" style="font-weight: bold;">
+      </h1>
+      <h3 class="h3 ml-2 mb-3" style="font-weight: bold;">
         Rs.
         @php echo number_format( $product->selling_price ); @endphp
       </h3>
       <hr />
-      <h3 class="h4 ml-2 mb-3 text-secondary border-top-rm border-bottom-rm">
+      <p class="h5 ml-2 mb-3 text-secondary border-top-rm border-bottom-rm">
         {{ $product->description }}
-      </h3>
+      </p>
       <hr />
-      <div class="mt-3 mb-3 py-3">
-        <div class="text-secondary mb-2">
-          Quantity
+      <div class="d-flex">
+        <div class="mt-3-rm mb-3-rm pb-3 mr-4">
+          <div class="text-secondary mb-2">
+            Quantity
+          </div>
+          <input type="text" class="py-1" style="font-size: 1.1rem;">
         </div>
-        <input type="text" class="py-2">
+        <div class="flex-grow-1 bg-warning-rm">
+          <div class="h-100 d-flex flex-column justify-content-center">
+            <button class="btn btn-primary btn-block py-3" style="background-color: #004; font-family: Arial;">
+              <span class="h5">
+                ADD TO CART
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
-      <button class="btn btn-primary btn-block py-3" style="font-family: Arial;">
-        <span class="h5">
-          ADD TO CART
-        </span>
-      </button>
       {{-- You may also like section --}}
+      @if (false)
       <div class="my-5 py-3 border-top border-bottom">
         <h2 class="h5 text-center" style="font-family: Arial;">
         MORE INFORMATION
         <i class="fas fa-angle-right ml-3"></i>
         </h2>
       </div>
+      @endif
     </div>
   </div>
   @if (false)
