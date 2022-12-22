@@ -55,6 +55,21 @@
   {{-- You may also like section --}}
   <div class="mb-5">
     <h2 class="text-center" style="font-family: Arial;">YOU MAY ALSO LIKE</h2>
+
+    <div class="row">
+      <div class="col-md-3">
+          @livewire ('website-product-list-display', ['product' => \App\Product::where('product_id', 1)->first(), ])
+      </div>
+      <div class="col-md-3">
+          @livewire ('website-product-list-display', ['product' => \App\Product::where('product_id', 2)->first(), ])
+      </div>
+      <div class="col-md-3">
+          @livewire ('website-product-list-display', ['product' => \App\Product::where('product_id', 3)->first(), ])
+      </div>
+      <div class="col-md-3">
+          @livewire ('website-product-list-display', ['product' => \App\Product::where('product_id', 4)->first(), ])
+      </div>
+    </div>
   </div>
 
 </div>
