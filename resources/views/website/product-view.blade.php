@@ -1,5 +1,12 @@
 @extends ('website.base')
 
+@section ('pageTitleTag')
+  <title>
+    {{ $product->name }}
+    {{ env ('CMP_NAME', 'Foobiz') }}
+  </title>
+@endsection
+
 @section ('googleAnalyticsTag')
 @endsection
 

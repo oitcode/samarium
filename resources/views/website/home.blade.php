@@ -1,7 +1,15 @@
 @extends ('website.base')
 
+@section ('pageTitleTag')
+  <title>
+    {{ env ('HOME_PAGE_TITLE', '') }}
+    {{ env ('CMP_NAME', 'Foobiz') }}
+  </title>
+@endsection
+
 @section ('googleAnalyticsTag')
 @endsection
+
 
 @section ('fbOgMetaTags')
 <meta property="og:url"                content="{{ Request::url() }}" />
