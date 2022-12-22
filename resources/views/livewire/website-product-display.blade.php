@@ -1,5 +1,11 @@
 <div>
 
+  <div class="py-2 text-secondary mb-4" style="font-size: 1.15rem;">
+    {{ $product->productCategory->name }}
+    >
+    {{ $product->name }}
+  </div>
+
   <div class="row mb-5">
     <div class="col-md-6">
       <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 250px;">
@@ -34,29 +40,8 @@
           </div>
         </div>
       </div>
-      {{-- You may also like section --}}
-      @if (false)
-      <div class="my-5 py-3 border-top border-bottom">
-        <h2 class="h5 text-center" style="font-family: Arial;">
-        MORE INFORMATION
-        <i class="fas fa-angle-right ml-3"></i>
-        </h2>
-      </div>
-      @endif
     </div>
   </div>
-  @if (false)
-  <div class="p-3">
-    <div class="row">
-      <div class="col-md-6">
-        <h2 class="my-3">
-          Order / Inquiry
-        </h2>
-        @livewire ('website-product-order', ['product' => $product,])
-      </div>
-    </div>
-  </div>
-  @endif
 
   <hr class="mb-5"/>
 
