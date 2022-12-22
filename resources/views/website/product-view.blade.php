@@ -1,13 +1,14 @@
 @extends ('website.base')
 
 @section ('pageTitleTag')
-  <title>
-    {{ $product->name }}
-    {{ env ('CMP_NAME', 'Foobiz') }}
-  </title>
+  <title>{{ $product->name }} {{ env ('CMP_NAME', 'Foobiz') }}</title>
 @endsection
 
 @section ('googleAnalyticsTag')
+@endsection
+
+@section ('pageDescriptionTag')
+  <meta name="description" content="{{ $product->name }}, Price: Rs {{ $product->selling_price }}">
 @endsection
 
 @section ('fbOgMetaTags')
