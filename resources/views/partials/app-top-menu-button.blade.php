@@ -1,4 +1,4 @@
-<div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
+<div class="float-left text-white-rm border-right-rm" style="font-size: 1.3rem;">
   <a href="{{ route($btnRoute) }}"
       class="btn
              @if(Route::current()->getName() == $btnRoute)
