@@ -21,7 +21,7 @@ class WebpageContent extends Model
     protected $primaryKey = 'webpage_content_id';
 
     protected $fillable = [
-         'webpage_id', 'body', 'image_path',
+         'webpage_id', 'position', 'title', 'body', 'image_path',
     ];
 
 

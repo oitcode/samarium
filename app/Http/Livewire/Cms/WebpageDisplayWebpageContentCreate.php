@@ -36,6 +36,7 @@ class WebpageDisplayWebpageContentCreate extends Component
 
         $image_path = $this->image->store('webpage-content', 'public');
         $validatedData['image_path'] = $image_path;
+        $validatedData['webpage_id'] = $this->webpage->webpage_id;
 
         DB::beginTransaction();
 

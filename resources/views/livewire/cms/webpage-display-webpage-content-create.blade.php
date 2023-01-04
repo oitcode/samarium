@@ -21,5 +21,5 @@
   </div>
 
   <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
-  <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreate')">Cancel</button>
+  <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreateWebpageContent')">Cancel</button>
 </div>
