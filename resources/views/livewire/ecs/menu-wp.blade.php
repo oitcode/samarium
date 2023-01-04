@@ -10,7 +10,10 @@
         <div class="py-3 pl-4">
           <a href="{{ route('website-home') }}" class="text-decoration-none">
             <h1 style="color: #004; font-family: Arial; font-weight: bold;">
+              @if (false)
               <i class="fas fa-check-circle mr-3"></i>
+              @endif
+              <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
               {{ $company->name }}
             </h1>
           </a>
