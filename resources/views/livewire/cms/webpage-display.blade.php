@@ -25,7 +25,7 @@
   <div class="" style="font-size: 1.3rem;">
     @foreach ($webpage->webpageContents as $webpageContent)
       @if ($webpageContent->webpage_content_type == 'heading')
-        {!! $webpageContent->content !!}
+        {{ $webpageContent->content }}
       @endif
     @endforeach
   </div>

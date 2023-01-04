@@ -15,12 +15,6 @@
 
 @section ('content')
 
-  <div class="container-fluid mt-4">
-    <div class="container">
-      <h2>{{ $webpage->name }}</h2>
-    </div>
-  </div>
-  
   @php
     $i = 0;
   @endphp
@@ -37,7 +31,7 @@
                 @if ($webpageContent->webpage_content_type == 'image')
                   <img src="{{ asset('storage/' . $webpageContent->content) }}" class="img-fluid">
                 @else
-                  {!! $webpageContent->content !!}
+                  {{ $webpageContent->content }}
                 @endif
               </div>
             @else
@@ -45,7 +39,7 @@
                 @if ($webpageContent->webpage_content_type == 'image')
                   <img src="{{ asset('storage/' . $webpageContent->content) }}" class="img-fluid">
                 @else
-                  {!! $webpageContent->content !!}
+                  {{ $webpageContent->content }}
                 @endif
               </div>
             @endif
