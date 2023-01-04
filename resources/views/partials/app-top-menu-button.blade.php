@@ -8,7 +8,9 @@
                text-secondary
              @endif
           p-3">
+    @if (false)
     <i class="{{ $iconFaClass}} mr-2"></i>
-    {{ $btnText }}
+    @endif
+    {{ strtoupper($btnText) }}
   </a>
 </div>

@@ -7,6 +7,12 @@
   </div>
 
   <div class="my-3">
+    <div>
+      Permalink: {{ $webpage->permalink }}
+    </div>
+  </div>
+
+  <div class="my-3">
     <button class="btn border mr-3" wire:click="enterMode('createWebpageContent')">
       <i class="fas fa-plus-circle mr-2"></i>
     </button>
