@@ -3,13 +3,16 @@
 }
 
 .o-overlaid {
-    background-image: url("../img/bg-image-1.jpg");
+    background-image: url("../img/img-1.jpg");
 }
 
 .o-overlay {
-   background-color: rgba(0, 0, 50, 0.8);
+   background-color: rgba(0, 0, 50, 0.4);
 }
 
 .o-top-page-banner {
-    background-image: url("../img/bg-image-3.jpg");
+    background-image: url("../img/australia_1.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
 }

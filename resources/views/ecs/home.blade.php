@@ -2,6 +2,7 @@
 
 @section ('content')
 
+@if (false)
 <div class="container my-4">
   <div class="row">
 
@@ -94,6 +95,7 @@
   </div>
  
 </div>
+@endif
 
 <div>
   @livewire ('ecs.contact-component')
