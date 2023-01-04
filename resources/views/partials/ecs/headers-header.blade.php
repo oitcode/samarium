@@ -18,23 +18,20 @@
       </span>
     </div>
 
-
-    {{-- Linkedin --}}
-    <div class="float-right mr-3">
-      <i class="fab fa-linkedin text-primary mr-2 fa-2x"></i>
-    </div>
-
-    @if (false)
-    {{-- Twitter Link --}}
-    <div class="float-right mr-3">
-      <i class="fab fa-twitter text-primary mr-2 fa-2x"></i>
-    </div>
+    @if ($company->fb_link)
+      <div class="float-right mr-3">
+        <a href="{{ $company->fb_link }}" target="_blank">
+          <i class="fab fa-facebook text-primary fa-2x mr-2 "></i>
+        </a>
+      </div>
     @endif
-
-    {{-- FB Link --}}
-    <div class="float-right mr-3">
-      <i class="fab fa-facebook text-primary mr-2 fa-2x"></i>
-    </div>
+    @if ($company->twitter_link)
+      <div class="float-right mr-3">
+        <a href="{{ $company->twitter_link }}" target="_blank">
+          <i class="fab fa-twitter text-primary fa-2x mr-2 "></i>
+        </a>
+      </div>
+    @endif
 
     {{-- Phone --}}
     <div class="float-right mr-4">
@@ -43,7 +40,6 @@
         {{ $company->phone }}
       </span>
     </div>
-
 
     <div class="clearfix">
     </div>

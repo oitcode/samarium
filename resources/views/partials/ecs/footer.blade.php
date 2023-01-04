@@ -1,10 +1,12 @@
 <div>
-  <div class="row">
+  <div class="d-flex justify-content-center">
   
-    <div class="col-md-4" style="font-size: 1.3rem;">
+    <div class="col-md-4-rm" style="font-size: 1.3rem;">
+      @if (false)
       <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
         Address
       </div>
+      @endif
       <div class="mb-2">
         <i class="fas fa-map-marker-alt mr-3"></i>
         {{ $company->name }}
@@ -22,44 +24,20 @@
         {{ $company->address }}
       </div>
       <div>
-        @if (true)
-          <a href="" target="_blank">
-            <div class="float-left text-info" style="">
-              <i class="fab fa-facebook mr-3 fa-2x"></i>
-            </div>
+        @if ($company->fb_link)
+          <a href="{{ $company->fb_link }}" target="_blank">
+            <i class="fab fa-facebook text-white fa-2x mr-2 "></i>
           </a>
         @endif
-        @if (false)
-          <a href="" target="_blank">
-            <div class="float-left text-info" style="">
-              <i class="fab fa-twitter mr-3 fa-2x"></i>
-            </div>
-          </a>
-        @endif
-        @if (true)
-          <a href="" target="_blank">
-            <div class="float-left text-info" style="">
-              <i class="fab fa-linkedin mr-3 fa-2x"></i>
-            </div>
-          </a>
-        @endif
-        @if (false)
-          <a href="" target="_blank">
-            <div class="float-left text-danger" style="">
-              <i class="fab fa-youtube mr-3 fa-2x"></i>
-            </div>
-          </a>
-        @endif
-        @if (false)
-          <a href="" target="_blank">
-            <div class="float-left text-danger" style="">
-              <i class="fab fa-tiktok mr-3 fa-2x"></i>
-            </div>
+        @if ($company->twitter_link)
+          <a href="{{ $company->twitter_link }}" target="_blank">
+            <i class="fab fa-twitter text-white fa-2x mr-2 "></i>
           </a>
         @endif
       </div>
     </div>
   
+    @if (false)
     <div class="col-md-3">
       <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
         Services
@@ -151,13 +129,14 @@
       </div>
     </div>
     @endif
+    @endif
   </div>
 
   <hr />
-
-  <div class="text-center-rm mt-4">
+  @if (false)
+  <div>
     &copy; 2022 | {{ $company->name }} | All rights reserved
-        
-        
   </div>
+  @endif
+
 </div>

@@ -8,7 +8,7 @@
 
       <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
           <div class="d-flex justify-content-center bg-warning-rm">
-            <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="Product image" style="max-height: 150px; {{--max-width: 100px;--}}">
+            <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
           </div>
 
         <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
