@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Cms;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 
 use App\WebpageContent;
@@ -14,8 +15,8 @@ class WebpageDisplayWebpageContentCreate extends Component
     public $webpage;
 
     public $position;
-    public $content_type;
-    public $content;
+    public $title;
+    public $body;
     public $image;
 
     public function render()
@@ -25,68 +26,26 @@ class WebpageDisplayWebpageContentCreate extends Component
 
     public function store()
     {
-        $this->position = $this->getHighestPosition() + 1;
+        $validatedData = $this->validate([
+            'title' => 'nullable',
+            'body' => 'required',
+            'image' => 'required|image'
+        ]);
 
-        if ($this->content_type == 'heading') {
-            $this->createHeading();
-        } else if ($this->content_type == 'paragraph') {
-            $this->createParagraph();
-        } else if ($this->content_type == 'image') {
-            $this->createImage();
-        } else if ($this->content_type == 'image_and_paragraph') {
-            $this->createImageAndParagraph();
-        } else {
-          dd($this->content_type) ;
-          dd('What the cms...') ;
+        $validatedData['position'] = $this->getHighestPosition();
+
+        $image_path = $this->image->store('webpage-content', 'public');
+        $validatedData['image_path'] = $image_path;
+
+        DB::beginTransaction();
+
+        try {
+            $webpageContent = WebpageContent::create($validatedData);
+            DB::commit();
+            $this->emit('webpageContentAdded');
+        } catch (\Exception $e) {
+            DB::rollback();
         }
-
-        $this->emit('webpageContentAdded');
-    }
-
-    public function createHeading()
-    {
-        $webpageContent = new WebpageContent;
-
-        $webpageContent->webpage_id = $this->webpage->webpage_id;
-        $webpageContent->position = $this->position;
-        $webpageContent->webpage_content_type = 'heading';
-        $webpageContent->content= '<h2>' . $this->content . '</h2>';
-
-        $webpageContent->save();
-    }
-
-    public function createParagraph()
-    {
-        $webpageContent = new WebpageContent;
-
-        $webpageContent->webpage_id = $this->webpage->webpage_id;
-        $webpageContent->position = $this->position;
-        $webpageContent->webpage_content_type = 'paragraph';
-        $webpageContent->content= '<p>' . $this->content . '</p>';
-
-        $webpageContent->save();
-    }
-
-    public function createImage()
-    {
-        $webpageContent = new WebpageContent;
-
-        $webpageContent->webpage_id = $this->webpage->webpage_id;
-        $webpageContent->position = $this->position;
-        $webpageContent->webpage_content_type = 'image';
-
-        if ($this->image) {
-            $imagePath = $this->image->store('webpageImages', 'public');
-        }
-
-        $webpageContent->content = $imagePath;
-
-        $webpageContent->save();
-    }
-
-    public function createImageAndParagraph()
-    {
-        //
     }
 
     public function getHighestPosition()

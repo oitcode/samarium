@@ -15,40 +15,72 @@
 
 @section ('content')
 
+@if (!is_null($webpage->webpageContents) && count($webpage->webpageContents) > 0)
+
+  {{-- To track odd/even content --}}
   @php
     $i = 0;
   @endphp
+
   @foreach ($webpage->webpageContents as $webpageContent)
-    @if ($i % 2 == 0)
-    <div class="container-fluid border py-4">
-    @else
-    <div class="container-fluid bg-light border py-4">
-    @endif
-      <div class="container" style="font-size: 1.2rem;">
-          <div class="row my-4">
+
+    <div class="container-fluid bg-white p-0 border-rm" 
+        style="font-size: 1.2em;
+          {{--
+          @if ($i % 2 == 1 )
+            /* background-image:url({{ asset('img/cool-2.jpg') }}); */
+          @else
+            background-image:url({{ asset('img/cool-4.jpg') }});
+          @endif
+            background-size: cover;
+            background-position: center;
+            --}}
+        ">
+
+
+        <div class="container py-5">
+          <div class="row d-flex">
             @if ($i % 2 == 0)
-              <div class="col-md-6 text-dark">
-                @if ($webpageContent->webpage_content_type == 'image')
-                  <img src="{{ asset('storage/' . $webpageContent->content) }}" class="img-fluid">
-                @else
-                  {{ $webpageContent->content }}
-                @endif
+              <div class="col-md-6 justify-content-center align-self-center" style="font-size: 1.1em !important;">
+                <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
+                  {{ $webpageContent->title}}
+                </h2>
+                <p class="text-secondary">
+                  {{ $webpageContent->body}}
+                </p>
+              </div>
+              <div class="col-md-6">
+                <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
               </div>
             @else
               <div class="col-md-6">
-                @if ($webpageContent->webpage_content_type == 'image')
-                  <img src="{{ asset('storage/' . $webpageContent->content) }}" class="img-fluid">
-                @else
-                  {{ $webpageContent->content }}
-                @endif
+                <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
+              </div>
+              <div class="col-md-6 justify-content-center align-self-center" style="font-size: 1.1em !important;">
+                <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
+                  {{ $webpageContent->title}}
+                </h2>
+                <p class="text-secondary">
+                  {{ $webpageContent->body}}
+                </p>
               </div>
             @endif
           </div>
-      </div>
+        </div>
+
     </div>
+
     @php
       $i++;
     @endphp
+
   @endforeach
+@else
+  <div class="container py-5">
+    <h2>
+      COMING SOON!!
+    </h2>
+  </div>
+@endif
 
 @endsection

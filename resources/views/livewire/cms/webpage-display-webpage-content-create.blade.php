@@ -1,65 +1,25 @@
-<div class="card">
-  <div class="card-body" style="font-size: 1.3rem;">
-  
-    <h3 class="h5 text-secondary">Add webpage content</h3>
-  
-    <div class="form-group">
-      <label for="">Content type</label>
-      <select
-          class="custom-control"
-          wire:model="content_type"
-          style="font-size: 1.3rem;"
-          rows="5">
-        <option>---</option>
-        <option value="heading">Heading</option>
-        <option value="paragraph">Paragraph</option>
-        <option value="image">Image</option>
-        <option value="paragraph_and_image">Paragraph & Image</option>
-      </select>
-      @error('content_type') <span class="text-danger">{{ $message }}</span> @enderror
-    </div>
+<div class="m-3">
+  <h2 class="h5">Create webpage content</h2>
 
-    @if ($content_type == 'heading')
-      <div class="form-group">
-        <label for="">Content</label>
-        <input
-            class="form-control"
-            wire:model.defer="content"
-            style="font-size: 1.3rem;">
-        @error('content') <span class="text-danger">{{ $message }}</span> @enderror
-      </div>
-    @elseif ($content_type == 'paragraph')
-      <div class="form-group">
-        <label for="">Content</label>
-        <textarea
-            class="form-control"
-            wire:model.defer="content"
-            style="font-size: 1.3rem;"
-            rows="5">
-        </textarea>
-        @error('content') <span class="text-danger">{{ $message }}</span> @enderror
-      </div>
-    @elseif ($content_type == 'image')
-      <div class="form-group">
-        <label for="">Image</label>
-        <input type="file" class="form-control" wire:model="image">
-        @error('image') <span class="text-danger">{{ $message }}</span> @enderror
-      </div>
-    @elseif ($content_type == 'paragraph_and_image')
-    @endif
-
-    <div class="mt-4" style="font-size: 1.3rem;">
-      <button type="submit"
-          class="btn btn-success" wire:click="store"
-          style="font-size: 1.3rem;">
-        Submit
-      </button>
-      <button type="submit"
-          class="btn btn-danger" wire:click="$emit('exitCreateWebpageContent')"
-          style="font-size: 1.3rem;">
-        Cancel
-      </button>
-    </div>
-  
+  <div class="form-group">
+    <label for="">Title</label>
+    <input type="text" class="form-control" wire:model.defer="title">
+    @error('title') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
+
+  <div class="form-group">
+    <label for="">Body</label>
+    <textarea rows="5" class="form-control" wire:model.defer="body">
+    </textarea>
+    @error('body') <span class="text-danger">{{ $message }}</span> @enderror
+  </div>
+
+  <div class="form-group">
+      <label for="">Image</label>
+      <input type="file" class="form-control" wire:model="image">
+      @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+  </div>
+
+  <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
+  <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreate')">Cancel</button>
 </div>
