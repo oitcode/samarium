@@ -77,8 +77,10 @@
   @endforeach
 @else
   <div class="container py-5">
-    <h2>
-      COMING SOON!!
+    <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
+    <h2 class="mt-5 text-secondary">
+      <i class="fas fa-exclamation-circle mr-2 text-danger"></i>
+      Content is coming soon.
     </h2>
   </div>
 @endif
