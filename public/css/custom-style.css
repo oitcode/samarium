@@ -7,12 +7,15 @@
 }
 
 .o-overlay {
-   background-color: rgba(0, 0, 50, 0.4);
+   background-color: rgba(0, 0, 0, 0.0);
 }
 
 .o-top-page-banner {
-    background-image: url("../img/australia_1.jpg");
-    background-size: contain;
+    /*
+    background-image: url("../img/hero-1.webp");
+    */
+    background-image: linear-gradient(to right, #800, #fff);
+    background-size: stretch;
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: top;
 }
