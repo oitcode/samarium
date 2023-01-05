@@ -166,6 +166,7 @@ Route::get('/ecs/menudemo', 'WebsiteController@menuDemo')->name('website-menu-de
 
 Route::get('/cms/webpage', 'CmsWebpageController@index')->name('dashboard-cms-webpage');
 Route::get('/cms/navMenu', 'CmsNavMenuController@index')->name('dashboard-cms-nav-menu');
+Route::get('/cms/theme', 'CmsThemeController@index')->name('dashboard-cms-theme');
 
 
 /*

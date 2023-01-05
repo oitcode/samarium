@@ -13,6 +13,10 @@
         <i class="fas fa-home text-secondary mr-2"></i>
         Nav menu
       </a>
+      <a class="dropdown-item" href="{{ route('dashboard-cms-theme') }}">
+        <i class="fas fa-check-circle text-secondary mr-2"></i>
+        Theme
+      </a>
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 @extends ('bia')
 
 @section ('pageAnnouncer')
-  <div class="continer-fluid o-top-page-banner">
+  <div class="continer-fluid o-top-page-banner-rm" style="background-image: linear-gradient(to right, {{ \App\CmsTheme::first()->top_header_color }}, #fff);">
     <div class="o-overlay text-white">
       <div class="container py-5">
       <h1 style="font-family: Arial;">

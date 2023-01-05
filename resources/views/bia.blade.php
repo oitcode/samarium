@@ -89,7 +89,8 @@
     @yield('content')
 
     {{-- Footer --}}
-    <div class="container-fluid {{ env('SITE_ECS_THEME_BS_CLASS') }} border pt-4 pb-5 text-white" style="background-color: #eee;">
+    <div class="container-fluid border pt-4 pb-5 text-white" style="background-color: {{
+    \App\CmsTheme::first()->footer_color }};">
       <div class="container">
         @include ('partials.ecs.footer')
       </div>
