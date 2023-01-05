@@ -1,4 +1,5 @@
 <div>
+  @if (false)
   <div class="container-fluid py-4 border">
     <div class="container">
       <h2 class="h3 text-secondary-rm">
@@ -6,38 +7,42 @@
       </h2>
     </div>
   </div>
+  @endif
   <div class="container-fluid bg-white border">
-  <div class="container py-4">
+  <div class="container py-5">
     <div class="row">
-      <div class="col-md-6 p-4 text-secondary-rm" style="font-size: 1.3rem;">
-          <div class="d-flex mb-3">
-            <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
+      <div class="col-md-6 p-4 text-secondary-rm" style="">
+          <div class="d-flex mb-4">
+            <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
             <div class="d-flex flex-column justify-content-center ml-3">
               <div class="mt-3">
               </div>
             </div>
           </div>
   
-          <p class="mb-2" style="font-size: 1.1rem;">
-            <i class="fas fa-map-marker-alt mr-3"></i>
-            {{ $company->address }}
+          <p class="mb-2" style="">
+            <i class="fas fa-map-marker-alt text-primary mr-3"></i>
+            <span class="text-secondary font-weight-bold" style="font-size: 1rem;">
+              {{ $company->address }}
+            </span>
           </p>
   
-          <p class="mb-2" style="font-size: 1.1rem;">
-            <i class="fas fa-phone mr-3"></i>
-            {{ $company->phone }}
+          <p class="mb-2" style="">
+            <i class="fas fa-phone text-primary mr-3"></i>
+            <span class="text-secondary font-weight-bold" style="font-size: 1rem;">
+              {{ $company->phone }}
+            </span>
           </p>
   
-          <p class="mb-2" style="font-size: 1.1rem;">
-            <i class="fas fa-envelope mr-3"></i>
-            {{ $company->email }}
+          <p class="mb-2" style="">
+            <i class="fas fa-envelope text-primary mr-3"></i>
+            <span class="text-secondary font-weight-bold" style="font-size: 1rem;">
+              {{ $company->email }}
+            </span>
           </p>
   
           @if (true)
-          <div class="mt-4" style="font-size: 1.3rem;">
-            <div class="mb-2">
-              Social media
-            </div>
+          <div class="mt-5" style="font-size: 1.3rem;">
             <div class="text-secondary my-3">
               Our social media pages
             </div>
@@ -45,7 +50,7 @@
               @if ($company->fb_link)
                 <a href="{{ $company->fb_link }}" target="_blank">
                   <div class="float-left text-primary" style="">
-                    <i class="fab fa-facebook mr-3 fa-2x"></i>
+                    <i class="fab fa-facebook mr-3 fa-4x"></i>
                   </div>
                 </a>
               @endif
@@ -83,9 +88,12 @@
           </div>
           @endif
       </div>
-      <div class="col-md-6 bg-white border py-4 shadow">
+      <div class="col-md-6 bg-white border py-4 shadow-lg">
         <div style="font-size: 1.3rem;">
-        Your message
+        <h2 class="h3 text-muted text-center">
+          <i class="far fa-check-circle text-muted mr-2"></i>
+          Send us a message
+          </h2>
         </div>
         <div class="p-3">
         
@@ -96,30 +104,26 @@
           @endif
         
           <div class="form-group">
-            <label for="">Name</label>
-            <input type="text" class="form-control" wire:model.defer="sender_name">
+            <input type="text" class="form-control" wire:model.defer="sender_name" placeholder="Name">
             @error('sender_name') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         
           <div class="form-group">
-            <label for="">Email Address</label>
-            <input type="email" class="form-control" wire:model.defer="sender_email">
+            <input type="email" class="form-control" wire:model.defer="sender_email" placeholder="Email">
             @error('sender_email') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         
           <div class="form-group">
-            <label for="">Phone</label>
-            <input type="text" class="form-control" wire:model.defer="sender_phone">
+            <input type="text" class="form-control" wire:model.defer="sender_phone" placeholder="Phone">
             @error('sender_phone') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         
           <div class="form-group">
-            <label for="">Message</label>
-            <textarea class="form-control" rows="3" wire:model.defer="message"></textarea>
+            <textarea class="form-control" rows="3" wire:model.defer="message" placeholder="Message"></textarea>
             @error('message') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         
-          <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
+          <button type="submit" class="btn btn-primary btn-block badge-pill py-3" wire:click="store">SEND MESSAGE</button>
         </div>
       </div>
     </div>
