@@ -7,7 +7,9 @@
       <h1 style="font-family: Arial;">
         {{ $webpage->name }}
       </h1>
+      @if (false)
       Home/AboutUs
+      @endif
       </div>
     </div>
   </div>
