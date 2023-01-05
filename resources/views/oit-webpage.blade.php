@@ -87,7 +87,10 @@
   </div>
 @endif
 
-<div>
+<div class="container bg-white pt-4">
+  <h2 class="h1 mt-3 mb-4 text-left text-secondary" style="color: #000; font-family: Arial; font-weight: bold;">
+    Any questions?
+  </h2>
   @livewire ('ecs.contact-component')
 </div>
 
