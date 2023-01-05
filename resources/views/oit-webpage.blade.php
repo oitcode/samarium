@@ -87,4 +87,8 @@
   </div>
 @endif
 
+<div>
+  @livewire ('ecs.contact-component')
+</div>
+
 @endsection
