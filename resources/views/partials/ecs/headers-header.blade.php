@@ -1,6 +1,6 @@
 {{-- Very top bar --}}
-<div class="container-fluid border bg-danger-rm d-none d-md-block" style="background-color: #d9f1ff;">
-  <div class="py-3 pl-4">
+<div class="container-fluid border bg-danger-rm d-none d-md-block" style="background-color: #e9f1ff;">
+  <div class="pt-3 pb-1 pl-4">
 
     {{-- Address --}}
     <div class="float-left mr-4">
