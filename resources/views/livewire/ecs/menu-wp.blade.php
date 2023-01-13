@@ -14,7 +14,18 @@
                 <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
               </div>
               <div class="d-flex flex-column justify-content-center bg-info-rm pt-3">
-                <h1 class="h3" style="color: #004; font-family: Arial; font-weight: bold;">
+                <h1 class="h3"
+                    style="
+                    color:
+                      @if (\App\CmsTheme::first())
+                        {{ \App\CmsTheme::first()->ascent_bg_color }}
+                      @else
+                        orange
+                      @endif
+                      ;
+                    font-family: Arial; font-weight: bold;
+                    "
+                >
                   {{ $company->name }}
                 </h1>
               </div>

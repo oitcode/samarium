@@ -130,7 +130,27 @@
             @error('message') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         
-          <button type="submit" class="btn btn-primary btn-block badge-pill py-3" wire:click="store">SEND MESSAGE</button>
+          <button type="submit"
+              class="btn btn-primary-rm btn-block badge-pill py-3"
+              wire:click="store"
+              style="
+                background-color:
+                  @if (\App\CmsTheme::first())
+                    {{ \App\CmsTheme::first()->ascent_bg_color }}
+                  @else
+                    orange
+                  @endif
+                  ;
+                color:
+                  @if (\App\CmsTheme::first())
+                    {{ \App\CmsTheme::first()->ascent_text_color }}
+                  @else
+                    white
+                  @endif
+                  ;
+              ">
+            SEND MESSAGE
+          </button>
         </div>
       </div>
     </div>

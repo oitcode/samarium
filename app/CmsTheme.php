@@ -21,6 +21,11 @@ class CmsTheme extends Model
     protected $primaryKey = 'cms_theme_id';
 
     protected $fillable = [
-         'name', 'top_header_color', 'footer_color', 'hero_image_path',
+         'name',
+         'ascent_bg_color', 'ascent_text_color',
+         'top_header_bg_color', 'top_header_text_color',
+         'footer_bg_color', 'footer_text_color',
+         'heading_color',
+         'hero_image_path',
     ];
 }

@@ -15,26 +15,86 @@
     @enderror
   </div>
 
-  {{-- Top header color --}}
+  {{-- Top header bg color --}}
   <div class="form-group">
-    <label for="">Top header color</label>
+    <label for="">Top header background color</label>
     <input type="text"
         class="form-control"
-        wire:model.defer="top_header_color"
+        wire:model.defer="top_header_bg_color"
         style="font-size: 1.3rem; max-width: 500px;">
-    @error('top_header_color')
+    @error('top_header_bg_color')
       <span class="text-danger">{{ $message }}</span>
     @enderror
   </div>
 
-  {{-- Footer color --}}
+  {{-- Top header text color --}}
   <div class="form-group">
-    <label for="">Footer color</label>
+    <label for="">Top header text color</label>
     <input type="text"
         class="form-control"
-        wire:model.defer="footer_color"
+        wire:model.defer="top_header_text_color"
         style="font-size: 1.3rem; max-width: 500px;">
-    @error('footer_color')
+    @error('top_header_text_color')
+      <span class="text-danger">{{ $message }}</span>
+    @enderror
+  </div>
+
+  {{-- Footer background color --}}
+  <div class="form-group">
+    <label for="">Footer background color</label>
+    <input type="text"
+        class="form-control"
+        wire:model.defer="footer_bg_color"
+        style="font-size: 1.3rem; max-width: 500px;">
+    @error('footer_bg_color')
+      <span class="text-danger">{{ $message }}</span>
+    @enderror
+  </div>
+
+  {{-- Footer text color --}}
+  <div class="form-group">
+    <label for="">Footer text color</label>
+    <input type="text"
+        class="form-control"
+        wire:model.defer="footer_text_color"
+        style="font-size: 1.3rem; max-width: 500px;">
+    @error('footer_text_color')
+      <span class="text-danger">{{ $message }}</span>
+    @enderror
+  </div>
+
+  {{-- Ascent bg color --}}
+  <div class="form-group">
+    <label for="">Ascent background color</label>
+    <input type="text"
+        class="form-control"
+        wire:model.defer="ascent_bg_color"
+        style="font-size: 1.3rem; max-width: 500px;">
+    @error('ascent_bg_color')
+      <span class="text-danger">{{ $message }}</span>
+    @enderror
+  </div>
+
+  {{-- Ascent text color --}}
+  <div class="form-group">
+    <label for="">Ascent text color</label>
+    <input type="text"
+        class="form-control"
+        wire:model.defer="ascent_text_color"
+        style="font-size: 1.3rem; max-width: 500px;">
+    @error('ascent_text_color')
+      <span class="text-danger">{{ $message }}</span>
+    @enderror
+  </div>
+
+  {{-- Heading color --}}
+  <div class="form-group">
+    <label for="">Heading color</label>
+    <input type="text"
+        class="form-control"
+        wire:model.defer="heading_color"
+        style="font-size: 1.3rem; max-width: 500px;">
+    @error('heading_color')
       <span class="text-danger">{{ $message }}</span>
     @enderror
   </div>
@@ -48,7 +108,13 @@
     @enderror
   </div>
 
-  <button class="btn btn-primary" wire:click="store">
-    Save
-  </button>
+  @if (\App\CmsTheme::first())
+    <button class="btn btn-primary" wire:click="update">
+      Update
+    </button>
+  @else
+    <button class="btn btn-primary" wire:click="store">
+      Save
+    </button>
+  @endif
 </div>

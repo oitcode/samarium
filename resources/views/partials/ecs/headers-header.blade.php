@@ -1,5 +1,13 @@
 {{-- Very top bar --}}
-<div class="container-fluid border bg-danger-rm d-none d-md-block" style="background-color: {{ \App\CmsTheme::first()->top_header_color }};">
+<div class="container-fluid border bg-danger-rm d-none d-md-block"
+    style="
+    background-color:
+        @if (\App\CmsTheme::first())
+          {{ \App\CmsTheme::first()->top_header_bg_color }}
+        @else
+          orange
+        @endif
+    ;">
   <div class="pt-3 pb-1 pl-4">
 
     {{-- Address --}}

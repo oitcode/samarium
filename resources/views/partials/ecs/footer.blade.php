@@ -26,7 +26,16 @@
       <div>
         @if ($company->fb_link)
           <a href="{{ $company->fb_link }}" target="_blank">
-            <i class="fab fa-facebook text-white fa-2x mr-2 "></i>
+            <i class="fab fa-facebook fa-2x mr-2 "
+                style="
+                  color:
+                      @if (\App\CmsTheme::first())
+                        {{ \App\CmsTheme::first()->footer_text_color }}
+                      @else
+                        white
+                      @endif
+                      ;
+                "></i>
           </a>
         @endif
         @if ($company->twitter_link)

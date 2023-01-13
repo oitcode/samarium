@@ -1,10 +1,27 @@
 @extends ('bia')
 
 @section ('pageAnnouncer')
-  <div class="continer-fluid o-top-page-banner-rm" style="background-image: linear-gradient(to right, {{ \App\CmsTheme::first()->top_header_color }}, #fff);">
+  <div class="continer-fluid o-top-page-banner-rm"
+      style="background-image:
+          linear-gradient(to right,
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->top_header_bg_color }}
+            @else
+              orange
+            @endif
+          , #fff)
+      ;">
     <div class="o-overlay text-white">
       <div class="container py-5">
-      <h1 style="font-family: Arial;">
+      <h1
+          style="color:
+                @if (\App\CmsTheme::first())
+                  {{ \App\CmsTheme::first()->top_header_text_color }}
+                @else
+                  white
+                @endif
+                ;
+      ">
         {{ $webpage->name }}
       </h1>
       @if (false)

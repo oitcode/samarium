@@ -16,8 +16,17 @@ class CreateCmsThemeTable extends Migration
         Schema::create('cms_theme', function (Blueprint $table) {
             $table->bigIncrements('cms_theme_id');
             $table->string('name');
-            $table->string('top_header_color');
-            $table->string('footer_color');
+
+            $table->string('ascent_bg_color');
+            $table->string('ascent_text_color');
+
+            $table->string('top_header_bg_color');
+            $table->string('top_header_text_color');
+
+            $table->string('footer_bg_color');
+            $table->string('footer_text_color');
+
+            $table->string('heading_color');
             $table->string('hero_image_path');
 
             $table->timestamps();
