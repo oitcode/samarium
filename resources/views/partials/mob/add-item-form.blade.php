@@ -60,7 +60,7 @@
 
     {{-- Submit button --}}
     <div class="my-3">
-      <button class="btn btn-lg btn-success mr-3" wire:click.prevent="addItemToSeatTableBooking" style="font-size: 1.3rem;">
+      <button class="btn btn-lg btn-success mr-3" wire:click.prevent="addItemToSaleInvoice" style="font-size: 1.3rem;">
         <i class="fas fa-plus-circle mr-2"></i>
         Add
       </button>
