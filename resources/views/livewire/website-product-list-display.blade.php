@@ -32,18 +32,20 @@
               Rs.
               @php echo number_format( $product->selling_price ); @endphp
             </div>
-            @if (rand()%2 == 0)
-            <div class="h6 text-dark text-left">
-              Free shipping
-            </div>
-            @endif
-            @if (rand()%2 == 0)
-            <div class="h6 text-dark text-left">
-              Discount
-              <span class="text-success">
-                50%
-              </span>
-            </div>
+            @if (false)
+              @if (rand()%2 == 0)
+              <div class="h6 text-dark text-left">
+                Free shipping
+              </div>
+              @endif
+              @if (rand()%2 == 0)
+              <div class="h6 text-dark text-left">
+                Discount
+                <span class="text-success">
+                  50%
+                </span>
+              </div>
+              @endif
             @endif
             <div>
               <span class="btn p-0" wire:click.prevent="addItemToCart({{ $product->product_id }})">
