@@ -15,6 +15,7 @@
   </div>
 
   <!-- Flash message div -->
+  @if (false)
   @if (session()->has('yoho12'))
     <div class="p-2">
       <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -25,5 +26,6 @@
         </button>
       </div>
     </div>
+  @endif
   @endif
 </div>
