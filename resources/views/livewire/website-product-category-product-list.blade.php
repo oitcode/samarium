@@ -12,12 +12,13 @@
   </div>
 
   {{-- Show in smaller screens --}}
+  @if (false)
   <div class="d-md-none">
     <div class="table-responsive">
       <table class="table">
         <tbody>
           @foreach ($productCategory->products as $product)
-            <tr wire:key="{{ $loop->index }}">
+            <tr wire:key="{{ $loop->index * rand() }}">
               <td>
                 @if ($product->image_path)
                   <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 75px; height: 75px;">
@@ -42,10 +43,12 @@
               </td>
               <td>
                 <button href="" class="btn text-danger border-danger"
-                    wire:click="addItemToCartB({{ $product->product_id }})"
-                    wire:key="{{ $loop->index }}">
+                    wire:click="addItemToCart({{ $product->product_id }})"
+                    wire:key="{{ $loop->index }} * rand() ">
                   <i class="fas fa-shopping-cart"></i>
                   Cart
+                <span wire:loading class="spinner-border text-white" role="status" style="font-size: 0.8rem;">
+                </span>
                 </button>
               </td>
             </tr>
@@ -54,9 +57,10 @@
       </table>
     </div>
   </div>
+  @endif
 
   {{-- Show in bigger screens --}}
-  <div class="d-none d-md-block">
+  <div class="d-none-rm d-md-block-rm">
     @if (count($productCategory->products) > 0)
       <div class="row" wire:key="{{ rand() }}">
         @foreach ($productCategory->products as $product)

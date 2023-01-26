@@ -11,7 +11,7 @@ class WebsiteShoppingCartBadge extends Component
     public $total;
 
     protected $listeners = [
-        'itemAddedToCart' => 'render',
+        'itemAddedToCart',
     ];
 
     public function render()
@@ -40,5 +40,10 @@ class WebsiteShoppingCartBadge extends Component
         }
 
         return $total;
+    }
+
+    public function itemAddedToCart()
+    {
+        session()->flash('yoho12', 'Cart updated');
     }
 }

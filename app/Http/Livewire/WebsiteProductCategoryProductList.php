@@ -15,7 +15,7 @@ class WebsiteProductCategoryProductList extends Component
         return view('livewire.website-product-category-product-list');
     }
 
-    public function addItemToCartB($productId)
+    public function addItemToCart($productId)
     {
         $product = Product::findOrFail($productId);
 
@@ -35,5 +35,6 @@ class WebsiteProductCategoryProductList extends Component
         }
 
         $this->emit('itemAddedToCart');
+        dd ('Okla');
     }
 }

@@ -45,6 +45,7 @@
 
   <hr class="mb-5"/>
 
+  @if (true)
   {{-- You may also like section --}}
   <div class="mb-5">
     <h2 class="text-center" style="font-family: Arial;">YOU MAY ALSO LIKE</h2>
@@ -59,10 +60,13 @@
       <div class="col-md-3">
           @livewire ('website-product-list-display', ['product' => \App\Product::where('product_id', 3)->first(), ])
       </div>
+  @if (false)
       <div class="col-md-3">
           @livewire ('website-product-list-display', ['product' => \App\Product::where('product_id', 4)->first(), ])
       </div>
+  @endif
     </div>
   </div>
+  @endif
 
 </div>

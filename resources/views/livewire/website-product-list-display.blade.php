@@ -1,9 +1,11 @@
 <div class="h-100">
-  {{-- Show in bigger screens --}}
+  {{-- Show in smaller screens --}}
   <div class="d-md-none">
   </div>
+
   {{-- Show in bigger screens --}}
-  <div class="d-none d-md-block h-100">
+  <div class="d-none-rm d-md-block-rm h-100">
+
     <div class="card h-100 shadow-sm border-0">
 
       <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
@@ -52,7 +54,13 @@
                 <i class="fas fa-plus-circle mr-1"></i>
                 Cart
               </span>
+              {{-- Loading spinner --}}
+              <span wire:loading class="spinner-border text-info mr-3"
+                  role="status"
+                  style="font-size: 1rem;">
+              </span>
             </div>
+
           </div>
           @if (false)
           <div class="mb-4 px-2">
