@@ -46,13 +46,14 @@
   {{-- SMALLER SCREEN --}}
   <div class="d-md-none bg-white">
     <div class="container-fluid">
-      @if (false)
+      @if (true)
       @include ('partials.site-top-menu-mob')
       @endif
     </div>
   </div>
 
 </div>
+
 @if (false)
 <div class="container-fluid {{ env('SITE_ECS_THEME_BS_CLASS') }}">
 <div class="container">
