@@ -2,7 +2,7 @@
 
 @section ('content')
 
-<div class="container-fluid bg-light p-0" 
+<div class="container-fluid bg-light p-0 d-none d-md-block" 
   style="background-image: @if (\App\CmsTheme::first())
                              url({{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }})
                            @else
