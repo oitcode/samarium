@@ -14,15 +14,6 @@
         </div>
       </div>
     </a>
-
-    {{-- Shopping cart badge (checkout link) --}}
-    @if (true)
-      <div class="d-flex flex-column justify-content-center h-100">
-        @livewire ('website-shopping-cart-badge')
-      </div>
-    @else
-      TEST
-    @endif
   </div>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
