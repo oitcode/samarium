@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="" style="color: #004;">
+  <a class="navbar-brand" href="{{ route('website-home') }}" style="color: #004;">
   @if (false)
   <i class="fas fa-check-circle"></i>
   @endif
