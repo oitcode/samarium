@@ -150,9 +150,15 @@
   </div>
 
   <hr />
-  @if (false)
-  <div>
-    &copy; 2022 | {{ $company->name }} | All rights reserved
+  @if (true)
+  <div class="text-center">
+    <div>
+      &copy; 2023 | {{ $company->name }} | All rights reserved
+    </div>
+    <div>
+      Website developed by <a href="https://oit.com.np" target="_blank">OIT</a>
+      <i class="fas fa-check-circle ml-2"></i>
+    </div>
   </div>
   @endif
 
