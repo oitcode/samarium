@@ -8,20 +8,28 @@
       </div>
       @endif
       <div class="mb-2">
-        <i class="fas fa-map-marker-alt mr-3"></i>
-        {{ $company->name }}
+        <div class="d-flex">
+          <i class="fas fa-map-marker-alt mr-3"></i>
+          {{ $company->name }}
+        </div>
       </div>
       <div class="mb-1" style="font-size: 1rem;">
-        <i class="fas fa-phone mr-3"></i>
-        {{ $company->phone }}
+        <div class="d-flex">
+          <i class="fas fa-phone mr-3"></i>
+          {{ $company->phone }}
+        </div>
       </div>
       <div class="mb-1" style="font-size: 1rem;">
-        <i class="fas fa-envelope mr-3"></i>
-        {{ $company->email }}
+        <div class="d-flex">
+          <i class="fas fa-envelope mr-3"></i>
+          {{ $company->email }}
+        </div>
       </div>
       <div class="mb-4" style="font-size: 1rem;">
-        <i class="fas fa-map-marker-alt mr-3"></i>
-        {{ $company->address }}
+        <div class="d-flex">
+          <i class="fas fa-map-marker-alt mr-3"></i>
+          {{ $company->address }}
+        </div>
       </div>
       <div>
         @if ($company->fb_link)
