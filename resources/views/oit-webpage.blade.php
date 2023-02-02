@@ -9,8 +9,14 @@
             @else
               orange
             @endif
-          , #fff)
-      ;">
+          ,
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->top_header_bg_color }}
+            @else
+              orange
+            @endif
+          )
+  ;">
     <div class="o-overlay text-white">
       <div class="container py-5">
       <h1
