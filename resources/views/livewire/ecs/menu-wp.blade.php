@@ -14,7 +14,7 @@
                 <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
               </div>
               <div class="d-flex flex-column justify-content-center bg-info-rm pt-3">
-                <h1 class="h3"
+                <h1 class="h5"
                     style="
                     color:
                       @if (\App\CmsTheme::first())
