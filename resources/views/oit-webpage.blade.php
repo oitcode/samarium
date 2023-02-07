@@ -73,7 +73,7 @@
       $i = 0;
     @endphp
   
-    @foreach ($webpage->webpageContents as $webpageContent)
+    @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
   
       <div class="container-fluid bg-white p-0 border-rm" 
           style="font-size: 1.2em;

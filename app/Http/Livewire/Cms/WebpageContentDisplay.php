@@ -3,12 +3,23 @@
 namespace App\Http\Livewire\Cms;
 
 use Livewire\Component;
+use App\Traits\ModesTrait;
 
 use App\WebpageContent;
 
 class WebpageContentDisplay extends Component
 {
+    use ModesTrait;
+
     public $webpageContent;
+
+    public $modes = [
+        'edit' => false,
+    ];
+
+    protected $listeners = [
+        'webpageContentUpdated',
+    ];
 
     public function render()
     {
@@ -54,5 +65,10 @@ class WebpageContentDisplay extends Component
             ->first();
 
         return $nextItem;
+    }
+
+    public function webpageContentUpdated()
+    {
+        $this->exitMode('edit');
     }
 }

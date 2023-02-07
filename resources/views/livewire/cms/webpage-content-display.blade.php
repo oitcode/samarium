@@ -4,12 +4,15 @@
   <div class="text-muted mb-3" style="font-size: 0.7rem;">
     <i class="fas fa-arrow-down mr-2" wire:click="moveDown"></i>
     <i class="fas fa-arrow-up mr-2" wire:click="moveUp"></i>
-    <i class="fas fa-pencil-alt mr-2"></i>
+    <i class="fas fa-pencil-alt mr-2" wire:click="enterMode('edit')"></i>
     <i class="fas fa-trash mr-2" wire:click="deleteContent"></i>
   </div>
 
   {{-- Display the content --}}
 
+  @if ($modes['edit'])
+    @livewire ('cms.webpage-content-edit', ['webpageContent' => $webpageContent,])
+  @else
   <div class="container-fluid bg-white p-0 border-rm" 
       style="font-size: 1.2em;">
   
@@ -56,4 +59,5 @@
       </div>
   
   </div>
+  @endif
 </div>

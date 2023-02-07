@@ -22,7 +22,7 @@
     @livewire ('cms.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
   @else
     <div class="" style="">
-      @foreach ($webpage->webpageContents()->orderBy('position')->get() as $webpageContent)
+      @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
         @livewire ('cms.webpage-content-display', ['webpageContent' => $webpageContent,])
       @endforeach
     </div>
