@@ -19,6 +19,7 @@ class WebpageContentDisplay extends Component
 
     protected $listeners = [
         'webpageContentUpdated',
+        'exitWebpageContentEditMode',
     ];
 
     public function render()
@@ -68,6 +69,11 @@ class WebpageContentDisplay extends Component
     }
 
     public function webpageContentUpdated()
+    {
+        $this->exitMode('edit');
+    }
+
+    public function exitWebpageContentEditMode()
     {
         $this->exitMode('edit');
     }

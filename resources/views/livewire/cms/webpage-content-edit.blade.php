@@ -21,6 +21,6 @@
   </div>
 
   <button type="submit" class="btn btn-primary" wire:click="update">Submit</button>
-  <button type="submit" class="btn btn-danger" wire:click="$emit('exitEditWebpageContent')">Cancel</button>
+  <button type="submit" class="btn btn-danger" wire:click="$emit('exitWebpageContentEditMode')">Cancel</button>
   @endif
 </div>

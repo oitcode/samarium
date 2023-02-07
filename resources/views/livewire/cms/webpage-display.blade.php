@@ -23,7 +23,7 @@
   @else
     <div class="" style="">
       @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
-        @livewire ('cms.webpage-content-display', ['webpageContent' => $webpageContent,])
+        @livewire ('cms.webpage-content-display', ['webpageContent' => $webpageContent,], key(rand()))
       @endforeach
     </div>
   @endif
