@@ -48,6 +48,19 @@
 
     <div class="form-group">
       @if (false)
+      <label for="">Logo</label>
+      @endif
+      @if ($company->logo_image_path)
+        <div class="d-flex justify-content-start mb-3">
+          <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
+        </div>
+      @endif
+      <input type="file" class="form-control" wire:model="logo_image">
+      @error('logo_image') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
+      @if (false)
       <label for="">Name</label>
       @endif
       <input type="text" class="form-control" wire:model.defer="name" style="{{-- font-size: 1.3rem; --}}">
@@ -94,13 +107,6 @@
       @error('pan_number') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
-      @if (false)
-      <label for="">Logo</label>
-      @endif
-      <input type="file" class="form-control" wire:model="logo_image">
-      @error('logo_image') <span class="text-danger">{{ $message }}</span> @enderror
-    </div>
 
     <h2 class="h5 text-secondary mt-4 mb-3">
       Social Media Links
