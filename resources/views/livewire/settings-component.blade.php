@@ -1,5 +1,5 @@
 <div>
-  <div class="card">
+  <div class="card mb-5">
     <div class="card-header
         {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
         {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
@@ -378,6 +378,54 @@
         </div>
       </div>
 
+
+    </div>
+  </div>
+
+  {{-- Site type --}}
+  <div class="card">
+    <div class="card-header
+        {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+        {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+        ">
+
+      <h2 class="h4">
+        <i class="fas fa-cog mr-2"></i>
+        Site type
+      </h2>
+
+      <div wire:loading class="float-right">
+        <div class="spinner-border text-info mr-3" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+
+      <div class="clearfix">
+      </div>
+
+    </div>
+
+    <div class="card-body">
+
+      <div class="row">
+        <div class="col-md-4">
+          {{-- Site type --}}
+          <div class="my-3">
+            <h2 class="h6">
+              Site type
+            </h2>
+            <select>
+              <option value="ecomm">E-commerce</option>
+              <option value="cms">CMS</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+        {{-- Back date setting --}}
+        <div class="col-md-2">
+        </div>
+      </div>
 
     </div>
   </div>

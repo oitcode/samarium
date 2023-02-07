@@ -15,6 +15,8 @@ class WebpageDisplay extends Component
     protected $listeners = [
         'webpageContentAdded' => 'exitCreateWebpageContent',
         'exitCreateWebpageContent',
+        'webpageContentDeleted' => 'render',
+        'webpageContentPositionChanged' => 'render',
     ];
 
     public function render()

@@ -1,19 +1,18 @@
 <div>
   @if (true)
   <div class="mb-3">
-    <button class="btn btn-success-rm m-0 border shadow-sm" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('create')">
+    <button class="btn bg-white badge-pill btn-success-rm m-0 border shadow-sm" style="" wire:click="enterMode('create')">
       <i class="fas fa-plus-circle mr-3"></i>
       New
     </button>
 
-    <button class="btn btn-success-rm m-0 border shadow-sm" style="height: 100px; width: 225px; font-size: 1.5rem;" wire:click="enterMode('create')">
+    <button class="btn bg-white badge-pill btn-success-rm m-0 border shadow-sm" style="" wire:click="enterMode('create')">
       <i class="fas fa-list mr-3"></i>
       List
     </button>
 
     <button class="btn btn-warning m-0 float-right"
-        style="height: 100px; width: 225px; font-size: 1.5rem;"
-        wire:click="enterCreateMode">
+        style="">
       Nav menu
     </button>
 

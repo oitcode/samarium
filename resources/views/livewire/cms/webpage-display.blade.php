@@ -20,14 +20,13 @@
 
   @if ($modes['createWebpageContent'])
     @livewire ('cms.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
+  @else
+    <div class="" style="">
+      @foreach ($webpage->webpageContents()->orderBy('position')->get() as $webpageContent)
+        @livewire ('cms.webpage-content-display', ['webpageContent' => $webpageContent,])
+      @endforeach
+    </div>
   @endif
 
-  <div class="" style="font-size: 1.3rem;">
-    @foreach ($webpage->webpageContents as $webpageContent)
-      @if ($webpageContent->webpage_content_type == 'heading')
-        {{ $webpageContent->content }}
-      @endif
-    @endforeach
-  </div>
 
 </div>

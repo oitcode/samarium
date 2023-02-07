@@ -1,6 +1,35 @@
 <div class="m-3">
+  @if (false)
   <h2 class="h5">Create webpage content</h2>
+  @endif
 
+  @if (false)
+  <div>
+    <button class="btn btn-light mr-2">
+      Heading
+    </button>
+    <button class="btn btn-light mr-2">
+      Paragraph
+    </button>
+    <button class="btn btn-light mr-2">
+      Image
+    </button>
+    <button class="btn btn-light mr-2">
+      Video
+    </button>
+    <button class="btn btn-light mr-2">
+      List
+    </button>
+    <button class="btn btn-light mr-2">
+      Button
+    </button>
+    <button class="btn btn-light mr-2">
+      Html
+    </button>
+  </div>
+  @endif
+
+  @if (true)
   <div class="form-group">
     <label for="">Title</label>
     <input type="text" class="form-control" wire:model.defer="title">
@@ -22,4 +51,5 @@
 
   <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
   <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreateWebpageContent')">Cancel</button>
+  @endif
 </div>

@@ -129,4 +129,11 @@ class NavMenuDisplay extends Component
         $this->editingDropdown = $cmsNavMenuItem;
         $this->enterMode('createNavMenuDropdownItem');
     }
+
+    public function deleteCmsNavMenuItem(CmsNavMenuItem $cmsNavMenuItem)
+    {
+        $cmsNavMenuItem->delete();
+
+        $this->render();
+    }
 }
