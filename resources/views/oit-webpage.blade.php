@@ -127,9 +127,11 @@
   
     @endforeach
   @else
-    <div class="container py-5">
+    <div class="container py-4 d-flex">
+      @if (false)
       <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
-      <h2 class="mt-5 text-secondary">
+      @endif
+      <h2 class="mt-3 text-secondary">
         <i class="fas fa-exclamation-circle mr-2 text-danger"></i>
         Content is coming soon.
       </h2>
@@ -137,8 +139,8 @@
   @endif
 @endif
 
-<div class="container bg-white pt-4">
-  <h2 class="h1 mt-3 mb-4 text-left text-secondary" style="color: #000; font-family: Arial; font-weight: bold;">
+<div class="container bg-white pt-2">
+  <h2 class="h2 bg-warning-rm mt-3 mb-1-rm pl-4 text-left text-secondary" style="color: #000; font-family: Arial; font-weight: bold;">
     Any questions?
   </h2>
   @livewire ('ecs.contact-component')

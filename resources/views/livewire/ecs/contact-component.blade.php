@@ -9,7 +9,7 @@
   </div>
   @endif
   <div class="container-fluid bg-white border-rm">
-  <div class="container py-5">
+  <div class="container pt-3 pb-5">
     <div class="row">
       <div class="col-md-6 p-4 text-secondary-rm" style="">
           <div class="d-flex mb-4">
