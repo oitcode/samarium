@@ -21,7 +21,7 @@
         ])
   @endcan
 
-  @if (env('SITE_TYPE') == 'erp')
+  @if (true || env('SITE_TYPE') == 'erp')
     @can ('is-admin')
       @if (env('CMP_TYPE') == 'shop')
         @include ('partials.app-left-menu-button',
@@ -83,7 +83,7 @@
             'btnText' => 'Weekbook',
         ])
 
-    @if (env('SITE_TYPE') == 'erp')
+    @if (true || env('SITE_TYPE') == 'erp')
       @include ('partials.app-left-menu-button',
           [
               'btnRoute' => 'customer',

@@ -1,12 +1,12 @@
 <div>
   @if (true)
   <div class="mb-3">
-    <button class="btn btn-success-rm m-0 border shadow-sm" style="" wire:click="enterMode('create')">
-      <i class="fas fa-plus-circle mr-3"></i>
-      New
+    <button class="btn btn-success badge-pill m-0 border shadow-sm" style="" wire:click="enterMode('create')">
+      <i class="fas fa-plus-circle mr-1"></i>
+      New webpage
     </button>
 
-    <button class="btn btn-success-rm m-0 border shadow-sm" style="" wire:click="enterMode('create')">
+    <button class="btn btn-success-rm m-0 border shadow-sm" style="" wire:click="enterMode('list')">
       <i class="fas fa-list mr-3"></i>
       List
     </button>

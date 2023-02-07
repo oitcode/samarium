@@ -1,9 +1,21 @@
 <div class="p-2 bg-white border">
+    @if (false)
     <h2 class="text-secondary">
       Nav Menu
     </h2>
+    @endif
 
-    {{ $cmsNavMenu->name }}
+    <div class="p-2 d-flex justify-content-between">
+      <h2 class="h4 text-secondary">
+        <i class="fas fa-arrow-right mr-2"></i>
+        {{ $cmsNavMenu->name }}
+      </h2>
+      <div wire:loading>
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
 
     <div class="my-3">
       <button class="btn btn-success border badge-pill" wire:click="enterMode('createNavMenuItem')">

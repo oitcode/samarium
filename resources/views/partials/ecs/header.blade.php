@@ -3,6 +3,7 @@
   <div class="{{ env('SITE_ECS_THEME_BS_CLASS') }}" style="height:3px;">
   </div>
 
+  {{-- Show in bigger screens --}}
   <div class="container-fluid border bg-primary-rm text-white-rm d-none d-md-block">
     <div class="container py-1">
       <div class="float-left mr-5 mt-2" style="font-size: 1rem; font-weight: bold;">

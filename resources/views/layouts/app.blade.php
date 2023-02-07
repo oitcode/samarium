@@ -32,7 +32,7 @@
     <!-- Livewire -->
     @livewireStyles
 </head>
-<body>
+<body style="background-color: #fff;">
   <div class="mb-5">
     <div class="row">
       {{-- App left menu --}}
