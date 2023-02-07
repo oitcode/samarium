@@ -102,7 +102,8 @@ class CompanyComponent extends Component
 
         $company->update($validatedData);
 
-        $this->render();
+        session()->flash('message', 'Updated');
 
+        $this->render();
     }
 }
