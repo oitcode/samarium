@@ -9,6 +9,7 @@
                text-secondary
              @endif
              @endif
+          font-weight-bold
           p-3"
           
           style="
