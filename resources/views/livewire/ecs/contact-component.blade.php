@@ -57,7 +57,7 @@
               @if ($company->fb_link)
                 <a href="{{ $company->fb_link }}" target="_blank">
                   <div class="float-left text-primary" style="">
-                    <i class="fab fa-facebook mr-3 fa-4x"></i>
+                    <i class="fab fa-facebook mr-3 fa-2x"></i>
                   </div>
                 </a>
               @endif

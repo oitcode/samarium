@@ -131,6 +131,11 @@
   {{-- Hero image --}}
   <div class="form-group">
     <label for="">Hero image</label>
+    @if (\App\CmsTheme::first() && \App\CmsTheme::first()->hero_image_path)
+      <div class="d-flex justify-content-start mb-3">
+        <img src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}" class="img-fluid" style="height: 50px;">
+      </div>
+    @endif
     <input type="file" class="form-control" wire:model="hero_image">
     @error('hero_image')
       <span class="text-danger">{{ $message }}</span>
