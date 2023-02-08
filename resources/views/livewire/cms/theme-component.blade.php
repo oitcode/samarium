@@ -1,19 +1,48 @@
 <div class="p-3 bg-white border">
-  <h2 class="h3">
+  <div class="mb-4">
+    @if (\App\CmsTheme::first())
+      <button class="btn btn-success badge-pill p-2 px-3" wire:click="update">
+        <i class="fas fa-save mr-1"></i>
+        Update
+      </button>
+    @else
+      <button class="btn btn-success" wire:click="store">
+        Save
+      </button>
+    @endif
+  </div>
+
+  @if (session()->has('message'))
+    {{-- Flash message div --}}
+    <div class="p-2">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle mr-3"></i>
+        {{ session('message') }}
+        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+          <span class="text-success" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  @endif
+
+  <h2 class="h5 text-secondary">
     Theme settings
   </h2>
 
   {{-- Top header color --}}
-  <div class="form-group">
-    <label for="">Theme name</label>
-    <input type="text"
-        class="form-control"
-        wire:model.defer="name"
-        style="font-size: 1.3rem; max-width: 500px;">
-    @error('name')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
-  </div>
+  @if (\App\CmsTheme::first())
+  @else
+    <div class="form-group">
+      <label for="">Theme name</label>
+      <input type="text"
+          class="form-control"
+          wire:model.defer="name"
+          style="">
+      @error('name')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
+    </div>
+  @endif
 
   {{-- Top header bg color --}}
   <div class="form-group">
@@ -21,7 +50,7 @@
     <input type="text"
         class="form-control"
         wire:model.defer="top_header_bg_color"
-        style="font-size: 1.3rem; max-width: 500px;">
+        style="">
     @error('top_header_bg_color')
       <span class="text-danger">{{ $message }}</span>
     @enderror
@@ -33,7 +62,7 @@
     <input type="text"
         class="form-control"
         wire:model.defer="top_header_text_color"
-        style="font-size: 1.3rem; max-width: 500px;">
+        style="">
     @error('top_header_text_color')
       <span class="text-danger">{{ $message }}</span>
     @enderror
@@ -45,7 +74,7 @@
     <input type="text"
         class="form-control"
         wire:model.defer="footer_bg_color"
-        style="font-size: 1.3rem; max-width: 500px;">
+        style="">
     @error('footer_bg_color')
       <span class="text-danger">{{ $message }}</span>
     @enderror
@@ -57,7 +86,7 @@
     <input type="text"
         class="form-control"
         wire:model.defer="footer_text_color"
-        style="font-size: 1.3rem; max-width: 500px;">
+        style="">
     @error('footer_text_color')
       <span class="text-danger">{{ $message }}</span>
     @enderror
@@ -69,7 +98,7 @@
     <input type="text"
         class="form-control"
         wire:model.defer="ascent_bg_color"
-        style="font-size: 1.3rem; max-width: 500px;">
+        style="">
     @error('ascent_bg_color')
       <span class="text-danger">{{ $message }}</span>
     @enderror
@@ -81,7 +110,7 @@
     <input type="text"
         class="form-control"
         wire:model.defer="ascent_text_color"
-        style="font-size: 1.3rem; max-width: 500px;">
+        style="">
     @error('ascent_text_color')
       <span class="text-danger">{{ $message }}</span>
     @enderror
@@ -93,7 +122,7 @@
     <input type="text"
         class="form-control"
         wire:model.defer="heading_color"
-        style="font-size: 1.3rem; max-width: 500px;">
+        style="">
     @error('heading_color')
       <span class="text-danger">{{ $message }}</span>
     @enderror
@@ -108,13 +137,16 @@
     @enderror
   </div>
 
-  @if (\App\CmsTheme::first())
-    <button class="btn btn-primary" wire:click="update">
-      Update
-    </button>
-  @else
-    <button class="btn btn-primary" wire:click="store">
-      Save
-    </button>
-  @endif
+  <div class="my-3 mt-4">
+    @if (\App\CmsTheme::first())
+      <button class="btn btn-success badge-pill p-2 px-3" wire:click="update">
+        <i class="fas fa-save mr-1"></i>
+        Update
+      </button>
+    @else
+      <button class="btn btn-success" wire:click="store">
+        Save
+      </button>
+    @endif
+  </div>
 </div>

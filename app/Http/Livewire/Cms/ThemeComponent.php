@@ -86,6 +86,6 @@ class ThemeComponent extends Component
 
         $cmsTheme->update($validatedData);
 
-        dd('Theme updated');
+        session()->flash('message', 'Theme updated');
     }
 }
