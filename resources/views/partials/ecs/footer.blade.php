@@ -47,8 +47,8 @@
           </a>
         @endif
         @if ($company->twitter_link)
-          <a href="{{ $company->twitter_link }}" target="_blank">
-            <i class="fab fa-twitter text-white fa-2x mr-2 "></i>
+          <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
+            <i class="fab fa-twitter fa-2x mr-2 "></i>
           </a>
         @endif
       </div>
