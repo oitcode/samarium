@@ -1,3 +1,78 @@
+<div class="container p-3">
+  <div class="d-flex justify-content-between">
+    <div>
+      <a href="{{ route('website-home') }}" class="text-decoration-none text-reset">
+        <div class="d-flex">
+          <div class="bg-warning-rm mr-3">
+            <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
+          </div>
+          <div class="d-flex flex-column justify-content-center bg-info-rm pt-3">
+            <h1 class="h4"
+                style="
+                color:
+                  @if (\App\CmsTheme::first())
+                    {{ \App\CmsTheme::first()->ascent_bg_color }}
+                  @else
+                    orange
+                  @endif
+                  ;
+                font-family: Arial; font-weight: bold;
+                "
+            >
+              {{ $company->name }}
+            </h1>
+            <h2 class="h6">
+              {{ $company->tagline }}
+            </h2>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="d-flex text-secondary">
+      <div>
+        <div class="mr-4">
+          <i class="fas fa-map-marker-alt text-white-rm mr-2"></i>
+          <span class="text-white-rm" style="font-family: Arial;">
+            {{ $company->address }}
+          </span>
+        </div>
+        <div class="mr-4">
+          <i class="fas fa-phone text-white-rm mr-2"></i>
+          <span class="text-white-rm" style="font-family: Arial;">
+            {{ $company->phone }}
+          </span>
+        </div>
+        <div class="mr-4">
+          <i class="fas fa-envelope text-white-rm mr-2"></i>
+          <span class="text-white-rm" style="font-family: Arial;">
+            {{ $company->email }}
+          </span>
+        </div>
+      </div>
+      <div class="d-flex mt-3">
+        @if ($company->fb_link)
+          <div class="mr-3">
+            <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">
+              <i class="fab fa-facebook text-reset fa-2x mr-2 "></i>
+              @if (false)
+              Facebook
+              @endif
+            </a>
+          </div>
+        @endif
+        @if ($company->twitter_link)
+          <div class="mr-3">
+            <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
+              <i class="fab fa-twitter text-white-rm fa-2x mr-2 "></i>
+            </a>
+          </div>
+        @endif
+      </div>
+    </div>
+  </div>
+</div>
+
+@if (false)
 {{-- Very top bar --}}
 <div class="container-fluid border bg-danger-rm d-none d-md-block"
     style="
@@ -22,7 +97,6 @@
       <i class="fas fa-map-marker-alt text-white-rm mr-2"></i>
       <span class="text-white-rm" style="font-family: Arial;">
         {{ $company->address }}
-        ola
       </span>
     </div>
 
@@ -64,3 +138,4 @@
     </div>
   </div>
 </div>
+@endif

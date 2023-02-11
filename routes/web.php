@@ -128,7 +128,7 @@ Route::get('/checkout', 'WebsiteController@checkout')->name('website-checkout');
  *
  *
  */
-if (env('SITE_TYPE') == 'ecs') {
+if (env('SITE_TYPE') == 'ecs' || env('SITE_TYPE') == 'school') {
     Route::get('/', 'WebsiteController@bia')->name('website-home');
     Route::get('/contactus', 'WebsiteController@contactUs')->name('website-ecs-contact-us');
     Route::get('/gallery', 'WebsiteController@gallery')->name('website-ecs-gallery');
@@ -167,6 +167,17 @@ Route::get('/ecs/menudemo', 'WebsiteController@menuDemo')->name('website-menu-de
 Route::get('/cms/webpage', 'CmsWebpageController@index')->name('dashboard-cms-webpage');
 Route::get('/cms/navMenu', 'CmsNavMenuController@index')->name('dashboard-cms-nav-menu');
 Route::get('/cms/theme', 'CmsThemeController@index')->name('dashboard-cms-theme');
+
+/*
+ *-----------------------------------------------------------------------------
+ * School
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+
+Route::get('/dashboard/school/calendar', 'SchoolCalendarController@index')->name('dashboard-school-calendar');
 
 
 /*

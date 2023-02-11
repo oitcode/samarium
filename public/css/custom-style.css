@@ -19,3 +19,7 @@
     background-repeat: no-repeat;
     background-position: top;
 }
+
+.o-btn-success-hover:hover {
+    background-color: blue;
+}

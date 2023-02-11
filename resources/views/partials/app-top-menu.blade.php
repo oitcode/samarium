@@ -40,8 +40,12 @@
     {{-- User related. Is placed on top right part. --}}
     @include ('partials.app-top-menu-user-dropdown')
 
+    @if (env('SITE_TYPE') == 'school')
+      @include ('partials.app-top-menu-school-dropdown')
+    @endif
+
     {{-- Todo: This could be moved somewhere else --}}
-    @if (env('SITE_TYPE') == 'ecs')
+    @if (env('SITE_TYPE') == 'ecs' || env('SITE_TYPE') == 'school')
       @include ('partials.app-top-menu-ecs-dropdown')
     @endif
 

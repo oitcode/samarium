@@ -4,9 +4,10 @@
 
   {{-- BIGGER SCREEN --}}
   <div class="d-none d-md-block">
-    <div class="container-fluid bg-white">
+    <div class="container bg-white">
       <div class="d-flex justify-content-between">
 
+        @if (false)
         <div class="py-3 pl-4">
           <a href="{{ route('website-home') }}" class="text-decoration-none">
             <div class="d-flex">
@@ -32,6 +33,7 @@
             </div>
           </a>
         </div>
+        @endif
 
         <div class="py-3">
           @if (true)

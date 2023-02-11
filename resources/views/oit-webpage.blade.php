@@ -65,6 +65,8 @@
     </div>
   </div>
 @elseif ($webpage->name == 'Contact us')
+@elseif ($webpage->name == 'Calendar')
+  @livewire ('school.cms.calendar-component')
 @else
   @if (!is_null($webpage->webpageContents) && count($webpage->webpageContents) > 0)
   
