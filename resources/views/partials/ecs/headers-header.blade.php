@@ -1,4 +1,4 @@
-<div class="container p-3">
+<div class="container p-3 d-none d-md-block">
   <div class="d-flex justify-content-between">
     <div>
       <a href="{{ route('website-home') }}" class="text-decoration-none text-reset">
