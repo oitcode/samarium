@@ -50,7 +50,7 @@
       @if (false)
       <label for="">Logo</label>
       @endif
-      @if ($company->logo_image_path)
+      @if ($company && $company->logo_image_path)
         <div class="d-flex justify-content-start mb-3">
           <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
         </div>
