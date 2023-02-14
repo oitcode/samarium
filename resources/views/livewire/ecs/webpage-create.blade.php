@@ -1,7 +1,13 @@
 <div class="card">
   <div class="card-body" style="font-size: 1.3rem;">
   
-    <h3 class="h5 text-secondary">Create new page</h3>
+    <h3 class="h5 text-secondary">
+      @if ($is_post == 'yes')
+        Create new post
+      @else
+        Create new page
+      @endif
+    </h3>
   
     <div class="form-group">
       <label for="">Name</label>
@@ -28,7 +34,14 @@
         Submit
       </button>
       <button type="submit"
-          class="btn btn-danger" wire:click="$emit('exitCreateMode')"
+          class="btn btn-danger"
+          wire:click="$emit(
+              @if ($is_post == 'yes')
+                'exitCreatePostMode'
+              @else
+                'exitCreateMode'
+              @endif
+          )"
           style="font-size: 1.3rem;">
         Cancel
       </button>

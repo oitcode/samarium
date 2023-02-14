@@ -3,10 +3,15 @@
 namespace App\Http\Livewire\Cms;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class WebpageDisplay extends Component
 {
+    use WithFileUploads;
+
     public $webpage;
+
+    public $featured_image;
 
     public $modes = [
         'createWebpageContent' =>false,
@@ -48,5 +53,18 @@ class WebpageDisplay extends Component
     public function exitCreateWebpageContent()
     {
         $this->exitMode('createWebpageContent');
+    }
+
+    public function addFeaturedImage()
+    {
+        $validatedData = $this->validate([
+            'featured_image' => 'required|image',
+        ]);
+
+        $image_path = $this->featured_image->store('webpage-content', 'public');
+        $this->webpage->featured_image_path = $image_path;
+        $this->webpage->save();
+
+        $this->render();
     }
 }

@@ -1,5 +1,5 @@
 <div>
-  @if (!is_null($webpages) && count($webpages) > 0)
+  @if (!is_null($posts) && count($posts) > 0)
     <div class="table-responsive">
       <table class="table table-hover table-bordered">
         <thead>
@@ -17,16 +17,13 @@
         </thead>
 
         <tbody class="bg-white">
-          @foreach ($webpages as $webpage)
-            @if ($webpage->is_post == 'yes')
-              @continue
-            @endif
-            <tr wire:click="$emit('displayWebpage', {{ $webpage->webpage_id }})" role="button">
+          @foreach ($posts as $post)
+            <tr wire:click="$emit('displayPost', {{ $post }})" role="button">
               <td>
-                {{ $webpage->name }}
+                {{ $post->name }}
               </td>
               <td>
-                {{ $webpage->permalink }}
+                {{ $post->permalink }}
               </td>
               <td>
                 <i class="fas fa-pencil-alt"></i>
@@ -37,6 +34,6 @@
       </table>
     </div>
   @else
-    No webpages
+    No posts
   @endif
 </div>

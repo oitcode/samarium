@@ -10,6 +10,7 @@ class WebpageCreate extends Component
 {
     public $name;
     public $permalink;
+    public $is_post = 'no';
 
     public function render()
     {
@@ -20,6 +21,7 @@ class WebpageCreate extends Component
     {
         $validatedData = $this->validate([
             'name' => 'required',
+            'is_post' => 'required',
             'permalink' => 'required',
         ]);
 

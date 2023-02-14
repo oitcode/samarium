@@ -4,24 +4,26 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WebpageContent extends Model
+class TeamMember extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'webpage_content';
+    protected $table = 'team_member';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'webpage_content_id';
+    protected $primaryKey = 'team_member_id';
 
     protected $fillable = [
-         'webpage_id', 'position', 'title', 'body', 'image_path', 'video_link',
+         'name', 'phone',
+         'email', 'comment',
+         'team_id', 'image_path',
     ];
 
 
@@ -32,11 +34,11 @@ class WebpageContent extends Model
      */
 
     /*
-     * webpage_content table.
+     * team table.
      *
      */
-    public function webpage()
+    public function team()
     {
-        return $this->belongsTo('App\Webpage', 'webpage_id', 'webpage_id');
+        return $this->belongsTo('App\Team', 'team_id', 'team_id');
     }
 }

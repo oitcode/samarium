@@ -49,6 +49,12 @@
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
+  <div class="form-group">
+      <label for="">Video</label>
+      <input type="text" class="form-control" wire:model="video_link">
+      @error('video_link') <span class="text-danger">{{ $message }}</span> @enderror
+  </div>
+
   <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
   <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreateWebpageContent')">Cancel</button>
   @endif

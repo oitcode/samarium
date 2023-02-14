@@ -6,8 +6,12 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
       <a class="dropdown-item" href="{{ route('dashboard-cms-webpage') }}">
-        <i class="fas fa-user text-secondary mr-2"></i>
+        <i class="fas fa-globe text-secondary mr-2"></i>
         Pages
+      </a>
+      <a class="dropdown-item" href="{{ route('dashboard-cms-post') }}">
+        <i class="fas fa-book text-secondary mr-2"></i>
+        Posts
       </a>
       <a class="dropdown-item" href="{{ route('dashboard-cms-nav-menu') }}">
         <i class="fas fa-home text-secondary mr-2"></i>
@@ -16,6 +20,10 @@
       <a class="dropdown-item" href="{{ route('dashboard-cms-theme') }}">
         <i class="fas fa-check-circle text-secondary mr-2"></i>
         Theme
+      </a>
+      <a class="dropdown-item" href="{{ route('dashboard-team') }}">
+        <i class="fas fa-users text-secondary mr-2"></i>
+        Team
       </a>
     </div>
   </div>

@@ -18,15 +18,44 @@
     </button>
   </div>
 
-  @if ($modes['createWebpageContent'])
-    @livewire ('cms.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
-  @else
-    <div class="" style="">
-      @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
-        @livewire ('cms.webpage-content-display', ['webpageContent' => $webpageContent,], key(rand()))
-      @endforeach
+  <div class="row">
+    <div class="col-md-8">
+      @if ($modes['createWebpageContent'])
+        @livewire ('cms.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
+      @else
+        <div class="" style="">
+          @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
+            @livewire ('cms.webpage-content-display', ['webpageContent' => $webpageContent,], key(rand()))
+          @endforeach
+        </div>
+      @endif
     </div>
-  @endif
+    <div class="col-md-4 border">
+      <h2 class="p-3">
+        Featured image
+      </h2>
 
+      @if ($webpage->featured_image_path)
+        <div>
+          <img src="{{ asset('storage/' . $webpage->featured_image_path) }}"
+              class="img-fluid rounded-circle-rm"
+              style=""
+          >
+        </div>
+      @else
+        <div class="form-group">
+            <label for="">Featured Image</label>
+            <input type="file" class="form-control" wire:model="featured_image">
+            @error('featured_image') <span class="text-danger">{{ $message }}</span> @enderror
+        </div>
+
+        <div class="my-2">
+          <button class="btn btn-success" wire:click="addFeaturedImage">
+            Save
+          </button>
+        </div>
+      @endif
+    </div>
+  </div>
 
 </div>

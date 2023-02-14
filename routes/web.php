@@ -93,6 +93,9 @@ Route::get('/dashboard/inventory', 'InventoryController@index')->name('dashboard
 /* Todo */
 Route::get('/dashboard/todo', 'TodoController@index')->name('dashboard-todo');
 
+/* Team */
+Route::get('/dashboard/team', 'TeamController@index')->name('dashboard-team');
+
 /*
  *-----------------------------------------------------------------------------
  * Website routes
@@ -167,6 +170,7 @@ Route::get('/ecs/menudemo', 'WebsiteController@menuDemo')->name('website-menu-de
 Route::get('/cms/webpage', 'CmsWebpageController@index')->name('dashboard-cms-webpage');
 Route::get('/cms/navMenu', 'CmsNavMenuController@index')->name('dashboard-cms-nav-menu');
 Route::get('/cms/theme', 'CmsThemeController@index')->name('dashboard-cms-theme');
+Route::get('/cms/post', 'CmsPostController@index')->name('dashboard-cms-post');
 
 /*
  *-----------------------------------------------------------------------------

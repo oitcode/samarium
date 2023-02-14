@@ -18,6 +18,7 @@ class WebpageDisplayWebpageContentCreate extends Component
     public $title;
     public $body;
     public $image;
+    public $video_link;
 
     public function render()
     {
@@ -28,25 +29,29 @@ class WebpageDisplayWebpageContentCreate extends Component
     {
         $validatedData = $this->validate([
             'title' => 'nullable',
-            'body' => 'required',
-            'image' => 'required|image'
+            'body' => 'nullable',
+            'image' => 'nullable|image',
+            'video_link' => 'nullable',
         ]);
 
         $validatedData['position'] = $this->getHighestPosition();
 
-        $image_path = $this->image->store('webpage-content', 'public');
-        $validatedData['image_path'] = $image_path;
+        if ($this->image) {
+            $image_path = $this->image->store('webpage-content', 'public');
+            $validatedData['image_path'] = $image_path;
+        }
+
         $validatedData['webpage_id'] = $this->webpage->webpage_id;
 
-        DB::beginTransaction();
+        //DB::beginTransaction();
 
-        try {
+        // try {
             $webpageContent = WebpageContent::create($validatedData);
-            DB::commit();
+            // DB::commit();
             $this->emit('webpageContentAdded');
-        } catch (\Exception $e) {
-            DB::rollback();
-        }
+        // } catch (\Exception $e) {
+        //     DB::rollback();
+        // }
     }
 
     public function getHighestPosition()
