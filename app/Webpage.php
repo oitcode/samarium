@@ -67,7 +67,7 @@ class Webpage extends Model
     public function getFirstPara()
     {
         foreach ($this->webpageContents as $webpageContent) {
-            if (!webpageContent->body) {
+            if ($webpageContent->body) {
                 return $webpageContent;
 
                 /* Really ?*/
