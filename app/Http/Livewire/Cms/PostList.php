@@ -12,7 +12,7 @@ class PostList extends Component
 
     public function render()
     {
-        $this->posts = Webpage::where('is_post', 'yes')->get();
+        $this->posts = Webpage::where('is_post', 'yes')->orderBy('webpage_id', 'DESC')->get();
 
         return view('livewire.cms.post-list');
     }

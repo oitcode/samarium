@@ -1,12 +1,26 @@
 @extends ('bia')
 
+@section ('googleAnalyticsTag')
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HM0G0V9JCQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HM0G0V9JCQ');
+</script>
+@endsection
+
 @section ('fbOgMetaTags')
 <meta property="og:url"                content="{{ Request::url() }}" />
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="{{ $webpage->name }}" />
 <meta property="og:description"        content="
     @if ($webpage->is_post == 'yes')
-      {{ $webpage->getFirstPara()->body }}
+      @if ($webpage->getFirstPara())
+        {{ $webpage->getFirstPara()->body }}
+      @endif
     @else
       {{ $webpage->name }}
     @endif

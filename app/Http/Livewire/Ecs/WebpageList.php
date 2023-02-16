@@ -10,7 +10,7 @@ class WebpageList extends Component
 {
     public function render()
     {
-        $this->webpages = Webpage::all();
+        $this->webpages = Webpage::orderBy('webpage_id', 'DESC')->all();
 
         return view('livewire.ecs.webpage-list');
     }
