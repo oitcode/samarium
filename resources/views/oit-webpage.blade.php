@@ -4,7 +4,13 @@
 <meta property="og:url"                content="{{ Request::url() }}" />
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="{{ $webpage->name }}" />
-<meta property="og:description"        content="{{ $webpage->name }}" />
+<meta property="og:description"        content="
+    @if ($webpage->is_post == 'yes')
+      {{ $webpage->getFirstPara()->body }}
+    @else
+      {{ $webpage->name }}
+    @endif
+" />
 <meta property="og:image"              content="
     @if ($webpage->featured_image_path)
       {{ asset('storage/' . $webpage->featured_image_path) }}

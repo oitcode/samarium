@@ -57,4 +57,23 @@ class Webpage extends Model
     {
         return $this->hasMany('App\WebpageContent', 'webpage_id', 'webpage_id');
     }
+
+
+    /*-------------------------------------------------------------------------
+     * Other methods
+     *-------------------------------------------------------------------------
+     *
+     */
+    public function getFirstPara()
+    {
+        foreach ($this->webpageContents as $webpageContent) {
+            if (!webpageContent->body) {
+                return $webpageContent;
+
+                /* Really ?*/
+                break;
+            }
+        }
+    }
+
 }
