@@ -1,5 +1,8 @@
 @extends ('bia')
 
+@section ('googleAnalyticsTag')
+@endsection
+
 @section ('content')
 
 <div class="container-fluid bg-light p-0 d-none d-md-block" 
