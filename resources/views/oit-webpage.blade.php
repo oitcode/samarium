@@ -1,15 +1,6 @@
 @extends ('bia')
 
 @section ('googleAnalyticsTag')
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HM0G0V9JCQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HM0G0V9JCQ');
-</script>
 @endsection
 
 @section ('fbOgMetaTags')
