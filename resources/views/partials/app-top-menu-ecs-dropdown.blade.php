@@ -25,6 +25,18 @@
         <i class="fas fa-users text-secondary mr-2"></i>
         Team
       </a>
+      <a class="dropdown-item" href="{{ route('dashboard-quick-contacts') }}">
+        <i class="fas fa-users text-secondary mr-2"></i>
+        Quick Contacts
+      </a>
+      <a class="dropdown-item" href="{{ route('dashboard-organizing-committee') }}">
+        <i class="fas fa-users text-secondary mr-2"></i>
+        Organizing Committee
+      </a>
+      <a class="dropdown-item" href="{{ route('dashboard-sponsors') }}">
+        <i class="fas fa-heart text-secondary mr-2"></i>
+        Sponsors
+      </a>
     </div>
   </div>
 </div>

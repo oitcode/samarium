@@ -28,6 +28,9 @@
         </h3>
       </div>
 
+      @include ('partials.team-display', ['team' => $team,])
+
+      @if (false)
       <div class="my-4">
         @if (count($team->teamMembers) > 0)
           @foreach ($team->teamMembers as $teamMember)
@@ -47,5 +50,6 @@
           </div>
         @endif
       </div>
+      @endif
     @endif
 </div>

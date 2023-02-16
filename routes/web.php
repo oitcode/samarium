@@ -205,3 +205,16 @@ Route::get('/dashboard/print/saleInvoice/{id}', 'PrintController@printSaleInvoic
  *
  */
 Route::get('/dashboard/vat', 'VatController@index')->name('dashboard-vat');
+
+
+/*
+ *-----------------------------------------------------------------------------
+ * BGC
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+Route::get('/dashboard/quick-contacts', 'BgcController@quickContacts')->name('dashboard-quick-contacts');
+Route::get('/dashboard/organizing-committee', 'BgcController@organizingCommittee')->name('dashboard-organizing-committee');
+Route::get('/dashboard/sponsors', 'BgcController@sponsors')->name('dashboard-sponsors');

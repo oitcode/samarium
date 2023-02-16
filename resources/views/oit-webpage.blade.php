@@ -5,7 +5,13 @@
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="{{ $webpage->name }}" />
 <meta property="og:description"        content="{{ $webpage->name }}" />
-<meta property="og:image"              content="{{ asset('storage/' . $webpage->featured_image_path) }}" />
+<meta property="og:image"              content="
+    @if ($webpage->featured_image_path)
+      {{ asset('storage/' . $webpage->featured_image_path) }}
+    @else
+      {{ asset('storage/' . $company->logo_image_path) }}
+    @endif
+"/>
 @endsection
 
 @section ('pageTitleTag')
@@ -21,34 +27,50 @@
 
 @section ('pageAnnouncer')
   <div class="continer-fluid o-top-page-banner-rm"
-      style="background-image:
-          linear-gradient(to right,
-            @if (\App\CmsTheme::first())
-              {{ \App\CmsTheme::first()->top_header_bg_color }}
-            @else
-              orange
-            @endif
-          ,
-            @if (\App\CmsTheme::first())
-              {{ \App\CmsTheme::first()->top_header_bg_color }}
-            @else
-              orange
-            @endif
-          )
+      style="
+      @if ($webpage->is_post == 'yes')
+      @else
+        background-image:
+            linear-gradient(to right,
+              @if (\App\CmsTheme::first())
+                {{ \App\CmsTheme::first()->top_header_bg_color }}
+              @else
+                orange
+              @endif
+            ,
+              @if (\App\CmsTheme::first())
+                {{ \App\CmsTheme::first()->top_header_bg_color }}
+              @else
+                orange
+              @endif
+            )
+      @endif
   ;">
-    <div class="o-overlay text-white">
+    <div class="o-overlay text-white-rm">
       <div class="container py-5">
       <h1
-          style="color:
-                @if (\App\CmsTheme::first())
-                  {{ \App\CmsTheme::first()->top_header_text_color }}
-                @else
-                  white
-                @endif
-                ;
-      ">
+          style="
+            @if ($webpage->is_post == 'yes')
+              color: #005;
+            @else
+                color:
+                      @if (\App\CmsTheme::first())
+                        {{ \App\CmsTheme::first()->top_header_text_color }}
+                      @else
+                        white
+                      @endif
+            @endif
+          ;">
         {{ $webpage->name }}
       </h1>
+      @if ($webpage->is_post == 'yes')
+        <div class="">
+          <i class="fas fa-clock mr-1"></i>
+          {{ $webpage->created_at->toDateString() }}
+          |
+          {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'nepali')  }}
+        </div>
+      @endif
       @if (false)
       Home/AboutUs
       @endif
@@ -93,6 +115,12 @@
       @include ('partials.team-block-display')
     </div>
   @endif
+@elseif ($webpage->name == 'Sponsors')
+  @if (\App\Team::where('name', 'Sponsors')->first())
+    <div class="container my-4">
+      @include ('partials.team-display', ['team' => \App\Team::where('name', 'Sponsors')->first(),])
+    </div>
+  @endif
 @elseif ($webpage->name == 'Organizing Committee')
   @if (\App\Team::where('name', 'Organizing Committee')->first())
     <div class="container my-4">
@@ -107,8 +135,10 @@
   @endif
 @elseif ($webpage->name == 'Calendar')
   @livewire ('school.cms.calendar-component')
+{{--
 @elseif ($webpage->name == 'Fixtures')
   @livewire ('school.cms.calendar-component')
+--}}
 @else
   @if ($webpage->is_post == 'yes')
     <div class="container my-2 py-2 border-top border-bottom">
@@ -180,7 +210,13 @@
                     </p>
                   @endif
                 </div>
-                <div class="col-md-6">
+                <div class="
+                  @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->description))
+                        col-md-12
+                  @else
+                    col-md-6
+                  @endif
+                ">
                   @if ($webpageContent->image_path)
                     <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
                   @endif

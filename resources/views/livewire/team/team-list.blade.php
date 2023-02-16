@@ -14,6 +14,7 @@
   </button>
 
   @if ($teams != null && count($teams) > 0)
+    @if (true)
     {{-- Show in bigger screens --}}
     <div class="table-responsive d-none d-md-block">
       <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
@@ -32,6 +33,9 @@
 
         <tbody class="bg-white">
           @foreach ($teams as $team)
+            @if ($team->name == 'Quick Contacts' || $team->name == 'Organizing Committee' || $team->name == 'Sponsors')
+              @continue
+            @endif
             <tr>
               <td>
                 @if ($team->image_path)
@@ -53,6 +57,7 @@
       </table>
 
     </div>
+    @endif
   @else
     <div class="p-2 text-secondary">
       <i class="fas fa-exclamation-circle mr-2"></i>
