@@ -1,5 +1,5 @@
 <div>
-  @if ($displayTeamName)
+  @if ($displayTeamName ?? true)
   <h3 class="my-4">
     {{ $team->name }}
   </h3>
