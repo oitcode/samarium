@@ -18,6 +18,7 @@
 
         <tbody class="bg-white">
           @foreach ($webpages as $webpage)
+            {{-- Todo: This needs to be in Controller/Livewire php file --}}
             @if ($webpage->is_post == 'yes')
               @continue
             @endif
