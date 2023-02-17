@@ -25,7 +25,9 @@ class WebpageCreate extends Component
             'permalink' => 'required',
         ]);
 
-        $validatedData['permalink'] = '/posts/' . date('Y-m-d') . '/' . rand(10000, 99999);
+        if ($validatedData['is_post'] == 'yes') {
+            $validatedData['permalink'] = '/posts/' . date('Y-m-d') . '/' . rand(10000, 99999);
+        }
 
         Webpage::create($validatedData);
 
