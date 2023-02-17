@@ -76,7 +76,7 @@
       </h1>
       @if ($webpage->is_post == 'yes')
         <div class="">
-          <i class="fas fa-clock mr-1"></i>
+          <i class="far fa-clock text-primary mr-1"></i>
           {{ $webpage->created_at->toDateString() }}
           |
           {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'nepali')  }}
@@ -198,7 +198,7 @@
           ">
   
   
-          <div class="container py-5">
+          <div class="container py-3">
             <div class="row d-flex">
               
                 
@@ -216,13 +216,13 @@
                     </h2>
                   @endif
                   @if ($webpageContent->body)
-                    <p class="text-secondary">
+                    <p class="@if ($webpage->is_post == 'yes') text-dark @else text-danger @endif">
                       {{ $webpageContent->body}}
                     </p>
                   @endif
                 </div>
                 <div class="
-                  @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->description))
+                  @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->body))
                         col-md-12
                   @else
                     col-md-6
@@ -250,7 +250,7 @@
                     </h2>
                   @endif
                   @if ($webpageContent->body)
-                    <p class="text-secondary">
+                    <p class="@if ($webpage->is_post == 'yes') text-dark @else text-danger @endif">
                       {{ $webpageContent->body}}
                     </p>
                   @endif

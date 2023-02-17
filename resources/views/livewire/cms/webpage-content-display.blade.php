@@ -31,10 +31,12 @@
               </p>
             </div>
             <div class="col-md-6">
-              <img src="{{ asset('storage/' . $webpageContent->image_path) }}"
-                  class="img-fluid rounded-circle-rm"
-                  style=""
-              >
+              @if ($webpageContent->image_path)
+                <img src="{{ asset('storage/' . $webpageContent->image_path) }}"
+                    class="img-fluid rounded-circle-rm"
+                    style=""
+                >
+              @endif
             </div>
           {{--
           @else

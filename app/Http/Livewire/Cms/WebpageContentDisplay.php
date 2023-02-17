@@ -36,13 +36,27 @@ class WebpageContentDisplay extends Component
 
     public function moveUp()
     {
+        /* Skip for first item */
+        if ($this->webpageContent->position == $this->webpageContent->webpage->webpageContents()->orderBy('position', 'asc')->first()->position) {
+            return;
+        }
+
+        $previousItem = $this->getPreviousItem($this->webpageContent);
+
+        $temp = $previousItem->position;
+        $previousItem->position = $this->webpageContent->position;
+        $this->webpageContent->position = $temp;
+
+        $previousItem->save();
+        $this->webpageContent->save();
+
+        $this->emit('webpageContentPositionChanged');
     }
 
     public function moveDown()
     {
         /* Skip for last item */
         if ($this->webpageContent->position == $this->webpageContent->webpage->webpageContents()->orderBy('position', 'desc')->first()->position) {
-            dd ('Woof');
             return;
         }
 
@@ -66,6 +80,16 @@ class WebpageContentDisplay extends Component
             ->first();
 
         return $nextItem;
+    }
+
+    public function getPreviousItem(WebpageContent $webpageContent)
+    {
+        $previousItem = $webpageContent->webpage
+            ->webpageContents()->where('position', '<', $webpageContent->position)
+            ->orderBy('position', 'desc')
+            ->first();
+
+        return $previousItem;
     }
 
     public function webpageContentUpdated()
