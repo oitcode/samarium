@@ -3,6 +3,12 @@
 @section ('googleAnalyticsTag')
 @endsection
 
+@section ('pageTitleTag')
+  <title>
+    {{ $company->name }}
+  </title>
+@endsection
+
 @section ('fbOgMetaTags')
 <meta property="og:url"                content="{{ Request::url() }}" />
 <meta property="og:type"               content="article" />
@@ -27,6 +33,14 @@
   <div class="o-overlay py-5 h-100">
   </div>
 </div>
+
+@if (env('MODULES') == 'bgc')
+  @if (\App\Team::where('team_type', 'playing_team')->first())
+    <div class="container my-4">
+      @include ('partials.team-block-display')
+    </div>
+  @endif
+@endif
 
 <div>
   @livewire ('ecs.contact-component')
