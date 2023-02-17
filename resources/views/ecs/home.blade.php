@@ -3,6 +3,14 @@
 @section ('googleAnalyticsTag')
 @endsection
 
+@section ('fbOgMetaTags')
+<meta property="og:url"                content="{{ Request::url() }}" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="Home page of {{ $company->name }}" />
+<meta property="og:description"        content="All details of {{ $company->name }}" />
+<meta property="og:image"              content="{{ asset('storage/' . $company->logo_image_path) }}"/>
+@endsection
+
 @section ('content')
 
 <div class="container-fluid bg-light p-0 d-none d-md-block" 
