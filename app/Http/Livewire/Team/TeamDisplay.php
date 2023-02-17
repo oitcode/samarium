@@ -14,11 +14,13 @@ class TeamDisplay extends Component
 
     public $modes = [
         'createTeamMemberMode' => false,
+        'createTeamMembersFromCsvMode' => false,
     ];
 
     protected $listeners = [
         'exitCreateTeamMemberMode',
         'teamMemberCreated',
+        'exitAddNewTeamMembersFromFileMode',
     ];
 
     public function render()
@@ -34,5 +36,10 @@ class TeamDisplay extends Component
     public function teamMemberCreated()
     {
         $this->exitMode('createTeamMemberMode');
+    }
+
+    public function exitAddNewTeamMembersFromFileMode()
+    {
+        $this->exitMode('createTeamMembersFromCsvMode');
     }
 }

@@ -21,7 +21,7 @@ class Team extends Model
     protected $primaryKey = 'team_id';
 
     protected $fillable = [
-         'name', 'comment', 'image_path',
+         'name', 'team_type', 'comment', 'image_path',
     ];
 
 

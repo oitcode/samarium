@@ -1,5 +1,5 @@
 <div class="row">
-  @foreach (\App\Team::all() as $team)
+  @foreach (\App\Team::where('team_type', 'playing_team')->get() as $team)
     @if ($team->name != 'Organizing Committee' && $team->name != 'Quick Contacts' && $team->name != 'Sponsors')
       <div class="col-md-3 mb-4">
         <div class="card h-100 shadow-sm border-0">

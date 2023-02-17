@@ -15,6 +15,16 @@
     </div>
 
     <div class="form-group">
+      <label for="">Team type</label>
+      <select class="form-control" wire:model.defer="team_type">
+        <option>---</option>
+        <option value="playing_team">Playing Team</option>
+        <option value="organizing_team">Organizing Team</option>
+      </select>
+      @error ('team_type') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
       <label for="">Comment</label>
       <input type="text"
           class="form-control"

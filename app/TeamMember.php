@@ -24,6 +24,7 @@ class TeamMember extends Model
          'name', 'phone',
          'email', 'comment',
          'team_id', 'image_path',
+         'address',
     ];
 
 

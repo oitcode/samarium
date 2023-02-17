@@ -13,6 +13,7 @@ class TeamCreate extends Component
 
     public $name;
     public $comment;
+    public $team_type;
     public $image;
 
     public function render()
@@ -25,6 +26,7 @@ class TeamCreate extends Component
         $validatedData = $this->validate([
             'name' => 'required',
             'comment' => 'nullable',
+            'team_type' => 'nullable',
             'image' => 'nullable|image',
         ]);
 

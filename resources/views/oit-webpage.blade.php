@@ -121,7 +121,7 @@
     @livewire ('cms.website.post-list')
   </div>
 @elseif ($webpage->name == 'Teams')
-  @if (\App\Team::first())
+  @if (\App\Team::where('team_type', 'playing_team')->first())
     <div class="container my-4">
       @include ('partials.team-block-display')
     </div>
@@ -133,10 +133,12 @@
     </div>
   @endif
 @elseif ($webpage->name == 'Organizing Committee')
-  @if (\App\Team::where('name', 'Organizing Committee')->first())
-    <div class="container my-4">
-      @include ('partials.team-display', ['team' => \App\Team::where('name', 'Organizing Committee')->first(),])
-    </div>
+  @if (\App\Team::where('team_type', 'organizing_team')->first())
+    @foreach (\App\Team::where('team_type', 'organizing_team')->get() as $team)
+      <div class="container my-4">
+        @include ('partials.team-display', ['team' => $team,])
+      </div>
+    @endforeach
   @endif
 @elseif ($webpage->name == 'Contact us')
   @if (\App\Team::where('name', 'Quick Contacts')->first())
@@ -216,7 +218,7 @@
                     </h2>
                   @endif
                   @if ($webpageContent->body)
-                    <p class="@if ($webpage->is_post == 'yes') text-dark @else text-danger @endif">
+                    <p class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif">
                       {{ $webpageContent->body}}
                     </p>
                   @endif

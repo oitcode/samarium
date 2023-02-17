@@ -12,6 +12,13 @@
           'btnCheckMode' => 'createTeamMemberMode',
       ])
 
+      @include ('partials.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('createTeamMembersFromCsvMode')",
+          'btnIconFaClass' => 'fas fa-file',
+          'btnText' => 'Upload from csv',
+          'btnCheckMode' => 'createTeamMembersFromCsvMode',
+      ])
+
       @include ('partials.spinner-button')
 
       <div class="clearfix">
@@ -20,6 +27,8 @@
 
     @if ($modes['createTeamMemberMode'])
       @livewire ('team.team-display-team-member-create', ['team' => $team,])
+    @elseif ($modes['createTeamMembersFromCsvMode'])
+      @livewire ('team.team-display-team-members-create-from-csv', ['team_id' => $team->team_id,])
     @else
       {{-- Members --}}
       <div class="my-4">
