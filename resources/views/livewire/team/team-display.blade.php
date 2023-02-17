@@ -1,7 +1,15 @@
 <div class="p-3 bh-white border">
-    <h2 class="h5 mb-4">
-      {{ $team->name }}
-    </h2>
+    <div class="d-flex flex-column">
+      @if ($team->image_path)
+        <div class="my-3">
+          <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
+        </div>
+      @endif
+      <h2 class="h2 mb-4 text-dark font-weight-bold">
+        {{ $team->name }}
+      </h2>
+    </div>
+
 
     {{-- Top tool bar --}}
     <div class="mb-4 d-none d-md-block">
@@ -19,6 +27,13 @@
           'btnCheckMode' => 'createTeamMembersFromCsvMode',
       ])
 
+      @include ('partials.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('updateTeamMode')",
+          'btnIconFaClass' => 'fas fa-pencil-alt',
+          'btnText' => 'Update team',
+          'btnCheckMode' => 'updateTeamMode',
+      ])
+
       @include ('partials.spinner-button')
 
       <div class="clearfix">
@@ -29,6 +44,8 @@
       @livewire ('team.team-display-team-member-create', ['team' => $team,])
     @elseif ($modes['createTeamMembersFromCsvMode'])
       @livewire ('team.team-display-team-members-create-from-csv', ['team_id' => $team->team_id,])
+    @elseif ($modes['updateTeamMode'])
+      @livewire ('team.team-update', ['team' => $team,])
     @else
       {{-- Members --}}
       <div class="my-4">
@@ -37,28 +54,7 @@
         </h3>
       </div>
 
-      @include ('partials.team-display', ['team' => $team,])
+      @include ('partials.team-display', ['team' => $team, 'displayTeamName' => false,])
 
-      @if (false)
-      <div class="my-4">
-        @if (count($team->teamMembers) > 0)
-          @foreach ($team->teamMembers as $teamMember)
-          <div class="my-2">
-            {{ $teamMember->name }}
-            @if ($teamMember->image_path)
-              <div class="d-flex justify-content-start mb-3">
-                <img src="{{ asset('storage/' . $teamMember->image_path) }}" class="img-fluid" style="height: 50px;">
-              </div>
-            @endif
-          </div>
-          @endforeach
-        @else
-          <div class="text-secondary">
-            <i class="fas fa-exclamation-circle mr-2"></i>
-            No members
-          </div>
-        @endif
-      </div>
-      @endif
     @endif
 </div>

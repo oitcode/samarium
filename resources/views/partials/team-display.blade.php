@@ -1,7 +1,9 @@
 <div>
+  @if ($displayTeamName)
   <h3 class="my-4">
     {{ $team->name }}
   </h3>
+  @endif
 
   <div class="row">
   
