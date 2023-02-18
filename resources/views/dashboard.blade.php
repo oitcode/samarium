@@ -109,7 +109,7 @@
     </div>
     <div class="text-muted">
       <i class="fas fa-archive mr-1"></i>
-      v 0.3.1
+      v 0.3.2
     </div>
   </div>
 
