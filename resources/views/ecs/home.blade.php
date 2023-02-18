@@ -29,7 +29,7 @@
                            background-size: cover;
                            background-repeat: no-repeat;
                            background-position: center;
-                           height: 500px;">
+                           height: 700px;">
   <div class="o-overlay py-5 h-100">
   </div>
 </div>
