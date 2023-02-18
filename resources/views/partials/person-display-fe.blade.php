@@ -67,16 +67,4 @@
     </div>
   </div>
 
-  @guest
-  @else
-    <div>
-      <button class="btn btn-light mr-0" wire:click="updateTeamMember({{ $person }})">
-        <i class="fas fa-pencil-alt"></i>
-      </button>
-      <button class="btn btn-light mr-0">
-        <i class="fas fa-trash"></i>
-      </button>
-    </div>
-  @endguest
-
 </div>

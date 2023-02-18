@@ -46,6 +46,8 @@
       @livewire ('team.team-display-team-members-create-from-csv', ['team_id' => $team->team_id,])
     @elseif ($modes['updateTeamMode'])
       @livewire ('team.team-update', ['team' => $team,])
+    @elseif ($modes['updateTeamMemberMode'])
+      @livewire ('team.team-display-team-member-update', ['teamMember' => $updatingTeamMember,])
     @else
       {{-- Members --}}
       <div class="my-4">
@@ -54,7 +56,26 @@
         </h3>
       </div>
 
+      @if (false)
       @include ('partials.team-display', ['team' => $team, 'displayTeamName' => false,])
+      @endif
+
+      <div>
+        @if ($displayTeamName ?? true)
+        <h3 class="my-4">
+          {{ $team->name }}
+        </h3>
+        @endif
+      
+        <div class="row">
+        
+          @foreach ($team->teamMembers as $teamMember)
+            <div class="col-md-3 mb-4">
+              @include ('partials.person-display', ['person' => $teamMember,])
+            </div>
+          @endforeach
+        </div>
+      </div>
 
     @endif
 </div>
