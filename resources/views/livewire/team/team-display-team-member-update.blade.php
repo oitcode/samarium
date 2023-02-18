@@ -16,10 +16,10 @@
 
     <div class="form-group">
       <label for="">Image</label>
-      @if (false)
-      @if ($company && $company->logo_image_path)
+      @if (true)
+      @if ($teamMember->image_path)
         <div class="d-flex justify-content-start mb-3">
-          <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
+          <img src="{{ asset('storage/' . $teamMember->image_path) }}" class="img-fluid" style="height: 50px;">
         </div>
       @endif
       @endif
