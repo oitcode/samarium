@@ -132,6 +132,11 @@
       @include ('partials.team-display', ['team' => \App\Team::where('name', 'Sponsors')->first(),])
     </div>
   @endif
+  @if (\App\Team::where('name', 'Co-Sponsors')->first())
+    <div class="container my-4">
+      @include ('partials.team-display', ['team' => \App\Team::where('name', 'Co-Sponsors')->first(),])
+    </div>
+  @endif
 @elseif ($webpage->name == 'Organizing Committee')
   @if (\App\Team::where('team_type', 'organizing_team')->first())
     @foreach (\App\Team::where('team_type', 'organizing_team')->get() as $team)

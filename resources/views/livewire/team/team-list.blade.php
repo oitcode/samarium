@@ -33,7 +33,7 @@
 
         <tbody class="bg-white">
           @foreach ($teams as $team)
-            @if ($team->name == 'Quick Contacts' || $team->name == 'Organizing Committee' || $team->name == 'Sponsors')
+            @if ($team->team_type != 'playing_team')
               @continue
             @endif
             <tr>
