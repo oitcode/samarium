@@ -317,5 +317,6 @@
   </h2>
   @livewire ('ecs.contact-component')
 </div>
+@endif
 
 @endsection
