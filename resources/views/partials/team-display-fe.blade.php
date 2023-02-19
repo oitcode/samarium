@@ -8,7 +8,7 @@
   <div class="row">
   
     @foreach ($team->teamMembers as $teamMember)
-      <div class="col-md-3 mb-4">
+      <div class="col-6 col-md-3 mb-4">
         @include ('partials.person-display-fe', ['person' => $teamMember,])
       </div>
     @endforeach
