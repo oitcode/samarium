@@ -1,7 +1,7 @@
 <div class="row">
   @foreach (\App\Team::where('team_type', 'playing_team')->get() as $team)
     @if ($team->name != 'Organizing Committee' && $team->name != 'Quick Contacts' && $team->name != 'Sponsors')
-      <div class="col-md-3 mb-4">
+      <div class="col-6 col-md-3 mb-4">
         <div class="card h-100 shadow-sm border-0">
         
           <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
