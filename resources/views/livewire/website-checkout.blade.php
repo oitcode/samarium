@@ -71,6 +71,7 @@
                   style="height: 50px; width: 100%; font-size: 1rem; color: #555;"
                   placeholder="Phone"
                   wire:model.defer="phone">
+              @error ('phone') <div class="text-danger"> {{ $message }} </div> @enderror
             </div>
 
             <div class="form-group">
@@ -78,6 +79,7 @@
                   style="height: 50px; width: 100%; font-size: 1rem; color: #555;"
                   placeholder="Address"
                   wire:model.defer="address">
+              @error ('address') <div class="text-danger"> {{ $message }} </div> @enderror
             </div>
 
             <div class="row" style="">

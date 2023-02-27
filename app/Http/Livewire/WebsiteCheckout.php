@@ -45,7 +45,7 @@ class WebsiteCheckout extends Component
     public function store()
     {
         $validatedData = $this->validate([
-            'phone' => 'required',
+            'phone' => 'required|regex:/^[0-9]{10}$/',
             'address' => 'required',
         ]);
 
