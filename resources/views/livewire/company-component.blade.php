@@ -47,8 +47,11 @@
     </h2>
 
     <div class="form-group">
-      @if (false)
-      <label for="">Logo</label>
+      @if (true)
+      <label for="">
+        <i class="fas fa-image mr-1"></i>
+        Logo
+      </label>
       @endif
       @if ($company && $company->logo_image_path)
         <div class="d-flex justify-content-start mb-3">
@@ -60,48 +63,66 @@
     </div>
 
     <div class="form-group">
-      @if (false)
-      <label for="">Name</label>
+      @if (true)
+      <label for="">
+        <i class="fas fa-home mr-1"></i>
+        Name
+      </label>
       @endif
       <input type="text" class="form-control" wire:model.defer="name" style="{{-- font-size: 1.3rem; --}}">
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
-      @if (false)
-      <label for="">Tagline</label>
+      @if (true)
+      <label for="">
+        <i class="fas fa-info-circle mr-1"></i>
+        Tagline
+      </label>
       @endif
       <input type="text" class="form-control" wire:model.defer="tagline" style="{{-- font-size: 1.3rem; --}}">
       @error('tagline') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
-      @if (false)
-      <label for="">Phone</label>
+      @if (true)
+      <label for="">
+        <i class="fas fa-phone mr-1"></i>
+        Phone
+      </label>
       @endif
       <input type="text" class="form-control" wire:model.defer="phone" style="{{-- font-size: 1.3rem; --}}">
       @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
-      @if (false)
-      <label for="">Email</label>
+      @if (true)
+      <label for="">
+        <i class="fas fa-envelope mr-1"></i>
+        Email
+      </label>
       @endif
       <input type="text" class="form-control" wire:model.defer="email" style="{{-- font-size: 1.3rem; --}}">
       @error('email') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
-      @if (false)
-      <label for="">Address</label>
+      @if (true)
+      <label for="">
+        <i class="fas fa-map-marker-alt mr-1"></i>
+        Address
+      </label>
       @endif
       <input type="text" class="form-control" wire:model.defer="address" style="{{-- font-size: 1.3rem; --}}">
       @error('address') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
-      @if (false)
-      <label for="">PAN Number</label>
+      @if (true)
+      <label for="">
+        <i class="fas fa-info-circle mr-1"></i>
+        PAN Number
+      </label>
       @endif
       <input type="text" class="form-control" wire:model.defer="pan_number" style="{{-- font-size: 1.3rem; --}}">
       @error('pan_number') <span class="text-danger">{{ $message }}</span> @enderror
