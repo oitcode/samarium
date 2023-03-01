@@ -34,7 +34,7 @@
 </head>
 <body style="background-color: #fff;">
   <div class="mb-5">
-    <div class="row">
+    <div class="row" style="min-height: 500px;">
       {{-- App left menu --}}
       <div class="col-md-1">
         @include ('partials.app-left-menu')

@@ -16,7 +16,7 @@ class PostComponent extends Component
 
     public $modes = [
         'createPostMode' => false,
-        'listPostMode' => false,
+        'listPostMode' => true,
         'displayPostMode' => false,
     ];
 

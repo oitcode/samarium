@@ -3,7 +3,7 @@
     <div class="table-responsive">
       <table class="table table-hover table-bordered">
         <thead>
-          <tr class="bg-white-rm" style="background-color: #def;">
+          <tr class="bg-success text-white">
             <th>
               Name
             </th>

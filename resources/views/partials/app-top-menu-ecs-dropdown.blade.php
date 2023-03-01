@@ -29,14 +29,16 @@
         <i class="fas fa-users text-secondary mr-2"></i>
         Quick Contacts
       </a>
-      <a class="dropdown-item" href="{{ route('dashboard-organizing-committee') }}">
-        <i class="fas fa-users text-secondary mr-2"></i>
-        Organizing Committee
-      </a>
-      <a class="dropdown-item" href="{{ route('dashboard-sponsors') }}">
-        <i class="fas fa-heart text-secondary mr-2"></i>
-        Sponsors
-      </a>
+      @if (preg_match("/bgc/i", env('MODULES')))
+        <a class="dropdown-item" href="{{ route('dashboard-organizing-committee') }}">
+          <i class="fas fa-users text-secondary mr-2"></i>
+          Organizing Committee
+        </a>
+        <a class="dropdown-item" href="{{ route('dashboard-sponsors') }}">
+          <i class="fas fa-heart text-secondary mr-2"></i>
+          Sponsors
+        </a>
+      @endif
     </div>
   </div>
 </div>

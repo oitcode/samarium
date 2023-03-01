@@ -12,16 +12,16 @@
     </a>
   </div>
 
-  @can ('is-admin')
+  @if (preg_match("/dashboard/i", env('MODULES')))
     @include ('partials.app-left-menu-button',
         [
             'btnRoute' => 'dashboard',
             'iconFaClass' => 'fas fa-tv',
             'btnText' => 'Dashboard',
         ])
-  @endcan
+  @endif
 
-  @if (true || env('SITE_TYPE') == 'erp')
+  @if (preg_match("/shop/i", env('MODULES')))
     @can ('is-admin')
       @if (env('CMP_TYPE') == 'shop')
         @include ('partials.app-left-menu-button',
@@ -50,57 +50,57 @@
     @endif
   @endif
 
-  @can ('is-admin')
-    @if (env('CMP_TYPE') == 'cafe')
+  @if (preg_match("/shop/i", env('MODULES')))
+    @can ('is-admin')
+      @if (env('CMP_TYPE') == 'cafe')
+        @include ('partials.app-left-menu-button',
+            [
+                'btnRoute' => 'menu',
+                'iconFaClass' => 'fas fa-list',
+                'btnText' => 'Menu',
+            ])
+      @else
+        @include ('partials.app-left-menu-button',
+            [
+                'btnRoute' => 'menu',
+                'iconFaClass' => 'fas fa-list',
+                'btnText' => 'Products',
+            ])
+      @endif
+    @endcan
+
+    @can ('is-admin')
       @include ('partials.app-left-menu-button',
           [
-              'btnRoute' => 'menu',
-              'iconFaClass' => 'fas fa-list',
-              'btnText' => 'Menu',
+              'btnRoute' => 'daybook',
+              'iconFaClass' => 'fas fa-book',
+              'btnText' => 'Daybook',
           ])
-    @else
+
       @include ('partials.app-left-menu-button',
           [
-              'btnRoute' => 'menu',
-              'iconFaClass' => 'fas fa-list',
-              'btnText' => 'Products',
+              'btnRoute' => 'weekbook',
+              'iconFaClass' => 'fas fa-book',
+              'btnText' => 'Weekbook',
           ])
-    @endif
-  @endcan
 
-  @can ('is-admin')
-    @include ('partials.app-left-menu-button',
-        [
-            'btnRoute' => 'daybook',
-            'iconFaClass' => 'fas fa-book',
-            'btnText' => 'Daybook',
-        ])
+      @if (true || env('SITE_TYPE') == 'erp')
+        @include ('partials.app-left-menu-button',
+            [
+                'btnRoute' => 'customer',
+                'iconFaClass' => 'fas fa-users',
+                'btnText' => 'Customer',
+            ])
+      @elseif (env('SITE_TYPE') == 'ecs')
+        @include ('partials.app-left-menu-button',
+            [
+                'btnRoute' => 'customer',
+                'iconFaClass' => 'fas fa-users',
+                'btnText' => 'Students',
+            ])
+      @endif
+    @endcan
 
-    @include ('partials.app-left-menu-button',
-        [
-            'btnRoute' => 'weekbook',
-            'iconFaClass' => 'fas fa-book',
-            'btnText' => 'Weekbook',
-        ])
-
-    @if (true || env('SITE_TYPE') == 'erp')
-      @include ('partials.app-left-menu-button',
-          [
-              'btnRoute' => 'customer',
-              'iconFaClass' => 'fas fa-users',
-              'btnText' => 'Customer',
-          ])
-    @elseif (env('SITE_TYPE') == 'ecs')
-      @include ('partials.app-left-menu-button',
-          [
-              'btnRoute' => 'customer',
-              'iconFaClass' => 'fas fa-users',
-              'btnText' => 'Students',
-          ])
-    @endif
-  @endcan
-
-  @if (env('SITE_TYPE') == 'erp')
     @can ('is-admin')
       @include ('partials.app-left-menu-button',
           [
@@ -109,13 +109,5 @@
               'btnText' => 'Weborder',
           ])
     @endcan
-  @elseif (env('SITE_TYPE') == 'ecs')
-      @include ('partials.app-left-menu-button',
-          [
-              'btnRoute' => 'online-order',
-              'iconFaClass' => 'fas fa-comment',
-              'btnText' => 'Comments',
-          ])
   @endif
-
 </div>

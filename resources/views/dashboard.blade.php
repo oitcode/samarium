@@ -96,6 +96,7 @@
   </div>
   @endif
 
+  @if (false)
   {{-- Our brand info --}}
   <div class="bg-white p-3 border my-4">
     <div>
@@ -112,5 +113,13 @@
       v 0.3.2
     </div>
   </div>
+  @endif
+
+  @if (false)
+  @livewire ('user.user-component')
+  @endif
+
+  @livewire ('lv-package-welcome')
+
 
 @endsection

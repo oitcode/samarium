@@ -4,6 +4,7 @@
 
     {{-- Top menu buttons. --}}
 
+  @if (preg_match("/shop/i", env('MODULES')))
     @include ('partials.app-top-menu-button', [
       'btnRoute' => 'dashboard-purchase',
       'iconFaClass' => 'fas fa-shopping-cart',
@@ -36,6 +37,7 @@
         'btnText' => 'VAT',
       ])
     @endif
+  @endif
 
     {{-- User related. Is placed on top right part. --}}
     @include ('partials.app-top-menu-user-dropdown')
@@ -44,14 +46,20 @@
       @include ('partials.app-top-menu-school-dropdown')
     @endif
 
-    {{-- Todo: This could be moved somewhere else --}}
-    @if (env('SITE_TYPE') == 'ecs' || env('SITE_TYPE') == 'school')
+    @if (preg_match("/cms/i", env('MODULES')))
+      {{-- Todo: This could be moved somewhere else --}}
       @include ('partials.app-top-menu-ecs-dropdown')
     @endif
 
-    {{-- Online order counter component --}}
+    @if (preg_match("/shop/i", env('MODULES')))
+      {{-- Online order counter component --}}
+      <div class="float-right mx-4 px-4 border-left-rm" style="font-size: 1.3rem;">
+        @livewire ('online-order-counter')
+      </div>
+    @endif
+
     <div class="float-right mx-4 px-4 border-left-rm" style="font-size: 1.3rem;">
-      @livewire ('online-order-counter')
+      @livewire ('lv-package-info')
     </div>
   @endguest
 
