@@ -26,7 +26,11 @@
             @if ($product->stock_applicable == 'yes')
               <tr class="">
                 <td style="width: 50px;">
-                  <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
+                  @if ($product->image_path)
+                    <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
+                  @else
+                    <i class="fas fa-dice-d6 fa-2x text-secondary" style="width: 35px; height: 35px;"></i>
+                  @endif
                 </td>
                 <td class="font-weight-bold">
                   {{ $product->name }}
