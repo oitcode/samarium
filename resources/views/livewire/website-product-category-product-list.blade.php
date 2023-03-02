@@ -64,7 +64,7 @@
     @if (count($productCategory->products) > 0)
       <div class="row" wire:key="{{ rand() }}">
         @foreach ($productCategory->products as $product)
-          <div class="col-md-3 mb-4">
+          <div class="col-6 col-md-3 mb-4">
             @livewire ('website-product-list-display', ['product' => $product,])
           </div>
         @endforeach
