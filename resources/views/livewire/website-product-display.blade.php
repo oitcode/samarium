@@ -1,13 +1,13 @@
 <div class="p-3">
 
-  <div class="py-2 text-secondary mb-4" style="font-size: 1.15rem;">
+  <div class="py-2 text-secondary-rm mb-4" style="font-size: 1.15rem;">
     <i class="fas fa-circle mr-1"></i>
     Products
 
-    <i class="fas fa-angle-right  mx-3"></i>
+    <i class="fas fa-angle-right  mx-2"></i>
     {{ $product->productCategory->name }}
 
-    <i class="fas fa-angle-right  mx-3"></i>
+    <i class="fas fa-angle-right  mx-2"></i>
     {{ $product->name }}
   </div>
 
@@ -28,10 +28,12 @@
         @php echo number_format( $product->selling_price ); @endphp
       </h3>
       <hr />
-      <p class="h5 ml-2 mb-3 text-secondary border-top-rm border-bottom-rm">
+      <p class="h5 ml-2 mb-3 text-secondary-rm border-top-rm border-bottom-rm">
         {{ $product->description }}
       </p>
+      @if (false)
       <hr />
+      @endif
     </div>
     <div class="col-md-3">
       <div class="d-flex">
