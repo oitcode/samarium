@@ -1,6 +1,6 @@
 <div>
 
-  <div class="my-3 py-2 border-top border-bottom d-flex justify-content-end">
+  <div class="my-3 py-2 border d-flex justify-content-end">
 
     <button class="btn btn-light" wire:click="$emit('exitProductDisplayMode')">
       Close
@@ -27,23 +27,23 @@
               @if ($product->image_path)
                 <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
               @else
-                <i class="fas fa-dice-d6 fa-4x"></i>
+                <i class="fas fa-dice-d6 fa-8x"></i>
               @endif
             </div>
           </div>
+        </div>
+        <hr />
 
-          <div class="mb-3">
-            <h2 class="h6 font-weight-bold" style="font-size: 0.8rem;">
-              Category
-            </h2>
-            <div class="" style="font-size: 0.8rem;">
-              <span class="">
-                {{ $product->productCategory->name }}
-              </span>
-            </div>
+        <div class="mb-3">
+          <h2 class="h6 font-weight-bold" style="font-size: 0.8rem;">
+            Category
+          </h2>
+          <div class="" style="font-size: 0.8rem;">
+            <span class="">
+              {{ $product->productCategory->name }}
+            </span>
           </div>
         </div>
-
         <hr />
 
         <div class="mb-3">
@@ -54,13 +54,14 @@
           {{ $product->description }}
           </div>
         </div>
+        <hr />
 
 
-        <div class="mb-3 py-3 border-rm bg-light">
+        <div class="mb-3 py-3 border-rm">
           <h2 class="h6 font-weight-bold">
             Selling price
           </h2>
-          <div class="h5">
+          <div class="h2">
           Rs
           @php echo number_format( $product->selling_price ); @endphp
           </div>
@@ -93,6 +94,12 @@
     <div class="col-md-3">
       {{-- Creation and update info --}}
       <div class="border bg-white p-3 mb-3">
+        <div class="mb-4">
+          <h3 class="h4">
+            <i class="fas fa-info-circle mr-2"></i>
+            Product history
+          </h3>
+        </div>
         <div class="row">
           <div class="col-6">
             Created by
@@ -121,6 +128,12 @@
 
       {{-- Inventory info --}}
       <div class="border bg-white p-3 mb-3">
+        <div class="mb-4">
+          <h3 class="h4">
+            <i class="fas fa-info-circle mr-2"></i>
+            Stock info
+          </h3>
+        </div>
         <div class="row">
           <div class="col-6">
             Stock applicable
