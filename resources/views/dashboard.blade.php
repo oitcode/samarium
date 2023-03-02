@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section ('content')
 
-  @livewire ('lv-package-welcome')
+  <div class="mb-5">
+    @livewire ('lv-package-welcome')
+  </div>
 
-  @if (env('SITE_TYPE') == 'erp')
+  @if (preg_match("/shop/i", env('MODULES')))
 
     {{--
         Show quick links menu. This menu is visible only
@@ -38,7 +40,9 @@
       @endif
 
       @if (true)
-      @livewire ('transactions-navigator')
+      <div class="my-4">
+        @livewire ('transactions-navigator')
+      </div>
       @endif
     
     </div>
