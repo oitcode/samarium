@@ -1,14 +1,23 @@
-<div>
+<div class="p-3">
 
   <div class="py-2 text-secondary mb-4" style="font-size: 1.15rem;">
+    <i class="fas fa-circle mr-1"></i>
+    Products
+
+    <i class="fas fa-angle-right  mx-3"></i>
     {{ $product->productCategory->name }}
-    >
+
+    <i class="fas fa-angle-right  mx-3"></i>
     {{ $product->name }}
   </div>
 
-  <div class="row mb-5">
+  <div class="row mb-5 border p-2 bg-white shadow">
     <div class="col-md-6">
-      <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 250px;">
+      <div class="d-flex justify-content-center h-100">
+        <div class="d-flex flex-column justify-content-center h-100">
+          <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 250px;">
+        </div>
+      </div>
     </div>
     <div class="col-md-6 py-3">
       <h1 class="h4 ml-2 mb-3" style="font-weight: bold;">
