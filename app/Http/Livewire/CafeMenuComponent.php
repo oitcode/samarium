@@ -31,7 +31,7 @@ class CafeMenuComponent extends Component
         'updateProductCategory' => false,
         'createProduct' => false,
         'createProductCategory' => false,
-        'list' => false,
+        'list' => true,
     ];
 
     protected $listeners = [
@@ -45,6 +45,7 @@ class CafeMenuComponent extends Component
         'exitUpdateProductCategoryMode',
 
         'displayProduct',
+        'exitProductDisplayMode',
     ];
 
     public function mount()
@@ -171,5 +172,11 @@ class CafeMenuComponent extends Component
         $this->displayingProduct = Product::find($productId);
 
         $this->enterMode('displayProduct');
+    }
+
+    public function exitProductDisplayMode()
+    {
+        $this->exitMode('displayProduct');
+        $this->enterMode('list');
     }
 }

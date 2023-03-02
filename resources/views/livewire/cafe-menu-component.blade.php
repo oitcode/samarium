@@ -31,6 +31,13 @@
         'btnCheckMode' => 'list',
     ])
 
+    @include ('partials.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('createProductFromSpreadSheetMode')",
+        'btnIconFaClass' => 'fas fa-file',
+        'btnText' => 'Upload from spreadsheet',
+        'btnCheckMode' => 'createProductFromSpreadSheetMode',
+    ])
+
     @include ('partials.spinner-button')
 
     <div class="clearfix">
@@ -121,9 +128,9 @@
         @livewire ('cafe-menu-product-display', ['product' => $displayingProduct,])
       @elseif ($modes['list'])
         @livewire ('cafe-menu-list')
+      @endif
     </div>
     <div class="col-md-4">
     </div>
-    @endif
   </div>
 </div>

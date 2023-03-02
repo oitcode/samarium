@@ -3,9 +3,11 @@
   @if (! $modes['productCategoryProductList'])
   <div class="">
 
+    @if (false)
     <span class="mr-3" role="button" wire:click="enterMode('showFullMenuList')" wire:key="{{ rand() }}" style="text-decoration: underline;">
       Show all
     </span>
+    @endif
 
     @if ($products == null || count($products) == 0)
     @foreach ($productCategories as $productCategory)
