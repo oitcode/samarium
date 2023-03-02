@@ -12,14 +12,19 @@ class CafeMenuList extends Component
     public $products = null;
     public $selectedProductCategory;
 
+    public $search_product_category;
+
     public $modes = [
         'productCategoryProductList' => false,
     ];
 
-    public function render()
+    public function mount()
     {
         $this->productCategories = ProductCategory::all();
+    }
 
+    public function render()
+    {
         return view('livewire.cafe-menu-list');
     }
 
@@ -48,5 +53,16 @@ class CafeMenuList extends Component
     {
         $this->selectedProductCategory = ProductCategory::find($productCategoryId);
         $this->enterMode('productCategoryProductList');
+    }
+
+    public function searchProductCategory()
+    {
+        $validatedData = $this->validate([
+            'search_product_category' => 'required',
+        ]);
+
+        $productCategories = ProductCategory::where('name', 'like', '%'.$validatedData['search_product_category'].'%')->get();
+
+        $this->productCategories = $productCategories;
     }
 }

@@ -10,13 +10,18 @@
       </span>
       @endif
 
-      @if ($products == null || count($products) == 0)
-        @if (false)
-        <span class="mr-3" role="button" wire:click="selectCategory('{{ $productCategory->product_category_id }}')" wire:key="{{ rand() }}" style="text-decoration: underline;">
-          {{ $productCategory->name }}
-        </span>
-        @endif
+      <div class="border-rm py-0 my-5 d-flex">
+        <input type="text"
+            class="mr-5"
+            style="height: 50px; font-size: 1.5rem;"
+            wire:model.defer="search_product_category"
+            wire:keydown.enter="searchProductCategory">
+        <button class="btn btn-success" style="font-size: 1.3rem;" wire:click="searchProductCategory">
+          Find
+        </button>
+      </div>
 
+      @if ($products == null || count($products) == 0)
         <div class="row">
           @foreach ($productCategories as $productCategory)
             <div class="col-md-3 border p-5 mr-3 mb-4 shadow bg-success text-white"
@@ -36,7 +41,6 @@
             </div>
           @endforeach
         </div>
-
       @endif
     </div>
   @endif

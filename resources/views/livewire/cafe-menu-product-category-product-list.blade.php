@@ -1,7 +1,10 @@
 <div>
 
-  <div>
+  <div class="my-5">
     <h1 class="h5">
+      <i class="fas fa-circle text-success mr-2"></i>
+      Products
+      <i class="fas fa-angle-right mx-2"></i>
       {{ $productCategory->name }}
     </h1>
   </div>
