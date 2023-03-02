@@ -48,7 +48,11 @@
                 @foreach ($products as $product)
                   <tr>
               <td style="width: 50px;">
-                <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
+                @if ($product->image_path)
+                  <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
+                @else
+                  <i class="fas fa-dice-d6" class="mr-3" style="width: 35px; height: 35px;"></i>
+                @endif
               </td>
                     <td>
                       {{ $product->name }}

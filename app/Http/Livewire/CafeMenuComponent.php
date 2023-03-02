@@ -32,6 +32,7 @@ class CafeMenuComponent extends Component
         'createProduct' => false,
         'createProductCategory' => false,
         'list' => true,
+        'createProductFromCsvMode' => false,
     ];
 
     protected $listeners = [
@@ -46,6 +47,7 @@ class CafeMenuComponent extends Component
 
         'displayProduct',
         'exitProductDisplayMode',
+        'exitCreateProductFromCsvMode',
     ];
 
     public function mount()
@@ -178,5 +180,10 @@ class CafeMenuComponent extends Component
     {
         $this->exitMode('displayProduct');
         $this->enterMode('list');
+    }
+
+    public function exitCreateProductFromCsvMode()
+    {
+        $this->exitMode('createProductFromCsvMode');
     }
 }

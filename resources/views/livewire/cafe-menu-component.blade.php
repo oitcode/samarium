@@ -32,10 +32,10 @@
     ])
 
     @include ('partials.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('createProductFromSpreadSheetMode')",
+        'btnClickMethod' => "enterMode('createProductFromCsvMode')",
         'btnIconFaClass' => 'fas fa-file',
         'btnText' => 'Upload from spreadsheet',
-        'btnCheckMode' => 'createProductFromSpreadSheetMode',
+        'btnCheckMode' => 'createProductFromCsvMode',
     ])
 
     @include ('partials.spinner-button')
@@ -128,6 +128,10 @@
         @livewire ('cafe-menu-product-display', ['product' => $displayingProduct,])
       @elseif ($modes['list'])
         @livewire ('cafe-menu-list')
+      @elseif ($modes['createProductFromCsvMode'])
+        @if (true)
+        @livewire ('cafe-menu-product-create-from-csv')
+        @endif
       @endif
     </div>
     <div class="col-md-4">
