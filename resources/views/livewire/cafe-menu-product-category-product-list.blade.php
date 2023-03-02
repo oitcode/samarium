@@ -9,10 +9,10 @@
   <div class="row">
       @if ($productCategory->products != null && count($productCategory->products) > 0)
         <div class="table-responsive border bg-white">
-          <table class="table table-hover">
+          <table class="table table-hover mb-0">
 
             <thead>
-              <tr>
+              <tr class="bg-success text-white">
                 <th colspan="2">
                   Item
                 </th>
@@ -38,7 +38,11 @@
 
                 <tr>
                   <td style="width: 50px;">
-                    <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
+                    @if ($product->image_path)
+                      <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
+                    @else
+                      <i class="fas fa-dice-d6 fa-2x text-secondary" style="width: 35px; height: 35px;"></i>
+                    @endif
                   </td>
                   <td>
                     {{ $product->name }}
