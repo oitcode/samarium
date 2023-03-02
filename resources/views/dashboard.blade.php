@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section ('content')
 
+  @livewire ('lv-package-welcome')
+
   @if (env('SITE_TYPE') == 'erp')
 
     {{--
@@ -118,8 +120,5 @@
   @if (false)
   @livewire ('user.user-component')
   @endif
-
-  @livewire ('lv-package-welcome')
-
 
 @endsection
