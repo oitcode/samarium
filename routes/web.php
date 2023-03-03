@@ -150,8 +150,8 @@ if (env('SITE_TYPE') == 'ecs' || env('SITE_TYPE') == 'school') {
 
 Route::get('/bia/pte', 'WebsiteController@pte')->name('website-pte');
 
-/* Generate webpage routes if the webpage table exists. */
-if (!Schema::hasTable('webpage')) {
+/* Generate webpage routes if ?? */
+if (env('DB_DATABASE')) {
     $webpages = Webpage::all();
     
     foreach ($webpages as $webpage) {
