@@ -1,17 +1,17 @@
 <div class="p-3">
 
   <div class="py-2 text-secondary-rm mb-4" style="font-size: 1.15rem;">
-    <i class="fas fa-circle mr-1"></i>
+    <i class="fas fa-home mr-1"></i>
     Products
 
-    <i class="fas fa-angle-right  mx-2"></i>
+    <i class="fas fa-angle-right  mx-1"></i>
     {{ $product->productCategory->name }}
 
-    <i class="fas fa-angle-right  mx-2"></i>
+    <i class="fas fa-angle-right  mx-1"></i>
     {{ $product->name }}
   </div>
 
-  <div class="row mb-5 border p-2 bg-white shadow">
+  <div class="row mb-5 border p-2 py-5  bg-white shadow">
     <div class="col-md-3">
       <div class="d-flex justify-content-center h-100">
         <div class="d-flex flex-column justify-content-center h-100">
@@ -59,12 +59,14 @@
     </div>
   </div>
 
+  @if (false)
   <hr class="mb-5"/>
+  @endif
 
   @if (true)
   {{-- You may also like section --}}
   <div class="mb-5">
-    <h2 class="text-center" style="font-family: Arial;">YOU MAY ALSO LIKE</h2>
+    <h2 class="text-center mb-5" style="font-family: Arial;">YOU MAY ALSO LIKE</h2>
 
     <div class="row">
       <div class="col-md-3">
