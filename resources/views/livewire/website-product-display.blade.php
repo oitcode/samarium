@@ -2,10 +2,19 @@
 
   <div class="py-2 text-secondary-rm mb-4" style="font-size: 1.15rem;">
     <i class="fas fa-home mr-1"></i>
-    Products
+    <a class="text-primary-rm"
+        href="{{ route('website-home') }}"
+        style="color: #000;">
+      <i class="fas fa-dot text-info mr-2"></i>
+      Products
+    </a>
 
     <i class="fas fa-angle-right  mx-1"></i>
-    {{ $product->productCategory->name }}
+    <a class="text-primary-rm"
+        href="{{ route('website-product-category-product-list', [$product->productCategory->product_category_id, $product->productCategory->name]) }}"
+        style="color: #000;">
+      {{ $product->productCategory->name }}
+    </a>
 
     <i class="fas fa-angle-right  mx-1"></i>
     {{ $product->name }}

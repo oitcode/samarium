@@ -28,10 +28,12 @@
     @foreach ($productCategories as $productCategory)
       @if (count($productCategory->products) > 0)
         <div class="container mt-5">
+          @if (false)
           <h2 class="mb-3">
             {{ $productCategory->name }}
           </h2>
           <hr/>
+          @endif
           @livewire ('website-product-category-product-list', ['productCategory' => $productCategory,],
               key(rand() * $productCategory->product_category_id))
         </div>

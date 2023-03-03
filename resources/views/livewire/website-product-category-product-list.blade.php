@@ -1,6 +1,16 @@
-<div>
-  <div class="mb-3 text-secondary">
-    Home > {{ $productCategory->name }}
+<div class="p-3">
+
+  <div class="py-2 text-secondary-rm mb-4" style="font-size: 1.15rem;">
+    <i class="fas fa-home mr-1"></i>
+    <a class="text-primary-rm"
+        href="{{ route('website-home') }}"
+        style="color: #000;">
+      <i class="fas fa-dot text-info mr-2"></i>
+      Products
+    </a>
+
+    <i class="fas fa-angle-right  mx-1"></i>
+    {{ $productCategory->name }}
   </div>
 
   <div class="my-3 mb-4 text-scondary">
