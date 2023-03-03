@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 
 use App\Webpage;
 
@@ -149,10 +150,13 @@ if (env('SITE_TYPE') == 'ecs' || env('SITE_TYPE') == 'school') {
 
 Route::get('/bia/pte', 'WebsiteController@pte')->name('website-pte');
 
-$webpages = Webpage::all();
-
-foreach ($webpages as $webpage) {
-    Route::get('/'. $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-'. $webpage->permalink);
+/* Generate webpage routes if the webpage table exists. */
+if (!Schema::hasTable('webpage')) {
+    $webpages = Webpage::all();
+    
+    foreach ($webpages as $webpage) {
+        Route::get('/'. $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-'. $webpage->permalink);
+    }
 }
 
 Route::get('/ecs/menudemo', 'WebsiteController@menuDemo')->name('website-menu-demo');
