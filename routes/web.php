@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Schema;
 
 use App\Webpage;
 
@@ -26,7 +25,7 @@ use App\Webpage;
  *
  *
  */
-Auth::routes();
+Auth::routes(['register' => false,]);
 
 /*
  *-----------------------------------------------------------------------------
@@ -121,12 +120,43 @@ Route::get('/product/{id}/{name}', 'WebsiteController@productView')->name('websi
 Route::get('/checkout', 'WebsiteController@checkout')->name('website-checkout');
 
 
-// Todo: Need to get rid of this route
-// Route::get('/home', 'HomeController@index')->name('home');
+/*
+ *-----------------------------------------------------------------------------
+ * Ecommerce/shop collection
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+if (preg_match("/shop/i", env('MODULES'))) {
+    $ecommCollectionWebpages = [
+        'about-us',
+        'contact-us',
+        'careers',
+        'press',
+        'payments',
+        'shipping',
+        'cancellation-and-returns',
+        'faq',
+        'return-policy',
+        'terms-of-use',
+        'privacy',
+        'sitemap',
+    ];
+
+    foreach ($ecommCollectionWebpages as $ecommCollectionWebpage) {
+        Route::get(
+            '/' . $ecommCollectionWebpage,
+            'WebsiteController@ecommCollectionWebpageDisplay'
+        )->name('ecomm-collection-webpage-display-' . $ecommCollectionWebpage);
+    }
+}
+
 
 /*
  *-----------------------------------------------------------------------------
  * Consultancy site route
+ * Todo: Needs to be deprecated
  *-----------------------------------------------------------------------------
  *
  *
@@ -134,32 +164,9 @@ Route::get('/checkout', 'WebsiteController@checkout')->name('website-checkout');
  */
 if (env('SITE_TYPE') == 'ecs' || env('SITE_TYPE') == 'school') {
     Route::get('/', 'WebsiteController@bia')->name('website-home');
-    Route::get('/contactus', 'WebsiteController@contactUs')->name('website-ecs-contact-us');
-    Route::get('/gallery', 'WebsiteController@gallery')->name('website-ecs-gallery');
-    Route::get('/abroadstudy/usa', 'WebsiteController@abroadStudyUsa')->name('website-ecs-usa');
-    Route::get('/abroadstudy/uk', 'WebsiteController@abroadStudyUk')->name('website-ecs-uk');
-    Route::get('/abroadstudy/australia', 'WebsiteController@abroadStudyAustralia')->name('website-ecs-australia');
-    Route::get('/abroadstudy/newzealand', 'WebsiteController@abroadStudyNewzealand')->name('website-ecs-newzealand');
-    Route::get('/abroadstudy/japan', 'WebsiteController@abroadStudyJapan')->name('website-ecs-japan');
-    Route::get('/toefl', 'WebsiteController@toefl')->name('website-ecs-toefl');
-    Route::get('/ielts', 'WebsiteController@ielts')->name('website-ecs-ielts');
-    Route::get('/pte', 'WebsiteController@pte')->name('website-ecs-pte');
 } else {
     Route::get('/', 'WebsiteController@homePage')->name('website-home');
 }
-
-Route::get('/bia/pte', 'WebsiteController@pte')->name('website-pte');
-
-/* Generate webpage routes if ?? */
-if (env('DB_DATABASE')) {
-    $webpages = Webpage::all();
-    
-    foreach ($webpages as $webpage) {
-        Route::get('/'. $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-'. $webpage->permalink);
-    }
-}
-
-Route::get('/ecs/menudemo', 'WebsiteController@menuDemo')->name('website-menu-demo');
 
 
 /*
@@ -171,10 +178,23 @@ Route::get('/ecs/menudemo', 'WebsiteController@menuDemo')->name('website-menu-de
  *
  */
 
+/* CMS Dashboard routes */
 Route::get('/cms/webpage', 'CmsWebpageController@index')->name('dashboard-cms-webpage');
+Route::get('/cms/post', 'CmsPostController@index')->name('dashboard-cms-post');
 Route::get('/cms/navMenu', 'CmsNavMenuController@index')->name('dashboard-cms-nav-menu');
 Route::get('/cms/theme', 'CmsThemeController@index')->name('dashboard-cms-theme');
-Route::get('/cms/post', 'CmsPostController@index')->name('dashboard-cms-post');
+
+/* CMS website/front-page/customer routes */
+/* Generate webpage routes if ?? */
+if (env('DB_DATABASE')) {
+    $webpages = Webpage::all();
+    
+    foreach ($webpages as $webpage) {
+        Route::get('/'. $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-'. $webpage->permalink);
+    }
+}
+
+
 
 /*
  *-----------------------------------------------------------------------------
@@ -197,7 +217,6 @@ Route::get('/dashboard/school/calendar', 'SchoolCalendarController@index')->name
  *
  */
 Route::get('/dashboard/print/saleInvoice/{id}', 'PrintController@printSaleInvoice')->name('dashboard-print-sale-invoice');
-
 
 
 /*

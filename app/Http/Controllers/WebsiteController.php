@@ -104,6 +104,7 @@ class WebsiteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    /*
     public function contactUs()
     {
         $products = Product::all();
@@ -115,6 +116,7 @@ class WebsiteController extends Controller
             ->with('productCategories', $productCategories)
             ->with('products', $products);
     }
+    */
 
     /**
      * Show the contact us page.
@@ -215,10 +217,75 @@ class WebsiteController extends Controller
             ->with('webpage', $webpage);
     }
 
-    public function menuDemo()
+    public function aboutUs()
     {
+        $products = Product::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
-        return view('menu-demo')
-            ->with('company', $company);
+
+        return view('collection.about-us')
+            ->with('company', $company)
+            ->with('productCategories', $productCategories)
+            ->with('products', $products);
+    }
+
+    public function contactUs()
+    {
+        $products = Product::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
+        $company = Company::first();
+
+        return view('collection.about-us')
+            ->with('company', $company)
+            ->with('productCategories', $productCategories)
+            ->with('products', $products);
+    }
+
+    public function careers()
+    {
+        $products = Product::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
+        $company = Company::first();
+
+        return view('collection.careers')
+            ->with('company', $company)
+            ->with('productCategories', $productCategories)
+            ->with('products', $products);
+    }
+
+    public function payments()
+    {
+        $products = Product::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
+        $company = Company::first();
+
+        return view('collection.payments')
+            ->with('company', $company)
+            ->with('productCategories', $productCategories)
+            ->with('products', $products);
+    }
+
+    public function shipping()
+    {
+        $products = Product::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
+        $company = Company::first();
+
+        return view('collection.shipping')
+            ->with('company', $company)
+            ->with('productCategories', $productCategories)
+            ->with('products', $products);
+    }
+
+    public function ecommCollectionWebpageDisplay(Request $request)
+    {
+        $products = Product::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
+        $company = Company::first();
+
+        return view('collection.' . $request->path())
+            ->with('company', $company)
+            ->with('productCategories', $productCategories)
+            ->with('products', $products);
     }
 }
