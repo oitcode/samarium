@@ -17,7 +17,8 @@
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^2.4",
-        "livewire/livewire": "^2.10"
+        "livewire/livewire": "^2.10",
+        "neitanod/forceutf8": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
