@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 
+use \ForceUTF8\Encoding;
+
 use App\Team;
 use App\TeamMember;
 
@@ -40,8 +42,12 @@ class TeamDisplayTeamMembersCreateFromCsv extends Component
          * TODO: Can be done without storing the file?
          */
 
-        $this->filePath = $this->members_file->store('csvImports');
+        $this->filePath = $this->members_file->store('csvImports', 'utf-8');
         $contents = Storage::get($this->filePath);
+
+        // $contents = Encoding::toUTF8($contents);
+        // dd($contents);
+        // $lines = preg_split("/\r?\n|\r/", $contents);
 
         $lines = explode("\n", $contents);
 
@@ -119,7 +125,7 @@ class TeamDisplayTeamMembersCreateFromCsv extends Component
         }
 
         /* Delete the file */
-        Storage::delete($this->filePath);
+        //Storage::delete($this->filePath);
 
         $this->emit('exitAddNewTeamMembersFromFileMode');
     }
