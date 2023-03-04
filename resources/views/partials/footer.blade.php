@@ -6,7 +6,7 @@
         ABOUT
       </h3>
       <div class="mb-2">
-        <a href=""
+        <a href="{{ route('ecomm-collection-webpage-display-about-us') }}"
             class="text-white text-decoration-none">
           <i class="fas fa-angle-right mr-2"></i>
           About us
@@ -20,7 +20,7 @@
         </a>
       </div>
       <div class="mb-2">
-        <a href=""
+        <a href="{{ route('ecomm-collection-webpage-display-careers') }}"
             class="text-white text-decoration-none">
           <i class="fas fa-angle-right mr-2"></i>
           Careers
@@ -40,24 +40,24 @@
         HELP
       </h3>
       <div class="mb-2">
-        <a href=""
+        <a href="{{ route('ecomm-collection-webpage-display-payments') }}"
             class="text-white text-decoration-none">
           <i class="fas fa-angle-right mr-2"></i>
           Payments
         </a>
       </div>
       <div class="mb-2">
-        <a href=""
+        <a href="{{ route('ecomm-collection-webpage-display-shipping') }}"
             class="text-white text-decoration-none">
           <i class="fas fa-angle-right mr-2"></i>
           Shipping
         </a>
       </div>
       <div class="mb-2">
-        <a href=""
+        <a href="{{ route('ecomm-collection-webpage-display-cancellation-and-returns') }}"
             class="text-white text-decoration-none">
           <i class="fas fa-angle-right mr-2"></i>
-          Cancelation and returns
+          Cancellation and returns
         </a>
       </div>
       <div class="mb-2">
@@ -74,28 +74,28 @@
         POLICY
       </div>
       <div class="mb-2">
-        <a href=""
+        <a href="{{ route('ecomm-collection-webpage-display-return-policy') }}"
             class="text-white text-decoration-none">
           <i class="fas fa-angle-right mr-2"></i>
           Return policy
         </a>
       </div>
       <div class="mb-2">
-        <a href=""
+        <a href="{{ route('ecomm-collection-webpage-display-terms-of-use') }}"
             class="text-white text-decoration-none">
           <i class="fas fa-angle-right mr-2"></i>
           Terms of use
         </a>
       </div>
       <div class="mb-2">
-        <a href=""
+        <a href="{{ route('ecomm-collection-webpage-display-privacy') }}"
             class="text-white text-decoration-none">
           <i class="fas fa-angle-right mr-2"></i>
           Privacy
         </a>
       </div>
       <div class="mb-2">
-        <a href=""
+        <a href="{{ route('ecomm-collection-webpage-display-sitemap') }}"
             class="text-white text-decoration-none">
           <i class="fas fa-angle-right mr-2"></i>
           Sitemap
