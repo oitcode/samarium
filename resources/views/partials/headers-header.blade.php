@@ -1,17 +1,18 @@
 {{-- Very top bar --}}
-<div class="container-fluid border bg-dark d-none d-md-block" style="{{--background-color: #fafafa;--}}">
+<div class="container-fluid border bg-primary text-white d-none d-md-block" style="{{--background-color: #fafafa;--}}">
   <div class="py-2 pl-4">
 
     {{-- Clock --}}
     <div class="float-left mr-4">
-      <i class="far fa-circle text-white mr-2"></i>
+      <i class="fas fa-cloud-download-alt text-white mr-2"></i>
       <span class="text-white" style="font-family: Mono;">
-        Electronics products shop | Online store
+        Shop online
       </span>
     </div>
 
+    @if (false)
     {{-- Address --}}
-    <div class="float-left pl-3 mr-4 ml-5 border-rm border-rm border-left-rm border-danger-left-rm text-white-rm" style="color: #aaa;">
+    <div class="float-left pl-3 mr-4 ml-5 border-rm border-rm border-left-rm border-danger-left-rm text-white-rm" style="">
       BROWSE
       <i class="fas fa-angle-right text-info mx-2"></i>
       ADD TO CART
@@ -22,6 +23,7 @@
         FINISH
       </span>
     </div>
+    @endif
 
     @if (false)
     {{-- Just a message --}}
