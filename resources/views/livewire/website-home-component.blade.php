@@ -27,7 +27,7 @@
     {{-- Show products of each product category --}}
     @foreach ($productCategories as $productCategory)
       @if (count($productCategory->products) > 0)
-        <div class="container mt-5">
+        <div class="container mt-4">
           @if (false)
           <h2 class="mb-3">
             {{ $productCategory->name }}

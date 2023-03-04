@@ -1,6 +1,6 @@
-<div class="p-3">
+<div class="p-3-rm border-rm">
 
-  <div class="py-2 text-secondary-rm mb-4" style="font-size: 1.15rem;">
+  <div class="py-2 text-secondary-rm mb-4-rm" style="font-size: 1.15rem;">
     <i class="fas fa-home mr-1"></i>
     <a class="text-primary-rm"
         href="{{ route('website-home') }}"

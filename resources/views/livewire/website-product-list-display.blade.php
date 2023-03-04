@@ -20,10 +20,11 @@
         <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
           <div class="p-2">
             <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
-              <h2 class="h6 mt-2 mb-2" style="color: #004; font-family: Arial;">
+              <h2 class="h5 mt-2 mb-2" style="color: #004; font-family: Arial;">
                 {{ $product->name }}
               </h2>
             </a>
+            @if (false)
             <div class="mb-1" style="font-size: 0.7rem;">
               <i class="far fa-star" style="color: orange;"></i>
               <i class="far fa-star" style="color: orange;"></i>
@@ -34,7 +35,8 @@
                 (0) reviews
               </span>
             </div>
-            <div class="h5 text-dark text-left" style="font-weight: bold;">
+            @endif
+            <div class="h5 text-primary text-left mt-3" style="font-weight: bold;">
               Rs.
               @php echo number_format( $product->selling_price ); @endphp
             </div>
@@ -53,10 +55,10 @@
               </div>
               @endif
             @endif
-            <div>
-              <span class="btn p-0" wire:click.prevent="addItemToCart({{ $product->product_id }})">
+            <div class="text-danger mt-3">
+              <span class="btn btn-light p-1" wire:click.prevent="addItemToCart({{ $product->product_id }})">
                 <i class="fas fa-plus-circle mr-1"></i>
-                Cart
+                Add to cart
               </span>
               {{-- Loading spinner --}}
               <span wire:loading class="spinner-border text-info mr-3"
