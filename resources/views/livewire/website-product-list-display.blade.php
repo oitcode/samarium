@@ -1,4 +1,4 @@
-<div class="h-100">
+<div class="h-100 shadow">
   {{-- Show in smaller screens --}}
   <div class="d-md-none">
   </div>
@@ -20,7 +20,7 @@
         <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
           <div class="p-2">
             <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
-              <h2 class="h5 mt-2 mb-2" style="color: #004; font-family: Arial;">
+              <h2 class="h5 mt-2 mb-2 text-dark" style="font-family: Arial;">
                 {{ $product->name }}
               </h2>
             </a>
@@ -36,7 +36,7 @@
               </span>
             </div>
             @endif
-            <div class="h5 text-primary text-left mt-3" style="font-weight: bold;">
+            <div class="h5 text-danger text-left mt-3" style="font-weight: bold;">
               Rs.
               @php echo number_format( $product->selling_price ); @endphp
             </div>

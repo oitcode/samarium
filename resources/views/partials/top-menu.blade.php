@@ -17,9 +17,8 @@
             <a class="nav-link text-primary-rm"
                 href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
                 style="color: #000;">
-              <i class="fas fa-dot text-info mr-2"></i>
+              <i class="fas fa-angle-right text-info mr-2"></i>
               {{ $productCategory->name }}
-              <span class="sr-only">(current)</span>
             </a>
           </li>
           @php
@@ -42,6 +41,7 @@
               @if ($j >= $i)
               <a class="dropdown-item"
                 href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+                <i class="fas fa-angle-right text-info mr-2"></i>
                 {{ $productCategory->name }}
               </a>
               @endif

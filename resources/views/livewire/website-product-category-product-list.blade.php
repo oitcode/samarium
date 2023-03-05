@@ -1,25 +1,33 @@
 <div class="p-3-rm border-rm">
 
-  <div class="py-2 text-secondary-rm mb-4-rm" style="font-size: 1.15rem;">
-    <i class="fas fa-home mr-1"></i>
-    <a class="text-primary-rm"
-        href="{{ route('website-home') }}"
-        style="color: #000;">
-      <i class="fas fa-dot text-info mr-2"></i>
-      Products
-    </a>
+  <div class="bg-danger-rm text-white-rm py-3 pl-3 border shadow-sm d-flex justify-content-between"
+      style="{{--background-color: #fee--}}; font-size: 1.15rem;">
+    <div>
+      <i class="fas fa-home mr-1"></i>
+      <a class="text-primary-rm text-reset"
+          href="{{ route('website-home') }}"
+          style="color: #000;">
+        <i class="fas fa-dot text-info mr-2"></i>
+        Products
+      </a>
 
-    <i class="fas fa-angle-right  mx-1"></i>
-    {{ $productCategory->name }}
+      <i class="fas fa-angle-right  mx-1"></i>
+      {{ $productCategory->name }}
+    </div>
   </div>
 
-  <div class="my-3 mb-4 text-scondary">
+  <div class="mt-1-rm mb-4 text-scondary-rm px-3">
+    <small>
+    @if (false)
     Displaying
     {{ count($productCategory->products) }}
     out of
+    @endif
     {{ count($productCategory->products) }}
     products
+    </small>
   </div>
+
 
   {{-- Show in smaller screens --}}
   @if (false)

@@ -1,5 +1,5 @@
 {{-- Very top bar --}}
-<div class="container-fluid border bg-primary text-white d-none d-md-block" style="{{--background-color: #fafafa;--}}">
+<div class="container-fluid border bg-success text-white d-none d-md-block" style="{{--background-color: #fafafa;--}}">
   <div class="py-2 pl-4">
 
     {{-- Clock --}}
