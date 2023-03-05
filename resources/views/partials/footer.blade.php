@@ -20,11 +20,11 @@
   </div>
   @endif
 
-  <div class="container-fluid bg-info-rm border pt-4 pb-5 text-white-rm" style="{{--background-color: #101530;--}}">
+  <div class="container-fluid bg-info-rm border pt-4 pb-5-rm text-white-rm" style="{{--background-color: #101530;--}}">
     <div class="container pt-4">
       <div class="row">
       
-        <div class="col-md-3 text-secondary" style="">
+        <div class="col-md-3 text-secondary mb-5" style="">
           <h3 class="h4 text-dark font-weight-bold mb-4">
             ABOUT
           </h3>
@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <div class="col-md-3 text-secondary" style="">
+        <div class="col-md-3 text-secondary mb-5" style="">
           <h3 class="h4 text-dark font-weight-bold mb-4">
             HELP
           </h3>
@@ -92,7 +92,7 @@
           </div>
         </div>
       
-        <div class="col-md-3 text-secondary" style="">
+        <div class="col-md-3 text-secondary mb-5" style="">
           <h3 class="h4 text-dark font-weight-bold mb-4">
             POLICY
           </h3>
@@ -127,7 +127,7 @@
         </div>
 
         @if (true)
-        <div class="col-md-3" style="font-size: 1rem;">
+        <div class="col-md-3 mb-5" style="font-size: 1rem;">
           @if (false)
           <div class="text-secondary">
             {{ $company->tagline }}
