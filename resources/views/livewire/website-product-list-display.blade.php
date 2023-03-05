@@ -36,7 +36,7 @@
               </span>
             </div>
             @endif
-            <div class="h5 text-danger text-left mt-3" style="font-weight: bold;">
+            <div class="h5 text-dark text-left mt-3" style="font-weight: bold;">
               Rs.
               @php echo number_format( $product->selling_price ); @endphp
             </div>
@@ -56,9 +56,9 @@
               @endif
             @endif
             <div class="text-danger mt-3">
-              <span class="btn btn-light p-1" wire:click.prevent="addItemToCart({{ $product->product_id }})">
+              <span class="btn btn-outline-success badge-pill p-1 px-3" wire:click.prevent="addItemToCart({{ $product->product_id }})">
                 <i class="fas fa-plus-circle mr-1"></i>
-                Add to cart
+                Cart
               </span>
               {{-- Loading spinner --}}
               <span wire:loading class="spinner-border text-info mr-3"

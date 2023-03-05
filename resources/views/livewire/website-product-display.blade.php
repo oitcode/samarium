@@ -24,7 +24,11 @@
     <div class="col-md-3">
       <div class="d-flex justify-content-center h-100">
         <div class="d-flex flex-column justify-content-center h-100">
-          <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 250px;">
+          @if ($product->image_path)
+            <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
+          @else
+            <i class="fas fa-dice-d6 fa-10x text-muted m-5"></i>
+          @endif
         </div>
       </div>
     </div>
@@ -56,7 +60,7 @@
         @endif
         <div class="flex-grow-1 bg-warning-rm">
           <div class="h-100 d-flex flex-column justify-content-center">
-            <button class="btn btn-primary btn-block py-3 h5" style="background-color: #5a0; font-family: Arial;">
+            <button class="btn btn-primary btn-block badge-pill py-3 h5" style="background-color: #5a0; font-family: Arial;">
               <span class="h5">
                 <i class="fas fa-shopping-cart mr-1"></i>
                 ADD TO CART
@@ -74,7 +78,7 @@
 
   @if (true)
   {{-- You may also like section --}}
-  <div class="mb-5">
+  <div class="my-5 pt-5">
     <h2 class="text-center mb-5" style="font-family: Arial;">YOU MAY ALSO LIKE</h2>
 
     <div class="row">
