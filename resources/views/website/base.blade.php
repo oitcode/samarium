@@ -47,10 +47,10 @@
   <div class="p-0">
 
     {{-- Headers header --}}
-    @include ('partials.headers-header')
+    @include ('partials.ecomm-website.headers-header')
 
     {{-- Header --}}
-    @include ('partials.header')
+    @include ('partials.ecomm-website.header')
 
     {{-- Top navigation menu --}}
     {{-- Product category menu --}}
@@ -62,7 +62,7 @@
     @yield('content')
 
     {{-- Footer --}}
-    @include ('partials.footer')
+    @include ('partials.ecomm-website.footer')
   </div>
   @endif
 
