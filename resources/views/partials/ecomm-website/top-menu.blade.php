@@ -1,3 +1,4 @@
+@if (false)
 <div class="d-inline-block bg-danger h-100">
   {{-- Nav menu --}}
   <nav class="navbar navbar-light navbar-expand-lg navbar-dark-rm bg-light h-100" style="font-size: 1rem; background-color: #eee; !important">
@@ -57,4 +58,9 @@
       </ul>
     </div>
   </nav>
+</div>
+@endif
+
+<div class="py-3">
+    @livewire ('ecomm-website.top-menu')
 </div>
