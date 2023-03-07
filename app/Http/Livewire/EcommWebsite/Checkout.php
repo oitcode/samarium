@@ -38,7 +38,7 @@ class Checkout extends Component
             return view('livewire.ecomm-website.checkout')
                 ->with('cartItemsProduct' , $cartItemsProduct);
         } else {
-            return view('livewire.website-checkout');
+            return view('livewire.ecomm-website.checkout');
         }
     }
 

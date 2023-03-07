@@ -115,17 +115,17 @@
 
     <div class="row">
       <div class="col-md-3">
-          @livewire ('website-product-list-display', ['product' => \App\Product::where('product_id', 1)->first(), ])
+          @livewire ('ecomm-website.product-list-display', ['product' => \App\Product::where('product_id', 1)->first(), ])
       </div>
       <div class="col-md-3">
-          @livewire ('website-product-list-display', ['product' => \App\Product::where('product_id', 2)->first(), ])
+          @livewire ('ecomm-website.product-list-display', ['product' => \App\Product::where('product_id', 2)->first(), ])
       </div>
       <div class="col-md-3">
-          @livewire ('website-product-list-display', ['product' => \App\Product::where('product_id', 3)->first(), ])
+          @livewire ('ecomm-website.product-list-display', ['product' => \App\Product::where('product_id', 3)->first(), ])
       </div>
   @if (false)
       <div class="col-md-3">
-          @livewire ('website-product-list-display', ['product' => \App\Product::where('product_id', 4)->first(), ])
+          @livewire ('ecomm-website.product-list-display', ['product' => \App\Product::where('product_id', 4)->first(), ])
       </div>
   @endif
     </div>
