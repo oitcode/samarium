@@ -1,14 +1,18 @@
 <div>
-  <div class="row">
+  <div class="row p-0">
     @foreach ($productCategories as $productCategory)
-      <div class="col-md-2">
+      <div class="col-md-2 p-0 m-0 bg-warning-rm">
         <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-            class="text-decoration-none">
-          <button class="btn btn-outline-success badge-pill mr-5">
+            class="btn btn-success">
           {{ $productCategory->name }}
-          </button>
         </a>
       </div>
     @endforeach
+    <div class="col-md-2 p-0 m-0 bg-warning-rm">
+      <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
+          class="">
+        Show all
+      </a>
+    </div>
   </div>
 </div>

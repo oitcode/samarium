@@ -19,7 +19,7 @@ class TopMenu extends Component
 
     public function render()
     {
-        $this->productCategories = ProductCategory::all();
+        $this->productCategories = ProductCategory::limit(5)->get();
 
         return view('livewire.ecomm-website.top-menu');
     }
