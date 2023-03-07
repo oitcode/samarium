@@ -282,7 +282,7 @@
     @endif
     </div>
 
-    @if (false)
+    @if ($modes['paid'])
     <div class="table-responsive mb-0" wire:key=" BIZCUP ">
       <table class="table table-bordered mb-0">
         <tbody>
