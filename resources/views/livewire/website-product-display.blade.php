@@ -23,7 +23,7 @@
   <div class="row mb-5 border p-2 py-5  bg-white shadow">
     <div class="col-md-3">
       <div class="d-flex justify-content-center h-100">
-        <div class="d-flex flex-column justify-content-center h-100">
+        <div class="d-flex flex-column justify-content-start h-100">
           @if ($product->image_path)
             <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
           @else
@@ -47,6 +47,31 @@
       @if (false)
       <hr />
       @endif
+
+      @if (count($product->productSpecifications) > 0)
+        <hr />
+        <div class="mb-5">
+          <div class="mt-4">
+            <h3 class="h5 ml-2 mb-3" style="font-weight: bold;">
+              Specifications
+            </h3>
+          </div>
+          <div class="table-responsive border-rm">
+            <table class="table mb-0">
+              @foreach ($product->productSpecifications as $spec)
+                <tr class="">
+                  <th class="bg-light-rm border-dark" style="background-color: #eee;">
+                    {{ $spec->spec_heading }}
+                  </th>
+                  <td class="bg-success-rm text-white-rm border-dark">
+                    {{ $spec->spec_value }}
+                  </td>
+                </tr>
+              @endforeach
+            </table>
+          </div>
+        </div>
+      @endif
     </div>
     <div class="col-md-3">
       <div class="d-flex">
@@ -60,12 +85,19 @@
         @endif
         <div class="flex-grow-1 bg-warning-rm">
           <div class="h-100 d-flex flex-column justify-content-center">
-            <button class="btn btn-primary btn-block badge-pill py-3 h5" style="background-color: #5a0; font-family: Arial;">
+            <button class="btn btn-primary btn-block badge-pill py-3 h5"
+                style="background-color: #5a0; font-family: Arial;"
+                wire:click="addItemToCart({{ $product->product_id }})">
               <span class="h5">
                 <i class="fas fa-shopping-cart mr-1"></i>
                 ADD TO CART
               </span>
             </button>
+            {{-- Loading spinner --}}
+            <span wire:loading class="spinner-border text-info mr-3"
+                role="status"
+                style="font-size: 1rem;">
+            </span>
           </div>
         </div>
       </div>
