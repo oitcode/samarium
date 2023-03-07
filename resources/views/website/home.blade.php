@@ -20,6 +20,6 @@
 @endsection
 
 @section ('content')
-  @livewire ('website-home-component')
+  @livewire ('ecomm-website.home-component')
 @endsection
 

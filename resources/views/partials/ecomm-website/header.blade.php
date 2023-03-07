@@ -11,7 +11,9 @@
             <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 100px;">
         </div>
         <div class="mt-3 d-none d-md-block mr-3">
-          <h1 class="mt-2 text-dark" style="font-weight: bold; font-size: 1.5rem;">{{ $company->name }}</h1>
+          <h1 class="mt-2 text-dark" style="font-weight: bold; font-size: 1.5rem; text-shadow: 0px 1px, 1px 0px, 1px 0px;">
+            {{ $company->name }}
+          </h1>
           <div class="text-secondary">
             {{ $company->tagline }}
           </div>
@@ -36,7 +38,7 @@
         {{-- Shopping cart badge (checkout link) --}}
         @if (true)
           <div class="d-flex flex-column justify-content-center h-100">
-            @livewire ('website-shopping-cart-badge')
+            @livewire ('ecomm-website.shopping-cart-badge')
           </div>
         @else
           TEST
@@ -80,7 +82,7 @@
       {{-- Shopping cart badge (checkout link) --}}
       @if (true)
         <div class="d-flex flex-column justify-content-center h-100">
-          @livewire ('website-shopping-cart-badge')
+          @livewire ('ecomm-website.shopping-cart-badge')
         </div>
       @else
         TEST
