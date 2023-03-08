@@ -117,6 +117,15 @@ class Product extends Model
         return $this->hasMany('App\PurchaseItem', 'product_id', 'product_id');
     }
 
+    /*
+     * product_specification table.
+     *
+     */
+    public function productSpecifications()
+    {
+        return $this->hasMany('App\ProductSpecification', 'product_id', 'product_id');
+    }
+
     public function isUsedToday()
     {
         $openingStockTimestamp = $this->opening_stock_timestamp;
