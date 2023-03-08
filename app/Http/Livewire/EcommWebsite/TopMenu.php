@@ -15,12 +15,23 @@ class TopMenu extends Component
     public $productCategories;
 
     public $modes = [
+        'showAllCategoriesMode' => false,
     ];
+
+    public function mount()
+    {
+        $this->productCategories = ProductCategory::limit(5)->get();
+    }
 
     public function render()
     {
-        $this->productCategories = ProductCategory::limit(5)->get();
-
         return view('livewire.ecomm-website.top-menu');
+    }
+
+    public function showAllCategories()
+    {
+        $this->productCategories = ProductCategory::all();
+
+        $this->enterMode('showAllCategoriesMode');
     }
 }
