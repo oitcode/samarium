@@ -108,7 +108,7 @@
               </h3>
             </div>
 
-            <img src="{{ asset('img/cash-on-delivery-3.png') }}" class="mr-2" style="{{-- width: 100px; --}} height: 100px;">
+            <img src="{{ asset('img/cash-on-delivery-1.png') }}" class="mr-2" style="{{-- width: 100px; --}} height: 100px;">
 
           </div>
         </div>
