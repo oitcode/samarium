@@ -1,15 +1,23 @@
-<div class="container my-4">
+<div class="container my-4 mb-5">
+
+    <div class="my-5">
+      <h1 style="font-weight: bold; {{-- font-size: 1.5rem --}}; text-shadow: 0px 1px, 1px 0px, 1px 0px;">
+        Checkout
+      </h1>
+    </div>
 
     @if (session()->has('cart'))
     <div class="row">
-      <div class="col-md-6 bh-white">
-        <h3 class="text-secondary mb-3" style="font-family: Arial;">
-          Shopping cart
-        </h3>
-        <div class="table-responsive bg-white border">
+      <div class="col-md-6 bg-white text-white-rm border p-0 shadow">
+        <div class="p-3">
+          <h3 class="text-white-rm mb-3" style="font-family: Arial;">
+            Order details
+          </h3>
+        </div>
+        <div class="table-responsive bg-white-rm border">
           <table class="table">
             <thead>
-              <tr>
+              <tr class="bg-success text-white">
                 <th>Item</th>
                 <th>Quantity</th>
                 <th>Rate</th>
@@ -19,8 +27,13 @@
 
             <tbody>
               @foreach ($cartItemsProduct as $line)
-                <tr>
+                <tr class="text-white-rm">
                   <td>
+                    @if ($line['product']->image_path)
+                      <img src="{{ asset('storage/' . $line['product']->image_path) }}" class="mr-2" style="width: 30px; height: 30px;">
+                    @else
+                      <i class="fas fa-angle-right mr-2"></i>
+                    @endif
                     {{ $line['product']->name }}
                   </td>
                   <td>
@@ -29,7 +42,7 @@
                   <td>
                     @php echo number_format( $line['product']->selling_price ); @endphp
                   </td>
-                  <td>
+                  <td class="font-weight-bold">
                     @php echo number_format( $line['product']->selling_price * $line['quantity']); @endphp
                   </td>
                 </tr>
@@ -37,11 +50,11 @@
             </tbody>
 
             <tfoot>
-              <tr style="font-size: 1rem;">
-                <th colspan="3" class="text-right">
-                  Total
+              <tr class="text-white-rm" style="font-size: 1rem; color: red;">
+                <th colspan="3" class="text-right font-weight-bold h3">
+                  Rs
                 </th>
-                <td>
+                <td class="font-weight-bold h3">
                   @php echo number_format( $cartTotalAmount ); @endphp
                 </td>
               </tr>
@@ -59,11 +72,13 @@
             </button>
           </div>
         @endif
-        <div class="card border-0">
+
+        {{-- Customer details --}}
+        <div class="card border-0 shadow-lg">
           <div class="card-body">
-            <div class="text-secondary">
+            <div class="text-dark">
               <h3>
-                Checkout
+                Your details
               </h3>
             </div>
             <div class="form-group">
@@ -81,12 +96,31 @@
                   wire:model.defer="address">
               @error ('address') <div class="text-danger"> {{ $message }} </div> @enderror
             </div>
+          </div>
+        </div>
 
+        {{-- Payment options --}}
+        <div class="card border-0 shadow-lg">
+          <div class="card-body">
+            <div class="text-dark">
+              <h3>
+                Payment options
+              </h3>
+            </div>
+
+            <img src="{{ asset('img/cash-on-delivery-3.png') }}" class="mr-2" style="{{-- width: 100px; --}} height: 100px;">
+
+          </div>
+        </div>
+
+        {{-- Confirm button --}}
+        <div class="card border-0 shadow-lg">
+          <div class="card-body">
             <div class="row" style="">
-              <div class="col-md-6">
-                <button class="btn btn-success mr-3 w-100" wire:click="store" style="font-size: 1.3rem;">
+              <div class="col-md-12">
+                <button class="btn btn-success mr-3 w-100 badge-pill" wire:click="store" style="font-size: 1.3rem;">
                   <i class="fas fa-check-circle mr-3"></i>
-                  CONFIRM
+                  Place order
                 </button>
               </div>
             </div>
