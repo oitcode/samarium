@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Ecs\Website;
+namespace App\Http\Livewire\Cms\Website;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class GalleryDisplay extends Component
     {
         $this->galleries = Gallery::all();
 
-        return view('livewire.ecs.website.gallery-display');
+        return view('livewire.cms.website.gallery-display');
     }
 }

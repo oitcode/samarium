@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Cms;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 
@@ -20,7 +20,7 @@ class NavMenuDisplayNavMenuDropdownItemCreate extends Component
     {
         $this->webpages = Webpage::all();
 
-        return view('livewire.cms.nav-menu-display-nav-menu-dropdown-item-create');
+        return view('livewire.cms.dashboard.nav-menu-display-nav-menu-dropdown-item-create');
     }
 
     public function store()

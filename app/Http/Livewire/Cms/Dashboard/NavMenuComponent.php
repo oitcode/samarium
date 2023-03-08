@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Livewire\Ecs;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 
-use App\Webpage;
+use App\CmsNavMenu;
 
-class WebpageComponent extends Component
+class NavMenuComponent extends Component
 {
-    public $displayingWebpage = null;
+    public $displayingCmsNavMenu;
 
     public $modes = [
         'create' =>false,
@@ -16,14 +16,14 @@ class WebpageComponent extends Component
     ];
 
     protected $listeners = [
-        'webpageAdded',
+        'cmsNavMenuAdded',
         'exitCreateMode',
-        'displayWebpage',
+        'displayCmsNavMenu',
     ];
 
     public function render()
     {
-        return view('livewire.ecs.webpage-component');
+        return view('livewire.cms.dashboard.nav-menu-component');
     }
 
     /* Clear modes */
@@ -47,7 +47,7 @@ class WebpageComponent extends Component
         $this->modes[$modeName] = false;
     }
 
-    public function webpageAdded()
+    public function cmsNavMenuAdded()
     {
         $this->exitMode('create');
     }
@@ -57,11 +57,11 @@ class WebpageComponent extends Component
         $this->exitMode('create');
     }
 
-    public function displayWebpage($webpageId)
+    public function displayCmsNavMenu($cmsNavMenuId)
     {
-        $webpage = Webpage::find($webpageId);
+        $cmsNavMenu = CmsNavMenu::find($cmsNavMenuId);
 
-        $this->displayingWebpage = $webpage;
+        $this->displayingCmsNavMenu = $cmsNavMenu;
 
         $this->enterMode('display');
     }

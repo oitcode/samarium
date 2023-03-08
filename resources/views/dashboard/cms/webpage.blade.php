@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('ecs.webpage-component')
+  @livewire('cms.dashboard.webpage-component')
 @endsection

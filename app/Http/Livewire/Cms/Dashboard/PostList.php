@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Cms;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class PostList extends Component
     {
         $this->posts = Webpage::where('is_post', 'yes')->orderBy('webpage_id', 'DESC')->get();
 
-        return view('livewire.cms.post-list');
+        return view('livewire.cms.dashboard.post-list');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Cms;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -22,7 +22,7 @@ class WebpageContentEdit extends Component
         $this->title = $this->webpageContent->title;
         $this->body = $this->webpageContent->body;
 
-        return view('livewire.cms.webpage-content-edit');
+        return view('livewire.cms.dashboard.webpage-content-edit');
     }
 
     public function update()

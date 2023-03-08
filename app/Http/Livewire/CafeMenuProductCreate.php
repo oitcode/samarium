@@ -9,6 +9,7 @@ use Livewire\WithFileUploads;
 
 use App\Product;
 use App\ProductCategory;
+use App\ProductSpecification;
 
 class CafeMenuProductCreate extends Component
 {
@@ -35,6 +36,9 @@ class CafeMenuProductCreate extends Component
     public $baseProducts;
 
     public $productCategories;
+
+    /* This will hold all the product specifications. */
+    public $productSpecifications = array();
 
     public $modes = [
         'stockApplicable' => false,
@@ -138,6 +142,28 @@ class CafeMenuProductCreate extends Component
                 $product->save();
                 $product = $product->fresh();
             }
+
+            /* If there are any product specification, save them. */
+            if (count($this->productSpecifications) > 0) {
+                $ii = 0;
+                foreach ($this->productSpecifications as $spec) {
+                    if ($spec[0] == '' || $spec[1] =='') {
+                    } else {
+                        $productSpecification = new ProductSpecification;
+
+                        $productSpecification->product_id = $product->product_id;
+
+                        $productSpecification->position = $ii;
+                        $productSpecification->spec_heading = $spec[0];
+                        $productSpecification->spec_value = $spec[1];
+
+                        $productSpecification->save();
+
+                        $ii++;
+                    }
+                }
+            }
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
@@ -187,5 +213,10 @@ class CafeMenuProductCreate extends Component
             $this->modes['baseProduct'] = false;
             $this->modes['subProduct'] = false;
         }
+    }
+
+    public function addSpecification()
+    {
+        $this->productSpecifications[] = ['', ''];
     }
 }

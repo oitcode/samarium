@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Cms;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class NavMenuList extends Component
     {
         $this->cmsNavMenus = CmsNavMenu::all();
 
-        return view('livewire.cms.nav-menu-list');
+        return view('livewire.cms.dashboard.nav-menu-list');
     }
 }

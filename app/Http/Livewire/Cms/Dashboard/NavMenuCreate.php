@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Cms;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 
@@ -12,7 +12,7 @@ class NavMenuCreate extends Component
 
     public function render()
     {
-        return view('livewire.cms.nav-menu-create');
+        return view('livewire.cms.dashboard.nav-menu-create');
     }
 
     public function store()

@@ -34,10 +34,10 @@
   @endif
 
   @if ($modes['create'])
-    @livewire ('cms.nav-menu-create')
+    @livewire ('cms.dashboard.nav-menu-create')
   @elseif ($modes['display'])
-    @livewire ('cms.nav-menu-display', ['cmsNavMenu' => $displayingCmsNavMenu,])
+    @livewire ('cms.dashboard.nav-menu-display', ['cmsNavMenu' => $displayingCmsNavMenu,])
   @else
-    @livewire ('cms.nav-menu-list')
+    @livewire ('cms.dashboard.nav-menu-list')
   @endif
 </div>

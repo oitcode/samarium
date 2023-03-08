@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Ecs;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 
@@ -14,7 +14,7 @@ class WebpageCreate extends Component
 
     public function render()
     {
-        return view('livewire.ecs.webpage-create');
+        return view('livewire.cms.dashboard.webpage-create');
     }
 
     public function store()

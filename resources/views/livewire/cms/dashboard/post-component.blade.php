@@ -31,10 +31,10 @@
   @endif
 
   @if ($modes['createPostMode'])
-    @livewire ('ecs.webpage-create', ['is_post' => 'yes',])
+    @livewire ('cms.dashboard.webpage-create', ['is_post' => 'yes',])
   @elseif ($modes['listPostMode'])
-    @livewire ('cms.post-list')
+    @livewire ('cms.dashboard.post-list')
   @elseif ($modes['displayPostMode'])
-    @livewire ('cms.webpage-display', ['webpage' => $displayingPost,])
+    @livewire ('cms.dashboard.webpage-display', ['webpage' => $displayingPost,])
   @endif
 </div>

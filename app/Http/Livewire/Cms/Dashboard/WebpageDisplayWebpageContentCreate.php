@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Cms;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +22,7 @@ class WebpageDisplayWebpageContentCreate extends Component
 
     public function render()
     {
-        return view('livewire.cms.webpage-display-webpage-content-create');
+        return view('livewire.cms.dashboard.webpage-display-webpage-content-create');
     }
 
     public function store()

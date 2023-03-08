@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Ecs;
+namespace App\Http\Livewire\Cms\Website;
 
 use Livewire\Component;
 
@@ -19,7 +19,7 @@ class ContactComponent extends Component
     public function render()
     {
         $this->company = Company::first();
-        return view('livewire.ecs.contact-component');
+        return view('livewire.cms.website.contact-component');
     }
 
     public function store()

@@ -43,7 +43,7 @@
 @endif
 
 <div>
-  @livewire ('ecs.contact-component')
+  @livewire ('cms.website.contact-component')
 </div>
 
 @endsection

@@ -214,6 +214,32 @@
         @endif
       </div>
 
+      {{-- Product specification --}}
+      <div class="border p-2 my-4">
+        <h2 class="h5">
+          Product Specifications
+        </h2>
+
+        <div class="mb-4">
+          <button class="btn btn-outline-success" wire:click="addSpecification">
+            Add specification
+          </button>
+        </div>
+
+        @for ($i=0; $i < count($productSpecifications); $i++)
+          <div class="mb-3">
+            <input type="text" class="mr-3" wire:model.defer="productSpecifications.{{ $i }}.0">
+            <input type="text" class="mr-3" wire:model.defer="productSpecifications.{{ $i }}.1">
+
+            @if (false)
+            <span class="mr-3">FOO</span>
+            <span class="mr-3">BAR</span>
+            @endif
+          </div>
+        @endfor
+
+      </div>
+
 
       @if (false)
       <div class="border bg-white p-2 mb-3 shadow-sm">

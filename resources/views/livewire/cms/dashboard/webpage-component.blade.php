@@ -30,10 +30,10 @@
   @endif
 
   @if ($modes['create'])
-    @livewire ('ecs.webpage-create')
+    @livewire ('cms.dashboard.webpage-create')
   @elseif ($modes['display'])
-    @livewire ('cms.webpage-display', ['webpage' => $displayingWebpage,])
+    @livewire ('cms.dashboard.webpage-display', ['webpage' => $displayingWebpage,])
   @else
-    @livewire ('ecs.webpage-list')
+    @livewire ('cms.dashboard.webpage-list')
   @endif
 </div>

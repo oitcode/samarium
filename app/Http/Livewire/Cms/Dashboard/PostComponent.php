@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Cms;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 
@@ -28,7 +28,7 @@ class PostComponent extends Component
 
     public function render()
     {
-        return view('livewire.cms.post-component');
+        return view('livewire.cms.dashboard.post-component');
     }
 
     public function webpageAdded()

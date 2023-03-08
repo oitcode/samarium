@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Ecs;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 
@@ -12,6 +12,6 @@ class WebpageList extends Component
     {
         $this->webpages = Webpage::orderBy('webpage_id', 'DESC')->get();
 
-        return view('livewire.ecs.webpage-list');
+        return view('livewire.cms.dashboard.webpage-list');
     }
 }

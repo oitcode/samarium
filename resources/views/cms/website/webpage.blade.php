@@ -315,7 +315,7 @@
   <h2 class="h2 bg-warning-rm mt-3 mb-1-rm pl-4 text-left text-secondary" style="color: #000; font-family: Arial; font-weight: bold;">
     Any questions?
   </h2>
-  @livewire ('ecs.contact-component')
+  @livewire ('cms.website.contact-component')
 </div>
 @endif
 

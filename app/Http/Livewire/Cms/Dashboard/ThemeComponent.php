@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Cms;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -36,7 +36,7 @@ class ThemeComponent extends Component
             $this->heading_color = $cmsTheme->heading_color;
         }
 
-        return view('livewire.cms.theme-component');
+        return view('livewire.cms.dashboard.theme-component');
     }
 
     public function store()
