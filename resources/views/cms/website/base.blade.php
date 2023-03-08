@@ -80,14 +80,14 @@
   <div class="p-0">
 
     {{-- Header --}}
-    @include ('partials.ecs.headers-header')
+    @include ('partials.cms.headers-header')
     @if (false)
-    @include ('partials.ecs.header')
+    @include ('partials.cms.header')
     @endif
 
     {{-- Top navigation menu --}}
     {{-- Product category menu --}}
-    @livewire ('ecs.menu-wp')
+    @livewire ('cms.website.menu-wp')
 
     @yield ('pageAnnouncer')
 
@@ -113,7 +113,7 @@
             ;
         ">
       <div class="container">
-        @include ('partials.ecs.footer')
+        @include ('partials.cms.footer')
       </div>
     </div>
 

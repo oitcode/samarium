@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Ecs;
+namespace App\Http\Livewire\Cms\Website;
 
 use Livewire\Component;
 
@@ -17,7 +17,7 @@ class MenuWp extends Component
 
         $company = Company::first();
 
-        return view('livewire.ecs.menu-wp')
+        return view('livewire.cms.website.menu-wp')
             ->with('company', $company);
     }
 }

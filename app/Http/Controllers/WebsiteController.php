@@ -93,7 +93,7 @@ class WebsiteController extends Controller
 
         $cartItems = session('cartItems');
 
-        return view('cms.home')
+        return view('cms.website.home')
             ->with('company', $company)
             ->with('productCategories', $productCategories)
             ->with('products', $products)
@@ -213,7 +213,7 @@ class WebsiteController extends Controller
 
         $webpage = Webpage::where('permalink', $permalink)->first();
 
-        return view('cms.webpage')
+        return view('cms.website.webpage')
             ->with('company', $company)
             ->with('webpage', $webpage);
     }
