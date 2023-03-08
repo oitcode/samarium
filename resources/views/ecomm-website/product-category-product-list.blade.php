@@ -1,4 +1,4 @@
-@extends ('website.base')
+@extends ('ecomm-website.base')
 
 @section ('pageTitleTag')
   <title>

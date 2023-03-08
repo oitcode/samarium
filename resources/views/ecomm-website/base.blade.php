@@ -47,7 +47,9 @@
   <div class="p-0">
 
     {{-- Headers header --}}
+    @if (false)
     @include ('partials.ecomm-website.headers-header')
+    @endif
 
     {{-- Header --}}
     @include ('partials.ecomm-website.header')

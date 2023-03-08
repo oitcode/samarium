@@ -163,7 +163,7 @@ if (preg_match("/shop/i", env('MODULES'))) {
  *
  */
 if (env('SITE_TYPE') == 'ecs' || env('SITE_TYPE') == 'school') {
-    Route::get('/', 'WebsiteController@bia')->name('website-home');
+    Route::get('/', 'WebsiteController@cmsHome')->name('website-home');
 } else {
     Route::get('/', 'WebsiteController@homePage')->name('website-home');
 }

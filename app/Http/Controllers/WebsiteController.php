@@ -17,7 +17,7 @@ class WebsiteController extends Controller
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
 
-        return view('website.home')
+        return view('ecomm-website.home')
             ->with('company', $company)
             ->with('productCategories', $productCategories)
             ->with('products', $products);
@@ -31,7 +31,7 @@ class WebsiteController extends Controller
 
         $product = Product::find($id);
 
-        return view('website.product-view')
+        return view('ecomm-website.product-view')
             ->with('product', $product)
             ->with('company', $company)
             ->with('productCategories', $productCategories)
@@ -46,7 +46,7 @@ class WebsiteController extends Controller
 
         $productCategory = ProductCategory::find($id);
 
-        return view('website.product-category-product-list')
+        return view('ecomm-website.product-category-product-list')
             ->with('productCategory', $productCategory)
             ->with('company', $company)
             ->with('productCategories', $productCategories)
@@ -66,25 +66,26 @@ class WebsiteController extends Controller
 
         $cartItems = session('cartItems');
 
-        return view('website.checkout')
+        return view('ecomm-website.checkout')
             ->with('company', $company)
             ->with('productCategories', $productCategories)
             ->with('products', $products)
             ->with('cartItems', $cartItems);
     }
 
+
     /*
      *-------------------------------------------------------------------------
-     * ECS website pages
+     * CMS website pages
      *-------------------------------------------------------------------------
      */
 
     /**
-     * Show the bia page.
+     * Show the home page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function bia()
+    public function cmsHome()
     {
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
@@ -92,7 +93,7 @@ class WebsiteController extends Controller
 
         $cartItems = session('cartItems');
 
-        return view('ecs.home')
+        return view('cms.home')
             ->with('company', $company)
             ->with('productCategories', $productCategories)
             ->with('products', $products)
@@ -212,7 +213,7 @@ class WebsiteController extends Controller
 
         $webpage = Webpage::where('permalink', $permalink)->first();
 
-        return view('oit-webpage')
+        return view('cms.webpage')
             ->with('company', $company)
             ->with('webpage', $webpage);
     }

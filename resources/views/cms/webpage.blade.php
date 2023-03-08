@@ -1,4 +1,4 @@
-@extends ('bia')
+@extends ('cms.base')
 
 @section ('googleAnalyticsTag')
 @endsection
