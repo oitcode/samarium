@@ -68,6 +68,7 @@ class SaleInvoiceWorkMakePayment extends Component
         'paid' => false,
         'customer' => false,
         'multiplePayments' => false,
+        'manualDiscount' => false,
     ];
 
     protected $listeners = [
@@ -447,12 +448,20 @@ class SaleInvoiceWorkMakePayment extends Component
 
     public function calculateDiscount()
     {
-        $dp = (float) $this->discount_percentage;
-        $this->saleInvoiceAdditions['Discount'] = ($dp / 100) * $this->saleInvoice->getTotalAmountRaw();
-        $this->saleInvoiceAdditions['Discount'] = ceil ($this->saleInvoiceAdditions['Discount']);
+        if ($this->discount_percentage == 'manual') {
+            $this->enterMode('manualDiscount');
+        } else {
+            if ($this->modes['manualDiscount']) {
+                $this->exitMode('manualDiscount');
+            }
 
-        $this->updateNumbers();
-        $this->calculateGrandTotal();
+            $dp = (float) $this->discount_percentage;
+            $this->saleInvoiceAdditions['Discount'] = ($dp / 100) * $this->saleInvoice->getTotalAmountRaw();
+            $this->saleInvoiceAdditions['Discount'] = ceil ($this->saleInvoiceAdditions['Discount']);
+
+            $this->updateNumbers();
+            $this->calculateGrandTotal();
+        }
     }
 
     public function calculateSaleInvoiceVat()

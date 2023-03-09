@@ -103,6 +103,7 @@
                     <option value="20">20 %</option>
                     <option value="25">25 %</option>
                     <option value="50">50 %</option>
+                    <option value="manual">Manual</option>
                   </select>
                 </div>
               @elseif (strtolower($key) == 'vat')
@@ -119,10 +120,23 @@
               @if (strtolower($key) == 'vat')
                 {{ $val }}
               @else
-                <input class="w-100 h-100 font-weight-bold pl-3 border-0"
-                    type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
-                    style="font-size: calc(0.6rem + 0.2vw);"
-                    wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
+                @if (strtolower($key) == 'Discount')
+                  @if ($modes['manualDiscount'])
+                    <input class="w-100 h-100 font-weight-bold pl-3 border-0"
+                        type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                        style="font-size: calc(0.6rem + 0.2vw);"
+                        wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
+                  @else
+                    <div class="w-100 h-100 font-weight-bold pl-3 pt-2 border-0">
+                      {{ $saleInvoiceAdditions['Discount'] }}
+                    </div>
+                  @endif
+                @else
+                  <input class="w-100 h-100 font-weight-bold pl-3 border-0"
+                      type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                      style="font-size: calc(0.6rem + 0.2vw);"
+                      wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
+                @endif
               @endif
             </td>
           </tr>
