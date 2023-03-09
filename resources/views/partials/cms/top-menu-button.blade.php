@@ -38,9 +38,9 @@
               "
           >
 
-    @if (true)
+    @if (false)
     <i class="{{ $iconFaClass}} mr-2"></i>
     @endif
-    {{ $btnText }}
+    {{ strtoupper($btnText) }}
   </a>
 </div>
