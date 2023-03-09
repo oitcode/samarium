@@ -1,3 +1,14 @@
+{{--
+
+TODO:
+
+Candidate for deletion.
+
+This file seems to be useless as it is not called by any other files.
+Check if this file can be safely deleted.
+
+--}}
+
 <div class="card">
   <div class="card-header bg-warning-rm">
     <span style="font-size: 1.3rem;">

@@ -37,7 +37,7 @@
 
         <div class="py-3">
           @if (true)
-          @include ('partials.top-menu-act')
+          @include ('partials.cms.top-menu-act')
           @endif
         </div>
 
@@ -49,7 +49,7 @@
   <div class="d-md-none">
     <div class="container-fluid p-0">
       @if (true)
-      @include ('partials.site-top-menu-mob')
+      @include ('partials.cms.site-top-menu-mob')
       @endif
     </div>
   </div>

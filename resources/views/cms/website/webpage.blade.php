@@ -123,32 +123,32 @@
 @elseif ($webpage->name == 'Teams')
   @if (\App\Team::where('team_type', 'playing_team')->first())
     <div class="container my-4">
-      @include ('partials.team-block-display')
+      @include ('partials.team.team-block-display')
     </div>
   @endif
 @elseif ($webpage->name == 'Sponsors')
   @if (\App\Team::where('name', 'Sponsors')->first())
     <div class="container my-4">
-      @include ('partials.team-display-fe', ['team' => \App\Team::where('name', 'Sponsors')->first(),])
+      @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Sponsors')->first(),])
     </div>
   @endif
   @if (\App\Team::where('name', 'Co-Sponsors')->first())
     <div class="container my-4">
-      @include ('partials.team-display-fe', ['team' => \App\Team::where('name', 'Co-Sponsors')->first(),])
+      @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Co-Sponsors')->first(),])
     </div>
   @endif
 @elseif ($webpage->name == 'Organizing Committee')
   @if (\App\Team::where('team_type', 'organizing_team')->first())
     @foreach (\App\Team::where('team_type', 'organizing_team')->get() as $team)
       <div class="container my-4">
-        @include ('partials.team-display-fe', ['team' => $team,])
+        @include ('partials.team.team-display-fe', ['team' => $team,])
       </div>
     @endforeach
   @endif
 @elseif ($webpage->name == 'Contact us')
   @if (\App\Team::where('name', 'Quick Contacts')->first())
     <div class="container my-4">
-      @include ('partials.team-display-fe', ['team' => \App\Team::where('name', 'Quick Contacts')->first(),])
+      @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Quick Contacts')->first(),])
     </div>
   @endif
 @elseif ($webpage->name == 'Calendar')

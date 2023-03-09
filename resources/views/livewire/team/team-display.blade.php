@@ -13,28 +13,28 @@
 
     {{-- Top tool bar --}}
     <div class="mb-4 d-none d-md-block">
-      @include ('partials.tool-bar-button-pill', [
+      @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('createTeamMemberMode')",
           'btnIconFaClass' => 'fas fa-plus-circle',
           'btnText' => 'Add team member',
           'btnCheckMode' => 'createTeamMemberMode',
       ])
 
-      @include ('partials.tool-bar-button-pill', [
+      @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('createTeamMembersFromCsvMode')",
           'btnIconFaClass' => 'fas fa-file',
           'btnText' => 'Upload from csv',
           'btnCheckMode' => 'createTeamMembersFromCsvMode',
       ])
 
-      @include ('partials.tool-bar-button-pill', [
+      @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('updateTeamMode')",
           'btnIconFaClass' => 'fas fa-pencil-alt',
           'btnText' => 'Update team',
           'btnCheckMode' => 'updateTeamMode',
       ])
 
-      @include ('partials.spinner-button')
+      @include ('partials.dashboard.spinner-button')
 
       <div class="clearfix">
       </div>
@@ -71,7 +71,7 @@
         
           @foreach ($team->teamMembers as $teamMember)
             <div class="col-md-3 mb-4">
-              @include ('partials.person-display', ['person' => $teamMember,])
+              @include ('partials.team.person-display', ['person' => $teamMember,])
             </div>
           @endforeach
         </div>

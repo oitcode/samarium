@@ -1,3 +1,14 @@
+{{--
+
+TODO:
+
+Candidate for deletion.
+
+This file seems to be useless as it is not called by any other files.
+Check if this file can be safely deleted.
+
+--}}
+
 <div class="bg-white">
   <div class="row p-3">
     <div class="col-md-2 d-flex justify-content-center bg-danger text-white border p-3 mr-3 py-5">

@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-md-8">
       @if ($expense->creation_status != 'created')
-        @include ('partials.expense-create-add-item-new')
+        @include ('partials.dashboard.expense-create-add-item-new')
       @endif
-      @include ('partials.expense-create-main-new')
+      @include ('partials.dashboard.expense-create-main-new')
     </div>
 
     @if (! $modes['paid'])
     <div class="col-md-4">
       <div class="border">
-        @include ('partials.expense-create-make-payment-new')
+        @include ('partials.dashboard.expense-create-make-payment-new')
 
         <div>
           <div class="p-0 m-0">

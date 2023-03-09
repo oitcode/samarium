@@ -11,7 +11,7 @@
         Show quick links menu. This menu is visible only
         in small screen (mobile).
     --}}
-    @include ('partials.mobile-dashboard-main-links')
+    @include ('partials.dashboard.mobile-dashboard-main-links')
 
     {{-- Show on bigger screens --}}
     <div class="d-none d-md-block">

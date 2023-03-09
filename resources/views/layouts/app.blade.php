@@ -37,17 +37,17 @@
     <div class="row" style="min-height: 500px;">
       {{-- App left menu --}}
       <div class="col-md-1">
-        @include ('partials.app-left-menu')
+        @include ('partials.dashboard.app-left-menu')
       </div>
 
       {{-- Mobile top menu --}}
       <div class="d-md-none col-md-12">
-        @include ('partials.mobile-top-menu')
+        @include ('partials.dashboard.mobile-top-menu')
       </div>
 
       <div class="col-md-11">
         {{-- App top menu --}}
-        @include ('partials.app-top-menu')
+        @include ('partials.dashboard.app-top-menu')
 
         {{-- Content goes here --}}
         @yield('content')
@@ -59,7 +59,7 @@
   @if (env('APP_FOOTER') == true)
     {{-- Screen-bottom info bar --}}
     <div class="fixed-bottom">
-      @include ('partials.app-footer')
+      @include ('partials.dashboard.app-footer')
     </div>
   @endif
 

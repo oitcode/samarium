@@ -1,3 +1,11 @@
+{{--
+
+    TODO:
+
+    Deletion candidate! It seems to be used nowhere.
+
+--}}
+
 <div class="d-inline-block bg-danger h-100">
   {{-- Nav menu --}}
   <nav class="navbar navbar-light navbar-expand-lg navbar-dark-rm bg-light h-100" style="font-size: 1rem; background-color: #eee; !important">

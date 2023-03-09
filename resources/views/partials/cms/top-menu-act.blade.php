@@ -4,13 +4,13 @@
 
   @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
     @if ($cmsNavMenuItem->type == 'item')
-      @include ('partials.app-top-menu-button', [
+      @include ('partials.dashboard.app-top-menu-button', [
         'btnRoute' => 'website-webpage-' . $cmsNavMenuItem->webpage->permalink,
         'iconFaClass' => 'fas fa-building',
         'btnText' => $cmsNavMenuItem->name,
       ])
     @else
-      @include ('partials.app-top-menu-dropdown', [
+      @include ('partials.dashboard.app-top-menu-dropdown', [
         'iconFaClass' => 'fas fa-building',
         'btnText' => $cmsNavMenuItem->name,
       ])
@@ -20,5 +20,16 @@
 
   <div class="clearfix">
   </div>
+
+  {{--
+      TODO:
+
+      This uses partials.dashboard.app-top-menu-button which is a dashboard
+      parital. It should not be using dashboard partial as this menu is showing
+      in the cms front end. 
+
+      There should be a cms website partial for this.
+
+  --}}
 
 </div>
