@@ -69,7 +69,7 @@
   @else
     <div class="row" style="margin: auto;">
       <div class="col-md-2 shadow-sm p-0 mr-5 mb-4">
-        @include ('partials.flash-card-simple', [
+        @include ('partials.misc.flash-card-simple', [
             'fcCardColor' => 'bg-light text-dark',
             'fcTitle' => 'Customers',
             'fcData' => $totalCustomers,
@@ -77,7 +77,7 @@
         ])
       </div>
       <div class="col-md-2 shadow-sm p-0 mr-5 mb-4">
-        @include ('partials.flash-card-simple', [
+        @include ('partials.misc.flash-card-simple', [
             'fcCardColor' => 'bg-danger text-white',
             'fcTitle' => 'Debtors',
             'fcData' => $totalDebtors,
