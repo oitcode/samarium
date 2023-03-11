@@ -51,6 +51,21 @@
             <i class="fab fa-twitter fa-2x mr-2 "></i>
           </a>
         @endif
+        @if ($company->instagram_link)
+          <a href="{{ $company->instagram_link }}" class="text-reset" target="_blank">
+            <i class="fab fa-instagram fa-2x mr-2 "></i>
+          </a>
+        @endif
+        @if ($company->youtube_link)
+          <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
+            <i class="fab fa-twitter fa-2x mr-2 "></i>
+          </a>
+        @endif
+        @if ($company->tiktok_link)
+          <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
+            <i class="fab fa-twitter fa-2x mr-2 "></i>
+          </a>
+        @endif
       </div>
     </div>
   
