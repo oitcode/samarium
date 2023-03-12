@@ -26,12 +26,12 @@
       </div>
 
       <div class="card mb-0 shadow-sm">
-        <div class="card-body p-0 bg-primary-rm text-white-rm">
+        <div class="card-body p-0 bg-primary-rm text-danger">
 
 
-          <div class="row p-0 mt-2" style="margin: auto;">
+          <div class="row p-0 mt-2 {{ env('OC_ASCENT_BG_COLOR') }} text-white py-5" style="margin: auto;">
 
-            <div class="col-md-3 mb-3-rm bg-light text-dark py-2 border-left border-right">
+            <div class="col-md-3 mb-3-rm bg-light-rm text-dark-rm py-2 border-left border-right">
               <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
                 Customer
               </div>
@@ -71,7 +71,7 @@
 
             <div class="col-md-2 mb-3 d-flex">
               <div>
-                <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+                <div class="mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
                   Invoice ID
                 </div>
                 <div class="h6">
@@ -81,7 +81,7 @@
             </div>
 
             <div class="col-md-3 mb-3">
-              <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+              <div class="mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
                 Invoice Date
               </div>
               @if ($modes['backDate'])
@@ -106,7 +106,7 @@
             </div>
 
             <div class="col-md-2" style="font-size: calc(0.6rem + 0.2vw);">
-              <div class="text-muted" style="font-size: calc(0.6rem + 0.2vw);">
+              <div class="" style="font-size: calc(0.6rem + 0.2vw);">
                 Payment Status
               </div>
               <div>
@@ -134,8 +134,7 @@
                 <button class="btn btn-light h-100" style="color: green;">
                   <i class="fas fa-dice-d6"></i>
                   <br/>
-                  <span style="font-size: 1.1rem;">
-                    @if ($saleInvoice->takeaway)
+                  <span style="font-size: 1.1rem;"> @if ($saleInvoice->takeaway)
                       Sales
                     @elseif ($saleInvoice->seatTableBooking)
                       {{ $saleInvoice->seatTableBooking->seatTable->name }}
@@ -165,7 +164,7 @@
             <div class="table-responsive d-none d-md-block">
               <table class="table table-hover border-dark mb-0">
                 <thead>
-                  <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+                  <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}" style="font-size: calc(0.6rem + 0.2vw);">
                     <th>--</th>
 
                     {{-- Todo: Good way to deal with takeaway and seat table booking? --}} 

@@ -14,12 +14,12 @@
   </div>
 
   {{-- Show in bigger screen --}}
-  <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block">
+  <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block {{ env('OC_ASCENT_BG_COLOR') }} text-white" style="">
 
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
-          <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+          <tr class="bg-success-rm text-white-rm {{ env('OC_ASCENT_TEXT_COLOR') }}" style="font-size: calc(0.6rem + 0.2vw);">
             <th class="py-2" style="width: 200px;">Search Item</th>
             <th class="py-2">Category</th>
             <th class="py-2">Item</th>
@@ -56,8 +56,8 @@
                 @endforeach
               </select>
             </td>
-            <td>
-              <div class="d-flex flex-column justify-content-center h-100">
+            <td class="p-0">
+              <div class="d-flex flex-column justify-content-center h-100 bg-light">
                 @if ($selectedProduct)
                   @php echo number_format( $selectedProduct->selling_price ); @endphp
                 @endif
@@ -66,8 +66,8 @@
             <td class="p-0 h-100">
               <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
             </td>
-            <td>
-              <div class="d-flex flex-column justify-content-center h-100">
+            <td class="p-0">
+              <div class="d-flex flex-column justify-content-center h-100 bg-white">
                 @if ($selectedProduct)
                   @php echo number_format( $total ); @endphp
                 @endif
@@ -78,7 +78,7 @@
       </table>
     </div>
   
-    <div class="p-2 m-0">
+    <div class="p-2 m-0 bg-white">
       <div class="row">
         <div class="col-md-8">
           <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSaleInvoice" style="font-size: calc(0.7rem + 0.2vw);">

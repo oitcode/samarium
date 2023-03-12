@@ -3,7 +3,7 @@
       @isset ($modes)
         @isset ($modes[$btnCheckMode])
           @if ($modes[$btnCheckMode])
-            btn-success
+            {{ env('OC_ASCENT_BTN_COLOR') }}
           @else
             bg-white
           @endif

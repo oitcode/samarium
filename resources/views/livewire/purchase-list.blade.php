@@ -3,10 +3,10 @@
   <div class="mt-2 mb-3 text-secondary py-3-rm d-flex bg-warning-rm" style="font-size: 1rem;">
 
     <div class="mt-0 text-secondary py-3-rm mr-3" style="font-size: 1.3rem;">
-      <button class="btn btn-success" wire:click="setPreviousDay">
+      <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left"></i>
       </button>
-      <button class="btn btn-success" wire:click="setNextDay">
+      <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setNextDay">
         <i class="fas fa-arrow-right"></i>
       </button>
     </div>
@@ -14,7 +14,7 @@
       <input type="date" wire:model.defer="startDate" class="mr-3" />
       <input type="date" wire:model.defer="endDate" class="mr-3" />
 
-      <button class="btn btn-success mr-3" wire:click="getPurchasesForDateRange">
+      <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="getPurchasesForDateRange">
         Go
       </button>
     </div>
