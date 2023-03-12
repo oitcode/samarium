@@ -9,6 +9,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('storage/' . $company->logo_image_path) }}">
+
     @yield ('pageTitleTag')
     @yield ('pageDescriptionTag')
 
