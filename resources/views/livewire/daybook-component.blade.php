@@ -5,13 +5,9 @@
     @if (! $modes['displaySaleInvoice'])
     <div class="bg-info-rm mb-4 d-none d-md-block p-0">
       <div class="float-left d-flex bg-warning-rm">
-        <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-4 p-0 badge-pill-rm" wire:click="setPreviousDay">
-          <i class="fas fa-arrow-alt-circle-left fa-2x mr-3-rm"></i>
-        </button>
 
-        <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-4 p-0 badge-pill-rm" wire:click="setNextDay">
-          <i class="fas fa-arrow-alt-circle-right fa-2x mr-3-rm"></i>
-        </button>
+        <i class="fas fa-arrow-alt-circle-left fa-2x mr-3" wire:click="setPreviousDay" role="button"></i>
+        <i class="fas fa-arrow-alt-circle-right fa-2x mr-3" wire:click="setNextDay" role="button"></i>
 
         <div class="d-none d-md-block my-3-rm text-secondary-rm ml-5" style="font-size: 1rem;">
           <i class="fas fa-calendar mr-2"></i>

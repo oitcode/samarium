@@ -38,6 +38,24 @@
         'btnCheckMode' => 'createProductFromCsvMode',
     ])
 
+    @if ($modes['displayProduct'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Product display',
+          'btnCheckMode' => 'displayProduct',
+      ])
+    @endif
+
+    @if ($modes['updateProduct'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Product update',
+          'btnCheckMode' => 'updateProduct',
+      ])
+    @endif
+
     @include ('partials.dashboard.spinner-button')
 
     <div class="clearfix">

@@ -1,8 +1,33 @@
 <div>
 
+  {{-- Show in bigger screens --}}
+  <div class="mb-3 d-none d-md-block">
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('productList')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'productList',
+    ])
+
+    @if ($modes['productDetail'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('productDetail')",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Product inventory detail',
+          'btnCheckMode' => 'productDetail',
+      ])
+    @endif
+
+    @include ('partials.dashboard.spinner-button')
+
+    <div class="clearfix">
+    </div>
+  </div>
+
   @if ($modes['productDetail'])
     @livewire ('inventory-product-detail', ['product' => $displayingProduct,])
-  @else
+  @elseif ($modes['productList'])
     {{-- Simple list --}}
     <div class="table-responsive bg-white border">
       <table class="table table-sm table-hover mb-0">

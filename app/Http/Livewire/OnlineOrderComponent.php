@@ -6,10 +6,15 @@ use Livewire\Component;
 
 use App\WebsiteOrder;
 
+use App\Traits\ModesTrait;
+
 class OnlineOrderComponent extends Component
 {
+    use ModesTrait;
+
     public $modes = [
         'onlineOrderDisplay' => false,
+        'listMode' => false,
     ];
 
     protected $listeners = [

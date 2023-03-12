@@ -16,6 +16,15 @@
         'btnCheckMode' => 'list',
     ])
 
+    @if ($modes['display'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Customer display',
+          'btnCheckMode' => 'display',
+      ])
+    @endif
+
     @include ('partials.dashboard.spinner-button')
 
     <div class="clearfix">

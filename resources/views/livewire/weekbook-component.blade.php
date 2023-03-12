@@ -15,7 +15,7 @@
       </h2>
     </button>
 
-    <div class="d-flex float-left my-3 text-secondary-rm border p-3 bg-success-rm text-white-rm shadow-sm" style="font-size: 0.8rem;">
+    <div class="d-flex float-left my-3 text-secondary-rm border-rm p-3 bg-success-rm text-white-rm shadow-sm-rm" style="font-size: 0.8rem;">
       <button class="btn btn-success-rm m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
         <i class="fas fa-arrow-alt-circle-left fa-2x mr-3-rm
             {{ env('OC_ASCENT_TEXT_LB_COLOR', 'text-white') }}

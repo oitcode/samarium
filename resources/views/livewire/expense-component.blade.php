@@ -31,6 +31,15 @@
         'btnCheckMode' => 'report',
     ])
 
+    @if ($modes['display'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('display')",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Expense display',
+          'btnCheckMode' => 'display',
+      ])
+    @endif
+
     @include ('partials.dashboard.spinner-button')
 
     <div class="clearfix">
