@@ -26,9 +26,9 @@
 
 
     @if ($modes['createNavMenuItem'])
-      @livewire ('cms.nav-menu-display-nav-menu-item-create', ['cmsNavMenu' => $cmsNavMenu,])
+      @livewire ('cms.dashboard.nav-menu-display-nav-menu-item-create', ['cmsNavMenu' => $cmsNavMenu,])
     @elseif ($modes['createNavMenuDropdownItem'])
-      @livewire ('cms.nav-menu-display-nav-menu-dropdown-item-create', ['cmsNavMenuItem' => $editingDropdown,])
+      @livewire ('cms.dashboard.nav-menu-display-nav-menu-dropdown-item-create', ['cmsNavMenuItem' => $editingDropdown,])
     @else
       @if (count($cmsNavMenu->cmsNavMenuItems) > 0)
         <div class="table-responsive">
