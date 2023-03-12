@@ -11,12 +11,14 @@
             <th>ID</th>
             <th>Name</th>
             <th>Pending</th>
+            @if (false)
             <th>Action</th>
+            @endif
           </tr>
         </thead>
         <tbody>
           @foreach ($vendors as $vendor)
-            <tr style="font-size: 0.8rem;">
+            <tr style="font-size: 0.8rem;" wire:click="$emit('displayVendor', {{ $vendor }})" role="button">
               <td>
                 {{ $vendor->vendor_id }}
               </td>
@@ -31,6 +33,7 @@
                   @php echo number_format( $vendor->getBalance() ); @endphp
                 </span>
               </td>
+              @if (false)
               <td>
                 <div class="dropdown">
                   <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,6 +47,7 @@
                   </div>
                 </div>
               </td>
+              @endif
             </tr>
           @endforeach
         </tbody>

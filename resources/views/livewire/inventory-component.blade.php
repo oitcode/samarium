@@ -42,14 +42,16 @@
             <th>Inventory low</th>
             <th>Used today</th>
             <th>Stock</th>
+            @if (false)
             <th>Action</th>
+            @endif
           </tr>
         </thead>
 
         <tbody>
           @foreach ($products as $product)
             @if ($product->stock_applicable == 'yes')
-              <tr class="">
+              <tr class="" wire:click="displayProductDetail({{ $product }})" role="button">
                 <td style="width: 50px;">
                   @if ($product->image_path)
                     <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
@@ -80,6 +82,7 @@
                   {{ $product->stock_count }}
                   {{ $product->inventory_unit }}
                 </td>
+                @if (false)
                 <td>
                   <div class="dropdown">
                     <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -93,6 +96,7 @@
                     </div>
                   </div>
                 </td>
+                @endif
               </tr>
             @endif
           @endforeach

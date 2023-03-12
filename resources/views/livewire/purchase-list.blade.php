@@ -55,13 +55,15 @@
           <th style="width: 200px;">Payment Status</th>
           <th>Pending</th>
           <th>Amount</th>
+          @if (false)
           <th style="width: 200px;">Action</th>
+          @endif
         </tr>
       </thead>
 
       <tbody>
         @foreach ($purchases as $purchase)
-          <tr wire:key="{{ rand() }}" style="font-size: 0.8rem;">
+          <tr wire:key="{{ rand() }}" wire:click="$emit('displayPurchase', {{ $purchase->purchase_id }})" style="font-size: 0.8rem;" role="button">
             <td>
               {{ $purchase->purchase_id }}
             </td>
@@ -117,6 +119,7 @@
                 @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
               @endif
             </td>
+            @if (false)
             <td>
               <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -134,6 +137,7 @@
                 </div>
               </div>
             </td>
+            @endif
           </tr>
         @endforeach
       </tbody>
@@ -145,8 +149,6 @@
           </th>
           <td>
               @php echo number_format($total, 2); @endphp
-          </td>
-          <td>
           </td>
         </tr>
       </tfoot>

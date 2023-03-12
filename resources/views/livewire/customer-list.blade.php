@@ -103,8 +103,10 @@
     <div class="table-responsive border d-none d-md-block">
       <table class="table table-hover mb-0">
         <thead>
-          <tr class="bg-success text-white" style="font-size: 1rem;">
+          <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}" style="font-size: 1rem;">
+            @if (false)
             <th></th>
+            @endif
             <th>Name</th>
             <th>Phone</th>
             <th>Balance</th>
@@ -113,7 +115,8 @@
 
         <tbody class="bg-white">
           @foreach ($customers as $customer)
-            <tr class="border">
+            <tr class="border" wire:click="$emit('displayCustomer', {{ $customer->customer_id }})" role="button">
+              @if (false)
               <td style="width: 5vw;">
 
                 <div class="dropdown">
@@ -121,13 +124,14 @@
                     <i class="fas fa-cog text-secondary"></i>
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button class="dropdown-item" wire:click="$emit('displayCustomer', {{ $customer->customer_id }})">
+                    <button class="dropdown-item">
                       <i class="fas fa-file text-primary mr-2"></i>
                       View
                     </button>
                   </div>
                 </div>
               </td>
+              @endif
               <td>
                 <span style="font-size: calc(1rem + 0.1vw);">
                   {{ ucwords($customer->name) }}

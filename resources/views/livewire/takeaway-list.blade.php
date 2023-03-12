@@ -43,15 +43,17 @@
           <th>
             Amount
           </th>
+          @if (false)
           <th>
             Action
           </th>
+          @endif
         </tr>
       </thead>
 
       <tbody class="bg-white">
         @foreach ($takeaways as $takeaway)
-          <tr>
+          <tr wire:click="$emit('displayTakeaway', {{ $takeaway->takeaway_id }})" role="button">
             <td>
               {{ $takeaway->takeaway_id }}
             </td>
@@ -89,6 +91,7 @@
             <td class="font-weight-bold">
               @php echo number_format( $takeaway->getTotalAmount() ); @endphp
             </td>
+            @if (false)
             <td>
               <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -107,6 +110,7 @@
               </div>
 
             </td>
+            @endif
           </tr>
         @endforeach
       </tbody>

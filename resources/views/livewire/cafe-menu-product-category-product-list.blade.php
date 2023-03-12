@@ -25,9 +25,11 @@
                 <th>
                   Price
                 </th>
+                @if (false)
                 <th>
                   Action
                 </th>
+                @endif
               </tr>
             </thead>
 
@@ -39,7 +41,7 @@
                   @continue
                 @endif
 
-                <tr>
+                <tr wire:click="$emit('displayProduct', {{ $product->product_id }})" role="button">
                   <td style="width: 50px;">
                     @if ($product->image_path)
                       <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
@@ -63,6 +65,7 @@
                   <td>
                     @php echo number_format( $product->selling_price ); @endphp
                   </td>
+                  @if (false)
                   <td>
                     <div class="dropdown">
                       <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,6 +84,7 @@
                       </div>
                     </div>
                   </td>
+                  @endif
                 </tr>
               @endforeach
             </tbody>

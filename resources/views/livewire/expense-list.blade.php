@@ -48,13 +48,16 @@
             <th>Date</th>
             <th>Expense</th>
             <th>Amount</th>
+            @if (false)
             <th>Action</th>
+            @endif
           </tr>
         </thead>
   
         <tbody>
           @foreach($expenses as $expense)
-          <tr wire:key="{{ rand() * $expense->expense_id }}" style="font-size: 0.8rem;">
+          <tr wire:key="{{ rand() * $expense->expense_id }}" wire:click="$emit('displayExpense', {{ $expense }})"
+              style="font-size: 0.8rem;" role="button">
             <td>
               {{ $expense->expense_id }}
             </td>
@@ -73,6 +76,7 @@
               @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
             </td>
   
+            @if (false)
             <td>
               <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,6 +94,7 @@
                 </div>
               </div>
             </td>
+            @endif
   
           </tr>
           @endforeach
@@ -102,8 +107,6 @@
             </th>
             <td>
               @php echo number_format( $total, 2 ); @endphp
-            </td>
-            <td>
             </td>
           </tr>
         </tfoot>
