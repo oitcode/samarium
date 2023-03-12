@@ -9,6 +9,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('img/dashboard-logo-1.png') }}">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Chartjs -->
