@@ -21,11 +21,11 @@
   <div class="row">
     <div class="col-md-8">
       @if ($modes['createWebpageContent'])
-        @livewire ('cms.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
+        @livewire ('cms.dashboard.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
       @else
         <div class="" style="">
           @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
-            @livewire ('cms.webpage-content-display', ['webpageContent' => $webpageContent,], key(rand()))
+            @livewire ('cms.dashboard.webpage-content-display', ['webpageContent' => $webpageContent,], key(rand()))
           @endforeach
         </div>
       @endif
