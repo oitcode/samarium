@@ -39,4 +39,11 @@ class SaleInvoicePaymentType extends Model
     {
         return $this->hasMany('App\SaleInvoicePayment', 'sale_invoice_payment_type_id', 'sale_invoice_payment_type_id');
     }
+
+    public static function getNameFromId($id)
+    {
+        $productCategory = self::find($id);
+
+        return $productCategory->name;
+    }
 }

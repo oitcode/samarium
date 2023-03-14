@@ -92,6 +92,7 @@
               @if (strtolower($key) == 'discount')
                 <div class="ml-4">
                   {{ $key }}
+                  @if (! $modes['paid'])
                   <select
                       class="bg-white border border-secondary badge-pill"
                       wire:model="discount_percentage"
@@ -105,6 +106,9 @@
                     <option value="50">50 %</option>
                     <option value="manual">Manual</option>
                   </select>
+                  @else
+                    {{ $discount_percentage }} %
+                  @endif
                 </div>
               @elseif (strtolower($key) == 'vat')
                 <div class="ml-4">
@@ -122,20 +126,32 @@
               @else
                 @if (strtolower($key) == 'Discount')
                   @if ($modes['manualDiscount'])
-                    <input class="w-100 h-100 font-weight-bold pl-3 border-0"
-                        type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
-                        style="font-size: calc(0.6rem + 0.2vw);"
-                        wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
+                    @if (! $modes['paid'])
+                      <input class="w-100 h-100 font-weight-bold pl-3 border-0"
+                          type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                          style="font-size: calc(0.6rem + 0.2vw);"
+                          wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
+                    @else
+                    <div class="w-100 h-100 font-weight-bold pl-3 border-0">
+                      {{ $saleInvoiceAdditions[$key] }}
+                    <div>
+                    @endif
                   @else
                     <div class="w-100 h-100 font-weight-bold pl-3 pt-2 border-0">
                       {{ $saleInvoiceAdditions['Discount'] }}
                     </div>
                   @endif
                 @else
+                  @if (! $modes['paid'])
                   <input class="w-100 h-100 font-weight-bold pl-3 border-0"
                       type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
                       style="font-size: calc(0.6rem + 0.2vw);"
                       wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
+                  @else
+                    <div class="w-100 h-100 font-weight-bold pl-3 border-0">
+                      {{ $saleInvoiceAdditions[$key] }}
+                    </div>
+                  @endif
                 @endif
               @endif
             </td>
@@ -220,10 +236,17 @@
               @enderror
             </td>
             <td class="p-0 h-100 font-weight-bold border-0">
+              @if (! $modes['paid'])
               <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
                   style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
                   wire:model.defer="tender_amount" />
+              @else
+                <div class="w-100 h-100 font-weight-bold border-0 pl-3"
+                    style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;">
+                  {{ $tender_amount }}
+                </div>
+              @endif
             </td>
           </tr>
 
@@ -234,6 +257,7 @@
               </span>
             </td>
             <td class="p-0 h-100 w-50 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+              @if (! $modes['paid'])
               <select class="w-100 h-100 custom-control border-0"
                   style="outline: none;"
                   wire:model.defer="sale_invoice_payment_type_id">
@@ -246,6 +270,9 @@
                   </option>
                 @endforeach
               </select>
+              @else
+                {{ \App\SaleInvoicePaymentType::getNameFromId($sale_invoice_payment_type_id) }}
+              @endif
             </td>
           </tr>
 
