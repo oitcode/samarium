@@ -9,13 +9,34 @@
     </h1>
   </div>
 
-  <div class="row">
+  {{-- Top tool bar --}}
+  <div class="mt-3 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}  {{ env('OC_ASCENT_TEXT_COLOR') }}">
+    <div class="my-5-rm">
+    </div>
+
+    <div>
+
+      <button class="btn btn-light" wire:click="$refresh">
+        <i class="fas fa-refresh mr-1"></i>
+        Refresh
+      </button>
+
+      <button class="btn btn-light" wire:click="$emit('exitProductDisplayMode')">
+        <i class="fas fa-times mr-1"></i>
+        Close
+      </button>
+    </div>
+
+  </div>
+
+
+  <div class="row" style="margin: auto;">
       @if ($productCategory->products != null && count($productCategory->products) > 0)
         <div class="table-responsive border bg-white">
           <table class="table table-hover mb-0">
 
             <thead>
-              <tr class="bg-success text-white">
+              <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}">
                 <th colspan="2">
                   Item
                 </th>

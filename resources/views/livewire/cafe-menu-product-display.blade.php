@@ -1,43 +1,42 @@
 <div>
 
+  <h1 class="h5 my-2">
+    <i class="fas fa-circle text-success mr-2"></i>
+    Products
+
+    <i class="fas fa-angle-right mx-2"></i>
+    {{ $product->productCategory->name }}
+
+    <i class="fas fa-angle-right mx-2"></i>
+    {{ $product->name }}
+  </h1>
+
   {{-- Top tool bar --}}
-  <div class="my-3 p-2 border-rm d-flex justify-content-between">
+  <div class="mt-3 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}  {{ env('OC_ASCENT_TEXT_COLOR') }}">
     <div class="my-5-rm">
-      <h1 class="h5">
-        <i class="fas fa-circle text-success mr-2"></i>
-        Products
-
-        <i class="fas fa-angle-right mx-2"></i>
-        {{ $product->productCategory->name }}
-
-        <i class="fas fa-angle-right mx-2"></i>
-        {{ $product->name }}
-      </h1>
     </div>
 
-    <button class="btn btn-light" wire:click="$emit('exitProductDisplayMode')">
-      Close
-    </button>
+    <div>
+      <button class="btn btn-light mr-1" wire:click="$refresh">
+        <i class="fas fa-pencil-alt mr-1"></i>
+        Edit
+      </button>
+
+      <button class="btn btn-light" wire:click="$refresh">
+        <i class="fas fa-refresh mr-1"></i>
+        Refresh
+      </button>
+
+      <button class="btn btn-light" wire:click="$emit('exitProductDisplayMode')">
+        <i class="fas fa-times mr-1"></i>
+        Close
+      </button>
+    </div>
 
   </div>
 
-  <div class="row border shadow-lg">
-    {{-- Product image --}}
-    <div class="col-md-3">
-      <div class="d-flex justify-content-center h-100">
-        <div class="d-flex flex-column justify-content-center h-100">
-          {{-- Product media --}}
-          <div>
-            @if ($product->image_path)
-              <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
-            @else
-              <i class="fas fa-dice-d6 text-muted fa-8x"></i>
-            @endif
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 bg-primary-rm text-white-rm">
+  <div class="row border shadow-lg" style="margin: auto;">
+    <div class="col-md-6 bg-primary-rm text-white-rm border-right">
       <div class="px-3 bg-white-rm border-rm shadow-rm">
         <div class="bg-success-rm text-white-rm">
           @if (false)
@@ -52,7 +51,9 @@
             </h1>
           </div>
         </div>
+        @if (false)
         <hr />
+        @endif
 
         <div class="mb-3">
           <h2 class="h4 text-muted-rm">
@@ -62,12 +63,14 @@
             Category
           </h2>
           <div class="" style="font-size: 0.8rem;">
-            <span class="">
+            <span class="badge badge-dark">
               {{ $product->productCategory->name }}
             </span>
           </div>
         </div>
+        @if (false)
         <hr />
+        @endif
 
         <div class="mb-3">
           <h2 class="h4 text-muted-rm">
@@ -80,7 +83,9 @@
           {{ $product->description }}
           </div>
         </div>
+        @if (false)
         <hr />
+        @endif
 
 
         <div class="mb-3 border-rm">
@@ -123,8 +128,24 @@
       </div>
     </div>
 
+    {{-- Product image --}}
+    <div class="col-md-3 bg-light">
+      <div class="d-flex justify-content-center h-100">
+        <div class="d-flex flex-column justify-content-center h-100">
+          {{-- Product media --}}
+          <div>
+            @if ($product->image_path)
+              <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
+            @else
+              <i class="fas fa-dice-d6 text-muted fa-8x"></i>
+            @endif
+          </div>
+        </div>
+      </div>
+    </div>
+
     {{-- Product other info --}}
-    <div class="col-md-3 border-left bg-secondary-rm text-white-rm">
+    <div class="col-md-3 border-left bg-secondary-rm text-secondary">
       {{-- Creation and update info --}}
       <div class="border-rm bg-white-rm p-3 mb-3 shadow-rm">
         <div class="mb-4">
@@ -160,7 +181,7 @@
       </div>
 
       {{-- Inventory info --}}
-      <div class="border-rm bg-white-rm p-3 mb-3">
+      <div class="border-rm bg-white-rm p-3 mb-3 text-secondary">
         <div class="mb-4">
           <h3 class="h4">
             <i class="fas fa-info-circle mr-2"></i>
