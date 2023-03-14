@@ -49,20 +49,18 @@ db_user_name@localhost;"`
 `php artisan key:generate`
 
 
-## Learning Khajanchi
+## Learning
 
-Documentation of Khajanchi is coming soon. We will also have video tutorials on
-how to use Khajanchi.
+Please view our Github Wiki pages.
 
 ## Contributing
 
-Thank you for considering contributing to this project.
 Please fork the project, make necessary changes and send a pull request. 
 
-## Security Vulnerabilities
+## Issues
 
-Please raise an issue in github. All security vulnerabilities will be promptly addressed.
+If you face any issue or identify a vulnerability, please reaise an issue in github.
 
 ## License
 
-Khajanchi is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[MIT license](https://opensource.org/licenses/MIT).
