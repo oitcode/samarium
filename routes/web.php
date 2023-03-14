@@ -186,7 +186,7 @@ Route::get('/cms/theme', 'CmsThemeController@index')->name('dashboard-cms-theme'
 
 /* CMS website/front-page/customer routes */
 /* Generate webpage routes if ?? */
-if (env('DB_DATABASE')) {
+if (true || env('DB_DATABASE')) {
     $webpages = Webpage::all();
     
     foreach ($webpages as $webpage) {
