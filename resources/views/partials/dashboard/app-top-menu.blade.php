@@ -8,9 +8,11 @@
           <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}" class="img-fluid" style="height: 50px;">
         </div>
       @endif
-      <h1 class="pl-3 h2" style="font-family: 'Brush Script MT', cursive;">
-        {{ \App\Company::first()->name }}
-      </h1>
+      <div class="d-flex flex-column justify-content-center">
+        <h1 class="pl-3 h4" style="">
+          {{ \App\Company::first()->name }}
+        </h1>
+      </div>
     </div>
     {{-- Top menu buttons. --}}
 
