@@ -12,7 +12,7 @@ class PurchaseComponent extends Component
 
     public $modes = [
         'create' => false,
-        'list' => true,
+        'list' => false,
         'display' => false,
         'update' => false,
         'delete' => false,

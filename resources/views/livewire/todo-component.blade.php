@@ -1,7 +1,7 @@
 <div class="p-3 p-md-0">
 
   {{-- Top tool bar --}}
-  <div class="mb-3 d-none d-md-block">
+  <div class="mb-3 p-2 d-none d-md-block bg-dark">
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',

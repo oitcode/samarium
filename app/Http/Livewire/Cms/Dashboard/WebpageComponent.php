@@ -13,6 +13,7 @@ class WebpageComponent extends Component
     public $modes = [
         'create' =>false,
         'display' =>false,
+        'list' => false,
     ];
 
     protected $listeners = [

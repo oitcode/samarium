@@ -1,4 +1,4 @@
-<div class="text-center border">
+<div class="text-center-rm border">
   <a href="{{ route($btnRoute) }}"
       class="btn
         @if(Route::current()->getName() != $btnRoute)
@@ -14,8 +14,8 @@
       "
       >
 
-    <div class="d-flex flex-column">
-      <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column-rm">
+      <div class="d-flex justify-content-center mr-3 mt-1">
         <i class="{{ $iconFaClass }}"></i>
       </div>
       <div class="d-flex justify-content-center">

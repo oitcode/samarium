@@ -3,7 +3,7 @@
 
     <div class="d-flex-rm">
       {{-- Show in bigger screens --}}
-      <div class="mb-3 d-none d-md-block">
+      <div class="mb-3 p-2 d-none d-md-block bg-dark">
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('create')",
             'btnIconFaClass' => 'fas fa-plus-circle',
@@ -26,6 +26,13 @@
               'btnCheckMode' => 'display',
           ])
         @endif
+
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "clearModes",
+            'btnIconFaClass' => 'fas fa-eraser',
+            'btnText' => 'Clear modes',
+            'btnCheckMode' => '',
+        ])
 
         @include ('partials.dashboard.spinner-button')
 
@@ -65,7 +72,9 @@
     @else
       @livewire ('sale-invoice-work', ['saleInvoice' => $displayingTakeaway->saleInvoice,])
     @endif
-  @else
+  @elseif ($modes['list'])
     @livewire ('takeaway-list')
+  @else
+    Welcome
   @endif
 </div>

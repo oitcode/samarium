@@ -1,39 +1,51 @@
 <div>
   @if (true)
-  <div class="mb-3">
-    <button class="btn btn-success badge-pill m-0 border shadow-sm" style="" wire:click="enterMode('create')">
-      <i class="fas fa-plus-circle mr-1"></i>
-      New webpage
-    </button>
+  {{-- Show in bigger screens --}}
+  <div class="mb-3 p-2 d-none d-md-block bg-dark">
 
-    <button class="btn btn-success-rm m-0 border shadow-sm" style="" wire:click="enterMode('list')">
-      <i class="fas fa-list mr-3"></i>
-      List
-    </button>
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('create')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'Create',
+        'btnCheckMode' => 'create',
+    ])
 
-    <button class="btn btn-warning m-0 float-right"
-        style=""
-        wire:click="enterCreateMode">
-      Webpages
-    </button>
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('list')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'list',
+    ])
 
-    <button wire:loading class="btn m-0"
-        style="height: 100px; width: 225px; font-size: 1.5rem;">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+    @if ($modes['display'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Webpage display',
+          'btnCheckMode' => 'display',
+      ])
+    @endif
 
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-eraser',
+        'btnText' => 'Clear modes',
+        'btnCheckMode' => '',
+    ])
+
+    @include ('partials.dashboard.spinner-button')
 
     <div class="clearfix">
     </div>
   </div>
+
   @endif
 
   @if ($modes['create'])
     @livewire ('cms.dashboard.webpage-create')
   @elseif ($modes['display'])
     @livewire ('cms.dashboard.webpage-display', ['webpage' => $displayingWebpage,])
-  @else
+  @elseif ($modes['list'])
     @livewire ('cms.dashboard.webpage-list')
   @endif
 </div>

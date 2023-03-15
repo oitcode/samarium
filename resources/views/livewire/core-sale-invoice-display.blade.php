@@ -1,39 +1,41 @@
-<div>
-  <div>
+<div class="bg-warning">
+  <div class="mb-0 p-0">
     @if ($display_toolbar)
       {{-- Tool bar --}}
-      <div class="d-flex justify-content-between mb-4 border p-1 bg-white-rm text-white-rm shadow-sm" style="background-color: #fff;">
-        <div>
-          <a href="{{ route('dashboard-print-sale-invoice', $saleInvoice->sale_invoice_id) }}"
-              target="_blank"
-              class="btn text-secondary">
-            <i class="fas fa-print fa-2x-rm"></i>
-            <br />
-            Print
-          </a>
-          <button class="btn text-secondary">
-            <i class="fas fa-file-pdf-o fa-2x-rm"></i>
-            <br />
-            PDF
-          </button>
-          <button class="btn text-secondary">
-            <i class="fas fa-file-excel-o fa-2x-rm"></i>
-            <br />
-            Excel
-          </button>
-        </div>
-        <div class="">
-          <button class="btn text-dark" wire:click="$emit('exitTakeawayWork')">
-            <i class="fas fa-times-circle fa-2x"></i>
-            <br />
-            Close
-          </button>
+
+      <div class="mb-3 p-2 d-none d-md-block bg-dark">
+
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "",
+            'btnIconFaClass' => 'fas fa-print',
+            'btnText' => 'Print',
+            'btnCheckMode' => '',
+        ])
+
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "",
+            'btnIconFaClass' => 'fas fa-file-pdf',
+            'btnText' => 'List',
+            'btnCheckMode' => '',
+        ])
+
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "",
+            'btnIconFaClass' => 'fas fa-excel-o',
+            'btnText' => 'Excel',
+            'btnCheckMode' => '',
+        ])
+
+        @include ('partials.dashboard.spinner-button')
+
+        <div class="clearfix">
         </div>
       </div>
     @endif
   </div>
 
-  <div class="bg-white shadow">
+
+  <div class="bg-white shadow-rm p-0 m-0">
   
     <div class="border p-0">
   

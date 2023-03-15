@@ -24,7 +24,7 @@
       @if ($products == null || count($products) == 0)
         <div class="row">
           @foreach ($productCategories as $productCategory)
-            <div class="col-md-3 border p-5 mr-3 mb-4 shadow bg-success text-white"
+            <div class="col-md-3 border p-2 mr-3 mb-4 shadow {{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}"
                 wire:click="selectCategory('{{ $productCategory->product_category_id }}')"
                 wire:key="{{ rand() }}"
                 role="button"

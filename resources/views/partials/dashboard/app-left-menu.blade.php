@@ -2,6 +2,7 @@
 <div class="d-none d-md-block">
 
   {{-- Top most button in the left menu. --}}
+  @if (false)
   <div class="text-center border-rm">
     <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-3 pl-4 font-weight-bold text-left" style="font-size: 1rem;">
       <div class="d-flex justify-content-center">
@@ -11,6 +12,7 @@
       </span>
     </a>
   </div>
+  @endif
 
   @if (preg_match("/dashboard/i", env('MODULES')))
     @include ('partials.dashboard.app-left-menu-button',
@@ -48,6 +50,33 @@
               'btnText' => 'Tables',
           ])
     @endif
+
+    @include ('partials.dashboard.app-left-menu-button',
+        [
+            'btnRoute' => 'customer',
+            'iconFaClass' => 'fas fa-users',
+            'btnText' => 'Customer',
+        ])
+
+    @include ('partials.dashboard.app-left-menu-button',
+        [
+            'btnRoute' => 'dashboard-purchase',
+            'iconFaClass' => 'fas fa-shopping-cart',
+            'btnText' => 'Purchase',
+        ])
+
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-vendor',
+      'iconFaClass' => 'fas fa-users',
+      'btnText' => 'Vendors',
+    ])
+
+    @include ('partials.dashboard.app-left-menu-button',
+        [
+            'btnRoute' => 'dashboard-expense',
+            'iconFaClass' => 'fas fa-tools',
+            'btnText' => 'Expense',
+        ])
   @endif
 
   @if (preg_match("/shop/i", env('MODULES')))
@@ -84,21 +113,6 @@
               'btnText' => 'Weekbook',
           ])
 
-      @if (true || env('SITE_TYPE') == 'erp')
-        @include ('partials.dashboard.app-left-menu-button',
-            [
-                'btnRoute' => 'customer',
-                'iconFaClass' => 'fas fa-users',
-                'btnText' => 'Customer',
-            ])
-      @elseif (env('SITE_TYPE') == 'ecs')
-        @include ('partials.dashboard.app-left-menu-button',
-            [
-                'btnRoute' => 'customer',
-                'iconFaClass' => 'fas fa-users',
-                'btnText' => 'Students',
-            ])
-      @endif
     @endcan
 
     @can ('is-admin')
@@ -109,5 +123,25 @@
               'btnText' => 'Weborder',
           ])
     @endcan
+  @endif
+
+  @if (preg_match("/shop/i", env('MODULES')))
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-report',
+      'iconFaClass' => 'fas fa-chart-line',
+      'btnText' => 'Report',
+    ])
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-inventory',
+      'iconFaClass' => 'fas fa-dolly',
+      'btnText' => 'Inventory',
+    ])
+    @if (env('HAS_VAT') == true)
+      @include ('partials.dashboard.app-left-menu-button', [
+        'btnRoute' => 'dashboard-vat',
+        'iconFaClass' => 'fas fa-solar-panel',
+        'btnText' => 'VAT',
+      ])
+    @endif
   @endif
 </div>

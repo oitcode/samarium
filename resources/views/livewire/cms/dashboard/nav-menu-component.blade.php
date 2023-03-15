@@ -1,35 +1,48 @@
 <div>
   @if (true)
 
-
   <div class="mb-3">
-    @if (\App\CmsNavMenu::first())
-    @else
-      <button class="btn btn-success badge-pill btn-success-rm m-0 border shadow-sm" style="" wire:click="enterMode('create')">
-        <i class="fas fa-plus-circle mr-1"></i>
-        New
-      </button>
+      <div class="mb-3 p-2 d-none d-md-block bg-dark">
 
-      <button class="btn bg-white badge-pill btn-success-rm m-0 border shadow-sm" style="" wire:click="enterMode('create')">
-        <i class="fas fa-list mr-1"></i>
-        List
-      </button>
+        @if (\App\CmsNavMenu::first())
+        @else
+          @include ('partials.dashboard.tool-bar-button-pill', [
+              'btnClickMethod' => "enterMode('create')",
+              'btnIconFaClass' => 'fas fa-plus-circle',
+              'btnText' => 'Create',
+              'btnCheckMode' => 'create',
+          ])
+        @endif
 
-    @endif
-    <button class="btn btn-warning m-0 float-right"
-        style="">
-      Nav menu
-    </button>
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('list')",
+            'btnIconFaClass' => 'fas fa-list',
+            'btnText' => 'List',
+            'btnCheckMode' => 'list',
+        ])
 
-    <button wire:loading class="btn m-0"
-        style="height: 100px; width: 225px; font-size: 1.5rem;">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+        @if ($modes['display'])
+          @include ('partials.dashboard.tool-bar-button-pill', [
+              'btnClickMethod' => "",
+              'btnIconFaClass' => 'fas fa-circle',
+              'btnText' => 'Navmenu display',
+              'btnCheckMode' => 'display',
+          ])
+        @endif
 
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "clearModes",
+            'btnIconFaClass' => 'fas fa-eraser',
+            'btnText' => 'Clear modes',
+            'btnCheckMode' => '',
+        ])
 
-    <div class="clearfix">
-    </div>
+        @include ('partials.dashboard.spinner-button')
+
+        <div class="clearfix">
+        </div>
+      </div>
+
   </div>
   @endif
 
@@ -37,7 +50,7 @@
     @livewire ('cms.dashboard.nav-menu-create')
   @elseif ($modes['display'])
     @livewire ('cms.dashboard.nav-menu-display', ['cmsNavMenu' => $displayingCmsNavMenu,])
-  @else
+  @elseif ($modes['list'])
     @livewire ('cms.dashboard.nav-menu-list')
   @endif
 </div>

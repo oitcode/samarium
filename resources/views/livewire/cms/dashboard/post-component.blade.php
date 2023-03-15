@@ -2,32 +2,44 @@
   @if (true)
 
 
-  <div class="mb-3">
-    <button class="btn btn-success badge-pill btn-success-rm m-0 border shadow-sm" style="" wire:click="enterMode('createPostMode')">
-      <i class="fas fa-plus-circle mr-1"></i>
-      New
-    </button>
+  <div class="mb-3 p-2 d-none d-md-block bg-dark">
 
-    <button class="btn bg-white badge-pill btn-success-rm m-0 border shadow-sm" style="" wire:click="enterMode('listPostMode')">
-      <i class="fas fa-list mr-1"></i>
-      List
-    </button>
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('createPostMode')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'Create',
+        'btnCheckMode' => 'createPostMode',
+    ])
 
-    <button class="btn btn-warning m-0 float-right"
-        style="">
-      Posts
-    </button>
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('listPostMode')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'listPostMode',
+    ])
 
-    <button wire:loading class="btn m-0"
-        style="height: 100px; width: 225px; font-size: 1.5rem;">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+    @if ($modes['displayPostMode'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Post display',
+          'btnCheckMode' => 'displayPostMode',
+      ])
+    @endif
 
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-eraser',
+        'btnText' => 'Clear modes',
+        'btnCheckMode' => '',
+    ])
+
+    @include ('partials.dashboard.spinner-button')
 
     <div class="clearfix">
     </div>
   </div>
+
   @endif
 
   @if ($modes['createPostMode'])

@@ -1,7 +1,7 @@
 <div class="p-3 p-md-0">
 
   {{-- Show in bigger screens --}}
-  <div class="mb-3 d-none d-md-block">
+  <div class="mb-3 p-2 d-none d-md-block bg-dark">
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listMode')",
@@ -18,6 +18,13 @@
           'btnCheckMode' => 'onlineOrderDisplay',
       ])
     @endif
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-eraser',
+        'btnText' => 'Clear modes',
+        'btnCheckMode' => '',
+    ])
 
     @include ('partials.dashboard.spinner-button')
 

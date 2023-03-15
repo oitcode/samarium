@@ -3,7 +3,7 @@
     <div class="table-responsive">
       <table class="table table-hover table-bordered">
         <thead>
-          <tr>
+          <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}">
             <th>
               Name
             </th>

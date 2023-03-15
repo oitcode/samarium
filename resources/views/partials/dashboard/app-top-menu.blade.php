@@ -1,10 +1,21 @@
-<div class="bg-white py-2-rm text-right d-none d-md-block mb-3 border-bottom-rm">
+<div class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }} py-2 text-right d-none d-md-block mb-3-rm border-bottom-rm">
   @guest
   @else
 
+    <div class="float-left d-flex">
+      @if (\App\Company::first() && \App\Company::first()->logo_image_path)
+        <div class="d-flex justify-content-start mr-3 pl-3">
+          <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}" class="img-fluid" style="height: 50px;">
+        </div>
+      @endif
+      <h1 class="pl-3 h2" style="font-family: 'Brush Script MT', cursive;">
+        {{ \App\Company::first()->name }}
+      </h1>
+    </div>
     {{-- Top menu buttons. --}}
 
   @if (preg_match("/shop/i", env('MODULES')))
+    @if (false)
     @include ('partials.dashboard.app-top-menu-button', [
       'btnRoute' => 'dashboard-purchase',
       'iconFaClass' => 'fas fa-shopping-cart',
@@ -36,6 +47,7 @@
         'iconFaClass' => 'fas fa-solar-panel',
         'btnText' => 'VAT',
       ])
+    @endif
     @endif
   @endif
 

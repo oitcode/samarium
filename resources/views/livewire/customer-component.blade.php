@@ -1,7 +1,7 @@
 <div class="p-3 p-md-0">
 
   {{-- Show in bigger screens --}}
-  <div class="mb-3 d-none d-md-block">
+  <div class="mb-3 p-2 d-none d-md-block bg-dark">
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('create')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -24,6 +24,13 @@
           'btnCheckMode' => 'display',
       ])
     @endif
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-eraser',
+        'btnText' => 'Clear modes',
+        'btnCheckMode' => '',
+    ])
 
     @include ('partials.dashboard.spinner-button')
 
@@ -76,6 +83,7 @@
   @elseif ($modes['display'])
     @livewire ('customer-detail', ['customer' => $displayingCustomer,])
   @else
+    @if (false)
     <div class="row" style="margin: auto;">
       <div class="col-md-2 shadow-sm p-0 mr-5 mb-4">
         @include ('partials.misc.flash-card-simple', [
@@ -94,6 +102,8 @@
         ])
       </div>
     </div>
+    @endif
+    Welcome
   @endif
 
 </div>

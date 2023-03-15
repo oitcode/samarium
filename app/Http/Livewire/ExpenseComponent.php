@@ -12,8 +12,8 @@ class ExpenseComponent extends Component
 
     public $modes = [
         'create' => false,
-        'list' => true,
-        'display' => true,
+        'list' => false,
+        'display' => false,
         'report' => false,
 
         'createCategory' => false,

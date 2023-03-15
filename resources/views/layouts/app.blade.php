@@ -37,9 +37,12 @@
 </head>
 <body style="background-color: #fff;">
   <div class="mb-5">
+    <div class="mb-0">
+      @include ('partials.dashboard.app-top-menu')
+    </div>
     <div class="row" style="min-height: 500px;">
       {{-- App left menu --}}
-      <div class="col-md-1">
+      <div class="col-md-2">
         @include ('partials.dashboard.app-left-menu')
       </div>
 
@@ -48,12 +51,16 @@
         @include ('partials.dashboard.mobile-top-menu')
       </div>
 
-      <div class="col-md-11">
+      <div class="col-md-10">
         {{-- App top menu --}}
+        @if (false)
         @include ('partials.dashboard.app-top-menu')
+        @endif
 
         {{-- Content goes here --}}
-        @yield('content')
+        <div class="py-3">
+          @yield('content')
+        </div>
 
       </div>
     </div>
