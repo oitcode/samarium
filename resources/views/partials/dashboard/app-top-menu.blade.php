@@ -58,9 +58,11 @@
       @include ('partials.dashboard.app-top-menu-school-dropdown')
     @endif
 
-    @if (preg_match("/cms/i", env('MODULES')))
-      {{-- Todo: This could be moved somewhere else --}}
-      @include ('partials.dashboard.app-top-menu-ecs-dropdown')
+    @if (false)
+      @if (preg_match("/cms/i", env('MODULES')))
+        {{-- Todo: This could be moved somewhere else --}}
+        @include ('partials.dashboard.app-top-menu-ecs-dropdown')
+      @endif
     @endif
 
     @if (preg_match("/shop/i", env('MODULES')))

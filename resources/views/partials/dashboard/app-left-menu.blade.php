@@ -46,9 +46,7 @@
       @include ('partials.dashboard.app-left-menu-button',
           [
               'btnRoute' => 'cafesale',
-              'iconFaClass' => 'fas fa-table',
-              'btnText' => 'Tables',
-          ])
+              'iconFaClass' => 'fas fa-table', 'btnText' => 'Tables', ])
     @endif
 
     @include ('partials.dashboard.app-left-menu-button',
@@ -143,5 +141,118 @@
         'btnText' => 'VAT',
       ])
     @endif
+  @endif
+
+
+  {{--
+  |
+  |
+  | CMS route buttons
+  |
+  |
+  --}}
+
+  @if (preg_match("/cms/i", env('MODULES')))
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-cms-webpage',
+      'iconFaClass' => 'fas fa-globe',
+      'btnText' => 'Pages',
+    ])
+
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-cms-post',
+      'iconFaClass' => 'fas fa-book',
+      'btnText' => 'Posts',
+    ])
+
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-cms-nav-menu',
+      'iconFaClass' => 'fas fa-book',
+      'btnText' => 'Nav menu',
+    ])
+
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-team',
+      'iconFaClass' => 'fas fa-users',
+      'btnText' => 'Team',
+    ])
+
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-quick-contacts',
+      'iconFaClass' => 'fas fa-users',
+      'btnText' => 'Quick contacts',
+    ])
+  @endif
+
+  {{--
+  |
+  |
+  | BGC route buttons
+  |
+  |
+  --}}
+
+  @if (preg_match("/bgc/i", env('MODULES')))
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-organizing-committee',
+      'iconFaClass' => 'fas fa-users',
+      'btnText' => 'Organizing committee',
+    ])
+
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-sponsors',
+      'iconFaClass' => 'fas fa-users',
+      'btnText' => 'Sponsors',
+    ])
+  @endif
+
+
+  {{--
+  |
+  |
+  | Misc modules
+  | 
+  |
+  --}}
+  @if (false)
+  @can ('is-admin')
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard',
+      'iconFaClass' => 'fas fa-users',
+      'btnText' => 'Users',
+    ])
+  @endcan
+  @endif
+
+  @can ('is-admin')
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'company',
+      'iconFaClass' => 'fas fa-home',
+      'btnText' => 'Company',
+    ])
+  @endcan
+
+  @can ('is-admin')
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-settings',
+      'iconFaClass' => 'fas fa-cog',
+      'btnText' => 'Settings',
+    ])
+  @endcan
+
+  @if (preg_match("/todo/i", env('MODULES')))
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-todo',
+      'iconFaClass' => 'fas fa-tasks',
+      'btnText' => 'Todo',
+    ])
+  @endif
+
+  @if (preg_match("/accounting/i", env('MODULES')))
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-accounting',
+      'iconFaClass' => 'fas fa-book',
+      'btnText' => 'Accounting',
+    ])
   @endif
 </div>

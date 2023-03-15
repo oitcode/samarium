@@ -5,28 +5,6 @@
       {{ Auth::user()->name }}
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-      <a class="dropdown-item" href="{{ route('company') }}">
-        <i class="fas fa-home text-secondary mr-2"></i>
-        Company
-      </a>
-      @if (preg_match("/accounting/i", env('MODULES')))
-        <a class="dropdown-item" href="{{ route('dashboard-accounting') }}">
-          <i class="fas fa-book text-secondary mr-2"></i>
-          Accounting
-        </a>
-      @endif
-      <a class="dropdown-item" href="{{ route('dashboard-settings') }}">
-        <i class="fas fa-cog text-secondary mr-2"></i>
-        Settings
-      </a>
-      <a class="dropdown-item" href="{{ route('dashboard-todo') }}">
-        <i class="fas fa-users text-secondary mr-2"></i>
-        Users
-      </a>
-      <a class="dropdown-item" href="{{ route('dashboard-todo') }}">
-        <i class="fas fa-tasks text-secondary mr-2"></i>
-        Todo
-      </a>
       <a class="dropdown-item" href="{{ route('dashboard-change-password') }}">
         <i class="fas fa-key text-secondary mr-2"></i>
         Change password
