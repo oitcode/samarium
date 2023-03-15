@@ -172,6 +172,12 @@
     ])
 
     @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-cms-gallery',
+      'iconFaClass' => 'fas fa-image',
+      'btnText' => 'Gallery',
+    ])
+
+    @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-team',
       'iconFaClass' => 'fas fa-users',
       'btnText' => 'Team',

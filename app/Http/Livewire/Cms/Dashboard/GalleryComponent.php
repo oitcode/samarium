@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+
+use App\Traits\ModesTrait;
 
 use App\Gallery;
 
 class GalleryComponent extends Component
 {
+    use ModesTrait;
+
     public $createMode = false;
     public $displayMode = false;
     public $updateMode = false;
@@ -27,9 +31,15 @@ class GalleryComponent extends Component
         'displayGallery',
     ];
 
+    public $modes = [
+        'createMode' => false,
+        'listMode' => false,
+        'displayMode' => false,
+    ];
+
     public function render()
     {
-        return view('livewire.gallery-component');
+        return view('livewire.cms.dashboard.gallery-component');
     }
 
     public function enterCreateMode()

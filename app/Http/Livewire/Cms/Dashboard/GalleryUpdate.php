@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -25,7 +25,7 @@ class GalleryUpdate extends Component
         $this->description = $this->gallery->description;
         $this->comment = $this->gallery->comment;
 
-        return view('livewire.gallery-update');
+        return view('livewire.cms.dashboard.gallery-update');
     }
 
     public function update()

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 
@@ -18,6 +18,6 @@ class GalleryList extends Component
     {
         $this->galleries = Gallery::all();
 
-        return view('livewire.gallery-list');
+        return view('livewire.cms.dashboard.gallery-list');
     }
 }

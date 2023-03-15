@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -21,7 +21,7 @@ class GalleryCreate extends Component
 
     public function render()
     {
-        return view('livewire.gallery-create');
+        return view('livewire.cms.dashboard.gallery-create');
     }
 
     public function store()

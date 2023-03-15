@@ -183,6 +183,7 @@ Route::get('/cms/webpage', 'CmsWebpageController@index')->name('dashboard-cms-we
 Route::get('/cms/post', 'CmsPostController@index')->name('dashboard-cms-post');
 Route::get('/cms/navMenu', 'CmsNavMenuController@index')->name('dashboard-cms-nav-menu');
 Route::get('/cms/theme', 'CmsThemeController@index')->name('dashboard-cms-theme');
+Route::get('/cms/gallery', 'CmsGalleryController@index')->name('dashboard-cms-gallery');
 
 /* CMS website/front-page/customer routes */
 /* Generate webpage routes if ?? */
