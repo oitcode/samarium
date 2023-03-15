@@ -128,7 +128,7 @@ Route::get('/checkout', 'WebsiteController@checkout')->name('website-checkout');
  *
  *
  */
-if (preg_match("/shop/i", env('MODULES'))) {
+if (true || preg_match("/shop/i", env('MODULES'))) {
     $ecommCollectionWebpages = [
         'about-us',
         'contact-us',
