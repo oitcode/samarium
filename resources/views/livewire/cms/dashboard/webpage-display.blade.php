@@ -12,25 +12,26 @@
     </div>
   </div>
 
-  <div class="my-3">
-    <button class="btn border mr-3" wire:click="enterMode('createWebpageContent')">
-      <i class="fas fa-plus-circle mr-2"></i>
-    </button>
-  </div>
-
   <div class="row">
     <div class="col-md-8">
-      @if ($modes['createWebpageContent'])
-        @livewire ('cms.dashboard.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
-      @else
-        <div class="" style="">
-          @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
-            @livewire ('cms.dashboard.webpage-content-display', ['webpageContent' => $webpageContent,], key(rand()))
-          @endforeach
-        </div>
-      @endif
+      <div class="my-3">
+        <button class="btn border mr-3" wire:click="enterMode('createWebpageContent')">
+          <i class="fas fa-plus-circle mr-2"></i>
+        </button>
+      </div>
+      <div class="">
+        @if ($modes['createWebpageContent'])
+          @livewire ('cms.dashboard.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
+        @else
+          <div class="" style="">
+            @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
+              @livewire ('cms.dashboard.webpage-content-display', ['webpageContent' => $webpageContent,], key(rand()))
+            @endforeach
+          </div>
+        @endif
+      </div>
     </div>
-    <div class="col-md-4 border">
+    <div class="col-md-4">
       <h2 class="p-3">
         Featured image
       </h2>
