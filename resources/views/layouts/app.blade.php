@@ -43,7 +43,10 @@
     <div class="row" style="min-height: 500px;">
       {{-- App left menu --}}
       <div class="col-md-2">
+        @if (false)
         @include ('partials.dashboard.app-left-menu')
+        @endif
+        @livewire ('dashboard.app-left-menu')
       </div>
 
       {{-- Mobile top menu --}}

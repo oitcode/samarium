@@ -33,17 +33,17 @@
     @livewireStyles
 </head>
 
-<body style="height: 100% !important;">
+<body style="height: 100% !important; background-color: #ded;">
 
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
-        <div class="row-rm border shadow" style="">
+        <div class="row-rm border shadow bg-white" style="">
           <div class="col-md-4-rm d-flex flex-column justify-content-center bg-white p-3-rm px-5-rm p-0 bg-warning">
-            <div class="d-flex bg-danger-rm p-3 px-5">
-              <div class="mr-2 p-0">
+            <div class="d-flex justify-content-center bg-danger-rm p-3 px-5">
+              <div class="mr-4 p-0">
                 <i class="fas fa-check-circle fa-2x text-primary"></i>
               </div>
-              <div class="p-0">
+              <div class="p-0 text-center">
                 @if (false)
                 <h1 class="h2 text-primary p-0 m-0">
                   WebCMS
@@ -56,10 +56,10 @@
             </div>
           </div>
           <div class="col-md-8-rm px-5 py-3">
-            <h2>
+            <h2 class="text-center">
               Login
             </h2>
-            <div class="text-secondary mb-4">
+            <div class="text-secondary text-center mb-4">
               Welcome back. Please login to your account.
             </div>
             <form method="POST" action="{{ route('login') }}">
@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="form-group mb-0">
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn btn-success btn-block">
                         {{ __('Login') }}
                     </button>
 
@@ -191,8 +191,8 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="btn btn-success">
-                                {{ __('Login') }}
+                            <button type="submit" class="btn btn-danger btn-block">
+                                {{ __('Loginasf') }}
                             </button>
 
                             @if (Route::has('password.request'))
