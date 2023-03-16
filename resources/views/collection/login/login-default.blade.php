@@ -1,8 +1,3 @@
-@if (false)
-@include ('collection.login.login-1' {{-- . \App\CmsTheme::first()->login_page --}} )
-@endif
-
-@if (true)
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="height: 100% !important;">
 <head>
@@ -223,4 +218,3 @@
   @livewireScripts
 </body>
 </html>
-@endif

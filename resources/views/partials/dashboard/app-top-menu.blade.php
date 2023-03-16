@@ -8,11 +8,13 @@
           <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}" class="img-fluid" style="height: 50px;">
         </div>
       @endif
+      @if (false)
       <div class="d-flex flex-column justify-content-center">
         <h1 class="pl-3 h4" style="">
           {{ \App\Company::first()->name }}
         </h1>
       </div>
+      @endif
     </div>
     {{-- Top menu buttons. --}}
 
