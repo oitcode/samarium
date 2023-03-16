@@ -1,11 +1,12 @@
 <div class="p-3 bg-white border shadow-sm">
 
-  <div class="mb-3">
+  <div class="mb-5">
     <h2>
       {{ $webpage->name }}
     </h2>
   </div>
 
+  @if (false)
   <div class="my-3">
     <div>
       Permalink: {{ $webpage->permalink }}
@@ -14,6 +15,7 @@
       </button>
     </div>
   </div>
+  @endif
 
   {{-- Toolbar --}}
   <div class="mb-3 p-2 d-none d-md-block bg-dark">
@@ -52,35 +54,66 @@
       </div>
     </div>
     <div class="col-md-4">
-      <h2 class="p-3">
-        Featured image
+
+      {{-- Basic details --}}
+      <div class="border mb-4">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <tbody>
+              <tr>
+                <th> Created at </th>
+                <th> {{ $webpage->created_at }} </th>
+              </tr>
+              <tr>
+                <th> Updated at </th>
+                <th> {{ $webpage->updated_at }} </th>
+              </tr>
+              <tr>
+                <th> Permalink </th>
+                <th> {{ $webpage->permalink }} </th>
+              </tr>
+              <tr>
+                <th> Visibility </th>
+                <th> Public </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      {{-- Featured Image --}}
+      <div class="border">
+        <h2 class="p-3 bg-light">
+          Featured image
+          @if ($webpage->featured_image_path)
+            <button class="btn btn-light" wire:click="">
+              Edit
+            </button>
+          @endif
+        </h2>
+
         @if ($webpage->featured_image_path)
-          <button class="btn btn-light" wire:click="">
-            Edit
-          </button>
+          <div>
+            <img src="{{ asset('storage/' . $webpage->featured_image_path) }}"
+                class="img-fluid rounded-circle-rm"
+                style=""
+            >
+          </div>
+        @else
+          <div class="form-group">
+              <label for="">Featured Image</label>
+              <input type="file" class="form-control" wire:model="featured_image">
+              @error('featured_image') <span class="text-danger">{{ $message }}</span> @enderror
+          </div>
+
+          <div class="my-2">
+            <button class="btn btn-success" wire:click="addFeaturedImage">
+              Save
+            </button>
+          </div>
         @endif
-      </h2>
-
-      @if ($webpage->featured_image_path)
-        <div>
-          <img src="{{ asset('storage/' . $webpage->featured_image_path) }}"
-              class="img-fluid rounded-circle-rm"
-              style=""
-          >
-        </div>
-      @else
-        <div class="form-group">
-            <label for="">Featured Image</label>
-            <input type="file" class="form-control" wire:model="featured_image">
-            @error('featured_image') <span class="text-danger">{{ $message }}</span> @enderror
-        </div>
-
-        <div class="my-2">
-          <button class="btn btn-success" wire:click="addFeaturedImage">
-            Save
-          </button>
-        </div>
-      @endif
+      </div>
     </div>
   </div>
 

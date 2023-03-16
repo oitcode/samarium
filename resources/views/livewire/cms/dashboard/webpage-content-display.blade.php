@@ -1,11 +1,19 @@
 <div>
 
   {{-- Display controls --}}
-  <div class="text-dark mb-0 bg-light p-3 border" style="font-size: 0.7rem;">
-    <i class="fas fa-arrow-down mr-4 fa-2x" wire:click="moveDown" role="button"></i>
-    <i class="fas fa-arrow-up mr-4 fa-2x" wire:click="moveUp" role="button"></i>
-    <i class="fas fa-pencil-alt mr-4 fa-2x" wire:click="enterMode('edit')" role="button"></i>
-    <i class="fas fa-trash mr-4 fa-2x" wire:click="deleteContent" role="button"></i>
+  <div class="text-dark mb-0 bg-light p-3 border p-3" style="font-size: 0.7rem;">
+    <i class="fas fa-arrow-down mr-2 fa-2x-rm border p-3" wire:click="moveDown" role="button"></i>
+    <i class="fas fa-arrow-up mr-2 fa-2x-rm border p-3" wire:click="moveUp" role="button"></i>
+    <i class="fas fa-pencil-alt mr-2 fa-2x-rm border p-3" wire:click="enterMode('edit')" role="button"></i>
+    <i class="fas fa-trash mr-2 fa-2x-rm border p-3" wire:click="enterMode('delete')" role="button"></i>
+    @if ($modes['delete'])
+      <button class="btn btn-danger" wire:click="deleteContent">
+        Confirm delete
+      </button>
+      <button class="btn btn-dark" wire:click="exitMode('delete')">
+        Cancel
+      </button>
+    @endif
   </div>
 
   {{-- Display the content --}}
@@ -17,7 +25,7 @@
       style="font-size: 1.2em;">
   
   
-      <div class="container py-5 border">
+      <div class="container py-3 border">
         <div class="row d-flex">
           {{--
           @if ($i % 2 == 0)

@@ -15,6 +15,8 @@ class WebpageContentDisplay extends Component
 
     public $modes = [
         'edit' => false,
+        'delete' => false,
+        'confirmDelete' => false,
     ];
 
     protected $listeners = [
