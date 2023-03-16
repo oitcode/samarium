@@ -23,4 +23,7 @@
     style="font-size: 1.1rem;" wire:click="{{ $btnClickMethod }}">
   <i class="{{ $btnIconFaClass }} mr-3"></i>
   {{ $btnText }}
+  <span  class="ml-5" wire:loading>
+    ...
+  </span>
 </button>
