@@ -17,7 +17,7 @@ use App\ExpenseAddition;
 use App\Vendor;
 
 
-class ExpenseCreateNew extends Component
+class ExpenseCreate extends Component
 {
     public $expense = null;
 
@@ -123,7 +123,7 @@ class ExpenseCreateNew extends Component
         /* Make payment related */
         $this->expensePaymentTypes = ExpensePaymentType::all();
 
-        return view('livewire.expense-create-new');
+        return view('livewire.expense-create');
     }
 
     /* Clear modes */

@@ -111,7 +111,9 @@
   {{-- Use required component as per mode --}}
 
   @if ($modes['create'])
-    @livewire ('expense-create-new')
+    @if (true)
+    @livewire ('expense-create')
+    @endif
   @elseif ($modes['list'])
     @livewire ('expense-list')
   @elseif ($modes['display'])

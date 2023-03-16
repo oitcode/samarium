@@ -1,5 +1,9 @@
-<div class="card" style="background-color: #efe;">
-  <div class="card-header bg-success text-white" style="">
+<div class="card">
+  <div class="card-header
+      {{ env('OC_ASCENT_BG_COLOR', 'bg-light') }}
+      {{ env('OC_ASCENT_TEXT_COLOR', 'text-secondary') }}
+      text-white
+  " style="">
     <div class="d-flex justify-content-between py-1-rm">
       <div class="d-flex flex-column justify-content-center">
         <h2 class="" style="font-size: calc(1.1rem + 0.2vw);">
@@ -12,24 +16,9 @@
           </span>
         </div>
       </div>
-      @if (true)
-      <div class="px-3 mb-2">
-        @if ($modes['multiplePayments'])
-          <button class="btn btn-sm mr-3 border-secondary" wire:click="exitMultiplePaymentsMode">
-            Single payment
-          </button>
-        @else
-          <button class="btn btn-sm mr-3 text-white" wire:click="enterMultiplePaymentsMode" style="font-size: calc(1rem + 0.2vw);">
-            <i class="fas fa-ellipsis-h"></i>
-            @if (false)
-            Multiple payments
-            @endif
-          </button>
-        @endif
-      </div>
-      @endif
     </div>
   </div>
+
   <div class="card-body p-0">
 
     <div>
@@ -38,7 +27,60 @@
       <table class="table table-bordered mb-0">
         <tbody>
 
-          <tr style="height: 50px;" class="bg-light-rm border-0">
+          <tr style="height: 50px;" class="bg-light-rm border-bottom bg-danger-rm">
+            <td class="w-50 p-0 pt-2 bg-success-rm text-white-rm p-0 font-weight-bold border-0" style="font-size: calc(0.9rem + 0.2vw);">
+              <span class="ml-4 d-inline-block mt-2 mb-3" style="font-size: 1rem;">
+                Subtotal
+              </span>
+            </td>
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
+              @php echo number_format( $sub_total, 2 ); @endphp
+            </td>
+          </tr>
+          {{-- Deal with taxes (VAT, etc) additions now/next/atLast --}}
+          @foreach ($expenseAdditions as $key => $val)
+
+            {{-- Todo: Wont there be any other taxes other than vat? --}}
+            @if (strtolower($key) != 'vat')
+              @continue
+            @else
+            <tr style="height: 50px;" class="bg-info-rm border-bottom p-0">
+              <td class="w-50 h-100 p-0 font-weight-bold border-0 bg-success-rm" style="font-size: calc(0.6rem + 0.2vw);">
+                <div class="h-100 d-flex flex-column justify-content-center">
+                  @if (strtolower($key) == 'vat')
+                    <div class="ml-4">
+                      {{ $key }} (13 %)
+                    </div>
+                  @else
+                    <span class="ml-4">
+                      {{ $key }}
+                    </span>
+                  @endif
+                </div>
+              </td>
+              <td class="p-0 w-50 h-100 bg-info font-weight-bold border-0" style="font-size: calc(0.6rem + 0.2vw);">
+                <input class="w-100 h-100 font-weight-bold border-0 pl-3"
+                    type="text"
+                    style="font-size: calc(1rem + 0.2vw); outline: none;"
+                    wire:keydown.enter="updateNumbers"
+                    wire:model.debounce.500ms="expenseAdditions.{{ $key }}" />
+              </td>
+            </tr>
+            @endif
+          @endforeach
+          @if (true)
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom">
+            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+              <span class="ml-4 d-inline-block">
+                Total
+              </span>
+            </td>
+            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 border-0" style="font-size: calc(1.3rem + 0.2vw);">
+              @php echo number_format( $grand_total, 2 ); @endphp
+            </td>
+          </tr>
+          @endif
+          <tr style="height: 50px;" class="bg-light-rm border-bottom">
             <td class="w-50 p-0 pt-2 bg-success-rm text-white-rm p-0 font-weight-bold border-0" style="font-size: calc(0.9rem + 0.2vw);">
               <span class="ml-4 d-inline-block mt-2 mb-3" style="font-size: 1rem;">
                 @if (true)
@@ -134,7 +176,9 @@
       @if (! $modes['paid'])
       <button
           onclick="this.disabled=true;"
-          class="btn btn-success mr-3-rm w-100 py-3"
+          class="btn
+              {{ env('OC_ASCENT_BTN_COLOR', 'btn-light') }}
+              mr-3-rm w-100 py-3"
           wire:click="store"
           style="font-size: calc(1rem + 0.2vw);">
         <i class="fas fa-check-circle mr-3"></i>
