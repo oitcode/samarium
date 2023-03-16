@@ -1,6 +1,6 @@
 <div class="p-3 bg-white border shadow-sm">
 
-  <div class="my-3">
+  <div class="mb-3">
     <h2>
       {{ $webpage->name }}
     </h2>
@@ -9,16 +9,36 @@
   <div class="my-3">
     <div>
       Permalink: {{ $webpage->permalink }}
+      <button class="btn btn-light" wire:click="">
+        Edit
+      </button>
+    </div>
+  </div>
+
+  {{-- Toolbar --}}
+  <div class="mb-3 p-2 d-none d-md-block bg-dark">
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('createWebpageContent')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'Add content',
+        'btnCheckMode' => 'createWebpageContent',
+    ])
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-eraser',
+        'btnText' => 'Clear modes',
+        'btnCheckMode' => '',
+    ])
+
+    @include ('partials.dashboard.spinner-button')
+
+    <div class="clearfix">
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-8">
-      <div class="my-3">
-        <button class="btn border mr-3" wire:click="enterMode('createWebpageContent')">
-          <i class="fas fa-plus-circle mr-2"></i>
-        </button>
-      </div>
       <div class="">
         @if ($modes['createWebpageContent'])
           @livewire ('cms.dashboard.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
@@ -34,6 +54,11 @@
     <div class="col-md-4">
       <h2 class="p-3">
         Featured image
+        @if ($webpage->featured_image_path)
+          <button class="btn btn-light" wire:click="">
+            Edit
+          </button>
+        @endif
       </h2>
 
       @if ($webpage->featured_image_path)
