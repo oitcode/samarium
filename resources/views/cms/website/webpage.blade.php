@@ -311,12 +311,14 @@
 
 @if (env('MODULES') == 'bgc')
 @else
-<div class="container bg-white pt-2">
-  <h2 class="h2 bg-warning-rm mt-3 mb-1-rm pl-4 text-left text-secondary" style="color: #000; font-family: Arial; font-weight: bold;">
-    Any questions?
-  </h2>
-  @livewire ('cms.website.contact-component')
-</div>
+  @if (false)
+  <div class="container bg-white pt-2">
+    <h2 class="h2 bg-warning-rm mt-3 mb-1-rm pl-4 text-left text-secondary" style="color: #000; font-family: Arial; font-weight: bold;">
+      Any questions?
+    </h2>
+    @livewire ('cms.website.contact-component')
+  </div>
+  @endif
 @endif
 
 @endsection

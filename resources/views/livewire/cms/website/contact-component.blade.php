@@ -10,7 +10,8 @@
   @endif
   <div class="container-fluid bg-white border-rm">
   <div class="container pt-3 pb-5">
-    <div class="row">
+    <div class="d-flex justify-content-center">
+      @if (false)
       <div class="col-md-6 p-4 text-secondary-rm" style="">
           <div class="d-flex mb-4">
             @if (true)
@@ -95,6 +96,7 @@
           </div>
           @endif
       </div>
+      @endif
       <div class="col-md-6 bg-white border py-4 shadow-lg">
         <div style="font-size: 1.3rem;">
         <h2 class="h3 text-muted text-center">
