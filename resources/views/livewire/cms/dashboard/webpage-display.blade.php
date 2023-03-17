@@ -74,7 +74,26 @@
               </tr>
               <tr>
                 <th> Visibility </th>
-                <th> Public </th>
+                <th>
+                  @if ($modes['editVisibilityMode'])
+                    @livewire ('cms.dashboard.webpage-edit-visibility', ['webpage' => $webpage,])
+                  @else
+                    @if ($webpage->visibility == null)
+                      Private
+                    @elseif ($webpage->visibility == 'public')
+                      Public
+                    @else
+                      Private
+                    @endif
+                    <button class="btn btn-light border mx-3" wire:click="enterModeSilent('editVisibilityMode')">
+                      Edit
+                    </button>
+                  @endif
+                </th>
+              </tr>
+              <tr>
+                <th> Category </th>
+                <th> Default </th>
               </tr>
             </tbody>
           </table>

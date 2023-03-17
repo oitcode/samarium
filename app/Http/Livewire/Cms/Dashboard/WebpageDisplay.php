@@ -5,8 +5,11 @@ namespace App\Http\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+use App\Traits\ModesTrait;
+
 class WebpageDisplay extends Component
 {
+    use ModesTrait;
     use WithFileUploads;
 
     public $webpage;
@@ -15,6 +18,9 @@ class WebpageDisplay extends Component
 
     public $modes = [
         'createWebpageContent' =>false,
+
+        /* Various edit modes on this webpage */
+        'editVisibilityMode' => false,
     ];
 
     protected $listeners = [
@@ -22,32 +28,15 @@ class WebpageDisplay extends Component
         'exitCreateWebpageContent',
         'webpageContentDeleted' => 'render',
         'webpageContentPositionChanged' => 'render',
+
+        /* */
+        'webpageEditVisibilityCancel',
+        'webpageEditVisibilityCompleted',
     ];
 
     public function render()
     {
         return view('livewire.cms.dashboard.webpage-display');
-    }
-
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
     }
 
     public function exitCreateWebpageContent()
@@ -67,4 +56,15 @@ class WebpageDisplay extends Component
 
         $this->render();
     }
+
+    public function webpageEditVisibilityCancel()
+    {
+        $this->exitMode('editVisibilityMode');
+    }
+
+    public function webpageEditVisibilityCompleted()
+    {
+        $this->exitMode('editVisibilityMode');
+    }
+
 }

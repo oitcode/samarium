@@ -21,7 +21,7 @@ class Webpage extends Model
     protected $primaryKey = 'webpage_id';
 
     protected $fillable = [
-         'name', 'permalink', 'is_post', 'featured_image',
+         'name', 'permalink', 'is_post', 'visibility', 'featured_image',
     ];
 
 
