@@ -1,4 +1,4 @@
-<div class="sticky-top bg-white">
+<div class="sticky-top-rm bg-white">
 
   {{-- Logo and menu --}}
 
