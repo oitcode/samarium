@@ -23,13 +23,11 @@
 <div class="container-fluid bg-danger text-white p-0 d-none d-md-block">
   <div class="container" style="font-size: 1.3rem; white-space: nowrap; overflow: hidden;">
     <div class="o-ltr py-3 ">
-      @foreach (\App\Webpage::all() as $post)
       <div class="d-inline mr-5">
         <a href="" class="text-reset" style="">
-          {{ $post->name }}
+          {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->orderBy('webpage_id', 'desc')->first()->name }}
         </a>
       </div>
-      @endforeach
     </div>
   </div>
 </div>

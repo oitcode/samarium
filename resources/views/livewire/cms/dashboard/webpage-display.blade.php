@@ -93,7 +93,25 @@
               </tr>
               <tr>
                 <th> Category </th>
-                <th> Default </th>
+                <th>
+                  @if ($modes['editWebpageCategoryMode'])
+                    @livewire ('cms.dashboard.webpage-edit-webpage-category', ['webpage' => $webpage,])
+                  @else
+                    @if (count($webpage->webpageCategories) > 0)
+                      @foreach ($webpage->webpageCategories as $category)
+                        <span class="badge badge-primary mr-3">
+                          {{ $category->name }}
+                        </span>
+                      @endforeach
+                    @else
+                      None
+                    @endif
+
+                    <button class="btn btn-light border mx-3" wire:click="enterModeSilent('editWebpageCategoryMode')">
+                      Add
+                    </button>
+                  @endif
+                </th>
               </tr>
             </tbody>
           </table>

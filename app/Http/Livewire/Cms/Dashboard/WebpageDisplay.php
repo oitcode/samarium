@@ -21,6 +21,7 @@ class WebpageDisplay extends Component
 
         /* Various edit modes on this webpage */
         'editVisibilityMode' => false,
+        'editWebpageCategoryMode' => false,
     ];
 
     protected $listeners = [
@@ -32,6 +33,9 @@ class WebpageDisplay extends Component
         /* */
         'webpageEditVisibilityCancel',
         'webpageEditVisibilityCompleted',
+
+        'webpageEditWebpageCategoryCancel',
+        'webpageEditWebpageCategoryCompleted',
     ];
 
     public function render()
@@ -65,6 +69,16 @@ class WebpageDisplay extends Component
     public function webpageEditVisibilityCompleted()
     {
         $this->exitMode('editVisibilityMode');
+    }
+
+    public function webpageEditWebpageCategoryCancel()
+    {
+        $this->exitMode('editWebpageCategoryMode');
+    }
+
+    public function webpageEditWebpageCategoryCompleted()
+    {
+        $this->exitMode('editWebpageCategoryMode');
     }
 
 }

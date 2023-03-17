@@ -32,6 +32,15 @@ class Webpage extends Model
      */
 
     /*
+     * webpage_category table.
+     *
+     */
+    public function webpageCategories()
+    {
+        return $this->belongsToMany('App\WebpageCategory', 'webpage__webpage_category', 'webpage_id', 'webpage_category_id');
+    }
+
+    /*
      * nav_menu_item table.
      *
      */
