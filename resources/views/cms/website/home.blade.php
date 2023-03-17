@@ -24,7 +24,8 @@
   <div class="container" style="font-size: 1.3rem; white-space: nowrap; overflow: hidden;">
     <div class="o-ltr py-3 ">
       <div class="d-inline mr-5">
-        <a href="" class="text-reset" style="">
+        <a href="{{ route('website-webpage-' . \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->orderBy('webpage_id', 'desc')->first()->permalink) }}"
+            class="text-reset" style="">
           {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->orderBy('webpage_id', 'desc')->first()->name }}
         </a>
       </div>
