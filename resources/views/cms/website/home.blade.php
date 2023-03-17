@@ -19,6 +19,22 @@
 
 @section ('content')
 
+{{-- Notifications/post displayer  --}}
+<div class="container-fluid bg-danger text-white p-0 d-none d-md-block">
+  <div class="container" style="font-size: 1.3rem; white-space: nowrap; overflow: hidden;">
+    <div class="o-ltr py-3 ">
+      @foreach (\App\Webpage::all() as $post)
+      <div class="d-inline mr-5">
+        <a href="" class="text-reset" style="">
+          {{ $post->name }}
+        </a>
+      </div>
+      @endforeach
+    </div>
+  </div>
+</div>
+
+{{-- Hero/Featured image --}}
 <div class="container-fluid bg-light p-0 d-none d-md-block" 
   style="background-image: @if (\App\CmsTheme::first())
                              url({{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }})
@@ -43,7 +59,9 @@
 @endif
 
 <div>
+  @if (true)
   @livewire ('cms.website.contact-component')
+  @endif
 </div>
 
 @endsection
