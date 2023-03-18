@@ -58,10 +58,8 @@ class WebpageComponent extends Component
         $this->exitMode('create');
     }
 
-    public function displayWebpage($webpageId)
+    public function displayWebpage(Webpage $webpage)
     {
-        $webpage = Webpage::find($webpageId);
-
         $this->displayingWebpage = $webpage;
 
         $this->enterMode('display');

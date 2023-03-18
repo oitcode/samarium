@@ -36,7 +36,7 @@
             <tr>
               <td class="h4 font-weight-bold py-4">
                 <input type="checkbox" class="mr-3">
-                <span  wire:click="$emit('displayPost', {{ $post }})" class="text-dark">
+                <span  wire:click="$emit('displayPost', {{ $post }})" class="text-dark" role="button">
                   {{ $post->name }}
                 </span>
               </td>

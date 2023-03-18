@@ -16,7 +16,7 @@ class WebpageList extends Component
 
     public function render()
     {
-        $webpages = Webpage::where('is_post', 'no')->orderBy('webpage_id', 'DESC')->paginate(10);
+        $webpages = Webpage::where('is_post', 'no')->orderBy('webpage_id', 'DESC')->paginate(5);
 
         return view('livewire.cms.dashboard.webpage-list')
             ->with('webpages', $webpages);
