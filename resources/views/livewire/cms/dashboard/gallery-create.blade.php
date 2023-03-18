@@ -1,4 +1,4 @@
-<div class="p-2">
+<div class="p-2 border">
 
   <div class="form-group">
     <label>Name</label>

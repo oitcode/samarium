@@ -49,7 +49,7 @@ class GalleryComponent extends Component
 
     public function exitCreateMode()
     {
-        $this->createMode = false;
+        $this->modes['createMode'] = false;
     }
 
     public function enterUpdateMode()
