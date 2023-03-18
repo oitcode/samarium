@@ -132,6 +132,12 @@ class NavMenuDisplay extends Component
 
     public function deleteCmsNavMenuItem(CmsNavMenuItem $cmsNavMenuItem)
     {
+        if ($cmsNavMenuItem->type == 'dropdown') {
+            foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $item) {
+                $item->delete();
+            }
+        }
+
         $cmsNavMenuItem->delete();
 
         $this->render();
