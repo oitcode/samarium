@@ -33,6 +33,7 @@ class GalleryComponent extends Component
 
     public $modes = [
         'createMode' => false,
+        'updateMode' => false,
         'listMode' => false,
         'displayMode' => false,
     ];
@@ -60,13 +61,13 @@ class GalleryComponent extends Component
     public function exitUpdateMode()
     {
         $this->updatingGallery = null;
-        $this->updateMode = false;
+        $this->exitMode('updateMode');
     }
 
     public function updateGallery(Gallery $gallery)
     {
         $this->updatingGallery = $gallery;
-        $this->enterUpdateMode();
+        $this->enterMode('updateMode');
     }
 
     public function enterDeleteMode()
@@ -111,6 +112,6 @@ class GalleryComponent extends Component
     public function displayGallery(Gallery $gallery)
     {
         $this->displayingGallery = $gallery;
-        $this->enterDisplayMode();
+        $this->enterMode('displayMode');
     }
 }

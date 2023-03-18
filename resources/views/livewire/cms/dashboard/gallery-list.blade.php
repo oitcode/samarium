@@ -14,7 +14,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Description</th>
-            @if (false)
+            @if (true)
             <th>Action</th>
             @endif
           </tr>
@@ -23,7 +23,7 @@
 
         <tbody>
           @foreach($galleries as $gallery)
-          <tr wire:click="$emit('updateGallery', {{ $gallery }})" role="button">
+          <tr>
             <td class="text-muted">
               {{ $gallery->gallery_id }}
             </td>
@@ -36,7 +36,7 @@
               {{ $gallery->description }}
             </td>
 
-            @if (false)
+            @if (true)
             <td>
               <span class="btn btn-tool btn-sm border rounded-circle mr-3" wire:click="$emit('updateGallery', {{ $gallery }})">
                 <i class="fas fa-pencil-alt text-primary"></i>

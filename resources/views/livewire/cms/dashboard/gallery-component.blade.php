@@ -47,6 +47,8 @@
       @livewire('cms.dashboard.gallery-display', ['gallery' => $displayingGallery,])
     @elseif ($modes['listMode'])
       @livewire('cms.dashboard.gallery-list')
+    @elseif ($modes['updateMode'])
+      @livewire('cms.dashboard.gallery-update', ['gallery' => $updatingGallery,])
     @endif
 
     @if ($deleteMode)
