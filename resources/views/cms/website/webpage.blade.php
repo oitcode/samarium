@@ -37,9 +37,9 @@
 @endsection
 
 @section ('pageAnnouncer')
-  <div class="continer-fluid o-top-page-banner-rm"
+  <div class="container-fluid o-top-page-banner-rm bg-success-rm"
       style="
-      @if ($webpage->is_post == 'yes')
+      @if (false && $webpage->is_post == 'yes')
       @else
         background-image:
             linear-gradient(to right,
@@ -58,11 +58,11 @@
       @endif
   ;">
     <div class="o-overlay text-white-rm">
-      <div class="container py-5">
-      <h1
+      <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') border-left-rm border-right-rm @else @endif bg-primary-rm">
+      <h1 class="h1 font-weight-bold"
           style="
-            @if ($webpage->is_post == 'yes')
-              color: #005;
+            @if (false && $webpage->is_post == 'yes')
+              color: #000;
             @else
                 color:
                       @if (\App\CmsTheme::first())
@@ -75,11 +75,15 @@
         {{ $webpage->name }}
       </h1>
       @if ($webpage->is_post == 'yes')
-        <div class="">
-          <i class="far fa-clock text-primary mr-1"></i>
-          {{ $webpage->created_at->toDateString() }}
-          |
-          {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'nepali')  }}
+        <div class="d-flex mt-4 text-white">
+          <div class="mr-5">
+            <i class="far fa-clock text-primary-rm mr-1"></i>
+            {{ $webpage->created_at->toDateString() }}
+            @if (false)
+            |
+            {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'nepali')  }}
+            @endif
+          </div>
         </div>
       @endif
       @if (false)
@@ -158,23 +162,24 @@
   @livewire ('school.cms.calendar-component')
 --}}
 @else
+
   @if ($webpage->is_post == 'yes')
-    <div class="container my-2 py-2 border-top border-bottom">
+    <div class="container my-0 py-2 px-4 border">
       <h3 class="h5">
         Share this article
       </h3>
       <div class="d-flex">
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" target="_blank">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" class="btn text-reset" target="_blank">
           <i class="fab fa-facebook fa-2x"></i>
         </a>
-        @if (false)
-        <button class="btn mr-3">
+        @if (true)
+        <button class="btn mr-2 text-reset">
           <i class="fab fa-twitter fa-2x"></i>
         </button>
-        <button class="btn mr-3">
+        <button class="btn mr-2 text-reset">
           <i class="fab fa-whatsapp fa-2x"></i>
         </button>
-        <button class="btn mr-3">
+        <button class="btn mr-2 text-reset">
           <i class="fab fa-viber fa-2x"></i>
         </button>
         @endif
@@ -205,7 +210,7 @@
           ">
   
   
-          <div class="container py-3">
+          <div class="container py-3 @if ($webpage->is_post == 'yes') @else @endif">
             <div class="row d-flex">
               
                 
@@ -274,18 +279,20 @@
   
     @endforeach
   @else
-    <div class="container py-4 d-flex">
-      @if (false)
-      <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
-      @endif
-      <h2 class="mt-3 text-secondary">
-        <i class="fas fa-exclamation-circle mr-2 text-danger"></i>
-        Content is coming soon.
-      </h2>
-    </div>
+    @if ($webpage->is_post == 'no')
+      <div class="container py-4 d-flex">
+        @if (false)
+        <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
+        @endif
+        <h2 class="mt-3 text-secondary">
+          <i class="fas fa-exclamation-circle mr-2 text-danger"></i>
+          Content is coming soon.
+        </h2>
+      </div>
+    @endif
   @endif
-  @if ($webpage->is_post == 'yes')
-    <div class="container my-2 py-2 border-top border-bottom">
+  @if (false && $webpage->is_post == 'yes')
+    <div class="container my-2 py-2 border-top border-bottom @if ($webpage->is_post == 'yes') border-left border-right @else @endif">
       <h3 class="h5">
         Share this article
       </h3>

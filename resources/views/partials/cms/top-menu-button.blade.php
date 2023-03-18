@@ -1,4 +1,4 @@
-<div class="float-left text-white-rm border-right-rm" style="font-size: 1.3rem;">
+<div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
   <a href="{{ route($btnRoute) }}"
       class="btn
              @if (false)
@@ -6,13 +6,14 @@
                btn-danger
              @else
                btn-light
-               text-secondary
+               text-white
              @endif
              @endif
-          font-weight-bold
+          font-weight-bold text-white
           p-3"
           
           style="
+            @if (true)
             background-color:
              @if(Route::current()->getName() == $btnRoute)
               @if (\App\CmsTheme::first())
@@ -33,7 +34,8 @@
               @endif
               ;
              @else
-               #ccc
+               white
+             @endif
              @endif
               "
           >

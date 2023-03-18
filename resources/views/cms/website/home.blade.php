@@ -20,7 +20,7 @@
 @section ('content')
 
 {{-- Notifications/post displayer  --}}
-<div class="container-fluid bg-danger text-white p-0 d-none d-md-block">
+<div class="container-fluid bg-dark-rm text-white p-0 d-none d-md-block" style="background-color: brown;">
   <div class="container" style="font-size: 1.3rem; white-space: nowrap; overflow: hidden;">
     <div class="o-ltr py-3 ">
       <div class="d-inline mr-5">

@@ -62,7 +62,7 @@
     <!-- Livewire -->
     @livewireStyles
 </head>
-<body>
+<body style="">
   @if (! $company)
     <div class="p-5 bg-danger text-white text-center">
       <h3 class="h5 font-weight-bold">
@@ -89,10 +89,12 @@
     {{-- Product category menu --}}
     @livewire ('cms.website.menu-wp')
 
-    @yield ('pageAnnouncer')
+    <div class="@if (isset($webpage) && $webpage->is_post == 'yes') @else @endif">
+      @yield ('pageAnnouncer')
 
-    {{-- Content goes here !!! --}}
-    @yield('content')
+      {{-- Content goes here !!! --}}
+      @yield('content')
+    </div>
 
     {{-- Footer --}}
     <div class="container-fluid border pt-4 pb-5"

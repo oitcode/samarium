@@ -1,14 +1,14 @@
 <div>
   {{-- Company/Brand info --}}
-  <div class="d-flex justify-content-between p-3">
+  <div class="d-flex justify-content-center p-3 bg-white">
     <a href="{{ route('website-home') }}" class="text-decoration-none">
-      <div class="d-flex">
-        <div class="mr-4 d-flex flex-column justify-content-center">
-            <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 40px;">
+      <div class="d-flex flex-column">
+        <div class="d-flex justify-content-center mb-4">
+            <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="width: 75px; height: 75px;">
         </div>
         <div class="mr-3">
-          <h1 class="h6 text-dark" style="font-weight: bold;">{{ $company->name }}</h1>
-          <div class="text-secondary">
+          <h1 class="h6 text-dark text-center" style="font-weight: bold;">{{ $company->name }}</h1>
+          <div class="text-secondary text-center">
             {{ $company->tagline }}
           </div>
         </div>
@@ -16,7 +16,7 @@
     </a>
   </div>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border">
     @if (false)
     <a class="navbar-brand" href="{{ route('website-home') }}" style="color: #004;">
       <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
