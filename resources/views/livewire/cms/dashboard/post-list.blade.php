@@ -33,6 +33,8 @@
         </tbody>
       </table>
     </div>
+    {{-- Pagination links --}}
+    {{ $posts->links() }}
   @else
     No posts
   @endif

@@ -37,6 +37,9 @@
         </tbody>
       </table>
     </div>
+
+    {{-- Pagination links --}}
+    {{ $webpages->links() }}
   @else
     No webpages
   @endif
