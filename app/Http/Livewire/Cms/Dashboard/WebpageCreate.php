@@ -28,7 +28,7 @@ class WebpageCreate extends Component
             $validatedData['permalink'] = '/posts/' . date('Y-m-d') . '/' . rand(10000, 99999);
         } else {
             $validatedData += $this->validate([
-                'permalink' => 'required',
+                'permalink' => 'required|unique:webpage,permalink',
             ]);
         }
 
