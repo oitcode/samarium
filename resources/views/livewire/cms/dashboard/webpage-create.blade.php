@@ -18,6 +18,7 @@
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
+    @if ($is_post == 'no')
     <div class="form-group">
       <label for="">Permalink</label>
       <input type="text"
@@ -26,6 +27,7 @@
           style="font-size: 1.3rem;">
       @error('permalink') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
+    @endif
 
     <div class="mt-4" style="font-size: 1.3rem;">
       <button type="submit"

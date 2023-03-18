@@ -22,11 +22,14 @@ class WebpageCreate extends Component
         $validatedData = $this->validate([
             'name' => 'required',
             'is_post' => 'required',
-            'permalink' => 'required',
         ]);
 
         if ($validatedData['is_post'] == 'yes') {
             $validatedData['permalink'] = '/posts/' . date('Y-m-d') . '/' . rand(10000, 99999);
+        } else {
+            $validatedData += $this->validate([
+                'permalink' => 'required',
+            ]);
         }
 
         Webpage::create($validatedData);
