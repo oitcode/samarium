@@ -36,7 +36,7 @@
     @error('title') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
-  @if (false)
+  @if (true)
   <div class="form-group">
     <label for="">Body</label>
     <textarea rows="5" class="form-control" wire:model.defer="body">
@@ -45,16 +45,15 @@
   </div>
   @endif
 
-  <div class="form-group">
-     <input id="wcb1" value="Editor content goes here" type="hidden" name="content">
-    </textarea>
-    @error('body') <span class="text-danger">{{ $message }}</span> @enderror
+  @if (false)
+  <div>
+    <input id="wcb1" value="Editor content goes here" wire:model="body" name="content" wire:key="{{ rand() }}">
+    <div class="form-group" wire:ignore>
+      <trix-editor input="wcb1" wire:key="andthisBayern"></trix-editor>
+      @error('body') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
   </div>
-
-  <div class="form-group">
-    <trix-editor input="wcb1"></trix-editor>
-    @error('body') <span class="text-danger">{{ $message }}</span> @enderror
-  </div>
+  @endif
 
   <div class="form-group">
       <label for="">Image</label>

@@ -28,14 +28,16 @@
         </div>
       </a>
     </div>
-    <div class="d-flex text-secondary">
+    <div class="d-flex flex-column text-dark">
       <div>
+        @if (true)
         <div class="mr-4">
           <i class="fas fa-map-marker-alt text-white-rm mr-2"></i>
           <span class="text-white-rm" style="font-family: Arial;">
             {{ $company->address }}
           </span>
         </div>
+        @endif
         <div class="mr-4">
           <i class="fas fa-phone text-white-rm mr-2"></i>
           <span class="text-white-rm" style="font-family: Arial;">
@@ -64,6 +66,27 @@
           <div class="mr-3">
             <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
               <i class="fab fa-twitter text-white-rm fa-2x mr-2 "></i>
+            </a>
+          </div>
+        @endif
+        @if ($company->youtube_link)
+          <div class="mr-3">
+            <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
+              <i class="fab fa-youtube text-white-rm fa-2x mr-2 "></i>
+            </a>
+          </div>
+        @endif
+        @if ($company->insta_link)
+          <div class="mr-3">
+            <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
+              <i class="fab fa-instagram text-white-rm fa-2x mr-2 "></i>
+            </a>
+          </div>
+        @endif
+        @if ($company->tiktok_link)
+          <div class="mr-3">
+            <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
+              <i class="fab fa-tiktok text-white-rm fa-2x mr-2 "></i>
             </a>
           </div>
         @endif

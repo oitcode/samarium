@@ -51,8 +51,8 @@
             <i class="fab fa-twitter fa-2x mr-2 "></i>
           </a>
         @endif
-        @if ($company->instagram_link)
-          <a href="{{ $company->instagram_link }}" class="text-reset" target="_blank">
+        @if ($company->insta_link)
+          <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
             <i class="fab fa-instagram fa-2x mr-2 "></i>
           </a>
         @endif
