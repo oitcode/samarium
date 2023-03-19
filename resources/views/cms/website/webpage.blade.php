@@ -76,13 +76,28 @@
       </h1>
       @if ($webpage->is_post == 'yes')
         <div class="d-flex mt-4 text-white">
-          <div class="mr-5">
+          <div class="mr-4">
             <i class="far fa-clock text-primary-rm mr-1"></i>
+            <span class="mr-1">
+              Published: 
+            </span>
             {{ $webpage->created_at->toDateString() }}
             @if (false)
             |
             {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'nepali')  }}
             @endif
+          </div>
+          <div class="pl-4 border-left">
+            @if (false)
+            <span class="mr-1">
+              Tags
+            </span>
+            @endif
+            @foreach ($webpage->webpageCategories as $webpageCategory)
+              <span class="badge badge-light mr-2 p-2">
+                {{ $webpageCategory->name }}
+              </span>
+            @endforeach
           </div>
         </div>
       @endif
