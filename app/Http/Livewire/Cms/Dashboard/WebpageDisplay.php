@@ -22,6 +22,7 @@ class WebpageDisplay extends Component
         /* Various edit modes on this webpage */
         'editVisibilityMode' => false,
         'editWebpageCategoryMode' => false,
+        'editFeaturedImageMode' => false,
     ];
 
     protected $listeners = [
@@ -36,6 +37,9 @@ class WebpageDisplay extends Component
 
         'webpageEditWebpageCategoryCancel',
         'webpageEditWebpageCategoryCompleted',
+
+        'webpageEditFeaturedImageCancel',
+        'webpageEditFeaturedImageCompleted',
     ];
 
     public function render()
@@ -81,4 +85,21 @@ class WebpageDisplay extends Component
         $this->exitMode('editWebpageCategoryMode');
     }
 
+    public function webpageEditFeaturedImageCancel()
+    {
+        $this->exitMode('editFeaturedImageMode');
+    }
+
+    public function webpageEditFeaturedImageCompleted()
+    {
+        $this->exitMode('editFeaturedImageMode');
+    }
+
+    public function removeFeaturedImage()
+    {
+        $this->webpage->featured_image_path = null;
+        $this->webpage->update();
+
+        $this->render();
+    }
 }

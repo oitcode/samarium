@@ -123,33 +123,45 @@
       <div class="border">
         <h2 class="p-3 bg-light">
           Featured image
-          @if ($webpage->featured_image_path)
-            <button class="btn btn-light" wire:click="">
+          @if (! $modes['editFeaturedImageMode'])
+            <button class="btn btn-light" wire:click="enterModeSilent('editFeaturedImageMode')">
               Edit
             </button>
+            @if ($webpage->featured_image_path)
+              <button class="btn btn-light" wire:click="removeFeaturedImage">
+                Remove
+              </button>
+            @endif
           @endif
         </h2>
 
-        @if ($webpage->featured_image_path)
+        @if ($modes['editFeaturedImageMode'])
           <div>
-            <img src="{{ asset('storage/' . $webpage->featured_image_path) }}"
-                class="img-fluid rounded-circle-rm"
-                style=""
-            >
+            @livewire ('cms.dashboard.webpage-edit-featured-image', ['webpage' => $webpage,])
           </div>
         @else
-          <div class="form-group">
-              <label for="">Featured Image</label>
-              <input type="file" class="form-control" wire:model="featured_image">
-              @error('featured_image') <span class="text-danger">{{ $message }}</span> @enderror
-          </div>
+          @if ($webpage->featured_image_path)
+            <div>
+              <img src="{{ asset('storage/' . $webpage->featured_image_path) }}"
+                  class="img-fluid rounded-circle-rm"
+                  style=""
+              >
+            </div>
+          @else
+            <div class="form-group">
+                <label for="">Featured Image</label>
+                <input type="file" class="form-control" wire:model="featured_image">
+                @error('featured_image') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
 
-          <div class="my-2">
-            <button class="btn btn-success" wire:click="addFeaturedImage">
-              Save
-            </button>
-          </div>
+            <div class="my-2">
+              <button class="btn btn-success" wire:click="addFeaturedImage">
+                Save
+              </button>
+            </div>
+          @endif
         @endif
+
       </div>
     </div>
   </div>
