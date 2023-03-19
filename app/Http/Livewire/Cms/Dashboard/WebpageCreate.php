@@ -20,7 +20,7 @@ class WebpageCreate extends Component
     public function store()
     {
         $validatedData = $this->validate([
-            'name' => 'required',
+            'name' => 'required|unique:webpage,name',
             'is_post' => 'required',
         ]);
 
