@@ -79,7 +79,31 @@
                 @endif
               </td>
               <td>
-                <i class="fas fa-pencil-alt"></i>
+                <span class="btn btn-light mr-3">
+                  <i class="fas fa-pencil-alt"></i>
+                </span>
+                <span class="btn btn-light mr-3" wire:click="deleteWebpage({{ $webpage }})">
+                  <i class="fas fa-trash"></i>
+                </span>
+                @if ($modes['delete'])
+                  @if ($deletingWebpage->webpage_id == $webpage->webpage_id)
+                    @if ($modes['cannotDelete'])
+                      <span class="text-danger mr-3">
+                        Cannot be deleted
+                      </span>
+                      <span class="btn btn-light mr-3" wire:click="deleteWebpageCancel">
+                        Cancel
+                      </span>
+                    @else
+                      <span class="btn btn-danger mr-3" wire:click="confirmDeleteWebpage">
+                        Confirm delete
+                      </span>
+                      <span class="btn btn-light mr-3" wire:click="deleteWebpageCancel">
+                        Cancel
+                      </span>
+                    @endif
+                  @endif
+                @endif
               </td>
             </tr>
           @endforeach
