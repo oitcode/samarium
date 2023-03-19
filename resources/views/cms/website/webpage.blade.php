@@ -148,6 +148,10 @@
   <div class="container my-4">
     @livewire ('cms.website.post-list')
   </div>
+@elseif ($webpage->name == 'Post')
+  <div class="container my-4">
+    @livewire ('cms.website.post-list')
+  </div>
 @elseif ($webpage->name == 'Teams')
   @if (\App\Team::where('team_type', 'playing_team')->first())
     <div class="container my-4">
