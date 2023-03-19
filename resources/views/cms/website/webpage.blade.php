@@ -92,6 +92,15 @@
       </div>
     </div>
   </div>
+
+  {{-- Featured image --}}
+  <div class="container my-4">
+    @if ($webpage->featured_image_path)
+      <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $webpage->featured_image_path) }}" alt="{{ $webpage->name }}"
+      style="max-height: 500px;{{-- max-width: 100px;--}}">
+    @else
+    @endif
+  </div>
 @endsection
 
 @section ('content')
