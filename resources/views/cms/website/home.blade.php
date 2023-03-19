@@ -49,10 +49,10 @@
   </div>
 </div>
 
-@if (env('MODULES') == 'bgc')
+@if (preg_match("/bgc/i", env('MODULES')))
   @if (\App\Team::where('team_type', 'playing_team')->first())
     <div class="container my-4">
-      @include ('partials.team-block-display')
+      @include ('partials.team.team-block-display')
     </div>
   @endif
 @endif
