@@ -1,7 +1,12 @@
 <div>
+  {{-- Top line --}}
+  <div class="my-3">
+    Total: {{ $totalPostCount }}
+  </div>
+
   @if (!is_null($posts) && count($posts) > 0)
     <div class="table-responsive border">
-      <table class="table table-hover table-bordered-rm">
+      <table class="table table-hover table-bordered-rm mb-0">
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}">
             <th>
@@ -49,7 +54,7 @@
                   {{ $post->creator->name }}
                 @else
                   <span class="">
-                    <i class="fas fa-exclamation-circle text-danger mr-1"></i>
+                    <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
                     Not set
                   </span>
                 @endif
@@ -60,11 +65,16 @@
               </td>
               @endif
               <td>
-                @foreach ($post->webpageCategories as $postCategory)
-                  <span class="badge badge-primary mr-3">
-                    {{ $postCategory->name }}
-                  </span>
-                @endforeach
+                @if (count($post->webpageCategories) > 0)
+                  @foreach ($post->webpageCategories as $postCategory)
+                    <span class="badge badge-primary mr-3">
+                      {{ $postCategory->name }}
+                    </span>
+                  @endforeach
+                @else
+                  <i class="fas fa-exclamation-circle text-secondary mr-2"></i>
+                  None
+                @endif
               </td>
               <td>
                 Published

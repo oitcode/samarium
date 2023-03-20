@@ -75,6 +75,8 @@
   @elseif ($modes['list'])
     @livewire ('takeaway-list')
   @else
+    @if (false)
     Welcome
+    @endif
   @endif
 </div>

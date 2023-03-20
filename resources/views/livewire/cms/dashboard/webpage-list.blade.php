@@ -1,7 +1,7 @@
 <div>
   @if (!is_null($webpages) && count($webpages) > 0)
     <div class="table-responsive border">
-      <table class="table table-hover table-bordered-rm">
+      <table class="table table-hover table-bordered-rm mb-0">
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}">
             <th>

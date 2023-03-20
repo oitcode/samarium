@@ -103,7 +103,9 @@
       </div>
     </div>
     @endif
+    @if (false)
     Welcome
+    @endif
   @endif
 
 </div>
