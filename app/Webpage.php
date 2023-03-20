@@ -21,7 +21,7 @@ class Webpage extends Model
     protected $primaryKey = 'webpage_id';
 
     protected $fillable = [
-         'name', 'permalink', 'is_post', 'visibility', 'featured_image',
+         'creator_id', 'name', 'permalink', 'is_post', 'visibility', 'featured_image',
     ];
 
 
@@ -30,6 +30,15 @@ class Webpage extends Model
      *-------------------------------------------------------------------------
      *
      */
+
+    /*
+     * users table.
+     *
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'creator_id', 'id');
+    }
 
     /*
      * webpage_category table.

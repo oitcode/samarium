@@ -46,6 +46,15 @@ class User extends Authenticatable
 
 
     /*
+     * webpage table.
+     *
+     */
+    public function webpages()
+    {
+        return $this->hasMany('App\Webpage', 'creator_id', 'id');
+    }
+
+    /*
      * sale_invoice table.
      *
      */

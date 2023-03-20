@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Webpage;
 
 class WebpageCreate extends Component
@@ -31,6 +33,8 @@ class WebpageCreate extends Component
                 'permalink' => 'required|unique:webpage,permalink',
             ]);
         }
+
+        $validatedData['creator_id'] = Auth::id();
 
         Webpage::create($validatedData);
 

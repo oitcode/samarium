@@ -5,7 +5,9 @@
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}">
             <th>
+              @if (false)
               <input type="checkbox" class="mr-3">
+              @endif
               Name
             </th>
             <th>
@@ -35,13 +37,26 @@
           @foreach ($webpages as $webpage)
             <tr>
               <td class="h4 font-weight-bold py-4">
+                @if (false)
                 <input type="checkbox" class="mr-3">
+                @endif
                 <span  wire:click="$emit('displayWebpage', {{ $webpage }})" class="text-dark" role="button">
                   {{ $webpage->name }}
                 </span>
               </td>
               <td>
+                @if (false)
                 {{ \Faker\Factory::create()->name() }}
+                @endif
+
+                @if ($webpage->creator)
+                  {{ $webpage->creator->name }}
+                @else
+                  <span class="">
+                    <i class="fas fa-exclamation-circle text-danger mr-1"></i>
+                    Not set
+                  </span>
+                @endif
               </td>
               @if (false)
               <td>
