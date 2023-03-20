@@ -197,10 +197,13 @@
         Share this article
       </h3>
       <div class="d-flex">
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" class="btn text-reset" target="_blank">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" class="btn btn-primary" target="_blank">
+          @if (false)
+          Facebook
+          @endif
           <i class="fab fa-facebook fa-2x"></i>
         </a>
-        @if (true)
+        @if (false)
         <button class="btn mr-2 text-reset">
           <i class="fab fa-twitter fa-2x"></i>
         </button>
