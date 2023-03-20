@@ -17,11 +17,14 @@ class WebpageContentEdit extends Component
     public $body;
     public $image;
 
-    public function render()
+    public function mount()
     {
         $this->title = $this->webpageContent->title;
         $this->body = $this->webpageContent->body;
+    }
 
+    public function render()
+    {
         return view('livewire.cms.dashboard.webpage-content-edit');
     }
 
@@ -33,6 +36,8 @@ class WebpageContentEdit extends Component
             'image' => 'nullable|image'
         ]);
 
+        /* dd ($validatedData['body']); */
+
         if ($this->image) {
             $image_path = $this->image->store('webpage-content', 'public');
             $validatedData['image_path'] = $image_path;
@@ -41,5 +46,10 @@ class WebpageContentEdit extends Component
         $this->webpageContent->update($validatedData);
 
         $this->emit('webpageContentUpdated');
+    }
+
+    public function updatedValue($value)
+    {
+      /* dd ($value); */
     }
 }

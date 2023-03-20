@@ -16,7 +16,8 @@ class WebpageDisplayWebpageContentCreate extends Component
 
     public $position;
     public $title;
-    public $body;
+    public $body; 
+    /* public $value; */
     public $image;
     public $video_link;
 
@@ -29,12 +30,13 @@ class WebpageDisplayWebpageContentCreate extends Component
     {
         $validatedData = $this->validate([
             'title' => 'nullable',
-            'body' => 'nullable',
+            'body' => 'nullable', 
+            /* 'value' => 'nullable', */
             'image' => 'nullable|image',
             'video_link' => 'nullable',
         ]);
 
-        /* dd ($validatedData['body']); */
+        /* dd ($validatedData['body']);  */
 
         $validatedData['position'] = $this->getHighestPosition();
 
@@ -44,6 +46,8 @@ class WebpageDisplayWebpageContentCreate extends Component
         }
 
         $validatedData['webpage_id'] = $this->webpage->webpage_id;
+
+        /* $validatedData['body'] = $validatedData['value']; */
 
         //DB::beginTransaction();
 
@@ -65,5 +69,10 @@ class WebpageDisplayWebpageContentCreate extends Component
         }
 
         return $position;
+    }
+
+    public function updatedValue($value)
+    {
+      /* dd ($value); */
     }
 }

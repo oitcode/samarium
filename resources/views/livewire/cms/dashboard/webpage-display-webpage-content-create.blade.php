@@ -36,7 +36,7 @@
     @error('title') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
-  @if (true)
+  @if (false)
   <div class="form-group">
     <label for="">Body</label>
     <textarea rows="5" class="form-control" wire:model.defer="body">
@@ -45,15 +45,35 @@
   </div>
   @endif
 
-  @if (false)
-  <div>
-    <input id="wcb1" value="Editor content goes here" wire:model="body" name="content" wire:key="{{ rand() }}">
-    <div class="form-group" wire:ignore>
-      <trix-editor input="wcb1" wire:key="andthisBayern"></trix-editor>
+  {{--
+  |
+  |
+  | Putting trix editor
+  |
+  | Below solution is based on the tutorial
+  |
+  | https://tonylea.com/laravel-livewire-trix-editor-component
+  |
+  --}}
+
+  @if (true)
+  <div wire:ignore>
+    <input id="wcb1" value="{{ $body }}" wire:model="body" type="hidden" name="content" wire:key="{{ rand() }}">
+    <div class="form-group">
+      <trix-editor wire:ignore input="wcb1" wire:key="andthisBayern"></trix-editor>
       @error('body') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
   </div>
   @endif
+
+  <script>
+      var trixEditor = document.getElementById("wcb1")
+  
+      addEventListener("trix-blur", function(event) {
+          @this.set('body', trixEditor.getAttribute('value'))
+      })
+  </script>
+
 
   <div class="form-group">
       <label for="">Image</label>

@@ -260,7 +260,7 @@
                   @endif
                   @if ($webpageContent->body)
                     <p class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif">
-                      {{ $webpageContent->body}}
+                      {!! $webpageContent->body !!}
                     </p>
                   @endif
                 </div>

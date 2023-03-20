@@ -35,7 +35,7 @@
                 {{ $webpageContent->title}}
               </h2>
               <p class="text-secondary">
-                {{ $webpageContent->body}}
+                {!! $webpageContent->body !!}
               </p>
             </div>
             <div class="col-md-6">
