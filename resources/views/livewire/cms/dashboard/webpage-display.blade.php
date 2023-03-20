@@ -6,17 +6,6 @@
     </h2>
   </div>
 
-  @if (false)
-  <div class="my-3">
-    <div>
-      Permalink: {{ $webpage->permalink }}
-      <button class="btn btn-light" wire:click="">
-        Edit
-      </button>
-    </div>
-  </div>
-  @endif
-
   {{-- Toolbar --}}
   <div class="mb-3 p-2 d-none d-md-block bg-dark">
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -79,11 +68,16 @@
                     @livewire ('cms.dashboard.webpage-edit-visibility', ['webpage' => $webpage,])
                   @else
                     @if ($webpage->visibility == null)
-                      Private
+                      @if (true)
+                      <i class="fas fa-exclamation-circle mr-1"></i>
+                      @endif
+                      Not set
                     @elseif ($webpage->visibility == 'public')
                       Public
-                    @else
+                    @elseif ($webpage->visibility == 'private')
                       Private
+                    @else
+                      Whoops
                     @endif
                     <button class="btn btn-light border mx-3" wire:click="enterModeSilent('editVisibilityMode')">
                       Edit
