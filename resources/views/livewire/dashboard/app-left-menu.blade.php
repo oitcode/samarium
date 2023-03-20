@@ -2,6 +2,14 @@
 @if (true)
 <div class="d-none d-md-block">
 
+  @include ('partials.dashboard.app-left-menu-button',
+      [
+          'btnRoute' => 'dashboard',
+          'iconFaClass' => 'fas fa-tv',
+          'btnText' => 'Dashboard',
+      ])
+
+
   @if ($modes['shop'])
     @include ('partials.dashboard.app-left-menu-button-lw', [
         'btnClickMethod' => "exitMode('shop')",
@@ -26,13 +34,6 @@
     |
     |
     --}}
-    @include ('partials.dashboard.app-left-menu-button',
-        [
-            'btnRoute' => 'dashboard',
-            'iconFaClass' => 'fas fa-tv',
-            'btnText' => 'Dashboard',
-        ])
-
     @if (env('CMP_TYPE') == 'shop')
       @include ('partials.dashboard.app-left-menu-button',
           [
