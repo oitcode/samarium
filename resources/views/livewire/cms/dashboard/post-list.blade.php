@@ -5,7 +5,9 @@
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}">
             <th>
-              <input type="checkbox" class="mr-3">
+              @if (false)
+                <input type="checkbox" class="mr-3">
+              @endif
               Name
             </th>
             <th>
@@ -35,13 +37,22 @@
           @foreach ($posts as $post)
             <tr>
               <td class="h4 font-weight-bold py-4">
-                <input type="checkbox" class="mr-3">
+                @if (false)
+                  <input type="checkbox" class="mr-3">
+                @endif
                 <span  wire:click="$emit('displayPost', {{ $post }})" class="text-dark" role="button">
                   {{ $post->name }}
                 </span>
               </td>
               <td>
-                {{ \Faker\Factory::create()->name() }}
+                @if ($post->creator)
+                  {{ $post->creator->name }}
+                @else
+                  <span class="">
+                    <i class="fas fa-exclamation-circle text-danger mr-1"></i>
+                    Not set
+                  </span>
+                @endif
               </td>
               @if (false)
               <td>

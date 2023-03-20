@@ -45,9 +45,6 @@
                 </span>
               </td>
               <td>
-                @if (false)
-                {{ \Faker\Factory::create()->name() }}
-                @endif
 
                 @if ($webpage->creator)
                   {{ $webpage->creator->name }}
