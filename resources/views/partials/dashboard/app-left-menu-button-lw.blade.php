@@ -8,7 +8,7 @@
             --}}
             btn-dark
           @else
-            bg-white
+            btn-secondary
           @endif
         @else
           bg-white
@@ -19,8 +19,8 @@
     @else
       bg-white
     @endisset
-    border shadow-sm m-0 badge-pill-rm mr-3 w-100 text-left"
-    style="font-size: 1.1rem;" wire:click="{{ $btnClickMethod }}">
+    m-0 py-3 w-100 text-left rounded-0"
+    style="font-size: calc(0.7rem + 0.15vw);" wire:click="{{ $btnClickMethod }}">
   <i class="{{ $btnIconFaClass }} mr-3"></i>
   {{ $btnText }}
   <span  class="ml-5" wire:loading>

@@ -1,4 +1,5 @@
-<div>
+<div class="w-100">
+@if (true)
 <div class="d-none d-md-block">
 
   @if ($modes['shop'])
@@ -256,4 +257,5 @@
     'btnText' => 'Accounting',
   ])
 </div>
+@endif
 </div>

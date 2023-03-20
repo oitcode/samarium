@@ -41,21 +41,25 @@
 </head>
 <body style="background-color: #fff;">
   <div class="mb-5">
+
+    @if (true)
     <div class="mb-0">
       @include ('partials.dashboard.app-top-menu')
     </div>
-    <div class="row" style="min-height: 500px;">
+
+    {{-- Mobile top menu --}}
+    <div class="d-md-none col-md-12">
+      @include ('partials.dashboard.mobile-top-menu')
+    </div>
+    @endif
+
+    <div class="row" style="margin: auto;">
       {{-- App left menu --}}
-      <div class="col-md-2">
+      <div class="col-md-2 vh-100-rm p-0 {{ env('OC_ASCENT_BG_COLOR') }}-rm">
         @if (false)
         @include ('partials.dashboard.app-left-menu')
         @endif
         @livewire ('dashboard.app-left-menu')
-      </div>
-
-      {{-- Mobile top menu --}}
-      <div class="d-md-none col-md-12">
-        @include ('partials.dashboard.mobile-top-menu')
       </div>
 
       <div class="col-md-10">

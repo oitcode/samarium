@@ -1,4 +1,4 @@
-<div class="text-center-rm border">
+<div class="text-center-rm border-rm">
   <a href="{{ route($btnRoute) }}"
       class="btn
         @if(Route::current()->getName() != $btnRoute)
@@ -6,7 +6,7 @@
         @else
           {{ env('OC_ASCENT_HL_TXT_COLOR', 'text-white') }}
         @endif
-        w-100 h-100 py-3 font-weight-bold text-left"
+        w-100 h-100 py-3 font-weight-bold text-left border-0 rounded-0"
       style="font-size: calc(0.6rem + 0.15vw);
         @if(Route::current()->getName() == $btnRoute)
           background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
