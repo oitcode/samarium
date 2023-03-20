@@ -2,7 +2,7 @@
   @if (true)
 
   <div class="mb-3">
-      <div class="mb-3 p-2 d-none d-md-block bg-dark">
+      <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
 
         @if (\App\CmsNavMenu::first())
         @else

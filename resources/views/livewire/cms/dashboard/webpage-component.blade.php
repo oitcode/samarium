@@ -1,7 +1,7 @@
 <div>
   @if (true)
   {{-- Show in bigger screens --}}
-  <div class="mb-3 p-2 d-none d-md-block bg-dark">
+  <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('create')",
