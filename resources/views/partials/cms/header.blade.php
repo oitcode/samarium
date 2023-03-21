@@ -4,7 +4,7 @@
   </div>
 
   {{-- Show in bigger screens --}}
-  <div class="container-fluid border bg-primary-rm text-white-rm d-none d-md-block">
+  <div class="container-fluid d-none d-md-block border">
     <div class="container py-1">
       <div class="float-left mr-5 mt-2" style="font-size: 1rem; font-weight: bold;">
         <div class="d-flex justify-content-center h-100">
@@ -98,7 +98,7 @@
             <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
           </div>
           <div class="float-left mt-3 d-none d-md-block">
-            <h1 class="mt-2 sr-only" style="font-weight: bold; font-size: 2rem;">{{ $company->name }}</h1>
+            <h1 class="mt-2 sr-only" style="font-weight: bold; font-size: 2rem;">{{ $company->name }} OLA</h1>
             <div class="mt-3" style="font-size: 1.3rem;">
               {{ $company->tagline }}
             </div>

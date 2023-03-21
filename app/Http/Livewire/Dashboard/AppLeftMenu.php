@@ -41,6 +41,7 @@ class AppLeftMenu extends Component
             $uri == '/cms/webpage' ||
             $uri == '/cms/post' ||
             $uri == '/cms/navMenu' ||
+            $uri == '/cms/theme' ||
             $uri == '/cms/gallery' ||
             $uri == '/dashboard/team' ||
             $uri == '/dashboard/quick-contacts'

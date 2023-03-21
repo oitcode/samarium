@@ -44,13 +44,13 @@
         background-image:
             linear-gradient(to right,
               @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->top_header_bg_color }}
+                {{ \App\CmsTheme::first()->ascent_bg_color }}
               @else
                 orange
               @endif
             ,
               @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->top_header_bg_color }}
+                {{ \App\CmsTheme::first()->ascent_bg_color }}
               @else
                 orange
               @endif
@@ -66,7 +66,7 @@
             @else
                 color:
                       @if (\App\CmsTheme::first())
-                        {{ \App\CmsTheme::first()->top_header_text_color }}
+                        {{ \App\CmsTheme::first()->ascent_text_color }}
                       @else
                         white
                       @endif

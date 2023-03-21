@@ -4,7 +4,9 @@
 
   {{-- BIGGER SCREEN --}}
   <div class="d-none d-md-block">
-    <div class="container-fluid bg-danger">
+    <div class="container-fluid"
+        style="background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};
+               color: {{ \App\CmsTheme::first()->nav_menu_text_color }};">
       <div class="container">
         <div class="d-flex justify-content-between">
 

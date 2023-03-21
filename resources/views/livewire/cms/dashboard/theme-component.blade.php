@@ -1,4 +1,5 @@
-<div class="p-3 bg-white border">
+<div class="p-3 bg-white-rm border">
+  @if (false)
   <div class="mb-4">
     @if (\App\CmsTheme::first())
       <button class="btn btn-success badge-pill p-2 px-3" wire:click="update">
@@ -11,6 +12,7 @@
       </button>
     @endif
   </div>
+  @endif
 
   @if (session()->has('message'))
     {{-- Flash message div --}}
@@ -34,109 +36,207 @@
   @else
     <div class="form-group">
       <label for="">Theme name</label>
-      <input type="text"
-          class="form-control"
-          wire:model.defer="name"
-          style="">
-      @error('name')
-        <span class="text-danger">{{ $message }}</span>
-      @enderror
+      <div class="col-md-4">
+        <input type="text"
+            class="form-control"
+            wire:model.defer="name"
+            style="">
+        @error('name')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
     </div>
   @endif
 
+  <h2 class="h4">
+    Header
+  </h2>
+
   {{-- Top header bg color --}}
   <div class="form-group">
-    <label for="">Top header background color</label>
-    <input type="text"
-        class="form-control"
-        wire:model.defer="top_header_bg_color"
-        style="">
-    @error('top_header_bg_color')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
+    <div class="d-flex flex-column-rm">
+      <div class="mr-5" style="min-width: 200px;">
+        <label class="font-weight-bold">Top header background color</label>
+      </div>
+      <div>
+        <input type="text"
+            class="form-control"
+            wire:model.defer="top_header_bg_color"
+            style="">
+        @error('top_header_bg_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+    </div>
   </div>
 
   {{-- Top header text color --}}
+
   <div class="form-group">
-    <label for="">Top header text color</label>
-    <input type="text"
-        class="form-control"
-        wire:model.defer="top_header_text_color"
-        style="">
-    @error('top_header_text_color')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
+    <div class="d-flex">
+      <div class="mr-5" style="min-width: 200px;">
+        <label class="font-weight-bold">Top header text color</label>
+      </div>
+      <div>
+        <input type="text"
+            class="form-control"
+            wire:model.defer="top_header_text_color"
+            style="">
+        @error('top_header_text_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+    </div>
   </div>
 
-  {{-- Footer background color --}}
+  <h2 class="h4">
+    Navigation menu
+  </h2>
+  {{-- Nav menu bg color --}}
   <div class="form-group">
-    <label for="">Footer background color</label>
-    <input type="text"
-        class="form-control"
-        wire:model.defer="footer_bg_color"
-        style="">
-    @error('footer_bg_color')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
+    <div class="d-flex">
+      <div class="mr-5" style="min-width: 200px;">
+        <label class="font-weight-bold">Nav menu background color</label>
+      </div>
+      <div>
+        <input type="text"
+            class="form-control"
+            wire:model.defer="nav_menu_bg_color"
+            style="">
+        @error('nav_menu_bg_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+    </div>
   </div>
 
-  {{-- Footer text color --}}
+  {{-- Nav menu text color --}}
   <div class="form-group">
-    <label for="">Footer text color</label>
-    <input type="text"
-        class="form-control"
-        wire:model.defer="footer_text_color"
-        style="">
-    @error('footer_text_color')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
+    <div class="d-flex">
+      <div class="mr-5" style="min-width: 200px;">
+        <label class="font-weight-bold">Nav menu text color</label>
+      </div>
+      <div>
+        <input type="text"
+            class="form-control"
+            wire:model.defer="nav_menu_text_color"
+            style="">
+        @error('nav_menu_text_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+    </div>
   </div>
 
+
+  <h2 class="h4">
+    Ascent
+  </h2>
   {{-- Ascent bg color --}}
   <div class="form-group">
-    <label for="">Ascent background color</label>
-    <input type="text"
-        class="form-control"
-        wire:model.defer="ascent_bg_color"
-        style="">
-    @error('ascent_bg_color')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
+    <div class="d-flex">
+      <div class="mr-5" style="min-width: 200px;">
+        <label class="font-weight-bold">Ascent background color</label>
+      </div>
+      <div>
+        <input type="text"
+            class="form-control"
+            wire:model.defer="ascent_bg_color"
+            style="">
+        @error('ascent_bg_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+    </div>
   </div>
 
   {{-- Ascent text color --}}
   <div class="form-group">
-    <label for="">Ascent text color</label>
-    <input type="text"
-        class="form-control"
-        wire:model.defer="ascent_text_color"
-        style="">
-    @error('ascent_text_color')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
+    <div class="d-flex">
+      <div class="mr-5" style="min-width: 200px;">
+        <label class="font-weight-bold">Ascent text color</label>
+      </div>
+      <div>
+        <input type="text"
+            class="form-control"
+            wire:model.defer="ascent_text_color"
+            style="">
+        @error('ascent_text_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+    </div>
   </div>
+
+  <h2 class="h4">
+    Footer
+  </h2>
+
+  {{-- Footer background color --}}
+  <div class="form-group">
+    <div class="d-flex">
+      <div class="mr-5" style="min-width: 200px;">
+        <label class="font-weight-bold">Footer background color</label>
+      </div>
+      <div>
+        <input type="text"
+            class="form-control"
+            wire:model.defer="footer_bg_color"
+            style="">
+        @error('footer_bg_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+    </div>
+  </div>
+
+  {{-- Footer text color --}}
+  <div class="form-group">
+    <div class="d-flex">
+      <div class="mr-5" style="min-width: 200px;">
+        <label class="font-weight-bold">Footer text color</label>
+      </div>
+      <div>
+        <input type="text"
+            class="form-control"
+            wire:model.defer="footer_text_color"
+            style="">
+        @error('footer_text_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+    </div>
+  </div>
+
+  <hr />
 
   {{-- Heading color --}}
   <div class="form-group">
-    <label for="">Heading color</label>
-    <input type="text"
-        class="form-control"
-        wire:model.defer="heading_color"
-        style="">
-    @error('heading_color')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
+    <div class="d-flex">
+      <div class="mr-5" style="min-width: 200px;">
+        <label class="font-weight-bold">Heading color</label>
+      </div>
+      <div>
+        <input type="text"
+            class="form-control"
+            wire:model.defer="heading_color"
+            style="">
+        @error('heading_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+    </div>
   </div>
 
   {{-- Hero image --}}
   <div class="form-group">
-    <label for="">Hero image</label>
+    <label class="font-weight-bold">Featured image</label>
     @if (\App\CmsTheme::first() && \App\CmsTheme::first()->hero_image_path)
       <div class="d-flex justify-content-start mb-3">
         <img src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}" class="img-fluid" style="height: 50px;">
       </div>
     @endif
-    <input type="file" class="form-control" wire:model="hero_image">
+    <input type="file" class="form-control-rm" wire:model="hero_image">
     @error('hero_image')
       <span class="text-danger">{{ $message }}</span>
     @enderror

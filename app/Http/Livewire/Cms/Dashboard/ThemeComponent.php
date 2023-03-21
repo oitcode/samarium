@@ -16,6 +16,8 @@ class ThemeComponent extends Component
     public $ascent_text_color;
     public $top_header_bg_color;
     public $top_header_text_color;
+    public $nav_menu_bg_color;
+    public $nav_menu_text_color;
     public $footer_bg_color;
     public $footer_text_color;
     public $heading_color;
@@ -31,6 +33,8 @@ class ThemeComponent extends Component
             $this->ascent_text_color = $cmsTheme->ascent_text_color;
             $this->top_header_bg_color = $cmsTheme->top_header_bg_color;
             $this->top_header_text_color = $cmsTheme->top_header_text_color;
+            $this->nav_menu_bg_color = $cmsTheme->nav_menu_bg_color;
+            $this->nav_menu_text_color = $cmsTheme->nav_menu_text_color;
             $this->footer_bg_color = $cmsTheme->footer_bg_color;
             $this->footer_text_color = $cmsTheme->footer_text_color;
             $this->heading_color = $cmsTheme->heading_color;
@@ -47,6 +51,8 @@ class ThemeComponent extends Component
             'ascent_text_color' => 'required',
             'top_header_bg_color' => 'required',
             'top_header_text_color' => 'required',
+            'nav_menu_bg_color' => 'required',
+            'nav_menu_text_color' => 'required',
             'footer_bg_color' => 'required',
             'footer_text_color' => 'required',
             'heading_color' => 'required',
@@ -71,6 +77,8 @@ class ThemeComponent extends Component
             'ascent_text_color' => 'required',
             'top_header_bg_color' => 'required',
             'top_header_text_color' => 'required',
+            'nav_menu_bg_color' => 'required',
+            'nav_menu_text_color' => 'required',
             'footer_bg_color' => 'required',
             'footer_text_color' => 'required',
             'heading_color' => 'required',

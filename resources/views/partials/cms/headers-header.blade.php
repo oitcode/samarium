@@ -1,3 +1,5 @@
+<div class="container-fluid"
+    style="background-color: {{ \App\CmsTheme::first()->top_header_bg_color }}; color: {{ \App\CmsTheme::first()->top_header_bg_color }};">
 <div class="container p-3 d-none d-md-block">
   <div class="d-flex justify-content-between">
     <div>
@@ -11,7 +13,7 @@
                 style="
                 color:
                   @if (\App\CmsTheme::first())
-                    {{ \App\CmsTheme::first()->ascent_bg_color }}
+                    {{ \App\CmsTheme::first()->top_header_text_color }}
                   @else
                     orange
                   @endif
@@ -21,14 +23,14 @@
             >
               {{ $company->name }}
             </h1>
-            <h2 class="h6">
+            <h2 class="h6" style="color: {{ \App\CmsTheme::first()->top_header_text_color }}">
               {{ $company->tagline }}
             </h2>
           </div>
         </div>
       </a>
     </div>
-    <div class="d-flex flex-column text-dark">
+    <div class="d-flex flex-column" style="color: {{ \App\CmsTheme::first()->top_header_text_color }}">
       <div>
         @if (true)
         <div class="mr-4">
@@ -93,6 +95,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 @if (false)

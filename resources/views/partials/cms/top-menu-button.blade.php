@@ -1,16 +1,16 @@
-<div class="float-left text-white border-right-rm" style="font-size: 1.3rem;">
+<div class="float-left border-right-rm" style="font-size: 1.3rem;">
   <a href="{{ route($btnRoute) }}"
       class="btn
              @if (false)
              @if(Route::current()->getName() == $btnRoute)
-               btn-danger
+               btn-danger-rm
              @else
-               btn-light
-               text-white
+               btn-light-rm
+               text-white-rm
              @endif
              @endif
-          font-weight-bold text-white
-          p-3"
+          font-weight-bold
+          p-3 rounded-0"
           
           style="
             @if (true)
@@ -23,18 +23,18 @@
               @endif
               ;
              @else
-               white
+               {{ \App\CmsTheme::first()->nav_menu_bg_color }};
              @endif
             color:
              @if(Route::current()->getName() == $btnRoute)
               @if (\App\CmsTheme::first())
                 {{ \App\CmsTheme::first()->ascent_text_color }}
               @else
-                white
+                {{ \App\CmsTheme::first()->nav_menu_text_color }}
               @endif
               ;
              @else
-               white
+               {{ \App\CmsTheme::first()->nav_menu_text_color }}
              @endif
              @endif
               "
