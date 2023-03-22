@@ -9,7 +9,7 @@
     </div>
     <div class="bg-white text-dark p-5">
       <i class="fas fa-tv fa-3x mr-2"></i>
-      v 0.3.3
+      v0.3.4
       @if (false)
       <div class="row">
         <div class="col-md-4">
