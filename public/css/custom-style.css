@@ -42,6 +42,10 @@
 .o-ltr {  
     animation:move 20s linear infinite;
 }
+
+.o-ltr {  
+    animation:move 20s linear infinite;
+}
 .o-ltr:hover {
 animation-play-state:paused;
 -webkit-animation-play-state:paused;
@@ -68,5 +72,41 @@ animation-play-state:paused;
         font-size: 2rem;
         */
         margin-left:100%;
+    }
+}
+
+@keyframes fade-in{
+    0% {
+        opacity:0%;
+    }
+    100% {
+        opacity:100%;
+    }
+}
+
+@keyframes fade-out{
+    0% {
+        opacity:100%;
+    }
+    100% {
+        opacity:0%;
+    }
+}
+
+@keyframes left-to-right{
+    0% {
+        margin-left:0%;
+    }
+    100% {
+        margin-left:100%;
+    }
+}
+
+@keyframes right-to-left{
+    0% {
+        margin-left:100%;
+    }
+    100% {
+        margin-left:0%;
     }
 }

@@ -37,8 +37,9 @@
 @endsection
 
 @section ('pageAnnouncer')
-  <div class="container-fluid o-top-page-banner-rm bg-success-rm"
+  <div class="container-fluid o-top-page-banner-rm bg-success-rm mb-0 bg-danger"
       style="
+      {{--
       @if (false && $webpage->is_post == 'yes')
       @else
         background-image:
@@ -56,6 +57,7 @@
               @endif
             )
       @endif
+      --}}
   ;">
     <div class="o-overlay text-white-rm">
       <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') border-left-rm border-right-rm @else @endif bg-primary-rm">
@@ -109,7 +111,7 @@
   </div>
 
   {{-- Featured image --}}
-  <div class="container my-4">
+  <div class="container my-4-rm">
     @if ($webpage->featured_image_path)
       <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $webpage->featured_image_path) }}" alt="{{ $webpage->name }}"
       style="max-height: 500px;{{-- max-width: 100px;--}}">
@@ -191,8 +193,8 @@
 --}}
 @else
 
-  @if ($webpage->is_post == 'yes')
-    <div class="container my-0 py-2 px-4 border">
+  @if (false && $webpage->is_post == 'yes')
+    <div class="container my-0 mb-4 py-2 px-4 border-rm">
       <h3 class="h5">
         Share this article
       </h3>
@@ -227,7 +229,7 @@
   
     @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
   
-      <div class="container-fluid bg-white p-0 border-rm" 
+      <div class="container-fluid bg-white-rm p-0 border-rm" 
           style="font-size: 1.2em;
             {{--
             @if ($i % 2 == 1 )
@@ -241,65 +243,72 @@
           ">
   
   
-          <div class="container py-3 @if ($webpage->is_post == 'yes') @else @endif">
-            <div class="row d-flex">
-              
-                
-                @if (true || $i % 2 == 0)
-                <div class="
-                    @if ($webpageContent->video_link || $webpageContent->image_path)
+          <div class="container p-0 @if ($webpage->is_post == 'yes') @else @endif">
+
+              <div style="
+                  @foreach ($webpageContent->cmsWebpageContentCssOptions as $cssOption)
+                      {{ $cssOption->option_name }}: {{ $cssOption->option_value }};
+                  @endforeach
+              ">
+                <div class="row d-flex">
+                  
+                    
+                    @if (true || $i % 2 == 0)
+                    <div class="
+                        @if ($webpageContent->video_link || $webpageContent->image_path)
+                            col-md-6
+                        @else
+                            col-md-8
+                        @endif
+                        justify-content-center align-self-center" style="font-size: 1.1em !important;">
+                      @if ($webpageContent->title)
+                        <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
+                          {{ $webpageContent->title}}
+                        </h2>
+                      @endif
+                      @if ($webpageContent->body)
+                        <p class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif">
+                          {!! $webpageContent->body !!}
+                        </p>
+                      @endif
+                    </div>
+                    <div class="
+                      @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->body))
+                            col-md-12
+                      @else
                         col-md-6
-                    @else
-                        col-md-8
+                      @endif
+                    ">
+                      @if ($webpageContent->image_path)
+                        <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
+                      @endif
+                    </div>
+                    @if ($webpageContent->video_link)
+                      <div class="col-md-12">
+                         <iframe class="w-100" {{-- width="560" --}} height="315" src="https://www.youtube.com/embed/{{ $webpageContent->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      </div>
                     @endif
-                    justify-content-center align-self-center" style="font-size: 1.1em !important;">
-                  @if ($webpageContent->title)
-                    <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
-                      {{ $webpageContent->title}}
-                    </h2>
-                  @endif
-                  @if ($webpageContent->body)
-                    <p class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif">
-                      {!! $webpageContent->body !!}
-                    </p>
-                  @endif
-                </div>
-                <div class="
-                  @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->body))
-                        col-md-12
                   @else
-                    col-md-6
-                  @endif
-                ">
-                  @if ($webpageContent->image_path)
-                    <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
-                  @endif
-                </div>
-                @if ($webpageContent->video_link)
-                  <div class="col-md-12">
-                     <iframe class="w-100" {{-- width="560" --}} height="315" src="https://www.youtube.com/embed/{{ $webpageContent->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                  </div>
-                @endif
-              @else
-                <div class="col-md-6">
-                  @if ($webpageContent->image_path)
-                    <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
-                  @endif
-                </div>
-                <div class="col-md-6 justify-content-center align-self-center" style="font-size: 1.1em !important;">
-                  @if ($webpageContent->title)
-                    <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
-                      {{ $webpageContent->title}}
-                    </h2>
-                  @endif
-                  @if ($webpageContent->body)
-                    <p class="@if ($webpage->is_post == 'yes') text-dark @else text-danger @endif">
-                      {{ $webpageContent->body}}
-                    </p>
+                    <div class="col-md-6">
+                      @if ($webpageContent->image_path)
+                        <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
+                      @endif
+                    </div>
+                    <div class="col-md-6 justify-content-center align-self-center" style="font-size: 1.1em !important;">
+                      @if ($webpageContent->title)
+                        <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
+                          {{ $webpageContent->title}}
+                        </h2>
+                      @endif
+                      @if ($webpageContent->body)
+                        <p class="@if ($webpage->is_post == 'yes') text-dark @else text-danger @endif">
+                          {{ $webpageContent->body}}
+                        </p>
+                      @endif
+                    </div>
                   @endif
                 </div>
-              @endif
-            </div>
+              </div>
           </div>
   
       </div>
@@ -323,7 +332,7 @@
     @endif
   @endif
   @if (false && $webpage->is_post == 'yes')
-    <div class="container my-2 py-2 border-top border-bottom @if ($webpage->is_post == 'yes') border-left border-right @else @endif">
+    <div class="container my-2 py-2 border-rm-top border-bottom @if ($webpage->is_post == 'yes') border-left border-right @else @endif">
       <h3 class="h5">
         Share this article
       </h3>

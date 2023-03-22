@@ -5,6 +5,7 @@
     <i class="fas fa-arrow-down mr-2 fa-2x-rm border p-3" wire:click="moveDown" role="button"></i>
     <i class="fas fa-arrow-up mr-2 fa-2x-rm border p-3" wire:click="moveUp" role="button"></i>
     <i class="fas fa-pencil-alt mr-2 fa-2x-rm border p-3" wire:click="enterMode('edit')" role="button"></i>
+    <i class="fas fa-star mr-2 fa-2x-rm border p-3" wire:click="enterMode('css')" role="button"></i>
     <i class="fas fa-trash mr-2 fa-2x-rm border p-3" wire:click="enterMode('delete')" role="button"></i>
     @if ($modes['delete'])
       <button class="btn btn-danger" wire:click="deleteContent">
@@ -20,6 +21,8 @@
 
   @if ($modes['edit'])
     @livewire ('cms.dashboard.webpage-content-edit', ['webpageContent' => $webpageContent,])
+  @elseif ($modes['css'])
+    @livewire ('cms.dashboard.webpage-content-edit-css', ['webpageContent' => $webpageContent,])
   @else
   <div class="container-fluid bg-white p-0 border-rm bg-warning mb-4" 
       style="font-size: 1.2em;">

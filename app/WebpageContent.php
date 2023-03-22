@@ -39,4 +39,13 @@ class WebpageContent extends Model
     {
         return $this->belongsTo('App\Webpage', 'webpage_id', 'webpage_id');
     }
+
+    /*
+     * cms_webpage_content_css_option table.
+     *
+     */
+    public function cmsWebpageContentCssOptions()
+    {
+        return $this->hasMany('App\CmsWebpageContentCssOption', 'webpage_content_id', 'webpage_content_id');
+    }
 }

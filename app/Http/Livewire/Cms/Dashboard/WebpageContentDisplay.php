@@ -17,11 +17,15 @@ class WebpageContentDisplay extends Component
         'edit' => false,
         'delete' => false,
         'confirmDelete' => false,
+        'css' => false,
     ];
 
     protected $listeners = [
         'webpageContentUpdated',
         'exitWebpageContentEditMode',
+
+        'webpageContentEditCssCancel',
+        'webpageContentEditCssCompleted',
     ];
 
     public function render()
@@ -102,5 +106,15 @@ class WebpageContentDisplay extends Component
     public function exitWebpageContentEditMode()
     {
         $this->exitMode('edit');
+    }
+
+    public function webpageContentEditCssCancel()
+    {
+        $this->exitMode('css');
+    }
+
+    public function webpageContentEditCssCompleted()
+    {
+        $this->exitMode('css');
     }
 }
