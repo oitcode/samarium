@@ -1,5 +1,5 @@
-<div class="card shadow mb-4">
-  <div class="card-body" style="{{--font-size: 1.3rem;--}}">
+<div class="mb-4">
+  <div class="" style="{{--font-size: 1.3rem;--}}">
 
     @if (false)
     <h1>
@@ -46,9 +46,9 @@
       Basic Info
     </h2>
 
-    <div class="form-group">
+    <div class="d-flex form-group">
       @if (true)
-      <label for="">
+      <label style="min-width: 200px;">
         <i class="fas fa-image mr-1"></i>
         Logo
       </label>
@@ -62,9 +62,9 @@
       @error('logo_image') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
+    <div class="d-flex form-group">
       @if (true)
-      <label for="">
+      <label style="min-width: 200px;">
         <i class="fas fa-home mr-1"></i>
         Name
       </label>
@@ -73,9 +73,9 @@
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
+    <div class="d-flex form-group">
       @if (true)
-      <label for="">
+      <label style="min-width: 200px;">
         <i class="fas fa-info-circle mr-1"></i>
         Tagline
       </label>
@@ -84,9 +84,9 @@
       @error('tagline') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
+    <div class="d-flex form-group">
       @if (true)
-      <label for="">
+      <label style="min-width: 200px;">
         <i class="fas fa-phone mr-1"></i>
         Phone
       </label>
@@ -95,9 +95,9 @@
       @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
+    <div class="d-flex form-group">
       @if (true)
-      <label for="">
+      <label style="min-width: 200px;">
         <i class="fas fa-envelope mr-1"></i>
         Email
       </label>
@@ -106,9 +106,9 @@
       @error('email') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
+    <div class="d-flex form-group">
       @if (true)
-      <label for="">
+      <label style="min-width: 200px;">
         <i class="fas fa-map-marker-alt mr-1"></i>
         Address
       </label>
@@ -117,9 +117,9 @@
       @error('address') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
+    <div class="d-flex form-group">
       @if (true)
-      <label for="">
+      <label style="min-width: 200px;">
         <i class="fas fa-info-circle mr-1"></i>
         PAN Number
       </label>
@@ -133,37 +133,42 @@
       Social Media Links
     </h2>
 
-    <div class="form-group">
-      <i class="fab fa-facebook"></i>
-      <label for="">Facebook</label>
+    <div class="d-flex form-group">
+      <label style="min-width: 200px;">
+        <i class="fab fa-facebook"></i>
+      </label>
       <input type="text" class="form-control" wire:model.defer="fb_link" style="{{-- font-size: 1.3rem; --}}">
       @error('fb_link') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
-      <i class="fab fa-twitter"></i>
-      <label for="">Twitter</label>
+    <div class="d-flex form-group">
+      <label style="min-width: 200px;">
+        <i class="fab fa-twitter"></i>
+      </label>
       <input type="text" class="form-control" wire:model.defer="twitter_link" style="{{-- font-size: 1.3rem; --}}">
       @error('twitter_link') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
-      <i class="fab fa-instagram"></i>
-      <label for="">Instagram</label>
+    <div class="d-flex form-group">
+      <label style="min-width: 200px;">
+        <i class="fab fa-instagram"></i>
+      </label>
       <input type="text" class="form-control" wire:model.defer="insta_link" style="{{-- font-size: 1.3rem; --}}">
       @error('insta_link') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
-      <i class="fab fa-youtube"></i>
-      <label for="">Youtube</label>
+    <div class="d-flex form-group">
+      <label style="min-width: 200px;">
+        <i class="fab fa-youtube"></i>
+      </label>
       <input type="text" class="form-control" wire:model.defer="youtube_link" style="{{-- font-size: 1.3rem; --}}">
       @error('youtube_link') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
-      <i class="fab fa-tiktok"></i>
-      <label for="">Tiktok</label>
+    <div class="d-flex form-group">
+      <label style="min-width: 200px;">
+        <i class="fab fa-tiktok"></i>
+      </label>
       <input type="text" class="form-control" wire:model.defer="tiktok_link" style="{{-- font-size: 1.3rem; --}}">
       @error('tiktok_link') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
@@ -188,7 +193,4 @@
     </button>
   </div>
 
-  @if (false)
-  @livewire ('gallery-component')
-  @endif
 </div>
