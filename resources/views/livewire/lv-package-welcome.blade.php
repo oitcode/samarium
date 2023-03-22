@@ -8,7 +8,7 @@
       <div class="text-secondary-rm">
         <div class="mr-3">
           <i class="fas fa-info-circle mr-1"></i>
-          v0.3.4
+          v0.3.5
         </div>
       </div>
     </div>
