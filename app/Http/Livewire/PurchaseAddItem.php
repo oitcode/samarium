@@ -75,6 +75,11 @@ class PurchaseAddItem extends Component
             return;
         }
 
+        $validatedData = $this->validate([
+            'unit' => 'required',
+            'purchase_price_per_unit' => 'required',
+        ]);
+
         /*
          * If same product added before just increase the count.
          * Else, create a new sale invoice item.

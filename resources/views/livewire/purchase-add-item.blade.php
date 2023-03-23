@@ -3,6 +3,17 @@
   {{-- Show in bigger screen --}}
   <div class="mb-3 border bg-light shadow-sm d-none d-md-block">
   
+    @if ($errors->all())
+      <div class="p-2 mb-3-rm border text-danger">
+        @foreach ($errors->all() as $error)
+          <div>
+            <i class="fas fa-exclamation-circle mr-1"></i>
+            {{ $error }}
+          </div>
+        @endforeach
+      </div>
+    @endif
+
     <div class="table-responsive m-0">
       <table class="table table-bordered m-0">
         <thead>
