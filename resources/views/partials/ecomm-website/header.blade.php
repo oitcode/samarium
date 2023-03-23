@@ -1,4 +1,4 @@
-<div class="sticky-top bg-white border-bottom">
+<div class="sticky-top-rm bg-white border-bottom">
 
   {{-- Show in bigger screens --}}
   <div class="container-fluid p-0 bg-warning-rm d-none d-md-block">

@@ -30,8 +30,16 @@ class TopMenu extends Component
 
     public function showAllCategories()
     {
-        $this->productCategories = ProductCategory::all();
+        $this->productCategories = ProductCategory::orderBy('name')->get();
 
         $this->enterMode('showAllCategoriesMode');
     }
+
+    public function closeFullMenu()
+    {
+        $this->productCategories = ProductCategory::limit(5)->get();
+        $this-> exitMode('showAllCategoriesMode');
+    }
+
+
 }
