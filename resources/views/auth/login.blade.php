@@ -38,7 +38,7 @@
     @livewireStyles
 </head>
 
-<body style="height: 100% !important; background-color: #ded;">
+<body style="height: 100% !important; background-color: #eee;">
 
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
@@ -71,7 +71,9 @@
                 @csrf
 
                 <div class="form-group">
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                  <input id="email" type="email"
+                      class="form-control @error('email') is-invalid @enderror"
+                      style="font-size: 1.3rem;"
                       name="email" value="{{ old('email') }}"
                       required
                       autocomplete="email"
@@ -92,6 +94,7 @@
 
                     <input id="password" type="password"
                         class="form-control @error('password') is-invalid @enderror"
+                        style="font-size: 1.3rem;"
                         name="password"
                         required
                         placeholder="Password"
