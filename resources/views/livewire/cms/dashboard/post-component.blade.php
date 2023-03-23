@@ -18,6 +18,13 @@
         'btnCheckMode' => 'listPostMode',
     ])
 
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('createPostCategoryMode')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'Create post category',
+        'btnCheckMode' => 'createPostCategoryMode',
+    ])
+
     @if ($modes['displayPostMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "",
@@ -48,5 +55,7 @@
     @livewire ('cms.dashboard.post-list')
   @elseif ($modes['displayPostMode'])
     @livewire ('cms.dashboard.webpage-display', ['webpage' => $displayingPost,])
+  @elseif ($modes['createPostCategoryMode'])
+    @livewire ('cms.dashboard.post-category-create')
   @endif
 </div>

@@ -18,12 +18,15 @@ class PostComponent extends Component
         'createPostMode' => false,
         'listPostMode' => false,
         'displayPostMode' => false,
+        'createPostCategoryMode' => false,
     ];
 
     protected $listeners = [
         'exitCreatePostMode',
         'webpageAdded',
         'displayPost',
+        'createPostCategoryCompleted',
+        'createPostCategoryCanceled',
     ];
 
     public function render()
@@ -45,5 +48,15 @@ class PostComponent extends Component
     {
         $this->displayingPost = $post;
         $this->enterMode('displayPostMode');
+    }
+
+    public function createPostCategoryCanceled()
+    {
+        $this->exitMode('createPostCategoryMode');
+    }
+
+    public function createPostCategoryCompleted()
+    {
+        $this->exitMode('createPostCategoryMode');
     }
 }
