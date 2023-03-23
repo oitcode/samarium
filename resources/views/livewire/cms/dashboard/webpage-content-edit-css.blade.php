@@ -150,14 +150,17 @@
           <option value="fade-in 2s infinite">Fade in continuous</option>
           <option value="fade-out 2s">Fade out</option>
           <option value="fade-out 2s infinite">Fade out continuous</option>
+          @if (false)
           <option value="left-to-right 2s">Left to right</option>
           <option value="left-to-right 2s infinite">Left to right continuous</option>
           <option value="right-to-left 2s ">Right to left</option>
           <option value="right-to-left 2s infinite">Right to left continuous</option>
+          @endif
         </select>
       </div>
     </div>
 
+    @if (false)
     {{-- Animation duration --}}
     <div class="d-flex mb-3">
       <div class="font-weight-bold" style="min-width: 200px;">
@@ -177,6 +180,7 @@
         <input type="text" wire:model="animation_repeat">
       </div>
     </div>
+    @endif
   </div>
 
   {{-- Save button --}}

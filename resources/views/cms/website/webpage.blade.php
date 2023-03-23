@@ -250,7 +250,7 @@
                       {{ $cssOption->option_name }}: {{ $cssOption->option_value }};
                   @endforeach
               ">
-                <div class="row d-flex">
+                <div class="d-flex" style="{{-- white-space: nowrap; --}}">
                   
                     
                     @if (true || $i % 2 == 0)
@@ -260,7 +260,7 @@
                         @else
                             col-md-8
                         @endif
-                        justify-content-center align-self-center" style="font-size: 1.1em !important;">
+                        justify-content-center align-self-center" style="font-size: 1.1em !important; width: 500px !important;">
                       @if ($webpageContent->title)
                         <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
                           {{ $webpageContent->title}}

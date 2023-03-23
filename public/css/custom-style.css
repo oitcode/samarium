@@ -27,6 +27,7 @@
 .o-animated {
     animation-name: oAnimated;
     animation-duration: 5s;
+    position: relative;
 }
 
 @keyframes oAnimated {
@@ -95,10 +96,12 @@ animation-play-state:paused;
 
 @keyframes left-to-right{
     0% {
+        /* left:0px; */
         margin-left:0%;
     }
     100% {
-        margin-left:100%;
+        /* left:100px; */
+        margin-left:10%;
     }
 }
 
