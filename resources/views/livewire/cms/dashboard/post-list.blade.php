@@ -100,7 +100,22 @@
                 @endif
               </td>
               <td>
-                <i class="fas fa-pencil-alt"></i>
+                <span class="btn btn-light mr-3">
+                  <i class="fas fa-pencil-alt"></i>
+                </span>
+                <span class="btn btn-light mr-3" wire:click="deletePost({{ $post }})">
+                  <i class="fas fa-trash"></i>
+                </span>
+                @if ($modes['delete'])
+                  @if ($deletingPost->webpage_id == $post->webpage_id)
+                    <span class="btn btn-danger mr-3" wire:click="confirmDeletePost">
+                      Confirm delete
+                    </span>
+                    <span class="btn btn-light mr-3" wire:click="deletePostCancel">
+                      Cancel
+                    </span>
+                  @endif
+                @endif
               </td>
             </tr>
           @endforeach
