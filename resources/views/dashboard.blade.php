@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section ('content')
 
-  <div class="border">
+  <div class="mb-5 border">
     <div class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }} p-5">
       <h1>
         Welcome to Dashboard!
       </h1>
     </div>
+    @if (true)
     <div class="bg-white text-dark p-5">
       <i class="fas fa-tv fa-3x mr-2"></i>
       v0.3.6
@@ -24,7 +25,19 @@
       </div>
       @endif
     </div>
+    @endif
   </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      {{-- CMS glance --}}
+      @livewire ('cms.dashboard.cms-glance')
+    </div>
+
+    <div class="col-md-6">
+    </div>
+  </div>
+
 
   @if (false)
   <div class="d-flex justify-content-center h-100">
