@@ -32,7 +32,7 @@ class GalleryUpdate extends Component
     {
         $validatedData = $this->validate([
             'name' => 'required',
-            //'newImages.*' => 'image'
+            'new_images.*' => 'nullable|image',
         ]);
 
         $this->gallery->update($validatedData);
