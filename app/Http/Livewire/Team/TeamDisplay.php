@@ -79,4 +79,44 @@ class TeamDisplay extends Component
     {
         $this->exitUpdateTeamMemberMode();
     }
+
+    public function changePositionUp(TeamMember $teamMember)
+    {
+        $previousTeamMember = $this->team->teamMembers()
+            ->where('position', '<', $teamMember->position)
+            ->orderBy('position', 'desc')->first();
+
+        if ($previousTeamMember) {
+            $temp = $previousTeamMember->position;
+            $previousTeamMember->position = $teamMember->position;
+            $teamMember->position = $temp;
+
+            $teamMember->save();
+            $previousTeamMember->save();
+        } else {
+            /* Nothing to do */
+        }
+
+        $this->render();
+    }
+
+    public function changePositionDown(TeamMember $teamMember)
+    {
+        $nextTeamMember = $this->team->teamMembers()
+            ->where('position', '>', $teamMember->position)
+            ->orderBy('position', 'asc')->first();
+
+        if ($nextTeamMember) {
+            $temp = $nextTeamMember->position;
+            $nextTeamMember->position = $teamMember->position;
+            $teamMember->position = $temp;
+
+            $teamMember->save();
+            $nextTeamMember->save();
+        } else {
+            /* Nothing to do */
+        }
+
+        $this->render();
+    }
 }

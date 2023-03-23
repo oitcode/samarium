@@ -39,4 +39,21 @@ class Team extends Model
     {
         return $this->hasMany('App\TeamMember', 'team_id', 'team_id');
     }
+
+
+    /*-------------------------------------------------------------------------
+     * Other methods
+     *-------------------------------------------------------------------------
+     *
+     */
+    public function getMaxPosition()
+    {
+        $lastTeamMember = $this->teamMembers()->orderBy('position', 'desc')->first();
+
+        if ($lastTeamMember) {
+            return $lastTeamMember->position;
+        } else {
+            return null;
+        }
+    }
 }

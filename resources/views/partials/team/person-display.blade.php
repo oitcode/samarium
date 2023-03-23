@@ -76,6 +76,12 @@
       <button class="btn btn-light mr-0">
         <i class="fas fa-trash"></i>
       </button>
+      <button class="btn btn-light mr-0" wire:click="changePositionUp({{ $person }})">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <button class="btn btn-light mr-0" wire:click="changePositionDown({{ $person }})">
+        <i class="fas fa-arrow-right"></i>
+      </button>
     </div>
   @endguest
 

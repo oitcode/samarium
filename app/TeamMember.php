@@ -23,7 +23,8 @@ class TeamMember extends Model
     protected $fillable = [
          'name', 'phone',
          'email', 'comment',
-         'team_id', 'image_path',
+         'team_id', 'position',
+         'image_path',
          'address',
     ];
 

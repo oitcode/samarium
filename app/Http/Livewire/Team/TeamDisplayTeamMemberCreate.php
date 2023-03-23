@@ -18,6 +18,7 @@ class TeamDisplayTeamMemberCreate extends Component
     public $image;
 
     public $team;
+    public $position;
 
     public function render()
     {
@@ -39,6 +40,14 @@ class TeamDisplayTeamMemberCreate extends Component
         if ($this->image) {
             $imagePath = $this->image->store('teams', 'public');
             $validatedData['image_path'] = $imagePath;
+        }
+
+        /* Set the position in team */
+        $maxPosition = $this->team->getMaxPosition();
+        if ($maxPosition === null) {
+            $validatedData['position'] = 0;
+        } else {
+            $validatedData['position'] = $maxPosition + 1;
         }
 
         TeamMember::create($validatedData);
