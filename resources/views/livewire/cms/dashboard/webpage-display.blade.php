@@ -9,42 +9,52 @@
         </h2>
       </div>
 
-      {{-- Toolbar --}}
-      <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "enterMode('createWebpageContent')",
-            'btnIconFaClass' => 'fas fa-plus-circle',
-            'btnText' => 'Add content',
-            'btnCheckMode' => 'createWebpageContent',
-        ])
-
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "clearModes",
-            'btnIconFaClass' => 'fas fa-eraser',
-            'btnText' => 'Clear modes',
-            'btnCheckMode' => '',
-        ])
-
-        @include ('partials.dashboard.spinner-button')
-
-        <div class="clearfix">
+      @if ($webpage->name == 'Post')
+        <div>
+          <i class="fas fa-exclamation-circle mr-3" ></i>
+          You cannot add content to this page.
+          This page will show list of all the posts.
         </div>
-      </div>
+      @else
+        {{-- Toolbar --}}
+        <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+          @include ('partials.dashboard.tool-bar-button-pill', [
+              'btnClickMethod' => "enterMode('createWebpageContent')",
+              'btnIconFaClass' => 'fas fa-plus-circle',
+              'btnText' => 'Add content',
+              'btnCheckMode' => 'createWebpageContent',
+          ])
 
-      <div class="">
-        @if ($modes['createWebpageContent'])
-          @livewire ('cms.dashboard.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
-        @else
-          <div class="" style="">
-            @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
-              @livewire ('cms.dashboard.webpage-content-display', ['webpageContent' => $webpageContent,], key(rand()))
-            @endforeach
+          @include ('partials.dashboard.tool-bar-button-pill', [
+              'btnClickMethod' => "clearModes",
+              'btnIconFaClass' => 'fas fa-eraser',
+              'btnText' => 'Clear modes',
+              'btnCheckMode' => '',
+          ])
+
+          @include ('partials.dashboard.spinner-button')
+
+          <div class="clearfix">
           </div>
-        @endif
-      </div>
+        </div>
+
+        <div class="">
+          @if ($modes['createWebpageContent'])
+            @livewire ('cms.dashboard.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
+          @else
+            <div class="" style="">
+              @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
+                @livewire ('cms.dashboard.webpage-content-display', ['webpageContent' => $webpageContent,], key(rand()))
+              @endforeach
+            </div>
+          @endif
+        </div>
+      @endif
     </div>
     <div class="col-md-4">
 
+      @if ($webpage->name == 'Post')
+      @else
       {{-- Basic details --}}
       <div class="border mb-4">
         <div class="table-responsive">
@@ -166,6 +176,8 @@
         @endif
 
       </div>
+      @endif
+
     </div>
   </div>
 
