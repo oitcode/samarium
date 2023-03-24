@@ -3,8 +3,10 @@
 
   <div class="row">
     <div class="col-md-6">
-      {{-- CMS glance --}}
-      @livewire ('cms.dashboard.cms-glance')
+      @if (preg_match("/cms/i", env('MODULES')))
+        {{-- CMS glance --}}
+        @livewire ('cms.dashboard.cms-glance')
+      @endif
     </div>
 
     <div class="col-md-6">
