@@ -86,11 +86,13 @@
           Nav menu
           </div>
         </div>
+        @if (false)
         <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
           <div class="h3" style="color: #556;">
             {{ $postCount }}
           </div>
         </div>
+        @endif
       </div>
     </div>
 
@@ -104,11 +106,13 @@
           Theme
           </div>
         </div>
+        @if (false)
         <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
           <div class="h3" style="color: #556;">
             {{ $webpageCount }}
           </div>
         </div>
+        @endif
       </div>
     </div>
 
@@ -121,11 +125,13 @@
           Quick Contacts
           </div>
         </div>
+        @if (false)
         <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
           <div class="h3" style="color: #556;">
             {{ $galleryCount }}
           </div>
         </div>
+        @endif
       </div>
     </div>
     @endif
@@ -134,7 +140,9 @@
 
 
 
+  @if (true)
   <div class="my-2 px-2 text-secondary">
-    Khajanchi 0.3.5 running <a href="">Laliguras</a> theme.
+    SeventCent <a href="">0.3.5</a>
   </div>
+  @endif
 </div>
