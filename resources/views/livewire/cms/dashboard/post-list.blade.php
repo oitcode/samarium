@@ -87,7 +87,7 @@
                   Private
                 @elseif ($post->visibility == 'public')
                   <span class="text-success">
-                  <i class="fas fa-globe mr-2"></i>
+                  <i class="fas fa-check-circle mr-1"></i>
                     Public
                   </span>
                 @elseif ($post->visibility == null)

@@ -267,6 +267,12 @@
     'iconFaClass' => 'fas fa-book',
     'btnText' => 'Accounting',
   ])
+
+  @include ('partials.dashboard.app-left-menu-button', [
+    'btnRoute' => 'dashboard-accounting',
+    'iconFaClass' => 'fas fa-question-circle',
+    'btnText' => 'Help',
+  ])
 </div>
 @endif
 </div>

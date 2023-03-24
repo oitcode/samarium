@@ -18,9 +18,11 @@
               Permalink
             </th>
             @endif
+            @if (false)
             <th>
               Categories
             </th>
+            @endif
             <th>
               Date
             </th>
@@ -49,8 +51,8 @@
                 @if ($webpage->creator)
                   {{ $webpage->creator->name }}
                 @else
-                  <span class="">
-                    <i class="fas fa-exclamation-circle text-danger mr-1"></i>
+                  <span class="text-secondary">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
                     Not set
                   </span>
                 @endif
@@ -60,6 +62,8 @@
                 {{ $webpage->permalink }}
               </td>
               @endif
+
+              @if (false)
               <td>
                 @foreach ($webpage->webpageCategories as $webpageCategory)
                   <span class="badge badge-primary mr-3">
@@ -67,6 +71,7 @@
                   </span>
                 @endforeach
               </td>
+              @endif
               <td>
                 Published
                 <br/>

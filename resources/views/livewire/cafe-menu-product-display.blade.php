@@ -154,6 +154,7 @@
             Product history
           </h3>
         </div>
+        @if (false)
         <div class="row">
           <div class="col-6">
             Created by
@@ -162,6 +163,7 @@
             xx
           </div>
         </div>
+        @endif
         <div class="row">
           <div class="col-6">
             Created at
