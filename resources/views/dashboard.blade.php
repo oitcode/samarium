@@ -1,33 +1,6 @@
 @extends('layouts.app')
 @section ('content')
 
-  <div class="mb-5 border">
-    <div class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }} p-5">
-      <h1>
-        Welcome to Dashboard!
-      </h1>
-    </div>
-    @if (true)
-    <div class="bg-white text-dark p-5">
-      <i class="fas fa-tv fa-3x mr-2"></i>
-      v0.3.6
-      @if (false)
-      <div class="row">
-        <div class="col-md-4">
-          <i class="fas fa-shopping-cart fa-3x"></i>
-        </div>
-        <div class="col-md-4">
-          <i class="fas fa-star fa-3x"></i>
-        </div>
-        <div class="col-md-4">
-          <i class="fas fa-dice-d6 fa-3x"></i>
-        </div>
-      </div>
-      @endif
-    </div>
-    @endif
-  </div>
-
   <div class="row">
     <div class="col-md-6">
       {{-- CMS glance --}}
@@ -35,19 +8,22 @@
     </div>
 
     <div class="col-md-6">
-    </div>
-  </div>
-
-
-  @if (false)
-  <div class="d-flex justify-content-center h-100">
-    <div class="d-flex flex-column justify-content-center h-100">
-      <div class="" style="min-width: 500px;">
-        @livewire ('lv-package-welcome')
+      <div class="mb-5 border">
+        <div class="{{ env('OC_ASCENT_BG_COLOR') }}-rm {{ env('OC_ASCENT_TEXT_COLOR') }}-rm bg-white p-3">
+          <h1 class="h4" style="color: #779;">
+            Welcome to Dashboard
+          </h1>
+        </div>
+        @if (true)
+        <div class="bg-white p-3-rm pl-3 pb-3" style="color: #779;">
+          <i class="fas fa-tv fa-3x mr-2"></i>
+          v0.3.6
+        </div>
+        @endif
       </div>
+
     </div>
   </div>
-  @endif
 
   @if (preg_match("/shop/i", env('MODULES')))
 
