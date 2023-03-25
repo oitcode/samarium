@@ -96,9 +96,11 @@
                 @endif
               </td>
               <td>
+                @if (false)
                 <span class="btn btn-light mr-3">
                   <i class="fas fa-pencil-alt"></i>
                 </span>
+                @endif
                 <span class="btn btn-light mr-3" wire:click="deleteWebpage({{ $webpage }})">
                   <i class="fas fa-trash"></i>
                 </span>
