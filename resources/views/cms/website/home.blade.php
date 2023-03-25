@@ -20,6 +20,7 @@
 @section ('content')
 
 {{-- Notifications/post displayer  --}}
+@if (count(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->get()) > 0)
 <div class="container-fluid bg-dark-rm text-white p-0 d-none d-md-block" style="background-color: brown;">
   <div class="container" style="font-size: 1.3rem; white-space: nowrap; overflow: hidden;">
     <div class="o-ltr py-3 ">
@@ -32,6 +33,7 @@
     </div>
   </div>
 </div>
+@endif
 
 {{-- Hero/Featured image --}}
 <div class="container-fluid bg-light p-0 d-none d-md-block" 

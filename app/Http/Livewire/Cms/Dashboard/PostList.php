@@ -50,6 +50,10 @@ class PostList extends Component
     public function confirmDeletePost()
     {
         foreach ($this->deletingPost->webpageContents as $webpageContent) {
+            foreach ($webpageContent->cmsWebpageContentCssOptions as $option) {
+                $option->delete();
+            }
+
             $webpageContent->delete();
         }
 
