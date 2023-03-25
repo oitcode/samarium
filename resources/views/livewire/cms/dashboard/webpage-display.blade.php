@@ -60,21 +60,21 @@
         <div class="table-responsive">
           <table class="table mb-0">
             <tbody>
-              <tr>
-                <th> Created at </th>
-                <th> {{ $webpage->created_at }} </th>
+              <tr class="border-0">
+                <th class="border-0"> Created at </th>
+                <th class="border-0"> {{ $webpage->created_at }} </th>
               </tr>
               <tr>
-                <th> Updated at </th>
-                <th> {{ $webpage->updated_at }} </th>
+                <th class="border-0"> Updated at </th>
+                <th class="border-0"> {{ $webpage->updated_at }} </th>
               </tr>
               <tr>
-                <th> Permalink </th>
-                <th> {{ $webpage->permalink }} </th>
+                <th class="border-0"> Permalink </th>
+                <th class="border-0"> {{ $webpage->permalink }} </th>
               </tr>
               <tr>
-                <th> Visibility </th>
-                <th>
+                <th class="border-0"> Visibility </th>
+                <th class="border-0">
                   @if ($modes['editVisibilityMode'])
                     @livewire ('cms.dashboard.webpage-edit-visibility', ['webpage' => $webpage,])
                   @else
@@ -95,8 +95,8 @@
                       </div>
 
                       <div>
-                        <button class="btn btn-light border mx-3" wire:click="enterModeSilent('editVisibilityMode')">
-                          Edit
+                        <button class="btn btn-light border-rm mx-3" wire:click="enterModeSilent('editVisibilityMode')">
+                          <i class="fas fa-pencil-alt"></i>
                         </button>
                       </div>
                     </div>
@@ -104,8 +104,8 @@
                 </th>
               </tr>
               <tr>
-                <th> Category </th>
-                <th>
+                <th class="border-0"> Category </th>
+                <th class="border-0">
                   @if ($modes['editWebpageCategoryMode'])
                     @livewire ('cms.dashboard.webpage-edit-webpage-category', ['webpage' => $webpage,])
                   @else
@@ -122,8 +122,8 @@
                         @endif
                       </div>
 
-                      <button class="btn btn-light border mx-3" wire:click="enterModeSilent('editWebpageCategoryMode')">
-                        Add
+                      <button class="btn btn-light border-rm mx-3" wire:click="enterModeSilent('editWebpageCategoryMode')">
+                        <i class="fas fa-plus-circle"></i>
                       </button>
                     </div>
                   @endif
@@ -137,7 +137,7 @@
 
       {{-- Featured Image --}}
       <div class="border">
-        <h2 class="p-3 bg-light">
+        <h2 class="h4 p-3 bg-light">
           Featured image
           @if (! $modes['editFeaturedImageMode'])
             @if ($webpage->featured_image_path)
