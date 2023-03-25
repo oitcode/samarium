@@ -1,6 +1,7 @@
 <div>
 
   {{-- Display controls --}}
+  @if (false)
   <div class="text-dark mb-0 bg-light p-3 border p-3" style="font-size: 0.7rem;">
     <i class="fas fa-arrow-down mr-2 fa-2x-rm border p-3" wire:click="moveDown" role="button"></i>
     <i class="fas fa-arrow-up mr-2 fa-2x-rm border p-3" wire:click="moveUp" role="button"></i>
@@ -16,6 +17,39 @@
       </button>
     @endif
   </div>
+  @endif
+
+{{-- Toolbar --}}
+<div class="d-flex justify-content-between">
+
+  {{-- Toolbar body --}}
+  <div>
+    @if ($modes['delete'])
+      <button class="btn btn-danger" wire:click="deleteContent">
+        Confirm delete
+      </button>
+      <button class="btn btn-dark" wire:click="exitMode('delete')">
+        Cancel
+      </button>
+    @endif
+  </div>
+  
+  {{-- Options dropdown --}}
+  <div class="dropdown">
+    <button class="btn btn-light dropdown-toggle"
+        type="button" id="dropdownMenuButton-{{ $webpageContent->webpage_content_id }}"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-angle-down"></i>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <button class="dropdown-item" wire:click="moveDown"><i class="fas fa-arrow-down"></i></btn>
+      <button class="dropdown-item" wire:click="moveUp"><i class="fas fa-arrow-up"></i></btn>
+      <button class="dropdown-item" wire:click="enterMode('edit')"><i class="fas fa-pencil-alt"></i></btn>
+      <button class="dropdown-item" wire:click="enterMode('css')"><i class="fas fa-star"></i></btn>
+      <button class="dropdown-item" wire:click="enterMode('delete')"><i class="fas fa-trash"></i></btn>
+    </div>
+  </div>
+</div>
 
   {{-- Display the content --}}
 
