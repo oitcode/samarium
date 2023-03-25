@@ -86,10 +86,26 @@
               @endif
             </td>
             <td class="d-none d-md-table-cell">
-              @php echo number_format( $takeaway->getPendingAmount() ); @endphp
+              @if ($takeaway->saleInvoice->creation_status == 'progress')
+                @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
+                  @php echo number_format( $takeaway->getPendingAmount() * 1.13); @endphp
+                @else
+                  @php echo number_format( $takeaway->getPendingAmount() ); @endphp
+                @endif
+              @else
+                @php echo number_format( $takeaway->getPendingAmount() ); @endphp
+              @endif
             </td>
             <td class="font-weight-bold">
-              @php echo number_format( $takeaway->getTotalAmount() ); @endphp
+              @if ($takeaway->saleInvoice->creation_status == 'progress')
+                @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
+                  @php echo number_format( $takeaway->getTotalAmount() * 1.13); @endphp
+                @else
+                  @php echo number_format( $takeaway->getTotalAmount() ); @endphp
+                @endif
+              @else
+                @php echo number_format( $takeaway->getTotalAmount() ); @endphp
+              @endif
             </td>
             @if (false)
             <td>

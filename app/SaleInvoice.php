@@ -25,7 +25,8 @@ class SaleInvoice extends Model
 
     protected $fillable = [
          'invoice_date', 'customer_id',
-         'total_amount', 'payment_status',
+         'total_amount',
+         'payment_status', 'creation_status',
          'creator_id',
     ];
 

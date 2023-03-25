@@ -29,6 +29,7 @@ class TakeawayCreate extends Component
         $saleInvoice->sale_invoice_date = date('Y-m-d');
         $saleInvoice->takeaway_id = $takeaway->takeaway_id;
         $saleInvoice->payment_status = 'pending';
+        $saleInvoice->creation_status = 'progress';
 
         /* User which created this record. */
         $saleInvoice->creator_id = Auth::user()->id;
