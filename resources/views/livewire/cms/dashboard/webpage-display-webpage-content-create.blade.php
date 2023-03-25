@@ -3,33 +3,50 @@
   <h2 class="h5">Create webpage content</h2>
   @endif
 
-  @if (false)
-  <div>
-    <button class="btn btn-light mr-2">
-      Heading
-    </button>
-    <button class="btn btn-light mr-2">
-      Paragraph
-    </button>
-    <button class="btn btn-light mr-2">
-      Image
-    </button>
-    <button class="btn btn-light mr-2">
-      Video
-    </button>
-    <button class="btn btn-light mr-2">
-      List
-    </button>
-    <button class="btn btn-light mr-2">
-      Button
-    </button>
-    <button class="btn btn-light mr-2">
-      Html
-    </button>
+  @if (true)
+  <div class="row">
+
+    <div class="col-md-2 mr-2 border p-3">
+      <div class="d-flex justify-content-center mb-3">
+        <i class="fas fa-heading"></i>
+      </div>
+      <div class="d-flex justify-content-center">
+        Heading
+      </div>
+    </div>
+
+    <div class="col-md-2 mr-2 border p-3">
+      <div class="d-flex justify-content-center mb-3">
+        <i class="fas fa-paragraph"></i>
+      </div>
+      <div class="d-flex justify-content-center">
+        Paragraph
+      </div>
+    </div>
+
+    <div class="col-md-2 mr-2 border p-3">
+      <div class="d-flex justify-content-center mb-3">
+        <i class="fas fa-image"></i>
+      </div>
+      <div class="d-flex justify-content-center">
+        Image
+      </div>
+    </div>
+
+    <div class="col-md-2 mr-2 border p-3">
+      <div class="d-flex justify-content-center mb-3">
+        <i class="fas fa-object-group"></i>
+      </div>
+      <div class="d-flex justify-content-center">
+        Media & Text 
+      </div>
+    </div>
+
+
   </div>
   @endif
 
-  @if (true)
+  @if (false)
   <div class="form-group">
     <label for="">Title</label>
     <input type="text" class="form-control" wire:model.defer="title">

@@ -1,9 +1,9 @@
-<div class="p-3 bg-white border shadow-sm">
+<div class="p-0 pl-3 bg-white border shadow-sm">
 
   <div class="row">
     <div class="col-md-8">
       {{-- Webpage name --}}
-      <div class="mb-4">
+      <div class="mt-3 mb-4">
         <h2>
           {{ $webpage->name }}
         </h2>
@@ -51,10 +51,46 @@
         </div>
       @endif
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 border-left">
 
       @if ($webpage->name == 'Post')
       @else
+
+
+
+
+      <div>
+
+        <div class="d-flex justify-content-between p-3">
+          <div>
+            Summary
+          </div>
+          <div>
+            <i class="fas fa-angle-down mr-3"></i>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between p-3">
+          <div>
+            Category
+          </div>
+          <div>
+            <i class="fas fa-angle-down mr-3"></i>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between p-3">
+          <div>
+            Featured image
+          </div>
+          <div>
+            <i class="fas fa-angle-down mr-3"></i>
+          </div>
+        </div>
+
+      </div>
+
+      @if (false)
       {{-- Basic details --}}
       <div class="border mb-4">
         <div class="table-responsive">
@@ -133,8 +169,10 @@
           </table>
         </div>
       </div>
+      @endif
 
 
+      @if (false)
       {{-- Featured Image --}}
       <div class="border">
         <h2 class="h4 p-3 bg-light">
@@ -176,6 +214,7 @@
         @endif
 
       </div>
+      @endif
       @endif
 
     </div>
