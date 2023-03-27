@@ -109,7 +109,13 @@ Route::get('/dashboard/team', 'TeamController@index')->name('dashboard-team');
 
 
 /* Website home page */
-Route::get('/', 'WebsiteController@homePage')->name('website-home');
+
+if (env('SITE_TYPE') == 'ecs' || env('SITE_TYPE') == 'school') {
+    Route::get('/', 'WebsiteController@cmsHome')->name('website-home');
+} else {
+    Route::get('/', 'WebsiteController@homePage')->name('website-home');
+}
+
 
 /* Product category page. Shows all product of this category  */
 Route::get('/product/category/{id}/{name}', 'WebsiteController@productCategoryProductList')->name('website-product-category-product-list');
@@ -151,22 +157,6 @@ if (true || preg_match("/shop/i", env('MODULES'))) {
             'WebsiteController@ecommCollectionWebpageDisplay'
         )->name('ecomm-collection-webpage-display-' . $ecommCollectionWebpage);
     }
-}
-
-
-/*
- *-----------------------------------------------------------------------------
- * Consultancy site route
- * Todo: Needs to be deprecated
- *-----------------------------------------------------------------------------
- *
- *
- *
- */
-if (env('SITE_TYPE') == 'ecs' || env('SITE_TYPE') == 'school') {
-    Route::get('/', 'WebsiteController@cmsHome')->name('website-home');
-} else {
-    Route::get('/', 'WebsiteController@homePage')->name('website-home');
 }
 
 
