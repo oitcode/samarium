@@ -66,7 +66,7 @@ class ThemeComponent extends Component
 
         CmsTheme::create($validatedData);
 
-        dd('Theme saved');
+        session()->flash('message', 'Theme created');
     }
 
     public function update()
