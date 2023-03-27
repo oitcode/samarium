@@ -1,5 +1,5 @@
 <div class="p-2">
-  <div class="my-3">
+  <div class="d-flex my-3">
     <small>
       <span class="text-secondary mr-1">
         Gallery ID:
@@ -21,6 +21,8 @@
       {{ $gallery->updated_at->toDateString() }}
 
     </small>
+
+    @include ('partials.dashboard.spinner-button')
   </div>
 
   <div class="mb-3">
@@ -36,7 +38,14 @@
     <div class="row">
       @foreach ($gallery->galleryImages as $galleryImage)
         <div class="col-md-3 mb-3">
-          <img src="{{ asset('storage/' . $galleryImage->image_path) }}" style="max-height:100px; max-width:100ps;">
+          <div>
+            <img src="{{ asset('storage/' . $galleryImage->image_path) }}" style="max-height:100px; max-width:100ps;">
+          </div>
+          <div>
+            <button class="btn" wire:click="deleteImageFromGallery({{ $galleryImage }})">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
         </div>
       @endforeach
     </div>

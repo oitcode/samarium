@@ -50,4 +50,11 @@ class GalleryUpdate extends Component
 
         $this->emit('exitUpdate');
     }
+
+    public function deleteImageFromGallery(GalleryImage $galleryImage)
+    {
+        $galleryImage->delete();
+        $this->gallery = $this->gallery->fresh();
+        $this->render();
+    }
 }
