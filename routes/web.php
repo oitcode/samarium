@@ -110,10 +110,10 @@ Route::get('/dashboard/team', 'TeamController@index')->name('dashboard-team');
 
 /* Website home page */
 
-if (env('SITE_TYPE') == 'ecs' || env('SITE_TYPE') == 'school') {
-    Route::get('/', 'WebsiteController@cmsHome')->name('website-home');
-} else {
+if (env('SITE_TYPE') == 'erp') {
     Route::get('/', 'WebsiteController@homePage')->name('website-home');
+} else {
+    Route::get('/', 'WebsiteController@cmsHome')->name('website-home');
 }
 
 
