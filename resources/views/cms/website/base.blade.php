@@ -12,7 +12,9 @@
     @yield ('pageTitleTag')
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('storage/' . $company->logo_image_path) }}">
+    @if ($company)
+      <link rel="shortcut icon" href="{{ asset('storage/' . $company->logo_image_path) }}">
+    @endif
 
 
     @yield ('pageDescriptionTag')

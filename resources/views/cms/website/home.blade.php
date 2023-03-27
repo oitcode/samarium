@@ -4,35 +4,41 @@
 @endsection
 
 @section ('pageTitleTag')
-  <title>
-    {{ $company->name }}
-  </title>
+  @if ($company)
+    <title>
+      {{ $company->name }}
+    </title>
+  @endif
 @endsection
 
 @section ('fbOgMetaTags')
-<meta property="og:url"                content="{{ Request::url() }}" />
-<meta property="og:type"               content="article" />
-<meta property="og:title"              content="Home page of {{ $company->name }}" />
-<meta property="og:description"        content="All details of {{ $company->name }}" />
-<meta property="og:image"              content="{{ asset('storage/' . $company->logo_image_path) }}"/>
+@if ($company)
+  <meta property="og:url"                content="{{ Request::url() }}" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="Home page of {{ $company->name }}" />
+  <meta property="og:description"        content="All details of {{ $company->name }}" />
+  <meta property="og:image"              content="{{ asset('storage/' . $company->logo_image_path) }}"/>
+@endif
 @endsection
 
 @section ('content')
 
 {{-- Notifications/post displayer  --}}
-@if (count(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->get()) > 0)
-<div class="container-fluid bg-dark-rm text-white p-0 d-none d-md-block" style="background-color: brown;">
-  <div class="container" style="font-size: 1.3rem; white-space: nowrap; overflow: hidden;">
-    <div class="o-ltr py-3 ">
-      <div class="d-inline mr-5">
-        <a href="{{ route('website-webpage-' . \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->orderBy('webpage_id', 'desc')->first()->permalink) }}"
-            class="text-reset" style="">
-          {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->orderBy('webpage_id', 'desc')->first()->name }}
-        </a>
+@if (\App\WebpageCategory::where('name', 'notice')->first())
+  @if (count(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->get()) > 0)
+  <div class="container-fluid bg-dark-rm text-white p-0 d-none d-md-block" style="background-color: brown;">
+    <div class="container" style="font-size: 1.3rem; white-space: nowrap; overflow: hidden;">
+      <div class="o-ltr py-3 ">
+        <div class="d-inline mr-5">
+          <a href="{{ route('website-webpage-' . \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->orderBy('webpage_id', 'desc')->first()->permalink) }}"
+              class="text-reset" style="">
+            {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->orderBy('webpage_id', 'desc')->first()->name }}
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  @endif
 @endif
 
 {{-- Hero/Featured image --}}
