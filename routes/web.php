@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 
 use App\Webpage;
 
@@ -187,7 +188,7 @@ Route::get('/cms/gallery', 'CmsGalleryController@index')->name('dashboard-cms-ga
 
 /* CMS website/front-page/customer routes */
 /* Generate webpage routes if ?? */
-if (true || env('DB_DATABASE')) {
+if (Schema::hasTable('webpage')) {
     $webpages = Webpage::all();
     
     foreach ($webpages as $webpage) {
