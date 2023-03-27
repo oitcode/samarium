@@ -3,7 +3,7 @@
   <h2 class="h5">Create webpage content</h2>
   @endif
 
-  @if (true)
+  @if (false)
   <div class="row">
 
     <div class="col-md-2 mr-2 border p-3">
@@ -42,11 +42,19 @@
       </div>
     </div>
 
+    <div class="col-md-2 mr-2 border p-3">
+      <div class="d-flex justify-content-center mb-3">
+        <i class="fas fa-object-group"></i>
+      </div>
+      <div class="d-flex justify-content-center">
+        Post list
+      </div>
+    </div>
 
   </div>
   @endif
 
-  @if (false)
+  @if (true)
   <div class="form-group">
     <label for="">Title</label>
     <input type="text" class="form-control" wire:model.defer="title">
