@@ -15,6 +15,12 @@
           You cannot add content to this page.
           This page will show list of all the posts.
         </div>
+      @elseif ($webpage->name == 'Gallery')
+        <div>
+          <i class="fas fa-exclamation-circle mr-3" ></i>
+          You cannot add content to this page.
+          This page will show all the galleries.
+        </div>
       @else
         {{-- Toolbar --}}
         <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
