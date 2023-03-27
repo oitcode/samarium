@@ -56,9 +56,7 @@
       @if ($webpage->name == 'Post')
       @else
 
-
-
-
+      @if (false)
       <div>
 
         <div class="d-flex justify-content-between p-3">
@@ -89,8 +87,9 @@
         </div>
 
       </div>
+      @endif
 
-      @if (false)
+      @if (true)
       {{-- Basic details --}}
       <div class="border mb-4">
         <div class="table-responsive">
@@ -172,7 +171,7 @@
       @endif
 
 
-      @if (false)
+      @if (true)
       {{-- Featured Image --}}
       <div class="border">
         <h2 class="h4 p-3 bg-light">
