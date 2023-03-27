@@ -5,8 +5,12 @@
   {{-- BIGGER SCREEN --}}
   <div class="d-none d-md-block">
     <div class="container-fluid"
-        style="background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};
-               color: {{ \App\CmsTheme::first()->nav_menu_text_color }};">
+        style="
+        @if (\App\CmsTheme::first())
+            background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};
+            color: {{ \App\CmsTheme::first()->nav_menu_text_color }};
+        @endif
+        ">
       <div class="container">
         <div class="d-flex justify-content-between">
 

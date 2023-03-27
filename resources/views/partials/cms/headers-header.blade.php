@@ -1,5 +1,9 @@
 <div class="container-fluid"
-    style="background-color: {{ \App\CmsTheme::first()->top_header_bg_color }}; color: {{ \App\CmsTheme::first()->top_header_bg_color }};">
+    style="
+        @if (\App\CmsTheme::first())
+          background-color: {{ \App\CmsTheme::first()->top_header_bg_color }}; color: {{ \App\CmsTheme::first()->top_header_bg_color }};
+        @endif
+        ">
 <div class="container p-3 d-none d-md-block">
   <div class="d-flex justify-content-between">
     <div>
@@ -23,14 +27,22 @@
             >
               {{ $company->name }}
             </h1>
-            <h2 class="h6" style="color: {{ \App\CmsTheme::first()->top_header_text_color }}">
+            <h2 class="h6" style="
+                @if (\App\CmsTheme::first())
+                  color: {{ \App\CmsTheme::first()->top_header_text_color }}
+                @endif
+                ">
               {{ $company->tagline }}
             </h2>
           </div>
         </div>
       </a>
     </div>
-    <div class="d-flex flex-column" style="color: {{ \App\CmsTheme::first()->top_header_text_color }}">
+    <div class="d-flex flex-column" style="
+        @if (\App\CmsTheme::first())
+          color: {{ \App\CmsTheme::first()->top_header_text_color }}
+        @endif
+        ">
       <div>
         @if (true)
         <div class="mr-4">

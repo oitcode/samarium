@@ -42,6 +42,7 @@
 @endif
 
 {{-- Hero/Featured image --}}
+@if (\App\CmsTheme::first())
 <div class="container-fluid bg-light p-0 d-none d-md-block" 
   style="background-image: @if (\App\CmsTheme::first())
                              url({{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }})
@@ -56,6 +57,7 @@
   <div class="o-overlay py-5 h-100">
   </div>
 </div>
+@endif
 
 @if (preg_match("/bgc/i", env('MODULES')))
   @if (\App\Team::where('team_type', 'playing_team')->first())
