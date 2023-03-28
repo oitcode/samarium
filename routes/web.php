@@ -97,6 +97,9 @@ Route::get('/dashboard/todo', 'TodoController@index')->name('dashboard-todo');
 /* Team */
 Route::get('/dashboard/team', 'TeamController@index')->name('dashboard-team');
 
+/* Help */
+Route::get('/dashboard/help', 'HelpController@index')->name('dashboard-help');
+
 /*
  *-----------------------------------------------------------------------------
  * Website routes

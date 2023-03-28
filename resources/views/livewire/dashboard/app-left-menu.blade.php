@@ -269,7 +269,7 @@
   ])
 
   @include ('partials.dashboard.app-left-menu-button', [
-    'btnRoute' => 'dashboard-accounting',
+    'btnRoute' => 'dashboard-help',
     'iconFaClass' => 'fas fa-question-circle',
     'btnText' => 'Help',
   ])
