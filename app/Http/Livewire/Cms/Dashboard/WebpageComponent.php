@@ -52,6 +52,7 @@ class WebpageComponent extends Component
     {
         session()->flash('message', 'Webpage created');
         $this->exitMode('create');
+        $this->enterMode('list');
     }
 
     public function exitCreateMode()

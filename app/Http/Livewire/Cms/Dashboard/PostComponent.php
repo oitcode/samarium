@@ -38,6 +38,7 @@ class PostComponent extends Component
     {
         session()->flash('message', 'Post created');
         $this->exitMode('createPostMode');
+        $this->enterMode('listPostMode');
     }
 
     public function exitCreatePostMode()
