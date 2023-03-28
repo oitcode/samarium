@@ -19,7 +19,7 @@ class NavMenuDisplayNavMenuItemCreate extends Component
 
     public function render()
     {
-        $this->webpages = Webpage::all();
+        $this->webpages = Webpage::where('is_post', 'no')->where('visibility', 'public')->get();
 
         return view('livewire.cms.dashboard.nav-menu-display-nav-menu-item-create');
     }
