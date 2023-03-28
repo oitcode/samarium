@@ -177,9 +177,8 @@ Route::get('/cms/theme', 'CmsThemeController@index')->name('dashboard-cms-theme'
 Route::get('/cms/gallery', 'CmsGalleryController@index')->name('dashboard-cms-gallery');
 
 /* CMS website/front-page/customer routes */
-/* Generate webpage routes if ?? */
 if (Schema::hasTable('webpage')) {
-    $webpages = Webpage::all();
+    $webpages = Webpage::where('visibility', 'public')->get();
     
     foreach ($webpages as $webpage) {
         Route::get('/'. $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-'. $webpage->permalink);
