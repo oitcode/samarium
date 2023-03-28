@@ -22,7 +22,7 @@ class GalleryComponent extends Component
     public $deletingGallery;
 
     protected $listeners = [
-        'exitCreate' => 'exitCreateMode',
+        'galleryAdded',
         'updateGallery',
         'confirmDeleteGallery',
         'deleteGallery',
@@ -48,8 +48,9 @@ class GalleryComponent extends Component
         $this->createMode = true;
     }
 
-    public function exitCreateMode()
+    public function galleryAdded()
     {
+        session()->flash('message', 'Gallery created');
         $this->modes['createMode'] = false;
     }
 

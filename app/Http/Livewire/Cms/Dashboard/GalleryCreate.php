@@ -54,7 +54,8 @@ class GalleryCreate extends Component
             DB::commit();
 
             /* Todo: Should this is outside the try block? */
-            $this->emit('exitCreate');
+            /* dd ('OLAJkA'); */
+            $this->emit('galleryAdded');
         } catch (\Exception $e) {
             DB::rollback();
         }

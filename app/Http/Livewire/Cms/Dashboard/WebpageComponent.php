@@ -50,6 +50,7 @@ class WebpageComponent extends Component
 
     public function webpageAdded()
     {
+        session()->flash('message', 'Webpage created');
         $this->exitMode('create');
     }
 

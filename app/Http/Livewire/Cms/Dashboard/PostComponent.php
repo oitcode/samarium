@@ -36,6 +36,7 @@ class PostComponent extends Component
 
     public function webpageAdded()
     {
+        session()->flash('message', 'Post created');
         $this->exitMode('createPostMode');
     }
 

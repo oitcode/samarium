@@ -50,6 +50,7 @@ class NavMenuComponent extends Component
 
     public function cmsNavMenuAdded()
     {
+        session()->flash('message', 'Nav menu created');
         $this->exitMode('create');
     }
 
