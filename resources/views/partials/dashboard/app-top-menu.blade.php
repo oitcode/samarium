@@ -3,10 +3,20 @@
   @else
 
     <div class="float-left d-flex">
-      @if (\App\Company::first() && \App\Company::first()->logo_image_path)
-        <div class="d-flex justify-content-start mr-3 pl-3">
-          <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}" class="img-fluid" style="height: 50px;">
-        </div>
+      <div class="p-2">
+        <i class="fas fa-tv fa-2x"></i>
+        @if (false)
+        <span class="h3 ml-3">
+          Aquatic
+        </span>
+        @endif
+      </div>
+      @if (false)
+        @if (\App\Company::first() && \App\Company::first()->logo_image_path)
+          <div class="d-flex justify-content-start mr-3 pl-3">
+            <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}" class="img-fluid" style="height: 50px;">
+          </div>
+        @endif
       @endif
       @if (false)
       <div class="d-flex flex-column justify-content-center">

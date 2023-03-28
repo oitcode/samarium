@@ -1,6 +1,6 @@
 <div class="float-right text-white border-right-rm" style="font-size: 1.3rem;">
   <div class="dropdown">
-    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-light-rm text-white dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fas fa-cog text-secondry mr-2"></i>
       {{ Auth::user()->name }}
     </button>
