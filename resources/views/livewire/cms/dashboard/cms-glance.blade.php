@@ -154,7 +154,7 @@
 
   @if (true)
   <div class="my-2 px-2 text-secondary">
-    SevenCent <a href="">0.3.9</a>
+    SevenCent <a href="">0.4.0</a>
   </div>
   @endif
 </div>
