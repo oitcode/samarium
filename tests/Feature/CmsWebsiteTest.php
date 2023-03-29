@@ -25,4 +25,15 @@ class CmsWebsiteTest extends TestCase
             $response->assertStatus(200);
         }
     }
+
+    public function testAllNonPublicWebpagesAreNotAccessible()
+    {
+        $nonPublicWebpages = Webpage::where('visibility', '!=', 'public')->get();
+
+        foreach ($nonPublicWebpages as $nonPublicWebpage) {
+            $response = $this->get('/' . $nonPublicWebpage->permalink);
+
+            $response->assertStatus(404);
+        }
+    }
 }
