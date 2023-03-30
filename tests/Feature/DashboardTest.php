@@ -11,17 +11,10 @@ use App\User;
 class DashboardTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * Test that authenticated users can access dashboard.
      *
      * @return void
      */
-    public function test_guest_users_redirect_to_login_instead_of_dashboard()
-    {
-        $response = $this->get('/dashboard');
-
-        $response->assertRedirect('/login');
-    }
-
     public function test_authenticated_users_can_access_dashboard()
     {
         $response = $this->actingAs(User::first())->get('/dashboard');

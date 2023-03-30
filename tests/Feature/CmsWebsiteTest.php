@@ -11,7 +11,7 @@ use App\Webpage;
 class CmsWebsiteTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * Test that all public webpages are accessible in cms website.
      *
      * @return void
      */
@@ -26,6 +26,11 @@ class CmsWebsiteTest extends TestCase
         }
     }
 
+    /**
+     * Test that all non public webpages are not accessible in cms website.
+     *
+     * @return void
+     */
     public function testAllNonPublicWebpagesAreNotAccessible()
     {
         $nonPublicWebpages = Webpage::where('visibility', '!=', 'public')->get();

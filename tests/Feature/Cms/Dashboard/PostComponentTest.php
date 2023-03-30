@@ -1,0 +1,125 @@
+<?php
+
+namespace Tests\Feature\Cms\Dashboard;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+
+use Livewire\Livewire;
+
+use App\User;
+
+class PostComponentTest extends TestCase
+{
+    /**
+     * Test that dashboard cms post component is accessible.
+     *
+     * @return void
+     */
+    public function testPostComponentUrlAccessible()
+    {
+        $response = $this->actingAs(User::where('role', 'admin')->first())->get('/cms/post');
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * Test that dashboard cms post contains livewire component.
+     *
+     * @return void
+     */
+    public function testPostUrlHasLivewireComponent()
+    {
+        $response = $this->actingAs(User::where('role', 'admin')->first())
+            ->get('/cms/post')
+            ->assertSeeLivewire(\App\Http\Livewire\Cms\Dashboard\PostComponent::class);
+    }
+
+    /**
+     * Test that all modes are false in initial render/mount.
+     *
+     * @return void
+     */
+    public function testAllModesAreFalse()
+    {
+        Livewire::test(\App\Http\Livewire\Cms\Dashboard\PostComponent::class)
+            ->assertSet('modes.createPostMode', false)
+            ->assertSet('modes.listPostMode', false)
+            ->assertSet('modes.displayPostMode', false)
+            ->assertSet('modes.createPostCategoryMode', false);
+    }
+
+    /**
+     * Test that dashboard cms post contains below buttons.
+     *
+     * 1. Create
+     * 2. List
+     * 3. Create post category
+     * 4. Clear modes
+     *
+     * @return void
+     */
+    public function testPostComponentHasRequiredButtons()
+    {
+        $response = $this->actingAs(User::where('role', 'admin')->first())->get('/cms/post');
+
+        $response->assertSee('Create');
+        $response->assertSee('List');
+        $response->assertSee('Create post category');
+        $response->assertSee('Clear modes');
+    }
+
+    /**
+     * Test that post create component is loaded when create mode is true.
+     *
+     * @return void
+     */
+    public function testPostCreateLoadedWhenCreateMode()
+    {
+        Livewire::test(\App\Http\Livewire\Cms\Dashboard\PostComponent::class) 
+            ->set('modes.createPostMode', true)
+            ->assertSeeLivewire(\App\Http\Livewire\Cms\Dashboard\WebpageCreate::class);
+    }
+
+    /**
+     * Test that post list component is loaded when list mode is true.
+     *
+     * @return void
+     */
+    public function testPostListLoadedWhenListMode()
+    {
+        Livewire::test(\App\Http\Livewire\Cms\Dashboard\PostComponent::class) 
+            /* ->set('modes.list', true) */
+            ->call('enterMode', 'listPostMode')
+            ->assertSeeLivewire(\App\Http\Livewire\Cms\Dashboard\PostList::class);
+    }
+
+    /**
+     * Test that post category create component is loaded when create post
+     * category mode is true.
+     *
+     * @return void
+     */
+    public function testPostCategoryCreateLoadedWhenPostCategoryCreateMode()
+    {
+        Livewire::test(\App\Http\Livewire\Cms\Dashboard\PostComponent::class) 
+            /* ->set('modes.list', true) */
+            ->call('enterMode', 'createPostCategoryMode')
+            ->assertSeeLivewire(\App\Http\Livewire\Cms\Dashboard\PostCategoryCreate::class);
+    }
+
+    /**
+     * Test that clear modes call sets all modes to false.
+     *
+     * @return void
+     */
+    public function testClearModes()
+    {
+        Livewire::test(\App\Http\Livewire\Cms\Dashboard\WebpageComponent::class) 
+            ->call('clearModes')
+            ->assertSet('modes.createPostMode', false)
+            ->assertSet('modes.listPostMode', false)
+            ->assertSet('modes.displayPostMode', false);
+    }
+}
