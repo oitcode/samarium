@@ -11,12 +11,8 @@ echo '==========================================================================
 echo 'Welcome'
 echo '================================================================================'
 
-echo ''
-echo ''
-echo ''
-echo ''
-echo '-- Cloning laravel project'
-git clone https://github.com/oitcode/khajanchi.git
+# echo '-- Cloning laravel project'
+# git clone https://github.com/oitcode/khajanchi.git
 
 clear
 echo '-- Setup project name'
