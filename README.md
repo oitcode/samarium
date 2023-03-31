@@ -4,16 +4,34 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-Khajanchi is a web application built with laravel and livewire. 
+Khajanchi is a web application built with laravel and livewire. You can
+build/create webpages and posts/blog from a user friendly admin dashboard.
+It also comes with a shop module which is useful for business as it has
+product, billing, inventory and accounting functionalities built in.
 
 ## Features
 
-- Website
-- Admin dashboard
-- Ecommerce 
-- Accounting
+- User friendly admin dashboard
+- Webpages can be created easily
+- Posts can be created easily
+- Shop module built in (relevant for shop/business)
 
 ## Installation
+
+Installation script is available with this package. You just need to run the
+script.
+
+`bash app-install.sh`
+
+## Running the app
+
+`php artisan serve`
+
+Now open your web browser and visit 
+- 127.0.0.1 to see the website
+- 127.0.0.1/dashboard to see the dashboard
+
+<!---
 
 `git clone https://github.com/oitcode/khajanchi.git`
 
@@ -48,6 +66,8 @@ db_user_name@localhost;"`
 
 `php artisan key:generate`
 
+-->
+
 
 ## Learning
 
@@ -59,7 +79,8 @@ Please fork the project, make necessary changes and send a pull request.
 
 ## Issues
 
-If you face any issue or identify a vulnerability, please reaise an issue in github.
+If you face any issue please raise an issue in github.
+If you want to propose any enhancement please raise an issue in github.
 
 ## License
 
