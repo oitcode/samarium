@@ -4,6 +4,7 @@
 
     <div class="row">
       <div class="col-md-4">
+        @if (preg_match("/shop/i", env('MODULES')))
         <h2>Sale invoice</h2>
         <hr />
         {{-- Sale invoice payment types --}}
@@ -361,6 +362,7 @@
             <option value="yes">No</option>
           </select>
         </div>
+        @endif
 
       </div>
 
