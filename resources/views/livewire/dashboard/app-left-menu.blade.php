@@ -85,21 +85,12 @@
               'btnText' => 'Expense',
           ])
 
-      @if (env('CMP_TYPE') == 'cafe')
-        @include ('partials.dashboard.app-left-menu-button',
-            [
-                'btnRoute' => 'menu',
-                'iconFaClass' => 'fas fa-list',
-                'btnText' => 'Menu',
-            ])
-      @else
-        @include ('partials.dashboard.app-left-menu-button',
-            [
-                'btnRoute' => 'menu',
-                'iconFaClass' => 'fas fa-list',
-                'btnText' => 'Products',
-            ])
-      @endif
+      @include ('partials.dashboard.app-left-menu-button',
+          [
+              'btnRoute' => 'menu',
+              'iconFaClass' => 'fas fa-list',
+              'btnText' => 'Products',
+          ])
 
       @include ('partials.dashboard.app-left-menu-button',
           [
