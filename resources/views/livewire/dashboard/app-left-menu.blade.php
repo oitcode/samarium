@@ -162,19 +162,19 @@
       <div class="o-animated">
         @include ('partials.dashboard.app-left-menu-button', [
           'btnRoute' => 'dashboard-cms-webpage',
-          'iconFaClass' => 'fas fa-globe',
+          'iconFaClass' => 'fas fa-clone',
           'btnText' => 'Pages',
         ])
 
         @include ('partials.dashboard.app-left-menu-button', [
           'btnRoute' => 'dashboard-cms-post',
-          'iconFaClass' => 'fas fa-book',
+          'iconFaClass' => 'fas fa-edit',
           'btnText' => 'Posts',
         ])
 
         @include ('partials.dashboard.app-left-menu-button', [
           'btnRoute' => 'dashboard-cms-nav-menu',
-          'iconFaClass' => 'fas fa-book',
+          'iconFaClass' => 'fas fa-link',
           'btnText' => 'Nav menu',
         ])
 

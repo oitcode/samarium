@@ -113,3 +113,21 @@ animation-play-state:paused;
         margin-left:0%;
     }
 }
+
+.o-text-bigger {
+    font-size: 1.3rem;
+}
+
+
+.o-pulled-up:hover {
+    /* animation:pull-up 1s linear; */
+}
+
+@keyframes pull-up{
+    0% {
+        background-color: red;
+    }
+    100% {
+        background-color: black;
+    }
+}
