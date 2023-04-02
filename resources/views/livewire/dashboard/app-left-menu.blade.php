@@ -138,7 +138,7 @@
     @if ($modes['cms'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('cms')",
-          'btnIconFaClass' => 'fas fa-shopping-cart',
+          'btnIconFaClass' => 'fas fa-book',
           'btnText' => 'CMS',
           'btnCheckMode' => 'cms',
       ])
