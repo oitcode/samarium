@@ -37,9 +37,8 @@
 @endsection
 
 @section ('pageAnnouncer')
-  <div class="container-fluid o-top-page-banner-rm bg-success-rm mb-0 bg-danger"
+  <div class="container-fluid o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm"
       style="
-      {{--
       @if (false && $webpage->is_post == 'yes')
       @else
         background-image:
@@ -57,7 +56,6 @@
               @endif
             )
       @endif
-      --}}
   ;">
     <div class="o-overlay text-white-rm">
       <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') border-left-rm border-right-rm @else @endif bg-primary-rm">
@@ -153,6 +151,10 @@
 @elseif ($webpage->name == 'Post')
   <div class="container my-4">
     @livewire ('cms.website.post-list')
+  </div>
+@elseif ($webpage->name == 'Notice')
+  <div class="container my-4">
+    @livewire ('cms.website.post-list', ['category' => 'notice',])
   </div>
 @elseif ($webpage->name == 'Teams')
   @if (\App\Team::where('team_type', 'playing_team')->first())
