@@ -12,7 +12,7 @@
 
       <div class="col-md-4">
         <div class="card">
-          <div class="card-body p-3 bg-white o-text-bigger">
+          <div class="card-body p-5 bg-white o-text-bigger">
             <i class="fab fa-github mr-2"></i>
             Github
           </div>
@@ -21,7 +21,7 @@
 
       <div class="col-md-4">
         <div class="card">
-          <div class="card-body p-3 bg-white o-text-bigger">
+          <div class="card-body p-5 bg-white o-text-bigger">
             <i class="fab fa-youtube mr-2"></i>
             <span class="o-text-bigger">
             </span>
@@ -32,7 +32,7 @@
 
       <div class="col-md-4">
         <div class="card">
-          <div class="card-body p-3 bg-white o-text-bigger">
+          <div class="card-body p-5 bg-white o-text-bigger">
             <i class="fas fa-sms mr-2"></i>
             Contact support
           </div>

@@ -72,11 +72,26 @@
         {{-- Content goes here --}}
         <div class="py-3">
           @yield('content')
+
+          {{-- ostrich branding --}}
+          <div class="d-flex justify-content-center my-5">
+            <div class="d-flex flex-column" style="color: #ccc;">
+              <h2 class="h3 text-secondary-rm d-flex justify-content-center">
+                <i><strong>
+                  Oztrich
+                </strong></i>
+              </h2>
+              <h2 class="h5 text-secondary-rm d-flex justify-content-center">
+                  v0.4.2
+              </h2>
+            </div>
+          </div>
         </div>
 
       </div>
     </div>
   </div>
+
 
   @if (env('APP_FOOTER') == true)
     {{-- Screen-bottom info bar --}}

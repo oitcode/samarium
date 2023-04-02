@@ -19,7 +19,9 @@
         @if (true)
         <div class="bg-white p-3-rm pl-3 pb-3" style="color: #779;">
           <i class="fas fa-tv fa-3x mr-2"></i>
-          v0.4.1
+          @if (false)
+            v0.4.1
+          @endif
         </div>
         @endif
       </div>

@@ -4,10 +4,10 @@
 
     <div class="float-left d-flex">
       <div class="p-2">
-        <i class="fas fa-tv fa-2x"></i>
-        @if (false)
+        <i class="fas fa-feather-alt fa-2x"></i>
+        @if (true)
         <span class="h3 ml-3">
-          Aquatic
+          Oztrich
         </span>
         @endif
       </div>
@@ -86,9 +86,11 @@
       </div>
     @endif
 
+    @if (false)
     <div class="float-right mx-4 px-4 border-left-rm" style="font-size: 1.3rem;">
       @livewire ('lv-package-info')
     </div>
+    @endif
   @endguest
 
   <div class="clearfix">
