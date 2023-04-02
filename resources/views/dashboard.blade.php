@@ -1,6 +1,30 @@
 @extends('layouts.app')
 @section ('content')
 
+  {{-- Greeting row --}}
+  <div class="row mb-5" style="margin: auto;">
+    <div class="col-md-6 px-2">
+      <div class="d-flex border bg-success text-white p-5">
+        <div class="d-flex flex-column justify-content-center mr-3">
+          <i class="fas fa-check-circle fa-2x"></i>
+        </div>
+        <div>
+          <h2 class="h4">
+            Welcome, {{ Auth::user()->name }}
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 px-2">
+      <div class="d-flex justify-content-center border bg-primary text-white p-5">
+        <h2 class="h4">
+          <i class="fas fa-feather-alt mr-3"></i>
+          Oztrich
+        </h2>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-6">
       @if (preg_match("/cms/i", env('MODULES')))
@@ -10,6 +34,7 @@
     </div>
 
     <div class="col-md-6">
+      @if (false)
       <div class="mb-5 border">
         <div class="{{ env('OC_ASCENT_BG_COLOR') }}-rm {{ env('OC_ASCENT_TEXT_COLOR') }}-rm bg-white p-3">
           <h1 class="h4" style="color: #779;">
@@ -25,6 +50,9 @@
         </div>
         @endif
       </div>
+      @endif
+      {{-- CMS glance --}}
+      @livewire ('cms.dashboard.cms-glance')
 
     </div>
   </div>
