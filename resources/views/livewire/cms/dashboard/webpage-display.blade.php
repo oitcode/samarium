@@ -59,9 +59,6 @@
     </div>
     <div class="col-md-4 border-left">
 
-      @if ($webpage->name == 'Post')
-      @else
-
       @if (false)
       <div>
 
@@ -219,7 +216,6 @@
         @endif
 
       </div>
-      @endif
       @endif
 
     </div>
