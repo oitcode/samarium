@@ -28,6 +28,7 @@
           <h3 class="h4 text-dark font-weight-bold mb-4">
             ABOUT
           </h3>
+          @if (false)
           <div class="mb-2">
             <a href="{{ route('ecomm-collection-webpage-display-about-us') }}"
                 class="text-secondary text-decoration-none text-reset h5">
@@ -35,6 +36,7 @@
               About us
             </a>
           </div>
+          @endif
           <div class="mb-2">
             <a href=""
                 class="text-secondary text-decoration-none text-reset h5">

@@ -33,8 +33,15 @@
 
     <div class="col-md-6">
       @if (preg_match("/shop/i", env('MODULES')))
+        {{-- Product glance --}}
+        <div class="mb-4">
+          @livewire ('shop.dashboard.product-glance')
+        </div>
+
         {{-- Shop glance --}}
-        @livewire ('shop.dashboard.shop-glance')
+        <div class="mb-4">
+          @livewire ('shop.dashboard.shop-glance')
+        </div>
       @endif
     </div>
   </div>
