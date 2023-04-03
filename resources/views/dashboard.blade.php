@@ -2,26 +2,24 @@
 @section ('content')
 
   {{-- Greeting row --}}
-  <div class="row mb-5" style="margin: auto;">
+  <div class="row mb-3" style="margin: auto;">
     <div class="col-md-6 px-2">
-      <div class="d-flex border bg-success text-white p-5">
-        <div class="d-flex flex-column justify-content-center mr-3">
-          <i class="fas fa-check-circle fa-2x"></i>
+      <div class="d-flex border-rm bg-light-rm text-secondary p-2">
+        <div class="d-flex flex-column justify-content-center mr-3 bg-danger-rm">
+          <i class="fas fa-check-circle fa-2x-rm"></i>
         </div>
-        <div>
-          <h2 class="h4">
-            Welcome, {{ Auth::user()->name }}
-          </h2>
+        <div class="d-flex flex-column justify-content-bottom mr-3 bg-warning-rm">
+          Welcome, {{ Auth::user()->name }}
         </div>
       </div>
     </div>
     <div class="col-md-6 px-2">
-      <div class="d-flex justify-content-center border bg-primary text-white p-5">
-        <h2 class="h4">
-          <i class="fas fa-feather-alt mr-3"></i>
-          Oztrich
-        </h2>
+      @if (false)
+      <div class="d-flex justify-content-center border-rm bg-light-rm text-success p-2">
+        <i class="fas fa-feather-alt mr-3"></i>
+        Oztrich
       </div>
+      @endif
     </div>
   </div>
 
