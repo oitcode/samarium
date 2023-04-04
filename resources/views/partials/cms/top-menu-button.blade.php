@@ -16,27 +16,35 @@
             @if (true)
             background-color:
              @if(Route::current()->getName() == $btnRoute)
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_bg_color }}
-              @else
-                orange
-              @endif
-              ;
+               @if (\App\CmsTheme::first())
+                 {{ \App\CmsTheme::first()->ascent_bg_color }}
+               @else
+                 orange
+               @endif
              @else
-               {{ \App\CmsTheme::first()->nav_menu_bg_color }};
+               @if (\App\CmsTheme::first())
+                {{ \App\CmsTheme::first()->nav_menu_bg_color }};
+               @else
+                 white
+               @endif
              @endif
+             ;
             color:
              @if(Route::current()->getName() == $btnRoute)
               @if (\App\CmsTheme::first())
                 {{ \App\CmsTheme::first()->ascent_text_color }}
               @else
-                {{ \App\CmsTheme::first()->nav_menu_text_color }}
+                white
               @endif
-              ;
              @else
-               {{ \App\CmsTheme::first()->nav_menu_text_color }}
+               @if (\App\CmsTheme::first())
+                 {{ \App\CmsTheme::first()->nav_menu_text_color }}
+               @else
+                 black
+               @endif
              @endif
              @endif
+             ;
               "
           >
 
