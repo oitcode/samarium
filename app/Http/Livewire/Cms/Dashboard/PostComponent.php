@@ -60,5 +60,6 @@ class PostComponent extends Component
     public function createPostCategoryCompleted()
     {
         $this->exitMode('createPostCategoryMode');
+        session()->flash('message', 'Post category created');
     }
 }
