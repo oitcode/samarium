@@ -15,12 +15,14 @@ class TeamDisplay extends Component
     public $team;
 
     public $updatingTeamMember = null;
+    public $deletingTeamMember = null;
 
     public $modes = [
         'updateTeamMode' => false,
         'createTeamMemberMode' => false,
         'createTeamMembersFromCsvMode' => false,
         'updateTeamMemberMode' => false,
+        'deleteTeamMemberMode' => false,
     ];
 
     protected $listeners = [
@@ -118,5 +120,25 @@ class TeamDisplay extends Component
         }
 
         $this->render();
+    }
+
+    public function deleteTeamMember(TeamMember $teamMember)
+    {
+        $this->deletingTeamMember = $teamMember;
+        $this->enterMode('deleteTeamMemberMode');
+    }
+
+    public function deleteTeamMemberCancel()
+    {
+        $this->deletingTeamMember = null;
+        $this->exitMode('deleteTeamMemberMode');
+    }
+
+    public function confirmDeleteTeamMember()
+    {
+        $this->deletingTeamMember->delete();
+
+        $this->exitMode('deleteTeamMemberMode');
+        session()->flash('message', 'Team member deleted');
     }
 }

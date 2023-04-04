@@ -73,7 +73,7 @@
       <button class="btn btn-light mr-0" wire:click="updateTeamMember({{ $person }})">
         <i class="fas fa-pencil-alt"></i>
       </button>
-      <button class="btn btn-light mr-0">
+      <button class="btn btn-light mr-0" wire:click="deleteTeamMember({{ $person }})">
         <i class="fas fa-trash"></i>
       </button>
       <button class="btn btn-light mr-0" wire:click="changePositionUp({{ $person }})">
@@ -83,6 +83,18 @@
         <i class="fas fa-arrow-right"></i>
       </button>
     </div>
+    @if ($modes['deleteTeamMemberMode'])
+      @if ($deletingTeamMember->team_member_id == $person->team_member_id)
+        <div class="p-2">
+          <span class="btn btn-danger mr-3" wire:click="confirmDeleteTeamMember">
+            Confirm delete
+          </span>
+          <span class="btn btn-light mr-3" wire:click="deleteTeamMemberCancel">
+            Cancel
+          </span>
+        </div>
+      @endif
+    @endif
   @endguest
 
 </div>
