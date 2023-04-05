@@ -247,11 +247,13 @@
     'btnText' => 'Settings',
   ])
 
-  @include ('partials.dashboard.app-left-menu-button', [
-    'btnRoute' => 'dashboard-users',
-    'iconFaClass' => 'fas fa-users',
-    'btnText' => 'Users',
-  ])
+  @can ('is-admin')
+    @include ('partials.dashboard.app-left-menu-button', [
+      'btnRoute' => 'dashboard-users',
+      'iconFaClass' => 'fas fa-users',
+      'btnText' => 'Users',
+    ])
+  @endcan
 
   @include ('partials.dashboard.app-left-menu-button', [
     'btnRoute' => 'dashboard-todo',
