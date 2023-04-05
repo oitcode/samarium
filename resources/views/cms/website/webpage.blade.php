@@ -75,7 +75,16 @@
         {{ $webpage->name }}
       </h1>
       @if ($webpage->is_post == 'yes')
-        <div class="d-flex mt-4 text-white">
+        <div class="d-flex mt-4 text-white-rm"
+            style="
+                color:
+                      @if (\App\CmsTheme::first())
+                        {{ \App\CmsTheme::first()->ascent_text_color }}
+                      @else
+                        black
+                      @endif
+                      ;
+            ">
           <div class="mr-4">
             <i class="far fa-clock text-primary-rm mr-1"></i>
             <span class="mr-1">
