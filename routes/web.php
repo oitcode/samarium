@@ -103,6 +103,9 @@ Route::get('/dashboard/help', 'HelpController@index')->name('dashboard-help');
 /* Users */
 Route::get('/dashboard/users', 'UsersController@index')->name('dashboard-users');
 
+/* Contact form / message  */
+Route::get('/dashboard/contact-form', 'ContactFormController@index')->name('dashboard-contact-form');
+
 /*
  *-----------------------------------------------------------------------------
  * Website routes

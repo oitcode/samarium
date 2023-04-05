@@ -59,6 +59,7 @@ class PostList extends Component
 
         $this->deletingPost->delete();
 
+        $this->deletingPost = null; 
         $this->exitMode('delete');
     }
 }

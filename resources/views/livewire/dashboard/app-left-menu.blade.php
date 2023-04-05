@@ -131,6 +131,12 @@
           'btnText' => 'VAT',
         ])
       @endif
+
+      @include ('partials.dashboard.app-left-menu-button', [
+        'btnRoute' => 'dashboard-accounting',
+        'iconFaClass' => 'fas fa-book',
+        'btnText' => 'Accounting',
+      ])
     @endif
   @endif
 
@@ -236,6 +242,12 @@
   --}}
 
   @include ('partials.dashboard.app-left-menu-button', [
+    'btnRoute' => 'dashboard-contact-form',
+    'iconFaClass' => 'fas fa-comment',
+    'btnText' => 'Contact Messages',
+  ])
+
+  @include ('partials.dashboard.app-left-menu-button', [
     'btnRoute' => 'company',
     'iconFaClass' => 'fas fa-home',
     'btnText' => 'Company',
@@ -259,12 +271,6 @@
     'btnRoute' => 'dashboard-todo',
     'iconFaClass' => 'fas fa-tasks',
     'btnText' => 'Todo',
-  ])
-
-  @include ('partials.dashboard.app-left-menu-button', [
-    'btnRoute' => 'dashboard-accounting',
-    'iconFaClass' => 'fas fa-book',
-    'btnText' => 'Accounting',
   ])
 
   @include ('partials.dashboard.app-left-menu-button', [
