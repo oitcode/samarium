@@ -1,4 +1,4 @@
-<div class="p-3 border">
+<div class="p-3 border bg-white">
 
   <h2 class="h5 mb-4">
     Create user

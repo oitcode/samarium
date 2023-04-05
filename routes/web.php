@@ -100,6 +100,9 @@ Route::get('/dashboard/team', 'TeamController@index')->name('dashboard-team');
 /* Help */
 Route::get('/dashboard/help', 'HelpController@index')->name('dashboard-help');
 
+/* Users */
+Route::get('/dashboard/users', 'UsersController@index')->name('dashboard-users');
+
 /*
  *-----------------------------------------------------------------------------
  * Website routes
