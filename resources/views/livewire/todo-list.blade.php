@@ -33,13 +33,13 @@
             ID
           </th>
           <th class="d-none d-md-table-cell">
+            Title
+          </th>
+          <th class="d-none d-md-table-cell">
             Date
           </th>
           <th class="d-none d-md-table-cell">
             Time
-          </th>
-          <th class="d-none d-md-table-cell">
-            Title
           </th>
           <th>
             Status
@@ -56,14 +56,14 @@
             <td>
               {{ $todo->todo_id }}
             </td>
+            <td class="h5 font-weight-bold d-none d-md-table-cell">
+              {{ $todo->title }}
+            </td>
             <td class="d-none d-md-table-cell" style="font-size: 1rem;">
               {{ $todo->created_at->toDateString() }}
             </td>
             <td class="d-none d-md-table-cell">
               {{ $todo->created_at->format('g:i A') }}
-            </td>
-            <td class="d-none d-md-table-cell">
-              {{ $todo->title }}
             </td>
             <td>
               @if ($todo->status == 'pending')
