@@ -21,7 +21,7 @@ class GalleryImage extends Model
     protected $primaryKey = 'gallery_image_id';
 
     protected $fillable = [
-        'gallery_id', 'image_path', 'comment',
+        'gallery_id', 'position', 'image_path', 'comment',
     ];
 
 
@@ -38,6 +38,6 @@ class GalleryImage extends Model
      */
     public function gallery()
     {
-        return $this->belongsTo('App\GalleryImage', 'gallery_id', 'gallery_id');
+        return $this->belongsTo('App\Gallery', 'gallery_id', 'gallery_id');
     }
 }
