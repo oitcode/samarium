@@ -14,18 +14,34 @@
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
-      <label for="">Image</label>
-      @if (false)
-      @if ($company && $company->logo_image_path)
-        <div class="d-flex justify-content-start mb-3">
-          <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
-        </div>
-      @endif
-      @endif
-      <input type="file" class="form-control" wire:model="image">
-      @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+    <div>
+      Image
     </div>
+
+    <div class="my-4">
+      <div class="d-flex">
+        <div class="mr-3">
+          <button class="btn btn-primary" wire:click="enterMode('selectImageFromNewUploadMode')">
+            Upload
+          </button>
+        </div>
+        <div class="mr-3">
+          <button class="btn btn-success" wire:click="enterMode('selectImageFromLibraryMode')">
+            Media library
+          </button>
+        </div>
+      </div>
+    </div>
+
+    @if ($modes['selectImageFromNewUploadMode'])
+      <div class="form-group">
+        <label for="">Image</label>
+        <input type="file" class="form-control" wire:model="image">
+        @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+      </div>
+    @elseif ($modes['selectImageFromLibraryMode'])
+      @livewire ('cms.dashboard.media-select-image-component')
+    @endif
 
     <div class="form-group">
       <label for="">Post</label>

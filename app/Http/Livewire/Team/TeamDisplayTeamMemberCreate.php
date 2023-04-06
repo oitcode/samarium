@@ -5,11 +5,15 @@ namespace App\Http\Livewire\Team;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+use App\Traits\ModesTrait;
+
 use App\TeamMember;
+use App\GalleryImage;
 
 class TeamDisplayTeamMemberCreate extends Component
 {
     use WithFileUploads;
+    use ModesTrait;
 
     public $name;
     public $phone;
@@ -19,6 +23,18 @@ class TeamDisplayTeamMemberCreate extends Component
 
     public $team;
     public $position;
+
+    public $selectedMediaImage;
+
+    public $modes = [
+        'selectImageFromNewUploadMode' => false,
+        'selectImageFromLibraryMode' =>false,
+        'mediaFromLibrarySelected' => false,
+    ];
+
+    protected $listeners = [
+        'mediaImageSelected',
+    ];
 
     public function render()
     {
@@ -42,6 +58,10 @@ class TeamDisplayTeamMemberCreate extends Component
             $validatedData['image_path'] = $imagePath;
         }
 
+        if ($this->selectedMediaImage) {
+            $validatedData['image_path'] = $this->selectedMediaImage->image_path;
+        }
+
         /* Set the position in team */
         $maxPosition = $this->team->getMaxPosition();
         if ($maxPosition === null) {
@@ -53,5 +73,11 @@ class TeamDisplayTeamMemberCreate extends Component
         TeamMember::create($validatedData);
 
         $this->emit('teamMemberCreated');
+    }
+
+    public function mediaImageSelected(GalleryImage $galleryImage)
+    {
+        $this->selectedMediaImage = $galleryImage;
+        $this->enterModeSilent('mediaFromLibrarySelected');
     }
 }

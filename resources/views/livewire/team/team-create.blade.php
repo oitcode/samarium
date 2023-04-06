@@ -37,22 +37,20 @@
       Image
     </div>
 
-    @if (true)
-      <div class="my-4">
-        <div class="d-flex">
-          <div class="mr-3">
-            <button class="btn btn-primary" wire:click="enterMode('selectImageFromNewUploadMode')">
-              Upload
-            </button>
-          </div>
-          <div class="mr-3">
-            <button class="btn btn-success" wire:click="enterMode('selectImageFromLibraryMode')">
-              Media library
-            </button>
-          </div>
+    <div class="my-4">
+      <div class="d-flex">
+        <div class="mr-3">
+          <button class="btn btn-primary" wire:click="enterMode('selectImageFromNewUploadMode')">
+            Upload
+          </button>
+        </div>
+        <div class="mr-3">
+          <button class="btn btn-success" wire:click="enterMode('selectImageFromLibraryMode')">
+            Media library
+          </button>
         </div>
       </div>
-    @endif
+    </div>
 
     @if ($modes['selectImageFromNewUploadMode'])
       <div class="form-group">
