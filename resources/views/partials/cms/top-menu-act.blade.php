@@ -3,6 +3,14 @@
   {{-- Top menu buttons. --}}
 
   @if ($cmsNavMenu)
+
+    {{-- Home page --}}
+    @include ('partials.cms.top-menu-button', [
+      'btnRoute' => 'website-home',
+      'iconFaClass' => 'fas fa-building',
+      'btnText' => 'Home',
+    ])
+
     @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
       @if ($cmsNavMenuItem->type == 'item')
 

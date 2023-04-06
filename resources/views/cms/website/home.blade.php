@@ -41,6 +41,7 @@
   @endif
 @endif
 
+@if (false)
 {{-- Hero/Featured image --}}
 @if (\App\CmsTheme::first())
 <div class="container-fluid bg-light p-0 d-none d-md-block" 
@@ -58,6 +59,7 @@
   </div>
 </div>
 @endif
+@endif
 
 @if (preg_match("/bgc/i", env('MODULES')))
   @if (\App\Team::where('team_type', 'playing_team')->first())
@@ -67,6 +69,12 @@
   @endif
 @endif
 
+@if (\App\Webpage::where('name', 'Home')->where('visibility', 'public')->first())
+  @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Home')->where('visibility', 'public')->first(),])
+@else
+  @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Post')->where('visibility', 'public')->first(),])
+@endif
+
 <div>
   @if (true)
   @livewire ('cms.website.contact-component')
@@ -74,4 +82,3 @@
 </div>
 
 @endsection
-
