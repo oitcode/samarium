@@ -33,18 +33,38 @@
       @error ('comment') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="form-group">
-      <label for="">Image</label>
-      @if (false)
-      @if ($company && $company->logo_image_path)
-        <div class="d-flex justify-content-start mb-3">
-          <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
-        </div>
-      @endif
-      @endif
-      <input type="file" class="form-control" wire:model="image">
-      @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+    <div>
+      Image
     </div>
+
+    @if (true)
+      <div class="my-4">
+        <div class="d-flex">
+          <div class="mr-3">
+            <button class="btn btn-primary" wire:click="enterMode('selectImageFromNewUploadMode')">
+              Upload
+            </button>
+          </div>
+          <div class="mr-3">
+            <button class="btn btn-success" wire:click="enterMode('selectImageFromLibraryMode')">
+              Media library
+            </button>
+          </div>
+        </div>
+      </div>
+    @endif
+
+    @if ($modes['selectImageFromNewUploadMode'])
+      <div class="form-group">
+        <label for="">Image</label>
+        @if (true)
+          <input type="file" class="form-control" wire:model="image">
+          @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+        @endif
+      </div>
+    @elseif ($modes['selectImageFromLibraryMode'])
+      @livewire ('cms.dashboard.media-select-image-component')
+    @endif
 
     <div class="p-3 m-0">
       <button class="btn btn-lg badge-pill btn-success mr-3" wire:click="store">

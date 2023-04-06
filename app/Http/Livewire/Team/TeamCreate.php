@@ -5,16 +5,32 @@ namespace App\Http\Livewire\Team;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+use App\Traits\ModesTrait;
+
 use App\Team;
+use App\GalleryImage;
 
 class TeamCreate extends Component
 {
     use WithFileUploads;
+    use ModesTrait;
 
     public $name;
     public $comment;
     public $team_type;
     public $image;
+
+    public $selectedMediaImage;
+
+    public $modes = [
+        'selectImageFromNewUploadMode' => false,
+        'selectImageFromLibraryMode' =>false,
+        'mediaFromLibrarySelected' => false,
+    ];
+
+    protected $listeners = [
+        'mediaImageSelected',
+    ];
 
     public function render()
     {
@@ -35,8 +51,18 @@ class TeamCreate extends Component
             $validatedData['image_path'] = $imagePath;
         }
 
+        if ($this->selectedMediaImage) {
+            $validatedData['image_path'] = $this->selectedMediaImage->image_path;
+        }
+
         Team::create($validatedData);
 
         $this->emit('teamCreated');
+    }
+
+    public function mediaImageSelected(GalleryImage $galleryImage)
+    {
+        $this->selectedMediaImage = $galleryImage;
+        $this->enterModeSilent('mediaFromLibrarySelected');
     }
 }
