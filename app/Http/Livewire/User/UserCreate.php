@@ -37,8 +37,7 @@ class UserCreate extends Component
             'password_confirm' => 'required|same:password',
         ]);
 
-        // $validatedData['role'] = 'standard';
-        $validatedData['password'] = Hash::make('password');
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);
 
