@@ -235,12 +235,46 @@
       <div class="d-flex justify-content-start mb-3">
         <img src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}" class="img-fluid" style="height: 50px;">
       </div>
+      <div class="mx-4-rm">
+        <button class="btn btn-light" wire:click="enterMode('updateFeaturedImageMode')">
+          <i class="fas fa-pencil-alt mr-1"></i>
+          Change
+        </button>
+      </div>
     @endif
+    @if (false)
     <input type="file" class="form-control-rm" wire:model="hero_image">
     @error('hero_image')
       <span class="text-danger">{{ $message }}</span>
     @enderror
+    @endif
   </div>
+
+  @if ($modes['updateFeaturedImageMode'])
+    <div class="my-4">
+      <div class="d-flex">
+        <div class="mr-3">
+          <button class="btn btn-primary" wire:click="">
+            Upload
+          </button>
+        </div>
+        <div class="mr-3">
+          <button class="btn btn-success" wire:click="enterMode('updateFeaturedImageFromLibraryMode')">
+            Media library
+          </button>
+        </div>
+        <div class="mr-3">
+          <button class="btn btn-danger" wire:click="exitMode('updateFeaturedImageMode')">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  @endif
+
+  @if ($modes['updateFeaturedImageFromLibraryMode'])
+    @livewire ('cms.dashboard.media-select-image-component')
+  @endif
 
   <div class="my-3 mt-4">
     @if (\App\CmsTheme::first())

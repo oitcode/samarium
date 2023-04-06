@@ -14,6 +14,8 @@
             <th>ID</th>
             <th>Name</th>
             <th>Description</th>
+            <th>No of images</th>
+            <th>Space</th>
             @if (true)
             <th>Action</th>
             @endif
@@ -28,21 +30,34 @@
               {{ $gallery->gallery_id }}
             </td>
 
-            <td>
+            <td class="font-weight-bold">
+              <strong wire:click="$emit('displayGallery', {{ $gallery }})" role="button">
               {{ $gallery->name }}
+              </strong>
             </td>
 
             <td class="text-secondary">
               {{ $gallery->description }}
             </td>
 
+            <td class="text-secondary">
+              {{ count($gallery->galleryImages) }}
+            </td>
+
+            <td class="text-secondary">
+              --
+            </td>
+
             @if (true)
             <td>
+              @if (false)
               <span class="btn btn-tool btn-sm border rounded-circle mr-3" wire:click="$emit('updateGallery', {{ $gallery }})">
                 <i class="fas fa-pencil-alt text-primary"></i>
               </span>
-              <span class="btn btn-tool btn-sm border rounded-circle" wire:click="$emit('confirmDeleteGallery', {{ $gallery }})">
-                <i class="fas fa-trash text-danger"></i>
+              @endif
+              <span class="btn btn-tool btn-sm-rm text-danger" wire:click="$emit('confirmDeleteGallery', {{ $gallery }})">
+                <i class="fas fa-trash mr-1"></i>
+                Delete
               </span>
             </td>
             @endif

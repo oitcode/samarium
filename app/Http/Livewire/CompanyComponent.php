@@ -5,11 +5,15 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+use App\Traits\ModesTrait;
+
 use App\Company;
+use App\GalleryImage;
 
 class CompanyComponent extends Component
 {
     use WithFileUploads;
+    use ModesTrait;
 
     public $company = null;
 
@@ -26,6 +30,16 @@ class CompanyComponent extends Component
     public $insta_link;
     public $youtube_link;
     public $tiktok_link;
+
+    /* These are for logo image update (create?) from lobrary */
+    public $imageSelectedFromLibrary;
+
+    public $modes = [
+        'updateLogoImageMode' => false,
+        'updateLogoImageFromNewUploadMode' => false,
+        'updateLogoImageFromLibraryMode' => false,
+        'imageFromLibraryIsSelectedMode' => false,
+    ];
 
     public function render()
     {
@@ -105,5 +119,18 @@ class CompanyComponent extends Component
         session()->flash('message', 'Updated');
 
         $this->render();
+    }
+
+    public function selectImageFromLibrary(GalleryImage $galleryImage)
+    {
+        $this->imageSelectedFromLibrary = $galleryImage;
+        $this->enterModeSilent('imageFromLibraryIsSelectedMode');
+    }
+
+    public function updateLogoImageFromLibrary(GalleryImage $galleryImage)
+    {
+        $this->company->logo_image_path = $galleryImage->image_path;
+        $this->company->save();
+        $this->clearModes();
     }
 }

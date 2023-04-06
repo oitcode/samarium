@@ -1,12 +1,6 @@
 <div class="mb-4">
   <div class="" style="{{--font-size: 1.3rem;--}}">
 
-    @if (false)
-    <h1>
-      Company
-    </h1>
-    @endif
-
     {{-- Toolbar --}}
     <div class="mb-4">
       @if ($company)
@@ -55,12 +49,119 @@
       @endif
       @if ($company && $company->logo_image_path)
         <div class="d-flex justify-content-start mb-3">
-          <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
+          <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 75px;">
+        </div>
+        <div class="mx-4">
+          <button class="btn btn-light" wire:click="enterMode('updateLogoImageMode')">
+            <i class="fas fa-pencil-alt mr-1"></i>
+            Update
+          </button>
+        </div>
+      @else
+        <div>
+          <button class="btn">
+            Set
+          </button>
         </div>
       @endif
+      @if (false)
       <input type="file" class="form-control" wire:model="logo_image">
       @error('logo_image') <span class="text-danger">{{ $message }}</span> @enderror
+      @endif
     </div>
+
+    @if ($modes['updateLogoImageMode'])
+      <div class="my-4">
+        <div class="d-flex">
+          <div class="mr-3">
+            <button class="btn btn-primary" wire:click="enterMode('updateLogoImageFromNewUploadMode')">
+              Upload
+            </button>
+          </div>
+          <div class="mr-3">
+            <button class="btn btn-success" wire:click="enterMode('updateLogoImageFromLibraryMode')">
+              Media library
+            </button>
+          </div>
+          <div class="mr-3">
+            <button class="btn btn-danger" wire:click="exitMode('updateLogoImageMode')">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    @endif
+
+    @if ($modes['updateLogoImageFromNewUploadMode'])
+      <div class="my-4 p-3 bg-white border">
+        Upload new image
+        <div>
+          <input type="file" class="form-control" wire:model="logo_image">
+          @error('logo_image') <span class="text-danger">{{ $message }}</span> @enderror
+        </div>
+        <div>
+          <button class="btn btn-danger" wire:click="exitMode('updateLogoImageFromNewUploadMode')">
+            Cancel
+          </button>
+        </div>
+      </div>
+    @endif
+
+    @if ($modes['updateLogoImageFromLibraryMode'])
+      <div class="my-4 p-3 bg-white border">
+        Choose image from library
+        {{-- Show all images from library --}}
+        <div class="my-3">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="row">
+                @foreach (\App\GalleryImage::all() as $galleryImage)
+                  <div class="col-md-3 p-3">
+                    @if ($modes['imageFromLibraryIsSelectedMode'])
+                      @if ($imageSelectedFromLibrary->gallery_image_id == $galleryImage->gallery_image_id)
+                        <img src="{{ asset('storage/' . $galleryImage->image_path) }}"
+                            class="img-fluid border-rm shadow-lg"
+                            style="height: 100px; border: 5px solid green;"
+                            role="button"
+                            wire:click="selectImageFromLibrary({{ $galleryImage }})">
+                      @else
+                        <img src="{{ asset('storage/' . $galleryImage->image_path) }}"
+                            class="img-fluid"
+                            style="height: 100px;"
+                            role="button"
+                            wire:click="selectImageFromLibrary({{ $galleryImage }})">
+                      @endif
+                    @else
+                      <img src="{{ asset('storage/' . $galleryImage->image_path) }}"
+                          class="img-fluid"
+                          style="height: 100px;"
+                          role="button"
+                          wire:click="selectImageFromLibrary({{ $galleryImage }})">
+                    @endif
+                  </div>
+                @endforeach
+              </div>
+            </div>
+            <div class="col-md-4 border-left bg-light">
+              @if ($modes['imageFromLibraryIsSelectedMode'])
+                <div>
+                  <img src="{{ asset('storage/' . $imageSelectedFromLibrary->image_path) }}" class="img-fluid" style="{{-- height: 75px; --}}">
+                </div>
+              @endif
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button class="btn btn-success mr-3" wire:click="updateLogoImageFromLibrary({{ $imageSelectedFromLibrary }})">
+            Save
+          </button>
+          <button class="btn btn-danger mr-3" wire:click="exitMode('updateLogoImageFromLibraryMode')">
+            Cancel
+          </button>
+        </div>
+      </div>
+    @endif
 
     <div class="d-flex form-group">
       @if (true)

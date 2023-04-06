@@ -5,11 +5,15 @@ namespace App\Http\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+use App\Traits\ModesTrait;
+
 use App\CmsTheme;
+use App\GalleryImage;
 
 class ThemeComponent extends Component
 {
     use WithFileUploads;
+    use ModesTrait;
 
     public $name;
     public $ascent_bg_color;
@@ -22,6 +26,16 @@ class ThemeComponent extends Component
     public $footer_text_color;
     public $heading_color;
     public $hero_image;
+
+    public $modes = [
+        'updateFeaturedImageMode' => false,
+        'updateFeaturedImageFromLibraryMode' => false,
+        'mediaFromLibrarySelected' => false,
+    ];
+
+    protected $listeners = [
+        'mediaImageSelected',
+    ];
 
     public function render()
     {
@@ -90,10 +104,21 @@ class ThemeComponent extends Component
             $validatedData['hero_image_path'] = $heroImagePath;
         }
 
+        if ($this->selectedMediaImage) {
+            $validatedData['hero_image_path'] = $this->selectedMediaImage->image_path;
+        }
+
         $cmsTheme = CmsTheme::first();
 
         $cmsTheme->update($validatedData);
+        $this->clearModes();
 
         session()->flash('message', 'Theme updated');
+    }
+
+    public function mediaImageSelected(GalleryImage $galleryImage)
+    {
+        $this->selectedMediaImage = $galleryImage;
+        $this->enterModeSilent('mediaFromLibrarySelected');
     }
 }
