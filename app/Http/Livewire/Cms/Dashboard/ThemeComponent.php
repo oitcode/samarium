@@ -109,10 +109,9 @@ class ThemeComponent extends Component
         }
 
         $cmsTheme = CmsTheme::first();
-
         $cmsTheme->update($validatedData);
-        $this->clearModes();
 
+        $this->clearModes();
         session()->flash('message', 'Theme updated');
     }
 

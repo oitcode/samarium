@@ -32,13 +32,18 @@ class CompanyComponent extends Component
     public $tiktok_link;
 
     /* These are for logo image update (create?) from lobrary */
-    public $imageSelectedFromLibrary;
+    public $selectedMediaImage;
 
     public $modes = [
         'updateLogoImageMode' => false,
         'updateLogoImageFromNewUploadMode' => false,
         'updateLogoImageFromLibraryMode' => false,
         'imageFromLibraryIsSelectedMode' => false,
+        'mediaFromLibrarySelected' =>false,
+    ];
+
+    protected $listeners = [
+        'mediaImageSelected',
     ];
 
     public function render()
@@ -112,12 +117,16 @@ class CompanyComponent extends Component
             $validatedData['logo_image_path'] = $imagePath;
         }
 
-        $company = Company::first();
+        if ($this->selectedMediaImage) {
+            $validatedData['logo_image_path'] = $this->selectedMediaImage->image_path;
+        }
 
+        $company = Company::first(); 
         $company->update($validatedData);
 
-        session()->flash('message', 'Updated');
+        $this->clearModes();
 
+        session()->flash('message', 'Updated');
         $this->render();
     }
 
@@ -132,5 +141,11 @@ class CompanyComponent extends Component
         $this->company->logo_image_path = $galleryImage->image_path;
         $this->company->save();
         $this->clearModes();
+    }
+
+    public function mediaImageSelected(GalleryImage $galleryImage)
+    {
+        $this->selectedMediaImage = $galleryImage;
+        $this->enterModeSilent('mediaFromLibrarySelected');
     }
 }
