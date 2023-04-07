@@ -12,7 +12,7 @@ class UserComponent extends Component
 
     public $modes = [
         'createUserMode' => false,
-        'listUserMode' => false,
+        'listUserMode' => true,
     ];
 
     protected $listeners = [

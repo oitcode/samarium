@@ -34,7 +34,7 @@ class GalleryComponent extends Component
     public $modes = [
         'createMode' => false,
         'updateMode' => false,
-        'listMode' => false,
+        'listMode' => true,
         'displayMode' => false,
     ];
 

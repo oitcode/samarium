@@ -20,7 +20,7 @@ class TodoComponent extends Component
         'createMode' => false,
         'updateMode' => false,
         'deleteMode' => false,
-        'listMode' => false,
+        'listMode' => true,
         'displayMode' => false,
     ];
 

@@ -14,13 +14,13 @@ class TeamComponent extends Component
 
     public $modes = [
         'createMode' => false,
-        'listMode' => false,
+        'listMode' => true,
         'displayMode' => false,
     ];
 
     protected $listeners = [
         'exitCreateMode',
-        'teamCreated' => 'exitCreateMode',
+        'teamCreated',
 
         'displayTeam',
     ];
@@ -41,5 +41,11 @@ class TeamComponent extends Component
     {
         $this->displayingTeam = $team;
         $this->enterMode('displayMode');
+    }
+
+    public function teamCreated()
+    {
+        session()->flash('message', 'Team created');
+        $this->exitMode('createMode');
     }
 }
