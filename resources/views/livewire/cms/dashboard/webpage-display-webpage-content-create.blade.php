@@ -3,58 +3,71 @@
   <h2 class="h5">Create webpage content</h2>
   @endif
 
-  @if (false)
-  <div class="row">
 
-    <div class="col-md-2 mr-2 border p-3">
-      <div class="d-flex justify-content-center mb-3">
-        <i class="fas fa-heading"></i>
+  {{-- Show appropriate content adding component --}}
+  @if ($modes['headingMode'])
+    @livewire ('cms.dashboard.webpage-content-create-heading', ['webpage' => $webpage,])
+  @elseif ($modes['imageMode'])
+    @livewire ('cms.dashboard.webpage-content-create-image')
+  @elseif ($modes['paragraphMode'])
+    @livewire ('cms.dashboard.webpage-content-create-paragraph', ['webpage' => $webpage,])
+  @elseif ($modes['mediaAndTextMode'])
+    @livewire ('cms.dashboard.webpage-content-create-media-and-text', ['webpage' => $webpage,])
+  @else
+    @if (true)
+    <div class="row">
+
+      <div class="col-md-2 mr-2 border p-3" wire:click="enterMode('headingMode')" role="button">
+        <div class="d-flex justify-content-center mb-3">
+          <i class="fas fa-heading"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Heading
+        </div>
       </div>
-      <div class="d-flex justify-content-center">
-        Heading
+
+      <div class="col-md-2 mr-2 border p-3" wire:click="enterMode('paragraphMode')" role="button">
+        <div class="d-flex justify-content-center mb-3">
+          <i class="fas fa-paragraph"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Paragraph
+        </div>
       </div>
+
+      <div class="col-md-2 mr-2 border p-3" wire:click="enterMode('imageMode')" role="button">
+        <div class="d-flex justify-content-center mb-3">
+          <i class="fas fa-image"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Image
+        </div>
+      </div>
+
+      <div class="col-md-2 mr-2 border p-3" wire:click="enterMode('mediaAndTextMode')" role="button">
+        <div class="d-flex justify-content-center mb-3">
+          <i class="fas fa-object-group"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Media & Text 
+        </div>
+      </div>
+
+      <div class="col-md-2 mr-2 border p-3">
+        <div class="d-flex justify-content-center mb-3">
+          <i class="fas fa-list"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Post list
+        </div>
+      </div>
+
     </div>
-
-    <div class="col-md-2 mr-2 border p-3">
-      <div class="d-flex justify-content-center mb-3">
-        <i class="fas fa-paragraph"></i>
-      </div>
-      <div class="d-flex justify-content-center">
-        Paragraph
-      </div>
-    </div>
-
-    <div class="col-md-2 mr-2 border p-3">
-      <div class="d-flex justify-content-center mb-3">
-        <i class="fas fa-image"></i>
-      </div>
-      <div class="d-flex justify-content-center">
-        Image
-      </div>
-    </div>
-
-    <div class="col-md-2 mr-2 border p-3">
-      <div class="d-flex justify-content-center mb-3">
-        <i class="fas fa-object-group"></i>
-      </div>
-      <div class="d-flex justify-content-center">
-        Media & Text 
-      </div>
-    </div>
-
-    <div class="col-md-2 mr-2 border p-3">
-      <div class="d-flex justify-content-center mb-3">
-        <i class="fas fa-object-group"></i>
-      </div>
-      <div class="d-flex justify-content-center">
-        Post list
-      </div>
-    </div>
-
-  </div>
+    @endif
   @endif
 
-  @if (true)
+  {{-- Old generic editor --}} 
+  @if (false)
   <div class="form-group">
     <label for="">Title</label>
     <input type="text" class="form-control" wire:model.defer="title">

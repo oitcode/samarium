@@ -46,7 +46,40 @@
 
         <div class="">
           @if ($modes['createWebpageContent'])
-            @livewire ('cms.dashboard.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
+            @if (true)
+              @livewire ('cms.dashboard.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
+            @else
+            <div>
+
+              <div class="d-flex justify-content-between p-3">
+                <div>
+                  Summary
+                </div>
+                <div>
+                  <i class="fas fa-angle-down mr-3"></i>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between p-3">
+                <div>
+                  Category
+                </div>
+                <div>
+                  <i class="fas fa-angle-down mr-3"></i>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between p-3">
+                <div>
+                  Featured image
+                </div>
+                <div>
+                  <i class="fas fa-angle-down mr-3"></i>
+                </div>
+              </div>
+
+            </div>
+            @endif
           @else
             <div class="" style="">
               @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
@@ -59,38 +92,6 @@
     </div>
     <div class="col-md-4 border-left">
 
-      @if (false)
-      <div>
-
-        <div class="d-flex justify-content-between p-3">
-          <div>
-            Summary
-          </div>
-          <div>
-            <i class="fas fa-angle-down mr-3"></i>
-          </div>
-        </div>
-
-        <div class="d-flex justify-content-between p-3">
-          <div>
-            Category
-          </div>
-          <div>
-            <i class="fas fa-angle-down mr-3"></i>
-          </div>
-        </div>
-
-        <div class="d-flex justify-content-between p-3">
-          <div>
-            Featured image
-          </div>
-          <div>
-            <i class="fas fa-angle-down mr-3"></i>
-          </div>
-        </div>
-
-      </div>
-      @endif
 
       @if (true)
       {{-- Basic details --}}

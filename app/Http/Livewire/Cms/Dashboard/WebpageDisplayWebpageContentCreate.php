@@ -6,11 +6,14 @@ use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 
+use App\Traits\ModesTrait;
+
 use App\WebpageContent;
 
 class WebpageDisplayWebpageContentCreate extends Component
 {
     use WithFileUploads;
+    use ModesTrait;
 
     public $webpage;
 
@@ -20,6 +23,19 @@ class WebpageDisplayWebpageContentCreate extends Component
     /* public $value; */
     public $image;
     public $video_link;
+
+    public $modes = [
+        'headingMode' => false,
+        'imageMode' => false,
+        'paragraphMode' => false,
+        'mediaAndTextMode' => false,
+    ];
+
+    protected $listeners = [
+        'webpageContentCreateHeadingCompleted' => 'webpageContentCreatedCompleted',
+        'webpageContentCreateParagraphCompleted' => 'webpageContentCreatedCompleted',
+        'webpageContentCreateMediaAndTextCompleted' => 'webpageContentCreatedCompleted',
+    ];
 
     public function render()
     {
@@ -74,5 +90,10 @@ class WebpageDisplayWebpageContentCreate extends Component
     public function updatedValue($value)
     {
       /* dd ($value); */
+    }
+
+    public function webpageContentCreatedCompleted()
+    {
+        $this->emit('webpageContentAdded');
     }
 }
