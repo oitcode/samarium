@@ -33,6 +33,10 @@ class TodoList extends Component
 
     public $modes = [
         'confirmDeleteMode' => false,
+
+        'showOnlyPendingMode' => true,
+        'showOnlyDoneMode' => false,
+        'showAllMode' => false,
     ];
 
     protected $listeners = [
@@ -41,16 +45,21 @@ class TodoList extends Component
         'exitConfirmDelete',
     ];
 
-    public function mount()
+    public function render()
     {
-        $this->todos = Todo::orderBy('created_at', 'DESC')->get();
+        if ($this->modes['showAllMode']) {
+            $this->todos = Todo::orderBy('created_at', 'DESC')->get();
+        } else if ($this->modes['showOnlyPendingMode']) {
+            $this->todos = Todo::where('status', 'pending')->orderBy('created_at', 'DESC')->get();
+        } else if ($this->modes['showOnlyDoneMode']) {
+            $this->todos = Todo::where('status', 'done')->orderBy('created_at', 'DESC')->get();
+        } else {
+            dd ('Whoops');
+        }
 
         $this->todoCount = count($this->todos);
         $this->todoDisplayCount = $this->todoCount;;
-    }
 
-    public function render()
-    {
         return view('livewire.todo-list');
     }
 
