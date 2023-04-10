@@ -13,11 +13,13 @@
     @livewire ('cms.dashboard.webpage-content-create-paragraph', ['webpage' => $webpage,])
   @elseif ($modes['mediaAndTextMode'])
     @livewire ('cms.dashboard.webpage-content-create-media-and-text', ['webpage' => $webpage,])
+  @elseif ($modes['rowMode'])
+    @livewire ('cms.dashboard.webpage-content-create.row', ['webpage' => $webpage,])
   @else
     @if (true)
     <div class="row">
 
-      <div class="col-md-2 mr-2 border p-3" wire:click="enterMode('headingMode')" role="button">
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('headingMode')" role="button">
         <div class="d-flex justify-content-center mb-3">
           <i class="fas fa-heading"></i>
         </div>
@@ -26,7 +28,7 @@
         </div>
       </div>
 
-      <div class="col-md-2 mr-2 border p-3" wire:click="enterMode('paragraphMode')" role="button">
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('paragraphMode')" role="button">
         <div class="d-flex justify-content-center mb-3">
           <i class="fas fa-paragraph"></i>
         </div>
@@ -35,7 +37,7 @@
         </div>
       </div>
 
-      <div class="col-md-2 mr-2 border p-3" wire:click="enterMode('imageMode')" role="button">
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('imageMode')" role="button">
         <div class="d-flex justify-content-center mb-3">
           <i class="fas fa-image"></i>
         </div>
@@ -44,7 +46,7 @@
         </div>
       </div>
 
-      <div class="col-md-2 mr-2 border p-3" wire:click="enterMode('mediaAndTextMode')" role="button">
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('mediaAndTextMode')" role="button">
         <div class="d-flex justify-content-center mb-3">
           <i class="fas fa-object-group"></i>
         </div>
@@ -53,12 +55,61 @@
         </div>
       </div>
 
-      <div class="col-md-2 mr-2 border p-3">
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('mediaAndTextMode')" role="button">
+        <div class="d-flex justify-content-center mb-3">
+          <i class="fas fa-images"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Gallery
+        </div>
+      </div>
+
+
+    </div>
+    <div class="row">
+
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('rowMode')" role="button">
+        <div class="d-flex justify-content-center mb-3">
+          <i class="fas fa-columns"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Row
+        </div>
+      </div>
+
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('paragraphMode')" role="button">
+        <div class="d-flex justify-content-center mb-3">
+        <i class="far fa-window-minimize"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Divider
+        </div>
+      </div>
+
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('imageMode')" role="button">
+        <div class="d-flex justify-content-center mb-3">
+          <i class="far fa-square"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Spacing
+        </div>
+      </div>
+
+      <div class="col-md-2 mr-2-rm border p-3">
         <div class="d-flex justify-content-center mb-3">
           <i class="fas fa-list"></i>
         </div>
         <div class="d-flex justify-content-center">
           Post list
+        </div>
+      </div>
+
+      <div class="col-md-2 mr-2-rm border p-3">
+        <div class="d-flex justify-content-center mb-3">
+          <i class="fas fa-address-book"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Contact info
         </div>
       </div>
 

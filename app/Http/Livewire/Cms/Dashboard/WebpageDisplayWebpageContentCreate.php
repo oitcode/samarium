@@ -29,6 +29,8 @@ class WebpageDisplayWebpageContentCreate extends Component
         'imageMode' => false,
         'paragraphMode' => false,
         'mediaAndTextMode' => false,
+
+        'rowMode' => false,
     ];
 
     protected $listeners = [
