@@ -1,4 +1,5 @@
 <div class="bg-white border">
+
   @if (true)
   <div class="d-flex justify-content-between">
     <div class="pt-3 pl-3 border-rm">
@@ -14,68 +15,35 @@
   @endif
 
 
-
   {{-- First row --}}
   <div class="row pb-2" style="margin: auto;">
 
     <div class="col-md-4 p-2 m-0" role="button">
-      <a href="{{ route('dashboard-cms-post') }}">
-        <div class="d-flex flex-column-rm justify-content-between border" style="background-color: #eee;" >
-          <div class="p-3 bg-primary-rm text-white-rm flex-grow-1 d-flex-rm" style="color: #779;">
-            <i class="fas fa-edit fa-2x mr-2 mt-1"></i>
-
-            <div class="mt-3-rm h5">
-            Posts
-            </div>
-          </div>
-          <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
-            <div class="h3" style="color: #556;">
-              {{ $postCount }}
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    @if (true)
-    <div class="col-md-4 p-2 m-0" role="button">
-      <a href="{{ route('dashboard-cms-webpage') }}">
-        <div class="d-flex flex-column-rm justify-content-between border" style="background-color: #eee;">
-          <div class="p-3 bg-primary-rm text-white-rm flex-grow-1 d-flex-rm" style="color: #779;">
-            <i class="fas fa-clone fa-2x mr-2 mt-1"></i>
-
-            <div class="mt-3-rm h5">
-            Pages
-            </div>
-          </div>
-          <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
-            <div class="h3" style="color: #556;">
-              {{ $webpageCount }}
-            </div>
-          </div>
-        </div>
-      </a>
+      @include ('partials.misc.glance-card', [
+          'btnRoute' => 'dashboard-cms-post',
+          'iconFaClass' => 'fas fa-edit',
+          'btnTextPrimary' => 'Posts',
+          'btnTextSecondary' => $postCount,
+      ])
     </div>
 
     <div class="col-md-4 p-2 m-0" role="button">
-      <a href="{{ route('dashboard-cms-gallery') }}">
-        <div class="d-flex flex-column-rm justify-content-between border" style="background-color: #eee;">
-          <div class="p-3 bg-primary-rm text-white-rm flex-grow-1 d-flex-rm" style="color: #779;">
-            <i class="fas fa-image fa-2x mr-2 mt-1"></i>
-
-            <div class="mt-3-rm h5">
-            Gallery
-            </div>
-          </div>
-          <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
-            <div class="h3" style="color: #556;">
-              {{ $galleryCount }}
-            </div>
-          </div>
-        </div>
-      </a>
+      @include ('partials.misc.glance-card', [
+          'btnRoute' => 'dashboard-cms-webpage',
+          'iconFaClass' => 'fas fa-clone',
+          'btnTextPrimary' => 'Pages',
+          'btnTextSecondary' => $webpageCount,
+      ])
     </div>
-    @endif
+
+    <div class="col-md-4 p-2 m-0" role="button">
+      @include ('partials.misc.glance-card', [
+          'btnRoute' => 'dashboard-cms-gallery',
+          'iconFaClass' => 'fas fa-image',
+          'btnTextPrimary' => 'Gallery',
+          'btnTextSecondary' => $galleryCount,
+      ])
+    </div>
 
   </div>
 
@@ -84,77 +52,38 @@
   <div class="row pb-2" style="margin: auto;">
 
     <div class="col-md-4 p-2 m-0" role="button">
-      <a href="{{ route('dashboard-cms-nav-menu') }}">
-        <div class="d-flex flex-column-rm justify-content-between border" style="background-color: #eee;" >
-          <div class="p-3 bg-primary-rm text-white-rm flex-grow-1 d-flex-rm" style="color: #779;">
-            <i class="fas fa-link fa-2x mr-2 mt-1"></i>
-
-            <div class="mt-3-rm h5">
-            Nav menu
-            </div>
-          </div>
-          @if (false)
-          <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
-            <div class="h3" style="color: #556;">
-              {{ $postCount }}
-            </div>
-          </div>
-          @endif
-        </div>
-      </a>
-    </div>
-
-    @if (true)
-    <div class="col-md-4 p-2 m-0" role="button">
-      <a href="{{ route('dashboard-cms-theme') }}">
-        <div class="d-flex flex-column-rm justify-content-between border" style="background-color: #eee;">
-          <div class="p-3 bg-primary-rm text-white-rm flex-grow-1 d-flex-rm" style="color: #779;">
-            <i class="fas fa-palette fa-2x mr-2 mt-1"></i>
-
-            <div class="mt-3-rm h5">
-            Theme
-            </div>
-          </div>
-          @if (false)
-          <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
-            <div class="h3" style="color: #556;">
-              {{ $webpageCount }}
-            </div>
-          </div>
-          @endif
-        </div>
-      </a>
+      @include ('partials.misc.glance-card', [
+          'btnRoute' => 'dashboard-cms-nav-menu',
+          'iconFaClass' => 'fas fa-link',
+          'btnTextPrimary' => 'Nav menu',
+          'btnTextSecondary' => false,
+      ])
     </div>
 
     <div class="col-md-4 p-2 m-0" role="button">
-      <a href="{{ route('dashboard-quick-contacts') }}">
-        <div class="d-flex flex-column-rm justify-content-between border" style="background-color: #eee;">
-          <div class="p-3 bg-primary-rm text-white-rm flex-grow-1 d-flex-rm" style="color: #779;">
-            <i class="fas fa-users fa-2x mr-2 mt-1"></i>
-
-            <div class="mt-3-rm h5">
-            Quick Contacts
-            </div>
-          </div>
-          @if (false)
-          <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
-            <div class="h3" style="color: #556;">
-              {{ $galleryCount }}
-            </div>
-          </div>
-          @endif
-        </div>
-      </a>
+      @include ('partials.misc.glance-card', [
+          'btnRoute' => 'dashboard-cms-theme',
+          'iconFaClass' => 'fas fa-palette',
+          'btnTextPrimary' => 'Theme',
+          'btnTextSecondary' => false,
+      ])
     </div>
-    @endif
+
+    <div class="col-md-4 p-2 m-0" role="button">
+      @include ('partials.misc.glance-card', [
+          'btnRoute' => 'dashboard-quick-contacts',
+          'iconFaClass' => 'fas fa-users',
+          'btnTextPrimary' => 'Quick Contacts',
+          'btnTextSecondary' => false,
+      ])
+    </div>
 
   </div>
-
-
 
   @if (false)
   <div class="my-2 px-2 text-secondary">
     Powred by <a href="">Oztrich</a>
   </div>
   @endif
+
 </div>

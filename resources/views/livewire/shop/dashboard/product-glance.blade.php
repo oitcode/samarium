@@ -18,63 +18,35 @@
   @endif
 
 
-
   {{-- First row --}}
   <div class="row pb-2" style="margin: auto;">
 
     <div class="col-md-4 p-2 m-0" role="button">
-      <a href="{{ route('sale') }}">
-        <div class="d-flex flex-column-rm justify-content-between border" style="background-color: #eee;" >
-          <div class="p-3 bg-primary-rm text-white-rm flex-grow-1 d-flex-rm" style="color: #779;">
-            <i class="fas fa-dice-d6 fa-2x mr-2 mt-1"></i>
-
-            <div class="mt-3-rm h5">
-            Products
-            </div>
-          </div>
-          <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
-            <div class="h3" style="color: #556;">
-              {{ $productCount }}
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    @if (true)
-    <div class="col-md-4 p-2 m-0" role="button">
-      <a href="{{ route('dashboard-purchase') }}">
-        <div class="d-flex flex-column-rm justify-content-between border" style="background-color: #eee;">
-          <div class="p-3 bg-primary-rm text-white-rm flex-grow-1 d-flex-rm" style="color: #779;">
-            <i class="fas fa-list fa-2x mr-2 mt-1"></i>
-
-            <div class="mt-3-rm h5">
-            Categories
-            </div>
-          </div>
-          <div class="d-flex flex-column justify-content-center p-2 px-3" style="background-color: #ccd;">
-            <div class="h3" style="color: #556;">
-              {{ $productCategoryCount }}
-            </div>
-          </div>
-        </div>
-      </a>
+      @include ('partials.misc.glance-card', [
+          'btnRoute' => 'menu',
+          'iconFaClass' => 'fas fa-dice-d6',
+          'btnTextPrimary' => 'Products',
+          'btnTextSecondary' => $productCount,
+      ])
     </div>
 
     <div class="col-md-4 p-2 m-0" role="button">
-      <a href="{{ route('dashboard-expense') }}">
-        <div class="d-flex flex-column-rm justify-content-between border" style="background-color: #eee;">
-          <div class="p-3 bg-primary-rm text-white-rm flex-grow-1 d-flex-rm" style="color: #779;">
-            <i class="fas fa-dolly fa-2x mr-2 mt-1"></i>
-
-            <div class="mt-3-rm h5">
-            Inventory
-            </div>
-          </div>
-        </div>
-      </a>
+      @include ('partials.misc.glance-card', [
+          'btnRoute' => 'menu',
+          'iconFaClass' => 'fas fa-list',
+          'btnTextPrimary' => 'Categories',
+          'btnTextSecondary' => $productCategoryCount,
+      ])
     </div>
-    @endif
+
+    <div class="col-md-4 p-2 m-0" role="button">
+      @include ('partials.misc.glance-card', [
+          'btnRoute' => 'dashboard-inventory',
+          'iconFaClass' => 'fas fa-dolly',
+          'btnTextPrimary' => 'Inventory',
+          'btnTextSecondary' => false,
+      ])
+    </div>
 
   </div>
 
@@ -83,4 +55,5 @@
     Powred by <a href="">Oztrich</a>
   </div>
   @endif
+
 </div>
