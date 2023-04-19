@@ -82,7 +82,7 @@
                 </strong></i>
               </h2>
               <h2 class="h5 text-secondary-rm d-flex justify-content-center">
-                  v0.4.9
+                  v0.5.0
               </h2>
             </div>
           </div>
