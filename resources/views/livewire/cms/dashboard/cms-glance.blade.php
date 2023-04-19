@@ -152,7 +152,7 @@
 
 
 
-  @if (true)
+  @if (false)
   <div class="my-2 px-2 text-secondary">
     Powred by <a href="">Oztrich</a>
   </div>
