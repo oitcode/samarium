@@ -211,6 +211,46 @@
     @endif
   @endif
 
+
+  @if (preg_match("/school/i", env('MODULES')))
+
+    @if ($modes['school'])
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "exitMode('school')",
+          'btnIconFaClass' => 'fas fa-building',
+          'btnText' => 'School',
+          'btnCheckMode' => 'school',
+      ])
+    @else
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "enterModeSilent('school')",
+          'btnIconFaClass' => 'fas fa-building',
+          'btnText' => 'School',
+          'btnCheckMode' => 'school',
+      ])
+    @endif
+
+    @if ($modes['school'])
+
+      {{--
+      |
+      |
+      | School route buttons
+      |
+      |
+      --}}
+
+      @include ('partials.dashboard.app-left-menu-button', [
+        'btnRoute' => 'dashboard-school-calendar',
+        'iconFaClass' => 'fas fa-calendar',
+        'btnText' => 'Calendar',
+      ])
+
+    @endif
+
+  @endif
+
+
   @if ($modes['bgc'])
     {{--
     |

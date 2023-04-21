@@ -15,6 +15,7 @@ class AppLeftMenu extends Component
     public $modes = [
         'shop' => false,
         'cms' => false,
+        'school' => false,
         'bgc' => false,
     ];
 
@@ -47,6 +48,10 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/quick-contacts'
         ) {
             $this->enterModeSilent('cms');
+        } else if (
+            $uri == '/dashboard/school/calendar'
+        ) {
+            $this->enterModeSilent('school');
         }
     }
 
