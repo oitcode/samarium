@@ -18,11 +18,23 @@ class ContactMessageList extends Component
 
     public $modes = [
         'deleteContactMessageMode' => false,
+
+        'showOnlyNewMode' => true,
+        'showOnlyDoneMode' => false,
+        'showAllMode' => false,
     ];
 
     public function render()
     {
-        $this->contactMessages = ContactMessage::orderBy('contact_message_id', 'desc')->get();
+        if ($this->modes['showAllMode']) {
+            $this->contactMessages = ContactMessage::orderBy('contact_message_id', 'desc')->get();
+        } else if ($this->modes['showOnlyNewMode']) {
+            $this->contactMessages = ContactMessage::where('status', 'new')->orderBy('contact_message_id', 'desc')->get();
+        } else if ($this->modes['showOnlyDoneMode']) {
+            $this->contactMessages = ContactMessage::where('status', 'done')->orderBy('contact_message_id', 'desc')->get();
+        } else {
+            dd ('Whoops');
+        }
 
         return view('livewire.contact-form.dashboard.contact-message-list');
     }

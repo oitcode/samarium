@@ -31,6 +31,8 @@ class ContactComponent extends Component
             'message' => 'required',
         ]);
 
+        $validatedData['status'] = 'new';
+
         ContactMessage::create($validatedData);
 
         $this->resetInputFields();

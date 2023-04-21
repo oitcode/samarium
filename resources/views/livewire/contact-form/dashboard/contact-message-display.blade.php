@@ -99,15 +99,49 @@
         <div class="table-responsive border-rm">
           <table class="table border-bottom mb-0">
             <tbody>
-              <tr>
+              <tr wire:key="{{ rand() }}">
                 <th>
+                  @if (false)
                   <i class="fas fa-reply mr-1"></i>
+                  @endif
                   Status
                 </th>
                 <td>
-                  <span class="badge badge-danger badge-pill p-2">
-                    New
-                  </span>
+                  <div>
+                    @if ($modes['updateStatus'])
+                      <select class="custom-control w-75" wire:model.defer="contact_message_status">
+                        <option value="new">New</option>
+                        <option value="progress">Progress</option>
+                        <option value="done">Done</option>
+                      </select>
+                      <div class="my-3">
+                        <button class="btn btn-sm btn-success ml-2" wire:click="changeStatus">
+                          Save
+                        </button>
+                        <button class="btn btn-sm btn-danger ml-2" wire:click="exitMode('updateStatus')">
+                          Cancel
+                        </button>
+                      </div>
+                    @else
+                      <div role="button" wire:click="enterMode('updateStatus')">
+                        @if ($contactMessage->status == 'new')
+                          <span class="badge badge-danger badge-pill">
+                            New
+                          </span>
+                        @elseif ($contactMessage->status == 'progress')
+                          <span class="badge badge-warning badge-pill">
+                            Progress
+                          </span>
+                        @elseif ($contactMessage->status == 'done')
+                          <span class="badge badge-success badge-pill">
+                            Done
+                          </span>
+                        @else
+                          {{ $contactMessage->status }}
+                        @endif
+                      </div>
+                    @endif
+                  </div>
                 </td>
               </tr>
             </tbody>

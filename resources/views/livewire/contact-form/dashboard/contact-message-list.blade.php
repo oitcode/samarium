@@ -13,6 +13,61 @@
     </div>
   </button>
 
+  {{-- Filter div --}}
+  <div class="d-flex mb-3">
+    <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
+      <div>
+        <i class="fas fa-filter mr-1"></i>
+        Filter
+      </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
+      Status
+    </div>
+    @if (true)
+    <div class="dropdown">
+      <button class="btn
+          @if ($modes['showOnlyNewMode'])
+            btn-danger
+          @elseif ($modes['showOnlyDoneMode'])
+            btn-success
+          @elseif ($modes['showAllMode'])
+            btn-light
+          @endif
+          dropdown-toggle"
+          type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        @if ($modes['showOnlyNewMode'])
+          New
+        @elseif ($modes['showOnlyDoneMode'])
+          Done
+        @elseif ($modes['showAllMode'])
+          All
+        @else
+          Whoops
+        @endif
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
+        <button class="dropdown-item" wire:click="enterMode('showOnlyNewMode')">
+          New
+        </button>
+        <button class="dropdown-item" wire:click="enterMode('showOnlyDoneMode')">
+          Done
+        </button>
+        <button class="dropdown-item" wire:click="enterMode('showAllMode')">
+          All
+        </button>
+      </div>
+    </div>
+    @else
+    <div>
+      a<br/>
+      b<br/>
+      c<br/>
+      d<br/>
+    </div>
+    @endif
+  </div>
+
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
     @if ($contactMessages && count($contactMessages) > 0)
@@ -60,21 +115,21 @@
                 {{ $contactMessage->created_at->toDateString() }}
               </td>
               <td>
-                @if (false)
-                @if ($todo->status == 'pending')
+                @if (true)
+                @if ($contactMessage->status == 'new')
                   <span class="badge badge-pill badge-danger">
-                    Pending
+                    New
                   </span>
-                @elseif ($todo->status == 'progress')
+                @elseif ($contactMessage->status == 'progress')
                   <span class="badge badge-pill badge-warning">
                     Progress
                   </span>
-                @elseif ($todo->status == 'done')
+                @elseif ($contactMessage->status == 'done')
                   <span class="badge badge-pill badge-success">
                     Done
                   </span>
                 @else
-                  {{ $todo->status }}
+                  {{ $contactMessage->status }}
                 @endif
                 @endif
               </td>
