@@ -131,3 +131,7 @@ animation-play-state:paused;
         background-color: black;
     }
 }
+
+.o-darker {
+    background: rgba(0, 0, 0, 0.1)
+}
