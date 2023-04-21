@@ -20,7 +20,7 @@ class TodoCreate extends Component
     public function store()
     {
         $validatedData = $this->validate([
-            'title' => 'required',
+            'title' => 'required|string|max:254',
             'description' => 'string|max:254|nullable',
         ]);
 
