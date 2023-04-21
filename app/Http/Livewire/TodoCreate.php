@@ -21,7 +21,7 @@ class TodoCreate extends Component
     {
         $validatedData = $this->validate([
             'title' => 'required',
-            'description' => 'nullable',
+            'description' => 'string|max:254|nullable',
         ]);
 
         $validatedData['status'] = 'pending';
