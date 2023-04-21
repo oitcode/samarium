@@ -97,10 +97,6 @@
                 </div>
                 @endif
                 <div>
-                  <button class="btn" wire:click="">
-                    <i class="fas fa-file text-primary mr-1"></i>
-                    View
-                  </button>
                   <button class="btn" wire:click="deleteContactMessage({{ $contactMessage }})">
                     <i class="fas fa-trash text-danger mr-1"></i>
                     Delete
