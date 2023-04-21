@@ -4,7 +4,7 @@
   <div class="d-flex justify-content-between">
     <div class="pt-3 pl-3 border-rm">
       <h2 class="h6 font-weight-bold">
-        <i class="fas fa-book mr-1"></i>
+        <i class="fas fa-shopping-cart mr-1"></i>
         Shop
       </h2>
     </div>
@@ -29,6 +29,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-success',
           'btnRoute' => 'sale',
           'iconFaClass' => 'fas fa-dice-d6',
           'btnTextPrimary' => 'Sales',
@@ -38,6 +39,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-success',
           'btnRoute' => 'dashboard-purchase',
           'iconFaClass' => 'fas fa-shopping-cart',
           'btnTextPrimary' => 'Purchase',
@@ -47,6 +49,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-success',
           'btnRoute' => 'dashboard-expense',
           'iconFaClass' => 'fas fa-tools',
           'btnTextPrimary' => 'Expense',
@@ -62,6 +65,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-success',
           'btnRoute' => 'customer',
           'iconFaClass' => 'fas fa-users',
           'btnTextPrimary' => 'Customer',
@@ -71,6 +75,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-success',
           'btnRoute' => 'dashboard-vendor',
           'iconFaClass' => 'fas fa-users',
           'btnTextPrimary' => 'Vendor',
@@ -80,6 +85,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-success',
           'btnRoute' => 'dashboard-report',
           'iconFaClass' => 'fas fa-chart-line',
           'btnTextPrimary' => 'Report',

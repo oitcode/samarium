@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-between">
     <div class="pt-3 pl-3 border-rm">
       <h2 class="h6 font-weight-bold">
-        <i class="fas fa-book mr-1"></i>
+        <i class="fas fa-dice-d6 mr-1"></i>
         Products
       </h2>
     </div>
@@ -23,6 +23,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-danger',
           'btnRoute' => 'menu',
           'iconFaClass' => 'fas fa-dice-d6',
           'btnTextPrimary' => 'Products',
@@ -32,6 +33,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-danger',
           'btnRoute' => 'menu',
           'iconFaClass' => 'fas fa-list',
           'btnTextPrimary' => 'Categories',
@@ -41,6 +43,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-danger',
           'btnRoute' => 'dashboard-inventory',
           'iconFaClass' => 'fas fa-dolly',
           'btnTextPrimary' => 'Inventory',

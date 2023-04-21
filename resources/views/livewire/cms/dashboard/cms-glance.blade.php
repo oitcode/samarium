@@ -20,6 +20,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-primary',
           'btnRoute' => 'dashboard-cms-post',
           'iconFaClass' => 'fas fa-edit',
           'btnTextPrimary' => 'Posts',
@@ -29,6 +30,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-primary',
           'btnRoute' => 'dashboard-cms-webpage',
           'iconFaClass' => 'fas fa-clone',
           'btnTextPrimary' => 'Pages',
@@ -38,6 +40,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-primary',
           'btnRoute' => 'dashboard-cms-gallery',
           'iconFaClass' => 'fas fa-image',
           'btnTextPrimary' => 'Gallery',
@@ -53,6 +56,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-primary',
           'btnRoute' => 'dashboard-cms-nav-menu',
           'iconFaClass' => 'fas fa-link',
           'btnTextPrimary' => 'Nav menu',
@@ -62,6 +66,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-primary',
           'btnRoute' => 'dashboard-cms-theme',
           'iconFaClass' => 'fas fa-palette',
           'btnTextPrimary' => 'Theme',
@@ -71,6 +76,7 @@
 
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
+          'bsBgClass' => 'bg-primary',
           'btnRoute' => 'dashboard-quick-contacts',
           'iconFaClass' => 'fas fa-users',
           'btnTextPrimary' => 'Quick Contacts',
