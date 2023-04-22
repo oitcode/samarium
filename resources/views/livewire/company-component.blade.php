@@ -59,7 +59,7 @@
         </div>
       @else
         <div>
-          <button class="btn">
+          <button class="btn btn-light" wire:click="enterMode('updateLogoImageMode')">
             Set
           </button>
         </div>
