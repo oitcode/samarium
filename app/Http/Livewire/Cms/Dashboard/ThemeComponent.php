@@ -27,8 +27,12 @@ class ThemeComponent extends Component
     public $heading_color;
     public $hero_image;
 
+    /* These are for logo image update (create?) from library */
+    public $selectedMediaImage;
+
     public $modes = [
         'updateFeaturedImageMode' => false,
+        'updateFeaturedImageFromNewUploadMode' => false,
         'updateFeaturedImageFromLibraryMode' => false,
         'mediaFromLibrarySelected' => false,
     ];

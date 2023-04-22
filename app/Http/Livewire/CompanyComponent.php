@@ -31,7 +31,7 @@ class CompanyComponent extends Component
     public $youtube_link;
     public $tiktok_link;
 
-    /* These are for logo image update (create?) from lobrary */
+    /* These are for logo image update (create?) from library */
     public $selectedMediaImage;
 
     public $modes = [

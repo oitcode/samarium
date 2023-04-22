@@ -241,7 +241,13 @@
           Change
         </button>
       </div>
+    @else
+      <button class="btn btn-light" wire:click="enterMode('updateFeaturedImageMode')">
+        <i class="fas fa-pencil-alt mr-1"></i>
+        Set
+      </button>
     @endif
+
     @if (false)
     <input type="file" class="form-control-rm" wire:model="hero_image">
     @error('hero_image')
@@ -254,7 +260,7 @@
     <div class="my-4">
       <div class="d-flex">
         <div class="mr-3">
-          <button class="btn btn-primary" wire:click="">
+          <button class="btn btn-primary" wire:click="enterMode('updateFeaturedImageFromNewUploadMode')">
             Upload
           </button>
         </div>
@@ -268,6 +274,21 @@
             Cancel
           </button>
         </div>
+      </div>
+    </div>
+  @endif
+
+  @if ($modes['updateFeaturedImageFromNewUploadMode'])
+    <div class="my-4 p-3 bg-white border">
+      Upload new image
+      <div>
+        <input type="file" class="form-control" wire:model="hero_image">
+        @error('hero_image') <span class="text-danger">{{ $message }}</span> @enderror
+      </div>
+      <div>
+        <button class="btn btn-danger" wire:click="exitMode('updateFeaturedImageFromNewUploadMode')">
+          Cancel
+        </button>
       </div>
     </div>
   @endif
