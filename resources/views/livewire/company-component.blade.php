@@ -40,7 +40,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <h2 class="h5 text-secondary mb-3">
+        <h2 class="h5 mb-3">
           Basic Info
         </h2>
 
@@ -182,7 +182,7 @@
         </div>
 
 
-        <h2 class="h5 text-secondary mt-4 mb-3">
+        <h2 class="h5 mt-4 mb-3">
           Social Media Links
         </h2>
 
@@ -260,21 +260,17 @@
         --}}
         @if ($company)
           <div>
-            <h2 class="h4 mb-3">
-              Company info
+            <h2 class="h5 mb-3">
+              Additional Info
             </h2>
 
             {{-- Show additional company info --}}
             @if (count($company->companyInfos) > 0)
               @foreach ($company->companyInfos as $companyInfo)
-                <div class="d-flex">
-                  <div class="mr-3 font-weight-bold">
-                    {{ $companyInfo->info_key }}
-                  </div>
-                  <div>
-                    {{ $companyInfo->info_value }}
-                  </div>
-                </div>
+                @livewire ('company.dashboard.company-info-display',
+                    ['companyInfo' => $companyInfo,],
+                    key('company-info-' . $companyInfo->company_info_id)
+                )
               @endforeach
             @else
               <div>
