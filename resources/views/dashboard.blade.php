@@ -27,8 +27,13 @@
     <div class="col-md-6">
       @if (preg_match("/cms/i", env('MODULES')))
         {{-- CMS glance --}}
-        @livewire ('cms.dashboard.cms-glance')
+        <div class="mb-4">
+          @livewire ('cms.dashboard.cms-glance')
+        </div>
       @endif
+
+      {{-- Package welcome --}}
+      @livewire ('lv-package-welcome')
     </div>
 
     <div class="col-md-6">
