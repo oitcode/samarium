@@ -40,10 +40,15 @@ class CompanyComponent extends Component
         'updateLogoImageFromLibraryMode' => false,
         'imageFromLibraryIsSelectedMode' => false,
         'mediaFromLibrarySelected' =>false,
+
+        'companyInfoCreateMode' => false,
     ];
 
     protected $listeners = [
         'mediaImageSelected',
+
+        'companyInfoCreateCompleted',
+        'companyInfoCreateCanceled',
     ];
 
     public function render()
@@ -147,5 +152,15 @@ class CompanyComponent extends Component
     {
         $this->selectedMediaImage = $galleryImage;
         $this->enterModeSilent('mediaFromLibrarySelected');
+    }
+
+    public function companyInfoCreateCompleted()
+    {
+        $this->exitMode('companyInfoCreateMode');
+    }
+
+    public function companyInfoCreateCanceled()
+    {
+        $this->exitMode('companyInfoCreateMode');
     }
 }

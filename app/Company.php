@@ -29,4 +29,20 @@ class Company extends Model
          'insta_link', 'youtube_link',
          'tiktok_link',
     ];
+
+
+    /*-------------------------------------------------------------------------
+     * Relationships
+     *-------------------------------------------------------------------------
+     *
+     */
+
+    /*
+     * company_info table.
+     *
+     */
+    public function companyInfos()
+    {
+        return $this->hasMany('App\CompanyInfo', 'company_id', 'company_id');
+    }
 }

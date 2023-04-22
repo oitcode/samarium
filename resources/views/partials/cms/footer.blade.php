@@ -31,6 +31,34 @@
           {{ $company->address }}
         </div>
       </div>
+
+      <div class="d-flex my-1" style="font-size: 1rem;">
+        <div class="mr-3">
+          <i class="fas fa-angle-right mr-3"></i>
+          PAN No
+        </div>
+        <div>
+          {{ $company->pan_number }}
+        </div>
+      </div>
+
+      {{-- Show additional company info if any --}}
+      @if (count($company->companyInfos) > 0)
+        <div class="mb-4" style="font-size: 1rem;">
+          @foreach ($company->companyInfos as $companyInfo)
+            <div class="d-flex">
+              <div class="mr-3">
+                <i class="fas fa-angle-right mr-3"></i>
+                {{ $companyInfo->info_key }}
+              </div>
+              <div>
+                {{ $companyInfo->info_value }}
+              </div>
+            </div>
+          @endforeach
+        </div>
+      @endif
+
       <div>
         @if ($company->fb_link)
           <a href="{{ $company->fb_link }}" target="_blank">
