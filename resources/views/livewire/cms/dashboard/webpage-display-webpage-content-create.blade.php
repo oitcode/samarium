@@ -4,6 +4,7 @@
   @endif
 
 
+  @if (false)
   {{-- Show appropriate content adding component --}}
   @if ($modes['headingMode'])
     @livewire ('cms.dashboard.webpage-content-create-heading', ['webpage' => $webpage,])
@@ -116,9 +117,10 @@
     </div>
     @endif
   @endif
+  @endif
 
   {{-- Old generic editor --}} 
-  @if (false)
+  @if (true)
   <div class="form-group">
     <label for="">Title</label>
     <input type="text" class="form-control" wire:model.defer="title">
