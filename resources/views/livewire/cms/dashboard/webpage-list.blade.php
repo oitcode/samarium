@@ -135,6 +135,6 @@
       {{ $webpages->links() }}
     </div>
   @else
-    No posts
+    No webpages
   @endif
 </div>
