@@ -20,6 +20,18 @@ class WebpageContent extends Model
      */
     protected $primaryKey = 'webpage_content_id';
 
+    /**
+     * All of the relationships to be touched.
+     *
+     * @var array
+     */
+    protected $touches = ['webpage'];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
          'webpage_id', 'position', 'title', 'body', 'image_path', 'video_link',
     ];
@@ -32,7 +44,7 @@ class WebpageContent extends Model
      */
 
     /*
-     * webpage_content table.
+     * webpage table.
      *
      */
     public function webpage()

@@ -30,6 +30,7 @@ class WebpageDisplay extends Component
         'exitCreateWebpageContent',
         'webpageContentDeleted' => 'render',
         'webpageContentPositionChanged' => 'render',
+        'webpageContentUpdated' => 'render',
 
         /* */
         'webpageEditVisibilityCancel',
