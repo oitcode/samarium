@@ -68,10 +68,6 @@
     {{-- User related. Is placed on top right part. --}}
     @include ('partials.dashboard.app-top-menu-user-dropdown')
 
-    @if (env('SITE_TYPE') == 'school')
-      @include ('partials.dashboard.app-top-menu-school-dropdown')
-    @endif
-
     @if (false)
       @if (preg_match("/cms/i", env('MODULES')))
         {{-- Todo: This could be moved somewhere else --}}
