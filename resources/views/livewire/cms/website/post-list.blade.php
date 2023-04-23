@@ -15,8 +15,10 @@
             <div class="mr-5">
               <i class="far fa-clock mr-2"></i>
               {{ $post->created_at->toDateString() }}
+              @if (true)
               |
-              {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($post->created_at->toDateString(), 'nepali')  }}
+              {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($post->created_at->toDateString(), 'english')  }}
+              @endif
             </div>
             <div>
               @foreach ($post->webpageCategories as $category)
