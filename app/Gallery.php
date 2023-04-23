@@ -64,6 +64,13 @@ class Gallery extends Model
         return $this->humanFileSize($total);
     }
 
+    public function getHighestPosition()
+    {
+        $lastImage = $this->galleryImages()->orderBy('position', 'desc')->first();
+
+        return $lastImage->position;
+    }
+
     /*
      * Get file size in human readable format.
      *

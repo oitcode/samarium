@@ -16,11 +16,15 @@ class GalleryDisplay extends Component
 
     public $modes = [
         'updateGalleryNameMode' => false,
+        'addGalleryImagesMode' => false,
     ];
 
     protected $listeners = [
         'updateGalleryNameCancel',
         'updateGalleryNameCompleted',
+
+        'galleryImagesAdded',
+        'addGalleryImagesCancelled',
     ];
 
     public function render()
@@ -96,5 +100,15 @@ class GalleryDisplay extends Component
             ->first();
 
         return $nextItem;
+    }
+
+    public function galleryImagesAdded()
+    {
+        $this->exitMode('addGalleryImagesMode');
+    }
+
+    public function addGalleryImagesCancelled()
+    {
+        $this->exitMode('addGalleryImagesMode');
     }
 }
