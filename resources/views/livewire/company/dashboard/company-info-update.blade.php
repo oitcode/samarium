@@ -1,16 +1,25 @@
-<div>
-  <div class="mr-3 font-weight-bold">
-    <input type="text" wire:model.defer="info_key">
+<div class="bg-white border p-3">
+  <div class="mb-3 font-weight-bold">
+    Edit company info
   </div>
-  <div>
-    <input type="text" wire:model.defer="info_value">
+  <div class="form-group">
+    <label class="font-weight-bold">
+      Key
+    </label>
+    <input type="text" class="form-control" wire:model.defer="info_key">
+  </div>
+  <div class="form-group">
+    <label class="font-weight-bold">
+      Value
+    </label>
+    <input type="text" class="form-control" wire:model.defer="info_value">
   </div>
 
-  <div>
-    <button class="btn btn-success mr-3" wire:click="update">
+  <div class="p-3-rm">
+    <button class="btn btn-success mr-2" wire:click="update">
       Save
     </button>
-    <button class="btn btn-danger mr-3" wire:click="$emit('companyInfoUpdateCancelled')">
+    <button class="btn btn-danger" wire:click="$emit('companyInfoUpdateCancelled')">
       Cancel
     </button>
   </div>

@@ -11,7 +11,7 @@
         <button class="btn ml-3 mr-1" wire:click="enterMode('editMode')">
           <i class="fas fa-pencil-alt"></i>
         </button>
-        <button class="btn mr-1">
+        <button class="btn mr-1" wire:click="deleteCompanyInfo({{ $companyInfo }})">
           <i class="fas fa-trash"></i>
         </button>
       </div>

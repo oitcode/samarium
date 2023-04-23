@@ -6,6 +6,8 @@ use Livewire\Component;
 
 use App\Traits\ModesTrait;
 
+use App\CompanyInfo;
+
 class CompanyInfoDisplay extends Component
 {
     use ModesTrait;
@@ -34,5 +36,11 @@ class CompanyInfoDisplay extends Component
     public function companyInfoUpdateCompleted()
     {
         $this->exitMode('editMode');
+    }
+
+    public function deleteCompanyInfo(CompanyInfo $companyInfo)
+    {
+        $companyInfo->delete();
+        $this->emit('companyInfoDeleted');
     }
 }

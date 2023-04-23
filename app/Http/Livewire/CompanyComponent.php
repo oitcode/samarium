@@ -49,6 +49,8 @@ class CompanyComponent extends Component
 
         'companyInfoCreateCompleted',
         'companyInfoCreateCanceled',
+
+        'companyInfoDeleted' => 'render',
     ];
 
     public function render()
