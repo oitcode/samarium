@@ -6,18 +6,25 @@ use Livewire\Component;
 
 use App\Traits\ModesTrait;
 
+use App\User;
+
 class UserComponent extends Component
 {
     use ModesTrait;
 
+    public $displayingUser;
+
     public $modes = [
         'createUserMode' => false,
         'listUserMode' => true,
+        'displayUserMode' => false,
     ];
 
     protected $listeners = [
         'exitCreateUserMode',
         'userCreated',
+
+        'displayUser',
     ];
 
     public function render()
@@ -33,5 +40,11 @@ class UserComponent extends Component
     public function exitCreateUserMode()
     {
         $this->exitMode('createUserMode');
+    }
+
+    public function displayUser(User $user)
+    {
+        $this->displayingUser = $user;
+        $this->enterMode('displayUserMode');
     }
 }

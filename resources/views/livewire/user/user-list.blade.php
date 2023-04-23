@@ -22,10 +22,8 @@
               {{ $user->id }}
             </td>
 
-            <td class="font-weight-bold">
-              <a class="text-dark" href="" wire:click.prevent="">
-                {{ $user->name }}
-              </a>
+            <td class="font-weight-bold" wire:click="$emit('displayUser', {{ $user }})" role="button">
+              {{ $user->name }}
             </td>
 
             <td>
@@ -36,14 +34,21 @@
               {{ $user->role }}
             </td>
 
-  
             <td>
-              <span class="btn btn-tool btn-sm mr-2" wire:click="$emit('enterUpdateMode', {{ $user }})">
-                <i class="fas fa-pencil-alt text-primary"></i>
+              <span class="btn btn-tool text-danger btn-sm" wire:click="deleteUser({{ $user }})">
+                <i class="fas fa-trash mr-1"></i>
+                Delete
               </span>
-              <span class="btn btn-tool btn-sm" wire:click="$emit('confirmDeleteUser', {{ $user }})">
-                <i class="fas fa-trash text-danger"></i>
-              </span>
+              @if ($modes['delete'])
+                @if ($deletingUser->id == $user->id)
+                  <span class="btn btn-danger mr-3" wire:click="confirmDeleteUser">
+                    Confirm delete
+                  </span>
+                  <span class="btn btn-light mr-3" wire:click="deleteUserCancel">
+                    Cancel
+                  </span>
+                @endif
+              @endif
             </td>
           </tr>
           @endforeach
