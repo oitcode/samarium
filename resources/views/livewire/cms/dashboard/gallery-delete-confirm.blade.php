@@ -17,7 +17,7 @@
                 <div class="row text-muted">
                   <div class="col">
                     <strong>
-                      Extra Curricular ID
+                      Gallery ID
                     </strong>
                     <br />
                     {{ $deletingGallery->gallery_id }}
