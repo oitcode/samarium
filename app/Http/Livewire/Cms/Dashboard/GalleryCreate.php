@@ -40,6 +40,7 @@ class GalleryCreate extends Component
         try {
             $gallery = Gallery::create($validatedData);
 
+            $i = 0;
             foreach ($this->images as $image) {
                 $imagePath = $image->store('gallery_image', 'public');
 
@@ -47,14 +48,16 @@ class GalleryCreate extends Component
 
                 $galleryImage->gallery_id = $gallery->gallery_id;
                 $galleryImage->image_path = $imagePath;
+                $galleryImage->position = $i;
 
                 $galleryImage->save();
+
+                $i++;
             }
 
             DB::commit();
 
             /* Todo: Should this is outside the try block? */
-            /* dd ('OLAJkA'); */
             $this->emit('galleryAdded');
         } catch (\Exception $e) {
             DB::rollback();

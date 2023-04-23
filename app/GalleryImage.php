@@ -40,4 +40,23 @@ class GalleryImage extends Model
     {
         return $this->belongsTo('App\Gallery', 'gallery_id', 'gallery_id');
     }
+
+
+    /*-------------------------------------------------------------------------
+     * Methods
+     *-------------------------------------------------------------------------
+     *
+     */
+
+
+    /*
+     * Total space occupied by the gallery image.
+     *
+     */
+    public function totalDiskSpaceOccupied()
+    {
+        $imagePath = 'storage/' . $this->image_path;
+
+        return filesize($imagePath);
+    }
 }

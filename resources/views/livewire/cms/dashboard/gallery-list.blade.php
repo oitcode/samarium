@@ -45,7 +45,7 @@
             </td>
 
             <td class="text-secondary">
-              --
+              {{ $gallery->totalDiskSpaceOccupied() }}
             </td>
 
             @if (true)
