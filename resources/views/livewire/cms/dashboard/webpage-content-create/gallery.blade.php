@@ -1,8 +1,7 @@
 <div>
-  <div class="form-group">
-    <label>Heading</label>
-    <input type="text" class="form-control" wire:model="heading">
-  </div>
+  <h2 class="h4 mb-3">
+    Gallery
+  </h2>
 
   <div class="">
     <button class="btn btn-success" wire:click="store">

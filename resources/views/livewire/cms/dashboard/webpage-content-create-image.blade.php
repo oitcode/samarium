@@ -1,7 +1,16 @@
 <div>
-    Create image
+  <div class="form-group">
+    <label for="">Image</label>
+    <input type="file" class="form-control" wire:model="image">
+    @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+  </div>
 
-    <button class="btn btn-success">
+  <div class="">
+    <button class="btn btn-success" wire:click="store">
       Save
     </button>
+    <button class="btn btn-danger" wire:click="">
+      Cancel
+    </button>
+  </div>
 </div>

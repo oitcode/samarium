@@ -29,6 +29,7 @@ class WebpageDisplayWebpageContentCreate extends Component
         'imageMode' => false,
         'paragraphMode' => false,
         'mediaAndTextMode' => false,
+        'galleryMode' => false,
 
         'rowMode' => false,
     ];

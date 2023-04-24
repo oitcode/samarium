@@ -4,7 +4,7 @@
   @endif
 
 
-  @if (false)
+  @if (true)
   {{-- Show appropriate content adding component --}}
   @if ($modes['headingMode'])
     @livewire ('cms.dashboard.webpage-content-create-heading', ['webpage' => $webpage,])
@@ -14,6 +14,8 @@
     @livewire ('cms.dashboard.webpage-content-create-paragraph', ['webpage' => $webpage,])
   @elseif ($modes['mediaAndTextMode'])
     @livewire ('cms.dashboard.webpage-content-create-media-and-text', ['webpage' => $webpage,])
+  @elseif ($modes['galleryMode'])
+    @livewire ('cms.dashboard.webpage-content-create.gallery', ['webpage' => $webpage,])
   @elseif ($modes['rowMode'])
     @livewire ('cms.dashboard.webpage-content-create.row', ['webpage' => $webpage,])
   @else
@@ -56,7 +58,7 @@
         </div>
       </div>
 
-      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('mediaAndTextMode')" role="button">
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('galleryMode')" role="button">
         <div class="d-flex justify-content-center mb-3">
           <i class="fas fa-images"></i>
         </div>
@@ -120,7 +122,7 @@
   @endif
 
   {{-- Old generic editor --}} 
-  @if (true)
+  @if (false)
   <div class="form-group">
     <label for="">Title</label>
     <input type="text" class="form-control" wire:model.defer="title">
