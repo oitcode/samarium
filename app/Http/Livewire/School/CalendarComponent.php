@@ -7,6 +7,8 @@ use Carbon\Carbon;
 
 use App\Traits\ModesTrait;
 
+use App\SchoolCalendarEvent;
+
 
 class CalendarComponent extends Component
 {
@@ -89,6 +91,8 @@ class CalendarComponent extends Component
         for ($i = 0; ; $i++) {
             $this->monthBook[] = [
                 'day' => $day->copy(),
+                'is_holiday' => $this->checkIfDayIsHoliday($day->copy()),
+                'events' => $this->getEventsForTheDay($day->copy()),
             ];
 
             $day = $day->addDay();
@@ -116,4 +120,26 @@ class CalendarComponent extends Component
         $this->enterMode('eventCreate');
     }
 
+    public function checkIfDayIsHoliday($day)
+    {
+        $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
+            ->whereDate('end_date', '>=', $day->toDateString())
+            ->where('is_holiday', 'yes')
+            ->get();
+
+        if (count($events)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getEventsForTheDay($day)
+    {
+        $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
+            ->whereDate('end_date', '>=', $day->toDateString())
+            ->get();
+
+        return $events;
+    }
 }

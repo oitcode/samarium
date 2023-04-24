@@ -48,7 +48,12 @@
           </thead>
           <tbody>
             @foreach ($monthBook as $day)
-              <tr class="@if ($day['day']->format('l') == 'Saturday') text-danger @endif">
+              <tr
+                  class="
+                      @if ($day['day']->format('l') == 'Saturday') table-danger @endif
+                      @if ($day['is_holiday']) table-danger @endif
+                  "
+              >
                 <td>
                   <span class="mr-3">
                     {{ $displayMonthName }}
@@ -62,11 +67,20 @@
                   {{ $day['day']->format('l') }}
                 </td>
                 <td>
+                  @if ($day['day']->format('l') == 'Saturday')
+                    <span class="">
+                      Holiday
+                    </span>
+                    <br />
+                  @endif
+                  @foreach ($day['events'] as $event)
+                    <span class="">
+                      {{ $event->title }}
+                    </span>
+                    <br />
+                  @endforeach
                 </td>
                 <td>
-                  <button class="btn btn-danger badge-pill">
-                    Mark as holiday
-                  </button>
                   <button class="btn btn-primary badge-pill"
                       wire:click="addEventForADate({{ json_encode($day['day']->toDateString()) }})">
                     Add event
@@ -84,8 +98,3 @@
   @endif
 
 </div>
-
-
-
-
-
