@@ -38,7 +38,7 @@
 
   <div class="border bg-white p-0">
     @if ($displayMonthName)
-      <h3 class="h5 mr-4 text-center my-4">
+      <h3 class="h5 text-center py-4 bg-primary text-white mb-0">
         <span class="mr-2">
           2080
         </span>
@@ -47,9 +47,9 @@
       <div class="table-responsive border">
         <table class="table table-sm table-bordered w-auto-rm mb-0">
           <thead>
-            <tr>
+            <tr class="bg-dark text-white">
               <th class="w-25">Date</th>
-              @if (false)
+              @if (true)
               <th class="w-25">Day</th>
               @endif
               <th>Details</th>
@@ -65,37 +65,37 @@
               >
                 <td>
                   <div>
-                    <span class="mr-3">
+                    <span class="mr-3 font-weight-bold">
                       {{ $displayMonthName }}
                       {{ $loop->iteration }}
                     </span>
-                    <span class="text-secondary-rm mr-3" style="font-size: 0.5rem;">
+                    <span class="text-secondary mr-3">
                       @if (false)
                       {{ $day['day']->format('Y F d') }}
                       @endif
                       {{ $day['day']->format('F d') }}
                     </span>
+                    @if (false)
                     <span class="text-secondary-rm mr-3" style="font-size: 0.5rem;">
                       {{ $day['day']->format('l') }}
                     </span>
+                    @endif
                   </div>
                   <div>
                   </div>
                 </td>
-                @if (false)
-                <td>
+                <td class="font-weight-bold">
                   {{ $day['day']->format('l') }}
                 </td>
-                @endif
                 <td>
-                  @if ($day['day']->format('l') == 'Saturday')
-                    <span class="">
+                  @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
+                    <span class=" badge badge-pill badge-danger">
                       Holiday
                     </span>
                     <br />
                   @endif
                   @foreach ($day['events'] as $event)
-                    <span class="">
+                    <span class="badge badge-pill badge-primary">
                       {{ $event->title }}
                     </span>
                     <br />

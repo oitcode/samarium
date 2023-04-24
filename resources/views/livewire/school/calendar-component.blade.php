@@ -1,6 +1,34 @@
 <div>
-  <div class="border-rm mb-4">
-    <button class="btn btn-light badge-pill border mr-4" wire:click="enterMode('eventCreate')">Add event</button>
+  {{-- Component herobar --}}
+  @if (true)
+  <div class="p-3 mb-4 border bg-success text-white">
+    <h1 class="h4 mt-2">
+      <i class="fas fa-calendar mr-2"></i>
+      Calendar
+    </h1>
+  </div>
+  @endif
+
+  <div class="mb-3 py-2 d-none d-md-block bg-dark-rm">
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('eventCreate')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'Create event',
+        'btnCheckMode' => 'eventCreate',
+    ])
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-eraser',
+        'btnText' => 'Clear modes',
+        'btnCheckMode' => '',
+    ])
+
+    @include ('partials.dashboard.spinner-button')
+
+    <div class="clearfix">
+    </div>
   </div>
 
   @if ($modes['eventCreate'])
@@ -10,7 +38,7 @@
       @livewire ('school.calendar-event-create')
     @endif
   @else
-  <div class="border-rm bg-white mb-4">
+  <div class="border-rm bg-white-rm mb-4">
     <div class="dropdown">
       <button class="btn btn-primary dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Select Month
@@ -31,16 +59,20 @@
       </div>
     </div>
   </div>
-  <div class="border bg-white p-3">
+
+  @if ($displayMonthName)
+    <h2 class="h2 py-3 text-center bg-primary text-white mb-0 font-weight-bold">
+      {{ $displayMonthName }}
+    </h2>
+  @endif
+
+  <div class="border bg-white">
     @if ($displayMonthName)
-      <h3 class="h6 mr-4">
-        {{ $displayMonthName }}
-      </h3>
       <div class="table-responsive border">
-        <table class="table">
+        <table class="table table-sm table-hover mb-0">
           <thead>
-            <tr>
-              <th>Date</th>
+            <tr class="bg-dark text-white">
+              <th style="width: 300px;">Date</th>
               <th>Day</th>
               <th>Details</th>
               <th>Action</th>
@@ -54,16 +86,16 @@
                       @if ($day['is_holiday']) table-danger @endif
                   "
               >
-                <td>
+                <td class="font-weight-bold">
                   <span class="mr-3">
                     {{ $displayMonthName }}
                     {{ $loop->iteration }}
                   </span>
-                  <span class="text-secondary" style="font-size: 0.5rem;">
+                  <span class="text-secondary" style="{{--font-size: 0.5rem;--}}">
                     {{ $day['day']->format('Y F d') }}
                   </span>
                 </td>
-                <td>
+                <td class="font-weight-bold">
                   {{ $day['day']->format('l') }}
                 </td>
                 <td>

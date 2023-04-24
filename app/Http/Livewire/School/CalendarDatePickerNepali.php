@@ -23,6 +23,21 @@ class CalendarDatePickerNepali extends Component
         'Chaitra' => [ '2023-03-15', '2023-04-13', ],
     ];
 
+    public $monthInfo2080 = [
+        'Baisakh' => [ '2023-04-14', '2023-05-14', ],
+        'Jestha' => [ '2023-05-15', '2023-06-15', ],
+        'Asadh' => [ '2023-06-16', '2023-07-16', ],
+        'Shrawan' => [ '2023-07-17', '2023-08-17', ],
+        'Bhadra' => [ '2023-08-18', '2023-09-17', ],
+        'Ashwin' => [ '2023-09-18', '2023-10-17', ],
+        'Kartik' => [ '2023-10-18', '2023-11-16', ],
+        'Mangsir' => [ '2023-11-17', '2023-12-16', ],
+        'Poush' => [ '2023-12-17', '2024-01-14', ],
+        'Magh' => [ '2024-01-15', '2024-02-12', ],
+        'Falgun' => [ '2024-02-13', '2024-03-13', ],
+        'Chaitra' => [ '2024-03-14', '2024-04-12', ],
+    ];
+
     public $emitDate;
 
     public $monthBook = array();
@@ -52,8 +67,8 @@ class CalendarDatePickerNepali extends Component
 
     public function populateMonthBook()
     {
-        $monthStartDate = $this->monthInfo[$this->displayMonthName][0];
-        $monthEndDate = $this->monthInfo[$this->displayMonthName][1];
+        $monthStartDate = $this->monthInfo2080[$this->displayMonthName][0];
+        $monthEndDate = $this->monthInfo2080[$this->displayMonthName][1];
 
         $monthStartDay = Carbon::parse($monthStartDate);
         $monthEndDay = Carbon::parse($monthEndDate);
@@ -77,8 +92,8 @@ class CalendarDatePickerNepali extends Component
 
     public function populateMonthBookDayWise()
     {
-        $monthStartDate = $this->monthInfo[$this->displayMonthName][0];
-        $monthEndDate = $this->monthInfo[$this->displayMonthName][1];
+        $monthStartDate = $this->monthInfo2080[$this->displayMonthName][0];
+        $monthEndDate = $this->monthInfo2080[$this->displayMonthName][1];
 
         $monthStartDay = Carbon::parse($monthStartDate);
         $monthEndDay = Carbon::parse($monthEndDate);
@@ -181,11 +196,11 @@ class CalendarDatePickerNepali extends Component
 
     public function selectPreviousMonth()
     {
-        $monthInfo = array_reverse($this->monthInfo, true);
+        $monthInfo2080 = array_reverse($this->monthInfo2080, true);
 
         $flag = false;
 
-        foreach ($monthInfo as $key => $val) {
+        foreach ($monthInfo2080 as $key => $val) {
             if ($flag) {
                 $this->displayMonthName = $key;
                 break;
@@ -201,7 +216,7 @@ class CalendarDatePickerNepali extends Component
     {
         $flag = false;
 
-        foreach ($this->monthInfo as $key => $val) {
+        foreach ($this->monthInfo2080 as $key => $val) {
             if ($flag) {
                 $this->displayMonthName = $key;
                 break;

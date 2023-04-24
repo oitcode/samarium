@@ -1,11 +1,12 @@
-<div class="p-3 border">
+<div class="p-3 bg-white border">
   <div class="d-flex justify-content-start">
     <h2 class="h5">
-      <i class="fas fa-chevron-up-circle mr-1"></i>
+      <i class="fas fa-plus-circle mr-1"></i>
       Add event
     </h2>
   </div>
 
+  @if (false)
   <div class="my-2">
     <div class="p-0 m-0">
       <button class="btn btn-lg-rm badge-pill btn-success mr-3" wire:click="store">
@@ -25,6 +26,7 @@
 
     </div>
   </div>
+  @endif
 
 
   <div class="form-group">
@@ -126,7 +128,7 @@
   </div>
   @endif
 
-  <div class="p-3 m-0">
+  <div class="py-3 m-0">
     <button class="btn btn-lg-rm badge-pill btn-success mr-3" wire:click="store">
       <i class="fas fa-check-circle mr-1"></i>
       Confirm
