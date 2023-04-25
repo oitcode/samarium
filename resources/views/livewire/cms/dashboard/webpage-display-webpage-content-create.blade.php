@@ -9,7 +9,7 @@
   @if ($modes['headingMode'])
     @livewire ('cms.dashboard.webpage-content-create-heading', ['webpage' => $webpage,])
   @elseif ($modes['imageMode'])
-    @livewire ('cms.dashboard.webpage-content-create-image')
+    @livewire ('cms.dashboard.webpage-content-create-image', ['webpage' => $webpage,])
   @elseif ($modes['paragraphMode'])
     @livewire ('cms.dashboard.webpage-content-create-paragraph', ['webpage' => $webpage,])
   @elseif ($modes['mediaAndTextMode'])
