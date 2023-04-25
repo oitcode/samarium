@@ -39,6 +39,7 @@ class WebpageDisplayWebpageContentCreate extends Component
         'webpageContentCreateParagraphCompleted' => 'webpageContentCreatedCompleted',
         'webpageContentCreateMediaAndTextCompleted' => 'webpageContentCreatedCompleted',
         'webpageContentCreateImageCompleted' => 'webpageContentCreatedCompleted',
+        'webpageContentCreateGalleryCompleted' => 'webpageContentCreatedCompleted',
     ];
 
     public function render()
