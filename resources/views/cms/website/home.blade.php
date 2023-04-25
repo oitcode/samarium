@@ -85,7 +85,7 @@
 @endif
 
 <div>
-  @if (true)
+  @if (false)
   @livewire ('cms.website.contact-component')
   @endif
 </div>
