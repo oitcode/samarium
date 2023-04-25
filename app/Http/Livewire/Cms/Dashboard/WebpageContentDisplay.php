@@ -35,6 +35,10 @@ class WebpageContentDisplay extends Component
 
     public function deleteContent()
     {
+        foreach ($this->webpageContent->cmsWebpageContentCssOptions as $cmsWebpageContentCssOption) {
+            $cmsWebpageContentCssOption->delete();
+        }
+
         $this->webpageContent->delete();
 
         $this->emit('webpageContentDeleted');
