@@ -12,15 +12,18 @@ class TodoDisplay extends Component
 
     public $todo;
 
+    public $title;
     public $todo_status;
 
     public $modes = [
         'updateStatus' => false,
+        'updateTitleMode' => false,
     ];
 
     public function mount()
     {
         $this->todo_status = $this->todo->status;
+        $this->title = $this->todo->title;
     }
 
     public function render()
@@ -38,5 +41,17 @@ class TodoDisplay extends Component
         $this->exitMode('updateStatus');
 
         session()->flash('message', 'Status updated');
+    }
+
+    public function updateTitle()
+    {
+        /* Todo: Validation */
+
+        $this->todo->title = $this->title;
+        $this->todo->save();
+        $this->todo = $this->todo->fresh();
+        $this->exitMode('updateTitleMode');
+
+        session()->flash('message', 'Title updated');
     }
 }

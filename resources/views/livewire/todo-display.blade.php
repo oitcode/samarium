@@ -30,9 +30,6 @@
               <button class="btn mr-2">
                 <i class="fas fa-trash"></i>
               </button>
-              <button class="btn mr-2">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
             </div>
           </div>
         </div>
@@ -57,7 +54,27 @@
                       Title
                     </th>
                     <td>
-                      {{ $todo->title }}
+                      @if ($modes['updateTitleMode'])
+                        <div class="form-group">
+                          <input type="text" class="form-control" wire:model.defer="title" />
+                        </div>
+                      @else
+                        {{ $todo->title }}
+                      @endif
+                    </td>
+                    <td>
+                      @if ($modes['updateTitleMode'])
+                        <button class="btn btn-success mr-2" wire:click="updateTitle">
+                          <i class="fas fa-check-circle"></i>
+                        </button>
+                        <button class="btn btn-danger" wire:click="exitMode('updateTitleMode')">
+                          <i class="fas fa-times-circle"></i>
+                        </button>
+                      @else
+                        <button class="btn" wire:click="enterMode('updateTitleMode')">
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+                      @endif
                     </td>
                   </tr>
                   <tr>
@@ -72,6 +89,8 @@
                       @if (false)
                       {{ $todo->created_at->format('g:i A') }}
                       @endif
+                    </td>
+                    <td>
                     </td>
                   </tr>
                 </tbody>
