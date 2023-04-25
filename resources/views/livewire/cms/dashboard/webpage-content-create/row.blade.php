@@ -18,19 +18,19 @@
     @for ($i = 0; $i < $numOfRows; $i++)
       <div class="col-md-4 p-3">
         <div class="p-3 border">
+
           <div class="form-group">
-            <i class="fas fa-image"></i>
-            @if (false)
-            <input type="file" class="form-control" />
-            @endif
+            <label>Image</label>
+            <input type="file" class="form-control" wire:model.defer="contents.{{ $i }}.image">
+            @error('image') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" wire:model.defer="contents.{{ $i }}.heading" />
           </div>
 
           <div class="form-group">
-            <textarea rows="5" class="form-control">
+            <textarea rows="5" class="form-control" wire:model.defer="contents.{{ $i }}.paragraph" />
             </textarea>
           </div>
         </div>
@@ -40,7 +40,7 @@
   </div>
 
   <div class="p-3">
-    <button class="btn btn-success"> 
+    <button class="btn btn-success" wire:click="store">
       Save
     </button>
   </div>
