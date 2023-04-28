@@ -7,8 +7,8 @@
       @endif
       <div class="text-secondary-rm">
         <div class="mr-3">
-          <i class="fas fa-info-circle mr-1"></i>
-          v0.5.5
+          <i class="fas fa-copyright mr-1"></i>
+          OIT
         </div>
       </div>
     </div>
