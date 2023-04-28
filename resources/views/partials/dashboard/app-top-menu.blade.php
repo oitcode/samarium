@@ -7,7 +7,7 @@
         <i class="fas fa-feather-alt fa-2x"></i>
         @if (true)
         <span class="h3 ml-3">
-          Oztrich
+          Ozone
         </span>
         @endif
       </div>

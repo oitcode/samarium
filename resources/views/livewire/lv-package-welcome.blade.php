@@ -2,7 +2,7 @@
     <div>
       @if (true)
       <h2 class="h3 text-success-rm font-weight-bold mb-3">
-        Oztrich
+        Ozone
       </h2>
       @endif
       <div class="text-secondary-rm">

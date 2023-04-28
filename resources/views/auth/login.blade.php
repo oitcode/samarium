@@ -130,6 +130,32 @@
                 </div>
             </form>
           </div>
+
+        </div>
+
+        <div class="my-5">
+          <div class="d-flex justify-content-center">
+            <div class="mr-3">
+              <a href="">
+                Terms
+              </a>
+            </div>
+            <div class="mr-3">
+              <a href="">
+                Privacy
+              </a>
+            </div>
+            <div class="mr-3">
+              <a href="">
+                Security
+              </a>
+            </div>
+            <div class="mr-3">
+              <a href="">
+                About Ozone
+              </a>
+            </div>
+          </div>
         </div>
     </div>
   </div>

@@ -78,7 +78,7 @@
             <div class="d-flex flex-column" style="color: #ccc;">
               <h2 class="h3 text-secondary-rm d-flex justify-content-center">
                 <i><strong>
-                  Oztrich
+                  Ozone
                 </strong></i>
               </h2>
               <h2 class="h5 text-secondary-rm d-flex justify-content-center">
