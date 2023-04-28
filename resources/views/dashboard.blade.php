@@ -4,22 +4,25 @@
   {{-- Greeting row --}}
   <div class="row mb-3" style="margin: auto;">
     <div class="col-md-6 px-2">
-      <div class="d-flex border-rm bg-light-rm text-secondary p-2">
-        <div class="d-flex flex-column justify-content-center mr-3 bg-danger-rm">
-          <i class="fas fa-check-circle fa-2x-rm"></i>
-        </div>
-        <div class="d-flex flex-column justify-content-bottom mr-3 bg-warning-rm">
-          Welcome, {{ Auth::user()->name }}
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 px-2">
       @if (false)
       <div class="d-flex justify-content-center border-rm bg-light-rm text-success p-2">
         <i class="fas fa-feather-alt mr-3"></i>
         Oztrich
       </div>
       @endif
+    </div>
+    <div class="col-md-12 px-2">
+      <div class="d-flex justify-content-end border-rm bg-light-rm bg-danger-rm text-white-rm bg-warning-rm px-5 py-2 pt-3 border"
+      style="background-color: #ccc; color: #fff;">
+        <div class="d-flex flex-column justify-content-center mr-3 bg-danger-rm h4">
+          @if (false)
+          <i class="fas fa-check-circle fa-2x-rm"></i>
+          @endif
+        </div>
+        <div class="d-flex flex-column justify-content-bottom mr-3 bg-warning-rm h4 font-weight-bold">
+          Welcome, {{ Auth::user()->name }}
+        </div>
+      </div>
     </div>
   </div>
 
