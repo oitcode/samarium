@@ -43,12 +43,32 @@
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
         <div class="py-5 bg-primary text-white">
+          @if (true)
           <div class="h2 text-center">
             <i class="fas fa-check-circle mr-1"></i>
             Ozone
           </div>
+          @endif
         </div>
-        <div class="row-rm border shadow bg-white" style="">
+        <div class="row-rm border shadow bg-white d-flex" style="">
+          <div class="bg-primary text-white">
+            <div class="h2-rm text-center text-white-rm p-0">
+              @if (false)
+              @if (false)
+              <div class="h1">
+                <i class="fas fa-check-circle mr-1"></i>
+                Ozone
+              </div>
+              @endif
+
+              <ul>
+                <li>WEB</li>
+                <li>SHOP</li>
+                <li>ERP</li>
+              </ul>
+              @endif
+            </div>
+          </div>
           <div class="col-md-4-rm d-flex flex-column justify-content-center bg-white p-3-rm px-5-rm p-0 bg-warning">
             <div class="d-flex justify-content-center bg-danger-rm p-3-rm px-5-rm">
               @if (false)
@@ -75,7 +95,7 @@
             </h2>
             @endif
             <div class="text-secondary text-center-rm mb-4">
-              @if (true)
+              @if (false)
               Welcome back.
               Please login to your account.
               @endif
@@ -120,6 +140,7 @@
                     @enderror
                 </div>
 
+                @if (false)
                 <div class="form-group">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -129,9 +150,10 @@
                         </label>
                     </div>
                 </div>
+                @endif
 
                 <div class="form-group mb-0">
-                    <button type="submit" class="btn btn-success btn-block">
+                    <button type="submit" class="btn btn-success btn-block" style="font-size: 1.5rem;">
                         {{ __('Login') }}
                     </button>
 
