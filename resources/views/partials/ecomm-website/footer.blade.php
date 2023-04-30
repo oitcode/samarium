@@ -1,6 +1,7 @@
 <div>
 
   @if (false)
+  @if (false)
   <div class="container-fluid bg-info-rm border pt-4 pb-4 text-white-rm" style="{{--background-color: #101530;--}}">
     <div class="container">
       <div class="py-3">
@@ -172,6 +173,7 @@
       </div>
     </div>
   </div>
+  @endif
 
   <div class="container-fluid bg-info-rm border pt-4 pb-5 text-white-rm" style="{{--background-color: #101530;--}}">
     <div class="container">
