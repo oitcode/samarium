@@ -1,4 +1,4 @@
-<div class="h-100 shadow">
+<div class="h-100 shadow-rm">
   {{-- Show in smaller screens --}}
   <div class="d-md-none">
   </div>
