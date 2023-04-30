@@ -1,21 +1,23 @@
 <div class="bg-warning-rm">
   @if ($modes['showAllCategoriesMode'])
-    <div class="my-3">
+    <div class="my-3 p-3">
       <button 
           class="btn btn-light badge-pill-rm text-white-rm"
           wire:click="closeFullMenu">
         Close full menu
       </button>
     </div>
-    <div class="row mb-4" style="margin: auto;">
-      @foreach ($productCategories as $productCategory)
-        <div class="col-4 col-md-2 mb-3-rm border">
-          <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-              class="btn-rm btn-success-rm badge-pill-rm text-white">
-            {{ $productCategory->name }}
-          </a>
-        </div>
-      @endforeach
+    <div class="p-3">
+      <div class="row mb-4" style="margin: auto;">
+        @foreach ($productCategories as $productCategory)
+          <div class="col-4 col-md-2 mb-3-rm border-rm">
+            <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
+                class="btn-rm btn-success-rm badge-pill-rm text-white">
+              {{ $productCategory->name }}
+            </a>
+          </div>
+        @endforeach
+      </div>
     </div>
   @else
     <div class="d-flex p-0 bg-warning-rm border-left-rm border-right-rm">
