@@ -61,6 +61,6 @@
 </div>
 @endif
 
-<div class="">
+<div class="bg-warning-rm border-left">
     @livewire ('ecomm-website.top-menu')
 </div>

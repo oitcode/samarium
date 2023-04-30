@@ -49,7 +49,7 @@
     </div>
 
     {{-- Product catefory menu --}}
-    <div class="container-fluid border">
+    <div class="container-fluid border-rm bg-danger text-white">
       <div class="container" style="font-size: 1.5rem; font-weight: bold;">
         @if (true)
           <div class="d-flex flex-column justify-content-center h-100">
