@@ -130,11 +130,13 @@
 
         @if (true)
         <div class="col-md-3 mb-5" style="font-size: 1rem;">
+          <h3 class="h4 text-dark font-weight-bold mb-4">
+            CONNECT
+          </h3>
           @if (false)
           <div class="text-secondary">
             {{ $company->tagline }}
           </div>
-          @endif
           <div class="mb-3">
             <button class="btn btn-success badge-pill py-2 w-100">
               <span class="h5">
@@ -151,6 +153,7 @@
               </span>
             </button>
           </div>
+          @endif
           <div>
             @if ($company->fb_link)
               <a href="{{ $company->fb_link }}" target="_blank">
