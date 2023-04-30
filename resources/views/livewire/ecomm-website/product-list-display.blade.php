@@ -36,7 +36,7 @@
               </span>
             </div>
             @endif
-            <div class="h5 text-dark text-left mt-3" style="font-weight: bold;">
+            <div class="h4 text-danger text-left mt-3" style="font-weight: bold;">
               Rs.
               @php echo number_format( $product->selling_price ); @endphp
             </div>
