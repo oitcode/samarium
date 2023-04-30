@@ -22,14 +22,14 @@
   @else
     <div class="d-flex p-0 bg-warning-rm border-left-rm border-right-rm">
       @foreach ($productCategories as $productCategory)
-        <div class="p-0 border-right">
+        <div class="p-0 border-right-rm">
           <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
               class="btn btn-success-rm badge-pill-rm font-weight-bold text-white p-3" style="font-size: 1.3rem;">
             {{ $productCategory->name }}
           </a>
         </div>
       @endforeach
-      <div class="col-md-2 p-0 m-0 bg-warning-rm border-right">
+      <div class="col-md-2 p-0 m-0 bg-warning-rm border-right-rm">
         <button 
             class="btn btn-outline-success-rm badge-pill-rm font-weight-bold p-3 text-white"
             style="font-size: 1.3rem";
