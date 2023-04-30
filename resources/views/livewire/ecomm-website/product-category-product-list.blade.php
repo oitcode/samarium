@@ -1,6 +1,6 @@
 <div class="p-3-rm border-rm">
 
-  <div class="bg-danger-rm text-white-rm py-3 pl-3 border shadow-sm d-flex justify-content-between"
+  <div class="bg-danger-rm text-white-rm py-3 pl-3 border-rm shadow-sm-rm d-flex justify-content-between"
       style="{{--background-color: #fee--}}; font-size: 1.15rem;">
     <div>
       <i class="fas fa-home mr-1"></i>
