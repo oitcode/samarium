@@ -20,7 +20,7 @@
         <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
           <div class="p-2">
             <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
-              <h2 class="h3 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
+              <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
                 {{ $product->name }}
               </h2>
             </a>
