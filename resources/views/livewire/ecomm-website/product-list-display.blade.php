@@ -20,7 +20,7 @@
         <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
           <div class="p-2">
             <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
-              <h2 class="h5 mt-2 mb-2 text-dark" style="font-family: Arial;">
+              <h2 class="h3 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
                 {{ $product->name }}
               </h2>
             </a>
@@ -56,7 +56,7 @@
               @endif
             @endif
             <div class="text-danger mt-3">
-              <span class="btn btn-outline-success badge-pill p-1 px-3" wire:click.prevent="addItemToCart({{ $product->product_id }})">
+              <span class="btn btn-outline-success-rm btn-light badge-pill-rm p-1 px-3" wire:click.prevent="addItemToCart({{ $product->product_id }})">
                 <i class="fas fa-plus-circle mr-1"></i>
                 Cart
               </span>
