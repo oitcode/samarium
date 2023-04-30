@@ -61,6 +61,6 @@
 </div>
 @endif
 
-<div class="py-3">
+<div class="">
     @livewire ('ecomm-website.top-menu')
 </div>
