@@ -33,12 +33,19 @@
       </div>
     </div>
     <div class="col-md-6 py-3">
-      <h1 class="h4 ml-2 mb-3" style="font-weight: bold;">
+      <h1 class="h4 ml-2 mb-3 font-weight-bold" style="font-weight: bold;">
         {{ $product->name }}
       </h1>
-      <h3 class="h3 ml-2 mb-3" style="font-weight: bold;">
+      <h3 class="h4 ml-2 mb-3 text-danger" style="font-weight: bold;">
         Rs.
         @php echo number_format( $product->selling_price ); @endphp
+
+        <span class="ml-4 text-secondary">
+        <s>
+          Rs.
+          @php echo number_format( $product->selling_price + 10 ); @endphp
+        </s>
+        </span>
       </h3>
       <hr />
       <p class="h5 ml-2 mb-3 text-secondary-rm border-top-rm border-bottom-rm">
