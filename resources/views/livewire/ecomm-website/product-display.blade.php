@@ -20,12 +20,12 @@
     {{ $product->name }}
   </div>
 
-  <div class="row mb-5 border p-2 py-5  bg-white shadow">
+  <div class="row mb-5 border p-2 py-5  bg-white shadow-rm">
     <div class="col-md-3">
       <div class="d-flex justify-content-center h-100">
         <div class="d-flex flex-column justify-content-start h-100">
           @if ($product->image_path)
-            <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
+            <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 500px; {{--max-width: 100px;--}}">
           @else
             <i class="fas fa-dice-d6 fa-10x text-muted m-5"></i>
           @endif
@@ -74,7 +74,7 @@
       @endif
     </div>
     <div class="col-md-3">
-      <div class="d-flex">
+      <div class="d-flex h-100">
         @if (false)
         <div class="mt-3-rm mb-3-rm pb-3 mr-4">
           <div class="text-secondary mb-2">
@@ -83,14 +83,18 @@
           <input type="text" class="py-1" style="font-size: 1.1rem;">
         </div>
         @endif
-        <div class="flex-grow-1 bg-warning-rm">
-          <div class="h-100 d-flex flex-column justify-content-center">
-            <button class="btn btn-primary btn-block badge-pill py-3 h5"
-                style="background-color: #5a0; font-family: Arial;"
+        <div class="flex-grow-1 bg-warning">
+          <div class="h-100 d-flex flex-column justify-content-center bg-warning">
+            <button class="btn btn-success btn-block-rm badge-pill-rm py-3-rm h2-rm h-100 w-100 mb-0"
+                style="{{-- background-color: #5a0; --}} font-family: Arial;"
                 wire:click="addItemToCart({{ $product->product_id }})">
-              <span class="h5">
+              <span class="h4">
+                <i class="fas fa-plus-circle mr-1"></i>
                 <i class="fas fa-shopping-cart mr-1"></i>
-                ADD TO CART
+                @if (true)
+                ADD TO
+                @endif
+                CART
               </span>
             </button>
             {{-- Loading spinner --}}
