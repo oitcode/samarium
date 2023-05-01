@@ -80,6 +80,26 @@
       <hr />
       @endif
 
+      <hr />
+      <div>
+        <div class="d-flex justify-content-between">
+          <h2 class="h5">Shipping and returns</h2>
+          <button class="btn">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+
+      <hr />
+      <div>
+        <div class="d-flex justify-content-between">
+          <h2 class="h5">Reviews</h2>
+          <button class="btn">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+
       @if (count($product->productSpecifications) > 0)
         <hr />
         <div class="mb-5">
