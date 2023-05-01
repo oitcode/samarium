@@ -25,7 +25,7 @@
         <div class="p-0 border-right-rm">
           <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
               class="btn btn-success-rm badge-pill-rm font-weight-bold text-white p-3" style="font-size: 1.3rem;">
-            {{ $productCategory->name }}
+            {{ strtoupper($productCategory->name) }}
           </a>
         </div>
       @endforeach
@@ -34,7 +34,7 @@
             class="btn btn-outline-success-rm badge-pill-rm font-weight-bold p-3 text-white"
             style="font-size: 1.3rem";
             wire:click="showAllCategories">
-          Show all
+          SHOW ALL
         </button>
       </div>
     </div>
