@@ -22,6 +22,7 @@
         </div>
         </a>
 
+        @if (false)
         <div class="flex-grow-1 d-flex justify-content-end">
           <div class="d-flex flex-column justify-content-center">
             <div>
@@ -32,6 +33,7 @@
             </div>
           </div>
         </div>
+        @endif
   
         <div class="px-5 h-100-rm mt-3-rm bg-primary-rm border-rm border-left-primary text-white-rm"
             style="{{--background-color: #004;font-size: 1.2rem; font-weight: bold;--}} ">
