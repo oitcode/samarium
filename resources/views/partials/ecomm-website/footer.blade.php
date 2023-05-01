@@ -1,5 +1,23 @@
 <div>
 
+  <div class="container-fluid bg-dark text-white py-5">
+    <div class="container">
+      <div class="d-flex">
+        <div class="mr-5">
+          <h2 class="font-weight-bold" style="font-family: Mono;">
+            JOIN OUR SHOPCLUB & GET 15% OFF
+          </h2>
+        </div>
+        <div>
+          <button class="btn btn-success" style="font-size: 1.3rem;">
+            SIGN UP FOR FREE
+            <i class="fas fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   @if (false)
   @if (false)
   <div class="container-fluid bg-info-rm border pt-4 pb-4 text-white-rm" style="{{--background-color: #101530;--}}">

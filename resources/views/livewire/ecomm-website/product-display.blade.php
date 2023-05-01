@@ -21,7 +21,7 @@
   </div>
 
   <div class="row mb-5 border p-2 py-5  bg-white shadow-rm">
-    <div class="col-md-3">
+    <div class="col-md-6">
       <div class="d-flex justify-content-center h-100">
         <div class="d-flex flex-column justify-content-start h-100">
           @if ($product->image_path)
@@ -38,7 +38,7 @@
       </h1>
 
       <div class="my-3">
-        <span class="badge badge-pill badge-success">
+        <span class="badge badge-pill badge-success" style="font-size: 1.3rem;">
           Available
         </span>
         @if (false)
@@ -76,11 +76,10 @@
       <p class="h5 ml-2 mb-3 text-secondary-rm border-top-rm border-bottom-rm">
         {{ $product->description }}
       </p>
-      @if (false)
+      @if (true)
       <hr />
       @endif
 
-      <hr />
       <div>
         <div class="d-flex justify-content-between">
           <h2 class="h5">Shipping and returns</h2>
@@ -89,8 +88,8 @@
           </button>
         </div>
       </div>
-
       <hr />
+
       <div>
         <div class="d-flex justify-content-between">
           <h2 class="h5">Reviews</h2>
@@ -99,6 +98,7 @@
           </button>
         </div>
       </div>
+      <hr />
 
       @if (count($product->productSpecifications) > 0)
         <hr />
@@ -124,7 +124,47 @@
           </div>
         </div>
       @endif
+
+      <div>
+        <button class="btn btn-dark btn-block-rm badge-pill-rm py-3-rm h2-rm h-100-rm w-100 mb-0 p-3 mb-3"
+            style="{{-- background-color: #5a0; --}} font-family: Arial;"
+            wire:click="addItemToCart({{ $product->product_id }})">
+          <span class="h4">
+            @if (false)
+            <i class="fas fa-plus-circle mr-1"></i>
+            @endif
+            <i class="fas fa-shopping-cart mr-1"></i>
+            @if (true)
+            ADD TO
+            @endif
+            CART
+          </span>
+        </button>
+
+        <button class="btn btn-outline-dark btn-block-rm badge-pill-rm py-3-rm h2-rm h-100-rm w-100 mb-0 p-3"
+            style="{{-- background-color: #5a0; --}} font-family: Arial;"
+            wire:click="addItemToCart({{ $product->product_id }})">
+          <span class="h4">
+            @if (false)
+            <i class="fas fa-plus-circle mr-1"></i>
+            @endif
+            <i class="fas fa-check-circle mr-1"></i>
+            @if (true)
+            BUY NOW
+            @endif
+          </span>
+        </button>
+
+        {{-- Loading spinner --}}
+        <span wire:loading class="spinner-border text-info mr-3"
+            role="status"
+            style="font-size: 1rem;">
+        </span>
+      </div>
+
     </div>
+
+    @if (false)
     <div class="col-md-3">
       <div class="d-flex h-100">
         @if (false)
@@ -135,13 +175,15 @@
           <input type="text" class="py-1" style="font-size: 1.1rem;">
         </div>
         @endif
-        <div class="flex-grow-1 bg-warning">
-          <div class="h-100 d-flex flex-column justify-content-center bg-warning">
-            <button class="btn btn-success btn-block-rm badge-pill-rm py-3-rm h2-rm h-100 w-100 mb-0"
+        <div class="flex-grow-1 bg-warning-rm">
+          <div class="h-100 d-flex flex-column justify-content-center bg-warning-rm">
+            <button class="btn btn-success btn-block-rm badge-pill-rm py-3-rm h2-rm h-100-rm w-100 mb-0"
                 style="{{-- background-color: #5a0; --}} font-family: Arial;"
                 wire:click="addItemToCart({{ $product->product_id }})">
               <span class="h4">
+                @if (false)
                 <i class="fas fa-plus-circle mr-1"></i>
+                @endif
                 <i class="fas fa-shopping-cart mr-1"></i>
                 @if (true)
                 ADD TO
@@ -158,6 +200,7 @@
         </div>
       </div>
     </div>
+    @endif
   </div>
 
   @if (false)
