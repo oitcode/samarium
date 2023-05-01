@@ -21,7 +21,7 @@
           <div class="p-2">
             <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
               <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
-                {{ $product->name }}
+                {{ strtoupper($product->name) }}
               </h2>
             </a>
             @if (false)

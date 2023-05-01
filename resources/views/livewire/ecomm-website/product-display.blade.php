@@ -34,7 +34,7 @@
     </div>
     <div class="col-md-6 py-3">
       <h1 class="h4 ml-2 mb-3 font-weight-bold" style="font-weight: bold;">
-        {{ $product->name }}
+        {{ strtoupper($product->name) }}
       </h1>
 
       <div class="my-3">
