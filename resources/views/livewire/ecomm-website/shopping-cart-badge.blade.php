@@ -1,8 +1,8 @@
 <div class="d-inline-block-rm">
-  <a href="{{ route('website-checkout') }}" style="font-size: 1.2rem; font-weight: bold;">
-    <i class="fas fa-shopping-cart mr-2 text-dark"></i>
+  <a href="{{ route('website-checkout') }}" class="p-4 bg-danger text-white" style="font-size: 2.7rem; font-weight: bold;">
+    <i class="fas fa-shopping-cart mr-2 text-dark-rm text-white-rm"></i>
     @if (false)
-    <span class="text-dark">
+    <span class="text-dark-rm">
     Rs
     @php echo number_format( $total ); @endphp
     </span>

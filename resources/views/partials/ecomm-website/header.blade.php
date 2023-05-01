@@ -40,7 +40,7 @@
 
           {{-- Shopping cart badge (checkout link) --}}
           @if (true)
-            <div class="d-flex flex-column justify-content-center h-100">
+            <div class="d-flex flex-column justify-content-center h-100 bg-danger-rm text-white-rm p-5 o-darker">
               @livewire ('ecomm-website.shopping-cart-badge')
             </div>
           @else
