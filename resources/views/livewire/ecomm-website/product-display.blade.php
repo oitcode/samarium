@@ -36,6 +36,31 @@
       <h1 class="h4 ml-2 mb-3 font-weight-bold" style="font-weight: bold;">
         {{ $product->name }}
       </h1>
+
+      <div class="my-3">
+        <span class="badge badge-pill badge-success">
+          Available
+        </span>
+        @if (false)
+        <span class="badge badge-pill badge-danger">
+          Limited stock
+        </span>
+        @endif
+      </div>
+
+      @if (true)
+      <div class="mb-1" style="font-size: 0.7rem;">
+        <i class="far fa-star" style="color: orange;"></i>
+        <i class="far fa-star" style="color: orange;"></i>
+        <i class="far fa-star" style="color: orange;"></i>
+        <i class="far fa-star" style="color: orange;"></i>
+        <i class="far fa-star" style="color: orange;"></i>
+        <span class="mx-1 text-muted">
+          (0) reviews
+        </span>
+      </div>
+      @endif
+
       <h3 class="h4 ml-2 mb-3 text-danger" style="font-weight: bold;">
         Rs.
         @php echo number_format( $product->selling_price ); @endphp
