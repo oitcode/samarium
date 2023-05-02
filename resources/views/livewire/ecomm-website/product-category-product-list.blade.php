@@ -1,8 +1,17 @@
-<div class="p-3-rm border-rm">
+<div class="p-3-rm border-rm bg-warning-rm">
 
-  <div class="bg-light-rm text-secondary-rm py-3 pl-3 border-rm shadow-sm-rm d-flex justify-content-between"
-      style="background-color: #fafafa; font-size: 1.15rem;">
-    <div class="h2 font-weight-bold p-3" style="border-bottom: 10px solid gray; border-top: 10px solid gray; background-color: white; color: black;">
+  <div>
+  <span class="bg-primary-rm" style="border-bottom: 5px solid red;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  </span>
+  </div>
+
+  <div class="bg-primary-rm text-white-rm py-3 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
+      style="{{-- background-color: #000; color: #555;  border: 10px solid #aaf;--}} font-size: 1.15rem;">
+    <div class="h2 font-weight-bold pt-3" style=" {{-- background-color: white; color: black;--}} ">
       <i class="fas fa-home mr-1"></i>
       <a class="text-primary-rm text-reset"
           href="{{ route('website-home') }}"
