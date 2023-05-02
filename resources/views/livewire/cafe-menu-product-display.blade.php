@@ -118,15 +118,19 @@
         @endif
 
         <div class="mb-3">
-          <div class="bg-light font-weight-bold mr-5 py-3">
-            Description
-          </div>
-          <div class="d-flex justify-content-between">
-            {{ $product->description }}
-            <button class="btn btn-light">
-              <i class="fas fa-pencil-alt"></i>
-            </button>
-          </div>
+          @if ($modes['updateProductDescriptionMode'])
+            @livewire ('product.dashboard.product-edit-description', ['product' => $product,])
+          @else
+            <div class="bg-light font-weight-bold mr-5 py-3">
+              Description
+            </div>
+            <div class="d-flex justify-content-between">
+              {{ $product->description }}
+              <button class="btn btn-light" wire:click="enterMode('updateProductDescriptionMode')">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+            </div>
+          @endif
         </div>
         @if (true)
         <hr />

@@ -14,6 +14,7 @@ class CafeMenuProductDisplay extends Component
 
     public $modes = [
         'updateProductNameMode' => false,
+        'updateProductDescriptionMode' => false,
     ];
 
     protected $listeners = [
