@@ -11,6 +11,19 @@
     {{ $product->name }}
   </h1>
 
+  <!-- Flash message div -->
+  @if (session()->has('message'))
+    <div class="p-2">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle mr-3"></i>
+        {{ session('message') }}
+        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+          <span class="text-danger" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  @endif
+
   {{-- Top tool bar --}}
   <div class="mt-3 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}  {{ env('OC_ASCENT_TEXT_COLOR') }}">
     <div class="my-5-rm">
@@ -57,32 +70,31 @@
     <div class="col-md-6 bg-primary-rm text-white-rm border-right">
       <div class="px-3 bg-white-rm border-rm shadow-rm">
         <div class="bg-success-rm text-white-rm">
-          @if (false)
-          <div class="bg-secondary mb-3" style="font-size: 0.2rem;">
-            &nbsp;
-          </div>
-          @endif
-          <div class="bg-light font-weight-bold mr-5 py-3">
-            Product Name
-          </div>
-          <div class="d-flex justify-content-between my-3">
-            {{-- Product name --}}
-            <div class="d-flex">
-              @if (false)
-              <div class="font-weight-bold mr-5">
-                Product Name
-              </div>
-              @endif
-              <div>
-                <h1 class="h4 text-primary-rm">
-                  {{ $product->name }}
-                </h1>
-              </div>
+          @if ($modes['updateProductNameMode'])
+            @livewire ('product.dashboard.product-edit-name', ['product' => $product,])
+          @else
+            <div class="bg-light font-weight-bold mr-5 py-3">
+              Product Name
             </div>
-            <button class="btn btn-light">
-              <i class="fas fa-pencil-alt"></i>
-            </button>
-          </div>
+            <div class="d-flex justify-content-between my-3">
+              {{-- Product name --}}
+              <div class="d-flex">
+                @if (false)
+                <div class="font-weight-bold mr-5">
+                  Product Name
+                </div>
+                @endif
+                <div>
+                  <h1 class="h4 text-primary-rm">
+                    {{ $product->name }}
+                  </h1>
+                </div>
+              </div>
+              <button class="btn btn-light" wire:click="enterMode('updateProductNameMode')">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+            </div>
+          @endif
         </div>
         @if (true)
         <hr />
