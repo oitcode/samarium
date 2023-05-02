@@ -1,8 +1,8 @@
 <div class="p-3-rm border-rm">
 
   <div class="bg-light-rm text-secondary-rm py-3 pl-3 border-rm shadow-sm-rm d-flex justify-content-between"
-      style="background-color: #fafafa; color: #005; font-size: 1.15rem;">
-    <div class="h1 font-weight-bold p-3" style="border: 20px dotted brown; ">
+      style="background-color: #fafafa; font-size: 1.15rem;">
+    <div class="h2 font-weight-bold p-3" style="border-bottom: 10px solid gray; border-top: 10px solid gray; background-color: white; color: black;">
       <i class="fas fa-home mr-1"></i>
       <a class="text-primary-rm text-reset"
           href="{{ route('website-home') }}"
