@@ -1,8 +1,8 @@
 <div class="p-3-rm border-rm">
 
-  <div class="bg-danger-rm text-white-rm py-3 pl-3 border-rm shadow-sm-rm d-flex justify-content-between"
-      style="{{--background-color: #fee--}}; font-size: 1.15rem;">
-    <div>
+  <div class="bg-light-rm text-secondary-rm py-3 pl-3 border-rm shadow-sm-rm d-flex justify-content-between"
+      style="background-color: #fafafa; color: #005; font-size: 1.15rem;">
+    <div class="h1 font-weight-bold p-3" style="border: 20px dotted brown; ">
       <i class="fas fa-home mr-1"></i>
       <a class="text-primary-rm text-reset"
           href="{{ route('website-home') }}"
@@ -16,8 +16,10 @@
     </div>
   </div>
 
-  <div class="mt-1-rm mb-4 text-scondary-rm px-3">
+  <div class="my-2 mb-4 text-scondary-rm px-3 h5 text-secondary">
+    @if (false)
     <small>
+    @endif
     @if (false)
     Displaying
     {{ count($productCategory->products) }}
@@ -25,7 +27,9 @@
     @endif
     {{ count($productCategory->products) }}
     products
+    @if (false)
     </small>
+    @endif
   </div>
 
 
