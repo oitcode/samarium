@@ -35,7 +35,25 @@
 
   </div>
 
-  <div class="row border shadow-lg" style="margin: auto;">
+  <div class="row border shadow-lg-rm bg-white" style="margin: auto;">
+
+    {{-- Product image --}}
+    <div class="col-md-3 bg-light">
+      <div class="d-flex justify-content-center h-100">
+        <div class="d-flex flex-column justify-content-center h-100">
+          {{-- Product media --}}
+          <div>
+            @if ($product->image_path)
+              <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
+            @else
+              <i class="fas fa-dice-d6 text-muted fa-8x"></i>
+            @endif
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{-- Product info --}}
     <div class="col-md-6 bg-primary-rm text-white-rm border-right">
       <div class="px-3 bg-white-rm border-rm shadow-rm">
         <div class="bg-success-rm text-white-rm">
@@ -44,62 +62,77 @@
             &nbsp;
           </div>
           @endif
+          <div class="bg-light font-weight-bold mr-5 py-3">
+            Product Name
+          </div>
           <div class="d-flex justify-content-between my-3">
             {{-- Product name --}}
-            <h1 class="h2 text-primary-rm">
-              {{ $product->name }}
-            </h1>
+            <div class="d-flex">
+              @if (false)
+              <div class="font-weight-bold mr-5">
+                Product Name
+              </div>
+              @endif
+              <div>
+                <h1 class="h4 text-primary-rm">
+                  {{ $product->name }}
+                </h1>
+              </div>
+            </div>
+            <button class="btn btn-light">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
           </div>
         </div>
-        @if (false)
+        @if (true)
         <hr />
         @endif
 
         <div class="mb-3">
-          <h2 class="h4 text-muted-rm">
-            @if (false)
-            <i class="fas fa-info-circle mr-2"></i>
-            @endif
+          <div class="bg-light font-weight-bold mr-5 py-3">
             Category
-          </h2>
-          <div class="" style="font-size: 0.8rem;">
-            <span class="badge badge-dark">
+          </div>
+          <div class="d-flex justify-content-between" style="font-size: 0.8rem;">
+            <span class="badge-rm badge-dark-rm">
               {{ $product->productCategory->name }}
             </span>
+            <button class="btn btn-light">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
           </div>
         </div>
-        @if (false)
+        @if (true)
         <hr />
         @endif
 
         <div class="mb-3">
-          <h2 class="h4 text-muted-rm">
-            @if (false)
-            <i class="fas fa-info-circle mr-2"></i>
-            @endif
+          <div class="bg-light font-weight-bold mr-5 py-3">
             Description
-          </h2>
-          <div>
-          {{ $product->description }}
+          </div>
+          <div class="d-flex justify-content-between">
+            {{ $product->description }}
+            <button class="btn btn-light">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
           </div>
         </div>
-        @if (false)
+        @if (true)
         <hr />
         @endif
 
 
         <div class="mb-3 border-rm">
-          <h2 class="h4 text-muted-rm">
-            @if (false)
-            <i class="fas fa-info-circle mr-2"></i>
-            Selling price
-            @endif
-          </h2>
-          <div class="h2">
+          <div class="bg-light font-weight-bold mr-5 py-3">
+            Price
+          </div>
+          <div class="d-flex justify-content-between">
             <div style="{{--color: orange;--}}">
               Rs
               @php echo number_format( $product->selling_price ); @endphp
             </div>
+            <button class="btn btn-light">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
           </div>
         </div>
 
@@ -125,22 +158,6 @@
         </div>
         @endif
 
-      </div>
-    </div>
-
-    {{-- Product image --}}
-    <div class="col-md-3 bg-light">
-      <div class="d-flex justify-content-center h-100">
-        <div class="d-flex flex-column justify-content-center h-100">
-          {{-- Product media --}}
-          <div>
-            @if ($product->image_path)
-              <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
-            @else
-              <i class="fas fa-dice-d6 text-muted fa-8x"></i>
-            @endif
-          </div>
-        </div>
       </div>
     </div>
 
