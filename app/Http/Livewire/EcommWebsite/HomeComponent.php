@@ -23,7 +23,7 @@ class HomeComponent extends Component
 
     public function render()
     {
-        $this->productCategories = ProductCategory::all();
+        $this->productCategories = ProductCategory::where('does_sell', 'yes')->get();
 
         return view('livewire.ecomm-website.home-component');
     }
