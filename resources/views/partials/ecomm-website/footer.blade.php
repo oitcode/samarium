@@ -18,6 +18,63 @@
     </div>
   </div>
 
+  <div class="container-fluid py-3">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div>
+          <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 100px;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid py-3-rm bg-danger-rm">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div>
+          <div>
+            <h2 style="font-family: Mono;">
+              {{ $company->name }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid py-3">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+
+        <div class="mr-3">
+          <i class="fas fa-map-marker-alt"></i>
+          {{ $company->address }}
+        </div>
+
+        <div class="mr-3">
+          <i class="fas fa-phone"></i>
+          {{ $company->phone }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid py-3">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+
+        <div class="mr-3">
+          <i class="fab fa-facebook fa-3x"></i>
+        </div>
+
+        <div class="mr-3">
+          <i class="fab fa-twitter fa-3x"></i>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   @if (false)
   @if (false)
   <div class="container-fluid bg-info-rm border pt-4 pb-4 text-white-rm" style="{{--background-color: #101530;--}}">
