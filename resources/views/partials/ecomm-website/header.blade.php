@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    {{-- Product catefory menu --}}
+    {{-- Product category menu --}}
     <div class="container-fluid border-rm bg-dark text-white">
       <div class="container" style="font-size: 1.5rem; font-weight: bold;">
         @if (true)
@@ -95,7 +95,7 @@
 
     <div>
       @if (true)
-        <div class="d-flex flex-column justify-content-center h-100">
+        <div class="d-flex flex-column justify-content-center h-100 bg-dark">
           @include ('partials.ecomm-website.top-menu')
         </div>
       @endif

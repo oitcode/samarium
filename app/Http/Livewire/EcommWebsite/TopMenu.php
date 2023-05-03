@@ -16,6 +16,7 @@ class TopMenu extends Component
 
     public $modes = [
         'showAllCategoriesMode' => false,
+        'showMobileMenuMode' => false,
     ];
 
     public function mount()
