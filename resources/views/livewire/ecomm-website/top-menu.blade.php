@@ -5,15 +5,15 @@
     @if ($modes['showAllCategoriesMode'])
       <div class="my-3 p-3">
         <button 
-            class="btn btn-light badge-pill-rm text-white-rm"
+            class="btn btn-danger badge-pill-rm text-white-rm"
             wire:click="closeFullMenu">
-          Close full menu
+          <i class="fas fa-times fa-2x mr-2"></i>
         </button>
       </div>
       <div class="p-3">
         <div class="row mb-4" style="margin: auto;">
           @foreach ($productCategories as $productCategory)
-            <div class="col-4 col-md-2 mb-3-rm border-rm">
+            <div class="col-4 col-md-2 mb-3-rm border-rm border-left mb-5">
               <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
                   class="btn-rm btn-success-rm badge-pill-rm text-white">
                 {{ $productCategory->name }}
@@ -34,10 +34,10 @@
         @endforeach
         <div class="col-md-2 p-0 m-0 bg-warning-rm border-right-rm">
           <button 
-              class="btn btn-outline-success-rm badge-pill-rm font-weight-bold p-3 text-white"
+              class="btn btn-dark badge-pill-rm font-weight-bold p-3 text-white"
               style="font-size: 1.3rem";
               wire:click="showAllCategories">
-            SHOW ALL
+            <i class="fas fa-list fa-2x mr-2"></i>
           </button>
         </div>
       </div>
