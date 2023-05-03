@@ -38,9 +38,8 @@ class CafeMenuProductCategoryEdit extends Component
 
         $this->productCategory->update($validatedData);
 
-        session()->flash('success', 'Product Category Updated');
         // $this->resetInputFields();
 
-        $this->emit('productCategoryUpdated');
+        $this->emit('updateProductCategoryCompleted');
     }
 }

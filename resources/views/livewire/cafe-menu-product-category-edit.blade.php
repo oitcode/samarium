@@ -24,7 +24,7 @@
         Update
       </button>
 
-      <button class="btn btn-lg btn-danger badge-pill mr-3" wire:click="$emit('exitUpdateProductCategoryMode')">
+      <button class="btn btn-lg btn-danger badge-pill mr-3" wire:click="$emit('updateProductCategoryCancelled')">
         Cancel
       </button>
 

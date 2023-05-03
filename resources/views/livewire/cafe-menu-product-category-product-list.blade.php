@@ -9,7 +9,20 @@
     </h1>
   </div>
 
+  @if ($modes['updateProductCategoryMode'])
+    <div class="my-3">
+      @livewire ('cafe-menu-product-category-edit', ['productCategory' => $productCategory,])
+    </div>
+  @else
+    <div class="my-3">
+      <button class="btn btn-light" wire:click="enterMode('updateProductCategoryMode')">
+        <i class="fas fa-pencil-alt"></i>
+      </button>
+    </div>
+  @endif
+
   {{-- Top tool bar --}}
+  @if (false)
   <div class="mt-3 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}  {{ env('OC_ASCENT_TEXT_COLOR') }}">
     <div class="my-5-rm">
     </div>
@@ -28,6 +41,7 @@
     </div>
 
   </div>
+  @endif
 
 
   <div class="row" style="margin: auto;">
