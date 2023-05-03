@@ -19,6 +19,16 @@
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
+    <div class="form-group">
+      <label for="">Does sell</label>
+      <select class="form-control" wire:model="does_sell">
+        <option value="---">---</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      @error('does_sell') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
     <div class="p-3 m-0">
       <button class="btn btn-lg badge-pill btn-success mr-3" wire:click="update">
         Update

@@ -16,11 +16,16 @@ class CafeMenuProductCategoryEdit extends Component
 
     public $name;
     public $image;
+    public $does_sell;
+
+    public function mount()
+    {
+        $this->name = $this->productCategory->name;
+        $this->does_sell = $this->productCategory->does_sell;
+    }
 
     public function render()
     {
-        $this->name = $this->productCategory->name;
-
         return view('livewire.cafe-menu-product-category-edit');
     }
 
@@ -29,6 +34,7 @@ class CafeMenuProductCategoryEdit extends Component
         $validatedData = $this->validate([
             'name' => 'required',
             'image' => 'nullable|image',
+            'does_sell' => 'required',
         ]);
 
         if ($this->image !== null) {

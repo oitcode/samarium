@@ -21,7 +21,7 @@ class ProductCategory extends Model
     protected $primaryKey = 'product_category_id';
 
     protected $fillable = [
-         'name', 'image_path',
+         'name', 'image_path', 'does_sell',
     ];
 
 

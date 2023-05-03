@@ -21,13 +21,13 @@ class TopMenu extends Component
 
     public function mount()
     {
-        $this->productCategories = ProductCategory::limit(5)->get();
+        $this->productCategories = ProductCategory::where('does_sell', 'yes')->limit(5)->get();
     }
 
     public function render()
     {
         if ($this->modes['showMobileMenuMode']) {
-            $this->productCategories = ProductCategory::all();
+            $this->productCategories = ProductCategory::where('does_sell', 'yes')->get();
         }
 
         return view('livewire.ecomm-website.top-menu');
@@ -35,16 +35,14 @@ class TopMenu extends Component
 
     public function showAllCategories()
     {
-        $this->productCategories = ProductCategory::orderBy('name')->get();
+        $this->productCategories = ProductCategory::where('does_sell', 'yes')->orderBy('name')->get();
 
         $this->enterMode('showAllCategoriesMode');
     }
 
     public function closeFullMenu()
     {
-        $this->productCategories = ProductCategory::limit(5)->get();
+        $this->productCategories = ProductCategory::where('does_sell', 'yes')->limit(5)->get();
         $this-> exitMode('showAllCategoriesMode');
     }
-
-
 }
