@@ -26,6 +26,10 @@ class TopMenu extends Component
 
     public function render()
     {
+        if ($this->modes['showMobileMenuMode']) {
+            $this->productCategories = ProductCategory::all();
+        }
+
         return view('livewire.ecomm-website.top-menu');
     }
 
