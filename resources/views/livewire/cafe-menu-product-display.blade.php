@@ -136,21 +136,25 @@
         <hr />
         @endif
 
-
-        <div class="mb-3 border-rm">
-          <div class="bg-light font-weight-bold mr-5 py-3">
-            Price
-          </div>
-          <div class="d-flex justify-content-between">
-            <div style="{{--color: orange;--}}">
+        <div class="mb-3">
+          @if ($modes['updateProductPriceMode'])
+            @livewire ('product.dashboard.product-edit-price', ['product' => $product,])
+          @else
+            <div class="bg-light font-weight-bold mr-5 py-3">
+              Price
+            </div>
+            <div class="d-flex justify-content-between">
               Rs
               @php echo number_format( $product->selling_price ); @endphp
+              <button class="btn btn-light" wire:click="enterMode('updateProductPriceMode')">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
             </div>
-            <button class="btn btn-light">
-              <i class="fas fa-pencil-alt"></i>
-            </button>
-          </div>
+          @endif
         </div>
+        @if (true)
+        <hr />
+        @endif
 
 
         @if ($product->baseProduct)

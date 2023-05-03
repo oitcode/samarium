@@ -15,11 +15,18 @@ class CafeMenuProductDisplay extends Component
     public $modes = [
         'updateProductNameMode' => false,
         'updateProductDescriptionMode' => false,
+        'updateProductPriceMode' => false,
     ];
 
     protected $listeners = [
         'productUpdateNameCancelled',
         'productUpdateNameCompleted',
+
+        'productUpdateDescriptionCancelled',
+        'productUpdateDescriptionCompleted',
+
+        'productUpdatePriceCancelled',
+        'productUpdatePriceCompleted',
     ];
 
     public function render()
@@ -36,5 +43,27 @@ class CafeMenuProductDisplay extends Component
     {
         session()->flash('message', 'Product updated');
         $this->exitMode('updateProductNameMode');
+    }
+
+    public function productUpdateDescriptionCancelled()
+    {
+        $this->exitMode('updateProductDescriptionMode');
+    }
+
+    public function productUpdateDescriptionCompleted()
+    {
+        session()->flash('message', 'Product updated');
+        $this->exitMode('updateProductDescriptionMode');
+    }
+
+    public function productUpdatePriceCancelled()
+    {
+        $this->exitMode('updateProductPriceMode');
+    }
+
+    public function productUpdatePriceCompleted()
+    {
+        session()->flash('message', 'Product updated');
+        $this->exitMode('updateProductPriceMode');
     }
 }
