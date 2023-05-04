@@ -1,26 +1,32 @@
 <div class="p-3-rm border-rm bg-warning-rm">
 
+  @if (false)
   <div>
-  <span class="bg-primary-rm" style="border-bottom: 5px solid red;">
+  <span class="bg-primary-rm" style="border-bottom: 5px solid purple;">
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
   </span>
   </div>
+  @endif
 
-  <div class="bg-primary-rm text-white-rm py-3 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
-      style="{{-- background-color: #000; color: #555;  border: 10px solid #aaf;--}} font-size: 1.15rem;">
+  <div class="bg-danger text-white py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
+      style="{{-- background-color: #000; color: #555;  border: 10px solid #aaf;--}} font-size: 1.15rem; border-left: 10px solid brown;">
     <div class="h2 font-weight-bold pt-3" style=" {{-- background-color: white; color: black;--}} ">
+      @if (false)
       <i class="fas fa-home mr-1"></i>
       <a class="text-primary-rm text-reset"
           href="{{ route('website-home') }}"
           style="color: #000;">
         <i class="fas fa-dot text-info mr-2"></i>
+        @if (false)
         Products
+        @endif
       </a>
 
-      <i class="fas fa-angle-right  mx-1"></i>
+      @endif
+      <i class="far fa-dot-circle mx-1"></i>
       {{ $productCategory->name }}
     </div>
   </div>
