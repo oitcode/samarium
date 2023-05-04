@@ -30,19 +30,25 @@
     </div>
 
     <div>
+      @if (false)
       <button class="btn btn-light mr-1" wire:click="$refresh">
-        <i class="fas fa-pencil-alt mr-1"></i>
+        <i class="fas fa-pencil-alt"></i>
         Edit
       </button>
+      @endif
 
-      <button class="btn btn-light" wire:click="$refresh">
-        <i class="fas fa-refresh mr-1"></i>
+      <button class="btn btn-primary" wire:click="$refresh">
+        <i class="fas fa-refresh fa-2x"></i>
+        @if (false)
         Refresh
+        @endif
       </button>
 
-      <button class="btn btn-light" wire:click="$emit('exitProductDisplayMode')">
-        <i class="fas fa-times mr-1"></i>
+      <button class="btn btn-danger" wire:click="$emit('exitProductDisplayMode')">
+        <i class="fas fa-times fa-2x"></i>
+        @if (false)
         Close
+        @endif
       </button>
     </div>
 
