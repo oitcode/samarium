@@ -59,6 +59,7 @@
     </div>
   </div>
 
+  @if (false)
   <div class="container-fluid py-3">
     <div class="container">
       <div class="d-flex justify-content-center">
@@ -89,6 +90,86 @@
           </a>
         @endif
 
+      </div>
+    </div>
+  </div>
+  @endif
+
+  <div class="container-fluid border py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 class="h4">
+            Payment methods
+          </h2>
+          <div class="d-flex">
+            <div class="mr-3">
+              <img src="{{ asset('img/cod-4.jpeg') }}" style="width: 50px; height: 50px;" />
+            </div>
+            <div class="mr-3">
+              <img src="{{ asset('img/esewa-1.jpeg') }}" style="width: 50px; height: 50px;" />
+            </div>
+            <div class="mr-3">
+              <img src="{{ asset('img/khalti-1.jpeg') }}" style="width: 50px; height: 50px;" />
+            </div>
+            @if (false)
+            <div class="mr-3">
+              <img src="{{ asset('img/img-1.jpg') }}" style="width: 50px; height: 50px;" />
+            </div>
+            @endif
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h2 class="h4">
+            Ozone shopping
+          </h2>
+          <div class="d-flex">
+            <div class="mr-3">
+              <img src="{{ asset('img/nepal-flag-1.png') }}" style="width: 40px; height: 40px;" />
+            </div>
+            @if (false)
+            <div class="mr-3">
+              <img src="{{ asset('img/esewa-1.jpeg') }}" style="width: 50px; height: 50px;" />
+            </div>
+            <div class="mr-3">
+              <img src="{{ asset('img/khalti-1.jpeg') }}" style="width: 50px; height: 50px;" />
+            </div>
+            <div class="mr-3">
+              <img src="{{ asset('img/img-1.jpg') }}" style="width: 50px; height: 50px;" />
+            </div>
+            @endif
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h2 class="h4">
+            Follow us
+          </h2>
+          <div class="d-flex">
+            <div class="mr-3">
+              <i class="fab fa-facebook fa-2x text-primary"></i>
+            </div>
+            <div class="mr-3">
+              <i class="fab fa-twitter fa-2x text-info"></i>
+            </div>
+            <div class="mr-3">
+              <i class="fab fa-instagram fa-2x text-danger"></i>
+            </div>
+            <div class="mr-3">
+              <i class="fab fa-youtube fa-2x text-danger"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h2 class="h4">
+            Powered by
+          </h2>
+          <div class="text-muted">
+            <i class="fas fa-check-circle fa-2x"></i>
+            <span class="h4">
+            OIT Ozone
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -268,7 +349,7 @@
   </div>
   @endif
 
-  <div class="container-fluid bg-info-rm border pt-4 pb-5 text-white-rm" style="{{--background-color: #101530;--}}">
+  <div class="container-fluid bg-info-rm border pt-4-rm pb-5 text-white-rm" style="{{--background-color: #101530;--}}">
     <div class="container">
       <div class="border-top-rm text-center mt-4 pt-3" style="color: #aaa;">
         <div>
