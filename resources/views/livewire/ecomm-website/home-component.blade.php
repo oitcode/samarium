@@ -26,11 +26,12 @@
   @if (! $modes['searchResult'])
     {{-- Show products of each product category --}}
     @foreach ($productCategories as $productCategory)
-      @if (count($productCategory->products) > 0)
+      @if (count($productCategory->products) > 0 || count($productCategory->subProductCategories) > 0)
         <div class="container mt-4">
           @if (false)
           <h2 class="mb-3">
             {{ $productCategory->name }}
+            OLA
           </h2>
           <hr/>
           @endif

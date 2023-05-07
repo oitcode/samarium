@@ -21,7 +21,7 @@ class ProductCategory extends Model
     protected $primaryKey = 'product_category_id';
 
     protected $fillable = [
-         'name', 'image_path', 'does_sell',
+         'name', 'parent_product_category_id', 'image_path', 'does_sell',
     ];
 
 
@@ -38,5 +38,23 @@ class ProductCategory extends Model
     public function products()
     {
         return $this->hasMany('App\Product', 'product_category_id', 'product_category_id');
+    }
+
+    /*
+     * Sub product categories.
+     *
+     */
+    public function subProductCategories()
+    {
+        return $this->hasMany('App\ProductCategory', 'parent_product_category_id', 'product_category_id');
+    }
+
+    /*
+     * Parent category.
+     *
+     */
+    public function parentProductCategory()
+    {
+        return $this->belongsTo('App\ProductCategory', 'parent_product_category_id', 'product_category_id');
     }
 }

@@ -14,9 +14,14 @@ class CafeMenuProductCategoryCreate extends Component
 
     public $name;
     public $image;
+    public $parent_product_category_id;
+
+    public $productCategories;
 
     public function render()
     {
+        $this->productCategories = ProductCategory::all();
+
         return view('livewire.cafe-menu-product-category-create');
     }
 
@@ -25,6 +30,7 @@ class CafeMenuProductCategoryCreate extends Component
         $validatedData = $this->validate([
             'name' => 'required',
             'image' => 'nullable|image',
+            'parent_product_category_id' => 'nullable|integer',
         ]);
 
 

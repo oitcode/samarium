@@ -15,6 +15,19 @@
     </div>
 
     <div class="form-group">
+      <label for="">Parent Category</label>
+      <select class="form-control" wire:model.defer="parent_product_category_id">
+        <option value="---">---</option>
+        @foreach ($productCategories as $productCategory)
+          <option value="{{ $productCategory->product_category_id }}">
+            {{ $productCategory->name }}
+          </option>
+        @endforeach
+      </select>
+      @error ('parent_product_category_id') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
       <label for="">
         Image
         <span class="text-muted ml-1" style="font-size: 0.7rem">
