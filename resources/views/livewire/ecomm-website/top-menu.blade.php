@@ -13,6 +13,10 @@
       <div class="p-3">
         <div class="row mb-4" style="margin: auto;">
           @foreach ($productCategories as $productCategory)
+            {{-- Only show top level categories --}}
+            @if ($productCategory->parentProductCategory)
+              @continue
+            @endif
             <div class="col-4 col-md-2 mb-3-rm border-rm border-left mb-5">
               <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
                   class="btn-rm btn-success-rm badge-pill-rm text-white">
