@@ -69,6 +69,10 @@
     @if ($modes['showMobileMenuMode'])
       <div class="d-flex flex-column p-0 bg-warning-rm border-left-rm border-right-rm">
         @foreach ($productCategories as $productCategory)
+          {{-- Only show top level categories --}}
+          @if ($productCategory->parentProductCategory)
+            @continue
+          @endif
           <div class="p-0 border-right-rm">
             <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
                 class="btn btn-light btn-block badge-pill-rm font-weight-bold text-white-rm p-3" style="font-size: 1.3rem;">
