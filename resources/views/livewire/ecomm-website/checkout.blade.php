@@ -22,6 +22,7 @@
                 <th>Quantity</th>
                 <th>Rate</th>
                 <th>Total</th>
+                <th>Action</th>
               </tr>
             </thead>
 
@@ -45,6 +46,11 @@
                   <td class="font-weight-bold">
                     @php echo number_format( $line['product']->selling_price * $line['quantity']); @endphp
                   </td>
+                  <td>
+                    <button class="btn btn-light">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
                 </tr>
               @endforeach
             </tbody>
@@ -62,7 +68,7 @@
           </table>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 p-0">
         @if (session()->has('message'))
           <div class="alert alert-success alert-dismissible fade show mx-3 my-2" role="alert">
             {{ session('message') }}

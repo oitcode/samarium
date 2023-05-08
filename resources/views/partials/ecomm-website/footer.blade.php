@@ -102,7 +102,7 @@
   <div class="container-fluid border py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 mb-5">
           <h2 class="h4">
             Payment methods
           </h2>
@@ -123,7 +123,7 @@
             @endif
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 mb-5">
           <h2 class="h4">
             Ozone shopping
           </h2>
@@ -144,7 +144,7 @@
             @endif
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 mb-5">
           <h2 class="h4">
             Follow us
           </h2>
