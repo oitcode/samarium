@@ -1,22 +1,26 @@
 <div>
 
+  @if (true)
   <div class="container-fluid bg-dark text-white py-5">
     <div class="container">
       <div class="d-flex">
         <div class="mr-5">
           <h2 class="font-weight-bold" style="font-family: Mono;">
-            JOIN OUR SHOPCLUB & GET 15% OFF
+            Thanks for shopping
           </h2>
         </div>
+        @if (false)
         <div>
           <button class="btn btn-success" style="font-size: 1.3rem;">
             SIGN UP FOR FREE
             <i class="fas fa-arrow-right ml-1"></i>
           </button>
         </div>
+        @endif
       </div>
     </div>
   </div>
+  @endif
 
   <div class="container-fluid py-3">
     <div class="container">

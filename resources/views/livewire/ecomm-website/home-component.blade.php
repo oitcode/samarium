@@ -24,6 +24,7 @@
 
   <div>
   @if (! $modes['searchResult'])
+    @if (false)
     {{-- Show products of each product category --}}
     @foreach ($productCategories as $productCategory)
       @if (count($productCategory->products) > 0 || count($productCategory->subProductCategories) > 0)
@@ -40,7 +41,17 @@
         </div>
       @endif
     @endforeach
+    @endif
+
+    {{-- Show this for now --}}
+    <div class="container p-5">
+      <h1 style="font-family: Mono;">
+        Digital Menu
+      </h1>
+    </div>
+
   @else
+    @if (false)
     <div>
       <div class="container">
         <div class="my-3 text-scondary">
@@ -66,6 +77,7 @@
         @endif
       </div>
     </div>
+    @endif
   @endif
   </div>
 </div>
