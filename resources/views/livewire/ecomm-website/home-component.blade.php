@@ -45,9 +45,17 @@
 
     {{-- Show this for now --}}
     <div class="container p-5">
-      <h1 style="font-family: Mono;">
-        Digital Menu
-      </h1>
+      <div class="row bg-danger-rm">
+        @foreach ($productCategories as $productCategory)
+          <div class="col-md-6 m-0 p-3 border bg-danger text-white">
+            <a class="text-reset" href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+              <h2 class=" h-100" style="font-family: Mono;">
+                {{ $productCategory->name }}
+              </h2>
+            </a>
+          </div>
+        @endforeach
+      </div>
     </div>
 
   @else
