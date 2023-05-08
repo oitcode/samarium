@@ -51,6 +51,7 @@
   {{-- For smaller screens --}}
   <div class="d-md-none">
 
+    @if (false)
     <div class="d-flex justify-content-end">
       @if ($modes['showMobileMenuMode'])
         <div class="p-3">
@@ -85,6 +86,7 @@
           </div>
         @endforeach
       </div>
+    @endif
     @endif
   </div>
 
