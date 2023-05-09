@@ -114,6 +114,12 @@
           @if (count($subProductCategory->products) > 0)
             <div class="row" wire:key="{{ rand() }}">
               @foreach ($subProductCategory->products as $product)
+
+                {{-- Do not display base products --}}
+                @if ($product->is_base_product == 1)
+                  @continue
+                @endif
+
                 <div class="col-6 col-md-3 mb-4">
                   @livewire ('ecomm-website.product-list-display', ['product' => $product,])
                 </div>
