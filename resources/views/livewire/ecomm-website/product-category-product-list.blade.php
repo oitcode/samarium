@@ -139,7 +139,7 @@
         @foreach ($productCategory->products as $product)
 
           {{-- Do not display base products --}}
-          @if ($product->is_base_product)
+          @if ($product->is_base_product == 1)
             @continue
           @endif
 
