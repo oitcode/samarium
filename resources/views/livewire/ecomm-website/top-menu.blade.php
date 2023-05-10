@@ -2,6 +2,7 @@
 
   {{-- For big screens --}}
   <div class="d-none d-md-block">
+    @if (true)
     @if ($modes['showAllCategoriesMode'])
       <div class="my-3 p-3">
         <button 
@@ -28,6 +29,7 @@
       </div>
     @else
       <div class="d-flex p-0 bg-warning-rm border-left-rm border-right-rm">
+        @if (false)
         @foreach ($productCategories as $productCategory)
           <div class="p-0 border-right-rm">
             <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
@@ -36,15 +38,18 @@
             </a>
           </div>
         @endforeach
+        @endif
         <div class="col-md-2 p-0 m-0 bg-warning-rm border-right-rm">
-          <button 
+          <a 
+              href="{{ route('website-home') }}"
               class="btn btn-dark badge-pill-rm font-weight-bold p-3 text-white"
               style="font-size: 1.3rem";
-              wire:click="showAllCategories">
+              wire:click="{{--showAllCategories--}}">
             <i class="fas fa-list fa-2x mr-2"></i>
-          </button>
+          </a>
         </div>
       </div>
+    @endif
     @endif
   </div>
 
