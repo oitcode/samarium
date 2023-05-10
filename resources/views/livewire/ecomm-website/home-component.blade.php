@@ -51,7 +51,7 @@
             <a class="text-reset" href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
               <div class="d-flex">
                 <div class="mr-4">
-                  <i class="fas fa-dot-circle fa-3x mr-2 text-danger"></i>
+                  <i class="fas fa-hashtag fa-2x mr-2 text-warning-rm" style="color: orange;"></i>
                   @if ($productCategory->image_path)
                     <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $productCategory->image_path) }}" alt="{{ $productCategory->name }}" style="max-height: 50px; {{--max-width: 100px;--}}">
                   @else
