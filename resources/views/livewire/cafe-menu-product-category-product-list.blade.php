@@ -1,10 +1,12 @@
 <div>
 
+  @if (false)
   <div class="my-4">
     <button class="btn btn-light" wire:click="$refresh">
       <i class="fas fa-refresh fa-2x"></i>
     </button>
   </div>
+  @endif
 
   <div class="my-5">
     <h1 class="h5">
