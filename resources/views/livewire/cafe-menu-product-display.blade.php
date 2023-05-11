@@ -62,10 +62,21 @@
         <div class="d-flex flex-column justify-content-center h-100">
           {{-- Product media --}}
           <div>
-            @if ($product->image_path)
-              <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
+            @if ($modes['updateProductImageMode'])
+              @livewire ('product.dashboard.product-edit-image', ['product' => $product,])
             @else
-              <i class="fas fa-dice-d6 text-muted fa-8x"></i>
+              <div>
+                <div class="my-4">
+                  <button class="btn btn-light" wire:click="enterMode('updateProductImageMode')">
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                </div>
+              </div>
+              @if ($product->image_path)
+                <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
+              @else
+                <i class="fas fa-dice-d6 text-muted fa-8x"></i>
+              @endif
             @endif
           </div>
         </div>
