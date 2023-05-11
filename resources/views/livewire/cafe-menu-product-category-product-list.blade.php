@@ -1,5 +1,11 @@
 <div>
 
+  <div class="my-4">
+    <button class="btn btn-light" wire:click="$refresh">
+      <i class="fas fa-refresh fa-2x"></i>
+    </button>
+  </div>
+
   <div class="my-5">
     <h1 class="h5">
       <i class="fas fa-circle text-success mr-2"></i>
@@ -60,7 +66,7 @@
                 <th>
                   Price
                 </th>
-                @if (false)
+                @if (true)
                 <th>
                   Action
                 </th>
@@ -76,7 +82,7 @@
                   @continue
                 @endif
 
-                <tr wire:click="$emit('displayProduct', {{ $product->product_id }})" role="button">
+                <tr {{-- wire:click="$emit('displayProduct', {{ $product->product_id }})" role="button" --}} wire:key="{{ rand() }}">
                   <td style="width: 50px;">
                     @if ($product->image_path)
                       <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
@@ -84,7 +90,7 @@
                       <i class="fas fa-dice-d6 fa-2x text-secondary" style="width: 35px; height: 35px;"></i>
                     @endif
                   </td>
-                  <td>
+                  <td wire:click="$emit('displayProduct', {{ $product->product_id }})" >
                     {{ $product->name }}
                   </td>
                   <td>
@@ -100,8 +106,32 @@
                   <td>
                     @php echo number_format( $product->selling_price ); @endphp
                   </td>
-                  @if (false)
+                  @if (true)
                   <td>
+                    <span class="btn btn-light mr-3" wire:click="deleteProduct({{ $product }})">
+                      <i class="fas fa-trash"></i>
+                    </span>
+                    @if ($modes['delete'])
+                      @if ($deletingProduct->product_id == $product->product_id)
+                        @if ($modes['cannotDelete'])
+                          <span class="text-danger mr-3">
+                            Cannot be deleted
+                          </span>
+                          <span class="btn btn-light mr-3" wire:click="deleteProductCancel">
+                            Cancel
+                          </span>
+                        @else
+                          <span class="btn btn-danger mr-3" wire:click="confirmDeleteProduct">
+                            Confirm delete
+                          </span>
+                          <span class="btn btn-light mr-3" wire:click="deleteProductCancel">
+                            Cancel
+                          </span>
+                        @endif
+                      @endif
+                    @endif
+
+                    @if (false)
                     <div class="dropdown">
                       <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-cog text-secondary"></i>
@@ -118,6 +148,7 @@
 
                       </div>
                     </div>
+                    @endif
                   </td>
                   @endif
                 </tr>
