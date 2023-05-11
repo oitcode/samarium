@@ -62,14 +62,26 @@
     <div>
       <div class="mt-0 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}-rm bg-light  {{ env('OC_ASCENT_TEXT_COLOR') }}-rm">
         <div class="my-5-rm">
-          <button class="btn btn-danger mr-1" wire:click="$refresh">
-            <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
-            @if (true)
-            <span class="h5-rm bg-danger-rm">
-              Make inactive
-            </span>
-            @endif
-          </button>
+          @if ($product->is_active == 0)
+            <button class="btn btn-success mr-1" wire:click="makeProductActive">
+              <i class="fas fa-eye fa-2x-rm mr-2"></i>
+              @if (true)
+              <span class="h5-rm bg-danger-rm">
+                Make active
+              </span>
+              @endif
+            </button>
+          @elseif ($product->is_active == 1)
+            <button class="btn btn-danger mr-1" wire:click="makeProductInactive">
+              <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+              @if (true)
+              <span class="h5-rm bg-danger-rm">
+                Make inactive
+              </span>
+              @endif
+            </button>
+          @else
+          @endif
         </div>
 
         <div>

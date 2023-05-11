@@ -81,4 +81,18 @@ class CafeMenuProductDisplay extends Component
         session()->flash('message', 'Product updated');
         $this->exitMode('updateProductImageMode');
     }
+
+    public function makeProductInactive()
+    {
+        $this->product->is_active = 0;
+        $this->product->save();
+        session()->flash('message', 'Product made inactive.');
+    }
+
+    public function makeProductActive()
+    {
+        $this->product->is_active = 1;
+        $this->product->save();
+        session()->flash('message', 'Product made active.');
+    }
 }

@@ -115,6 +115,11 @@
             <div class="row" wire:key="{{ rand() }}">
               @foreach ($subProductCategory->products as $product)
 
+                {{-- Do not display inactive products --}}
+                @if ($product->is_active == 0)
+                  @continue
+                @endif
+
                 {{-- Do not display base products --}}
                 @if ($product->is_base_product == 1)
                   @continue
@@ -143,6 +148,11 @@
       @endif
       <div class="row" wire:key="{{ rand() }}">
         @foreach ($productCategory->products as $product)
+
+          {{-- Do not display inactive products --}}
+          @if ($product->is_active == 0)
+            @continue
+          @endif
 
           {{-- Do not display base products --}}
           @if ($product->is_base_product == 1)
