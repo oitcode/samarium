@@ -25,6 +25,7 @@
   @endif
 
   {{-- Top tool bar --}}
+  @if (false)
   <div class="mt-3 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}  {{ env('OC_ASCENT_TEXT_COLOR') }}">
     <div class="my-5-rm">
     </div>
@@ -53,6 +54,54 @@
     </div>
 
   </div>
+  @endif
+
+  <div>
+    <div class="bg-danger" style="border-top: 10px solid orange;">
+    </div>
+    <div>
+      <div class="mt-0 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}-rm bg-light  {{ env('OC_ASCENT_TEXT_COLOR') }}-rm">
+        <div class="my-5-rm">
+          <button class="btn btn-danger mr-1" wire:click="$refresh">
+            <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+            @if (true)
+            <span class="h5-rm bg-danger-rm">
+              Make inactive
+            </span>
+            @endif
+          </button>
+        </div>
+
+        <div>
+          @if (false)
+          <button class="btn btn-light mr-1" wire:click="$refresh">
+            <i class="fas fa-pencil-alt"></i>
+            Edit
+          </button>
+          @endif
+
+          <button class="btn btn-primary" wire:click="$refresh">
+            <i class="fas fa-refresh fa-2x"></i>
+            @if (false)
+            Refresh
+            @endif
+          </button>
+
+          <button class="btn btn-danger" wire:click="$emit('exitProductDisplayMode')">
+            <i class="fas fa-times fa-2x"></i>
+            @if (false)
+            Close
+            @endif
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
 
   <div class="row border shadow-lg-rm bg-white" style="margin: auto;">
 
