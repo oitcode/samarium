@@ -3,9 +3,34 @@
       YOU ARE OFFLINE
     </div>
 
-    @if ($modes['workingTableDisplay'])
-      @livewire ('seat-table-work-display', ['seatTable' => $workingSeatTable,])
-    @else
-      @livewire ('seat-table-list')
-    @endif
+  {{--
+  |
+  | Toolbar
+  |
+  | Top toolbar of the component.
+  |
+  --}}
+
+  {{-- Show in bigger screens --}}
+  <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('createSeatTableMode')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'New',
+        'btnCheckMode' => 'createSeatTableMode',
+    ])
+
+    @include ('partials.dashboard.spinner-button')
+
+    <div class="clearfix">
+    </div>
+  </div>
+
+  @if ($modes['workingTableDisplay'])
+    @livewire ('seat-table-work-display', ['seatTable' => $workingSeatTable,])
+  @elseif ($modes['createSeatTableMode'])
+    @livewire ('seat-table-create')
+  @else
+    @livewire ('seat-table-list')
+  @endif
 </div>
