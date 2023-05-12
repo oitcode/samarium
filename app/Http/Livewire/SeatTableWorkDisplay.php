@@ -213,4 +213,10 @@ class SeatTableWorkDisplay extends Component
             $product->save();
         }
     }
+
+    public function deleteSeatTable()
+    {
+        $this->seatTable->delete();
+        $this->emit('seatTableDeleted');
+    }
 }

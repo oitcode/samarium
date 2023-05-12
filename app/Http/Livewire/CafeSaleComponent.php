@@ -13,17 +13,21 @@ class CafeSaleComponent extends Component
     use ModesTrait;
 
     public $workingSeatTable = null;
+    public $displayingSeatTable = null;
 
     public $modes = [
         'workingTableDisplay' => false,
 
         'createSeatTableMode' => false,
+
+        'seatTableDisplayXypher' => false,
     ];
 
     protected $listeners = [
         'displayWorkingSeatTable',
         'seatTableCreateCompleted',
         'seatTableCreateCancelled',
+        'displaySeatTableXypher',
     ];
 
     public function render()
@@ -47,5 +51,13 @@ class CafeSaleComponent extends Component
     public function seatTableCreateCancelled()
     {
         $this->exitMode('createSeatTableMode');
+    }
+
+    public function  displaySeatTableXypher($seat_table_id)
+    {
+        $seatTable = SeatTable::findOrFail($seat_table_id);
+
+        $this->displayingSeatTable = $seatTable;
+        $this->enterMode('seatTableDisplayXypher');
     }
 }

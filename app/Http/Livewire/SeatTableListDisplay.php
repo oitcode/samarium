@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use App\SeatTable;
+
 class SeatTableListDisplay extends Component
 {
     public $seatTable;
@@ -16,5 +18,17 @@ class SeatTableListDisplay extends Component
     public function displayWorkingSeatTable($seatTableId)
     {
         $this->emit('displayWorkingSeatTable', $seatTableId);
+    }
+
+    public function displaySeatTableXypher($seatTableId)
+    {
+        $this->emit('displaySeatTableXypher', $seatTableId);
+    }
+
+    public function deleteSeatTable(SeatTable $seatTable)
+    {
+        $seatTable->delete();
+
+        $this->emit('seatTableDeleted');
     }
 }

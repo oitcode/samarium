@@ -28,6 +28,8 @@
 
   @if ($modes['workingTableDisplay'])
     @livewire ('seat-table-work-display', ['seatTable' => $workingSeatTable,])
+  @elseif ($modes['seatTableDisplayXypher'])
+    @livewire ('seat-table-display', ['seatTable' => displayingSeatTable,])
   @elseif ($modes['createSeatTableMode'])
     @livewire ('seat-table-create')
   @else

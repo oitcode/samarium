@@ -10,6 +10,10 @@ class SeatTableList extends Component
 {
     public $seatTables;
 
+    protected $listeners = [
+        'seatTableDeleted' => 'render',
+    ];
+
     public function render()
     {
         $this->seatTables = SeatTable::all();
