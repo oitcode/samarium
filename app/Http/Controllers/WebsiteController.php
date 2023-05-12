@@ -8,6 +8,7 @@ use App\Product;
 use App\ProductCategory;
 use App\Company;
 use App\Webpage;
+use App\SeatTable;
 
 class WebsiteController extends Controller
 {
@@ -180,6 +181,21 @@ class WebsiteController extends Controller
         $company = Company::first();
 
         return view('collection.' . $request->path())
+            ->with('company', $company)
+            ->with('productCategories', $productCategories)
+            ->with('products', $products);
+    }
+
+    public function seatTableView($id, $name)
+    {
+        $products = Product::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
+        $company = Company::first();
+
+        $seatTable = SeatTable::find($id);
+
+        return view('cafe-sale.seat-table-view')
+            ->with('seatTable', $seatTable)
             ->with('company', $company)
             ->with('productCategories', $productCategories)
             ->with('products', $products);
