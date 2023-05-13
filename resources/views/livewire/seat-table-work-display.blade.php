@@ -9,7 +9,9 @@
           <h1 class="h5 card-title mt-2">
             {{ $seatTable->name }}
           </h1>
+          @if (false)
           <i class="fas fa-refresh fa-3x" wire:click="$refresh"></i>
+          @endif
         </div>
 
         <div class="card-body">

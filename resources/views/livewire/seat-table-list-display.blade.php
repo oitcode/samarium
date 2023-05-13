@@ -18,10 +18,12 @@
             Rs
             @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
           @else
+            @if (false)
             <button class="btn btn-light" wire:click="deleteSeatTable({{ $seatTable }})">
               <i class="fas fa-trash mr-1"></i>
               Delete
             </button>
+            @endif
           @endif
       </div>
       <div wire:loading class="float-right" style="font-size: 1.5rem;">
