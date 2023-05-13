@@ -1,25 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="{{ route('dashboard') }}">
-    <i class="far fa-check-circle fa-2x-rm mr-3 text-info" style="font-size: 1.3rem;"></i>
-    OPay
+    <i class="fas fa-check-circle fa-2x mr-3 text-info" style="{{-- font-size: 1.3rem; --}}"></i>
+    <span class="h2">
+      Ozone
+    </span>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    @if (false)
     <span class="navbar-toggler-icon"></span>
+    @endif
+    <i class="fas fa-list fa-2x"></i>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       @can ('is-admin')
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ route('dashboard') }}">
+        <li class="nav-item border bg-success text-white p-3">
+          <a class="nav-link text-white" href="{{ route('dashboard') }}">
             <i class="fas fa-tv mr-3"></i>
             Dashboard 
           </a>
         </li>
       @endcan
 
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('sale') }}">
+      <li class="nav-item border bg-success text-white p-3">
+        <a class="nav-link text-white" href="{{ route('sale') }}">
           @if (env('CMP_TYPE') == 'cafe')
             <i class="fas fa-skating mr-3"></i>
             Takeaway
@@ -31,8 +36,8 @@
       </li>
 
       @if (env('CMP_TYPE') == 'cafe')
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('cafesale') }}">
+        <li class="nav-item border bg-success text-white p-3">
+          <a class="nav-link text-white" href="{{ route('cafesale') }}">
             <i class="fas fa-table mr-3"></i>
             Tables
           </a>
@@ -40,8 +45,8 @@
       @endif
 
       @can ('is-admin')
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('menu') }}">
+      <li class="nav-item border bg-success text-white p-3">
+        <a class="nav-link text-white" href="{{ route('menu') }}">
           <i class="fas fa-list mr-3"></i>
           @if (env('CMP_TYPE') == 'cafe')
             Menu
@@ -53,8 +58,8 @@
       @endcan
 
       @can ('is-admin')
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('daybook') }}">
+      <li class="nav-item border bg-success text-white p-3">
+        <a class="nav-link text-white" href="{{ route('daybook') }}">
           <i class="fas fa-book mr-3"></i>
           Daybook
         </a>
@@ -62,8 +67,8 @@
       @endcan
 
       @can ('is-admin')
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('weekbook') }}">
+      <li class="nav-item border bg-success text-white p-3">
+        <a class="nav-link text-white" href="{{ route('weekbook') }}">
           <i class="fas fa-book mr-3"></i>
           Weekbook
         </a>
@@ -71,8 +76,8 @@
       @endcan
 
       @can ('is-admin')
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('online-order') }}">
+      <li class="nav-item border bg-success text-white p-3">
+        <a class="nav-link text-white" href="{{ route('online-order') }}">
           <i class="fas fa-cloud-download-alt mr-3"></i>
           Weborder
         </a>
@@ -81,8 +86,8 @@
 
 
       @can ('is-admin')
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="mobTopMenuDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown bg-success text-white p-3 border">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="mobTopMenuDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-list text-secondry mr-2"></i>
           More
         </a>
@@ -113,8 +118,8 @@
 
       @guest
       @else
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="mobTopMenuDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item dropdown bg-success text-white p-3 border">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="mobTopMenuDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-cog text-secondry mr-2"></i>
             {{ Auth::user()->name }}
           </a>
@@ -144,7 +149,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="">
               <i class="fas fa-history text-secondary mr-2"></i>
-              v0.4.1
+              v0.6.3
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('logout') }}"
