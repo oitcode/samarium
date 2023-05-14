@@ -4,11 +4,22 @@ namespace App\Http\Livewire\EcommWebsite;
 
 use Livewire\Component;
 
+use App\Traits\ModesTrait;
+
 use App\Product;
+use App\ProductCategory;
 
 class ProductCategoryProductList extends Component
 {
+    use ModesTrait;
+
     public $productCategory;
+
+    public $displayingSubProductCategory;
+
+    public $modes = [
+        'displaySubProductCategoryMode' => false,
+    ];
 
     public function render()
     {
@@ -36,5 +47,11 @@ class ProductCategoryProductList extends Component
 
         $this->emit('itemAddedToCart');
         dd ('Okla');
+    }
+
+    public function displaySubProductCategory(ProductCategory $subProductCategory)
+    {
+        $this->displayingSubProductCategory = $subProductCategory;
+        $this->enterMode('displaySubProductCategoryMode');
     }
 }
