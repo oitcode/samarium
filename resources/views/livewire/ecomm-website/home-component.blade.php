@@ -47,7 +47,7 @@
     <div class="container p-5">
       <div class="row bg-danger-rm">
         @foreach ($productCategories as $productCategory)
-          <div class="col-md-6 m-0 p-3 border bg-light text-dark">
+          <div class="col-md-6 m-0 p-3 border bg-white text-dark">
             <a class="text-reset" href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
               <div class="d-flex">
                 <div class="mr-4">
