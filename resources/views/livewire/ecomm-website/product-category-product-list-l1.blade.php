@@ -1,24 +1,33 @@
 <div class="mt-4">
-  <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
-      style="background-color: brown; color: #fff;  {{-- border: 10px solid #aaf;--}} font-size: 1.15rem; border-left: 10px solid brown;">
-    <div class="h2 font-weight-bold pt-3" style=" {{-- background-color: white; color: black;--}} ">
-      <i class="far fa-dot-circle mx-1"></i>
-      {{ $productCategory->name }}
-    </div>
-    @if ($modes['openUpMode'])
+  @if ($modes['openUpMode'])
+    <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
+        style="background-color: brown; color: #fff;  {{-- border: 10px solid #aaf;--}} font-size: 1.15rem; border-left: 10px solid brown;"
+        wire:click="exitMode('openUpMode')">
+      <div class="h2 font-weight-bold pt-3" style=" {{-- background-color: white; color: black;--}} ">
+        <i class="far fa-dot-circle mx-1"></i>
+        {{ $productCategory->name }}
+      </div>
       <div>
-        <button class="btn btn-success-rm" wire:click="exitMode('openUpMode')">
+        <button class="btn btn-success-rm">
           <i class="fas fa-minus-circle fa-3x text-white"></i>
         </button>
       </div>
-    @else
+    </div>
+  @else
+    <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
+        style="background-color: brown; color: #fff;  {{-- border: 10px solid #aaf;--}} font-size: 1.15rem; border-left: 10px solid brown;"
+        wire:click="enterMode('openUpMode')">
+      <div class="h2 font-weight-bold pt-3" style=" {{-- background-color: white; color: black;--}} ">
+        <i class="far fa-dot-circle mx-1"></i>
+        {{ $productCategory->name }}
+      </div>
       <div>
-        <button class="btn btn-success-rm" wire:click="enterMode('openUpMode')">
+        <button class="btn btn-success-rm">
           <i class="fas fa-folder-open fa-3x text-white"></i>
         </button>
       </div>
-    @endif
-  </div>
+    </div>
+  @endif
 
   @if ($modes['openUpMode'])
     <div class="p-3-rm border-rm bg-warning-rm">
