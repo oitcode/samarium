@@ -20,7 +20,9 @@
 @endsection
 
 @section ('content')
-  <div class="container p-3">
-    @livewire ('cafe-sale.seat-table-display', ['seatTable' => $seatTable,])
+  <div class="container-fluid" style="background-color: #eee;">
+    <div class="container p-3">
+      @livewire ('cafe-sale.seat-table-display', ['seatTable' => $seatTable,])
+    </div>
   </div>
 @endsection

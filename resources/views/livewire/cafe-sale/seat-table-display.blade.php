@@ -3,8 +3,8 @@
     {{--
     Table info
     --}}
-    <div class="my-5">
-      <h1 class="text-primary font-weight-bold">
+    <div class="mb-4-rm px-2 py-4 bg-primary text-white">
+      <h1 class="text-dark-rm font-weight-bold">
         {{ $seatTable->name }}
       </h1>
     </div>
@@ -12,13 +12,15 @@
     {{--
     Items info
     --}}
-    <div class="mb-5">
+    <div class="mb-5-rm">
+      @if (false)
       <h1>
         Item List
       </h1>
-      <div class="table-responsive border">
+      @endif
+      <div class="table-responsive border bg-white">
         @if ($seatTable->isBooked())
-          <table class="table">
+          <table class="table mb-0">
             <thead>
               <tr>
                 <th>#</th>
@@ -62,13 +64,14 @@
     {{--
     Total info
     --}}
-    <div class="my-3">
+    <div class="py-4 px-2 my-3-rm bg-success text-white">
       <h1>
         Total
       </h1>
 
       @if ($seatTable->isBooked())
-        <h1 class="text-danger font-weight-bold">
+        <h1 class="text-danger-rm font-weight-bold">
+          Rs
           {{ $seatTable->getCurrentBooking()->saleInvoice->getTotalAmount() }}
         </h1>
       @endif
