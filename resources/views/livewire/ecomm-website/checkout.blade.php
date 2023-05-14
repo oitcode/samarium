@@ -8,14 +8,17 @@
 
     @if (session()->has('cart'))
     <div class="row">
-      <div class="col-md-6 bg-white text-white-rm border p-0 shadow">
+      <div class="col-md-6 bg-white text-white-rm border-right px-5 py-2 shadow-rm">
         <div class="p-3">
+          @if (false)
           <h3 class="text-white-rm mb-3" style="font-family: Arial;">
             Order details
           </h3>
+          @endif
         </div>
-        <div class="table-responsive bg-white-rm border">
+        <div class="table-responsive bg-white-rm border-rm">
           <table class="table">
+            @if (false)
             <thead>
               <tr class="bg-success text-white">
                 <th>Item</th>
@@ -25,11 +28,12 @@
                 <th>Action</th>
               </tr>
             </thead>
+            @endif
 
             <tbody>
               @foreach ($cartItemsProduct as $line)
-                <tr class="text-white-rm">
-                  <td>
+                <tr class="text-white-rm border-bottom">
+                  <td class="border-0">
                     @if ($line['product']->image_path)
                       <img src="{{ asset('storage/' . $line['product']->image_path) }}" class="mr-2" style="width: 30px; height: 30px;">
                     @else
@@ -37,16 +41,16 @@
                     @endif
                     {{ $line['product']->name }}
                   </td>
-                  <td>
+                  <td class="border-0">
                     {{ $line['quantity'] }}
                   </td>
-                  <td>
+                  <td class="border-0">
                     @php echo number_format( $line['product']->selling_price ); @endphp
                   </td>
-                  <td class="font-weight-bold">
+                  <td class="font-weight-bold border-0">
                     @php echo number_format( $line['product']->selling_price * $line['quantity']); @endphp
                   </td>
-                  <td>
+                  <td class="border-0">
                     <button class="btn btn-light">
                       <i class="fas fa-trash"></i>
                     </button>
@@ -55,17 +59,34 @@
               @endforeach
             </tbody>
 
+            @if (false)
             <tfoot>
               <tr class="text-white-rm" style="font-size: 1rem; color: red;">
                 <th colspan="3" class="text-right font-weight-bold h3">
                   Rs
                 </th>
-                <td class="font-weight-bold h3">
+                <td colspan="2" class="font-weight-bold h3">
                   @php echo number_format( $cartTotalAmount ); @endphp
                 </td>
               </tr>
             </tfoot>
+            @endif
           </table>
+        </div>
+        <div class="my-4 text-secondary">
+          <p>
+            Thank you for shopping with us. We hope you will like our services and products.
+            Fill required details and click on place order.
+          </p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <div class="h2 font-weight-bold">
+            Total
+          </div>
+          <div class="h2 font-weight-bold">
+            @php echo number_format( $cartTotalAmount ); @endphp
+          </div>
         </div>
       </div>
       <div class="col-md-6 p-0">
@@ -80,7 +101,7 @@
         @endif
 
         {{-- Customer details --}}
-        <div class="card border-0 shadow-lg">
+        <div class="card border-0 shadow-lg-rm">
           <div class="card-body">
             <div class="text-dark">
               <h3>
@@ -106,7 +127,8 @@
         </div>
 
         {{-- Payment options --}}
-        <div class="card border-0 shadow-lg">
+        @if (false)
+        <div class="card border-0 shadow-lg-rm">
           <div class="card-body">
             <div class="text-dark">
               <h3>
@@ -118,16 +140,31 @@
 
           </div>
         </div>
+        @endif
 
         {{-- Confirm button --}}
-        <div class="card border-0 shadow-lg">
+        <div class="card border-0 shadow-lg-rm">
           <div class="card-body">
             <div class="row" style="">
               <div class="col-md-12">
-                <button class="btn btn-success mr-3 w-100 badge-pill" wire:click="store" style="font-size: 1.3rem;">
+                <button class="btn btn-dark mr-3 w-100 badge-pill-rm p-3" wire:click="store" style="font-size: 1.3rem;">
                   <i class="fas fa-check-circle mr-3"></i>
                   Place order
                 </button>
+                <div class="d-flex justify-content-center my-3 text-secondary">
+                  <div>
+                    <p>
+                      By placing this order you agree to our
+                      <span class="text-primary">
+                        terms and conditions
+                      </span>
+                      and
+                      <span class="text-primary">
+                        return policy
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
