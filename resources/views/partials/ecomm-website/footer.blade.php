@@ -99,10 +99,10 @@
   </div>
   @endif
 
-  <div class="container-fluid border py-5">
+  <div class="container-fluid border py-4">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 mb-5">
+        <div class="col-md-3 mb-5 mb-md-0">
           <h2 class="h4">
             Payment methods
           </h2>
@@ -123,7 +123,7 @@
             @endif
           </div>
         </div>
-        <div class="col-md-3 mb-5">
+        <div class="col-md-3 mb-5 mb-md-0">
           <h2 class="h4">
             Ozone shopping
           </h2>
@@ -144,7 +144,7 @@
             @endif
           </div>
         </div>
-        <div class="col-md-3 mb-5">
+        <div class="col-md-3 mb-5 mb-md-0">
           <h2 class="h4">
             Follow us
           </h2>
@@ -163,7 +163,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 mb-5 mb-md-0">
           <h2 class="h4">
             Powered by
           </h2>
@@ -353,9 +353,9 @@
   </div>
   @endif
 
-  <div class="container-fluid bg-info-rm border pt-4-rm pb-5 text-white-rm" style="{{--background-color: #101530;--}}">
+  <div class="container-fluid bg-info-rm border py-2 pb-2 text-white-rm" style="{{--background-color: #101530;--}}">
     <div class="container">
-      <div class="border-top-rm text-center mt-4 pt-3" style="color: #aaa;">
+      <div class="border-top-rm text-center mt-1 pt-1" style="color: #aaa;">
         <div>
           &copy; 2023
           {{ $company->name }}
