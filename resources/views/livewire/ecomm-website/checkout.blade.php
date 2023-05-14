@@ -99,7 +99,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 p-0">
+        <div class="col-md-6 p-0 bg-white">
           @if (session()->has('message'))
             <div class="alert alert-success alert-dismissible fade show mx-3 my-2" role="alert">
               {{ session('message') }}
