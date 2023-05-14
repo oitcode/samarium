@@ -2,7 +2,8 @@
   @if ($modes['openUpMode'])
     <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
         style="background-color: brown; color: #fff;  {{-- border: 10px solid #aaf;--}} font-size: 1.15rem; border-left: 10px solid brown;"
-        wire:click="exitMode('openUpMode')">
+        wire:click="exitMode('openUpMode')"
+        role="button">
       <div class="h2 font-weight-bold pt-3" style=" {{-- background-color: white; color: black;--}} ">
         <i class="far fa-dot-circle mx-1"></i>
         {{ $productCategory->name }}
@@ -16,7 +17,8 @@
   @else
     <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
         style="background-color: brown; color: #fff;  {{-- border: 10px solid #aaf;--}} font-size: 1.15rem; border-left: 10px solid brown;"
-        wire:click="enterMode('openUpMode')">
+        wire:click="enterMode('openUpMode')"
+        role="button">
       <div class="h2 font-weight-bold pt-3" style=" {{-- background-color: white; color: black;--}} ">
         <i class="far fa-dot-circle mx-1"></i>
         {{ $productCategory->name }}
