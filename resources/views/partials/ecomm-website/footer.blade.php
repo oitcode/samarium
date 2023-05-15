@@ -191,7 +191,7 @@
             Powered by
           </h2>
           <div class="text-muted">
-            <i class="fas fa-check-circle fa-2x"></i>
+            <i class="fas fa-check-circle fa-2x mr-2"></i>
             <span class="h4">
             OIT Ozone
             </span>
