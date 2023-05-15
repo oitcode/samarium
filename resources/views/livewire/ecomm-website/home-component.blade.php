@@ -53,7 +53,7 @@
                 <div class="mr-4">
                   <i class="fas fa-hashtag fa-2x mr-2 text-warning-rm" style="color: orange;"></i>
                   @if ($productCategory->image_path)
-                    <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $productCategory->image_path) }}" alt="{{ $productCategory->name }}" style="max-height: 50px; {{--max-width: 100px;--}}">
+                    <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $productCategory->image_path) }}" alt="{{ $productCategory->name }}" style="max-height: 50px; max-width: 50px;">
                   @else
                     <i class="fas fa-clone fa-3x"></i>
                   @endif
