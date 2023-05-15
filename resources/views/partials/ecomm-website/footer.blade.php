@@ -149,18 +149,41 @@
             Follow us
           </h2>
           <div class="d-flex">
-            <div class="mr-3">
-              <i class="fab fa-facebook fa-2x text-primary"></i>
-            </div>
-            <div class="mr-3">
-              <i class="fab fa-twitter fa-2x text-info"></i>
-            </div>
-            <div class="mr-3">
-              <i class="fab fa-instagram fa-2x text-danger"></i>
-            </div>
-            <div class="mr-3">
-              <i class="fab fa-youtube fa-2x text-danger"></i>
-            </div>
+            @if ($company->fb_link)
+              <div class="mr-3">
+                <a href="{{ $company->fb_link }}" target="_blank">
+                  <i class="fab fa-facebook fa-2x text-primary"></i>
+                </a>
+              </div>
+            @endif
+            @if ($company->twitter_link)
+              <div class="mr-3">
+                <a href="{{ $company->twitter_link }}" target="_blank">
+                  <i class="fab fa-twitter fa-2x text-info"></i>
+                </a>
+              </div>
+            @endif
+            @if ($company->insta_link)
+              <div class="mr-3">
+                <a href="{{ $company->insta_link }}" target="_blank">
+                  <i class="fab fa-instagram fa-2x text-danger"></i>
+                </a>
+              </div>
+            @endif
+            @if ($company->youtube_link)
+              <div class="mr-3">
+                <a href="{{ $company->youtube_link }}" target="_blank">
+                  <i class="fab fa-youtube fa-2x text-danger"></i>
+                </a>
+              </div>
+            @endif
+            @if ($company->tiktok_link)
+              <div class="mr-3">
+                <a href="{{ $company->tiktok_link }}" target="_blank">
+                  <i class="fab fa-tiktok fa-2x text-danger"></i>
+                </a>
+              </div>
+            @endif
           </div>
         </div>
         <div class="col-md-3 mb-5 mb-md-0">
