@@ -12,7 +12,6 @@
     <h1 class="h5">
       <i class="fas fa-circle text-success mr-2"></i>
       Products
-      OLA
       <i class="fas fa-angle-right mx-2"></i>
       {{ $productCategory->name }}
     </h1>
@@ -99,6 +98,12 @@
                   </td>
                   <td wire:click="$emit('displayProduct', {{ $product->product_id }})" >
                     {{ $product->name }}
+                    @if ($product->is_base_product == 1)
+                      <span class="mx-4">
+                        <i class="fas fa-star mr-1"></i>
+                        Base
+                      </span>
+                    @endif
                   </td>
                   <td>
                     @if ($product->stock_applicable == 'yes')
