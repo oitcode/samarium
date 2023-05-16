@@ -12,6 +12,7 @@
     <h1 class="h5">
       <i class="fas fa-circle text-success mr-2"></i>
       Products
+      OLA
       <i class="fas fa-angle-right mx-2"></i>
       {{ $productCategory->name }}
     </h1>
@@ -80,8 +81,12 @@
               @foreach ($productCategory->products as $product)
 
                 {{-- Do not show sub products --}}
+                {{-- OR --}}
+                {{-- Show sub products (as well) --}}
+                @if (false)
                 @if ($product->baseProduct)
                   @continue
+                @endif
                 @endif
 
                 <tr {{-- wire:click="$emit('displayProduct', {{ $product->product_id }})" role="button" --}} wire:key="{{ rand() }}">
