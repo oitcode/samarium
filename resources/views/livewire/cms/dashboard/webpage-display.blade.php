@@ -23,7 +23,7 @@
         </div>
       @else
         {{-- Toolbar --}}
-        <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+        <div class="mb-3 p-2 d-none-rm d-md-block-rm bg-dark-rm">
           @include ('partials.dashboard.tool-bar-button-pill', [
               'btnClickMethod' => "enterMode('createWebpageContent')",
               'btnIconFaClass' => 'fas fa-plus-circle',
