@@ -1,14 +1,68 @@
-<div>
+<div class="border-top bg-white">
 
-  @if (true)
-  <div class="container-fluid bg-dark text-white py-5">
+  @if (false)
+  <div class="container-fluid bg-light text-dark border-top border-bottom py-5">
     <div class="container">
-      <div class="d-flex">
+      <div class="d-flex justify-content-center">
+        <div class="p-4 bg-white text-dark mr-3">
+          <div class="d-flex">
+            <div class="d-flex pr-4">
+              <i class="fas fa-phone fa-3x text-primary"></i>
+            </div>
+            <div class="d-flex flex-column justify-content-center h4">
+              <div class="text-center mb-3">
+                Call us
+              </div>
+              <br/ >
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-white text-dark mr-3">
+          <div class="d-flex">
+            <div class="d-flex pr-4">
+              <i class="fas fa-car fa-3x text-success"></i>
+            </div>
+            <div class="d-flex flex-column justify-content-center h4">
+              <div class="text-center mb-3">
+                Shipping
+              </div>
+              <br/ >
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-white text-dark mr-3">
+          <div class="d-flex">
+            <div class="d-flex pr-4">
+              <i class="fas fa-link fa-3x text-danger"></i>
+            </div>
+            <div class="d-flex flex-column justify-content-center h4">
+              <div class="text-center mb-3">
+                Cash on delivery
+              </div>
+              <br/ >
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-white text-dark mr-3">
+          <div class="d-flex">
+            <div class="d-flex pr-4">
+              <i class="fas fa-dice-d6 fa-3x text-info"></i>
+            </div>
+            <div class="d-flex flex-column justify-content-center h4">
+              <div class="text-center mb-3">
+                Report
+              </div>
+              <br/ >
+            </div>
+          </div>
+        </div>
+        @if (false)
         <div class="mr-5">
           <h2 class="font-weight-bold" style="font-family: Mono;">
             Thanks for shopping
           </h2>
         </div>
+        @endif
         @if (false)
         <div>
           <button class="btn btn-success" style="font-size: 1.3rem;">
@@ -99,9 +153,10 @@
   </div>
   @endif
 
-  <div class="container-fluid border py-4">
+  <div class="container-fluid border-rm py-4">
     <div class="container">
-      <div class="row">
+      <div class="d-flex justify-content-center">
+        @if (false)
         <div class="col-md-3 mb-5 mb-md-0">
           <h2 class="h4">
             Payment methods
@@ -144,11 +199,12 @@
             @endif
           </div>
         </div>
+        @endif
         <div class="col-md-3 mb-5 mb-md-0">
-          <h2 class="h4">
+          <h2 class="h5 mb-4 text-center text-secondary">
             Follow us
           </h2>
-          <div class="d-flex">
+          <div class="d-flex justify-content-center">
             @if ($company->fb_link)
               <div class="mr-3">
                 <a href="{{ $company->fb_link }}" target="_blank">
@@ -186,6 +242,7 @@
             @endif
           </div>
         </div>
+        @if (false)
         <div class="col-md-3 mb-5 mb-md-0">
           <h2 class="h4">
             Powered by
@@ -197,6 +254,7 @@
             </span>
           </div>
         </div>
+        @endif
       </div>
     </div>
   </div>
@@ -386,7 +444,7 @@
           All rights reserved
         </div>
         <div>
-          Website developed by
+          Powered by
           <a href="https://oit.com.np">
             OIT
           </a>

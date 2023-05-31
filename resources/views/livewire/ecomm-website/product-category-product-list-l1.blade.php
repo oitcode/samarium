@@ -1,32 +1,36 @@
 <div class="mt-4">
   @if ($modes['openUpMode'])
-    <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
-        style="background-color: brown; color: #fff;  {{-- border: 10px solid #aaf;--}} font-size: 1.15rem; border-left: 10px solid brown;"
+    <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border shadow-sm d-flex justify-content-between"
+        style="{{-- background-color: #dadada; color: #000;  border: 10px solid #aaf; font-size: 1.15rem; border-left: 10px solid brown;--}}"
         wire:click="exitMode('openUpMode')"
         role="button">
-      <div class="h2 font-weight-bold pt-3" style=" {{-- background-color: white; color: black;--}} ">
-        <i class="far fa-dot-circle mx-1"></i>
-        {{ $productCategory->name }}
+      <div class="" style=" {{-- background-color: white; color: black;--}} ">
+        <div class="h2 font-weight-bold pt-3">
+          {{ $productCategory->name }}
+        </div>
       </div>
       <div>
-        <button class="btn btn-success-rm">
-          <i class="fas fa-minus-circle fa-3x text-white"></i>
-        </button>
+        <img class="img-fluid h-25-rm w-100-rm"
+        src="{{ asset('storage/' . $productCategory->image_path) }}"
+        alt="{{ $productCategory->name }}"
+        style="max-height: 150px; {{--max-width: 100px;--}}">
       </div>
     </div>
   @else
-    <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
-        style="background-color: brown; color: #fff;  {{-- border: 10px solid #aaf;--}} font-size: 1.15rem; border-left: 10px solid brown;"
+    <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border shadow-sm d-flex justify-content-between"
+        style="{{-- background-color: #dadada; color: #000;  border: 10px solid #aaf; font-size: 1.15rem; border-left: 10px solid brown;--}}"
         wire:click="enterMode('openUpMode')"
         role="button">
-      <div class="h2 font-weight-bold pt-3" style=" {{-- background-color: white; color: black;--}} ">
-        <i class="far fa-dot-circle mx-1"></i>
-        {{ $productCategory->name }}
+      <div class="" style=" {{-- background-color: white; color: black;--}} ">
+        <div class="h2 font-weight-bold pt-3">
+          {{ $productCategory->name }}
+        </div>
       </div>
       <div>
-        <button class="btn btn-success-rm">
-          <i class="fas fa-folder-open fa-3x text-white"></i>
-        </button>
+        <img class="img-fluid h-25-rm w-100-rm"
+        src="{{ asset('storage/' . $productCategory->image_path) }}"
+        alt="{{ $productCategory->name }}"
+        style="max-height: 150px; {{--max-width: 100px;--}}">
       </div>
     </div>
   @endif

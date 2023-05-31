@@ -29,11 +29,11 @@
       </div>
     @else
       <div class="d-flex p-0 bg-warning-rm border-left-rm border-right-rm">
-        @if (false)
+        @if (true)
         @foreach ($productCategories as $productCategory)
           <div class="p-0 border-right-rm">
             <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-                class="btn btn-success-rm badge-pill-rm font-weight-bold text-white p-3" style="font-size: 1.3rem;">
+                class="btn btn-success-rm badge-pill-rm font-weight-bold text-white-rm p-3" style="font-size: 1.3rem;">
               {{ strtoupper($productCategory->name) }}
             </a>
           </div>
@@ -42,10 +42,10 @@
         <div class="col-md-2 p-0 m-0 bg-warning-rm border-right-rm">
           <a 
               href="{{ route('website-home') }}"
-              class="btn btn-dark badge-pill-rm font-weight-bold p-3 text-white"
+              class="btn btn-light badge-pill-rm font-weight-bold p-3 text-white-rm"
               style="font-size: 1.3rem";
               wire:click="{{--showAllCategories--}}">
-            <i class="fas fa-list fa-2x mr-2"></i>
+            <i class="fas fa-arrow-right fa-2x-rm mr-2 pt-2"></i>
           </a>
         </div>
       </div>

@@ -2,7 +2,58 @@
 
   {{-- Show in bigger screens --}}
   <div class="container-fluid p-0 bg-warning-rm d-none d-md-block">
-    <div class="bg-danger p-1">
+    <div class="container-fluid bg-danger text-white border-bottom">
+      <div class="container py-3">
+        <div class="d-flex justify-content-between">
+          {{-- Left side --}}
+          <div>
+            <i class="fas fa-phone mr-1"></i>
+            <strong>
+              {{ $company->phone }}
+            </strong>
+          </div>
+          {{-- Right side --}}
+          <div>
+            <div class="d-flex">
+              <div class="px-3">
+                <i class="fas fa-user mr-1"></i>
+                Sign in
+              </div>
+              <div class="px-3">
+                <i class="fas fa-lock mr-1"></i>
+                Create Account
+              </div>
+              <div class="px-3" style="font-size: 1.1rem;">
+                @if ($company->fb_link)
+                  <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">
+                    <i class="fab fa-facebook fa-3x-rm mr-3"></i>
+                  </a>
+                @endif
+                @if ($company->twitter_link)
+                  <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
+                    <i class="fab fa-twitter fa-3x-rm mr-3"></i>
+                  </a>
+                @endif
+                @if ($company->insta_link)
+                  <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
+                    <i class="fab fa-instagram fa-3x-rm mr-3"></i>
+                  </a>
+                @endif
+                @if ($company->youtube_link)
+                  <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
+                    <i class="fab fa-youtube fa-3x-rm mr-3"></i>
+                  </a>
+                @endif
+                @if ($company->tiktok_link)
+                  <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
+                    <i class="fab fa-tiktok fa-3x-rm mr-3"></i>
+                  </a>
+                @endif
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container">
@@ -56,9 +107,9 @@
     </div>
 
     {{-- Product category menu --}}
-    <div class="container-fluid border-rm bg-dark text-white">
+    <div class="container-fluid border-top border-bottom bg-light text-white">
       <div class="container" style="font-size: 1.5rem; font-weight: bold;">
-        @if (true)
+        @if (false)
           <div class="d-flex flex-column justify-content-center h-100">
             @include ('partials.ecomm-website.top-menu')
           </div>
@@ -98,7 +149,7 @@
 
     <div>
       @if (true)
-        <div class="d-flex flex-column justify-content-center h-100 bg-dark">
+        <div class="d-flex flex-column justify-content-center h-100 bg-light">
           @include ('partials.ecomm-website.top-menu')
         </div>
       @endif

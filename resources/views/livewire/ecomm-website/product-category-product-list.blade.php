@@ -1,12 +1,72 @@
 <div class="p-3-rm border-rm bg-warning-rm">
 
-  <div class="bg-danger text-white py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-between"
-      style="{{-- background-color: #000; color: #555;  border: 10px solid #aaf;--}} font-size: 1.15rem; border-left: 10px solid brown;">
-    <div class="h2 font-weight-bold pt-3" style=" {{-- background-color: white; color: black;--}} ">
-      <i class="far fa-dot-circle mx-1"></i>
-      {{ $productCategory->name }}
+  @if (true)
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 p-3">
+        <div class="d-flex justify-content-center h-100" style="background-color: #eaeaea;">
+          <div class="d-flex flex-column justify-content-center h-100">
+            <h2 class="text-white-rm" style="font-size: 4rem;">
+              {{ $productCategory->name }}
+            </h2>
+            <p class="text-secondary">
+              Please see our products
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 p-3">
+        <div class="border bg-light-rm shadow p-3 h-100 rounded" style="{{--background-color: #eaeaef;--}}">
+          <div class="d-flex">
+            <div>
+              @if (false)
+              <p class="text-secondary">
+                Thanks for visiting our online store.
+              </p>
+              <p class="text-secondary">
+                Explore our products.
+              </p>
+              <div class="mt-5 mb-4">
+                <a href=""  class="font-weight-bold" style="color: orange;">
+                  <span style="font-size: 1.1rem;">
+                    Register now
+                  </span>
+                </a>
+              </div>
+              @endif
+            </div>
+            <div>
+              <img class="img-fluid h-25-rm w-100-rm"
+                  src="{{ asset('storage/' . $productCategory->image_path) }}"
+                  alt="{{ $productCategory->name }}"
+                  style="{{--max-height: 250px; max-width: 250px;--}}">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  @endif
+
+
+
+
+  @if (false)
+  <div class="bg-danger-rm text-white-rm py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-center"
+      style="background-color: #efefef; {{-- color: #555;  border: 10px solid #aaf;font-size: 1.15rem; border-left: 10px solid brown;--}} ">
+    <div class="" style=" {{-- background-color: white; color: black;--}} ">
+      <div class="h2 font-weight-bold pt-3 text-center">
+        @if (false)
+        <i class="fas fa-chevron-right mx-1"></i>
+        @endif
+        {{ $productCategory->name }}
+      </div>
+      <div class="text-secondary text-center">
+        Total products: 14
+      </div>
+    </div>
+  </div>
+  @endif
 
   {{-- Show in bigger screens --}}
   <div class="d-none-rm d-md-block-rm">
@@ -22,8 +82,8 @@
     @if (true)
     @if (count($productCategory->products) > 0)
       @if ($productCategory->subProductCategories)
-        <div class="my-3 bg-danger-rm" style="background-color: #531; color: white;">
-          &nbsp;
+        <div class="my-3 bg-danger-rm py-3" style="{{-- background-color: #eaeaea; color: black; --}}">
+          Products: 15
         </div>
       @endif
       <div class="row" wire:key="{{ rand() }}">
