@@ -1,5 +1,6 @@
-@extends ('cms.website.base')
+@extends (env('SITE_TYPE') == 'erp' ? 'ecomm-website.base' : 'cms.website.base' )
 
+@if (env('SITE_TYPE') != 'erp')
 @section ('googleAnalyticsTag')
 @endsection
 
@@ -126,6 +127,7 @@
     @endif
   </div>
 @endsection
+@endif
 
 @section ('content')
   @livewire ('cms.website.webpage-display', ['webpage' => $webpage,])

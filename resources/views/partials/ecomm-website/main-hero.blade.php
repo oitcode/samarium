@@ -1,4 +1,4 @@
-<div class="container-fluid py-5 bg-danger text-white" style="{{--background-color: #eee;--}}">
+<div class="container-fluid py-5 bg-danger-rm text-white-rm" style="{{--background-color: #eee;--}}">
   <div class="container-rm">
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

@@ -15,6 +15,7 @@
           {{-- Right side --}}
           <div>
             <div class="d-flex">
+              @if (false)
               <div class="px-3">
                 <i class="fas fa-user mr-1"></i>
                 Sign in
@@ -23,6 +24,7 @@
                 <i class="fas fa-lock mr-1"></i>
                 Create Account
               </div>
+              @endif
               <div class="px-3" style="font-size: 1.1rem;">
                 @if ($company->fb_link)
                   <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">

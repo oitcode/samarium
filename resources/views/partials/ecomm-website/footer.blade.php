@@ -1,210 +1,134 @@
 <div class="border-top bg-white">
 
-  @if (false)
-  <div class="container-fluid bg-light text-dark border-top border-bottom py-5">
+  {{-- Brand Info --}}
+  <div class="container-fluid py-5" style="background-color: #dcdcdc;">
     <div class="container">
-      <div class="d-flex justify-content-center">
-        <div class="p-4 bg-white text-dark mr-3">
-          <div class="d-flex">
-            <div class="d-flex pr-4">
-              <i class="fas fa-phone fa-3x text-primary"></i>
-            </div>
-            <div class="d-flex flex-column justify-content-center h4">
-              <div class="text-center mb-3">
-                Call us
-              </div>
-              <br/ >
-            </div>
-          </div>
-        </div>
-        <div class="p-4 bg-white text-dark mr-3">
-          <div class="d-flex">
-            <div class="d-flex pr-4">
-              <i class="fas fa-car fa-3x text-success"></i>
-            </div>
-            <div class="d-flex flex-column justify-content-center h4">
-              <div class="text-center mb-3">
-                Shipping
-              </div>
-              <br/ >
-            </div>
-          </div>
-        </div>
-        <div class="p-4 bg-white text-dark mr-3">
-          <div class="d-flex">
-            <div class="d-flex pr-4">
-              <i class="fas fa-link fa-3x text-danger"></i>
-            </div>
-            <div class="d-flex flex-column justify-content-center h4">
-              <div class="text-center mb-3">
-                Cash on delivery
-              </div>
-              <br/ >
-            </div>
-          </div>
-        </div>
-        <div class="p-4 bg-white text-dark mr-3">
-          <div class="d-flex">
-            <div class="d-flex pr-4">
-              <i class="fas fa-dice-d6 fa-3x text-info"></i>
-            </div>
-            <div class="d-flex flex-column justify-content-center h4">
-              <div class="text-center mb-3">
-                Report
-              </div>
-              <br/ >
-            </div>
-          </div>
-        </div>
-        @if (false)
-        <div class="mr-5">
-          <h2 class="font-weight-bold" style="font-family: Mono;">
-            Thanks for shopping
-          </h2>
-        </div>
-        @endif
-        @if (false)
+      <div class="d-flex justify-content-center mb-4">
         <div>
-          <button class="btn btn-success" style="font-size: 1.3rem;">
-            SIGN UP FOR FREE
-            <i class="fas fa-arrow-right ml-1"></i>
-          </button>
+          @if (true)
+          <img src="{{ asset('storage/' . $company->logo_image_path) }}"
+              class="img-fluid-rm"
+              alt="{{ $company->name }} logo"
+              style="height: 75px !important; width: 75px;">
+          @endif
         </div>
-        @endif
       </div>
-    </div>
-  </div>
-  @endif
 
-  <div class="container-fluid py-3">
-    <div class="container">
-      <div class="d-flex justify-content-center">
-        <div>
-          <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 100px;">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid py-3-rm bg-danger-rm">
-    <div class="container">
       <div class="d-flex justify-content-center">
         <div>
           <div>
-            <h2 style="font-family: Mono;">
+            <h2 class="h2" style="{{-- font-family: Mono; --}}">
               {{ $company->name }}
             </h2>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+      <div class="d-flex flex-column-rm justify-content-center">
 
-  <div class="container-fluid py-3">
-    <div class="container">
-      <div class="d-flex justify-content-center">
-
-        <div class="mr-3">
-          <i class="fas fa-map-marker-alt"></i>
+        <div class="mr-3 ">
+          <i class="fas fa-map-marker-alt mr-2"></i>
           {{ $company->address }}
         </div>
 
         <div class="mr-3">
-          <i class="fas fa-phone"></i>
+          <i class="fas fa-phone mr-2"></i>
           {{ $company->phone }}
         </div>
 
+        <div class="mr-3">
+          <i class="fas fa-envelope mr-2"></i>
+          {{ $company->email }}
+        </div>
       </div>
     </div>
   </div>
 
-  @if (false)
-  <div class="container-fluid py-3">
+  <div class="container-fluid" style="background-color: #ececec;">
     <div class="container">
-      <div class="d-flex justify-content-center">
+      <div class="row">
+        <div class="col-md-3 py-4">
+          @if (false)
+          @endif
 
-        @if ($company->fb_link)
-          <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">
-            <i class="fab fa-facebook fa-3x mr-3"></i>
-          </a>
-        @endif
-        @if ($company->twitter_link)
-          <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
-            <i class="fab fa-twitter fa-3x mr-3"></i>
-          </a>
-        @endif
-        @if ($company->insta_link)
-          <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
-            <i class="fab fa-instagram fa-3x mr-3"></i>
-          </a>
-        @endif
-        @if ($company->youtube_link)
-          <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
-            <i class="fab fa-youtube fa-3x mr-3"></i>
-          </a>
-        @endif
-        @if ($company->tiktok_link)
-          <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
-            <i class="fab fa-tiktok fa-3x mr-3"></i>
-          </a>
-        @endif
-
-      </div>
-    </div>
-  </div>
-  @endif
-
-  <div class="container-fluid border-rm py-4">
-    <div class="container">
-      <div class="d-flex justify-content-center">
-        @if (false)
-        <div class="col-md-3 mb-5 mb-md-0">
-          <h2 class="h4">
-            Payment methods
+          <h2 class="h4 text-dark font-weight-bold mb-4-rm">
+            About us
           </h2>
-          <div class="d-flex">
-            <div class="mr-3">
-              <img src="{{ asset('img/cod-4.jpeg') }}" style="width: 50px; height: 50px;" />
-            </div>
-            <div class="mr-3">
-              <img src="{{ asset('img/esewa-1.jpeg') }}" style="width: 50px; height: 50px;" />
-            </div>
-            <div class="mr-3">
-              <img src="{{ asset('img/khalti-1.jpeg') }}" style="width: 50px; height: 50px;" />
-            </div>
-            @if (false)
-            <div class="mr-3">
-              <img src="{{ asset('img/img-1.jpg') }}" style="width: 50px; height: 50px;" />
-            </div>
-            @endif
+          <div class="mb-2-rm">
+            <a href="./contact-us"
+                class="text-secondary text-decoration-none text-reset h5-rm">
+              <i class="fas fa-angle-right mr-2"></i>
+              Contact
+            </a>
+          </div>
+          <div class="mb-2-rm">
+            <a href="./about-us"
+                class="text-secondary text-decoration-none text-reset h5-rm">
+              <i class="fas fa-angle-right mr-2"></i>
+              About us
+            </a>
+          </div>
+          <div class="mb-2-rm">
+            <a href="{{ route('ecomm-collection-webpage-display-privacy') }}"
+                class="text-secondary text-decoration-none text-reset h5-rm">
+              <i class="fas fa-angle-right mr-2"></i>
+              How to buy
+            </a>
+          </div>
+          <div class="mb-2-rm">
+            <a href="{{ route('ecomm-collection-webpage-display-sitemap') }}"
+                class="text-secondary text-decoration-none text-reset h5-rm">
+              <i class="fas fa-angle-right mr-2"></i>
+              Location
+            </a>
+          </div>
+          <div class="mb-2-rm">
+            <a href="./post"
+                class="text-secondary text-decoration-none text-reset h5-rm">
+              <i class="fas fa-angle-right mr-2"></i>
+              Blog
+            </a>
+          </div>
+
+        </div>
+
+        <div class="col-md-3 py-4">
+          <h2 class="h4 text-dark font-weight-bold mb-4-rm">
+            Policy
+          </h2>
+          <div class="mb-2-rm">
+            <a href="{{ route('ecomm-collection-webpage-display-return-policy') }}"
+                class="text-secondary text-decoration-none text-reset h5-rm">
+              <i class="fas fa-angle-right mr-2"></i>
+              Return policy
+            </a>
+          </div>
+          <div class="mb-2-rm">
+            <a href="{{ route('ecomm-collection-webpage-display-terms-of-use') }}"
+                class="text-secondary text-decoration-none text-reset h5-rm">
+              <i class="fas fa-angle-right mr-2"></i>
+              Terms of use
+            </a>
+          </div>
+          <div class="mb-2-rm">
+            <a href="{{ route('ecomm-collection-webpage-display-privacy') }}"
+                class="text-secondary text-decoration-none text-reset h5-rm">
+              <i class="fas fa-angle-right mr-2"></i>
+              Privacy
+            </a>
+          </div>
+          <div class="mb-2-rm">
+            <a href="{{ route('ecomm-collection-webpage-display-sitemap') }}"
+                class="text-secondary text-decoration-none text-reset h5-rm">
+              <i class="fas fa-angle-right mr-2"></i>
+              Sitemap
+            </a>
           </div>
         </div>
-        <div class="col-md-3 mb-5 mb-md-0">
-          <h2 class="h4">
-            Ozone shopping
-          </h2>
-          <div class="d-flex">
-            <div class="mr-3">
-              <img src="{{ asset('img/nepal-flag-1.png') }}" style="width: 40px; height: 40px;" />
-            </div>
-            @if (false)
-            <div class="mr-3">
-              <img src="{{ asset('img/esewa-1.jpeg') }}" style="width: 50px; height: 50px;" />
-            </div>
-            <div class="mr-3">
-              <img src="{{ asset('img/khalti-1.jpeg') }}" style="width: 50px; height: 50px;" />
-            </div>
-            <div class="mr-3">
-              <img src="{{ asset('img/img-1.jpg') }}" style="width: 50px; height: 50px;" />
-            </div>
-            @endif
-          </div>
-        </div>
-        @endif
-        <div class="col-md-3 mb-5 mb-md-0">
-          <h2 class="h5 mb-4 text-center text-secondary">
+        <div class="col-md-3">
+          <h2 class="h4 mt-4 mb-3 text-center-tm text-secondary-rm">
             Follow us
           </h2>
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-center-rm">
             @if ($company->fb_link)
               <div class="mr-3">
                 <a href="{{ $company->fb_link }}" target="_blank">
@@ -242,197 +166,26 @@
             @endif
           </div>
         </div>
-        @if (false)
-        <div class="col-md-3 mb-5 mb-md-0">
-          <h2 class="h4">
-            Powered by
+
+        <div class="col-md-3 py-4">
+          <h2 class="h4 mb-3 text-center-tm text-secondary-rm">
+            Subscribe
           </h2>
-          <div class="text-muted">
-            <i class="fas fa-check-circle fa-2x mr-2"></i>
-            <span class="h4">
-            OIT Ozone
-            </span>
-          </div>
-        </div>
-        @endif
-      </div>
-    </div>
-  </div>
-
-  @if (false)
-  @if (false)
-  <div class="container-fluid bg-info-rm border pt-4 pb-4 text-white-rm" style="{{--background-color: #101530;--}}">
-    <div class="container">
-      <div class="py-3">
-        <div class="d-flex justify-content-end">
-          <div class="mr-5 p-2" style="font-size: 1.1rem;">
-            Be 
-          </div>
-          <div>
-            <input type="text" placeholder="Email Address" class="py-2 pl-2" style="min-width: 400px;">
-            <button class="btn btn-success btn-lg">
-              Submit
+          <p class="text-secondary">
+            Enter your email to get latest updates
+            delivered to your inbox.
+          </p>
+          <input type="text" class="form-control" placeholder="email"/>
+          <div class="my-3">
+            <button class="btn btn-block btn-danger">
+              Subscribe
             </button>
           </div>
+
         </div>
       </div>
     </div>
   </div>
-  @endif
-
-  <div class="container-fluid bg-info-rm border pt-4 pb-5-rm text-white-rm" style="{{--background-color: #101530;--}}">
-    <div class="container pt-4">
-      <div class="row">
-      
-        <div class="col-md-3 text-secondary mb-5" style="">
-          <h3 class="h4 text-dark font-weight-bold mb-4">
-            ABOUT
-          </h3>
-          @if (false)
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-about-us') }}"
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              About us
-            </a>
-          </div>
-          @endif
-          <div class="mb-2">
-            <a href=""
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              Contact us
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-careers') }}"
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              Careers
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href=""
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              Press
-            </a>
-          </div>
-        </div>
-
-        <div class="col-md-3 text-secondary mb-5" style="">
-          <h3 class="h4 text-dark font-weight-bold mb-4">
-            HELP
-          </h3>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-payments') }}"
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              Payments
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-shipping') }}"
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              Shipping
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-cancellation-and-returns') }}"
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              Cancellation and returns
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href=""
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              FAQ
-            </a>
-          </div>
-        </div>
-      
-        <div class="col-md-3 text-secondary mb-5" style="">
-          <h3 class="h4 text-dark font-weight-bold mb-4">
-            POLICY
-          </h3>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-return-policy') }}"
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              Return policy
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-terms-of-use') }}"
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              Terms of use
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-privacy') }}"
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              Privacy
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-sitemap') }}"
-                class="text-secondary text-decoration-none text-reset h5">
-              <i class="fas fa-angle-right mr-2"></i>
-              Sitemap
-            </a>
-          </div>
-        </div>
-
-        @if (true)
-        <div class="col-md-3 mb-5" style="font-size: 1rem;">
-          <h3 class="h4 text-dark font-weight-bold mb-4">
-            CONNECT
-          </h3>
-          @if (false)
-          <div class="text-secondary">
-            {{ $company->tagline }}
-          </div>
-          <div class="mb-3">
-            <button class="btn btn-success badge-pill py-2 w-100">
-              <span class="h5">
-                <i class="fas fa-clock mr-1"></i>
-                Quick service
-              </span>
-            </button>
-          </div>
-          <div class="mb-3">
-            <button class="btn btn-outline-success badge-pill py-2 w-100">
-              <span class="h5">
-                <i class="fas fa-phone mr-1"></i>
-                Call us
-              </span>
-            </button>
-          </div>
-          @endif
-          <div>
-            @if ($company->fb_link)
-              <a href="{{ $company->fb_link }}" target="_blank">
-                <i class="fab fa-facebook fa-2x mr-2"></i>
-              </a>
-            @endif
-            @if ($company->twitter_link)
-              <a href="{{ $company->twitter_link }}" class="text-reset-rm" target="_blank">
-                <i class="fab fa-twitter fa-2x mr-2 "></i>
-              </a>
-            @endif
-          </div>
-
-        </div>
-        @endif
-      </div>
-    </div>
-  </div>
-  @endif
 
   <div class="container-fluid bg-info-rm border py-2 pb-2 text-white-rm" style="{{--background-color: #101530;--}}">
     <div class="container">
@@ -440,8 +193,10 @@
         <div>
           &copy; 2023
           {{ $company->name }}
+          @if (false)
           |
           All rights reserved
+          @endif
         </div>
         <div>
           Powered by
@@ -453,4 +208,5 @@
       </div>
     </div>
   </div>
+
 </div>

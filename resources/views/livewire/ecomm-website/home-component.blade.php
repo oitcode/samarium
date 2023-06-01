@@ -10,7 +10,9 @@
   @endif
 
   @if (false)
-  @include ('partials.ecomm-website.main-hero')
+  <div class="border shadow-sm">
+    @include ('partials.ecomm-website.main-hero')
+  </div>
   @endif
 
 
@@ -18,51 +20,80 @@
 
 
   @if (true)
-  <div class="container">
-    <div class="row">
+  <div class="container-fluid bg-light-rm" style="background-color: pink;">
+  <div class="container pt-4">
+    <div class="row border-rm shadow-rm">
       <div class="col-md-8 p-3">
-        <div class="bg-danger-rm text-white border shadow p-3 h-100" style="background-color: orange;">
-          <h2>
-            Buy some of the most extraordinary products
-          </h2>
-          <p class="text-secondary-rm">
-            Largest collection of hand made items
-          </p>
-          <div class="my-5">
-            <button class="btn btn-light bg-white-rm">
-              Explore more
-            </button>
+        <div class="d-flex justify-content-center-rm h-100 bg-danger-rm" style="{{--background-color: orange;--}}">
+          <div class="d-flex flex-column justify-content-center h-100">
+            @if (true)
+            <h2 class="h5 text-white-rm badge-rm badge-pill-rm badge-success-rm mb-5 py-3"
+                style="font-size: 1rem; border-left: 5px solid brown;">
+              FEATURED PRODUCT
+            </h2>
+            @endif
+
+            <h2 class="h4 text-white-rm" style="font-size: 2rem;">
+              {{ \App\Product::first()->name }}
+            </h2>
+            <p class="text-secondary-rm" style="">
+              {{ \App\Product::first()->description }}
+            </p>
+            <h2 class="h4 text-danger-rm" style="font-size: 1.5rem;">
+              Rs
+              {{ \App\Product::first()->selling_price }}
+            </h2>
+            <div class="my-5">
+              <a href="{{ route('website-product-view', [\App\Product::first()->product_id, \App\Product::first()->name]) }}"
+                  class="btn btn-block btn-danger p-3">
+                VIEW PRODUCT
+              </a>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-md-4 p-3">
-        <div class="border bg-light-rm shadow p-3 h-100 rounded" style="background-color: #eaeaef;">
-          <div class="d-flex">
-            <div>
-              <p class="text-secondary">
-                Thanks for visiting our online store.
-              </p>
-              <p class="text-secondary">
-                Explore our products.
-              </p>
-              <div class="mt-5 mb-4">
-                <a href=""  class="font-weight-bold" style="color: orange;">
-                  <span style="font-size: 1.1rem;">
-                    Register now
-                  </span>
-                </a>
+        @if (\App\Product::first())
+          <div class="shadow-lg-rm">
+            @if (false)
+              @livewire ('ecomm-website.product-list-display', ['product' => \App\Product::first(),])
+            @else
+              <img class="img-fluid h-25-rm w-100-rm"
+                  src="{{ asset('storage/' . \App\Product::first()->image_path) }}"
+                  alt="Product image"
+                  style="{{--max-height: 250px; max-width: 250px;--}}">
+            @endif
+          </div>
+        @else
+          <div class="border bg-light-rm shadow p-3 h-100 rounded" style="background-color: #eaeaef;">
+            <div class="d-flex">
+              <div>
+                <p class="text-secondary">
+                  Thanks for visiting our online store.
+                </p>
+                <p class="text-secondary">
+                  Explore our products.
+                </p>
+                <div class="mt-5 mb-4">
+                  <a href=""  class="font-weight-bold" style="color: orange;">
+                    <span style="font-size: 1.1rem;">
+                      Register now
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <img class="img-fluid h-25-rm w-100-rm"
+                    src="{{ asset('storage/' . $company->logo_image_path) }}"
+                    alt="Our image collection"
+                    style="{{--max-height: 250px; max-width: 250px;--}}">
               </div>
             </div>
-            <div>
-              <img class="img-fluid h-25-rm w-100-rm"
-                  src="{{ asset('storage/' . $company->logo_image_path) }}"
-                  alt="Our image collection"
-                  style="{{--max-height: 250px; max-width: 250px;--}}">
-            </div>
           </div>
-        </div>
+        @endif
       </div>
     </div>
+  </div>
   </div>
   @endif
 

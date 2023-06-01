@@ -65,13 +65,6 @@
       <h3 class="h4 ml-2 mb-3 text-danger" style="font-weight: bold;">
         Rs.
         @php echo number_format( $product->selling_price ); @endphp
-
-        <span class="ml-4 text-secondary">
-        <s>
-          Rs.
-          @php echo number_format( $product->selling_price + 10 ); @endphp
-        </s>
-        </span>
       </h3>
       <hr />
       <p class="h5 ml-2 mb-3 text-secondary-rm border-top-rm border-bottom-rm">
@@ -81,6 +74,7 @@
       <hr />
       @endif
 
+      @if (false)
       <div>
         <div class="d-flex justify-content-between">
           <h2 class="h5">Shipping and returns</h2>
@@ -100,6 +94,7 @@
         </div>
       </div>
       <hr />
+      @endif
 
       @if (count($product->productSpecifications) > 0)
         <hr />
@@ -142,6 +137,7 @@
           </span>
         </button>
 
+        @if (false)
         <button class="btn btn-outline-dark btn-block-rm badge-pill-rm py-3-rm h2-rm h-100-rm w-100 mb-0 p-3"
             style="{{-- background-color: #5a0; --}} font-family: Arial;"
             wire:click="addItemToCart({{ $product->product_id }})">
@@ -155,6 +151,7 @@
             @endif
           </span>
         </button>
+        @endif
 
         {{-- Loading spinner --}}
         <span wire:loading class="spinner-border text-info mr-3"
