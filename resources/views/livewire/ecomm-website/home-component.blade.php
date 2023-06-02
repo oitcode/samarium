@@ -67,7 +67,7 @@
           </h2>
         </div>
 
-        <div class="d-flex">
+        <div class="d-flex bg-warning">
         <div class="card h-100 shadow border-0 mr-3">
       
           <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
