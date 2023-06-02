@@ -20,7 +20,8 @@
 
 
   @if (true)
-  <div class="container-fluid bg-light-rm" style="background-color: #edeaea;">
+  {{-- Show only in big screens for now --}}
+  <div class="container-fluid bg-light-rm d-none d-md-block" style="background-color: #edeaea;">
   <div class="container pt-4-rm">
     <div class="row border-rm shadow-rm">
       <div class="col-md-4 p-3-rm">
