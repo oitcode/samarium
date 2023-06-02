@@ -1,5 +1,5 @@
-<div class="container-fluid py-5 bg-danger-rm text-white-rm" style="{{--background-color: #eee;--}}">
-  <div class="container-rm">
+<div class="container-fluid py-5-rm bg-danger-rm text-white-rm" style="{{--background-color: #eee;--}}">
+  <div class="container">
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -20,9 +20,9 @@
               <img class="img-fluid h-25-rm w-100-rm"
                   src="{{ asset('img/boutique-1.png') }}"
                   alt="FOOBAR"
-                  style="max-height: 250px; {{--max-width: 250px;--}}">
-              <div class="my-5">
-                <h2 class="h1">
+                  style="max-height: 100px; max-width: 100px;">
+              <div class="my-5-rm">
+                <h2 class="h4">
                   Rs 12,500
                 </h2>
               </div>
@@ -37,7 +37,7 @@
               <img class="img-fluid h-25-rm w-100-rm"
                   src="{{ asset('img/esewa-1.jpeg') }}"
                   alt="FOOBAR"
-                  style="max-height: 250px; {{--max-width: 250px;--}}">
+                  style="max-height: 100px; max-width: 100px;">
             </div>
             @endif
           </div>
@@ -63,7 +63,7 @@
               <img class="img-fluid h-25-rm w-100-rm"
                   src="{{ asset('img/boutique-3.png') }}"
                   alt="FOOBAR"
-                  style="max-height: 250px; {{--max-width: 250px;--}}">
+                  style="max-height: 100px; max-width: 100px;">
               <div class="my-5">
                 <h2 class="h1">
                   Rs 12,500
@@ -80,7 +80,7 @@
               <img class="img-fluid h-25-rm w-100-rm"
                   src="{{ asset('img/khalti-1.jpeg') }}"
                   alt="FOOBAR"
-                  style="max-height: 250px; {{--max-width: 250px;--}}">
+                  style="max-height: 100px; max-width: 100px;">
             </div>
             @endif
           </div>

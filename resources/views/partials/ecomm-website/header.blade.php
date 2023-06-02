@@ -65,25 +65,29 @@
         <a href="{{ route('website-home') }}" class="text-decoration-none">
         <div class="d-flex">
           <div class="mr-4 d-flex flex-column justify-content-center">
-              <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid mt-4" style="height: 100px;">
+              @if (true)
+              <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid-rm mt-4" style="max-width: 50px; max-height: 50px;">
+              @endif
           </div>
           <div class="mt-3 d-none d-md-block mr-3">
             <h1 class="mt-2 text-dark" style="font-weight: bold; font-size: 1.5rem; text-shadow: 0px 1px, 1px 0px, 1px 0px;">
               {{ $company->name }}
             </h1>
+            @if (false)
             <div class="text-secondary">
               {{ $company->tagline }}
             </div>
+            @endif
           </div>
         </div>
         </a>
 
-        @if (false)
-        <div class="flex-grow-1 d-flex justify-content-end">
+        @if (true)
+        <div class="flex-grow-1 d-flex justify-content-center">
           <div class="d-flex flex-column justify-content-center">
             <div>
-              <input type="text" class="py-2 badge-pill-rm shadow mr-3" style="width: 400px;" placeholder="Search product">
-              <button class="btn btn-success badge-pill">
+              <input type="text" class="py-2 badge-pill-rm shadow mr-3" style="width: 400px;" placeholder="Search for product or a category">
+              <button class="btn btn-outline-danger badge-pill">
                 Search
               </button>
             </div>
@@ -96,7 +100,7 @@
 
           {{-- Shopping cart badge (checkout link) --}}
           @if (true)
-            <div class="d-flex flex-column justify-content-center h-100 bg-danger-rm text-white-rm p-5 o-darker">
+            <div class="d-flex flex-column justify-content-center h-100 bg-danger-rm text-white-rm p-5-rm o-darker">
               @livewire ('ecomm-website.shopping-cart-badge')
             </div>
           @else

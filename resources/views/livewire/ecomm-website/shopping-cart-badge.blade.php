@@ -1,6 +1,12 @@
 <div class="d-inline-block-rm">
-  <a href="{{ route('website-checkout') }}" class="p-4 bg-danger text-white" style="font-size: 2.7rem; font-weight: bold;">
-    <i class="fas fa-shopping-cart mr-2 text-dark-rm text-white-rm"></i>
+  <a href="{{ route('website-checkout') }}" class="" style="{{-- font-size: 2.7rem; font-weight: bold; --}}">
+    <i class="fas fa-shopping-cart fa-2x mr-2 text-danger text-white-rm"></i>
+    <br/>
+    @if (false)
+    <span class="text-secondary">
+      Cart
+    </span>
+    @endif
     @if (false)
     <span class="text-dark-rm">
     Rs
