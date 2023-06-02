@@ -71,7 +71,7 @@
         <div class="card h-100 shadow border-0 mr-3">
       
           <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-            <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+            <a href="{{ route('website-product-view', [\App\Product::first()->product_id, \App\Product::first()->name]) }}">
               <div class="d-flex justify-content-center bg-warning-rm">
                   @if ($productCategory->image_path)
                     <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . \App\Product::first()->image_path) }}" alt="{{ $productCategory->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
@@ -83,9 +83,9 @@
       
             <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
               <div class="p-2">
-                <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+                <a href="{{ route('website-product-view', [\App\Product::first()->product_id, \App\Product::first()->name]) }}">
                   <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
-                    {{ strtoupper($productCategory->name) }}
+                    {{ strtoupper(\App\Product::first()->name) }}
                     <br />
                     <span class="text-danger ml-1-rm">
                       Rs {{ \App\Product::find(1)->selling_price }}
@@ -101,7 +101,7 @@
         <div class="card h-100 shadow border-0 mr-3">
       
           <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-            <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+            <a href="{{ route('website-product-view', [\App\Product::find(2)->product_id, \App\Product::find(2)->name]) }}">
               <div class="d-flex justify-content-center bg-warning-rm">
                   @if ($productCategory->image_path)
                     <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . \App\Product::find(2)->image_path) }}" alt="{{ $productCategory->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
@@ -113,7 +113,7 @@
       
             <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
               <div class="p-2">
-                <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+                <a href="{{ route('website-product-view', [\App\Product::find(2)->product_id, \App\Product::find(2)->name]) }}">
                   <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
                     {{ strtoupper(\App\Product::find(2)->name) }}
                     <br />
@@ -131,7 +131,7 @@
         <div class="card h-100 shadow border-0 mr-3">
       
           <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-            <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+            <a href="{{ route('website-product-view', [\App\Product::find(3)->product_id, \App\Product::find(3)->name]) }}">
               <div class="d-flex justify-content-center bg-warning-rm">
                   @if ($productCategory->image_path)
                     <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . \App\Product::find(3)->image_path) }}" alt="{{ $productCategory->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
@@ -143,9 +143,9 @@
       
             <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
               <div class="p-2">
-                <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+                <a href="{{ route('website-product-view', [\App\Product::find(3)->product_id, \App\Product::find(3)->name]) }}">
                   <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
-                    {{ strtoupper($productCategory->name) }}
+                    {{ strtoupper(\App\Product::find(3)->name) }}
                     <br />
                     <span class="text-danger ml-1-rm">
                       Rs {{ \App\Product::find(3)->selling_price }}
@@ -162,7 +162,7 @@
         <div class="card h-100 shadow border-0">
       
           <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-            <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+            <a href="{{ route('website-product-view', [\App\Product::find(4)->product_id, \App\Product::find(4)->name]) }}">
               <div class="d-flex justify-content-center bg-warning-rm">
                   @if ($productCategory->image_path)
                     <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . \App\Product::find(4)->image_path) }}" alt="{{ $productCategory->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
@@ -174,9 +174,9 @@
       
             <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
               <div class="p-2">
-                <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}">
+                <a href="{{ route('website-product-view', [\App\Product::find(4)->product_id, \App\Product::find(4)->name]) }}">
                   <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
-                    {{ strtoupper($productCategory->name) }}
+                    {{ strtoupper(\App\Product::find(4)->name) }}
                     <br />
                     <span class="text-danger ml-1-rm">
                       Rs {{ \App\Product::find(4)->selling_price }}

@@ -122,7 +122,7 @@
       @endif
 
       <div>
-        <button class="btn btn-dark btn-block-rm badge-pill-rm py-3-rm h2-rm h-100-rm w-100 mb-0 p-3 mb-3"
+        <button class="btn btn-danger btn-block-rm badge-pill-rm py-3-rm h2-rm h-100-rm w-100 mb-0 p-3 mb-3"
             style="{{-- background-color: #5a0; --}} font-family: Arial;"
             wire:click="addItemToCart({{ $product->product_id }})">
           <span class="h4">

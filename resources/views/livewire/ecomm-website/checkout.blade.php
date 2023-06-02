@@ -157,7 +157,7 @@
             <div class="card-body">
               <div class="row" style="">
                 <div class="col-md-12">
-                  <button class="btn btn-dark mr-3 w-100 badge-pill-rm p-3" wire:click="store" style="font-size: 1.3rem;">
+                  <button class="btn btn-danger mr-3 w-100 badge-pill-rm p-3" wire:click="store" style="font-size: 1.3rem;">
                     <i class="fas fa-check-circle mr-3"></i>
                     Place order
                   </button>
