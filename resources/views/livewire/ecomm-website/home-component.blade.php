@@ -24,10 +24,10 @@
   <div class="container pt-4-rm">
     <div class="row border-rm shadow-rm">
       <div class="col-md-4 p-3-rm">
-        <div class="d-flex-rm justify-content-center-rm h-100-rm bg-danger-rm" style="{{--background-color: orange;--}}">
+        <div class="d-flex-rm justify-content-center-rm h-100 bg-danger-rm" style="{{--background-color: orange;--}}">
           @if (true)
-          <div class="d-flex-rm flex-column-rm justify-content-center-rm h-100-rm">
-            <div class="bg-white" style="width: 300px;">
+          <div class="d-flex-rm flex-column-rm justify-content-center-rm h-100">
+            <div class="bg-white h-100" style="width: 300px;">
               @php
                 $ii = 0;
               @endphp
@@ -35,7 +35,7 @@
                 @if ($ii >= 5)
                   @break
                 @endif
-                <div class="px-3 py-1 border-bottom">
+                <div class="px-3 py-1 border-top">
                   <img class="img-fluid h-25-rm w-100-rm"
                       src="{{ asset('storage/' . $productCategory->image_path) }}"
                       alt="{{ $productCategory->name }}"
@@ -46,7 +46,7 @@
                   $ii++;
                 @endphp
               @endforeach
-              <div class="p-3 border-bottom">
+              <div class="p-3 border-top">
                 <a href="">
                 <i class="fas fa-dice-d6 mr-3"></i>
                 Sell all categories
