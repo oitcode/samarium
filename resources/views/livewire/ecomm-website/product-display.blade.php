@@ -1,6 +1,6 @@
 <div class="p-3">
 
-  <div class="py-2 text-secondary mb-4" style="font-size: 1.15rem;">
+  <div class="py-1 text-secondary mb-4-rm" style="font-size: 1.15rem;">
     @if (false)
     <i class="fas fa-home mr-1"></i>
     @endif
@@ -21,7 +21,7 @@
     {{ $product->name }}
   </div>
 
-  <div class="row mb-5 border p-2 py-5  bg-white shadow-rm">
+  <div class="row mb-3 border p-2 py-5  bg-white shadow-rm" style="margin: auto;">
     <div class="col-md-6">
       <div class="d-flex justify-content-center h-100">
         <div class="d-flex flex-column justify-content-start h-100">
@@ -39,7 +39,7 @@
       </h1>
 
       <div class="my-3">
-        <span class="badge badge-pill badge-success" style="font-size: 1.3rem;">
+        <span class="badge badge-pill badge-success" style="">
           Available
         </span>
         @if (false)
@@ -94,31 +94,6 @@
         </div>
       </div>
       <hr />
-      @endif
-
-      @if (count($product->productSpecifications) > 0)
-        <hr />
-        <div class="mb-5">
-          <div class="mt-4">
-            <h3 class="h5 ml-2 mb-3" style="font-weight: bold;">
-              Specifications
-            </h3>
-          </div>
-          <div class="table-responsive border-rm">
-            <table class="table mb-0">
-              @foreach ($product->productSpecifications as $spec)
-                <tr class="">
-                  <th class="bg-light-rm border-dark" style="background-color: #eee;">
-                    {{ $spec->spec_heading }}
-                  </th>
-                  <td class="bg-success-rm text-white-rm border-dark">
-                    {{ $spec->spec_value }}
-                  </td>
-                </tr>
-              @endforeach
-            </table>
-          </div>
-        </div>
       @endif
 
       <div>
@@ -199,6 +174,81 @@
       </div>
     </div>
     @endif
+  </div>
+
+  {{-- Product specification --}}
+  <div class="bg-white p-3 border mb-3">
+    <div>
+      <div class="mb-3">
+        <strong class="text-muted">
+          PRODUCT DETAILS
+        </strong>
+        </br>
+        <strong class="h5">
+          {{ $product->name }}
+        </strong>
+      </div>
+
+      @if (count($product->productSpecifications) > 0)
+        <hr />
+        <div class="mb-5">
+          <div class="mt-4">
+            <h3 class="h5 ml-2 mb-3" style="font-weight: bold;">
+              Specifications
+            </h3>
+          </div>
+          <div class="table-responsive border-rm">
+            <table class="table mb-0">
+              @foreach ($product->productSpecifications as $spec)
+                <tr class="">
+                  <th class="bg-light-rm border-dark" style="background-color: #eee;">
+                    {{ $spec->spec_heading }}
+                  </th>
+                  <td class="bg-success-rm text-white-rm border-dark">
+                    {{ $spec->spec_value }}
+                  </td>
+                </tr>
+              @endforeach
+            </table>
+          </div>
+        </div>
+      @endif
+    </div>
+  </div>
+
+  {{-- Rating and reviews --}}
+  <div class="bg-white p-3 border mb-3">
+    <div>
+      <div class="mb-3">
+        <strong>
+          Rating and reviews
+        </strong>
+      </div>
+      <div class="px-3" style="color: orange;">
+        <div>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          (0)
+        </div>
+        <div>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          (0)
+        </div>
+        <div>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          (0)
+        </div>
+        <div>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          (0)
+        </div>
+        <div>
+          <i class="fas fa-star"></i>
+          (0)
+        </div>
+      </div>
+    </div>
   </div>
 
   @if (false)
