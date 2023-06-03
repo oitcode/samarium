@@ -1,10 +1,10 @@
 <div class="border-top bg-white">
 
   {{-- Brand Info --}}
-  <div class="container-fluid py-5" style="background-color: #dcdcdc;">
+  <div class="container-fluid py-3" style="background-color: #dcdcdc;">
     <div class="container">
-      <div class="d-flex justify-content-center mb-4">
-        <div>
+      <div class="d-flex justify-content-center-rm">
+        <div class="">
           @if (true)
           <img src="{{ asset('storage/' . $company->logo_image_path) }}"
               class="img-fluid-rm"
@@ -13,45 +13,95 @@
           @endif
         </div>
       </div>
-
-      <div class="d-flex justify-content-center">
-        <div>
-          <div>
-            <h2 class="h2" style="{{-- font-family: Mono; --}}">
-              {{ $company->name }}
-            </h2>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex flex-column-rm justify-content-center">
-
-        <div class="mr-3 ">
-          <i class="fas fa-map-marker-alt mr-2"></i>
-          {{ $company->address }}
-        </div>
-
-        <div class="mr-3">
-          <i class="fas fa-phone mr-2"></i>
-          {{ $company->phone }}
-        </div>
-
-        <div class="mr-3">
-          <i class="fas fa-envelope mr-2"></i>
-          {{ $company->email }}
-        </div>
-      </div>
     </div>
   </div>
 
   <div class="container-fluid" style="background-color: #ececec;">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 py-4">
-          @if (false)
-          @endif
 
-          <h2 class="h4 text-dark font-weight-bold mb-4-rm">
-            About us
+        <div class="col-md-3 py-4">
+          <div class="">
+            <div class="d-flex flex-column">
+              <div class="" style="">
+                <h2 class="h4 text-dark font-weight-bold">
+                  {{ $company->name }}
+                </h2>
+              </div>
+            </div>
+            @if (false)
+            <div class="d-flex justify-content-center-rm">
+              <div>
+                <div>
+                  <h2 class="h4 mb-3" style="{{-- font-family: Mono; --}}">
+                    @if (false)
+                    {{ $company->name }}
+                    @else
+                    Contact us
+                    @endif
+                  </h2>
+                </div>
+              </div>
+            </div>
+            @endif
+            <div class="d-flex flex-column justify-content-center">
+
+              <div class="mr-3 mb-2">
+                @if (false)
+                <i class="fas fa-phone mr-2"></i>
+                @else
+                <strong>
+                  <span class="text-muted">
+                    PHONE
+                  </span>
+                </strong>
+                @endif
+                </br>
+                <strong>
+                  {{ $company->phone }}
+                </strong>
+              </div>
+
+              <div class="mr-3 mb-2">
+                @if (false)
+                <i class="fas fa-envelope mr-2"></i>
+                @else
+                <strong>
+                  <span class="text-muted">
+                    EMAIL
+                  </span>
+                </strong>
+                @endif
+                </br>
+                <strong>
+                  {{ $company->email }}
+                </strong>
+              </div>
+
+              <div class="mr-3 mb-2">
+                @if (false)
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                @else
+                <strong>
+                  <span class="text-muted">
+                ADDRESS
+                  </span>
+                </strong>
+                @endif
+                <br/>
+                <strong>
+                {{ $company->address }}
+                </strong>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="col-md-3 py-4">
+          <h2 class="h5 text-dark font-weight-bold mb-4-rm">
+            QUICK LINKS
           </h2>
           <div class="mb-2-rm">
             <a href="./contact-us"
@@ -92,16 +142,9 @@
         </div>
 
         <div class="col-md-3 py-4">
-          <h2 class="h4 text-dark font-weight-bold mb-4-rm">
-            Policy
+          <h2 class="h5 text-dark font-weight-bold mb-4-rm">
+            POLICY
           </h2>
-          <div class="mb-2-rm">
-            <a href="{{ route('ecomm-collection-webpage-display-return-policy') }}"
-                class="text-secondary text-decoration-none text-reset h5-rm">
-              <i class="fas fa-angle-right mr-2"></i>
-              Return policy
-            </a>
-          </div>
           <div class="mb-2-rm">
             <a href="{{ route('ecomm-collection-webpage-display-terms-of-use') }}"
                 class="text-secondary text-decoration-none text-reset h5-rm">
@@ -117,6 +160,13 @@
             </a>
           </div>
           <div class="mb-2-rm">
+            <a href="{{ route('ecomm-collection-webpage-display-return-policy') }}"
+                class="text-secondary text-decoration-none text-reset h5-rm">
+              <i class="fas fa-angle-right mr-2"></i>
+              Return policy
+            </a>
+          </div>
+          <div class="mb-2-rm">
             <a href="{{ route('ecomm-collection-webpage-display-sitemap') }}"
                 class="text-secondary text-decoration-none text-reset h5-rm">
               <i class="fas fa-angle-right mr-2"></i>
@@ -124,9 +174,38 @@
             </a>
           </div>
         </div>
-        <div class="col-md-3">
-          <h2 class="h4 mt-4 mb-3 text-center-tm text-secondary-rm">
-            Follow us
+
+        <div class="col-md-3 py-4">
+
+          @if (false)
+          <h2 class="h5 mb-3 text-center-tm text-secondary-rm">
+            ABOUT US
+          </h2>
+          @if (false)
+          <p class="text-secondary">
+            Enter your email to get latest updates
+            delivered to your inbox.
+          </p>
+          <input type="text" class="form-control" placeholder="Email"/>
+          <div class="my-3">
+            <button class="btn btn-block btn-danger">
+              Subscribe
+            </button>
+          </div>
+          @endif
+
+          @if (true)
+          <p class="text-secondary">
+            Rekha boutique is a boutique store selling all types
+            of boutique dress and ornaments. Located in Kamalpokhari,
+            Kathmandu, Nepal we provide free shipping inside
+            Kathmandu valley.
+          </p>
+          @endif
+          @endif
+
+          <h2 class="h5 mb-3 text-center-tm text-secondary-rm">
+            FOLLOW US
           </h2>
           <div class="d-flex justify-content-center-rm">
             @if ($company->fb_link)
@@ -164,22 +243,6 @@
                 </a>
               </div>
             @endif
-          </div>
-        </div>
-
-        <div class="col-md-3 py-4">
-          <h2 class="h4 mb-3 text-center-tm text-secondary-rm">
-            Subscribe
-          </h2>
-          <p class="text-secondary">
-            Enter your email to get latest updates
-            delivered to your inbox.
-          </p>
-          <input type="text" class="form-control" placeholder="email"/>
-          <div class="my-3">
-            <button class="btn btn-block btn-danger">
-              Subscribe
-            </button>
           </div>
 
         </div>
