@@ -12,11 +12,13 @@
 
 
 @section ('fbOgMetaTags')
-<meta property="og:url"                content="{{ Request::url() }}" />
-<meta property="og:type"               content="article" />
-<meta property="og:title"              content="{{ $company->name }}" />
-<meta property="og:description"        content="{{ $company->tagline }}" />
-<meta property="og:image"              content="{{ asset('storage/' . $company->logo_image_path) }}" />
+@if ($company)
+  <meta property="og:url"                content="{{ Request::url() }}" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="{{ $company->name }}" />
+  <meta property="og:description"        content="{{ $company->tagline }}" />
+  <meta property="og:image"              content="{{ asset('storage/' . $company->logo_image_path) }}" />
+@endif
 @endsection
 
 @section ('content')
