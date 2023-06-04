@@ -21,7 +21,9 @@
 @endif
 @endsection
 
+@if ($company)
 @section ('content')
   @livewire ('ecomm-website.home-component')
 @endsection
+@endif
 

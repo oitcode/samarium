@@ -76,7 +76,7 @@
 
         <div class="row">
 
-          @for ($ii=1; $ii <= 4; $ii++)
+          @for ($ii=1; $ii <= \App\Product::count(); $ii++)
             <div class="col-md-3">
               <div class="card h-100 shadow">
       
