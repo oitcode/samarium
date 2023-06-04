@@ -1,4 +1,4 @@
-<div class="p-3">
+<div class="p-3-rm">
 
   <div class="py-1 text-secondary mb-4-rm" style="font-size: 1.15rem;">
     @if (false)
@@ -7,7 +7,7 @@
     <a class="text-primary-rm"
         href="{{ route('website-home') }}"
         style="{{-- color: #000; --}}">
-      Products
+      Home
     </a>
 
     <i class="fas fa-angle-right  mx-1"></i>

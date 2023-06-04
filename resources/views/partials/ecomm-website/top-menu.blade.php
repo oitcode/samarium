@@ -61,6 +61,8 @@
 </div>
 @endif
 
+@if (true)
 <div class="bg-warning-rm border-left-rm">
     @livewire ('ecomm-website.top-menu')
 </div>
+@endif

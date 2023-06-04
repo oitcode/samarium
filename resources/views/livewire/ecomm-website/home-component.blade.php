@@ -36,19 +36,24 @@
                 @if ($ii >= 5)
                   @break
                 @endif
-                <div class="px-3 py-1 border-top">
-                  <img class="img-fluid h-25-rm w-100-rm"
-                      src="{{ asset('storage/' . $productCategory->image_path) }}"
-                      alt="{{ $productCategory->name }}"
-                      style="max-height: 50px; max-width: 50px;">
-                  {{ $productCategory->name }}
-                </div>
+                <a
+                    href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
+                    class="text-reset text-decoration-none"
+                >
+                  <div class="px-3 py-1 border-top">
+                      <img class="img-fluid h-25-rm w-100-rm"
+                          src="{{ asset('storage/' . $productCategory->image_path) }}"
+                          alt="{{ $productCategory->name }}"
+                          style="max-height: 50px; max-width: 50px;">
+                      {{ $productCategory->name }}
+                  </div>
+                </a>
                 @php
                   $ii++;
                 @endphp
               @endforeach
               <div class="p-3 border-top">
-                <a href="">
+                <a href="#o-all-categories">
                 <i class="fas fa-dice-d6 mr-3"></i>
                 Sell all categories
                 </a>
@@ -346,7 +351,7 @@
     @endif
 
     {{-- Show this for now --}}
-    <div class="container p-5">
+    <div class="container p-5" id="o-all-categories">
       <h2 class="h1 mt-2 mb-1">
         Categories
       </h2>

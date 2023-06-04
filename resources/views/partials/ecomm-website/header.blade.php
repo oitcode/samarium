@@ -3,7 +3,7 @@
   {{-- Show in bigger screens --}}
   <div class="container-fluid p-0 bg-warning-rm d-none d-md-block">
     <div class="container-fluid bg-danger text-white border-bottom">
-      <div class="container py-3">
+      <div class="container py-1">
         <div class="d-flex justify-content-between">
           {{-- Left side --}}
           <div>
@@ -58,7 +58,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container py-2">
       <div class="d-flex justify-content-between h-100 bg-info-rm pl-2">
 
 
@@ -73,7 +73,7 @@
             <h1 class="mt-2 text-dark" style="font-weight: bold; font-size: 1.5rem; text-shadow: 0px 1px, 1px 0px, 1px 0px;">
               {{ $company->name }}
             </h1>
-            @if (false)
+            @if (true)
             <div class="text-secondary">
               {{ $company->tagline }}
             </div>
@@ -82,11 +82,11 @@
         </div>
         </a>
 
-        @if (true)
+        @if (false)
         <div class="flex-grow-1 d-flex justify-content-center">
           <div class="d-flex flex-column justify-content-center">
             <div>
-              <input type="text" class="py-2 badge-pill-rm shadow mr-3" style="width: 400px;" placeholder="Search for product or a category">
+              <input type="text" class="py-2 badge-pill-rm rounded shadow-rm mr-3" style="width: 400px;" placeholder="Search for product or a category">
               <button class="btn btn-outline-danger badge-pill">
                 Search
               </button>

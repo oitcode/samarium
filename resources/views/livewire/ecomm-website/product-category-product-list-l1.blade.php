@@ -5,7 +5,7 @@
         wire:click="exitMode('openUpMode')"
         role="button">
       <div class="" style=" {{-- background-color: white; color: black;--}} ">
-        <div class="h2 font-weight-bold pt-3">
+        <div class="h4 font-weight-bold pt-3">
           {{ $productCategory->name }}
         </div>
       </div>
@@ -13,16 +13,16 @@
         <img class="img-fluid h-25-rm w-100-rm"
         src="{{ asset('storage/' . $productCategory->image_path) }}"
         alt="{{ $productCategory->name }}"
-        style="max-height: 150px; {{--max-width: 100px;--}}">
+        style="max-height: 100px; max-width: 100px;">
       </div>
     </div>
   @else
     <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border shadow-sm d-flex justify-content-between"
-        style="{{-- background-color: #dadada; color: #000;  border: 10px solid #aaf; font-size: 1.15rem; border-left: 10px solid brown;--}}"
+        style="background-color: #f5f5f5; {{-- color: #000;  border: 10px solid #aaf; font-size: 1.15rem; border-left: 10px solid brown;--}}"
         wire:click="enterMode('openUpMode')"
         role="button">
       <div class="" style=" {{-- background-color: white; color: black;--}} ">
-        <div class="h2 font-weight-bold pt-3">
+        <div class="h4 font-weight-bold pt-3">
           {{ $productCategory->name }}
         </div>
       </div>
@@ -30,7 +30,7 @@
         <img class="img-fluid h-25-rm w-100-rm"
         src="{{ asset('storage/' . $productCategory->image_path) }}"
         alt="{{ $productCategory->name }}"
-        style="max-height: 150px; {{--max-width: 100px;--}}">
+        style="max-height: 100px; max-width: 100px;">
       </div>
     </div>
   @endif

@@ -1,12 +1,27 @@
 <div class="p-3-rm border-rm bg-warning-rm">
 
+  {{-- Breadcrumb --}}
+  <div class="py-1 text-secondary mb-4-rm" style="font-size: 1.15rem;">
+    <a class="text-primary-rm"
+        href="{{ route('website-home') }}"
+        style="{{-- color: #000; --}}">
+      Home
+    </a>
+
+    <i class="fas fa-angle-right  mx-1"></i>
+    <a class="text-primary-rm"
+        href=""
+        style="{{-- color: #000; --}}">
+      {{ $productCategory->name }}
+    </a>
+  </div>
   @if (true)
   <div class="container">
     <div class="row">
       <div class="col-md-8 p-3">
         <div class="d-flex justify-content-center h-100" style="background-color: #eaeaea;">
           <div class="d-flex flex-column justify-content-center h-100">
-            <h2 class="text-white-rm" style="font-size: 4rem;">
+            <h2 class="text-white-rm" style="font-size: 2rem;">
               {{ $productCategory->name }}
             </h2>
             <p class="text-secondary">
@@ -36,10 +51,10 @@
               @endif
             </div>
             <div>
-              <img class="img-fluid h-25-rm w-100-rm"
+              <img class="img-fluid-rm h-25-rm w-100-rm"
                   src="{{ asset('storage/' . $productCategory->image_path) }}"
                   alt="{{ $productCategory->name }}"
-                  style="{{--max-height: 250px; max-width: 250px;--}}">
+                  style="max-height: 150px; max-width: 100px;">
             </div>
           </div>
         </div>
@@ -81,10 +96,12 @@
     {{-- Now deal with its products --}}
     @if (true)
     @if (count($productCategory->products) > 0)
+      @if (true)
       @if ($productCategory->subProductCategories)
         <div class="my-3 bg-danger-rm py-3" style="{{-- background-color: #eaeaea; color: black; --}}">
-          Products: 15
+          &nbsp;
         </div>
+      @endif
       @endif
       <div class="row" wire:key="{{ rand() }}">
         @foreach ($productCategory->products as $product)
