@@ -21,7 +21,7 @@
       <div class="col-md-8 p-3">
         <div class="d-flex justify-content-center h-100" style="background-color: #eaeaea;">
           <div class="d-flex flex-column justify-content-center h-100">
-            <h2 class="text-white-rm" style="font-size: 2rem;">
+            <h2 class="text-white-rm mt-3" style="font-size: 2rem;">
               {{ $productCategory->name }}
             </h2>
             <p class="text-secondary">
