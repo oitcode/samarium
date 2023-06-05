@@ -48,6 +48,7 @@
                 'btnRoute' => 'sale',
                 'iconFaClass' => 'fas fa-skating',
                 'btnText' => 'Takeaway',
+                'btnType' => 'btn-primary',
             ])
       @endif
 
@@ -138,6 +139,7 @@
         'btnText' => 'Accounting',
       ])
     @endif
+    <hr class="m-0 p-0"/>
   @endif
 
   @if (preg_match("/cms/i", env('MODULES')))
@@ -209,6 +211,7 @@
         ])
       </div>
     @endif
+    <hr class="m-0 p-0"/>
   @endif
 
 
@@ -248,6 +251,7 @@
 
     @endif
 
+    <hr class="m-0 p-0"/>
   @endif
 
 
