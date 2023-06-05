@@ -38,6 +38,7 @@ class CafeMenuComponent extends Component
     protected $listeners = [
         'productAdded' => 'ackProductAdded',
         'productCategoryAdded' => 'ackProductCategoryAdded',
+        'productCategoryDeleted' => 'ackProductCategoryDeleted',
         'exitUpdateProductMode',
         'updateProduct',
         'updateProductCategory',
@@ -185,5 +186,10 @@ class CafeMenuComponent extends Component
     public function exitCreateProductFromCsvMode()
     {
         $this->exitMode('createProductFromCsvMode');
+    }
+
+    public function ackProductCategoryDeleted()
+    {
+        $this->clearModes();
     }
 }

@@ -23,9 +23,14 @@
     </div>
   @else
     <div class="my-3">
-      <button class="btn btn-light" wire:click="enterMode('updateProductCategoryMode')">
+      <button class="btn btn-light mr-3" wire:click="enterMode('updateProductCategoryMode')">
         <i class="fas fa-pencil-alt"></i>
       </button>
+      @if (count($productCategory->products) == 0)
+      <button class="btn btn-light mr-3" wire:click="deleteProductCategory({{ $productCategory }})">
+        <i class="fas fa-trash"></i>
+      </button>
+      @endif
     </div>
   @endif
 

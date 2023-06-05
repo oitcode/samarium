@@ -255,7 +255,7 @@
   <hr class="mb-5"/>
   @endif
 
-  @if (true)
+  @if (false)
   {{-- You may also like section --}}
   <div class="my-5 pt-5">
     <h2 class="text-center mb-5" style="font-family: Arial;">YOU MAY ALSO LIKE</h2>

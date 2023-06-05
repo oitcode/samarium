@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Traits\ModesTrait;
 
 use App\Product;
+use App\ProductCategory;
 
 class CafeMenuProductCategoryProductList extends Component
 {
@@ -69,5 +70,11 @@ class CafeMenuProductCategoryProductList extends Component
     {
         session()->flash('message', 'Product category updated');
         $this->exitMode('updateProductCategoryMode');
+    }
+
+    public function deleteProductCategory(ProductCategory $productCategory)
+    {
+        $productCategory->delete();
+        $this->emit('productCategoryDeleted');
     }
 }
