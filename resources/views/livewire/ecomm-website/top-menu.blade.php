@@ -56,17 +56,17 @@
   {{-- For smaller screens --}}
   <div class="d-md-none">
 
-    @if (false)
-    <div class="d-flex justify-content-end">
+    @if (true)
+    <div class="d-flex justify-content-end border" style="background-color: #eaeaea;">
       @if ($modes['showMobileMenuMode'])
         <div class="p-3">
-          <button class="btn btn-success" wire:click="exitMode('showMobileMenuMode')">
+          <button class="btn btn-danger" wire:click="exitMode('showMobileMenuMode')">
             <i class="fas fa-times fa-2x mr-2"></i>
           </button>
         </div>
       @else
         <div class="p-3">
-          <button class="btn btn-success" wire:click="enterMode('showMobileMenuMode')">
+          <button class="btn btn-danger" wire:click="enterMode('showMobileMenuMode')">
             <i class="fas fa-list fa-2x mr-2"></i>
             @if (false)
             Menu
@@ -77,15 +77,19 @@
     </div>
 
     @if ($modes['showMobileMenuMode'])
-      <div class="d-flex flex-column p-0 bg-warning-rm border-left-rm border-right-rm">
+      <div class="d-flex flex-column p-0">
         @foreach ($productCategories as $productCategory)
           {{-- Only show top level categories --}}
           @if ($productCategory->parentProductCategory)
             @continue
           @endif
-          <div class="p-0 border-right-rm">
+          <div class="p-0 border-bottom" style="background-color: #e0e0e0;">
             <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-                class="btn btn-light btn-block badge-pill-rm font-weight-bold text-white-rm p-3" style="font-size: 1.3rem;">
+                class="btn-block text-reset font-weight-bold p-3 text-decoration-none" style="font-size: 1rem;">
+              <img class="img-fluid h-25-rm w-100-rm mr-3"
+                  src="{{ asset('storage/' . $productCategory->image_path) }}"
+                  alt="{{ $productCategory->name }}"
+                  style="max-height: 50px; max-width: 50px;">
               {{ strtoupper($productCategory->name) }}
             </a>
           </div>
