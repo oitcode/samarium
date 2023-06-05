@@ -8,7 +8,7 @@
   </div>
   @endif
 
-  <div class="my-5">
+  <div class="my-3">
     <h1 class="h5">
       <i class="fas fa-circle text-success mr-2"></i>
       Products
@@ -18,11 +18,11 @@
   </div>
 
   @if ($modes['updateProductCategoryMode'])
-    <div class="my-3">
+    <div class="mb-3">
       @livewire ('cafe-menu-product-category-edit', ['productCategory' => $productCategory,])
     </div>
   @else
-    <div class="my-3">
+    <div class="mb-3">
       <button class="btn btn-light mr-3" wire:click="enterMode('updateProductCategoryMode')">
         <i class="fas fa-pencil-alt"></i>
       </button>
@@ -101,7 +101,7 @@
                       <i class="fas fa-dice-d6 fa-2x text-secondary" style="width: 35px; height: 35px;"></i>
                     @endif
                   </td>
-                  <td wire:click="$emit('displayProduct', {{ $product->product_id }})" >
+                  <td wire:click="$emit('displayProduct', {{ $product->product_id }})" role="button">
                     {{ $product->name }}
                     @if ($product->is_base_product == 1)
                       <span class="mx-4">

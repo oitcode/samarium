@@ -95,4 +95,18 @@ class CafeMenuProductDisplay extends Component
         $this->product->save();
         session()->flash('message', 'Product made active.');
     }
+
+    public function makeProductNotVisibleInFrontEnd()
+    {
+        $this->product->show_in_front_end = 'no';
+        $this->product->save();
+        session()->flash('message', 'Product website visibility turned off.');
+    }
+
+    public function makeProductVisibleInFrontEnd()
+    {
+        $this->product->show_in_front_end = 'yes';
+        $this->product->save();
+        session()->flash('message', 'Product website visibility turned on.');
+    }
 }

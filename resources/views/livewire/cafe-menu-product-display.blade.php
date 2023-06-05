@@ -57,10 +57,14 @@
   @endif
 
   <div>
+    @if (false)
     <div class="bg-danger" style="border-top: 10px solid orange;">
     </div>
+    @endif
     <div>
-      <div class="mt-0 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}-rm bg-light  {{ env('OC_ASCENT_TEXT_COLOR') }}-rm">
+      <div class="mt-0 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}-rm bg-light-rm  {{ env('OC_ASCENT_TEXT_COLOR')
+      }}-rm border"
+          style="background-color: #dadada;">
         <div class="my-5-rm">
           @if ($product->is_active == 0)
             <button class="btn btn-success mr-1" wire:click="makeProductActive">
@@ -80,6 +84,26 @@
               </span>
               @endif
             </button>
+
+            @if ($product->show_in_front_end == 'yes')
+              <button class="btn btn-danger mr-1" wire:click="makeProductNotVisibleInFrontEnd">
+                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+                @if (true)
+                <span class="">
+                  Hide in website
+                </span>
+                @endif
+              </button>
+            @else
+              <button class="btn btn-success mr-1" wire:click="makeProductVisibleInFrontEnd">
+                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+                @if (true)
+                <span class="">
+                  Show in website
+                </span>
+                @endif
+              </button>
+            @endif
           @else
           @endif
         </div>

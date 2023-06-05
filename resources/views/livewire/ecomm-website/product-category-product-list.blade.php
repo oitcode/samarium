@@ -103,6 +103,7 @@
         </div>
       @endif
       @endif
+
       <div class="row" wire:key="{{ rand() }}">
         @foreach ($productCategory->products as $product)
 
@@ -115,6 +116,12 @@
           @if ($product->is_base_product == 1)
             @continue
           @endif
+
+          {{-- Do not display products show_in_front_end is not yes --}}
+          @if ($product->show_in_front_end != 'yes')
+            @continue
+          @endif
+
 
           <div class="col-6 col-md-3 mb-4">
             @livewire ('ecomm-website.product-list-display', ['product' => $product,])
