@@ -159,4 +159,17 @@ class Product extends Model
 
         return false;
     }
+
+    public function getLastSpecPosition()
+    {
+        $highest = 0;
+
+        foreach ($this->productSpecifications as $productSpecification) {
+            if ($productSpecification->position > $highest) {
+                $highest = $productSpecification->position;
+            }
+        }
+
+        return $highest;
+    }
 }

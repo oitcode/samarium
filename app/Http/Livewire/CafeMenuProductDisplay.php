@@ -17,6 +17,7 @@ class CafeMenuProductDisplay extends Component
         'updateProductDescriptionMode' => false,
         'updateProductPriceMode' => false,
         'updateProductImageMode' => false,
+        'updateProductAddProductSpecificationMode' => false,
     ];
 
     protected $listeners = [
@@ -31,6 +32,9 @@ class CafeMenuProductDisplay extends Component
 
         'productUpdateImageCancelled',
         'productUpdateImageCompleted',
+
+        'productEditAddProductSpecificationModeCancelled',
+        'productEditAddProductSpecificationModeCompleted',
     ];
 
     public function render()
@@ -108,5 +112,16 @@ class CafeMenuProductDisplay extends Component
         $this->product->show_in_front_end = 'yes';
         $this->product->save();
         session()->flash('message', 'Product website visibility turned on.');
+    }
+
+    public function productEditAddProductSpecificationModeCompleted()
+    {
+        $this->exitMode('updateProductAddProductSpecificationMode');
+        session()->flash('addSpecMessage', 'Product specification added');
+    }
+
+    public function productEditAddProductSpecificationModeCancelled()
+    {
+        $this->exitMode('updateProductAddProductSpecificationMode');
     }
 }

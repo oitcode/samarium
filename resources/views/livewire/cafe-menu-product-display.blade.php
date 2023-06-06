@@ -1,5 +1,7 @@
 <div>
 
+
+
   <h1 class="h5 my-2">
     <i class="fas fa-circle text-success mr-2"></i>
     Products
@@ -134,6 +136,8 @@
       </div>
     </div>
   </div>
+
+
 
 
 
@@ -381,5 +385,57 @@
 
 
     </div>
+  {{-- Product specifications --}}
+  <div class="my-3 bg-white border">
+    <h2 class="h5 m-3">
+      Product specifications
+    </h2>
+
+    {{-- Toolbar --}}
+      @if ($modes['updateProductAddProductSpecificationMode'])
+      @else
+        <div class="p-2 bg-white border">
+            <button class="btn btn-primary" wire:click="enterMode('updateProductAddProductSpecificationMode')">
+              <i class="fas fa-plus-circle mr-1"></i>
+              Add specification
+            </button>
+        </div>
+      @endif
+
+    <!-- Flash message div -->
+    @if (session()->has('addSpecMessage'))
+      <div class="p-2">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <i class="fas fa-check-circle mr-3"></i>
+          {{ session('addSpecMessage') }}
+          <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+            <span class="text-danger" aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    @endif
+
+    @if ($modes['updateProductAddProductSpecificationMode'])
+      @livewire ('product.dashboard.product-edit-add-product-specification', ['product' => $product,])
+    @endif
+
+    @if (count($product->productSpecifications) > 0)
+      <div class="mb-5">
+        <div class="table-responsive border-rm">
+          <table class="table mb-0">
+            @foreach ($product->productSpecifications as $spec)
+              <tr class="">
+                <th class="bg-light-rm border-dark" style="background-color: #eee;">
+                  {{ $spec->spec_heading }}
+                </th>
+                <td class="bg-success-rm text-white-rm border-dark">
+                  {{ $spec->spec_value }}
+                </td>
+              </tr>
+            @endforeach
+          </table>
+        </div>
+      </div>
+    @endif
   </div>
 </div>
