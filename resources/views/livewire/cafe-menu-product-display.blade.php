@@ -119,14 +119,14 @@
           @endif
 
           <button class="btn btn-primary" wire:click="$refresh">
-            <i class="fas fa-refresh fa-2x"></i>
+            <i class="fas fa-refresh fa-2x-rm"></i>
             @if (false)
             Refresh
             @endif
           </button>
 
           <button class="btn btn-danger" wire:click="$emit('exitProductDisplayMode')">
-            <i class="fas fa-times fa-2x"></i>
+            <i class="fas fa-times fa-2x-rm"></i>
             @if (false)
             Close
             @endif
@@ -179,10 +179,10 @@
           @if ($modes['updateProductNameMode'])
             @livewire ('product.dashboard.product-edit-name', ['product' => $product,])
           @else
-            <div class="bg-light font-weight-bold mr-5 py-3">
+            <div class="bg-light text-secondary font-weight-bold mr-5 pt-3 pb-1">
               Product Name
             </div>
-            <div class="d-flex justify-content-between my-3">
+            <div class="d-flex justify-content-between my-1">
               {{-- Product name --}}
               <div class="d-flex">
                 @if (false)
@@ -203,11 +203,11 @@
           @endif
         </div>
         @if (true)
-        <hr />
+        <hr class="m-0 p-0"/>
         @endif
 
-        <div class="mb-3">
-          <div class="bg-light font-weight-bold mr-5 py-3">
+        <div class="mb-1">
+          <div class="bg-light text-secondary font-weight-bold mr-5 py-1">
             Category
           </div>
           <div class="d-flex justify-content-between" style="font-size: 0.8rem;">
@@ -220,14 +220,14 @@
           </div>
         </div>
         @if (true)
-        <hr />
+        <hr class="m-0 p-0"/>
         @endif
 
         <div class="mb-3">
           @if ($modes['updateProductDescriptionMode'])
             @livewire ('product.dashboard.product-edit-description', ['product' => $product,])
           @else
-            <div class="bg-light font-weight-bold mr-5 py-3">
+            <div class="bg-light text-secondary font-weight-bold mr-5 py-1">
               Description
             </div>
             <div class="d-flex justify-content-between">
@@ -239,14 +239,14 @@
           @endif
         </div>
         @if (true)
-        <hr />
+        <hr class="m-0 p-0"/>
         @endif
 
         <div class="mb-3">
           @if ($modes['updateProductPriceMode'])
             @livewire ('product.dashboard.product-edit-price', ['product' => $product,])
           @else
-            <div class="bg-light font-weight-bold mr-5 py-3">
+            <div class="bg-light text-secondary font-weight-bold mr-5 py-1">
               Price
             </div>
             <div class="d-flex justify-content-between">
@@ -259,7 +259,7 @@
           @endif
         </div>
         @if (true)
-        <hr />
+        <hr class="m-0 p-0"/>
         @endif
 
 
@@ -292,7 +292,7 @@
       {{-- Creation and update info --}}
       <div class="border-rm bg-white-rm p-3 mb-3 shadow-rm">
         <div class="mb-4">
-          <h3 class="h4">
+          <h3 class="h5">
             <i class="fas fa-info-circle mr-2"></i>
             Product history
           </h3>
@@ -328,7 +328,7 @@
       {{-- Inventory info --}}
       <div class="border-rm bg-white-rm p-3 mb-3 text-secondary">
         <div class="mb-4">
-          <h3 class="h4">
+          <h3 class="h5">
             <i class="fas fa-info-circle mr-2"></i>
             Stock info
           </h3>
