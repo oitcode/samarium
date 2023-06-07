@@ -111,9 +111,9 @@
                     </h2>
                   @endif
                   @if ($webpageContent->body)
-                    <p class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif">
+                    <div class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif p-3">
                       {!! $webpageContent->body !!}
-                    </p>
+                    </div>
                   @endif
                 </div>
                 @if ($webpageContent->image_path)
