@@ -27,6 +27,7 @@ class WebpageDisplay extends Component
 
     protected $listeners = [
         'webpageContentAdded' => 'exitCreateWebpageContent',
+        'webpageContentCreateCancelledL2' => 'exitCreateWebpageContent',
         'exitCreateWebpageContent',
         'webpageContentDeleted' => 'render',
         'webpageContentPositionChanged' => 'render',

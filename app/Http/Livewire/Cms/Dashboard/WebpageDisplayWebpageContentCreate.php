@@ -35,12 +35,17 @@ class WebpageDisplayWebpageContentCreate extends Component
     ];
 
     protected $listeners = [
-        'webpageContentCreateHeadingCompleted' => 'webpageContentCreatedCompleted',
-        'webpageContentCreateParagraphCompleted' => 'webpageContentCreatedCompleted',
-        'webpageContentCreateMediaAndTextCompleted' => 'webpageContentCreatedCompleted',
-        'webpageContentCreateImageCompleted' => 'webpageContentCreatedCompleted',
-        'webpageContentCreateGalleryCompleted' => 'webpageContentCreatedCompleted',
-        'webpageContentCreateRowCompleted' => 'webpageContentCreatedCompleted',
+        'webpageContentCreateHeadingCompleted' => 'webpageContentCreateCompleted',
+        'webpageContentCreateHeadingCancelled' => 'webpageContentCreateCancelled',
+        'webpageContentCreateParagraphCompleted' => 'webpageContentCreateCompleted',
+        'webpageContentCreateParagraphCancelled' => 'webpageContentCreateCancelled',
+        'webpageContentCreateMediaAndTextCompleted' => 'webpageContentCreateCompleted',
+        'webpageContentCreateMediaAndTextCancelled' => 'webpageContentCreateCancelled',
+        'webpageContentCreateImageCompleted' => 'webpageContentCreateCompleted',
+        'webpageContentCreateImageCancelled' => 'webpageContentCreateCancelled',
+        'webpageContentCreateGalleryCompleted' => 'webpageContentCreateCompleted',
+        'webpageContentCreateGalleryCancelled' => 'webpageContentCreateCancelled',
+        'webpageContentCreateRowCompleted' => 'webpageContentCreateCompleted',
     ];
 
     public function render()
@@ -98,8 +103,13 @@ class WebpageDisplayWebpageContentCreate extends Component
       /* dd ($value); */
     }
 
-    public function webpageContentCreatedCompleted()
+    public function webpageContentCreateCompleted()
     {
         $this->emit('webpageContentAdded');
+    }
+
+    public function webpageContentCreateCancelled()
+    {
+        $this->emit('webpageContentCreateCancelledL2');
     }
 }

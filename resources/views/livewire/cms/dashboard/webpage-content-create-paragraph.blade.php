@@ -9,7 +9,7 @@
     <button class="btn btn-success" wire:click="store">
       Save
     </button>
-    <button class="btn btn-danger" wire:click="">
+    <button class="btn btn-danger" wire:click="$emit('webpageContentCreateParagraphCancelled')">
       Cancel
     </button>
   </div>

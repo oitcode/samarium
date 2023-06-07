@@ -69,6 +69,8 @@
 
 
     </div>
+
+    @if (false)
     <div class="row">
 
       <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('rowMode')" role="button">
@@ -117,6 +119,7 @@
       </div>
 
     </div>
+    @endif
     @endif
   @endif
   @endif
