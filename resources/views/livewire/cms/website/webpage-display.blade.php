@@ -89,7 +89,7 @@
                   {{ $cssOption->option_name }}: {{ $cssOption->option_value }};
               @endforeach
           ">
-            <div class="row">
+            <div class="row" style="margin: auto;">
                 
               @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->body))
                 <div class="col-md-6">

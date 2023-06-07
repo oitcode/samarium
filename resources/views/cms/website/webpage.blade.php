@@ -17,13 +17,7 @@
       {{ $webpage->name }}
     @endif
 " />
-<meta property="og:image"              content="
-    @if ($webpage->featured_image_path)
-      {{ asset('storage/' . $webpage->featured_image_path) }}
-    @else
-      {{ asset('storage/' . $company->logo_image_path) }}
-    @endif
-"/>
+<meta property="og:image"              content="@if($webpage->featured_image_path){{ asset('storage/' . $webpage->featured_image_path) }}@else{{ asset('storage/' . $company->logo_image_path) }}@endif" />
 @endsection
 
 @section ('pageTitleTag')
