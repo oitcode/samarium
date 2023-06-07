@@ -32,8 +32,9 @@
         @if ($cmsNavMenu)
           @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
             @if ($cmsNavMenuItem->type == 'item')
-              <li class="nav-item p-2 bg-dark-rm text-white-rm border text-dark">
-                <a class="nav-link" href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
+              <li class="nav-item p-2 bg-primary text-white border-bottom">
+                <a class="nav-link h5 text-white"
+                    href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
                   {{ $cmsNavMenuItem->name }}
                 </a>
               </li>
