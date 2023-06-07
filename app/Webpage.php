@@ -94,4 +94,17 @@ class Webpage extends Model
         }
     }
 
+    public function getHighestContentPosition()
+    {
+        $highest = 0;
+
+        foreach ($this->webpageContents as $webpageContent) {
+            if ($webpageContent->position > $highest) {
+                $highest = $webpageContent->position;
+            }
+        }
+
+        return $highest;
+    }
+
 }

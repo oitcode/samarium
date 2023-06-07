@@ -49,7 +49,7 @@ class Row extends Component
         $webpageContent = new WebpageContent;
 
         $webpageContent->webpage_id = $this->webpage->webpage_id;
-        $webpageContent->position = 0;
+        $webpageContent->position = $this->webpage->getHighestContentPosition() + 1;
         $webpageContent->body = $content;
         $webpageContent->save();
 
