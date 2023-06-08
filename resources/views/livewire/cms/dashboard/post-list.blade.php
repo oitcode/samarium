@@ -43,12 +43,12 @@
           <tbody class="bg-white">
             @foreach ($posts as $post)
               <tr>
-                <td class="h4 font-weight-bold py-4">
+                <td class="h5 font-weight-bold py-4" wire:click="$emit('displayPost', {{ $post }})" role="button">
                   @if (false)
                     <input type="checkbox" class="mr-3">
                   @endif
-                  <span  wire:click="$emit('displayPost', {{ $post }})" class="text-dark" role="button">
-                    {{ $post->name }}
+                  <span class="text-dark">
+                    {{ \Illuminate\Support\Str::limit($post->name, 60, $end=' ...') }}
                   </span>
                 </td>
                 <td>
@@ -135,7 +135,7 @@
         <div class="bg-white border px-3">
           <div class="h4-rm py-4">
             <span  wire:click="$emit('displayPost', {{ $post }})" class="h5 text-dark font-weight-bold" role="button">
-              {{ $post->name }}
+              {{ \Illuminate\Support\Str::limit($post->name, 60, $end=' ...') }}
             </span>
 
             <br/ >
