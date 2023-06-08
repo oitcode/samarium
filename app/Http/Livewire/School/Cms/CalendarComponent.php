@@ -46,7 +46,7 @@ class CalendarComponent extends Component
 
     public $monthBook = array();
 
-    public $displayMonthName = 'Baisakh';
+    public $displayMonthName;
     public $startDay;
     public $endDay;
 
@@ -54,14 +54,37 @@ class CalendarComponent extends Component
         'eventCreate' => false,
     ];
 
+    public function mount()
+    {
+        $this->displayMonthName = $this->getTodaysNepaliMonth();
+    }
+
     public function render()
     {
-        if ($this->displayMonthName == '') {
-        } else {
+        if ($this->displayMonthName) {
             $this->populateMonthBook();
         }
 
         return view('livewire.school.cms.calendar-component');
+    }
+
+    public function getTodaysNepaliMonth()
+    {
+        $today = Carbon::today();
+
+        foreach ($this->monthInfo2080 as $key => $val) {
+            $monthStartDate = $val[0];
+            $monthEndDate = $val[1];
+
+            $monthStartDay = Carbon::parse($monthStartDate);
+            $monthEndDay = Carbon::parse($monthEndDate);
+
+            if ($today >= $monthStartDay && $today <= $monthEndDay) {
+                return $key;
+            }
+        }
+
+        return null;
     }
 
     public function selectMonth($monthName)

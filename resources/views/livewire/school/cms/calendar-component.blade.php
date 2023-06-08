@@ -38,7 +38,7 @@
 
   <div class="border bg-white p-0">
     @if ($displayMonthName)
-      <h3 class="h5 text-center py-4 bg-primary text-white mb-0">
+      <h3 class="h3 text-center py-4 bg-primary text-white mb-0">
         <span class="mr-2">
           2080
         </span>
@@ -74,6 +74,11 @@
                       {{ $day['day']->format('Y F d') }}
                       @endif
                       {{ $day['day']->format('F d') }}
+                      @if (\Carbon\Carbon::today() == $day['day'])
+                        <span class="badge badge-success ml-3">
+                          TODAY
+                        </span>
+                      @endif
                     </span>
                     @if (false)
                     <span class="text-secondary-rm mr-3" style="font-size: 0.5rem;">
