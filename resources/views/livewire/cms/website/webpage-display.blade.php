@@ -35,6 +35,10 @@
   <div class="container my-4">
     @livewire ('cms.website.post-list', ['category' => 'notice',])
   </div>
+@elseif ($webpage->name == 'Noticeboard')
+  <div class="container my-4">
+    @livewire ('cms.website.post-list', ['category' => 'notice',])
+  </div>
 @elseif ($webpage->name == 'Teams')
   @if (\App\Team::where('team_type', 'playing_team')->first())
     <div class="container my-4">
