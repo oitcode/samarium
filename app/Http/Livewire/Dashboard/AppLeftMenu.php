@@ -25,6 +25,7 @@ class AppLeftMenu extends Component
 
         if (
             $uri == '/dashboard/sale' ||
+            $uri == '/dashboard/cafesale' ||
             $uri == '/dashboard/customer' ||
             $uri == '/dashboard/purchase' ||
             $uri == '/dashboard/vendor' ||
