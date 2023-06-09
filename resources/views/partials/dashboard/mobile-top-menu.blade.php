@@ -44,7 +44,7 @@
 
             @if (env('CMP_TYPE') == 'cafe')
               <a class="dropdown-item py-2" href="{{ route('cafesale') }}">
-                <i class="fas fa-table-d6 mr-3"></i>
+                <i class="fas fa-table mr-3"></i>
                 Tables
               </a>
             @endif
