@@ -71,7 +71,7 @@
     </div>
 
 
-    @if ($modes['displayPostMode'])
+    @if ($modes['display'])
       <div class="my-2">
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "",
