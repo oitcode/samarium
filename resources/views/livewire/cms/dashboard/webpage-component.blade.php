@@ -39,6 +39,55 @@
     </div>
   </div>
 
+  {{-- Mobile menu --}}
+  <div class="mb-3 p-2 d-md-none bg-dark-rm">
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('create')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'Create',
+        'btnCheckMode' => 'createPostMode',
+    ])
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('list')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'listPostMode',
+    ])
+
+    <div class="d-inline-block float-right">
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-cog text-secondary"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="font-size: 1rem;">
+          <button class="dropdown-item py-2" wire:click="clearModes">
+            <i class="fas fa-eraser text-primary mr-2"></i>
+            Clear modes
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    @if ($modes['displayPostMode'])
+      <div class="my-2">
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "",
+            'btnIconFaClass' => 'fas fa-circle',
+            'btnText' => 'Post display',
+            'btnCheckMode' => 'display',
+        ])
+      </div>
+    @endif
+
+    @include ('partials.dashboard.spinner-button')
+
+    <div class="clearfix">
+    </div>
+  </div>
+
   @endif
 
   <!-- Flash message div -->
