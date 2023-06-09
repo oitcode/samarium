@@ -27,7 +27,7 @@
     </div>
   @endif
 
-  <h2 class="h5 text-secondary">
+  <h2 class="h5 text-secondary my-3">
     Theme settings
   </h2>
 
@@ -48,188 +48,170 @@
     </div>
   @endif
 
-  <h2 class="h4">
+  <h2 class="h4 mt-4 my-3">
     Header
   </h2>
 
   {{-- Top header bg color --}}
-  <div class="form-group">
-    <div class="d-flex flex-column-rm">
-      <div class="mr-5" style="min-width: 200px;">
-        <label class="font-weight-bold">Top header background color</label>
-      </div>
-      <div>
-        <input type="text"
-            class="form-control"
-            wire:model.defer="top_header_bg_color"
-            style="">
-        @error('top_header_bg_color')
-          <span class="text-danger">{{ $message }}</span>
-        @enderror
-      </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <label class="font-weight-bold">Top header background color</label>
+    </div>
+    <div class="col-md-8">
+      <input type="text"
+          class="form-control"
+          wire:model.defer="top_header_bg_color"
+          style="">
+      @error('top_header_bg_color')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
     </div>
   </div>
 
   {{-- Top header text color --}}
 
-  <div class="form-group">
-    <div class="d-flex">
-      <div class="mr-5" style="min-width: 200px;">
-        <label class="font-weight-bold">Top header text color</label>
-      </div>
-      <div>
-        <input type="text"
-            class="form-control"
-            wire:model.defer="top_header_text_color"
-            style="">
-        @error('top_header_text_color')
-          <span class="text-danger">{{ $message }}</span>
-        @enderror
-      </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <label class="font-weight-bold">Top header text color</label>
+    </div>
+    <div class="col-md-8">
+      <input type="text"
+          class="form-control"
+          wire:model.defer="top_header_text_color"
+          style="">
+      @error('top_header_text_color')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
     </div>
   </div>
 
-  <h2 class="h4">
+  <h2 class="h4 mt-4 my-3">
     Navigation menu
   </h2>
   {{-- Nav menu bg color --}}
-  <div class="form-group">
-    <div class="d-flex">
-      <div class="mr-5" style="min-width: 200px;">
-        <label class="font-weight-bold">Nav menu background color</label>
-      </div>
-      <div>
-        <input type="text"
-            class="form-control"
-            wire:model.defer="nav_menu_bg_color"
-            style="">
-        @error('nav_menu_bg_color')
-          <span class="text-danger">{{ $message }}</span>
-        @enderror
-      </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <label class="font-weight-bold">Nav menu background color</label>
+    </div>
+    <div class="col-md-8">
+      <input type="text"
+          class="form-control"
+          wire:model.defer="nav_menu_bg_color"
+          style="">
+      @error('nav_menu_bg_color')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
     </div>
   </div>
 
   {{-- Nav menu text color --}}
-  <div class="form-group">
-    <div class="d-flex">
-      <div class="mr-5" style="min-width: 200px;">
-        <label class="font-weight-bold">Nav menu text color</label>
-      </div>
-      <div>
-        <input type="text"
-            class="form-control"
-            wire:model.defer="nav_menu_text_color"
-            style="">
-        @error('nav_menu_text_color')
-          <span class="text-danger">{{ $message }}</span>
-        @enderror
-      </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <label class="font-weight-bold">Nav menu text color</label>
+    </div>
+    <div class="col-md-8">
+      <input type="text"
+          class="form-control"
+          wire:model.defer="nav_menu_text_color"
+          style="">
+      @error('nav_menu_text_color')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
     </div>
   </div>
 
 
-  <h2 class="h4">
+  <h2 class="h4 mt-4 my-3">
     Ascent
   </h2>
   {{-- Ascent bg color --}}
-  <div class="form-group">
-    <div class="d-flex">
-      <div class="mr-5" style="min-width: 200px;">
-        <label class="font-weight-bold">Ascent background color</label>
-      </div>
-      <div>
-        <input type="text"
-            class="form-control"
-            wire:model.defer="ascent_bg_color"
-            style="">
-        @error('ascent_bg_color')
-          <span class="text-danger">{{ $message }}</span>
-        @enderror
-      </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <label class="font-weight-bold">Ascent background color</label>
+    </div>
+    <div class="col-md-8">
+      <input type="text"
+          class="form-control"
+          wire:model.defer="ascent_bg_color"
+          style="">
+      @error('ascent_bg_color')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
     </div>
   </div>
 
   {{-- Ascent text color --}}
-  <div class="form-group">
-    <div class="d-flex">
-      <div class="mr-5" style="min-width: 200px;">
-        <label class="font-weight-bold">Ascent text color</label>
-      </div>
-      <div>
-        <input type="text"
-            class="form-control"
-            wire:model.defer="ascent_text_color"
-            style="">
-        @error('ascent_text_color')
-          <span class="text-danger">{{ $message }}</span>
-        @enderror
-      </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <label class="font-weight-bold">Ascent text color</label>
+    </div>
+    <div class="col-md-8">
+      <input type="text"
+          class="form-control"
+          wire:model.defer="ascent_text_color"
+          style="">
+      @error('ascent_text_color')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
     </div>
   </div>
 
-  <h2 class="h4">
+  <h2 class="h4 mt-4 my-3">
     Footer
   </h2>
 
   {{-- Footer background color --}}
-  <div class="form-group">
-    <div class="d-flex">
-      <div class="mr-5" style="min-width: 200px;">
-        <label class="font-weight-bold">Footer background color</label>
-      </div>
-      <div>
-        <input type="text"
-            class="form-control"
-            wire:model.defer="footer_bg_color"
-            style="">
-        @error('footer_bg_color')
-          <span class="text-danger">{{ $message }}</span>
-        @enderror
-      </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <label class="font-weight-bold">Footer background color</label>
+    </div>
+    <div class="col-md-8">
+      <input type="text"
+          class="form-control"
+          wire:model.defer="footer_bg_color"
+          style="">
+      @error('footer_bg_color')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
     </div>
   </div>
 
   {{-- Footer text color --}}
-  <div class="form-group">
-    <div class="d-flex">
-      <div class="mr-5" style="min-width: 200px;">
-        <label class="font-weight-bold">Footer text color</label>
-      </div>
-      <div>
-        <input type="text"
-            class="form-control"
-            wire:model.defer="footer_text_color"
-            style="">
-        @error('footer_text_color')
-          <span class="text-danger">{{ $message }}</span>
-        @enderror
-      </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <label class="font-weight-bold">Footer text color</label>
+    </div>
+    <div class="col-md-8">
+      <input type="text"
+          class="form-control"
+          wire:model.defer="footer_text_color"
+          style="">
+      @error('footer_text_color')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
     </div>
   </div>
 
   <hr />
 
   {{-- Heading color --}}
-  <div class="form-group">
-    <div class="d-flex">
-      <div class="mr-5" style="min-width: 200px;">
-        <label class="font-weight-bold">Heading color</label>
-      </div>
-      <div>
-        <input type="text"
-            class="form-control"
-            wire:model.defer="heading_color"
-            style="">
-        @error('heading_color')
-          <span class="text-danger">{{ $message }}</span>
-        @enderror
-      </div>
+  <div class="form-row">
+    <div class="col-md-4">
+      <label class="font-weight-bold">Heading color</label>
+    </div>
+    <div class="col-md-8">
+      <input type="text"
+          class="form-control"
+          wire:model.defer="heading_color"
+          style="">
+      @error('heading_color')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
     </div>
   </div>
 
   {{-- Hero image --}}
-  <div class="form-group">
+  <div class="form-group mt-4 mb-3">
     <label class="font-weight-bold">Featured image</label>
     @if (\App\CmsTheme::first() && \App\CmsTheme::first()->hero_image_path)
       <div class="d-flex justify-content-start mb-3">
