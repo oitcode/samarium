@@ -1,7 +1,50 @@
 <div class="">
 
   {{-- Top tool bar --}}
-  <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+
+  {{-- Show in bigger screen --}}
+  <div class="d-none d-md-block">
+    <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('createMode')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'Create',
+          'btnCheckMode' => 'createMode',
+      ])
+
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('listMode')",
+          'btnIconFaClass' => 'fas fa-list',
+          'btnText' => 'List',
+          'btnCheckMode' => 'listMode',
+      ])
+
+      @if ($modes['displayMode'])
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "",
+            'btnIconFaClass' => 'fas fa-circle',
+            'btnText' => 'Gallery display',
+            'btnCheckMode' => 'displayMode',
+        ])
+      @endif
+
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "clearModes",
+          'btnIconFaClass' => 'fas fa-eraser',
+          'btnText' => 'Clear modes',
+          'btnCheckMode' => '',
+      ])
+
+      @include ('partials.dashboard.spinner-button')
+
+      <div class="clearfix">
+      </div>
+    </div>
+  </div>
+
+  {{-- Show in smaller screens --}}
+  <div class="mb-3 p-2 d-md-none bg-dark-rm">
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createMode')",
@@ -17,27 +60,38 @@
         'btnCheckMode' => 'listMode',
     ])
 
-    @if ($modes['displayMode'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Gallery display',
-          'btnCheckMode' => 'displayMode',
-      ])
-    @endif
+    <div class="d-inline-block float-right">
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-cog text-secondary"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="font-size: 1rem;">
+          <button class="dropdown-item py-2" wire:click="clearModes">
+            <i class="fas fa-eraser text-primary mr-2"></i>
+            Clear modes
+          </button>
+        </div>
+      </div>
+    </div>
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-eraser',
-        'btnText' => 'Clear modes',
-        'btnCheckMode' => '',
-    ])
+
+    @if ($modes['displayMode'])
+      <div class="my-2">
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "",
+            'btnIconFaClass' => 'fas fa-circle',
+            'btnText' => 'Gallery display',
+            'btnCheckMode' => 'displayMode',
+        ])
+      </div>
+    @endif
 
     @include ('partials.dashboard.spinner-button')
 
     <div class="clearfix">
     </div>
   </div>
+
 
   <!-- Flash message div -->
   @if (session()->has('message'))
