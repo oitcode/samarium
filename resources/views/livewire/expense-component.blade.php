@@ -118,7 +118,7 @@
     @livewire ('expense-list')
   @elseif ($modes['display'])
     @if ($displayingExpense->creation_status == 'progress')
-      @livewire ('expense-create-new', [
+      @livewire ('expense-create', [
           'createNew' => false,
           'expense' => $displayingExpense,
       ])
