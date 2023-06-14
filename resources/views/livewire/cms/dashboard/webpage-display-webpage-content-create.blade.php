@@ -18,6 +18,8 @@
     @livewire ('cms.dashboard.webpage-content-create.gallery', ['webpage' => $webpage,])
   @elseif ($modes['rowMode'])
     @livewire ('cms.dashboard.webpage-content-create.row', ['webpage' => $webpage,])
+  @elseif ($modes['youtubeVideoMode'])
+    @livewire ('cms.dashboard.webpage-content-create.youtube-video', ['webpage' => $webpage,])
   @else
     @if (true)
     <div class="row">
@@ -70,9 +72,19 @@
 
     </div>
 
-    @if (false)
+    @if (true)
     <div class="row">
 
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('youtubeVideoMode')" role="button">
+        <div class="d-flex justify-content-center mb-3">
+          <i class="fab fa-youtube"></i>
+        </div>
+        <div class="d-flex justify-content-center">
+          Youtube video
+        </div>
+      </div>
+
+      @if (false)
       <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('rowMode')" role="button">
         <div class="d-flex justify-content-center mb-3">
           <i class="fas fa-columns"></i>
@@ -81,7 +93,6 @@
           Row
         </div>
       </div>
-
       <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('paragraphMode')" role="button">
         <div class="d-flex justify-content-center mb-3">
         <i class="far fa-window-minimize"></i>
@@ -117,6 +128,7 @@
           Contact info
         </div>
       </div>
+      @endif
 
     </div>
     @endif

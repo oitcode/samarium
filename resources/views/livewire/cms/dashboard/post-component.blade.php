@@ -48,7 +48,7 @@
     </div>
   </div>
 
-  {{-- Mobile menu --}}
+  {{-- Show in smaller screens --}}
   <div class="mb-3 p-2 d-md-none bg-dark-rm">
 
     @include ('partials.dashboard.tool-bar-button-pill', [

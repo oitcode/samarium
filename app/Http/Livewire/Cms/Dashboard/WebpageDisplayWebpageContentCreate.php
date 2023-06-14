@@ -32,6 +32,7 @@ class WebpageDisplayWebpageContentCreate extends Component
         'galleryMode' => false,
 
         'rowMode' => false,
+        'youtubeVideoMode' => false,
     ];
 
     protected $listeners = [
@@ -46,6 +47,8 @@ class WebpageDisplayWebpageContentCreate extends Component
         'webpageContentCreateGalleryCompleted' => 'webpageContentCreateCompleted',
         'webpageContentCreateGalleryCancelled' => 'webpageContentCreateCancelled',
         'webpageContentCreateRowCompleted' => 'webpageContentCreateCompleted',
+        'webpageContentCreateYoutubeVideoCompleted' => 'webpageContentCreateCompleted',
+        'webpageContentCreateYoutubeVideoCancelled' => 'webpageContentCreateCancelled',
     ];
 
     public function render()
