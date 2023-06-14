@@ -2,7 +2,50 @@
   @if (true)
 
   <div class="mb-3">
+      {{-- Show in bigger screens --}}
       <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+
+        @if (\App\CmsNavMenu::first())
+        @else
+          @include ('partials.dashboard.tool-bar-button-pill', [
+              'btnClickMethod' => "enterMode('create')",
+              'btnIconFaClass' => 'fas fa-plus-circle',
+              'btnText' => 'Create',
+              'btnCheckMode' => 'create',
+          ])
+        @endif
+
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('list')",
+            'btnIconFaClass' => 'fas fa-list',
+            'btnText' => 'List',
+            'btnCheckMode' => 'list',
+        ])
+
+        @if ($modes['display'])
+          @include ('partials.dashboard.tool-bar-button-pill', [
+              'btnClickMethod' => "",
+              'btnIconFaClass' => 'fas fa-circle',
+              'btnText' => 'Navmenu display',
+              'btnCheckMode' => 'display',
+          ])
+        @endif
+
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "clearModes",
+            'btnIconFaClass' => 'fas fa-eraser',
+            'btnText' => 'Clear modes',
+            'btnCheckMode' => '',
+        ])
+
+        @include ('partials.dashboard.spinner-button')
+
+        <div class="clearfix">
+        </div>
+      </div>
+
+      {{-- Show in smaller screens --}}
+      <div class="mb-3 p-2 d-md-none">
 
         @if (\App\CmsNavMenu::first())
         @else
