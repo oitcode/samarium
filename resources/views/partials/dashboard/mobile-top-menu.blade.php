@@ -49,7 +49,7 @@
               </a>
             @endif
 
-            <a class="dropdown-item py-2" href="{{ route('cafesale') }}">
+            <a class="dropdown-item py-2" href="{{ route('menu') }}">
               <i class="fas fa-list mr-3"></i>
               @if (env('CMP_TYPE') == 'cafe')
                 Menu
