@@ -32,6 +32,38 @@
     </div>
   </div>
 
+  {{-- Show in smaller screens --}}
+  <div class="mb-3 p-2 d-md-none">
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('productList')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'productList',
+    ])
+
+    @if ($modes['productDetail'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('productDetail')",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Product inventory detail',
+          'btnCheckMode' => 'productDetail',
+      ])
+    @endif
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-eraser',
+        'btnText' => 'Clear modes',
+        'btnCheckMode' => '',
+    ])
+
+    @include ('partials.dashboard.spinner-button')
+
+    <div class="clearfix">
+    </div>
+  </div>
+
   @if ($modes['productDetail'])
     @livewire ('inventory-product-detail', ['product' => $displayingProduct,])
   @elseif ($modes['productList'])
