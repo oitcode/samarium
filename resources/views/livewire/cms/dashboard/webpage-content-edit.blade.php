@@ -1,13 +1,13 @@
 <div class="m-3">
 
   @if (true)
+  @if (false)
   <div class="form-group">
     <label for="">Title</label>
     <input type="text" class="form-control" wire:model.defer="title">
     @error('title') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
-  @if (false)
   <div class="form-group">
     <label for="">Body</label>
     <textarea rows="5" class="form-control" wire:model.defer="body">
