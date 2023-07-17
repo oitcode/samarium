@@ -99,9 +99,11 @@
                           <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
                             {{ strtoupper(\App\Product::find($ii)->name) }}
                             <br />
+                            @if (\App\Product::find($ii)->selling_price != 0)
                             <span class="text-danger ml-1-rm">
                               Rs {{ \App\Product::find($ii)->selling_price }}
                             </span>
+                            @endif
                           </h2>
                         </a>
       
@@ -138,10 +140,12 @@
                             </span>
                           </div>
                           @endif
-                          <div class="h4 text-danger text-left mt-3" style="font-weight: bold;">
-                            Rs.
-                            @php echo number_format( \App\Product::find($ii)->selling_price ); @endphp
-                          </div>
+                          @if ($product->selling_price != 0)
+                            <div class="h4 text-danger text-left mt-3" style="font-weight: bold;">
+                              Rs.
+                              @php echo number_format( \App\Product::find($ii)->selling_price ); @endphp
+                            </div>
+                          @endif
                           @if (false)
                             @if (rand()%2 == 0)
                             <div class="h6 text-dark text-left">

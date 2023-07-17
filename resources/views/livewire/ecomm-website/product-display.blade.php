@@ -62,10 +62,12 @@
       </div>
       @endif
 
-      <h3 class="h4 ml-2 mb-3 text-danger" style="font-weight: bold;">
-        Rs.
-        @php echo number_format( $product->selling_price ); @endphp
-      </h3>
+      @if ($product->selling_price != 0)
+        <h3 class="h4 ml-2 mb-3 text-danger" style="font-weight: bold;">
+          Rs.
+          @php echo number_format( $product->selling_price ); @endphp
+        </h3>
+      @endif
       <hr />
       <p class="h5 ml-2 mb-3 text-secondary-rm border-top-rm border-bottom-rm">
         {{ $product->description }}

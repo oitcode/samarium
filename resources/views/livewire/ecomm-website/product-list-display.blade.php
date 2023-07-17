@@ -36,10 +36,14 @@
               </span>
             </div>
             @endif
-            <div class="h4 text-danger text-left mt-3" style="font-weight: bold;">
-              Rs.
-              @php echo number_format( $product->selling_price ); @endphp
-            </div>
+
+            @if ($product->selling_price != 0)
+              <div class="h4 text-danger text-left mt-3" style="font-weight: bold;">
+                Rs.
+                @php echo number_format( $product->selling_price ); @endphp
+              </div>
+            @endif
+
             @if (false)
               @if (rand()%2 == 0)
               <div class="h6 text-dark text-left">
