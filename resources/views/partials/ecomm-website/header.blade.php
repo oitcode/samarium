@@ -2,7 +2,16 @@
 
   {{-- Show in bigger screens --}}
   <div class="container-fluid p-0 bg-warning-rm d-none d-md-block">
-    <div class="container-fluid bg-danger text-white border-bottom">
+    <div class="container-fluid 
+      @if (! \App\CmsTheme::first())
+        bg-danger text-white
+      @endif
+      border-bottom"
+      style="
+        @if (\App\CmsTheme::first())
+          background-color: {{ \App\CmsTheme::first()->top_header_bg_color }}; color: {{ \App\CmsTheme::first()->top_header_text_color }};
+        @endif"
+    >
       <div class="container py-1">
         <div class="d-flex justify-content-between">
           {{-- Left side --}}
