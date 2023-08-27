@@ -1,4 +1,5 @@
-<div class="{{ env('OC_ASCENT_BG_COLOR') }}-rm {{ env('OC_ASCENT_TEXT_COLOR') }}-rm bg-dark text-white  py-2 text-right d-none d-md-block mb-3-rm border-bottom-rm">
+<div class="{{ env('OC_ASCENT_BG_COLOR') }}-rm {{ env('OC_ASCENT_TEXT_COLOR') }}-rm bg-dark text-white  py-2 text-right d-none d-md-block mb-3-rm border-bottom-rm"
+    style="{{-- background-color: #55a; color: white; --}}">
   @guest
   @else
 

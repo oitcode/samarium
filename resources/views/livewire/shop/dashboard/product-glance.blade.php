@@ -21,9 +21,9 @@
   {{-- First row --}}
   <div class="row pb-2-rm" style="margin: auto;">
 
-    <div class="col-md-12 p-2 m-0" role="button">
+    <div class="col-md-12 p-0 m-0" role="button">
       @include ('partials.misc.glance-card', [
-          'bsBgClass' => 'bg-danger',
+          'bsBgClass' => 'bg-white',
           'btnRoute' => 'menu',
           'iconFaClass' => 'fas fa-dice-d6',
           'btnTextPrimary' => 'Products',

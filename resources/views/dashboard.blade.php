@@ -6,7 +6,7 @@
     <div class="col-md-6 px-2-rm">
       @if (true)
       <div class="d-flex justify-content-center-rm border-rm bg-light-rm text-success-rm p-2">
-        <h1 class="h4 mt-4">
+        <h1 class="h4 mt-3">
           <i class="fas fa-feather-alt mr-3"></i>
           Dashboard
         </h1>
@@ -26,14 +26,16 @@
           Welcome, {{ Auth::user()->name }}
         </div>
         @endif
+        @if (false)
         <div>
           <button class="btn btn-lg btn-primary mr-3 shadow">
             Profile
           </button>
-          <button class="btn btn-lg btn-primary mr-3 shadow">
-            New Order
+          <button class="btn btn-lg btn-danger mr-3 shadow">
+            Logout
           </button>
         </div>
+        @endif
       </div>
     </div>
   </div>
@@ -48,11 +50,6 @@
         </div>
       @endif
 
-      {{-- Package welcome --}}
-      @if (false)
-      @livewire ('lv-package-welcome')
-      @endif
-      @livewire ('cms.dashboard.cms-glance')
     </div>
 
     <div class="col-md-6">
@@ -61,11 +58,6 @@
         <div class="mb-4">
           @livewire ('shop.dashboard.shop-glance')
         </div>
-
-        {{-- Product glance --}}
-        <div class="mb-4">
-          @livewire ('shop.dashboard.product-glance')
-        </div>
       @endif
     </div>
   </div>
@@ -73,9 +65,15 @@
 
   <div class="row">
     <div class="col-md-6">
+      @if (true)
       @livewire ('todo.dashboard.todo-glance')
+      @endif
     </div>
     <div class="col-md-6">
+      {{-- Product glance --}}
+      <div class="mb-4">
+        @livewire ('shop.dashboard.product-glance')
+      </div>
     </div>
   </div>
 

@@ -23,7 +23,8 @@
         {{ $todo->title }}
         </span>
         <span class="badge badge-pill badge-light border mx-3">
-          Case 1259
+          ID
+          {{ $todo->todo_id }}
         </span>
       </div>
       <div class="d-flex justify-content-between">
@@ -32,12 +33,28 @@
             Due Date
           </span>
           <span class="text-dark font-weight-bold mx-2">
-            2023 Aug 25
+            Not set
           </span>
         </div>
         <div class="px-3">
-          <i class="fas fa-flag text-danger mx-3"></i>
-          Pending
+          @if ($todo->status == 'pending')
+            <i class="fas fa-flag text-danger mx-3"></i>
+            <span class="badge badge-pill badge-danger">
+              Pending
+            </span>
+          @elseif ($todo->status == 'progress')
+            <i class="fas fa-edit text-muted mx-3"></i>
+            <span class="badge badge-pill badge-warning">
+              Progress
+            </span>
+          @elseif ($todo->status == 'done')
+            <i class="fas fa-check-circle text-success mx-3"></i>
+            <span class="badge badge-pill badge-success">
+              Done
+            </span>
+          @else
+            {{ $todo->status }}
+          @endif
         </div>
       </div>
     </div>
