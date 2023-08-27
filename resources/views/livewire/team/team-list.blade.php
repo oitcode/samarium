@@ -33,8 +33,10 @@
 
         <tbody class="bg-white">
           @foreach ($teams as $team)
+            @if (false)
             @if ($team->team_type != 'playing_team')
               @continue
+            @endif
             @endif
             <tr>
               <td>

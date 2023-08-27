@@ -43,4 +43,13 @@ class TeamMember extends Model
     {
         return $this->belongsTo('App\Team', 'team_id', 'team_id');
     }
+
+    /*
+     * appointment table.
+     *
+     */
+    public function appointments()
+    {
+        return $this->hasMany('App\Appointment', 'team_member_id', 'team_member_id');
+    }
 }

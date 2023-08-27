@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center p-5 border bg-dark text-white p-3 shadow-sm">
+<div class="d-flex justify-content-center p-5 border bg-white text-white-rm p-3 shadow-sm">
     <div>
       @if (true)
       <h2 class="h3 text-success-rm font-weight-bold mb-3">

@@ -51,6 +51,14 @@
           </div>
         </div>
 
+        <div class="my-2">
+          <div class="h5 mb-2 text-primary">
+            <a href="{{ route('website-book-appointment', $person->team_member_id) }}" class="btn btn-primary">
+              Book appointment
+            </a>
+          </div>
+        </div>
+
         @if (false)
         <div class="mb-1" style="font-size: 0.7rem;">
           <i class="far fa-star" style="color: orange;"></i>

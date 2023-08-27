@@ -23,6 +23,12 @@
       @endif
     </div>
   </div>
+@elseif ($webpage->name == 'Doctor Team')
+  @if (\App\Team::where('name', 'Doctors')->first())
+    <div class="container my-4">
+      @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Doctors')->first(),])
+    </div>
+  @endif
 @elseif ($webpage->name == 'News')
   <div class="container my-4">
     @livewire ('cms.website.post-list')

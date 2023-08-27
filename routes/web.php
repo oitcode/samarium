@@ -106,6 +106,9 @@ Route::get('/dashboard/users', 'UsersController@index')->name('dashboard-users')
 /* Contact form / message  */
 Route::get('/dashboard/contact-form', 'ContactFormController@index')->name('dashboard-contact-form');
 
+/* Appointment  */
+Route::get('/dashboard/appointment', 'AppointmentController@index')->name('dashboard-appointment');
+
 /*
  *-----------------------------------------------------------------------------
  * Website routes
@@ -252,6 +255,17 @@ Route::get('/dashboard/vat', 'VatController@index')->name('dashboard-vat');
 Route::get('/dashboard/quick-contacts', 'BgcController@quickContacts')->name('dashboard-quick-contacts');
 Route::get('/dashboard/organizing-committee', 'BgcController@organizingCommittee')->name('dashboard-organizing-committee');
 Route::get('/dashboard/sponsors', 'BgcController@sponsors')->name('dashboard-sponsors');
+
+
+/*
+ *-----------------------------------------------------------------------------
+ * Appointment
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+Route::get('/book-appointment/{id}', 'WebsiteController@bookAppointment')->name('website-book-appointment');
 
 
 /*

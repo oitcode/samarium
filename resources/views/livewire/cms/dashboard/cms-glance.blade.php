@@ -1,6 +1,6 @@
 <div class="bg-white border">
 
-  @if (true)
+  @if (false)
   <div class="d-flex justify-content-between">
     <div class="pt-3 pl-3 border-rm">
       <h2 class="h6 font-weight-bold">
@@ -16,9 +16,9 @@
 
 
   {{-- First row --}}
-  <div class="row pb-2" style="margin: auto;">
+  <div class="row pb-2-rm" style="margin: auto;">
 
-    <div class="col-md-4 p-2 m-0" role="button">
+    <div class="col-md-12 p-2-rm m-0 p-2 bg-info-rm" role="button">
       @include ('partials.misc.glance-card', [
           'bsBgClass' => 'bg-primary',
           'btnRoute' => 'dashboard-cms-post',
@@ -28,6 +28,7 @@
       ])
     </div>
 
+    @if (false)
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
           'bsBgClass' => 'bg-primary',
@@ -47,11 +48,13 @@
           'btnTextSecondary' => $galleryCount,
       ])
     </div>
+    @endif
 
   </div>
 
 
   {{-- Second row --}}
+  @if (false)
   <div class="row pb-2" style="margin: auto;">
 
     <div class="col-md-4 p-2 m-0" role="button">
@@ -85,6 +88,7 @@
     </div>
 
   </div>
+  @endif
 
   @if (false)
   <div class="my-2 px-2 text-secondary">

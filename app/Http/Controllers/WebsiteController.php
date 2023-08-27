@@ -9,6 +9,7 @@ use App\ProductCategory;
 use App\Company;
 use App\Webpage;
 use App\SeatTable;
+use App\TeamMember;
 
 class WebsiteController extends Controller
 {
@@ -199,5 +200,16 @@ class WebsiteController extends Controller
             ->with('company', $company)
             ->with('productCategories', $productCategories)
             ->with('products', $products);
+    }
+
+    public function bookAppointment($id)
+    {
+        $company = Company::first();
+
+        $teamMember = TeamMember::find($id);
+
+        return view('cms.website.book-appointment')
+            ->with('teamMember', $teamMember)
+            ->with('company', $company);
     }
 }

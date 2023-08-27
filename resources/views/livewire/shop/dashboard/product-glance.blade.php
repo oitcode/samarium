@@ -1,5 +1,5 @@
 <div class="bg-white border">
-  @if (true)
+  @if (false)
   <div class="d-flex justify-content-between">
     <div class="pt-3 pl-3 border-rm">
       <h2 class="h6 font-weight-bold">
@@ -19,9 +19,9 @@
 
 
   {{-- First row --}}
-  <div class="row pb-2" style="margin: auto;">
+  <div class="row pb-2-rm" style="margin: auto;">
 
-    <div class="col-md-4 p-2 m-0" role="button">
+    <div class="col-md-12 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
           'bsBgClass' => 'bg-danger',
           'btnRoute' => 'menu',
@@ -31,6 +31,7 @@
       ])
     </div>
 
+    @if (false)
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
           'bsBgClass' => 'bg-danger',
@@ -50,6 +51,7 @@
           'btnTextSecondary' => false,
       ])
     </div>
+    @endif
 
   </div>
 
