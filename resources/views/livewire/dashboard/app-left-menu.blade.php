@@ -61,16 +61,24 @@
 
       @include ('partials.dashboard.app-left-menu-button',
           [
-              'btnRoute' => 'customer',
-              'iconFaClass' => 'fas fa-users',
-              'btnText' => 'Customer',
+              'btnRoute' => 'dashboard-purchase',
+              'iconFaClass' => 'fas fa-shopping-cart',
+              'btnText' => 'Purchase',
           ])
 
       @include ('partials.dashboard.app-left-menu-button',
           [
-              'btnRoute' => 'dashboard-purchase',
-              'iconFaClass' => 'fas fa-shopping-cart',
-              'btnText' => 'Purchase',
+              'btnRoute' => 'dashboard-expense',
+              'iconFaClass' => 'fas fa-tools',
+              'btnText' => 'Expense',
+          ])
+
+
+      @include ('partials.dashboard.app-left-menu-button',
+          [
+              'btnRoute' => 'customer',
+              'iconFaClass' => 'fas fa-users',
+              'btnText' => 'Customer',
           ])
 
       @include ('partials.dashboard.app-left-menu-button', [
@@ -81,30 +89,9 @@
 
       @include ('partials.dashboard.app-left-menu-button',
           [
-              'btnRoute' => 'dashboard-expense',
-              'iconFaClass' => 'fas fa-tools',
-              'btnText' => 'Expense',
-          ])
-
-      @include ('partials.dashboard.app-left-menu-button',
-          [
               'btnRoute' => 'menu',
               'iconFaClass' => 'fas fa-list',
               'btnText' => 'Products',
-          ])
-
-      @include ('partials.dashboard.app-left-menu-button',
-          [
-              'btnRoute' => 'daybook',
-              'iconFaClass' => 'fas fa-book',
-              'btnText' => 'Daybook',
-          ])
-
-      @include ('partials.dashboard.app-left-menu-button',
-          [
-              'btnRoute' => 'weekbook',
-              'iconFaClass' => 'fas fa-book',
-              'btnText' => 'Weekbook',
           ])
 
 
@@ -115,11 +102,6 @@
               'btnText' => 'Weborder',
           ])
 
-      @include ('partials.dashboard.app-left-menu-button', [
-        'btnRoute' => 'dashboard-report',
-        'iconFaClass' => 'fas fa-chart-line',
-        'btnText' => 'Report',
-      ])
       @include ('partials.dashboard.app-left-menu-button', [
         'btnRoute' => 'dashboard-inventory',
         'iconFaClass' => 'fas fa-dolly',
@@ -141,6 +123,7 @@
     @endif
     <hr class="m-0 p-0"/>
   @endif
+
 
   @if (preg_match("/cms/i", env('MODULES')))
     @if ($modes['cms'])
@@ -197,20 +180,54 @@
           'iconFaClass' => 'fas fa-image',
           'btnText' => 'Gallery',
         ])
-
-        @include ('partials.dashboard.app-left-menu-button', [
-          'btnRoute' => 'dashboard-team',
-          'iconFaClass' => 'fas fa-users',
-          'btnText' => 'Team',
-        ])
-
-        @include ('partials.dashboard.app-left-menu-button', [
-          'btnRoute' => 'dashboard-quick-contacts',
-          'iconFaClass' => 'fas fa-users',
-          'btnText' => 'Quick contacts',
-        ])
       </div>
     @endif
+    <hr class="m-0 p-0"/>
+  @endif
+
+
+  @if (preg_match("/team/i", env('MODULES')))
+
+    @if ($modes['team'])
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "exitMode('team')",
+          'btnIconFaClass' => 'fas fa-users',
+          'btnText' => 'Team',
+          'btnCheckMode' => 'team',
+      ])
+    @else
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "enterModeSilent('team')",
+          'btnIconFaClass' => 'fas fa-users',
+          'btnText' => 'Team',
+          'btnCheckMode' => 'team',
+      ])
+    @endif
+
+    @if ($modes['team'])
+
+      {{--
+      |
+      |
+      | Team route buttons
+      |
+      |
+      --}}
+
+      @include ('partials.dashboard.app-left-menu-button', [
+        'btnRoute' => 'dashboard-team',
+        'iconFaClass' => 'fas fa-users',
+        'btnText' => 'Team',
+      ])
+
+      @include ('partials.dashboard.app-left-menu-button', [
+        'btnRoute' => 'dashboard-quick-contacts',
+        'iconFaClass' => 'fas fa-users',
+        'btnText' => 'Quick contacts',
+      ])
+
+    @endif
+
     <hr class="m-0 p-0"/>
   @endif
 
@@ -247,6 +264,59 @@
         'btnRoute' => 'dashboard-school-calendar',
         'iconFaClass' => 'fas fa-calendar',
         'btnText' => 'Calendar',
+      ])
+
+    @endif
+
+    <hr class="m-0 p-0"/>
+  @endif
+
+  @if (preg_match("/report/i", env('MODULES')))
+
+    @if ($modes['report'])
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "exitMode('report')",
+          'btnIconFaClass' => 'fas fa-chart-line',
+          'btnText' => 'Report',
+          'btnCheckMode' => 'report',
+      ])
+    @else
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "enterModeSilent('report')",
+          'btnIconFaClass' => 'fas fa-chart-line',
+          'btnText' => 'Report',
+          'btnCheckMode' => 'report',
+      ])
+    @endif
+
+    @if ($modes['report'])
+
+      {{--
+      |
+      |
+      | Team route buttons
+      |
+      |
+      --}}
+
+      @include ('partials.dashboard.app-left-menu-button',
+          [
+              'btnRoute' => 'daybook',
+              'iconFaClass' => 'fas fa-book',
+              'btnText' => 'Daybook',
+          ])
+
+      @include ('partials.dashboard.app-left-menu-button',
+          [
+              'btnRoute' => 'weekbook',
+              'iconFaClass' => 'fas fa-book',
+              'btnText' => 'Weekbook',
+          ])
+
+      @include ('partials.dashboard.app-left-menu-button', [
+        'btnRoute' => 'dashboard-report',
+        'iconFaClass' => 'fas fa-chart-line',
+        'btnText' => 'Report',
       ])
 
     @endif

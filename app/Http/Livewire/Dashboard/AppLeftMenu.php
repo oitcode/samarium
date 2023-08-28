@@ -17,6 +17,8 @@ class AppLeftMenu extends Component
         'cms' => false,
         'school' => false,
         'bgc' => false,
+        'team' => false,
+        'report' => false,
     ];
 
     public function mount()
@@ -31,10 +33,7 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/vendor' ||
             $uri == '/dashboard/expense' ||
             $uri == '/dashboard/menu' ||
-            $uri == '/dashboard/daybook' ||
-            $uri == '/dashboard/weekbook' ||
             $uri == '/dashboard/onlineorder' ||
-            $uri == '/dashboard/report' ||
             $uri == '/dashboard/inventory'
         ) {
             $this->enterModeSilent('shop');
@@ -44,11 +43,20 @@ class AppLeftMenu extends Component
             $uri == '/cms/post' ||
             $uri == '/cms/navMenu' ||
             $uri == '/cms/theme' ||
-            $uri == '/cms/gallery' ||
+            $uri == '/cms/gallery'
+        ) {
+            $this->enterModeSilent('cms');
+        } else if (
+            $uri == '/dashboard/report' ||
+            $uri == '/dashboard/daybook' ||
+            $uri == '/dashboard/weekbook'
+        ) {
+            $this->enterModeSilent('report');
+        } else if (
             $uri == '/dashboard/team' ||
             $uri == '/dashboard/quick-contacts'
         ) {
-            $this->enterModeSilent('cms');
+            $this->enterModeSilent('team');
         } else if (
             $uri == '/dashboard/school/calendar'
         ) {

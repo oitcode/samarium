@@ -24,10 +24,12 @@
     </div>
   </div>
 @elseif ($webpage->name == 'Doctor Team')
-  @if (\App\Team::where('name', 'Doctors')->first())
-    <div class="container my-4">
-      @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Doctors')->first(),])
-    </div>
+  @if (\App\Team::where('comment', 'Doctor')->first())
+    @foreach (\App\Team::where('comment', 'Doctor')->get() as $team)
+      <div class="container my-4 border-bottom">
+        @include ('partials.team.team-display-fe', ['team' => $team,])
+      </div>
+    @endforeach
   @endif
 @elseif ($webpage->name == 'News')
   <div class="container my-4">

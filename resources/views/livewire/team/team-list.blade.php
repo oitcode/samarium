@@ -13,6 +13,35 @@
     </div>
   </button>
 
+  {{-- Top flash cards --}}
+  @if (true)
+  <div class="row mb-1">
+    <div class="col-md-6">
+      <div class="mb-4">
+        @include ('partials.misc.glance-card', [
+            'bsBgClass' => 'bg-white',
+            'btnRoute' => '',
+            'iconFaClass' => 'fas fa-users',
+            'btnTextPrimary' => 'Teams',
+            'btnTextSecondary' => $teamsCount,
+        ])
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-4">
+        @include ('partials.misc.glance-card', [
+            'bsBgClass' => 'bg-white',
+            'btnRoute' => '',
+            'iconFaClass' => 'fas fa-users',
+            'btnTextPrimary' => 'Teams',
+            'btnTextSecondary' => $teamsCount,
+        ])
+      </div>
+    </div>
+  </div>
+  @endif
+
   @if ($teams != null && count($teams) > 0)
     @if (true)
     {{-- Show in bigger screens --}}
