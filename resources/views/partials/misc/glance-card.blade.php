@@ -1,4 +1,10 @@
-<a href="{{ route($btnRoute) }}" class="text-reset text-decoration-none">
+<a
+    @if ($btnRoute != '')
+      href="{{ route($btnRoute) }}"
+    @else
+      href="#"
+    @endif
+    class="text-reset text-decoration-none">
   <div class="d-flex flex-column-rm justify-content-between border-rm shadow-rm {{ $bsBgClass ?? 'bg-success' }} p-2 m-0" style="">
     <div class="px-3 @if ($bsBgClass != 'bg-white') text-white @endif flex-grow-1" style="">
 

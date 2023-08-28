@@ -13,6 +13,36 @@
     </div>
   </button>
 
+  {{-- Top flash cards --}}
+  @if (true)
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-4">
+        @include ('partials.misc.glance-card', [
+            'bsBgClass' => 'bg-white',
+            'btnRoute' => '',
+            'iconFaClass' => 'fas fa-edit',
+            'btnTextPrimary' => 'Appointments',
+            'btnTextSecondary' => $appointmentCount,
+        ])
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-4">
+        @include ('partials.misc.glance-card', [
+            'bsBgClass' => 'bg-white',
+            'btnRoute' => '',
+            'iconFaClass' => 'fas fa-calendar',
+            'btnTextPrimary' => 'Today',
+            'btnTextSecondary' => $appointmentTodayCount,
+        ])
+      </div>
+    </div>
+  </div>
+  @endif
+
+
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
     @if ($appointments && count($appointments) > 0)

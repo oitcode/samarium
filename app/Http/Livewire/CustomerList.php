@@ -10,6 +10,8 @@ class CustomerList extends Component
 {
     public $customers;
 
+    public $total;
+
     public $customerSearch = [
         'name' => null,
         'phone' => null,
@@ -20,6 +22,7 @@ class CustomerList extends Component
     public function mount()
     {
         $this->customers = Customer::orderBy('name', 'ASC')->get();
+        $this->total = Customer::count();
     }
 
     public function render()

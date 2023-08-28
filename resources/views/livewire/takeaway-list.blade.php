@@ -6,6 +6,36 @@
     </div>
   </button>
 
+  {{-- Top flash cards --}}
+  @if (true)
+  <div class="row mb-1">
+    <div class="col-md-6">
+      <div class="mb-4">
+        @include ('partials.misc.glance-card', [
+            'bsBgClass' => 'bg-white',
+            'btnRoute' => '',
+            'iconFaClass' => 'fas fa-skating',
+            'btnTextPrimary' => 'Today',
+            'btnTextSecondary' => $todayTakeawayCount,
+        ])
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-4">
+        @include ('partials.misc.glance-card', [
+            'bsBgClass' => 'bg-white',
+            'btnRoute' => '',
+            'iconFaClass' => 'fas fa-skating',
+            'btnTextPrimary' => 'Total',
+            'btnTextSecondary' => $totalTakeawayCount,
+        ])
+      </div>
+    </div>
+  </div>
+  @endif
+
+
   <div class="d-flex mb-4 pl-3" style="font-size: 1rem;">
     <div class="mr-4">
       Today : {{ $todayTakeawayCount }}

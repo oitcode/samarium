@@ -1,5 +1,39 @@
 <div>
 
+  {{-- Top flash cards --}}
+  @if (true)
+  <div class="row mb-1">
+    <div class="col-md-6">
+      {{-- CMS glance --}}
+      <div class="mb-4">
+        @include ('partials.misc.glance-card', [
+            'bsBgClass' => 'bg-white',
+            'btnRoute' => '',
+            'iconFaClass' => 'fas fa-users',
+            'btnTextPrimary' => 'Customers',
+            'btnTextSecondary' => $total,
+        ])
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+      @if (true)
+        {{-- Shop glance --}}
+        <div class="mb-4">
+          @include ('partials.misc.glance-card', [
+              'bsBgClass' => 'bg-danger',
+              'btnRoute' => '',
+              'iconFaClass' => 'fas fa-users',
+              'btnTextPrimary' => 'Creditors',
+              'btnTextSecondary' => $total,
+          ])
+        </div>
+      @endif
+    </div>
+  </div>
+  @endif
+
   {{-- Search Bar --}}
 
   {{-- Show in bigger screens --}}

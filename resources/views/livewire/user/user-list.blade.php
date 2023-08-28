@@ -1,8 +1,37 @@
-<div class="border bg-white">
+<div class="border-rm bg-white-rm">
+
+  {{-- Top flash cards --}}
+  @if (true)
+  <div class="row mb-1">
+    <div class="col-md-6">
+      <div class="mb-4">
+        @include ('partials.misc.glance-card', [
+            'bsBgClass' => 'bg-white',
+            'btnRoute' => '',
+            'iconFaClass' => 'fas fa-users',
+            'btnTextPrimary' => 'Users',
+            'btnTextSecondary' => $usersCount,
+        ])
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-4">
+        @include ('partials.misc.glance-card', [
+            'bsBgClass' => 'bg-white',
+            'btnRoute' => '',
+            'iconFaClass' => 'fas fa-user-graduate',
+            'btnTextPrimary' => 'Admin',
+            'btnTextSecondary' => $adminUsersCount,
+        ])
+      </div>
+    </div>
+  </div>
+  @endif
 
   @if (!is_null($users) && count($users) > 0)
     {{-- Show in bigger screens --}}
-    <div class="d-none d-md-block">
+    <div class="d-none d-md-block bg-white border">
       <div class="table-responsive">
         <table class="table table-hover table-valign-middle">
           <thead>
@@ -33,7 +62,15 @@
               </td>
 
               <td>
-                {{ $user->role }}
+                @if ($user->role == 'admin')
+                  <span class="badge badge-pill badge-primary shadow">
+                    {{ $user->role }}
+                  </span>
+                @else
+                  <span class="badge badge-pill badge-light shadow">
+                    {{ $user->role }}
+                  </span>
+                @endif
               </td>
 
               <td>

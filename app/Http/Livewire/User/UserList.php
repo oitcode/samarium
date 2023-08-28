@@ -19,6 +19,8 @@ class UserList extends Component
 
     public $users;
 
+    public $usersCount;
+
     public $deletingPost;
 
     public $modes = [
@@ -28,6 +30,8 @@ class UserList extends Component
     public function render()
     {
         $this->users = User::all();
+        $this->usersCount = User::count();
+        $this->adminUsersCount = User::where('role', 'admin')->count();
 
         return view('livewire.user.user-list');
     }
