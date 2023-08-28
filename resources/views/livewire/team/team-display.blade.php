@@ -1,4 +1,34 @@
-<div class="p-3 bh-white border">
+<div class="p-3 bg-white-rm border-rm">
+    {{-- Top flash cards --}}
+    @if (true)
+    <div class="row mb-1">
+      <div class="col-md-6">
+        <div class="mb-4">
+          @include ('partials.misc.glance-card', [
+              'bsBgClass' => 'bg-white',
+              'btnRoute' => '',
+              'iconFaClass' => 'fas fa-users',
+              'btnTextPrimary' => 'Team',
+              'btnTextSecondary' => $team->name,
+          ])
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="mb-4">
+          @include ('partials.misc.glance-card', [
+              'bsBgClass' => 'bg-white',
+              'btnRoute' => '',
+              'iconFaClass' => 'fas fa-user-graduate',
+              'btnTextPrimary' => 'Members',
+              'btnTextSecondary' => count($team->teamMembers),
+          ])
+        </div>
+      </div>
+    </div>
+    @endif
+
+    @if (false)
     <div class="d-flex flex-column">
       @if ($team->image_path)
         <div class="my-3">
@@ -9,6 +39,7 @@
         {{ $team->name }}
       </h2>
     </div>
+    @endif
 
 
     {{-- Top tool bar --}}

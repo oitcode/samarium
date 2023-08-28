@@ -56,7 +56,7 @@
   @elseif ($modes['listMode'])
     @livewire ('team.team-list')
   @elseif ($modes['displayMode'])
-    @livewire ('team.team-display', ['team' => $displayingTeam,])
+    @livewire ('team.team-display', ['team' => $displayingTeam, 'displayTeamName' => false,])
   @endif
 
 </div>

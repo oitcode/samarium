@@ -17,6 +17,8 @@ class TeamDisplay extends Component
     public $updatingTeamMember = null;
     public $deletingTeamMember = null;
 
+    public $displayTeamName;
+
     public $modes = [
         'updateTeamMode' => false,
         'createTeamMemberMode' => false,
