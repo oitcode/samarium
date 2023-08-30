@@ -1,15 +1,17 @@
 <div>
-  <div class="d-flex justify-content-center">
+  <div class="row">
   
-    <div class="col-md-4-rm" style="font-size: 1.3rem;">
+    <div class="col-md-4" style="font-size: 1.3rem;">
       @if (false)
       <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
         Address
       </div>
       @endif
-      <div class="mb-2">
+      <div class="mb-3">
         <div class="d-flex">
+          @if (false)
           <i class="fas fa-map-marker-alt mr-3"></i>
+          @endif
           {{ $company->name }}
         </div>
       </div>
@@ -145,7 +147,9 @@
         </a>
       </div>
     </div>
+    @endif
 
+    @if (true)
     <div class="col-md-3">
       <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
         Quick Links

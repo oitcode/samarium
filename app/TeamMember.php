@@ -45,6 +45,15 @@ class TeamMember extends Model
     }
 
     /*
+     * team_member_appointment_availability table.
+     *
+     */
+    public function teamMemberAppointmentAvailabilities()
+    {
+        return $this->hasMany('App\TeamMemberAppointmentAvailability', 'team_member_id', 'team_member_id');
+    }
+
+    /*
      * appointment table.
      *
      */
