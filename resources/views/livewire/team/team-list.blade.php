@@ -72,12 +72,11 @@
                 @if ($team->image_path)
                   <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
                 @endif
-                {{ $team->name }}
+                <span wire:click="$emit('displayTeam', {{ $team }})" role="button">
+                  {{ $team->name }}
+                </span>
               </td>
               <td>
-                <button class="btn mr-3" wire:click="$emit('displayTeam', {{ $team }})">
-                  <i class="fas fa-pencil-alt"></i>
-                </button>
                 <button class="btn mr-3" wire:click="">
                   <i class="fas fa-trash-alt"></i>
                 </button>

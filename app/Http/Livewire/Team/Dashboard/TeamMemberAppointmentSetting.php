@@ -12,6 +12,8 @@ class TeamMemberAppointmentSetting extends Component
 
     public $teamMember;
 
+    public $availabilities; 
+
     public $timing = [
         'sunday'  => array(),
         'monday'  => array(),
@@ -28,14 +30,23 @@ class TeamMemberAppointmentSetting extends Component
 
     protected $listeners = [
         'addAvailabilityCancelled',
+        'addAvailabilityCompleted',
     ];
 
     public function render()
     {
+        /* dd ($this->teamMember); */
+        $this->availabilities = $this->teamMember->teamMemberAppointmentAvailabilities;
+
         return view('livewire.team.dashboard.team-member-appointment-setting');
     }
 
     public function addAvailabilityCancelled()
+    {
+        $this->exitMode('addAvailabilityMode');
+    }
+
+    public function addAvailabilityCompleted()
     {
         $this->exitMode('addAvailabilityMode');
     }

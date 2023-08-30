@@ -1,6 +1,6 @@
 <div class="p-3 bg-white-rm border-rm">
     {{-- Top flash cards --}}
-    @if (true)
+    @if (! $modes['updateTeamMemberMode'])
     <div class="row mb-1">
       <div class="col-md-6">
         <div class="mb-4">
@@ -44,25 +44,42 @@
 
     {{-- Top tool bar --}}
     <div class="mb-4 d-none d-md-block">
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('createTeamMemberMode')",
-          'btnIconFaClass' => 'fas fa-plus-circle',
-          'btnText' => 'Add team member',
-          'btnCheckMode' => 'createTeamMemberMode',
-      ])
+      @if (! $modes['updateTeamMemberMode'])
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('createTeamMemberMode')",
+            'btnIconFaClass' => 'fas fa-plus-circle',
+            'btnText' => 'Add team member',
+            'btnCheckMode' => 'createTeamMemberMode',
+        ])
+
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('createTeamMembersFromCsvMode')",
+            'btnIconFaClass' => 'fas fa-file',
+            'btnText' => 'Upload from csv',
+            'btnCheckMode' => 'createTeamMembersFromCsvMode',
+        ])
+
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('updateTeamMode')",
+            'btnIconFaClass' => 'fas fa-pencil-alt',
+            'btnText' => 'Update team',
+            'btnCheckMode' => 'updateTeamMode',
+        ])
+      @else
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "",
+            'btnIconFaClass' => 'fas fa-circle',
+            'btnText' => 'Team member display',
+            'btnCheckMode' => 'updateTeamMemberMode',
+        ])
+
+      @endif
 
       @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('createTeamMembersFromCsvMode')",
-          'btnIconFaClass' => 'fas fa-file',
-          'btnText' => 'Upload from csv',
-          'btnCheckMode' => 'createTeamMembersFromCsvMode',
-      ])
-
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('updateTeamMode')",
-          'btnIconFaClass' => 'fas fa-pencil-alt',
-          'btnText' => 'Update team',
-          'btnCheckMode' => 'updateTeamMode',
+          'btnClickMethod' => "clearModes",
+          'btnIconFaClass' => 'fas fa-refresh',
+          'btnText' => 'Clear modes',
+          'btnCheckMode' => '',
       ])
 
       @include ('partials.dashboard.spinner-button')

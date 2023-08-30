@@ -5,11 +5,14 @@ namespace App\Http\Livewire\Team;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+use App\Traits\ModesTrait;
+
 use App\TeamMember;
 
 class TeamDisplayTeamMemberUpdate extends Component
 {
     use WithFileUploads;
+    use ModesTrait;
 
     public $teamMember;
 
@@ -18,6 +21,23 @@ class TeamDisplayTeamMemberUpdate extends Component
     public $email;
     public $comment;
     public $image;
+
+    public $modes = [
+        'editNameMode' => false,
+        'editPhoneMode' => false,
+        'editEmailMode' => false,
+    ];
+
+    protected $listeners = [
+        'teamMemberUpdateNameCancelled',
+        'teamMemberUpdateNameCompleted',
+
+        'teamMemberUpdatePhoneCancelled',
+        'teamMemberUpdatePhoneCompleted',
+
+        'teamMemberUpdateEmailCancelled',
+        'teamMemberUpdateEmailCompleted',
+    ];
 
     public function mount()
     {
@@ -50,5 +70,35 @@ class TeamDisplayTeamMemberUpdate extends Component
         $this->teamMember->update($validatedData);
 
         $this->emit('teamMemberUpdated');
+    }
+
+    public function teamMemberUpdateNameCancelled()
+    {
+        $this->exitMode('editNameMode');
+    }
+
+    public function teamMemberUpdateNameCompleted()
+    {
+        $this->exitMode('editNameMode');
+    }
+
+    public function teamMemberUpdatePhoneCancelled()
+    {
+        $this->exitMode('editPhoneMode');
+    }
+
+    public function teamMemberUpdatePhoneCompleted()
+    {
+        $this->exitMode('editPhoneMode');
+    }
+
+    public function teamMemberUpdateEmailCancelled()
+    {
+        $this->exitMode('editEmailMode');
+    }
+
+    public function teamMemberUpdateEmailCompleted()
+    {
+        $this->exitMode('editEmailMode');
     }
 }
