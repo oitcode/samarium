@@ -41,7 +41,7 @@
     @livewireStyles
 </head>
 <body style="background-color: #efefef;">
-  <div class="mb-5">
+  <div class="mb-5-rm h-100">
 
     @if (true)
     <div class="mb-0">
@@ -54,9 +54,9 @@
     </div>
     @endif
 
-    <div class="row" style="margin: auto;">
+    <div class="row" style="margin: auto; min-height: 95vh;">
       {{-- App left menu --}}
-      <div class="col-md-2 vh-100 p-0 {{ env('OC_ASCENT_BG_COLOR') }} d-none d-md-block">
+      <div class="col-md-2 p-0 {{ env('OC_ASCENT_BG_COLOR') }} d-none d-md-block">
         @if (false)
         @include ('partials.dashboard.app-left-menu')
         @endif
@@ -82,7 +82,7 @@
                 </strong></i>
               </h2>
               <h2 class="h5 text-secondary-rm d-flex justify-content-center">
-                  v0.7.2
+                  v0.7.3
               </h2>
             </div>
           </div>
