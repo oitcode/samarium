@@ -1,144 +1,123 @@
 <div>
 
   @if (true)
-  <div class="mb-3 py-3 px-3 bg-light text-secondary">
+  <div class="mb-3 py-3 px-3 bg-light-rm text-dark">
     <h1 class="h2">
+      @if (false)
       <i class="fas fa-question-circle mr-2"></i>
+      @endif
       Help
     </h1>
   </div>
   @endif
 
-  <div class="row">
-    <div class="col-md-8">
+  {{-- Block --}}
+  <div class="">
+
+    <div class="">
       @if (true)
-      <div class="bg-light text-secondary p-4 mb-0">
-        <h2 class="h3 mb-3 text-secondary-rm">
-          <i class="fas fa-video mr-2"></i>
-          Video tutorials
+      <div class="bg-light p-3 mb-0">
+        <h2 class="h4 mb-3-rm mb-0">
+          CMS
         </h2>
       </div>
       @endif
 
-      @if (false)
-      <div class="mb-0">
-
-        <div class="row" style="margin: auto;">
-
-          <div class="col-md-4 p-0">
-            <div class="card o-pulled-up">
-              <div class="card-body p-4 bg-white-rm o-text-bigger">
-                <i class="fas fa-dice-d6 mr-2"></i>
-                Sales entry
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 p-0">
-            <div class="card">
-              <div class="card-body p-4 bg-white o-text-bigger">
-                <i class="fas fa-shopping-cart mr-2"></i>
-                <span class="o-text-bigger">
-                </span>
-                Purchase entry
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 p-0">
-            <div class="card">
-              <div class="card-body p-4 bg-white o-text-bigger">
-                <i class="fas fa-tools mr-2"></i>
-                Expense entry
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      @endif
       <div class="mb-4">
 
-        <div class="row" style="margin: auto;">
+        <div class="row-rm" style="margin: auto;">
 
-          <div class="col-md-4 p-0 bg-warning">
+          <div class="col-md-4-rm p-0 bg-warning">
             <div class="card">
-              <div class="card-body p-4 bg-white o-text-bigger">
-                <i class="fas fa-clone mr-2"></i>
-                <span class="o-text-bigger">
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                <span class="o-text-bigger-rm">
                 </span>
                 Create webpages
               </div>
             </div>
           </div>
 
-          <div class="col-md-4 p-0">
+          <div class="col-md-4-rm p-0">
             <div class="card">
-              <div class="card-body p-4 bg-white o-text-bigger">
-                <i class="fas fa-edit mr-2"></i>
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
                 Create posts
               </div>
             </div>
           </div>
 
-          <div class="col-md-4 p-0">
+          <div class="col-md-4-rm p-0">
             <div class="card o-pulled-up">
-              <div class="card-body p-4 bg-white-rm o-text-bigger">
-                <i class="fas fa-list mr-2"></i>
+              <div class="card-body p-2 bg-white-rm o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
                 Create post category
               </div>
             </div>
           </div>
 
+          <div class="col-md-4-rm p-0">
+            <div class="card o-pulled-up">
+              <div class="card-body p-2 bg-white-rm o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Edit navigation menu
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4-rm p-0">
+            <div class="card o-pulled-up">
+              <div class="card-body p-2 bg-white-rm o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Create gallery
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4-rm p-0">
+            <div class="card o-pulled-up">
+              <div class="card-body p-2 bg-white-rm o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Theme settings
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+  </div>
+
+  {{-- Block --}}
+  <div class="">
+
+    <div class="">
       @if (true)
-      <div class="bg-light text-secondary p-4 mb-0">
-        <h2 class="h3 mb-3 text-secondary-rm">
-          <i class="fas fa-folder-open mr-2"></i>
-          Other resources
+      <div class="bg-light p-3 mb-0">
+        <h2 class="h4 mb-3-rm mb-0">
+          Product
         </h2>
       </div>
-      @endif
-
-      @if (false)
-      <h2 class="h4 mb-3 text-secondary">
-        Other
-      </h2>
-      @if (false)
-      <p class="text-secondary">
-        Select the topic for which you need help.
-      </p>
-      @endif
       @endif
 
       <div class="mb-4">
-        @if (false)
-        <h2 class="h4 mb-2 text-secondary">
-          Other resources
-        </h2>
-        <p class="text-secondary">
-          View excellent documentation.
-        </p>
-        @endif
-        <div class="row">
 
-          <div class="col-md-12 m-0">
+        <div class="row-rm" style="margin: auto;">
+
+          <div class="col-md-4-rm p-0 bg-warning">
             <div class="card">
-              <div class="card-body p-4 bg-white o-text-bigger">
-                <i class="fab fa-github mr-2"></i>
-                Github
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Create product category
               </div>
             </div>
           </div>
 
-          <div class="col-md-12 m-0">
+          <div class="col-md-4-rm p-0">
             <div class="card">
-              <div class="card-body p-4 bg-white o-text-bigger">
-                <i class="fas fa-user mr-2"></i>
-                Contact support
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Create product
               </div>
             </div>
           </div>
@@ -146,6 +125,175 @@
         </div>
       </div>
     </div>
+  </div>
+
+  {{-- Block --}}
+  <div class="">
+
+    <div class="">
+      @if (true)
+      <div class="bg-light p-3 mb-0">
+        <h2 class="h4 mb-3-rm mb-0">
+          Shop
+        </h2>
+      </div>
+      @endif
+
+      <div class="mb-4">
+
+        <div class="row-rm" style="margin: auto;">
+
+          <div class="col-md-4-rm p-0 bg-warning">
+            <div class="card">
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Create sale
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4-rm p-0">
+            <div class="card">
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Create purchase
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4-rm p-0">
+            <div class="card">
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Create expense
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{-- Block --}}
+  <div class="">
+
+    <div class="">
+      @if (true)
+      <div class="bg-light p-3 mb-0">
+        <h2 class="h4 mb-3-rm mb-0">
+          Team
+        </h2>
+      </div>
+      @endif
+
+      <div class="mb-4">
+
+        <div class="row-rm" style="margin: auto;">
+
+          <div class="col-md-4-rm p-0 bg-warning">
+            <div class="card">
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Create team
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4-rm p-0">
+            <div class="card">
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Add team member
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4-rm p-0">
+            <div class="card">
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Team member appointment settings
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{-- Block --}}
+  <div class="">
+
+    <div class="">
+      @if (true)
+      <div class="bg-light p-3 mb-0">
+        <h2 class="h4 mb-3-rm mb-0">
+          Appointment
+        </h2>
+      </div>
+      @endif
+
+      <div class="mb-4">
+
+        <div class="row-rm" style="margin: auto;">
+
+          <div class="col-md-4-rm p-0 bg-warning">
+            <div class="card">
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                List appointments
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4-rm p-0">
+            <div class="card">
+              <div class="card-body p-2 bg-white o-text-bigger-rm">
+                <i class="fas fa-arrow-alt-circle-right mr-2"></i>
+                Change appointment status
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{-- Block --}}
+  <div class="">
+    @if (true)
+    <div class="bg-light p-2 mb-0">
+      <h2 class="h4">
+        Other resources
+      </h2>
+    </div>
+    @endif
+
+    <div class="">
+
+      <div class="m-0">
+        <div class="card">
+          <div class="card-body p-2 bg-white">
+            <i class="fab fa-github mr-2"></i>
+            Github
+          </div>
+        </div>
+      </div>
+
+      <div class="m-0">
+        <div class="card">
+          <div class="card-body p-2 bg-white">
+            <i class="fas fa-user mr-2"></i>
+            Contact support
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
 </div>
