@@ -74,7 +74,7 @@
               Date
             </h2>
             <div>
-              <input type="date" class="form-control" wire:model.defer="appointment_date" />
+              <input type="date" class="form-control" wire:model="appointment_date" />
               @error('appointment_date') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
           </div>
@@ -85,17 +85,22 @@
               Time
             </h2>
             <div>
-              <select class="form-control" wire:model.defer="appointment_time">
-                <option value="6:00">6:00</option>
-                <option value="6:30">6:30</option>
-                <option value="7:00">7:00</option>
-                <option value="7:30">7:30</option>
-                <option value="8:00">8:00</option>
-                <option value="8:30">8:30</option>
-                <option value="9:00">9:00</option>
-                <option value="9:30">9:30</option>
-              </select>
-              @error('appointment_time') <span class="text-danger">{{ $message }}</span>@enderror
+              @if ($availableTimes)
+                <select class="form-control" wire:model.defer="appointment_time">
+                  <option value="---">---</option>
+                  @foreach ($availableTimes as $availableTime)
+                    <option value="{{ $availableTime }}">{{ $availableTime }}</option>
+                  @endforeach
+                </select>
+                @error('appointment_time') <span class="text-danger">{{ $message }}</span>@enderror
+              @else
+                @if ($appointment_date)
+                  <div class="text-muted">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    Appointment not available on this day
+                  </div>
+                @endif
+              @endif
             </div>
           </div>
 

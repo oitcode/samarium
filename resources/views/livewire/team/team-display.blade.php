@@ -26,6 +26,10 @@
         </div>
       </div>
     </div>
+    @else
+      <div class="mb-3">
+        Team > {{ $team->name }}
+      </div>
     @endif
 
     @if (false)

@@ -23,6 +23,7 @@ class Appointment extends Model
     protected $fillable = [
          'team_member_id', 'appointment_date_time',
          'applicant_name', 'applicant_phone', 'applicant_description',
+         'status',
     ];
 
 
