@@ -19,14 +19,24 @@
             </span>
           </div>
           <div class="col-md-3">
-            <i class="fas fa-clock text-success mr-2"></i>
-            {{ $appointment->applicant_name }}
-            -
-            {{ $appointment->applicant_phone }}
+            <i class="fas fa-user text-muted mr-2"></i>
+            <span class="text-dark font-weight-bold">
+              {{ $appointment->applicant_name }}
+            </span>
+            <br>
+            <i class="fas fa-phone text-muted mr-2"></i>
+            <span class="text-muted font-weight-bold">
+              {{ $appointment->applicant_phone }}
+            </span>
           </div>
           <div class="col-md-3">
-            <i class="fas fa-check-circle text-success mr-2"></i>
-            New
+            @if (strtolower($appointment->status) == 'requested')
+              <i class="fas fa-check-circle text-primary mr-2"></i>
+              Requested
+            @else
+              <i class="fas fa-check-circle text-success mr-2"></i>
+              {{ $appointment->status }}
+            @endif
           </div>
         </div>
       @endforeach
