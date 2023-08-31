@@ -16,19 +16,7 @@
   {{-- Top flash cards --}}
   @if (true)
   <div class="row mb-1">
-    <div class="col-md-6">
-      <div class="mb-4">
-        @include ('partials.misc.glance-card', [
-            'bsBgClass' => 'bg-white',
-            'btnRoute' => '',
-            'iconFaClass' => 'fas fa-users',
-            'btnTextPrimary' => 'Teams',
-            'btnTextSecondary' => $teamsCount,
-        ])
-      </div>
-    </div>
-
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="mb-4">
         @include ('partials.misc.glance-card', [
             'bsBgClass' => 'bg-white',
@@ -88,6 +76,8 @@
 
     </div>
     @endif
+    {{-- Pagination links --}}
+    {{ $teams->links() }}
   @else
     <div class="p-2 text-secondary">
       <i class="fas fa-exclamation-circle mr-2"></i>
