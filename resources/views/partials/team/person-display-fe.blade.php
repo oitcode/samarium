@@ -7,8 +7,8 @@
         @if ($person->image_path)
           <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $person->image_path) }}" alt="{{ $person->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
         @else
-          <div class="py-3">
-            <i class="fas fa-user fa-3x text-secondary"></i>
+          <div class="py-5">
+            <i class="fas fa-user fa-5x text-secondary"></i>
           </div>
         @endif
       </div>

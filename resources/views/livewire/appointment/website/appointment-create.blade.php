@@ -54,7 +54,13 @@
             </h2>
             <div class="d-flex">
               <div class="mr-4">
-                <i class="fas fa-user fa-5x text-primary"></i>
+                @if ($teamMember->image_path)
+                  <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $teamMember->image_path) }}" alt="{{ $teamMember->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
+                @else
+                  <div class="py-5">
+                    <i class="fas fa-user fa-5x text-secondary"></i>
+                  </div>
+                @endif
               </div>
               <div>
                 <strong>
