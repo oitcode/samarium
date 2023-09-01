@@ -26,6 +26,7 @@ class TeamDisplayTeamMemberUpdate extends Component
         'editNameMode' => false,
         'editPhoneMode' => false,
         'editEmailMode' => false,
+        'editPictureMode' => false,
     ];
 
     protected $listeners = [
@@ -37,6 +38,9 @@ class TeamDisplayTeamMemberUpdate extends Component
 
         'teamMemberUpdateEmailCancelled',
         'teamMemberUpdateEmailCompleted',
+
+        'teamMemberUpdatePictureCancelled',
+        'teamMemberUpdatePictureCompleted',
     ];
 
     public function mount()
@@ -100,5 +104,15 @@ class TeamDisplayTeamMemberUpdate extends Component
     public function teamMemberUpdateEmailCompleted()
     {
         $this->exitMode('editEmailMode');
+    }
+
+    public function teamMemberUpdatePictureCancelled()
+    {
+        $this->exitMode('editPictureMode');
+    }
+
+    public function teamMemberUpdatePictureCompleted()
+    {
+        $this->exitMode('editPictureMode');
     }
 }

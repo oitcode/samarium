@@ -133,29 +133,42 @@
     <div class="col-md-6">
 
       <div class="d-flex flex-column h-100 bg-white">
-        <div class="d-flex justify-content-between end p-3">
-          <div class="font-weight-bold">
-            Icon
+        @if ($modes['editPictureMode'])
+          <div class="bg-white p-3">
+            @livewire ('team.dashboard.team-member-edit-picture', ['teamMember' => $teamMember,])
           </div>
-          <div>
-            <button class="btn btn-outline-primary-rm mx-3" wire:click="">
-              @if (false)
-              <i class="fas fa-pencil-alt"></i>
-              @endif
-              <span class="text-muted">
-                Edit
-              </span>
-            </button>
+        @else
+          <div class="bg-white p-2">
+            <div class="d-flex flex-column-rm justify-content-between border-rm shadow-rm p-2 m-0" style="">
+              <div class="px-3 flex-grow-1" style="">
+          
+                <div class="mb-4 h6">
+                  Picture
+                </div>
+                <div class="mt-3-rm h6">
+                  @if ($teamMember->image_path)
+                    <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $teamMember->image_path) }}" alt="{{ $teamMember->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
+                  @else
+                    <i class="fas fa-user fa-10x"></i>
+                  @endif
+                </div>
+              </div>
+          
+              <div class="d-flex flex-column justify-content-center p-2 px-3 o-darker-rm" style="">
+                <div class="h3 text-primary-rm" style="">
+                  <button class="btn btn-outline-primary-rm mx-3" wire:click="enterMode('editPictureMode')">
+                    <span class="text-muted">
+                      Edit
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        @endif
         <div class="mb-4 bg-white flex-grow-1">
           <div class="d-flex justify-content-center h-100">
             <div class="d-flex flex-column justify-content-center h-100">
-            @if ($teamMember->image_path)
-              <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $teamMember->image_path) }}" alt="{{ $teamMember->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
-            @else
-              <i class="fas fa-user fa-10x"></i>
-            @endif
             </div>
           </div>
         </div>
