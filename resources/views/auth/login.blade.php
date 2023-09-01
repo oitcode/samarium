@@ -42,7 +42,7 @@
 
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
-        <div class="py-5 bg-primary text-white">
+        <div class="py-4 bg-primary-rm text-primary" style="background-color: #eee; {{-- color: #55a; --}}">
           @if (true)
           <div class="h2 text-center">
             <i class="fas fa-check-circle mr-1"></i>
@@ -50,7 +50,7 @@
           </div>
           @endif
         </div>
-        <div class="row-rm border shadow bg-white d-flex" style="">
+        <div class="row-rm border shadow-sm bg-white d-flex py-3" style="">
           <div class="bg-primary text-white">
             <div class="h2-rm text-center text-white-rm p-0">
               @if (false)
@@ -167,11 +167,21 @@
                 </div>
             </form>
           </div>
-
         </div>
 
-        <div class="my-5">
-          <div class="d-flex justify-content-center">
+        <div class="my-4">
+          <div class="d-flex flex-column justify-content-center text-muted">
+            <div class="d-flex justify-content-center">
+              <div class="w-50 text-center">
+                &copy; 2023 OIT
+                <br />
+                @if (false)
+                By logging into the application you accept our terms and conditions.
+                @endif
+              </div>
+            </div>
+
+            @if (false)
             <div class="mr-3">
               <a href="">
                 Terms
@@ -192,6 +202,7 @@
                 About Ozone
               </a>
             </div>
+            @endif
           </div>
         </div>
     </div>
