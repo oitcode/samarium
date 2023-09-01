@@ -30,6 +30,14 @@
   </div>
   @endif
 
+  {{-- Search bar --}}
+  <div class="mb-3 py-2 bg-white">
+    <input type="text" />
+    <button class="btn btn-primary">
+      Search
+    </button>
+  </div>
+
   @if ($teams != null && count($teams) > 0)
     @if (true)
     {{-- Show in bigger screens --}}

@@ -1,7 +1,7 @@
 <div>
   <div class="row">
   
-    <div class="col-md-4" style="font-size: 1.3rem;">
+    <div class="col-md-6" style="font-size: 1.3rem;">
       @if (false)
       <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
         Address
@@ -34,6 +34,7 @@
         </div>
       </div>
 
+      @if (false)
       <div class="d-flex my-1" style="font-size: 1rem;">
         <div class="mr-3">
           <i class="fas fa-angle-right mr-3"></i>
@@ -43,6 +44,7 @@
           {{ $company->pan_number }}
         </div>
       </div>
+      @endif
 
       {{-- Show additional company info if any --}}
       @if (count($company->companyInfos) > 0)
@@ -61,42 +63,6 @@
         </div>
       @endif
 
-      <div>
-        @if ($company->fb_link)
-          <a href="{{ $company->fb_link }}" target="_blank">
-            <i class="fab fa-facebook fa-2x mr-2 "
-                style="
-                  color:
-                      @if (\App\CmsTheme::first())
-                        {{ \App\CmsTheme::first()->footer_text_color }}
-                      @else
-                        white
-                      @endif
-                      ;
-                "></i>
-          </a>
-        @endif
-        @if ($company->twitter_link)
-          <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
-            <i class="fab fa-twitter fa-2x mr-2 "></i>
-          </a>
-        @endif
-        @if ($company->insta_link)
-          <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
-            <i class="fab fa-instagram fa-2x mr-2 "></i>
-          </a>
-        @endif
-        @if ($company->youtube_link)
-          <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
-            <i class="fab fa-youtube fa-2x mr-2 "></i>
-          </a>
-        @endif
-        @if ($company->tiktok_link)
-          <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
-            <i class="fab fa-tiktok fa-2x mr-2 "></i>
-          </a>
-        @endif
-      </div>
     </div>
   
     @if (false)
@@ -189,7 +155,43 @@
     @if (true)
     <div class="col-md-2" style="font-size: 1rem;">
       <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
-        Map
+        Follow us
+      </div>
+      <div>
+        @if ($company->fb_link)
+          <a href="{{ $company->fb_link }}" target="_blank">
+            <i class="fab fa-facebook fa-2x mr-2 "
+                style="
+                  color:
+                      @if (\App\CmsTheme::first())
+                        {{ \App\CmsTheme::first()->footer_text_color }}
+                      @else
+                        white
+                      @endif
+                      ;
+                "></i>
+          </a>
+        @endif
+        @if ($company->twitter_link)
+          <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
+            <i class="fab fa-twitter fa-2x mr-2 "></i>
+          </a>
+        @endif
+        @if ($company->insta_link)
+          <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
+            <i class="fab fa-instagram fa-2x mr-2 "></i>
+          </a>
+        @endif
+        @if ($company->youtube_link)
+          <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
+            <i class="fab fa-youtube fa-2x mr-2 "></i>
+          </a>
+        @endif
+        @if ($company->tiktok_link)
+          <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
+            <i class="fab fa-tiktok fa-2x mr-2 "></i>
+          </a>
+        @endif
       </div>
     </div>
     @endif

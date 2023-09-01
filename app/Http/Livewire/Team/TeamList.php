@@ -16,7 +16,15 @@ class TeamList extends Component
 
     // public $teams;
 
+    public $teamSearch = [
+        'name' => '',
+    ];
+
     public $teamsCount;
+
+    public function mount()
+    {
+    }
 
     public function render()
     {
@@ -25,5 +33,14 @@ class TeamList extends Component
 
         return view('livewire.team.team-list')
             ->with('teams', $teams);
+    }
+
+    public function search()
+    {
+        $this->customers = new Customer;
+
+        if ($this->teamSearch['name']) {
+            $this->teams = $this->teams->where('name', 'like', '%'.$this->teamSearch['name'].'%');
+        } 
     }
 }

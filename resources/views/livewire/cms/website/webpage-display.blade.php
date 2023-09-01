@@ -26,9 +26,11 @@
 @elseif ($webpage->name == 'Doctor Team')
   @if (\App\Team::where('comment', 'Doctor')->first())
     @foreach (\App\Team::where('comment', 'Doctor')->get() as $team)
-      <div class="container my-4 border-bottom">
-        @include ('partials.team.team-display-fe', ['team' => $team,])
-      </div>
+      @if (count($team->teamMembers))
+        <div class="container my-4 border-bottom">
+          @include ('partials.team.team-display-fe', ['team' => $team,])
+        </div>
+      @endif
     @endforeach
   @endif
 @elseif ($webpage->name == 'News')
