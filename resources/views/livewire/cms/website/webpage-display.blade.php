@@ -75,9 +75,15 @@
     @endforeach
   @endif
 @elseif ($webpage->name == 'Contact us')
-  @if (\App\Team::where('name', 'Quick Contacts')->first())
-    <div class="container my-4">
-      @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Quick Contacts')->first(),])
+  @livewire ('cms.website.contact-component')
+  @if (count(\App\Team::where('name', 'Quick Contacts')->first()->teamMembers) > 0)
+    <div class="container-fluid my-4 border-top">
+      <div class="container">
+        @if (\App\Team::where('name', 'Quick Contacts')->first())
+          @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Quick Contacts')->first(),])
+        @endif
+      </div>
+    </div>
     </div>
   @endif
 @elseif ($webpage->name == 'Calendar')

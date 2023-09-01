@@ -1,8 +1,14 @@
 <div>
-  @if ($displayTeamName ?? true)
-  <h3 class="my-4">
-    {{ $team->name }}
-  </h3>
+  @if (($displayTeamName ?? true) )
+    @if ($team->name == 'Quick contacts')
+      <h3 class="my-4">
+        Important contacts
+      </h3>
+    @else
+      <h3 class="my-4">
+        {{ $team->name }}
+      </h3>
+    @endif
   @endif
 
   <div class="row">

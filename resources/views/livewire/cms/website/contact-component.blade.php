@@ -11,12 +11,13 @@
   <div class="container-fluid bg-white border-rm">
   <div class="container pt-3 pb-5">
     <div class="d-flex justify-content-center">
-      @if (false)
+      @if (true)
       <div class="col-md-6 p-4 text-secondary-rm" style="">
           <div class="d-flex mb-4">
             @if (true)
             <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
             @endif
+            @if (false)
             <div class="d-flex flex-column justify-content-center ml-3">
               <div class="mt-3">
                 <h2 class="h4 font-weight-bold">
@@ -24,6 +25,7 @@
                 </h2>
               </div>
             </div>
+            @endif
           </div>
   
           <div class="d-flex mb-2">
