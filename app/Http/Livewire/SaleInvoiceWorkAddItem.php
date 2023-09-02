@@ -160,7 +160,9 @@ class SaleInvoiceWorkAddItem extends Component
 
         $this->products =
             ProductCategory::find($validatedData['search_product_category_id'])
-                ->products()->where('is_base_product', false)->get();
+                ->products()->where('is_base_product', false)
+                ->orderBy('name', 'ASC')
+                ->get();
     }
 
     public function checkExistingItemsForProduct($saleInvoice, $productId)
