@@ -49,7 +49,9 @@ class SaleInvoiceWorkAddItem extends Component
 
     public function render()
     {
-        $this->productCategories = ProductCategory::where('does_sell', 'yes')->get();
+        $this->productCategories = ProductCategory::where('does_sell', 'yes')
+            ->orderBy('name', 'ASC')
+            ->get();
 
         return view('livewire.sale-invoice-work-add-item');
     }
