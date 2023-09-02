@@ -43,6 +43,7 @@ class SaleInvoiceWorkAddItem extends Component
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
             ->where('is_base_product', false)
+            ->orderBy('name', 'ASC')
             ->get();
     }
 
@@ -114,6 +115,7 @@ class SaleInvoiceWorkAddItem extends Component
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
             ->where('is_base_product', false)
+            ->orderBy('name', 'ASC')
             ->get();
     }
 
