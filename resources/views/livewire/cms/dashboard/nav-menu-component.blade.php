@@ -3,7 +3,7 @@
 
   <div class="mb-3">
       {{-- Show in bigger screens --}}
-      <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+      <x-toolbar-classic>
 
         @if (\App\CmsNavMenu::first())
         @else
@@ -39,10 +39,7 @@
         ])
 
         @include ('partials.dashboard.spinner-button')
-
-        <div class="clearfix">
-        </div>
-      </div>
+      </x-toolbar-classic>
 
       {{-- Show in smaller screens --}}
       <div class="mb-3 p-2 d-md-none">

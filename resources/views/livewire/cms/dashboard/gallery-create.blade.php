@@ -1,4 +1,4 @@
-<div class="p-2 border">
+<div class="p-2 border bg-white">
 
   <div class="form-group">
     <label>Name</label>
@@ -26,8 +26,12 @@
   </div>
 
   <div>
-    <button class="btn btn-sm btn-success mr-3" wire:click="store">Save</button>
+    @include ('partials.store-button')
+    @include ('partials.button-cancel')
+
+    @if (false)
     <button class="btn btn-sm btn-secondary" wire:click="$emit('exitCreate')">Cancel</button>
+    @endif
   </div>
 
 </div>

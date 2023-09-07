@@ -38,7 +38,8 @@
     @error('password') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
   
-  <button type="submit" class="btn btn-success badge-pill p-2 px-3" wire:click="store">Submit</button>
-  <button type="submit" class="btn btn-danger badge-pill p-2 px-3" wire:click="$emit('exitCreateUserMode')">Cancel</button>
+
+  @include ('partials.button-store')
+  @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateUserMode',])
 
 </div>

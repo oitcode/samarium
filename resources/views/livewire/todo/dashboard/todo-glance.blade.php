@@ -9,9 +9,13 @@
       </h2>
     </div>
     <div class="px-3">
-      <a href="{{ route('dashboard-todo') }}" class="btn btn-outline-primary">
+      <a href="{{ route('dashboard-todo') }}" class="btn btn-outline-primary px-3">
+        @if (false)
         <i class="fas fa-plus-circle mr-2"></i>
-        Open Todo
+        @endif
+        <span class="font-weight-bold">
+          Open Todo
+        </span>
       </a>
     </div>
   </div>

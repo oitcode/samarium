@@ -1,8 +1,10 @@
 <div>
   {{-- Top line --}}
+  @if (false)
   <div class="my-3">
     Total: {{ $totalPostCount }}
   </div>
+  @endif
 
   @if (!is_null($posts) && count($posts) > 0)
     {{-- Show in bigger screen --}}

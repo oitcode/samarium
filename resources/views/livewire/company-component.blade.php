@@ -275,17 +275,10 @@
         {{-- Submit button section --}}
         <div class="my-4">
           @if ($company)
-            <button type="submit" class="btn btn-success badge-pill p-2 px-3" wire:click="update" style="">
-              <i class="fas fa-save mr-1"></i>
-              Update
-            </button>
+            @include ('partials.button-update')
           @else
-            <button type="submit" class="btn btn-success badge-pill p-3" wire:click="store" style="">
-              Create
-            </button>
-            <button type="submit" class="btn btn-danger badge-pill p-3" wire:click="$emit('exitCreateMode')" style="">
-              Cancel
-            </button>
+            @include ('partials.button-store')
+            @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
           @endif
 
           <button wire:loading class="btn">

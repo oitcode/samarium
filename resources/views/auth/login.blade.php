@@ -38,11 +38,11 @@
     @livewireStyles
 </head>
 
-<body style="height: 100% !important; background-color: #eee;">
+<body style="height: 100% !important; background-image: linear-gradient(to right, #505 , #55a); {{-- background-color: #55a; --}}">
 
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
-        <div class="py-4 bg-primary-rm text-primary" style="background-color: #eee; {{-- color: #55a; --}}">
+        <div class="py-4 bg-primary-rm text-primary-rm" style="background-color: #eee; color: #55a;">
           @if (true)
           <div class="h2 text-center">
             <i class="fas fa-check-circle mr-1"></i>
@@ -106,7 +106,7 @@
                 <div class="form-group">
                   <input id="email" type="email"
                       class="form-control @error('email') is-invalid @enderror"
-                      style="font-size: 1.3rem;"
+                      style="font-size: 1.2rem;"
                       name="email" value="{{ old('email') }}"
                       required
                       autocomplete="email"
@@ -127,7 +127,7 @@
 
                     <input id="password" type="password"
                         class="form-control @error('password') is-invalid @enderror"
-                        style="font-size: 1.3rem;"
+                        style="font-size: 1.2rem;"
                         name="password"
                         required
                         placeholder="Password"
@@ -153,8 +153,11 @@
                 @endif
 
                 <div class="form-group mb-0">
-                    <button type="submit" class="btn btn-success btn-block" style="font-size: 1.5rem;">
-                        {{ __('Login') }}
+                    <button type="submit" class="btn btn-success-rm btn-block py-3 text-white shadow" style="{{-- font-size: 1.3rem; --}} background-color: #55a;">
+                        <span class="h5">
+                          {{ __('Login') }}
+                        </span>
+                        <i class="fas fa-chevron-right ml-2"></i>
                     </button>
 
                     @if (false)
@@ -170,7 +173,7 @@
         </div>
 
         <div class="my-4">
-          <div class="d-flex flex-column justify-content-center text-muted">
+          <div class="d-flex flex-column justify-content-center text-white">
             <div class="d-flex justify-content-center">
               <div class="w-50 text-center">
                 &copy; 2023 OIT

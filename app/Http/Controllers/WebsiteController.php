@@ -10,6 +10,7 @@ use App\Company;
 use App\Webpage;
 use App\SeatTable;
 use App\TeamMember;
+use App\Vacancy;
 
 class WebsiteController extends Controller
 {
@@ -210,6 +211,17 @@ class WebsiteController extends Controller
 
         return view('cms.website.book-appointment')
             ->with('teamMember', $teamMember)
+            ->with('company', $company);
+    }
+
+    public function vacancyView($id, $name)
+    {
+        $company = Company::first();
+
+        $vacancy = Vacancy::find($id);
+
+        return view('vacancy.website.vacancy-view')
+            ->with('vacancy', $vacancy)
             ->with('company', $company);
     }
 }

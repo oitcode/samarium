@@ -1,6 +1,6 @@
 <div>
   <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
-
+  <x-toolbar-classic>
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listAppointmentMode')",
         'btnIconFaClass' => 'fas fa-list',
@@ -25,10 +25,7 @@
     ])
 
     @include ('partials.dashboard.spinner-button')
-
-    <div class="clearfix">
-    </div>
-  </div>
+  </x-toolbar-classic>
 
   <!-- Flash message div -->
   @if (session()->has('message'))

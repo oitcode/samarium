@@ -47,7 +47,8 @@
 
 
     {{-- Top tool bar --}}
-    <div class="mb-4 d-none d-md-block">
+    <x-toolbar-classic>
+
       @if (! $modes['updateTeamMemberMode'])
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('createTeamMemberMode')",
@@ -87,10 +88,7 @@
       ])
 
       @include ('partials.dashboard.spinner-button')
-
-      <div class="clearfix">
-      </div>
-    </div>
+    </x-toolbar-classic>
 
     <!-- Flash message div -->
     @if (session()->has('message'))

@@ -1,8 +1,5 @@
 <div>
-  @if (true)
-  {{-- Show in bigger screens --}}
-  <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
-
+  <x-toolbar-classic>
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('create')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -35,12 +32,11 @@
 
     @include ('partials.dashboard.spinner-button')
 
-    <div class="clearfix">
-    </div>
-  </div>
+  </x-toolbar-classic>
 
+  @if (true)
   {{-- Mobile menu --}}
-  <div class="mb-3 p-2 d-md-none bg-dark-rm">
+  <x-toolbar-classic-mob>
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('create')",
@@ -83,10 +79,7 @@
     @endif
 
     @include ('partials.dashboard.spinner-button')
-
-    <div class="clearfix">
-    </div>
-  </div>
+  </x-toolbar-classic-mob>
 
   @endif
 

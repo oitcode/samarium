@@ -27,8 +27,10 @@
   @if (\App\Team::where('comment', 'Doctor')->first())
     @foreach (\App\Team::where('comment', 'Doctor')->get() as $team)
       @if (count($team->teamMembers))
-        <div class="container my-4 border-bottom">
-          @include ('partials.team.team-display-fe', ['team' => $team,])
+        <div class="container-fluid mt-4 border-bottom">
+          <div class="container">
+            @include ('partials.team.team-display-fe', ['team' => $team,])
+          </div>
         </div>
       @endif
     @endforeach
@@ -88,6 +90,8 @@
   @endif
 @elseif ($webpage->name == 'Calendar')
   @livewire ('school.cms.calendar-component')
+@elseif ($webpage->name == 'Careers')
+  @livewire ('vacancy.website.vacancy-list')
 {{--
 @elseif ($webpage->name == 'Fixtures')
   @livewire ('school.cms.calendar-component')

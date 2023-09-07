@@ -5,8 +5,9 @@
           @if ($modes[$btnCheckMode])
             {{--
             {{ env('OC_ASCENT_BTN_COLOR') }}
-            --}}
             btn-dark
+            --}}
+            o-darker
           @else
             {{ env('OC_ASCENT_BTN_COLOR') }}
           @endif
@@ -23,8 +24,10 @@
     style="font-size: calc(0.7rem + 0.15vw);" wire:click="{{ $btnClickMethod }}">
   <div class="d-flex justify-content-between">
     <div>
-      <i class="{{ $btnIconFaClass }} mr-3"></i>
-      {{ $btnText }}
+      <strong>
+        <i class="{{ $btnIconFaClass }} mr-3"></i>
+        {{ $btnText }}
+      </strong>
       <span  class="ml-5" wire:loading>
         ...
       </span>

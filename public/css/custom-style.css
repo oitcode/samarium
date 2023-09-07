@@ -135,3 +135,11 @@ animation-play-state:paused;
 .o-darker {
     background: rgba(0, 0, 0, 0.1)
 }
+
+.o-flipper:hover {
+    /*
+    position: relative !important;
+    bottom: 10px !important;
+    */
+    background-color: #ddf;
+}

@@ -82,13 +82,9 @@
     @endif
 
     <div class="p-3 m-0">
-      <button class="btn btn-lg badge-pill btn-success mr-3" wire:click="store">
-        Confirm
-      </button>
 
-      <button class="btn btn-lg btn-danger badge-pill mr-3" wire:click="$emit('exitCreateTeamMemberMode')">
-        Cancel
-      </button>
+      @include ('partials.button-store')
+      @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateTeamMemberMode',])
 
       <button wire:loading class="btn">
         <span class="spinner-border text-info mr-3" role="status">

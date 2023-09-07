@@ -390,7 +390,13 @@
   @include ('partials.dashboard.app-left-menu-button', [
     'btnRoute' => 'dashboard-todo',
     'iconFaClass' => 'fas fa-tasks',
-    'btnText' => 'Todo',
+    'btnText' => 'Tasks',
+  ])
+
+  @include ('partials.dashboard.app-left-menu-button', [
+    'btnRoute' => 'dashboard-vacancy',
+    'iconFaClass' => 'fas fa-edit',
+    'btnText' => 'Vacancy',
   ])
 
   @include ('partials.dashboard.app-left-menu-button', [

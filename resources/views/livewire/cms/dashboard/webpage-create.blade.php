@@ -30,13 +30,16 @@
     @endif
 
     <div class="mt-4" style="font-size: 1.3rem;">
+      @include ('partials.button-store')
+      @if ($is_post == 'yes')
+        @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreatePostMode',])
+      @else
+        @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
+      @endif
+
+      @if (false)
       <button type="submit"
-          class="btn btn-success" wire:click="store"
-          style="font-size: 1.3rem;">
-        Submit
-      </button>
-      <button type="submit"
-          class="btn btn-danger"
+          class="btn btn-danger-rm"
           wire:click="$emit(
               @if ($is_post == 'yes')
                 'exitCreatePostMode'
@@ -47,6 +50,7 @@
           style="font-size: 1.3rem;">
         Cancel
       </button>
+      @endif
     </div>
   
   </div>

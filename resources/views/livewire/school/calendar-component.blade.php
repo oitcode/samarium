@@ -1,16 +1,15 @@
 <div>
   {{-- Component herobar --}}
   @if (true)
-  <div class="p-3 mb-4 border bg-success text-white">
-    <h1 class="h4 mt-2">
-      <i class="fas fa-calendar mr-2"></i>
+  <div class="p-3-rm mb-4 border-rm bg-success-rm text-white-rm">
+    <h1 class="h4">
       Calendar
     </h1>
   </div>
   @endif
 
-  <div class="mb-3 py-2 d-none d-md-block bg-dark-rm">
-
+  {{-- Toolbar --}}
+  <x-toolbar-classic>
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('eventCreate')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -26,10 +25,7 @@
     ])
 
     @include ('partials.dashboard.spinner-button')
-
-    <div class="clearfix">
-    </div>
-  </div>
+  </x-toolbar-classic>
 
   @if ($modes['eventCreate'])
     @if ($eventCreationDay)
@@ -113,7 +109,7 @@
                   @endforeach
                 </td>
                 <td>
-                  <button class="btn btn-primary badge-pill"
+                  <button class="btn btn-light badge-pill"
                       wire:click="addEventForADate({{ json_encode($day['day']->toDateString()) }})">
                     Add event
                   </button>

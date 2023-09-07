@@ -64,7 +64,8 @@
       @livewire ('cms.dashboard.media-select-image-component')
     @endif
 
-    <div class="p-3 m-0">
+    <div class="py-3 m-0">
+      @if (false)
       <button class="btn btn-lg badge-pill btn-success mr-3" wire:click="store">
         Confirm
       </button>
@@ -72,6 +73,10 @@
       <button class="btn btn-lg btn-danger badge-pill mr-3" wire:click="$emit('exitCreateMode')">
         Cancel
       </button>
+      @endif
+
+      @include ('partials.button-store')
+      @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
 
       <button wire:loading class="btn">
         <span class="spinner-border text-info mr-3" role="status">

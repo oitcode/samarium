@@ -129,15 +129,9 @@
   @endif
 
   <div class="py-3 m-0">
-    <button class="btn btn-lg-rm badge-pill btn-success mr-3" wire:click="store">
-      <i class="fas fa-check-circle mr-1"></i>
-      Confirm
-    </button>
 
-    <button class="btn btn-lg-rm btn-danger badge-pill mr-3" wire:click="$emit('exitCalendarEventCreate')">
-      <i class="fas fa-times-circle mr-1"></i>
-      Cancel
-    </button>
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCalendarEventCreate',])
 
     <button wire:loading class="btn">
       <span class="spinner-border text-info mr-3" role="status">

@@ -3,45 +3,39 @@
   {{-- Top tool bar --}}
 
   {{-- Show in bigger screen --}}
-  <div class="d-none d-md-block">
-    <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+  <x-toolbar-classic>
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('createMode')",
+        'btnIconFaClass' => 'fas fa-plus-circle',
+        'btnText' => 'Create',
+        'btnCheckMode' => 'createMode',
+    ])
 
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('listMode')",
+        'btnIconFaClass' => 'fas fa-list',
+        'btnText' => 'List',
+        'btnCheckMode' => 'listMode',
+    ])
+
+    @if ($modes['displayMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('createMode')",
-          'btnIconFaClass' => 'fas fa-plus-circle',
-          'btnText' => 'Create',
-          'btnCheckMode' => 'createMode',
+          'btnClickMethod' => "",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Gallery display',
+          'btnCheckMode' => 'displayMode',
       ])
+    @endif
 
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('listMode')",
-          'btnIconFaClass' => 'fas fa-list',
-          'btnText' => 'List',
-          'btnCheckMode' => 'listMode',
-      ])
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-eraser',
+        'btnText' => 'Clear modes',
+        'btnCheckMode' => '',
+    ])
 
-      @if ($modes['displayMode'])
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "",
-            'btnIconFaClass' => 'fas fa-circle',
-            'btnText' => 'Gallery display',
-            'btnCheckMode' => 'displayMode',
-        ])
-      @endif
-
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "clearModes",
-          'btnIconFaClass' => 'fas fa-eraser',
-          'btnText' => 'Clear modes',
-          'btnCheckMode' => '',
-      ])
-
-      @include ('partials.dashboard.spinner-button')
-
-      <div class="clearfix">
-      </div>
-    </div>
-  </div>
+    @include ('partials.dashboard.spinner-button')
+  </x-toolbar-classic>
 
   {{-- Show in smaller screens --}}
   <div class="mb-3 p-2 d-md-none bg-dark-rm">

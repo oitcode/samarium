@@ -29,7 +29,7 @@
 
     <div class="col-md-12 p-0 m-0" role="button">
       @include ('partials.misc.glance-card', [
-          'bsBgClass' => 'bg-primary',
+          'bsBgClass' => 'bg-white',
           'btnRoute' => 'sale',
           'iconFaClass' => 'fas fa-dice-d6',
           'btnTextPrimary' => 'Sales',

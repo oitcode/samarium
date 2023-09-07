@@ -1,9 +1,12 @@
 <div>
+  <h1 class="h3 mb-4 font-weight-bold">
+    Post
+  </h1>
+
   @if (true)
 
-
   {{-- Bigger screen menu --}}
-  <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+  <x-toolbar-classic>
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createPostMode')",
@@ -44,9 +47,7 @@
 
     @include ('partials.dashboard.spinner-button')
 
-    <div class="clearfix">
-    </div>
-  </div>
+  </x-toolbar-classic>
 
   {{-- Show in smaller screens --}}
   <div class="mb-3 p-2 d-md-none bg-dark-rm">

@@ -109,6 +109,9 @@ Route::get('/dashboard/contact-form', 'ContactFormController@index')->name('dash
 /* Appointment  */
 Route::get('/dashboard/appointment', 'AppointmentController@index')->name('dashboard-appointment');
 
+/* Vacancy  */
+Route::get('/dashboard/vacancy', 'VacancyController@index')->name('dashboard-vacancy');
+
 /*
  *-----------------------------------------------------------------------------
  * Website routes
@@ -266,6 +269,16 @@ Route::get('/dashboard/sponsors', 'BgcController@sponsors')->name('dashboard-spo
  *
  */
 Route::get('/book-appointment/{id}', 'WebsiteController@bookAppointment')->name('website-book-appointment');
+
+/*
+ *-----------------------------------------------------------------------------
+ * Vacancy
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+Route::get('/vacancy/{id}/{name}', 'WebsiteController@vacancyView')->name('website-vacancy-view');
 
 
 /*

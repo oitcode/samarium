@@ -9,7 +9,7 @@
   --}}
 
   {{-- Show in bigger screens --}}
-  <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+  <x-toolbar-classic>
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createProduct')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -64,10 +64,7 @@
     ])
 
     @include ('partials.dashboard.spinner-button')
-
-    <div class="clearfix">
-    </div>
-  </div>
+  </x-toolbar-classic>
 
   {{-- Show in smaller screens --}}
   <div class="mb-3 d-md-none">
