@@ -81,7 +81,7 @@
     </div>
     @endif
 
-    <div class="p-3 m-0">
+    <div class="py-3 m-0">
 
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateTeamMemberMode',])

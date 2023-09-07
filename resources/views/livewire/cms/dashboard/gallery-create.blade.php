@@ -25,9 +25,9 @@
     @error('comment') <span class="text-danger">{{ $message }}</span>@enderror
   </div>
 
-  <div>
-    @include ('partials.store-button')
-    @include ('partials.button-cancel')
+  <div class="py-3">
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => '',])
 
     @if (false)
     <button class="btn btn-sm btn-secondary" wire:click="$emit('exitCreate')">Cancel</button>

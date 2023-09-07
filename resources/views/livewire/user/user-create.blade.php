@@ -39,7 +39,9 @@
   </div>
   
 
-  @include ('partials.button-store')
-  @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateUserMode',])
+  <div class="py-3">
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateUserMode',])
+  </div>
 
 </div>
