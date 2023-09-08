@@ -7,6 +7,7 @@
           'btnRoute' => 'dashboard',
           'iconFaClass' => 'fas fa-tv',
           'btnText' => 'Dashboard',
+          'bordered' => 'yes',
       ])
 
 
