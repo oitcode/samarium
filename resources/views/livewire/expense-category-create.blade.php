@@ -9,8 +9,10 @@
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
   
-    <button type="submit" class="btn btn-success" wire:click="store">Submit</button>
-    <button type="submit" class="btn btn-danger" wire:click="$emit('exitCategoryCreateMode')">Cancel</button>
+    <div class="mt-4" style="font-size: 1.3rem;">
+      @include ('partials.button-store')
+      @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCategoryCreateMode',])
+    </div>
   
   </div>
 </div>
