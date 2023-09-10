@@ -20,7 +20,7 @@ class CafeMenuList extends Component
 
     public function mount()
     {
-        $this->productCategories = ProductCategory::all();
+        $this->productCategories = ProductCategory::orderBy('name', 'ASC')->get();
     }
 
     public function render()

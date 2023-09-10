@@ -31,7 +31,7 @@ class CafeMenuComponent extends Component
         'updateProductCategory' => false,
         'createProduct' => false,
         'createProductCategory' => false,
-        'list' => false,
+        'list' => true,
         'createProductFromCsvMode' => false,
     ];
 

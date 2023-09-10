@@ -22,6 +22,7 @@
       </div>
 
       @if ($products == null || count($products) == 0)
+        @if (false)
         <div class="row">
           @foreach ($productCategories as $productCategory)
             <div class="col-md-3 border p-2 mr-3 mb-4 shadow {{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}"
@@ -40,6 +41,33 @@
               </div>
             </div>
           @endforeach
+        </div>
+        @endif
+
+        <div class="table-responsive bg-white">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Products</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($productCategories as $productCategory)
+                <tr>
+                  <td wire:click="selectCategory('{{ $productCategory->product_category_id }}')" role="button">
+                    {{ $productCategory->name }}
+                  </td>
+                  <td>
+                    {{ count($productCategory->products) }}
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
         </div>
       @endif
     </div>
