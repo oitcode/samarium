@@ -22,15 +22,8 @@
     </div>
 
     <div class="mt-4">
-      <button type="submit"
-          class="btn btn-success mr-2" wire:click="store">
-        Submit
-      </button>
-      <button type="submit"
-          class="btn btn-danger"
-          wire:click="$emit('companyInfoCreateCanceled')">
-        Cancel
-      </button>
+      @include ('partials.button-store')
+      @include ('partials.button-cancel', ['clickEmitEventName' => 'companyInfoCreateCanceled',])
     </div>
   
   </div>

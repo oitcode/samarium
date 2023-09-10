@@ -16,11 +16,7 @@
   </div>
 
   <div class="p-3-rm">
-    <button class="btn btn-success mr-2" wire:click="update">
-      Save
-    </button>
-    <button class="btn btn-danger" wire:click="$emit('companyInfoUpdateCancelled')">
-      Cancel
-    </button>
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'companyInfoUpdateCancelled',])
   </div>
 </div>

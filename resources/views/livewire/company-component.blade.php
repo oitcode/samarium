@@ -1,29 +1,12 @@
-<div class="mb-4">
+<div>
+
+  <div class="mb-3 p-2 bg-white border">
+    <h1 class="h4 pt-2 font-weight-bold">
+      Company settings
+    </h1>
+  </div>
+
   <div>
-
-    @if (false)
-    {{-- Toolbar --}}
-    <div class="mb-4">
-      @if ($company)
-        <button type="submit" class="btn btn-success badge-pill p-2 px-3" wire:click="update" style="">
-          <i class="fas fa-save mr-1"></i>
-          Update
-        </button>
-      @else
-        <button type="submit" class="btn btn-success p-1" wire:click="store" style="">
-          Craete
-        </button>
-        <button type="submit" class="btn btn-danger p-1" wire:click="$emit('exitCreateMode')" style="">
-          Cancel
-        </button>
-      @endif
-
-      <button wire:loading class="btn">
-        <span class="spinner-border text-info mr-3" role="status">
-        </span>
-      </button>
-    </div>
-    @endif
 
     @if (session()->has('message'))
       {{-- Flash message div --}}
@@ -38,9 +21,9 @@
       </div>
     @endif
 
-    <div class="row">
-      <div class="col-md-8">
-        <h2 class="h5 mb-3">
+    <div class="row" style="margin: auto;">
+      <div class="col-md-8 bg-white">
+        <h2 class="h5 mb-3 font-weight-bold my-3">
           Basic Info
         </h2>
 
@@ -208,7 +191,9 @@
         </div>
 
 
-        <h2 class="h5 mt-4 mb-3">
+        <hr class="my-5"/>
+
+        <h2 class="h5 mb-3 font-weight-bold">
           Social Media Links
         </h2>
 
@@ -288,7 +273,7 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 px-2">
         {{--
         |
         | Company info section
@@ -300,39 +285,41 @@
         | will keep the workflow clean as well.
         | 
         --}}
-        @if ($company)
-          <div>
-            <h2 class="h5 mb-3">
-              Additional Info
-            </h2>
+        <div class="bg-white border h-100">
+          @if ($company)
+            <div class="p-2">
+              <h2 class="h5 mb-3 mt-2 font-weight-bold">
+                Additional Info
+              </h2>
 
-            {{-- Show additional company info --}}
-            @if (count($company->companyInfos) > 0)
-              @foreach ($company->companyInfos as $companyInfo)
-                @livewire ('company.dashboard.company-info-display',
-                    ['companyInfo' => $companyInfo,],
-                    key('company-info-' . $companyInfo->company_info_id)
-                )
-              @endforeach
-            @else
-              <div>
-                No additional company info.
-              </div>
-            @endif
-
-            {{-- Show additional company info --}}
-            <div class="my-3">
-              @if ($modes['companyInfoCreateMode'])
-                @livewire ('company.dashboard.company-info-create', ['company' => $company,])
+              {{-- Show additional company info --}}
+              @if (count($company->companyInfos) > 0)
+                @foreach ($company->companyInfos as $companyInfo)
+                  @livewire ('company.dashboard.company-info-display',
+                      ['companyInfo' => $companyInfo,],
+                      key('company-info-' . $companyInfo->company_info_id)
+                  )
+                @endforeach
               @else
-                <button class="btn btn-success" wire:click="enterMode('companyInfoCreateMode')">
-                  Add company info
-                </button>
+                <div>
+                  No additional company info.
+                </div>
               @endif
-            </div>
 
-          </div>
-        @endif
+              {{-- Show additional company info --}}
+              <div class="my-3">
+                @if ($modes['companyInfoCreateMode'])
+                  @livewire ('company.dashboard.company-info-create', ['company' => $company,])
+                @else
+                  <button class="btn btn-outline-primary shadow-sm" wire:click="enterMode('companyInfoCreateMode')">
+                    Add company info
+                  </button>
+                @endif
+              </div>
+
+            </div>
+          @endif
+        </div>
       </div>
 
     </div>

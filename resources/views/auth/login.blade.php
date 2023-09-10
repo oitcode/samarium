@@ -103,7 +103,7 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
-                <div class="form-group">
+                <div class="form-group shadow-sm mb-4">
                   <input id="email" type="email"
                       class="form-control @error('email') is-invalid @enderror"
                       style="font-size: 1.2rem;"
@@ -120,7 +120,7 @@
                   @enderror
                 </div>
 
-                <div class="form-group">
+                <div class="form-group shadow-sm mb-4">
                     @if (false)
                     <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                     @endif
@@ -152,7 +152,7 @@
                 </div>
                 @endif
 
-                <div class="form-group mb-0">
+                <div class="form-group mt-4 mb-1">
                     <button type="submit" class="btn btn-success-rm btn-block py-3 text-white shadow" style="{{-- font-size: 1.3rem; --}} background-color: #55a;">
                         <span class="h5">
                           {{ __('Login') }}
