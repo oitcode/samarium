@@ -2,7 +2,7 @@
 
   {{-- Show in bigger screens --}}
   <div class="card shadow-sm h-100 d-none d-md-block">
-    <div class="card-body p-0 bg-success text-white">
+    <div class="card-body p-0 bg-success-rm text-white-rm">
       <div class="p-3">
   
         <div class="">

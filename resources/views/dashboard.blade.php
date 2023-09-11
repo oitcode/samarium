@@ -74,6 +74,13 @@
       <div class="mb-4">
         @livewire ('shop.dashboard.product-glance')
       </div>
+
+      @if (true)
+      <div class="my-4">
+        @livewire ('transactions-navigator')
+      </div>
+      @endif
+    
     </div>
   </div>
 
@@ -87,12 +94,6 @@
 
     {{-- Show on bigger screens --}}
     <div class="d-none d-md-block">
-    
-      @if (false)
-      <div class="my-4">
-        @livewire ('transactions-navigator')
-      </div>
-      @endif
     
     </div>
   @endif
