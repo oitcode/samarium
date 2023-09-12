@@ -33,6 +33,7 @@ class CafeMenuComponent extends Component
         'createProductCategory' => false,
         'list' => true,
         'createProductFromCsvMode' => false,
+        'search' => false,
     ];
 
     protected $listeners = [

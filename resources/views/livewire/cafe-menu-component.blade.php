@@ -37,6 +37,12 @@
         'btnText' => 'Upload from spreadsheet',
         'btnCheckMode' => 'createProductFromCsvMode',
     ])
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('search')",
+        'btnIconFaClass' => 'fas fa-search',
+        'btnText' => 'Search',
+        'btnCheckMode' => 'search',
+    ])
 
     @if ($modes['displayProduct'])
       @include ('partials.dashboard.tool-bar-button-pill', [
@@ -154,6 +160,8 @@
         @if (true)
         @livewire ('cafe-menu-product-create-from-csv')
         @endif
+      @elseif ($modes['search'])
+        @livewire ('cafe-menu-product-search')
       @endif
     </div>
     <div class="col-md-4">
