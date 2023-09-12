@@ -1,15 +1,8 @@
 <div>
 
-  @if (true)
-  <div class="mb-3 py-3 px-3 bg-light-rm text-dark">
-    <h1 class="h2">
-      @if (false)
-      <i class="fas fa-question-circle mr-2"></i>
-      @endif
-      Help
-    </h1>
-  </div>
-  @endif
+  <x-component-header>
+    Help
+  </x-component-header>
 
   {{-- Block --}}
   <div class="">
@@ -17,7 +10,7 @@
     <div class="">
       @if (true)
       <div class="bg-light p-3 mb-0">
-        <h2 class="h4 mb-3-rm mb-0">
+        <h2 class="h5 font-weight-bold mb-3-rm mb-0">
           CMS
         </h2>
       </div>
@@ -94,7 +87,7 @@
     <div class="">
       @if (true)
       <div class="bg-light p-3 mb-0">
-        <h2 class="h4 mb-3-rm mb-0">
+        <h2 class="h5 font-weight-bold mb-3-rm mb-0">
           Product
         </h2>
       </div>
@@ -133,7 +126,7 @@
     <div class="">
       @if (true)
       <div class="bg-light p-3 mb-0">
-        <h2 class="h4 mb-3-rm mb-0">
+        <h2 class="h5 font-weight-bold mb-3-rm mb-0">
           Shop
         </h2>
       </div>
@@ -181,7 +174,7 @@
     <div class="">
       @if (true)
       <div class="bg-light p-3 mb-0">
-        <h2 class="h4 mb-3-rm mb-0">
+        <h2 class="h5 font-weight-bold mb-3-rm mb-0">
           Team
         </h2>
       </div>
@@ -229,7 +222,7 @@
     <div class="">
       @if (true)
       <div class="bg-light p-3 mb-0">
-        <h2 class="h4 mb-3-rm mb-0">
+        <h2 class="h5 font-weight-bold mb-3-rm mb-0">
           Appointment
         </h2>
       </div>
@@ -266,7 +259,7 @@
   <div class="">
     @if (true)
     <div class="bg-light p-2 mb-0">
-      <h2 class="h4">
+      <h2 class="h5 font-weight-bold mb-3-rm mb-0">
         Other resources
       </h2>
     </div>

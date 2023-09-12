@@ -1,18 +1,8 @@
-<div class="p-3 bg-white-rm border">
-  @if (false)
-  <div class="mb-4">
-    @if (\App\CmsTheme::first())
-      <button class="btn btn-success badge-pill p-2 px-3" wire:click="update">
-        <i class="fas fa-save mr-1"></i>
-        Update
-      </button>
-    @else
-      <button class="btn btn-success" wire:click="store">
-        Save
-      </button>
-    @endif
-  </div>
-  @endif
+<div>
+
+  <x-component-header>
+    Theme settings
+  </x-component-header>
 
   @if (session()->has('message'))
     {{-- Flash message div --}}
@@ -26,10 +16,6 @@
       </div>
     </div>
   @endif
-
-  <h2 class="h5 text-secondary my-3">
-    Theme settings
-  </h2>
 
   {{-- Top header color --}}
   @if (\App\CmsTheme::first())
@@ -48,42 +34,43 @@
     </div>
   @endif
 
-  <h2 class="h4 mt-4 my-3">
-    Header
-  </h2>
+  <div class="p-2 bg-white border">
+    <h2 class="h4 mt-4 my-3">
+      Header
+    </h2>
 
-  {{-- Top header bg color --}}
-  <div class="form-row">
-    <div class="col-md-4">
-      <label class="font-weight-bold">Top header background color</label>
+    {{-- Top header bg color --}}
+    <div class="form-row">
+      <div class="col-md-4">
+        <label class="font-weight-bold">Top header background color</label>
+      </div>
+      <div class="col-md-8">
+        <input type="text"
+            class="form-control"
+            wire:model.defer="top_header_bg_color"
+            style="">
+        @error('top_header_bg_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
     </div>
-    <div class="col-md-8">
-      <input type="text"
-          class="form-control"
-          wire:model.defer="top_header_bg_color"
-          style="">
-      @error('top_header_bg_color')
-        <span class="text-danger">{{ $message }}</span>
-      @enderror
-    </div>
-  </div>
 
-  {{-- Top header text color --}}
+    {{-- Top header text color --}}
 
-  <div class="form-row">
-    <div class="col-md-4">
-      <label class="font-weight-bold">Top header text color</label>
+    <div class="form-row">
+      <div class="col-md-4">
+        <label class="font-weight-bold">Top header text color</label>
+      </div>
+      <div class="col-md-8">
+        <input type="text"
+            class="form-control"
+            wire:model.defer="top_header_text_color"
+            style="">
+        @error('top_header_text_color')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
     </div>
-    <div class="col-md-8">
-      <input type="text"
-          class="form-control"
-          wire:model.defer="top_header_text_color"
-          style="">
-      @error('top_header_text_color')
-        <span class="text-danger">{{ $message }}</span>
-      @enderror
-    </div>
-  </div>
 
   <h2 class="h4 mt-4 my-3">
     Navigation menu
@@ -281,14 +268,10 @@
 
   <div class="my-3 mt-4">
     @if (\App\CmsTheme::first())
-      <button class="btn btn-success badge-pill p-2 px-3" wire:click="update">
-        <i class="fas fa-save mr-1"></i>
-        Update
-      </button>
+      @include ('partials.button-update')
     @else
-      <button class="btn btn-success" wire:click="store">
-        Save
-      </button>
+      @include ('partials.button-store')
     @endif
+  </div>
   </div>
 </div>

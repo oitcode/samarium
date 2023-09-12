@@ -1,12 +1,9 @@
 <div>
+
   {{-- Component herobar --}}
-  @if (true)
-  <div class="p-3-rm mb-4 border-rm bg-success-rm text-white-rm">
-    <h1 class="h4">
-      Calendar
-    </h1>
-  </div>
-  @endif
+  <x-component-header>
+    Calendar
+  </x-component-header>
 
   {{-- Toolbar --}}
   <x-toolbar-classic>

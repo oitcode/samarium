@@ -1,4 +1,9 @@
 <div>
+
+  <x-component-header>
+    Contact message
+  </x-component-header>
+
   <x-toolbar-classic>
 
     @if (false)

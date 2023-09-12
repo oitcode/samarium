@@ -1,4 +1,8 @@
 <div>
+  <x-component-header>
+    Pages
+  </x-component-header>
+
   <x-toolbar-classic>
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('create')",

@@ -1,4 +1,8 @@
 <div>
+  <x-component-header>
+    Nav menu
+  </x-component-header>
+
   @if (true)
 
   <div class="mb-3">

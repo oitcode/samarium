@@ -1,11 +1,26 @@
 <div>
 
-  <div class="card-body-rm">
+  <x-component-header>
+    Settings
+  </x-component-header>
+
+  <div class="mb-3 p-2 bg-white border">
+    <h1 class="h5 pt-2 font-weight-bold">
+      <i class="fas fa-exclamation-circle mr-1 text-danger"></i>
+      Caution
+    </h1>
+
+    <div class="text-muted">
+      Please be careful while making settings changes.
+    </div>
+  </div>
+
+  <div class="bg-white p-2">
 
     <div class="row">
       <div class="col-md-4">
         @if (preg_match("/shop/i", env('MODULES')))
-        <h2>Sale invoice</h2>
+        <h2 class="h4 mt-2">Sale invoice</h2>
         <hr />
         {{-- Sale invoice payment types --}}
         <div class="mb-4">
@@ -122,7 +137,7 @@
 
         {{-- Purchase payment types --}}
         <div class="mb-4">
-          <h2>Purchase</h2>
+          <h2 class="h4">Purchase</h2>
           <hr />
           <h3 class="h5">Purchase payment types</h3>
           <div>
@@ -235,7 +250,7 @@
 
         {{-- Expense payment types --}}
         <div class="mb-4">
-          <h2>Expense</h2>
+          <h2 class="h4">Expense</h2>
           <hr />
           <h3 class="h5">Expense payment types</h3>
           <div>
@@ -350,7 +365,7 @@
 
         {{-- Back date setting --}}
         <div class="my-3">
-          <h2 class="">
+          <h2 class="h4">
             Back date entry
           </h2>
           <hr />

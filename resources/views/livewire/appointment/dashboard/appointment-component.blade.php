@@ -1,5 +1,9 @@
 <div>
-  <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
+
+  <x-component-header>
+    Appointment
+  </x-component-header>
+
   <x-toolbar-classic>
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listAppointmentMode')",

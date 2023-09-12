@@ -1,8 +1,11 @@
 <div class="p-3 p-md-0">
 
+  <x-component-header>
+    Tasks
+  </x-component-header>
+
   {{-- Top tool bar --}}
   {{-- Show in bigger screens --}}
-  <div class="mb-3 p-2 d-none d-md-block bg-dark-rm">
   <x-toolbar-classic>
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createMode')",

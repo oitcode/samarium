@@ -1,10 +1,8 @@
 <div>
 
-  <div class="mb-3 p-2 bg-white border">
-    <h1 class="h4 pt-2 font-weight-bold">
-      Company settings
-    </h1>
-  </div>
+  <x-component-header>
+    Company settings
+  </x-component-header>
 
   <div>
 

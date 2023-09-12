@@ -1,4 +1,8 @@
-<div class="p-3 p-md-none">
+<div class="p-3-rm p-md-none">
+
+  <x-component-header>
+    Reports
+  </x-component-header>
 
   <div class="row mb-4">
     <div class="col-md-3 mb-3">

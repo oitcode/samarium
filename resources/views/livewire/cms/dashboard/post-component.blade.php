@@ -1,7 +1,7 @@
 <div>
-  <h1 class="h3 mb-4 font-weight-bold">
-    Post
-  </h1>
+  <x-component-header>
+    Posts
+  </x-component-header>
 
   @if (true)
 

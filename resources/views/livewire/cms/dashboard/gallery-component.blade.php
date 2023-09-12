@@ -1,5 +1,9 @@
 <div class="">
 
+  <x-component-header>
+    Gallery
+  </x-component-header>
+
   {{-- Top tool bar --}}
 
   {{-- Show in bigger screen --}}

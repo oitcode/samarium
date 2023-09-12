@@ -1,5 +1,9 @@
 <div class="mb-4">
 
+  <x-component-header>
+    User
+  </x-component-header>
+
   {{-- Toolbar --}}
   {{-- Show in bigger screens --}}
   <x-toolbar-classic>

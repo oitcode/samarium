@@ -1,4 +1,9 @@
 <div>
+
+  <x-component-header>
+    Team
+  </x-component-header>
+
   {{-- Top tool bar --}}
   <x-toolbar-classic>
     @include ('partials.dashboard.tool-bar-button-pill', [

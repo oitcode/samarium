@@ -1,4 +1,8 @@
 <div class="p-3 p-md-0">
+  <x-component-header>
+    Daybook
+  </x-component-header>
+
   <div class="p-0" style="">
 
     {{-- Show in bigger screens --}}
