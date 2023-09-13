@@ -2,6 +2,9 @@
 @section ('content')
 
   <x-component-header>
+    @if (false)
+    <i  class="fas fa-th text-muted mr-2"></i>
+    @endif
     Dashboard
   </x-component-header>
 

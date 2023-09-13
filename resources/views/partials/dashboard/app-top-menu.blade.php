@@ -66,6 +66,7 @@
     @endif
   @endif
 
+    <div class="pt-2 float-right">
     {{-- User related. Is placed on top right part. --}}
     @include ('partials.dashboard.app-top-menu-user-dropdown')
 
@@ -78,19 +79,30 @@
 
     @if (preg_match("/shop/i", env('MODULES')))
       {{-- Online order counter component --}}
-      <div class="float-right mx-4 px-4 border-left-rm" style="font-size: 1.3rem;">
+      <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem;">
         @livewire ('online-order-counter')
       </div>
     @endif
 
+    {{-- Help/Support --}}
+    <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem;">
+      <i  class="fas fa-question-circle text-white mr-2"></i>
+    </div>
+
+    {{-- Grid --}}
+    <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem;">
+      <i  class="fas fa-th text-white mr-2"></i>
+    </div>
+
     @if (false)
-    <div class="float-right mx-4 px-4 border-left-rm" style="font-size: 1.3rem;">
+    <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem;">
       @livewire ('lv-package-info')
     </div>
     @endif
-  @endguest
+    </div>
 
   <div class="clearfix">
   </div>
 
+  @endguest
 </div>

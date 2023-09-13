@@ -1,8 +1,9 @@
 <div>
-    <span style="font-size: 0.9rem;">
+    <span style="{{-- font-size: 0.9rem; --}}">
       <i class="fas fa-shopping-cart text-info-rm mr-1"></i>
     </span>
     
+    @if ($newOrderCount > 0)
     <span wire:poll.30000ms class="badge badge-pill
         @if ($newOrderCount > 0)
           badge-danger
@@ -12,4 +13,5 @@
         ">
       {{ $newOrderCount }}
     </span>
+    @endif
 </div>

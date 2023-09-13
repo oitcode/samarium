@@ -1,8 +1,10 @@
-<div class="float-right text-white border-right-rm" style="font-size: 1.3rem;">
+<div class="float-right text-white border-right-rm" style="{{--font-size: 1.3rem;--}}">
   <div class="dropdown">
-    <button class="btn btn-light-rm text-white dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-cog text-secondry mr-2"></i>
+    <button class="btn btn-light-rm text-white dropdown-toggle-rm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-user-circle text-secondry mr-2" style="font-size: 1.3rem;"></i>
+      @if (false)
       {{ Auth::user()->name }}
+      @endif
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
       <a class="dropdown-item" href="{{ route('dashboard-change-password') }}">
