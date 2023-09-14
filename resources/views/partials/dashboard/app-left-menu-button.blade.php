@@ -11,7 +11,7 @@
           border-bottom
         @endif
         "
-      style="font-size: calc(0.6rem + 0.15vw);
+      style="font-size: calc(0.7rem + 0.15vw);
         @if(Route::current()->getName() == $btnRoute)
           background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
         @endif

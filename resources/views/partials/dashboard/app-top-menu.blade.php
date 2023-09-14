@@ -79,19 +79,23 @@
 
     @if (preg_match("/shop/i", env('MODULES')))
       {{-- Online order counter component --}}
-      <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem;">
-        @livewire ('online-order-counter')
+      <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
+        <a href="{{ route('online-order') }}" class="text-reset">
+          @livewire ('online-order-counter')
+        </a>
       </div>
     @endif
 
     {{-- Help/Support --}}
-    <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem;">
-      <i  class="fas fa-question-circle text-white mr-2"></i>
+    <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
+      <a href="{{ route('dashboard-help') }}">
+        <i  class="fas fa-question-circle text-white mr-2"></i>
+      </a>
     </div>
 
-    {{-- Grid --}}
+    {{-- User related. Is placed on top right part. --}}
     <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem;">
-      <i  class="fas fa-th text-white mr-2"></i>
+      @include ('partials.dashboard.app-top-menu-misc-dropdown')
     </div>
 
     @if (false)

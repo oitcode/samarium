@@ -1,7 +1,9 @@
 <div class="d-flex justify-content-center">
   <div class="card card-outline card-primary col-md-4 p-0 shadow">
     <div class="card-header text-center">
-      Change Password
+      <h1 class="h5 font-weight-bold pt-2">
+        Change Password
+      </h1>
     </div>
 
     <div class="card-body">
@@ -66,10 +68,13 @@
           </div>
         </div>
   
+        @if (false)
         <button type="submit" class="btn btn-success form-control rounded-0" wire:click="change">
           <i class="fas fa-sign-in-alt"></i>
           Submit
         </button>
+        @endif
+        @include ('partials.button-general-block', ['clickMethod' => 'change', 'btnText' => 'Submit',])
     </div>
 
   </div>

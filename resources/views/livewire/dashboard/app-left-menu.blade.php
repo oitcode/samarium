@@ -374,6 +374,7 @@
     'btnText' => 'Vacancy',
   ])
 
+  @if (false)
   @include ('partials.dashboard.app-left-menu-button', [
     'btnRoute' => 'company',
     'iconFaClass' => 'fas fa-home',
@@ -393,6 +394,7 @@
       'btnText' => 'Users',
     ])
   @endcan
+  @endif
 
   @include ('partials.dashboard.app-left-menu-button', [
     'btnRoute' => 'dashboard-todo',
@@ -400,17 +402,13 @@
     'btnText' => 'Tasks',
   ])
 
-  @include ('partials.dashboard.app-left-menu-button', [
-    'btnRoute' => 'dashboard-vacancy',
-    'iconFaClass' => 'fas fa-edit',
-    'btnText' => 'Vacancy',
-  ])
-
+  @if (false)
   @include ('partials.dashboard.app-left-menu-button', [
     'btnRoute' => 'dashboard-help',
     'iconFaClass' => 'fas fa-question-circle',
     'btnText' => 'Help',
   ])
+  @endif
 </div>
 @endif
 </div>
