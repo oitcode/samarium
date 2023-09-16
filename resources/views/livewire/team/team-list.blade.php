@@ -31,12 +31,58 @@
   @endif
 
   {{-- Search bar --}}
-  <div class="mb-3 py-2 bg-white">
-    <input type="text" />
-    <button class="btn btn-primary">
+  <div class="mb-3 p-2 bg-white">
+    <input type="text" wire:model.defer="team_search_name" />
+    <button class="btn btn-primary" wire:click="search">
       Search
     </button>
   </div>
+
+  @if ($searchResultTeams != null && count($searchResultTeams))
+    {{-- Show in bigger screens --}}
+    <div class="table-responsive d-none d-md-block">
+      <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
+        <thead>
+          <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+              p-4" style="font-size: 1rem;">
+            <th>
+              Team
+            </th>
+            <th>
+              Action
+            </th>
+          </tr>
+        </thead>
+
+        <tbody class="bg-white">
+          @foreach ($searchResultTeams as $team)
+            @if (false)
+            @if ($team->team_type != 'playing_team')
+              @continue
+            @endif
+            @endif
+            <tr>
+              <td>
+                @if ($team->image_path)
+                  <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
+                @endif
+                <span wire:click="$emit('displayTeam', {{ $team }})" role="button">
+                  {{ $team->name }}
+                </span>
+              </td>
+              <td>
+                <button class="btn mr-3" wire:click="">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
+
+    </div>
+  @endif
 
   @if ($teams != null && count($teams) > 0)
     @if (true)

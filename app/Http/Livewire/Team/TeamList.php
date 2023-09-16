@@ -22,6 +22,9 @@ class TeamList extends Component
 
     public $teamsCount;
 
+    public $team_search_name;
+    public $searchResultTeams;
+
     public function mount()
     {
     }
@@ -37,10 +40,13 @@ class TeamList extends Component
 
     public function search()
     {
-        $this->customers = new Customer;
+        $validatedData = $this->validate([
+            'team_search_name' => 'required',
+        ]);
 
-        if ($this->teamSearch['name']) {
-            $this->teams = $this->teams->where('name', 'like', '%'.$this->teamSearch['name'].'%');
-        } 
+        $teams = Team::where('name', 'like', '%'.$validatedData['team_search_name'].'%')->get();
+
+        $this->searchResultTeams = $teams;
+        
     }
 }

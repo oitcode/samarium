@@ -365,7 +365,7 @@
   @include ('partials.dashboard.app-left-menu-button', [
     'btnRoute' => 'dashboard-appointment',
     'iconFaClass' => 'fas fa-paste',
-    'btnText' => 'Documents',
+    'btnText' => 'Appointment',
   ])
 
   @include ('partials.dashboard.app-left-menu-button', [

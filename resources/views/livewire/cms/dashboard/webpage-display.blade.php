@@ -22,8 +22,9 @@
           This page will show all the galleries.
         </div>
       @else
+
         {{-- Toolbar --}}
-        <div class="mb-3 p-2 d-none-rm d-md-block-rm bg-dark-rm">
+        <x-toolbar-classic>
           @include ('partials.dashboard.tool-bar-button-pill', [
               'btnClickMethod' => "enterMode('createWebpageContent')",
               'btnIconFaClass' => 'fas fa-plus-circle',
@@ -39,10 +40,8 @@
           ])
 
           @include ('partials.dashboard.spinner-button')
+        </x-toolbar-classic>
 
-          <div class="clearfix">
-          </div>
-        </div>
 
         <div class="">
           @if ($modes['createWebpageContent'])
