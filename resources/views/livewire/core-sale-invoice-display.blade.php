@@ -1,9 +1,9 @@
-<div class="bg-warning">
+<div class="bg-warning-rm">
   <div class="mb-0 p-0">
     @if ($display_toolbar)
       {{-- Tool bar --}}
 
-      <div class="mb-3 p-2 d-none d-md-block bg-dark">
+      <x-toolbar-classic>
 
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "",
@@ -28,9 +28,7 @@
 
         @include ('partials.dashboard.spinner-button')
 
-        <div class="clearfix">
-        </div>
-      </div>
+      </x-toolbar-classic>
     @endif
   </div>
 

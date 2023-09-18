@@ -16,10 +16,6 @@
         <div class="card-body p-0">
 
 
-          <div class="bg-warning" style="background-color: orange; font-size: 0.2rem;">
-            &nbsp;
-          </div>
-
           <div class="row p-4" style="margin: auto;">
 
             <div class="col-md-3 mb-3">
