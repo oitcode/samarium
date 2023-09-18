@@ -10,15 +10,18 @@
       </span>
       @endif
 
-      <div class="border-rm py-0 my-5 d-flex">
-        <input type="text"
-            class="mr-5"
-            style="height: 50px; font-size: 1.5rem;"
-            wire:model.defer="search_product_category"
-            wire:keydown.enter="searchProductCategory">
-        <button class="btn btn-success" style="font-size: 1.3rem;" wire:click="searchProductCategory">
-          Find
-        </button>
+      <div class="bg-white border p-3 mb-4">
+        <div class="mb-4">
+          <input type="text"
+              class="mr-5 h-100 form-control w-50"
+              style="{{-- height: 50px; --}} font-size: 1.5rem; background-color: #cfc;"
+              wire:model.defer="search_product_category"
+              wire:keydown.enter="searchProductCategory"
+              autofocus>
+        </div>
+        <div>
+          @include ('partials.button-general', ['clickMethod' => "searchProductCategory", 'btnText' => 'Search',])
+        </div>
       </div>
 
       @if ($products == null || count($products) == 0)
@@ -57,7 +60,9 @@
               @foreach ($productCategories as $productCategory)
                 <tr>
                   <td wire:click="selectCategory('{{ $productCategory->product_category_id }}')" role="button">
-                    {{ $productCategory->name }}
+                    <strong>
+                      {{ $productCategory->name }}
+                    </strong>
                   </td>
                   <td>
                     {{ count($productCategory->products) }}
