@@ -27,6 +27,7 @@ class TeamList extends Component
 
     public $modes = [
         'delete' => false, 
+        'cannotDelete' => false, 
     ];
 
     public $teamsCount;
@@ -64,6 +65,10 @@ class TeamList extends Component
         $this->deletingTeam = $team;
 
         $this->enterMode('delete');
+
+        if (count($team->teamMembers) > 0) {
+            $this->enterModeSilent('cannotDelete');
+        }
     }
 
     public function deleteTeamCancel()

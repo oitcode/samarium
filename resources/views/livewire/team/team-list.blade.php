@@ -124,12 +124,23 @@
                 </button>
                 @if ($modes['delete'])
                   @if ($deletingTeam->team_id == $team->team_id)
-                    <span class="btn btn-danger mr-3" wire:click="confirmDeleteTeam">
-                      Confirm delete
-                    </span>
-                    <span class="btn btn-light mr-3" wire:click="deleteTeamCancel">
-                      Cancel
-                    </span>
+
+                    @if ($modes['cannotDelete'])
+                      <span class="text-danger mr-3">
+                        Cannot be deleted
+                      </span>
+                      <span class="btn btn-light mr-3" wire:click="deleteTeamCancel">
+                        Cancel
+                      </span>
+                    @else
+                      <span class="btn btn-danger mr-3" wire:click="confirmDeleteTeam">
+                        Confirm delete
+                      </span>
+                      <span class="btn btn-light mr-3" wire:click="deleteTeamCancel">
+                        Cancel
+                      </span>
+                    @endif
+
                   @endif
                 @endif
               </td>
