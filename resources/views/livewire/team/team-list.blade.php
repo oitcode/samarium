@@ -119,9 +119,19 @@
                 </span>
               </td>
               <td>
-                <button class="btn mr-3" wire:click="">
+                <button class="btn mr-3" wire:click="deleteTeam({{ $team }})">
                   <i class="fas fa-trash-alt"></i>
                 </button>
+                @if ($modes['delete'])
+                  @if ($deletingTeam->team_id == $team->team_id)
+                    <span class="btn btn-danger mr-3" wire:click="confirmDeleteTeam">
+                      Confirm delete
+                    </span>
+                    <span class="btn btn-light mr-3" wire:click="deleteTeamCancel">
+                      Cancel
+                    </span>
+                  @endif
+                @endif
               </td>
             </tr>
           @endforeach

@@ -5,11 +5,14 @@ namespace App\Http\Livewire\Team;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+use App\Traits\ModesTrait;
+
 use App\Team;
 
 class TeamList extends Component
 {
     use WithPagination;
+    use ModesTrait;
 
     /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
@@ -18,6 +21,12 @@ class TeamList extends Component
 
     public $teamSearch = [
         'name' => '',
+    ];
+
+    public $deletingTeam;
+
+    public $modes = [
+        'delete' => false, 
     ];
 
     public $teamsCount;
@@ -48,5 +57,30 @@ class TeamList extends Component
 
         $this->searchResultTeams = $teams;
         
+    }
+
+    public function deleteTeam(Team $team)
+    {
+        $this->deletingTeam = $team;
+
+        $this->enterMode('delete');
+    }
+
+    public function deleteTeamCancel()
+    {
+        $this->deletingTeam = null;
+        $this->exitMode('delete');
+    }
+
+    public function confirmDeleteTeam()
+    {
+        /* Todo: Delete team members and other things
+                 before deletng the team itself.
+         */
+
+        $this->deletingTeam->delete();
+
+        $this->deletingTeam = null; 
+        $this->exitMode('delete');
     }
 }
