@@ -32,11 +32,14 @@ class TodoList extends Component
     ];
 
     public $modes = [
-        'confirmDeleteMode' => false,
+        // 'confirmDeleteMode' => false,
 
         'showOnlyPendingMode' => true,
         'showOnlyDoneMode' => false,
         'showAllMode' => false,
+
+        'delete' => false, 
+        'cannotDelete' => false, 
     ];
 
     protected $listeners = [
@@ -47,6 +50,7 @@ class TodoList extends Component
 
     public function render()
     {
+        /*
         if ($this->modes['showAllMode']) {
             $this->todos = Todo::orderBy('created_at', 'DESC')->get();
         } else if ($this->modes['showOnlyPendingMode']) {
@@ -54,8 +58,11 @@ class TodoList extends Component
         } else if ($this->modes['showOnlyDoneMode']) {
             $this->todos = Todo::where('status', 'done')->orderBy('created_at', 'DESC')->get();
         } else {
-            dd ('Whoops');
+            // dd ('Whoops');
         }
+        */
+
+        $this->todos = Todo::all();
 
         $this->todoCount = count($this->todos);
         $this->todoDisplayCount = $this->todoCount;;
@@ -111,11 +118,13 @@ class TodoList extends Component
         $this->todos = $this->todos->get();
     }
 
+    /*
     public function confirmDeleteTodo(Todo $todo)
     {
         $this->deletingTodo = $todo;
         $this->enterMode('confirmDeleteMode');
     }
+    */
 
     public function deleteInstance($todoId)
     {
@@ -133,5 +142,26 @@ class TodoList extends Component
     {
         $this->deletingTodo = null;
         $this->exitMode('confirmDeleteMode');
+    }
+
+    public function deleteTodo(Todo $todo)
+    {
+        $this->deletingTodo = $todo;
+
+        $this->enterMode('delete');
+    }
+
+    public function deleteTodoCancel()
+    {
+        $this->deletingTodo = null;
+        $this->exitMode('delete');
+    }
+
+    public function confirmDeleteTodo()
+    {
+        $this->deletingTodo->delete();
+
+        $this->deletingTodo = null; 
+        $this->exitMode('delete');
     }
 }

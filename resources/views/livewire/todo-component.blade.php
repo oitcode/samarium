@@ -21,6 +21,22 @@
         'btnCheckMode' => 'listMode',
     ])
 
+    @if ($modes['displayMode'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Task display',
+          'btnCheckMode' => 'displayMode',
+      ])
+    @endif
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-eraser',
+        'btnText' => 'Clear modes',
+        'btnCheckMode' => '',
+    ])
+
     @include ('partials.dashboard.spinner-button')
   </x-toolbar-classic>
 

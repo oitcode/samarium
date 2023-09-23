@@ -26,6 +26,7 @@
   </div>
   @endif
 
+  @if (false)
   <div class="d-flex mb-3">
     <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
       <div>
@@ -79,6 +80,7 @@
     </div>
     @endif
   </div>
+  @endif
 
   <div class="d-flex mb-1 pl-1" style="font-size: 1rem;">
     @if (false)
@@ -152,10 +154,22 @@
               @endif
             </td>
             <td>
-              <button class="dropdown-item" wire:click="confirmDeleteTodo({{ $todo }})">
+              <button class="dropdown-item" wire:click="deleteTodo({{ $todo }})">
                 <i class="fas fa-trash text-danger mr-2"></i>
                 Delete
               </button>
+              @if ($modes['delete'])
+                @if ($deletingTodo->todo_id == $todo->todo_id)
+
+                  <span class="btn btn-danger mr-3" wire:click="confirmDeleteTodo">
+                    Confirm delete
+                  </span>
+                  <span class="btn btn-light mr-3" wire:click="deleteTodoCancel">
+                    Cancel
+                  </span>
+
+                @endif
+              @endif
             </td>
           </tr>
         @endforeach
@@ -164,7 +178,9 @@
 
   </div>
 
+  @if (false)
   @if ($modes['confirmDeleteMode'])
     @livewire ('todo-list-confirm-delete', ['todo' => $deletingTodo,])
+  @endif
   @endif
 </div>
