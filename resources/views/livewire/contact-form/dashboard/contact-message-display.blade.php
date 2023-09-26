@@ -3,6 +3,7 @@
     <div class="col-md-8">
       <div class="bg-white p-3 border">
 
+        @if (false)
         <div class="px-3-rm mb-5">
           <div class="d-flex justify-content-between">
             <div>
@@ -23,6 +24,7 @@
             </div>
           </div>
         </div>
+        @endif
 
         <div class="row">
           <div class="col-md-4">
@@ -50,12 +52,12 @@
             <div class="table-responsive border-rm">
               <table class="table border-bottom">
                 <tbody>
-                  <tr>
-                    <th>
+                  <tr class="border-0">
+                    <th class="border-0">
                       <i class="fas fa-user-circle mr-1"></i>
                       Sender Name
                     </th>
-                    <td>
+                    <td class="border-0">
                       {{ $contactMessage->sender_name }}
                     </td>
                   </tr>
@@ -80,20 +82,24 @@
                 </tbody>
               </table>
             </div>
-
-            <div class="my-5">
-              <h2 class="h4 font-weight-bold mb-3">
-                <i class="fas fa-comment mr-1"></i>
-                Message
-              </h2>
-              <p>
-                {{ $contactMessage->message }}
-              </p>
-            </div>
           </div>
         </div>
+
+      </div>
+
+      <div class="my-3 p-3 bg-white border">
+        <h2 class="h5 font-weight-bold mb-3">
+          @if (false)
+          <i class="fas fa-comment mr-1"></i>
+          @endif
+          Message
+        </h2>
+        <p class="h5">
+          {{ $contactMessage->message }}
+        </p>
       </div>
     </div>
+
     <div class="col-md-4 px-3">
       <div class="bg-white border">
         <div class="table-responsive border-rm">
@@ -147,6 +153,16 @@
             </tbody>
           </table>
         </div>
+        @if (false)
+        <div class="d-flex">
+          <div>
+            Date
+          </div>
+          <div>
+            2023 July 23
+          </div>
+        </div>
+        @endif
       </div>
     </div>
   </div>
