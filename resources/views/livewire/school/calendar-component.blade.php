@@ -31,44 +31,48 @@
       @livewire ('school.calendar-event-create')
     @endif
   @else
-  <div class="border-rm bg-white-rm mb-4">
-    <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select Month
-      </button>
-      <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Baisakh')">Baisakh</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Jestha')">Jestha</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Asadh')">Asadh</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Shrawan')">Shrawan</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Bhadra')">Bhadra</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Ashwin')">Ashwin</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Kartik')">Kartik</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Mangsir')">Mangsir</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Poush')">Poush</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Magh')">Magh</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Falgun')">Falgun</button>
-        <button class="dropdown-item" type="button" wire:click="selectMonth('Chaitra')">Chaitra</button>
+  <div class="d-flex justify-content-between-rm border-rm bg-white mb-4">
+    <div class="d-flex flex-column justify-content-center mr-2 px-3">
+      <div class="dropdown py-3">
+        <button class="btn btn-primary-rm dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Select Month
+        </button>
+        <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Baisakh')">Baisakh</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Jestha')">Jestha</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Asadh')">Asadh</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Shrawan')">Shrawan</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Bhadra')">Bhadra</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Ashwin')">Ashwin</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Kartik')">Kartik</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Mangsir')">Mangsir</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Poush')">Poush</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Magh')">Magh</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Falgun')">Falgun</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Chaitra')">Chaitra</button>
+        </div>
       </div>
+      @if ($displayMonthName)
+        <div>
+          <h2 class="h2 pb-3 text-center bg-primary-rm text-white-rm mb-0 font-weight-bold px-3" {{-- style="background-color: #eee;" --}}>
+            {{ $displayMonthName }}
+          </h2>
+        </div>
+      @endif
     </div>
   </div>
 
-  @if ($displayMonthName)
-    <h2 class="h2 py-3 text-center bg-primary text-white mb-0 font-weight-bold">
-      {{ $displayMonthName }}
-    </h2>
-  @endif
 
   <div class="border bg-white">
     @if ($displayMonthName)
       <div class="table-responsive border">
         <table class="table table-sm table-hover mb-0">
           <thead>
-            <tr class="bg-dark text-white">
-              <th style="width: 300px;">Date</th>
-              <th>Day</th>
-              <th>Details</th>
-              <th>Action</th>
+            <tr class="bg-light text-white-rm py-5">
+              <th class="py-4" style="width: 300px;">Date</th>
+              <th class="py-4">Day</th>
+              <th class="py-4">Details</th>
+              <th class="py-4">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -102,12 +106,17 @@
                     <span class="">
                       {{ $event->title }}
                     </span>
+                    <button class="btn text-primary">
+                      <i class="fas fa-pencil-alt"></i>
+                      Edit event
+                    </button>
                     <br />
                   @endforeach
                 </td>
                 <td>
-                  <button class="btn btn-light badge-pill"
+                  <button class="btn text-primary"
                       wire:click="addEventForADate({{ json_encode($day['day']->toDateString()) }})">
+                    <i class="fas fa-plus-circle"></i>
                     Add event
                   </button>
                 </td>
@@ -117,7 +126,10 @@
         </table>
       </div>
     @else
-      Select a month
+      <div class="p-3">
+        Month not selected.
+        Please select a month.
+      </div>
     @endif
   </div>
   @endif
