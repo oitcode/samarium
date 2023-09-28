@@ -187,6 +187,52 @@
   @endif
 
 
+  @if (preg_match("/school/i", env('MODULES')))
+
+    @if ($modes['school'])
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "exitMode('school')",
+          'btnIconFaClass' => 'fas fa-building',
+          'btnText' => 'Calendar',
+          'btnCheckMode' => 'school',
+      ])
+    @else
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "enterModeSilent('school')",
+          'btnIconFaClass' => 'fas fa-building',
+          'btnText' => 'Calendar',
+          'btnCheckMode' => 'school',
+      ])
+    @endif
+
+    @if ($modes['school'])
+
+      {{--
+      |
+      |
+      | School route buttons
+      |
+      |
+      --}}
+
+      @include ('partials.dashboard.app-left-menu-button', [
+        'btnRoute' => 'dashboard-school-calendar',
+        'iconFaClass' => 'fas fa-calendar',
+        'btnText' => 'Calendar',
+      ])
+
+      @include ('partials.dashboard.app-left-menu-button', [
+        'btnRoute' => 'dashboard-school-calendar',
+        'iconFaClass' => 'fas fa-calendar',
+        'btnText' => 'Event',
+      ])
+
+    @endif
+
+    <hr class="m-0 p-0"/>
+  @endif
+
+
   @if (preg_match("/team/i", env('MODULES')))
 
     @if ($modes['team'])
@@ -233,44 +279,6 @@
   @endif
 
 
-  @if (preg_match("/school/i", env('MODULES')))
-
-    @if ($modes['school'])
-      @include ('partials.dashboard.app-left-menu-button-lw', [
-          'btnClickMethod' => "exitMode('school')",
-          'btnIconFaClass' => 'fas fa-building',
-          'btnText' => 'School',
-          'btnCheckMode' => 'school',
-      ])
-    @else
-      @include ('partials.dashboard.app-left-menu-button-lw', [
-          'btnClickMethod' => "enterModeSilent('school')",
-          'btnIconFaClass' => 'fas fa-building',
-          'btnText' => 'School',
-          'btnCheckMode' => 'school',
-      ])
-    @endif
-
-    @if ($modes['school'])
-
-      {{--
-      |
-      |
-      | School route buttons
-      |
-      |
-      --}}
-
-      @include ('partials.dashboard.app-left-menu-button', [
-        'btnRoute' => 'dashboard-school-calendar',
-        'iconFaClass' => 'fas fa-calendar',
-        'btnText' => 'Calendar',
-      ])
-
-    @endif
-
-    <hr class="m-0 p-0"/>
-  @endif
 
   @if (preg_match("/report/i", env('MODULES')))
 
@@ -409,6 +417,18 @@
     'btnText' => 'Help',
   ])
   @endif
+
+  <div class="px-3 py-2 border-top">
+    @if (false)
+    <div class="">
+      Logout
+    </div>
+    @endif
+    <div class="my-2 text-muted">
+      Version 0.7.5
+    </div>
+  </div>
+
 </div>
 @endif
 </div>
