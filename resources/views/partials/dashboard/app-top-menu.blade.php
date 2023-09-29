@@ -1,5 +1,5 @@
 <div class="{{ env('OC_ASCENT_BG_COLOR') }}-rm {{ env('OC_ASCENT_TEXT_COLOR') }}-rm bg-dark-rm text-white  py-2 text-right d-none d-md-block mb-3-rm border-bottom-rm"
-    style="{{-- background-color: #55a; color: white; --}} background-image: linear-gradient(to right, #000 , #55a)">
+    style="{{-- background-color: #55a; color: white; --}} background-image: linear-gradient(to right, #000 , {{ env('OC_SELECT_COLOR', '#000050') }})">
   @guest
   @else
 

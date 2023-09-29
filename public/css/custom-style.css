@@ -26,17 +26,17 @@
 
 .o-animated {
     animation-name: oAnimated;
-    animation-duration: 5s;
+    animation-duration: 2s;
     position: relative;
 }
 
 @keyframes oAnimated {
     from {
-        background-color: red;
+        background-color: #eee;
     }
 
-    from {
-        background-color: green;
+    to {
+        background-color: #fff;
     }
 }
 

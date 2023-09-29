@@ -20,12 +20,14 @@
     @else
       bg-white
     @endisset
-    m-0 py-3 w-100 text-left rounded-0"
-    style="font-size: calc(0.7rem + 0.15vw);" wire:click="{{ $btnClickMethod }}">
+    m-0 py-3 w-100 text-left rounded-0 font-weight-bold"
+    style="font-size: calc(0.7rem + 0.15vw); " wire:click="{{ $btnClickMethod }}">
   <div class="d-flex justify-content-between">
     <div>
       <strong>
-        <i class="{{ $btnIconFaClass }} mr-3"></i>
+        <i class="{{ $btnIconFaClass }} text-muted mr-4"></i>
+      </strong>
+      <strong style="color:#000; text-shadow: 0.5px 0 black; font-weight:bold;">
         {{ $btnText }}
       </strong>
       <span  class="ml-5" wire:loading>

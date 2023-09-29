@@ -54,6 +54,7 @@ class CalendarComponent extends Component
 
     public $modes = [
         'eventCreate' => false,
+        'displayCalendarEventMode' => false,
     ];
 
     protected $listeners = [
@@ -141,5 +142,11 @@ class CalendarComponent extends Component
             ->get();
 
         return $events;
+    }
+
+    public function displayCalendarEvent(SchoolCalendarEvent $event)
+    {
+        $this->displayingCalendarEvent = $event;
+        $this->enterMode('displayCalendarEventMode');
     }
 }

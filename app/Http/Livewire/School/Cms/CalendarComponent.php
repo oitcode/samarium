@@ -50,6 +50,8 @@ class CalendarComponent extends Component
     public $startDay;
     public $endDay;
 
+    public $displayingCalendarEvent;
+
     public $modes = [
         'eventCreate' => false,
     ];

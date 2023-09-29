@@ -13,6 +13,7 @@ class AppLeftMenu extends Component
     use ModesTrait;
 
     public $modes = [
+        'product' => false,
         'shop' => false,
         'cms' => false,
         'school' => false,
@@ -26,15 +27,18 @@ class AppLeftMenu extends Component
         $uri = Request::getPathInfo();
 
         if (
+            $uri == '/dashboard/menu' ||
+            $uri == '/dashboard/inventory'
+        ) {
+            $this->enterModeSilent('product');
+        } else if (
             $uri == '/dashboard/sale' ||
             $uri == '/dashboard/cafesale' ||
             $uri == '/dashboard/customer' ||
             $uri == '/dashboard/purchase' ||
             $uri == '/dashboard/vendor' ||
             $uri == '/dashboard/expense' ||
-            $uri == '/dashboard/menu' ||
-            $uri == '/dashboard/onlineorder' ||
-            $uri == '/dashboard/inventory'
+            $uri == '/dashboard/onlineorder'
         ) {
             $this->enterModeSilent('shop');
         } else if (

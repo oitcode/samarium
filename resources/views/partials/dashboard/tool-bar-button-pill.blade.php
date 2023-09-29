@@ -30,7 +30,7 @@
             border-bottom: 5px solid #55a;
             padding-bottom: 10px;
             --}}
-            background-color: #55a;
+            background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
             color: white;
           @endif
         @endisset

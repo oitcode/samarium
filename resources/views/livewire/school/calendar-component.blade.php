@@ -14,6 +14,15 @@
         'btnCheckMode' => 'eventCreate',
     ])
 
+    @if ($modes['displayCalendarEventMode'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Event display',
+          'btnCheckMode' => 'displayCalendarEventMode',
+      ])
+    @endif
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
         'btnIconFaClass' => 'fas fa-eraser',
@@ -30,6 +39,8 @@
     @else
       @livewire ('school.calendar-event-create')
     @endif
+  @elseif ($modes['displayCalendarEventMode'])
+    @livewire ('school.calendar-event-display', ['calendarEvent' => $displayingCalendarEvent,])
   @else
   <div class="d-flex justify-content-between-rm border-rm bg-white mb-4">
     <div class="d-flex flex-column justify-content-center mr-2 px-3">
@@ -106,7 +117,7 @@
                     <span class="">
                       {{ $event->title }}
                     </span>
-                    <button class="btn text-primary">
+                    <button class="btn text-primary" wire:click="displayCalendarEvent({{ $event }})">
                       <i class="fas fa-pencil-alt"></i>
                       Edit event
                     </button>
