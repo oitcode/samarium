@@ -18,17 +18,19 @@
           {{--
           --}}
           background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
-          color: white;
+          color: {{ env('OC_SELECT_TXT_COLOR') }};
+        @else
+          color: {{ env('OC_UNSELECT_TXT_COLOR') }};
         @endif
       "
       >
 
     <div class="d-flex flex-column-rm">
       <div class="d-flex justify-content-center mr-4 mt-1">
-        <i class="{{ $iconFaClass }} @if(Route::current()->getName() == $btnRoute) text-white-rm @else text-muted @endif"></i>
+        <i class="{{ $iconFaClass }}"></i>
       </div>
       <div class="d-flex justify-content-center">
-        <strong style="@if(Route::current()->getName() == $btnRoute) text-shadow: 0.5px 0 white @else text-shadow: 0.5px 0 black @endif ; font-weight:bold;">
+        <strong style="@if(Route::current()->getName() == $btnRoute) text-shadow: 0.5px 0 {{ env('OC_SELECT_TXT_COLOR') }} @else text-shadow: 0.5px 0 {{ env('OC_UNSELECT_TXT_COLOR') }} @endif ; font-weight:bold;">
         {{ $btnText }}
         </strong>
       </div>

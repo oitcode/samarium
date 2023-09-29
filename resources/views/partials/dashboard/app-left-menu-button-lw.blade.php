@@ -3,11 +3,7 @@
       @isset ($modes)
         @isset ($modes[$btnCheckMode])
           @if ($modes[$btnCheckMode])
-            {{--
             {{ env('OC_ASCENT_BTN_COLOR') }}
-            btn-dark
-            --}}
-            o-darker
           @else
             {{ env('OC_ASCENT_BTN_COLOR') }}
           @endif
@@ -25,9 +21,9 @@
   <div class="d-flex justify-content-between">
     <div>
       <strong>
-        <i class="{{ $btnIconFaClass }} text-muted mr-4"></i>
+        <i class="{{ $btnIconFaClass }} text-muted-rm mr-4"></i>
       </strong>
-      <strong style="color:#000; text-shadow: 0.5px 0 black; font-weight:bold;">
+      <strong style="text-shadow: 0.5px 0 {{ env('OC_UNSELECT_TXT_COLOR') }}; font-weight:bold;">
         {{ $btnText }}
       </strong>
       <span  class="ml-5" wire:loading>

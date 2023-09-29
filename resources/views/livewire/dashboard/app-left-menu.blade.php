@@ -40,7 +40,7 @@
       |
       --}}
 
-      <div class="o-animated mb-3 border-bottom">
+      <div class="o-animated-rm mb-3 border-bottom">
         @include ('partials.dashboard.app-left-menu-button',
             [
                 'btnRoute' => 'menu',
@@ -93,7 +93,7 @@
       |
       |
       --}}
-      <div class="o-animated mb-3 border-bottom">
+      <div class="o-animated-rm mb-3 border-bottom">
         @if (env('CMP_TYPE') == 'shop')
           @include ('partials.dashboard.app-left-menu-button',
               [
@@ -200,7 +200,7 @@
       |
       --}}
 
-      <div class="o-animated mb-3 border-bottom">
+      <div class="o-animated-rm mb-3 border-bottom">
         @include ('partials.dashboard.app-left-menu-button', [
           'btnRoute' => 'dashboard-cms-webpage',
           'iconFaClass' => 'fas fa-clone',
@@ -266,7 +266,7 @@
       |
       --}}
 
-      <div class="o-animated mb-3 border-bottom">
+      <div class="o-animated-rm mb-3 border-bottom">
         @include ('partials.dashboard.app-left-menu-button', [
           'btnRoute' => 'dashboard-school-calendar',
           'iconFaClass' => 'fas fa-calendar',
@@ -315,7 +315,7 @@
       |
       |
       --}}
-      <div class="o-animated mb-3 border-bottom">
+      <div class="o-animated-rm mb-3 border-bottom">
         @include ('partials.dashboard.app-left-menu-button', [
           'btnRoute' => 'dashboard-team',
           'iconFaClass' => 'fas fa-users',
@@ -366,7 +366,7 @@
       |
       --}}
 
-      <div class="o-animated mb-3 border-bottom">
+      <div class="o-animated-rm mb-3 border-bottom">
         @include ('partials.dashboard.app-left-menu-button',
             [
                 'btnRoute' => 'daybook',
@@ -486,7 +486,7 @@
       Logout
     </div>
     @endif
-    <div class="my-2 text-muted">
+    <div class="my-2 text-muted-rm" style="color: {{ env('OC_UNSELECT_TXT_COLOR') }};">
       Version 0.7.5
     </div>
   </div>
