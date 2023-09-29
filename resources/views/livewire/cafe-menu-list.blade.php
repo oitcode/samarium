@@ -10,6 +10,7 @@
       </span>
       @endif
 
+      @if (false)
       <div class="bg-white border p-3 mb-4">
         <div class="mb-4">
           <input type="text"
@@ -23,6 +24,7 @@
           @include ('partials.button-general', ['clickMethod' => "searchProductCategory", 'btnText' => 'Search',])
         </div>
       </div>
+      @endif
 
       @if ($products == null || count($products) == 0)
         @if (false)
