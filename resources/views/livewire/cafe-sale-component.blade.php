@@ -12,7 +12,7 @@
   --}}
 
   {{-- Show in bigger screens --}}
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Tables">
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createSeatTableMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',

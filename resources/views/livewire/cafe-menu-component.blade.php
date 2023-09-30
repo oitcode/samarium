@@ -9,7 +9,7 @@
   --}}
 
   {{-- Show in bigger screens --}}
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Products">
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createProduct')",
         'btnIconFaClass' => 'fas fa-plus-circle',

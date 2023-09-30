@@ -1,12 +1,14 @@
 <div>
+  @if (false)
   <x-component-header>
     Posts
   </x-component-header>
+  @endif
 
   @if (true)
 
   {{-- Bigger screen menu --}}
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Posts">
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createPostMode')",

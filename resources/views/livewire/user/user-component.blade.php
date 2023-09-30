@@ -1,12 +1,14 @@
 <div class="mb-4">
 
+  @if (false)
   <x-component-header>
     User
   </x-component-header>
+  @endif
 
   {{-- Toolbar --}}
   {{-- Show in bigger screens --}}
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Users">
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createUserMode')",

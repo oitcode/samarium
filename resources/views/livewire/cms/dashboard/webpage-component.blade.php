@@ -1,9 +1,11 @@
 <div>
+  @if (false)
   <x-component-header>
     Pages
   </x-component-header>
+  @endif
 
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Pages">
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('create')",
         'btnIconFaClass' => 'fas fa-plus-circle',

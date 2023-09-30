@@ -1,11 +1,13 @@
 <div>
 
+  @if (false)
   <x-component-header>
     Team
   </x-component-header>
+  @endif
 
   {{-- Top tool bar --}}
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Team">
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',

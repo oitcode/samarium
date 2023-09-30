@@ -1,12 +1,14 @@
 <div>
 
+  @if (false)
   <x-component-header>
     Vacancy
   </x-component-header>
+  @endif
 
   {{-- Top tool bar --}}
   {{-- Show in bigger screens --}}
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Vacancy">
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',

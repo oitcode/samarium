@@ -1,13 +1,15 @@
 <div>
+  @if (false)
   <x-component-header>
     Nav menu
   </x-component-header>
+  @endif
 
   @if (true)
 
   <div class="mb-3">
       {{-- Show in bigger screens --}}
-      <x-toolbar-classic>
+      <x-toolbar-classic toolbarTitle="Nav menu">
 
         @if (\App\CmsNavMenu::first())
         @else

@@ -1,4 +1,5 @@
-<div class="btn-rm
+<div
+    class="btn-rm
     @if (false)
     @isset($btnCheckMode)
       @isset ($modes)
@@ -18,9 +19,10 @@
       bg-white
     @endisset
     @endif
-    border-rm shadow-rm m-0 badge-pill-rm mr-4-rm px-4 h-100 border-none shadow-none o-flipper py-3"
-    style="font-size: 1.1rem;
+    border-rm shadow-rm m-0 badge-pill-rm mr-4-rm px-4 h-100 border-none shadow-none o-flipper py-3 d-flex flex-column justify-content-center"
 
+
+    style="font-size: 1.1rem;
     @if (true)
     @isset($btnCheckMode)
       @isset ($modes)

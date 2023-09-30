@@ -1,12 +1,14 @@
 <div class="p-3 p-md-0">
 
+  @if (false)
   <x-component-header>
     Tasks
   </x-component-header>
+  @endif
 
   {{-- Top tool bar --}}
   {{-- Show in bigger screens --}}
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Tasks">
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -32,8 +34,8 @@
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-eraser',
-        'btnText' => 'Clear modes',
+        'btnIconFaClass' => 'fas fa-refresh',
+        'btnText' => '',
         'btnCheckMode' => '',
     ])
 

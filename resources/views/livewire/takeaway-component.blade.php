@@ -4,7 +4,7 @@
 
     <div class="d-flex-rm">
       {{-- Show in bigger screens --}}
-      <x-toolbar-classic>
+      <x-toolbar-classic toolbarTitle="Sales">
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('create')",
             'btnIconFaClass' => 'fas fa-plus-circle',

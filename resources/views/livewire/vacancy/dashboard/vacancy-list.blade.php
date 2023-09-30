@@ -29,6 +29,7 @@
   </div>
   @endif
 
+  @if (false)
   {{-- Search bar --}}
   <div class="mb-3 py-2 bg-white">
     <input type="text" />
@@ -36,6 +37,7 @@
       Search
     </button>
   </div>
+  @endif
 
   @if ($vacancies != null && count($vacancies) > 0)
     @if (true)

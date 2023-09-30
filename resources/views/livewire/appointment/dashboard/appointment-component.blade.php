@@ -1,10 +1,12 @@
 <div>
 
+  @if (false)
   <x-component-header>
     Appointment
   </x-component-header>
+  @endif
 
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Appointment">
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listAppointmentMode')",
         'btnIconFaClass' => 'fas fa-list',

@@ -1,10 +1,12 @@
 <div>
 
+  @if (false)
   <x-component-header>
     Contact message
   </x-component-header>
+  @endif
 
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Contact Message">
 
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -33,8 +35,8 @@
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-eraser',
-        'btnText' => 'Clear modes',
+        'btnIconFaClass' => 'fas fa-refresh',
+        'btnText' => '',
         'btnCheckMode' => '',
     ])
 

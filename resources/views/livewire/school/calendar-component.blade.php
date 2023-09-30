@@ -1,12 +1,14 @@
 <div>
 
+  @if (false)
   {{-- Component herobar --}}
   <x-component-header>
     Calendar
   </x-component-header>
+  @endif
 
   {{-- Toolbar --}}
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Calendar">
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('eventCreate')",
         'btnIconFaClass' => 'fas fa-plus-circle',
