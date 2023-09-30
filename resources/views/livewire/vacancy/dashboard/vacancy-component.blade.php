@@ -23,6 +23,13 @@
         'btnCheckMode' => 'listMode',
     ])
 
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-refresh',
+        'btnText' => '',
+        'btnCheckMode' => '',
+    ])
+
     @include ('partials.dashboard.spinner-button')
   </x-toolbar-classic>
 

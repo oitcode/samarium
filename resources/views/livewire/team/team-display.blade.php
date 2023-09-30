@@ -83,7 +83,7 @@
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "clearModes",
           'btnIconFaClass' => 'fas fa-refresh',
-          'btnText' => 'Clear modes',
+          'btnText' => '',
           'btnCheckMode' => '',
       ])
 

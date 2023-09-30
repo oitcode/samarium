@@ -22,7 +22,7 @@
         {{-- Shop glance --}}
         <div class="mb-4">
           @include ('partials.misc.glance-card', [
-              'bsBgClass' => 'bg-danger',
+              'bsBgClass' => 'bg-white',
               'btnRoute' => '',
               'iconFaClass' => 'fas fa-users',
               'btnTextPrimary' => 'Creditors',
