@@ -42,8 +42,14 @@
     "
 
     wire:click="{{ $btnClickMethod }}" role="button">
-  <i class="{{ $btnIconFaClass }} mr-2"></i>
-  <strong>
-    {{ $btnText }}
-  </strong>
+  <div class="">
+    <div class="d-flex justify-content-center">
+      <i class="{{ $btnIconFaClass }} mr-2"></i>
+    </div>
+    <div class="d-flex justify-content-center">
+      <strong>
+        {{ $btnText }}
+      </strong>
+    </div>
+  </div>
 </div>

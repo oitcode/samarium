@@ -10,6 +10,8 @@
   {{-- Bigger screen menu --}}
   <x-toolbar-classic toolbarTitle="Posts">
 
+    @include ('partials.dashboard.spinner-button')
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createPostMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -46,8 +48,6 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
-
-    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
 

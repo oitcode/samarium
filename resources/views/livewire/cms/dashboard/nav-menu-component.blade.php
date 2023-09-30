@@ -11,6 +11,8 @@
       {{-- Show in bigger screens --}}
       <x-toolbar-classic toolbarTitle="Nav menu">
 
+        @include ('partials.dashboard.spinner-button')
+
         @if (\App\CmsNavMenu::first())
         @else
           @include ('partials.dashboard.tool-bar-button-pill', [
@@ -44,7 +46,6 @@
             'btnCheckMode' => '',
         ])
 
-        @include ('partials.dashboard.spinner-button')
       </x-toolbar-classic>
 
       {{-- Show in smaller screens --}}

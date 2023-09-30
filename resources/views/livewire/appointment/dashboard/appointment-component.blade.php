@@ -7,6 +7,9 @@
   @endif
 
   <x-toolbar-classic toolbarTitle="Appointment">
+
+    @include ('partials.dashboard.spinner-button')
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listAppointmentMode')",
         'btnIconFaClass' => 'fas fa-list',
@@ -30,7 +33,6 @@
         'btnCheckMode' => '',
     ])
 
-    @include ('partials.dashboard.spinner-button')
   </x-toolbar-classic>
 
   <!-- Flash message div -->

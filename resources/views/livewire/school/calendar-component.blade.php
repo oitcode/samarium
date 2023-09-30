@@ -9,6 +9,9 @@
 
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Calendar">
+
+    @include ('partials.dashboard.spinner-button')
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('eventCreate')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -32,7 +35,6 @@
         'btnCheckMode' => '',
     ])
 
-    @include ('partials.dashboard.spinner-button')
   </x-toolbar-classic>
 
   @if ($modes['eventCreate'])

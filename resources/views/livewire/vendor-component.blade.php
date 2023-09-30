@@ -2,6 +2,9 @@
 
   {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Vendor">
+
+    @include ('partials.dashboard.spinner-button')
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('create')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -31,8 +34,6 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
-
-    @include ('partials.dashboard.spinner-button')
   </x-toolbar-classic>
 
   {{-- Show in smaller screens --}}

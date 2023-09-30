@@ -189,7 +189,7 @@
       </div>
   
       {{-- Main Info --}}
-      <div class="shadow-rm bg-warning">
+      <div class="shadow-rm bg-warning-rm">
         <div class="card mb-0 shadow-sm border-0">
           <div class="card-body px-2 bg-dark-rm p-0">
   
@@ -203,7 +203,7 @@
   
                 @if ($saleInvoice->customer)
                 <div class="col-md-3 p-0">
-                  <table class="table table-sm table-bordered mb-0">
+                  <table class="table table-sm table-striped table-bordered-rm mb-0">
                     <tr class="border-0 m-0 p-0">
                       <td class="w-25-rm pl-0-rm border-0-rm m-0 p-0-rm" style="">
                         Name
@@ -422,9 +422,9 @@
         <div class="table-responsive bg-white mb-0 d-md-none d-print-none mt-3">
           <table class="table table-bordered-rm table-hover border-dark shadow-sm mb-0">
   
-            <tbody style="font-size: 1.3rem;">
+            <tbody style="">
               @foreach ($saleInvoice->saleInvoiceItems as $item)
-              <tr style="font-size: 1.1rem;" class="font-weight-bold text-white-rm">
+              <tr style="" class="font-weight-bold text-white-rm">
                 <td>
                   <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                 </td>
@@ -434,7 +434,7 @@
                   <span class="text-primary mr-3">
                     Rs @php echo number_format( $item->price_per_unit); @endphp
                   </span>
-                  <span class="text-secondary" style="font-size: 1rem;">
+                  <span class="text-secondary" style="">
                     Qty: {{ $item->quantity }}
                   </span>
                 </td>
@@ -448,28 +448,28 @@
         </div>
   
         <div class="table-responsive d-md-none d-print-none">
-          <table class="table">
+          <table class="table table-sm">
   
             <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
               <tr>
-                <td style="font-size: 1rem;" class="font-weight-bold text-right">
+                <td style="" class="font-weight-bold text-right">
                   <strong>
                   Total
                   </strong>
                 </td>
-                <td style="font-size: 1rem;" class="font-weight-bold">
+                <td style="" class="font-weight-bold">
                   @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
                 </td>
               </tr>
               @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
                 <tr class="border-0">
-                  <td style="font-size: 1.3rem;"
+                  <td style=""
                       class="
                         font-weight-bold text-right border-0
                       ">
                     {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                   </td>
-                  <td style="font-size: 1.3rem;"
+                  <td style=""
                       class="
                         @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                           text-danger
@@ -481,12 +481,12 @@
               @endforeach
   
               <tr class="border-0">
-                <td  style="font-size: 1.5rem;" class="font-weight-bold text-right border-0">
+                <td  style="" class="font-weight-bold text-right border-0">
                   <strong>
                   Grand total
                   </strong>
                 </td>
-                <td style="font-size: 1.5rem;" class="font-weight-bold border-0">
+                <td style="" class="font-weight-bold border-0">
                   @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                 </td>
               </tr>

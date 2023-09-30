@@ -3,6 +3,8 @@
   {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Weborder">
 
+    @include ('partials.dashboard.spinner-button')
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listMode')",
         'btnIconFaClass' => 'fas fa-list',
@@ -26,7 +28,6 @@
         'btnCheckMode' => '',
     ])
 
-    @include ('partials.dashboard.spinner-button')
   </x-toolbar-classic>
 
   {{-- Show in smaller screens --}}

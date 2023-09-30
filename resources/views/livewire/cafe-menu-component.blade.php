@@ -10,6 +10,8 @@
 
   {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Products">
+    @include ('partials.dashboard.spinner-button')
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createProduct')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -69,7 +71,6 @@
         'btnCheckMode' => '',
     ])
 
-    @include ('partials.dashboard.spinner-button')
   </x-toolbar-classic>
 
   {{-- Show in smaller screens --}}
