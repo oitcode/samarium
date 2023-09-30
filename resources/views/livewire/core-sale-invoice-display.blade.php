@@ -3,9 +3,10 @@
     @if ($display_toolbar)
       {{-- Tool bar --}}
 
-      @if (false)
-      <x-toolbar-classic>
+      @if (true)
+      <x-toolbar-classic toolbarTitle="Sale invoice">
 
+        @if (false)
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "",
             'btnIconFaClass' => 'fas fa-print',
@@ -24,6 +25,14 @@
             'btnClickMethod' => "",
             'btnIconFaClass' => 'fas fa-excel-o',
             'btnText' => 'Excel',
+            'btnCheckMode' => '',
+        ])
+        @endif
+
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => '$refresh',
+            'btnIconFaClass' => 'fas fa-refresh',
+            'btnText' => '',
             'btnCheckMode' => '',
         ])
 
@@ -48,9 +57,10 @@
           <h1 class="my-3 mb-5 h4 text-muted font-weight-bold">
             SALE INVOICE
           </h1>
-          <h1 class="h4 font-weight-bold mt-2 mb-0" style="">
+          <h1 class="h4 font-weight-bold mt-2 mb-3" style="">
             {{ $company->name }}
           </h1>
+          @if (false)
           <h2 class="h6 mt-3 mb-1 text-muted-rm font-weight-bold" style="">
             @if ($has_vat)
               VAT No:
@@ -62,6 +72,7 @@
           <h2 class="h6 mb-0 d-inline mr-1" style="">
             {{ $company->address }}
           </h2>
+          @endif
           @if (false)
           <span class="mr-1">
             |
@@ -70,6 +81,42 @@
             {{ $company->phone }}
           </h3>
           @endif
+          <div class="table-responsive">
+            <table class="table table-sm table-striped table-bordered-rm">
+              <tr>
+                <td>
+                  PAN No
+                </td>
+                <td>
+                  {{ $company->pan_number }}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Address
+                </td>
+                <td>
+                  {{ $company->address }}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Bill no:
+                </td>
+                <td>
+                  {{ $saleInvoice->sale_invoice_id }}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Date:
+                </td>
+                <td>
+                  {{ $saleInvoice->sale_invoice_date }}
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
   
         <div class="">
@@ -79,26 +126,6 @@
                 <img src="{{ asset('storage/' . $company->logo_image_path) }}" style="width: 100px; height: 100px;">
               </div>
               <div class="mb-1">
-                <div class="table-responsive">
-                  <table class="table table-sm table-bordered">
-                    <tr>
-                      <td>
-                        Bill no:
-                      </td>
-                      <td>
-                        {{ $saleInvoice->sale_invoice_id }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Date:
-                      </td>
-                      <td>
-                        {{ $saleInvoice->sale_invoice_date }}
-                      </td>
-                    </tr>
-                  </table>
-                </div>
               </div>
   
             </div>
