@@ -12,8 +12,8 @@
     {{-- Left side of the product create page --}}
     <div class="col-md-6">
 
-      <div class="card shadow-sm border-0">
-        <div class="card-body p-3 border shadow-sm">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body p-3 border h-100 shadow-sm">
       
           <div class="form-group">
             <label for="">Name</label>
@@ -37,14 +37,6 @@
             @error ('product_category_id') <span class="text-danger">{{ $message }}</span>@enderror
           </div>
       
-          <div class="form-group">
-            <label for="">Description</label>
-            <input type="text"
-                class="form-control"
-                wire:model.defer="description"
-                style="font-size: 1.3rem;">
-            @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
-          </div>
       
           <div class="form-group">
             <label for="">Selling price</label>
@@ -86,6 +78,27 @@
 
       </div>
 
+      <div class="border bg-white p-2 mb-3">
+
+        <h2 class="h5">
+          Description
+        </h2>
+        <h3 class="h6 text-muted">
+          Enter product description here
+        </h3>
+        <div class="form-group">
+          <textarea type="text"
+              class="form-control"
+              rows="5"
+              wire:model.defer="description"
+              style="font-size: 1.3rem;">
+          </textarea>
+          @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
+        </div>
+
+      </div>
+
+      @if (false)
       <div class="border bg-white p-2 mb-3 shadow-sm">
 
         <div class="row">
@@ -113,6 +126,7 @@
             </div>
           </div>
         </div>
+        @endif
 
         @if ($modes['stockApplicable'])
         <div class="card shadow-sm border-0 mt-3 shadow-sm">
@@ -211,9 +225,10 @@
         
           </div>
         </div>
-        @endif
       </div>
+      @endif
 
+      @if (false)
       {{-- Product specification --}}
       <div class="border p-2 my-4">
         <h2 class="h5">
@@ -239,6 +254,7 @@
         @endfor
 
       </div>
+      @endif
 
 
       @if (false)

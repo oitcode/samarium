@@ -31,9 +31,11 @@
             {{--
             border-bottom: 5px solid #55a;
             padding-bottom: 10px;
-            --}}
             background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
             color: white;
+            --}}
+            color: {{ env('OC_SELECT_COLOR', '#000050') }};
+            border-bottom: 5px solid {{ env('OC_SELECT_COLOR', '#000050') }};
           @endif
         @endisset
       @endisset
