@@ -6,7 +6,7 @@
 
   {{-- Top Menu --}}
   {{-- Show in bigger screens --}}
-  <div class="mb-4 d-none d-md-block">
+  <div class="mb-4 d-none d-md-block bg-white p-3">
     <div class="float-left mr-5">
     </div>
 
