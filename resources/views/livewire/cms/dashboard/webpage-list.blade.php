@@ -40,11 +40,11 @@
           <tbody class="bg-white">
             @foreach ($webpages as $webpage)
               <tr>
-                <td class="h4 font-weight-bold py-4">
+                <td class="h5 font-weight-bold py-4"  wire:click="$emit('displayWebpage', {{ $webpage }})" class="text-dark" role="button">
                   @if (false)
                   <input type="checkbox" class="mr-3">
                   @endif
-                  <span  wire:click="$emit('displayWebpage', {{ $webpage }})" class="text-dark" role="button">
+                  <span>
                     {{ $webpage->name }}
                   </span>
                 </td>
