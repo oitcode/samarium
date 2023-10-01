@@ -2,7 +2,7 @@
 
 
 
-  <h1 class="h5 my-2">
+  <h1 class="h5 my-2 py-2">
     <i class="fas fa-circle text-success mr-2"></i>
     Products
 
@@ -68,46 +68,6 @@
       }}-rm border"
           style="background-color: #dadada;">
         <div class="my-5-rm">
-          @if ($product->is_active == 0)
-            <button class="btn btn-success mr-1" wire:click="makeProductActive">
-              <i class="fas fa-eye fa-2x-rm mr-2"></i>
-              @if (true)
-              <span class="h5-rm bg-danger-rm">
-                Make active
-              </span>
-              @endif
-            </button>
-          @elseif ($product->is_active == 1)
-            <button class="btn btn-danger mr-1" wire:click="makeProductInactive">
-              <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
-              @if (true)
-              <span class="h5-rm bg-danger-rm">
-                Make inactive
-              </span>
-              @endif
-            </button>
-
-            @if ($product->show_in_front_end == 'yes')
-              <button class="btn btn-danger mr-1" wire:click="makeProductNotVisibleInFrontEnd">
-                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
-                @if (true)
-                <span class="">
-                  Hide in website
-                </span>
-                @endif
-              </button>
-            @else
-              <button class="btn btn-success mr-1" wire:click="makeProductVisibleInFrontEnd">
-                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
-                @if (true)
-                <span class="">
-                  Show in website
-                </span>
-                @endif
-              </button>
-            @endif
-          @else
-          @endif
         </div>
 
         <div>
@@ -118,14 +78,14 @@
           </button>
           @endif
 
-          <button class="btn btn-primary" wire:click="$refresh">
+          <button class="btn btn-light" wire:click="$refresh">
             <i class="fas fa-refresh fa-2x-rm"></i>
             @if (false)
             Refresh
             @endif
           </button>
 
-          <button class="btn btn-danger" wire:click="$emit('exitProductDisplayMode')">
+          <button class="btn btn-light" wire:click="$emit('exitProductDisplayMode')">
             <i class="fas fa-times fa-2x-rm"></i>
             @if (false)
             Close
@@ -191,7 +151,7 @@
                 </div>
                 @endif
                 <div>
-                  <h1 class="h4 text-primary-rm">
+                  <h1 class="h5 text-primary-rm">
                     {{ $product->name }}
                   </h1>
                 </div>
@@ -210,7 +170,7 @@
           <div class="bg-light text-secondary font-weight-bold mr-5 py-1">
             Category
           </div>
-          <div class="d-flex justify-content-between" style="font-size: 0.8rem;">
+          <div class="d-flex justify-content-between" style="">
             <span class="badge-rm badge-dark-rm">
               {{ $product->productCategory->name }}
             </span>
@@ -385,6 +345,59 @@
 
 
     </div>
+
+  <div class="my-4">
+    <div>
+      <div class="mt-0 p-2 border-rm d-flex justify-content-between border"
+          style="background-color: #dadada;">
+        <div class="my-5-rm">
+          @if ($product->is_active == 0)
+            <button class="btn btn-light mr-1" wire:click="makeProductActive">
+              <i class="fas fa-eye fa-2x-rm mr-2"></i>
+              @if (true)
+              <span class="h5-rm bg-danger-rm">
+                Make active
+              </span>
+              @endif
+            </button>
+          @elseif ($product->is_active == 1)
+            <button class="btn btn-light mr-1" wire:click="makeProductInactive">
+              <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+              @if (true)
+              <span class="h5-rm bg-light-rm">
+                Make inactive
+              </span>
+              @endif
+            </button>
+
+            @if ($product->show_in_front_end == 'yes')
+              <button class="btn btn-light mr-1" wire:click="makeProductNotVisibleInFrontEnd">
+                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+                @if (true)
+                <span class="">
+                  Hide in website
+                </span>
+                @endif
+              </button>
+            @else
+              <button class="btn btn-light mr-1" wire:click="makeProductVisibleInFrontEnd">
+                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+                @if (true)
+                <span class="">
+                  Show in website
+                </span>
+                @endif
+              </button>
+            @endif
+          @else
+          @endif
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
   {{-- Product specifications --}}
   <div class="my-3 bg-white border">
     <h2 class="h5 m-3">
@@ -395,7 +408,7 @@
       @if ($modes['updateProductAddProductSpecificationMode'])
       @else
         <div class="p-2 bg-white border">
-            <button class="btn btn-primary" wire:click="enterMode('updateProductAddProductSpecificationMode')">
+            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
               <i class="fas fa-plus-circle mr-1"></i>
               Add specification
             </button>
