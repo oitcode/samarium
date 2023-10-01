@@ -1,7 +1,7 @@
 <div>
 
   {{-- Show in bigger screens --}}
-  <x-toolbar-classic>
+  <x-toolbar-classic toolbarTitle="Inventory">
     @include ('partials.dashboard.spinner-button')
 
     @include ('partials.dashboard.tool-bar-button-pill', [
