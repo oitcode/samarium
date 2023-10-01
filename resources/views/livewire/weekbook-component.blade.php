@@ -21,14 +21,10 @@
 
     <div class="d-flex float-left my-3 text-secondary-rm border-rm p-3 bg-success-rm text-white-rm shadow-sm-rm" style="font-size: 0.8rem;">
       <button class="btn btn-success-rm m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
-        <i class="fas fa-arrow-alt-circle-left fa-2x mr-3-rm
-            {{ env('OC_ASCENT_TEXT_LB_COLOR', 'text-white') }}
-            "></i>
+        <i class="fas fa-arrow-alt-circle-left fa-2x mr-3-rm"></i>
       </button>
       <button class="btn btn-danger-rm mx-0 p-0 badge-pill bg-white" wire:click="goToNextWeek">
-        <i class="fas fa-arrow-alt-circle-right fa-2x mr-3-rm
-            {{ env('OC_ASCENT_TEXT_LB_COLOR', 'text-white') }}
-            "></i>
+        <i class="fas fa-arrow-alt-circle-right fa-2x mr-3-rm"></i>
       </button>
       <div class="mr-3 ml-5">
         <i class="fas fa-calendar mr-2"></i>
@@ -122,10 +118,7 @@
     <div class="table-responsive m-0 p-0 d-none d-md-block shadow-sm">
       <table class="table table-bordered-rm table-hover shadow-sm border mb-0" style="font-size: calc(0.8rem + 0.2vw);">
         <thead>
-          <tr class="
-              {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
-              ">
+          <tr class="bg-white">
             <th>
               Date
             </th>
