@@ -26,48 +26,11 @@
       </div>
 
       <div class="card mb-0 shadow-sm">
-        <div class="card-body p-0 bg-primary-rm text-danger">
+        <div class="card-body p-0 bg-primary-rm text-danger-rm">
 
 
-          <div class="row p-0 mt-2 {{ env('OC_ASCENT_BG_COLOR') }} text-white py-5" style="margin: auto;">
+          <div class="row p-0 mt-2 py-5" style="margin: auto;">
 
-            <div class="col-md-3 mb-3-rm bg-light-rm text-dark-rm py-2 border-left border-right">
-              <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
-                Customer
-              </div>
-              <div class="d-flex">
-                @if ($modes['customerSelected'])
-                  {{ $saleInvoice->customer->name }}
-                @else
-                  @if (
-                        (
-                          $saleInvoice->takeaway &&
-                          $saleInvoice->takeaway->status == 'open'
-                        )
-                        ||
-                        (
-                          $saleInvoice->seatTableBooking &&
-                          $saleInvoice->seatTableBooking->status == 'open'
-                        )
-                  )
-                    <select class="custom-control w-75" wire:model.defer="customer_id">
-                      <option>---</option>
-
-                      @foreach ($customers as $customer)
-                        <option value="{{ $customer->customer_id }}">
-                          {{ $customer->name }}
-                        </option>
-                      @endforeach
-                    </select>
-                    <button class="btn btn-sm btn-light ml-2" wire:click="linkCustomerToSaleInvoice">
-                      Yes
-                    </button>
-                  @else
-                    None
-                  @endif
-                @endif
-              </div>
-            </div>
 
             <div class="col-md-2 mb-3 d-flex">
               <div>
@@ -105,6 +68,44 @@
               @endif
             </div>
 
+            <div class="col-md-3 mb-3-rm bg-light-rm text-dark-rm py-2-rm border-left border-right">
+              <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+                Customer
+              </div>
+              <div class="d-flex">
+                @if ($modes['customerSelected'])
+                  {{ $saleInvoice->customer->name }}
+                @else
+                  @if (
+                        (
+                          $saleInvoice->takeaway &&
+                          $saleInvoice->takeaway->status == 'open'
+                        )
+                        ||
+                        (
+                          $saleInvoice->seatTableBooking &&
+                          $saleInvoice->seatTableBooking->status == 'open'
+                        )
+                  )
+                    <select class="custom-control w-75" wire:model.defer="customer_id">
+                      <option>---</option>
+
+                      @foreach ($customers as $customer)
+                        <option value="{{ $customer->customer_id }}">
+                          {{ $customer->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    <button class="btn btn-sm btn-light ml-2" wire:click="linkCustomerToSaleInvoice">
+                      Select
+                    </button>
+                  @else
+                    None
+                  @endif
+                @endif
+              </div>
+            </div>
+
             <div class="col-md-2" style="font-size: calc(0.6rem + 0.2vw);">
               <div class="" style="font-size: calc(0.6rem + 0.2vw);">
                 Payment Status
@@ -131,9 +132,11 @@
             </div>
             <div class="col-md-2 bg-warning-rm">
               <div class="d-flex justify-content-end h-100">
-                <button class="btn btn-light h-100" style="color: green;">
+                <button class="btn btn-light h-100 d-flex flex-column justify-content-start p-0" style="color: green;">
+                  @if (false)
                   <i class="fas fa-dice-d6"></i>
                   <br/>
+                  @endif
                   <span style="font-size: 1.1rem;"> @if ($saleInvoice->takeaway)
                       Sales
                     @elseif ($saleInvoice->seatTableBooking)

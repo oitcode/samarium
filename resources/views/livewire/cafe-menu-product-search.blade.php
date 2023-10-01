@@ -4,7 +4,7 @@
     <div class="mb-4">
       <input type="text"
           class="mr-5 h-100 form-control w-50"
-          style="{{-- height: 50px; --}} font-size: 1.5rem; background-color: #cfc;"
+          style="{{-- height: 50px; --}} font-size: 1.5rem; {{-- background-color: #cfc; --}}"
           wire:model.defer="product_search_name"
           wire:keydown.enter="search"
           autofocus>
