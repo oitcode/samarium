@@ -16,9 +16,124 @@
         <div class="card-body p-0">
 
 
-          <div class="row p-4" style="margin: auto;">
+          <div class="row-rm px-4-rm" style="margin: auto;">
 
-            <div class="col-md-3 mb-3">
+            <div class="table-responsive">
+              <table class="table">
+                @if (false)
+                <thead>
+                  <tr>
+                    <th style="width: 100px;"></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                @endif
+                <tr>
+                  <td style="width: 200px;">Invoice ID </td>
+                  <td>{{ $saleInvoice->sale_invoice_id }}</td>
+                </tr>
+                <tr>
+                  <td>Invoice Date </td>
+                  <td>{{ $saleInvoice->sale_invoice_date }}</td>
+                </tr>
+                <tr>
+                  <td>Customer</td>
+                  <td>
+                    @if ($saleInvoice->customer)
+                      <i class="fas fa-user-circle text-muted mr-2"></i>
+                      {{ $saleInvoice->customer->name }}
+                    @else
+                      <i class="fas fa-exclamation-circle text-muted mr-2"></i>
+                      <span class="text-muted">
+                        None
+                      </span>
+                    @endif
+                  </td>
+                </tr>
+                <tr>
+                  <td>Created by </td>
+                  <td>
+                    @if ($saleInvoice->creator)
+                      {{ $saleInvoice->creator->name }}
+                    @else
+                      Unknown
+                    @endif
+                  </td>
+                </tr>
+                <tr>
+                  <td>Payment Status </td>
+                  <td>
+                    @if ( $saleInvoice->payment_status == 'paid')
+                    <span class="badge badge-pill badge-success">
+                    Paid
+                    </span>
+                    @elseif ( $saleInvoice->payment_status == 'partially_paid')
+                    <span class="badge badge-pill badge-warning">
+                    Partial
+                    </span>
+                    @elseif ( $saleInvoice->payment_status == 'pending')
+                    <span class="badge badge-pill badge-danger">
+                    Pending
+                    </span>
+                    @else
+                    <span class="badge badge-pill badge-secondary">
+                      {{ $saleInvoice->payment_status }}
+                    </span>
+                    @endif
+
+                    <div>
+                      <div class="text-primary" style="font-size: 0.8rem;" role="button" wire:click="enterMode('showPayments')">
+                        Show payments
+                      </div>
+                    </div>
+                    @if ($modes['showPayments'])
+                      <div>
+                        <div>
+                          Payments
+                        </div>
+                        <div>
+                          @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
+                            <div>
+                            Rs
+                            @php echo number_format( $saleInvoicePayment->amount ); @endphp
+                            <span class="badge badge-pill ml-3">
+                            {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+                            </span>
+                            <span class="badge badge-pill ml-3">
+                            {{ $saleInvoicePayment->payment_date }}
+                            </span>
+                            </div>
+                          @endforeach
+                        </div>
+                      </div>
+                    @endif
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+
+
+            @if (false)
+            <div class="col-md-3 mb-4">
+              <div class="text-muted-rm mb-1">
+                Invoice ID
+              </div>
+              <div class="">
+                {{ $saleInvoice->sale_invoice_id }}
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+              <div class="text-muted-rm mb-1">
+                Invoice Date
+              </div>
+              <div class="">
+                {{ $saleInvoice->sale_invoice_date }}
+              </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
               <div class="text-muted-rm mb-1">
                 Customer
               </div>
@@ -35,25 +150,7 @@
               </div>
             </div>
 
-            <div class="col-md-3 mb-3">
-              <div class="text-muted-rm mb-1">
-                Invoice ID
-              </div>
-              <div class="h5">
-                {{ $saleInvoice->sale_invoice_id }}
-              </div>
-            </div>
-
-            <div class="col-md-3 mb-3">
-              <div class="text-muted-rm mb-1">
-                Invoice Date
-              </div>
-              <div class="h5">
-                {{ $saleInvoice->sale_invoice_date }}
-              </div>
-            </div>
-
-            <div class="col-md-3 mb-3">
+            <div class="col-md-3 mb-4">
               <div class="text-muted-rm mb-1">
                 Created by
               </div>
@@ -116,6 +213,7 @@
                @endif
               </div>
             </div>
+            @endif
 
           </div>
 
@@ -152,7 +250,7 @@
                 @php echo number_format( $item->price_per_unit); @endphp
               </td>
               <td>
-                <span class="badge badge-pill-rm badge-success">
+                <span class="">
                   {{ $item->quantity }}
                 </span>
               </td>
@@ -244,12 +342,12 @@
             @endforeach
 
             <tr class="border-0">
-              <td colspan="4" style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold text-right border-0 pr-4">
+              <td colspan="4" style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold text-right border-0 pr-4">
                 <strong>
                 Total
                 </strong>
               </td>
-              <td style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold border-0">
+              <td style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold border-0">
                 @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
               </td>
             </tr>

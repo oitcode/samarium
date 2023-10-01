@@ -110,6 +110,7 @@
 
   @if ($modes['displaySaleInvoice'])
     @if (true)
+      @if (false)
       {{-- Toolbar --}}
       <div class="d-flex justify-content-between mb-4 border p-1 bg-white-rm text-white-rm shadow-sm" style="background-color: #fff;">
         <div>
@@ -132,6 +133,7 @@
           </button>
         </div>
       </div>
+      @endif
       @livewire ('daybook-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
     @else
       @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
