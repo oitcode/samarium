@@ -26,11 +26,7 @@
   </div>
 
   <div class="my-3">
-    <button class="btn btn-success mr-2" wire:click="store">
-      Save
-    </button>
-    <button class="btn btn-danger mr-2"wire:click="$emit('productEditAddProductSpecificationModeCancelled')">
-      Cancel
-    </button>
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'productEditAddProductSpecificationModeCancelled',])
   </div>
 </div>

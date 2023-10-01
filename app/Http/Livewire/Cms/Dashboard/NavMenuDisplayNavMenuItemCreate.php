@@ -27,9 +27,7 @@ class NavMenuDisplayNavMenuItemCreate extends Component
     public function store()
     {
         $validatedData = $this->validate([
-            'name' => 'required',
-            'o_type' => 'required',
-            'webpage_id' => 'nullable|integer',
+            'webpage_id' => 'required',
         ]);
 
         $cmsNavMenuItem = new CmsNavMenuItem;
@@ -40,10 +38,15 @@ class NavMenuDisplayNavMenuItemCreate extends Component
             $cmsNavMenuItem->webpage_id = $validatedData['webpage_id'];
         }
 
-        $cmsNavMenuItem->name = $validatedData['name'];
+        // $cmsNavMenuItem->name = $validatedData['name'];
+        if ($validatedData['webpage_id']) {
+            $cmsNavMenuItem->name = Webpage::find($validatedData['webpage_id'])->name;
+        }
+
         $cmsNavMenuItem->order = $this->getHighestMenuItemOrder() + 1;
 
-        $cmsNavMenuItem->type = $validatedData['o_type'];
+        // $cmsNavMenuItem->type = $validatedData['o_type'];
+        $cmsNavMenuItem->type = 'link';
 
         $cmsNavMenuItem->save();
 

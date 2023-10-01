@@ -22,6 +22,14 @@ class NavMenuComponent extends Component
         'displayCmsNavMenu',
     ];
 
+    public function mount()
+    {
+        if (CmsNavMenu::first()) {
+            $this->displayingCmsNavMenu = CmsNavMenu::first();
+            $this->enterMode('display');
+        }
+    }
+
     public function render()
     {
         return view('livewire.cms.dashboard.nav-menu-component');

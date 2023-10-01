@@ -6,9 +6,12 @@
     @endif
 
     <div class="p-2 d-flex justify-content-between">
-      <h2 class="h4 text-secondary">
-        <i class="fas fa-arrow-right mr-2"></i>
-        {{ $cmsNavMenu->name }}
+      <h2 class="h4 text-secondary-rm">
+        @if (true)
+          Default nav menu
+        @else
+          {{ $cmsNavMenu->name }}
+        @endif
       </h2>
       <div wire:loading>
         <div class="spinner-border" role="status">
@@ -18,7 +21,7 @@
     </div>
 
     <div class="my-3">
-      <button class="btn btn-success border badge-pill" wire:click="enterMode('createNavMenuItem')">
+      <button class="btn btn-light border badge-pill" wire:click="enterMode('createNavMenuItem')">
         <i class="fas fa-plus-circle mr-2"></i>
         Add item
       </button>
@@ -74,9 +77,6 @@
                     @endif
                   </td>
                   <td>
-                    <button class="btn text-secondary p-2-rm border-rm rounded-circle-rm">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
                     <button class="btn text-secondary p-2-rm border-rm rounded-circle-rm"
                         wire:click="deleteCmsNavMenuItem({{ $cmsNavMenuItem }})">
                       <i class="fas fa-trash"></i>

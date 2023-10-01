@@ -3,6 +3,7 @@
   
     <h3 class="h5 text-secondary">Add item to menu</h3>
   
+    @if (false)
     <div class="form-group">
       <label for="">Name</label>
       <input type="text"
@@ -21,6 +22,7 @@
       </select>
       @error('o_type') <span class="text-danger">{{ $message }}</span>@enderror
     </div>
+    @endif
 
     <div class="form-group">
       <label>Webpage</label>
@@ -34,16 +36,8 @@
     </div>
 
     <div class="mt-4" style="font-size: 1.3rem;">
-      <button type="submit"
-          class="btn btn-success" wire:click="store"
-          style="font-size: 1.3rem;">
-        Submit
-      </button>
-      <button type="submit"
-          class="btn btn-danger" wire:click="$emit('exitCreateCmsNavMenuItemMode')"
-          style="font-size: 1.3rem;">
-        Cancel
-      </button>
+      @include ('partials.button-store')
+      @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateCmsNavMenuItemMode',])
     </div>
   
   </div>
