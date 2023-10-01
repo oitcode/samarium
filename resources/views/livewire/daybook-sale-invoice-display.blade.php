@@ -1,10 +1,7 @@
 <div>
 
   <div class="border shadow mb-5">
-    <div class="d-flex mb-0 p-2 justify-content-end
-        {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-        {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
-        border">
+    <div class="d-flex mb-0 p-2 justify-content-end border">
       <button class="btn btn-light border rounded-circle" wire:click="$emit('exitDisplaySaleInvoiceMode')">
         <i class="fas fa-times fa-2x-rm"></i>
       </button>
