@@ -19,7 +19,7 @@
       bg-white
     @endisset
     @endif
-    border-rm shadow-rm m-0 badge-pill-rm mr-4-rm px-4 h-100 border-none shadow-none o-flipper py-3 d-flex flex-column justify-content-center"
+    border-rm shadow-rm m-0 badge-pill-rm mr-4-rm px-4 h-100 border-none shadow-none o-flipper py-3 d-flex flex-column justify-content-center rounded"
 
 
     style="font-size: 1.1rem;
