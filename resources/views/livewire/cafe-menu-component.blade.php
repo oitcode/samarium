@@ -9,7 +9,7 @@
   --}}
 
   {{-- Show in bigger screens --}}
-  <x-toolbar-classic toolbarTitle="Products">
+  <x-toolbar-classic toolbarTitle="Product">
     @include ('partials.dashboard.spinner-button')
 
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -17,13 +17,6 @@
         'btnIconFaClass' => 'fas fa-plus-circle',
         'btnText' => 'New',
         'btnCheckMode' => 'createProduct',
-    ])
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('createProductCategory')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'Category',
-        'btnCheckMode' => 'createProductCategory',
     ])
 
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -125,22 +118,22 @@
     </div>
   </div>
 
-  <div class="row" style="margin: auto;">
+  <!-- Flash message div -->
+  @if (session()->has('message'))
+    <div class="p-2">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle mr-3"></i>
+        {{ session('message') }}
+        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+          <span class="text-danger" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  @endif
 
-    <div class="col-md-12">
+  <div class="" style="">
 
-      <!-- Flash message div -->
-      @if (session()->has('message'))
-        <div class="p-2">
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <i class="fas fa-check-circle mr-3"></i>
-            {{ session('message') }}
-            <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-              <span class="text-danger" aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </div>
-      @endif
+    <div class="">
 
       {{-- Use required component as per mode --}}
       @if ($modes['createProduct'])
@@ -164,8 +157,6 @@
       @elseif ($modes['search'])
         @livewire ('cafe-menu-product-search')
       @endif
-    </div>
-    <div class="col-md-4">
     </div>
   </div>
 </div>

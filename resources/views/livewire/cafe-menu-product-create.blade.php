@@ -1,4 +1,4 @@
-<div>
+<div class="bg-white p-3">
 
   {{-- Top heading bar --}}
   <div class="mb-4">

@@ -1,8 +1,5 @@
-@extends('adminlte::page')
-
-@section('title', 'Dashboard')
+@extends('layouts.app')
 
 @section('content')
-  @livewire('product-category-component')
-  @livewire('product-component')
+  @livewire('cafe-menu.product-category-component')
 @stop

@@ -1,7 +1,10 @@
-<div>
+<div class="">
 
   <div class="bg-white border p-3 mb-4">
     <div class="mb-4">
+      <h1 class="h5 font-weight-bold">
+        Product search
+      </h1>
       <input type="text"
           class="mr-5 h-100 form-control w-50"
           style="{{-- height: 50px; --}} font-size: 1.5rem; {{-- background-color: #cfc; --}}"
@@ -14,7 +17,7 @@
     </div>
   </div>
 
-  <div class="p-3 bg-white border">
+  <div class="p-3-rm bg-white border">
 
     @if ($products != null && count($products) > 0)
       @foreach ($products as $product)
