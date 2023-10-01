@@ -1,7 +1,7 @@
 <div>
 
   <div class="border shadow mb-5">
-    <div class="d-flex mb-0 p-2 justify-content-end border">
+    <div class="d-flex mb-0 p-2 justify-content-end border bg-white">
       <button class="btn btn-light border rounded-circle" wire:click="$emit('exitDisplaySaleInvoiceMode')">
         <i class="fas fa-times fa-2x-rm"></i>
       </button>
