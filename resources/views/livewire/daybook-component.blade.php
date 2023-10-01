@@ -7,7 +7,7 @@
 
     {{-- Show in bigger screens --}}
     @if (! $modes['displaySaleInvoice'])
-    <div class="bg-info-rm mb-4 d-none d-md-block p-0">
+    <div class="bg-info-rm mb-4 d-none d-md-block p-3 bg-white border">
       <div class="float-left d-flex bg-warning-rm">
 
         <i class="fas fa-arrow-alt-circle-left fa-2x mr-3" wire:click="setPreviousDay" role="button"></i>
@@ -145,9 +145,7 @@
           <div class="table-responsive d-none d-md-block mb-5">
             <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
               <thead>
-                <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-                    {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}"
-                    style="font-size: 1rem;">
+                <tr class="bg-white" style="font-size: 1rem;">
                   <th style="width: 100px;">ID</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Time</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Table</th>
@@ -320,8 +318,7 @@
         
         {{-- Payment by types --}}
         <div class="mt-4 border">
-          <h2 class="h5 {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }} p-3 mb-0 border">
+          <h2 class="h5 font-weight-bold bg-white p-3 mb-0 border">
             Payment by types
           </h2>
           <div class="row border-rm m-0 p-3 bg-white text-dark d-flex">
@@ -355,16 +352,15 @@
       </div>
 
       {{-- Daybook item count div --}}
-      <div class="col-md-6 mt-4">
-        <h2 class="h5 text-muted mb-3">
+      <div class="col-md-6 mt-5">
+        <h2 class="h5 font-weight-bold text-muted-rm mb-3">
           Product sale count
         </h2>
         @if (count($todayItems) > 0)
           <div class="table-responsive">
-            <table class="table table-bordered table-hover" style="font-size: 1rem;">
+            <table class="table table-bordered-rm table-hover" style="font-size: 1rem;">
               <thead>
-                <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-                    {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}">
+                <tr class="bg-white">
                   <th colspan="2">
                     Item
                   </th>
