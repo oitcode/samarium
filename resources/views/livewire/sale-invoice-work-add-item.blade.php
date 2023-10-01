@@ -14,12 +14,12 @@
   </div>
 
   {{-- Show in bigger screen --}}
-  <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block {{ env('OC_ASCENT_BG_COLOR') }} text-white" style="">
+  <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block" style="">
 
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
-          <tr class="bg-success-rm text-white-rm {{ env('OC_ASCENT_TEXT_COLOR') }}" style="font-size: calc(0.6rem + 0.2vw);">
+          <tr class="bg-white" style="font-size: calc(0.6rem + 0.2vw);">
             <th class="py-2" style="width: 200px;">Search Item</th>
             <th class="py-2">Category</th>
             <th class="py-2">Item</th>

@@ -1,8 +1,10 @@
 <div class="card">
   @if (true)
   <div class="card-header
+      {{--
       {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
       {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+      --}}
       p-0">
     <div class="d-flex justify-content-between py-1-rm">
       <div class="d-flex flex-column justify-content-center">
@@ -86,8 +88,8 @@
           @if (strtolower($key) == 'vat')
             @continue
           @else
-          <tr style="height: 40px;" class="bg-light border-0">
-            <td class="w-50 p-0 bg-info-rm p-0 pt-2 font-weight-bold border-bottom" style="font-size: calc(0.6rem + 0.2vw);">
+          <tr style="{{-- height: 40px; --}}" class="bg-light border-0">
+            <td class="w-50 p-0-rm bg-info-rm pl-0 pt-2 font-weight-bold border-bottom" style="font-size: calc(0.8rem + 0.2vw);">
               {{-- Hard code for discount . Temp. Todo permanent design/fix --}} 
               @if (strtolower($key) == 'discount')
                 <div class="ml-4">
@@ -120,7 +122,7 @@
                 </span>
               @endif
             </td>
-            <td class="p-0 h-100 font-weight-bold border-bottom" style="font-size: calc(0.6rem + 0.2vw);">
+            <td class="p-0 h-100 font-weight-bold border-bottom" style="font-size: calc(1rem + 0.2vw);">
               @if (strtolower($key) == 'vat')
                 {{ $val }}
               @else
@@ -129,7 +131,7 @@
                     @if (! $modes['paid'])
                       <input class="w-100 h-100 font-weight-bold pl-3 border-0"
                           type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
-                          style="font-size: calc(0.6rem + 0.2vw);"
+                          style="font-size: calc(1rem + 0.2vw);"
                           wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
                     @else
                     <div class="w-100 h-100 font-weight-bold pl-3 border-0">
@@ -145,7 +147,7 @@
                   @if (! $modes['paid'])
                   <input class="w-100 h-100 font-weight-bold pl-3 border-0"
                       type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
-                      style="font-size: calc(0.6rem + 0.2vw);"
+                      style="font-size: calc(1rem + 0.2vw);"
                       wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
                   @else
                     <div class="w-100 h-100 font-weight-bold pl-3 border-0">
@@ -206,7 +208,7 @@
                 Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 border-0" style="font-size: calc(1.3rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm text-primary-rm font-weight-bold pl-3 border-0" style="font-size: calc(1rem + 0.2vw);">
               @php echo number_format( $this->grand_total ); @endphp
             </td>
           </tr>
@@ -228,7 +230,9 @@
                 Tender Amount
                 @endif
               </span>
+              @if (false)
               <i class="fas fa-arrow-alt-circle-right ml-2 fa-2x-rm"></i>
+              @endif
               @error('tender_amount')
               <div class="pl-3" style="font-size: 0.8rem;">
                 <span class="text-danger">{{ $message }}</span>

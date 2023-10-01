@@ -167,7 +167,7 @@
             <div class="table-responsive d-none d-md-block">
               <table class="table table-hover border-dark mb-0">
                 <thead>
-                  <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}" style="font-size: calc(0.6rem + 0.2vw);">
+                  <tr class="" style="font-size: calc(0.6rem + 0.2vw);">
                     <th>--</th>
 
                     {{-- Todo: Good way to deal with takeaway and seat table booking? --}} 
