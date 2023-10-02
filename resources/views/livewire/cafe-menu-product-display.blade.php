@@ -1,7 +1,6 @@
 <div>
 
 
-
   <h1 class="h5 my-2 py-2">
     <i class="fas fa-circle text-success mr-2"></i>
     Products
@@ -133,7 +132,7 @@
     </div>
 
     {{-- Product info --}}
-    <div class="col-md-6 bg-primary-rm text-white-rm border-right">
+    <div class="col-md-6 bg-primary-rm text-white-rm border-right-rm">
       <div class="px-3 bg-white-rm border-rm shadow-rm">
         <div class="bg-success-rm text-white-rm">
           @if ($modes['updateProductNameMode'])
@@ -248,154 +247,12 @@
     </div>
 
     {{-- Product other info --}}
-    <div class="col-md-3 border-left bg-secondary-rm text-secondary">
-      {{-- Creation and update info --}}
-      <div class="border-rm bg-white-rm p-3 mb-3 shadow-rm">
-        <div class="mb-4">
-          <h3 class="h5">
-            <i class="fas fa-info-circle mr-2"></i>
-            Product history
-          </h3>
-        </div>
-        @if (false)
-        <div class="row">
-          <div class="col-6">
-            Created by
-          </div>
-          <div class="col-6">
-            xx
-          </div>
-        </div>
-        @endif
-        <div class="row">
-          <div class="col-6">
-            Created at
-          </div>
-          <div class="col-6" style="font-size: 0.8rem;">
-            {{ $product->created_at }}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            Updated at
-          </div>
-          <div class="col-6" style="font-size: 0.8rem;">
-            {{ $product->updated_at }}
-          </div>
-        </div>
-      </div>
-
-      {{-- Inventory info --}}
-      <div class="border-rm bg-white-rm p-3 mb-3 text-secondary">
-        <div class="mb-4">
-          <h3 class="h5">
-            <i class="fas fa-info-circle mr-2"></i>
-            Stock info
-          </h3>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            Stock applicable
-          </div>
-          <div class="col-6" style="font-size: 0.8rem;">
-            {{ $product->stock_applicable }}
-          </div>
-        </div>
-
-        @if ($product->stock_applicable == 'yes')
-          <div class="row">
-            <div class="col-6">
-              Inventory unit
-            </div>
-            <div class="col-6" style="font-size: 0.8rem;">
-              {{ $product->inventory_unit }}
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-6">
-              Stock count
-            </div>
-            <div class="col-6" style="font-size: 0.8rem;">
-              {{ $product->stock_count }}
-              {{ $product->inventory_unit }}
-            </div>
-          </div>
-
-          {{-- Base product --}}
-          <div class="border-rm bg-white-rm mb-3">
-            <div class="row">
-              <div class="col-6">
-                Base product
-              </div>
-              <div class="col-6" style="font-size: 0.8rem;">
-                @if ($product->is_base_product)
-                  Yes
-                @else
-                  No
-                @endif
-              </div>
-            </div>
-          </div>
-        @endif
-
-      </div>
-
+    <div class="col-md-3 border-left-rm bg-secondary-rm text-secondary">
     </div>
 
 
     </div>
 
-  <div class="my-4">
-    <div>
-      <div class="mt-0 p-2 border-rm d-flex justify-content-between border"
-          style="background-color: #dadada;">
-        <div class="my-5-rm">
-          @if ($product->is_active == 0)
-            <button class="btn btn-light mr-1" wire:click="makeProductActive">
-              <i class="fas fa-eye fa-2x-rm mr-2"></i>
-              @if (true)
-              <span class="h5-rm bg-danger-rm">
-                Make active
-              </span>
-              @endif
-            </button>
-          @elseif ($product->is_active == 1)
-            <button class="btn btn-light mr-1" wire:click="makeProductInactive">
-              <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
-              @if (true)
-              <span class="h5-rm bg-light-rm">
-                Make inactive
-              </span>
-              @endif
-            </button>
-
-            @if ($product->show_in_front_end == 'yes')
-              <button class="btn btn-light mr-1" wire:click="makeProductNotVisibleInFrontEnd">
-                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
-                @if (true)
-                <span class="">
-                  Hide in website
-                </span>
-                @endif
-              </button>
-            @else
-              <button class="btn btn-light mr-1" wire:click="makeProductVisibleInFrontEnd">
-                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
-                @if (true)
-                <span class="">
-                  Show in website
-                </span>
-                @endif
-              </button>
-            @endif
-          @else
-          @endif
-        </div>
-
-      </div>
-    </div>
-  </div>
 
 
   {{-- Product specifications --}}
@@ -450,5 +307,150 @@
         </div>
       </div>
     @endif
+
+
   </div>
+
+
+  <div class="my-4">
+    <div>
+      <div class="mt-0 p-2 border-rm d-flex justify-content-between border"
+          style="background-color: #dadada;">
+        <div class="my-5-rm">
+          @if ($product->is_active == 0)
+            <button class="btn btn-light mr-1" wire:click="makeProductActive">
+              <i class="fas fa-eye fa-2x-rm mr-2"></i>
+              @if (true)
+              <span class="h5-rm bg-danger-rm">
+                Make active </span>
+              @endif
+            </button>
+          @elseif ($product->is_active == 1)
+            <button class="btn btn-light mr-1" wire:click="makeProductInactive">
+              <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+              @if (true)
+              <span class="h5-rm bg-light-rm">
+                Make inactive
+              </span>
+              @endif
+            </button>
+
+            @if ($product->show_in_front_end == 'yes')
+              <button class="btn btn-light mr-1" wire:click="makeProductNotVisibleInFrontEnd">
+                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+                @if (true)
+                <span class="">
+                  Hide in website
+                </span>
+                @endif
+              </button>
+            @else
+              <button class="btn btn-light mr-1" wire:click="makeProductVisibleInFrontEnd">
+                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+                @if (true)
+                <span class="">
+                  Show in website
+                </span>
+                @endif
+              </button>
+            @endif
+          @else
+          @endif
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  {{-- Creation and update info --}} 
+  <div class="border bg-white p-3 my-3 shadow-rm">
+    <div class="mb-4">
+      <h3 class="h5"> Product history </h3>
+    </div>
+    @if (true)
+    <div class="row">
+      <div class="col-3">
+        Created by
+      </div>
+      <div class="col-6">
+        xx
+      </div>
+    </div>
+    @endif
+    <div class="row">
+      <div class="col-3">
+        Created at
+      </div>
+      <div class="col-6" style="font-size: 0.8rem;">
+        {{ $product->created_at }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        Updated at
+      </div>
+      <div class="col-6" style="font-size: 0.8rem;">
+        {{ $product->updated_at }}
+      </div>
+    </div>
+  </div>
+
+  {{-- Inventory info --}}
+  <div class="border-rm bg-white p-3 mb-3 text-secondary-rm">
+    <div class="mb-4">
+      <h3 class="h5">
+        Stock info
+      </h3>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        Stock applicable
+      </div>
+      <div class="col-6" style="font-size: 0.8rem;">
+        {{ $product->stock_applicable }}
+      </div>
+    </div>
+
+    @if ($product->stock_applicable == 'yes')
+      <div class="row">
+        <div class="col-6">
+          Inventory unit
+        </div>
+        <div class="col-6" style="font-size: 0.8rem;">
+          {{ $product->inventory_unit }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          Stock count
+        </div>
+        <div class="col-6" style="font-size: 0.8rem;">
+          {{ $product->stock_count }}
+          {{ $product->inventory_unit }}
+        </div>
+      </div>
+
+      {{-- Base product --}}
+      <div class="border-rm bg-white-rm mb-3">
+        <div class="row">
+          <div class="col-6">
+            Base product
+          </div>
+          <div class="col-6" style="font-size: 0.8rem;">
+            @if ($product->is_base_product)
+              Yes
+            @else
+              No
+            @endif
+          </div>
+        </div>
+      </div>
+    @endif
+
+  </div>
+
+
+
 </div>
