@@ -2,7 +2,6 @@
 
 
   <h1 class="h5 my-2 py-2">
-    <i class="fas fa-circle text-success mr-2"></i>
     Products
 
     <i class="fas fa-angle-right mx-2"></i>

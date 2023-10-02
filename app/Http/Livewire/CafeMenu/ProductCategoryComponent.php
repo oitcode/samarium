@@ -6,6 +6,8 @@ use Livewire\Component;
 
 use App\Traits\ModesTrait;
 
+use App\ProductCategory;
+
 class ProductCategoryComponent extends Component
 {
     use ModesTrait;
@@ -21,6 +23,8 @@ class ProductCategoryComponent extends Component
     protected $listeners = [
         'productCategoryCreateCompleted',
         'productCategoryCreateCancelled',
+        'displayProductCategory',
+        'productCategoryDisplayCancelled',
     ];
 
     public function render()
@@ -37,5 +41,19 @@ class ProductCategoryComponent extends Component
     {
         session()->flash('message', 'Product category created.');
         $this->exitMode('create');
+    }
+
+    public function displayProductCategory(ProductCategory $productCategory)
+    {
+        $this->displayingProductCategory = $productCategory;
+
+        $this->enterMode('display');
+    }
+
+    public function productCategoryDisplayCancelled()
+    {
+        $this->displayingProductCategory = null;
+
+        $this->exitMode('display');
     }
 }

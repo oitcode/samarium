@@ -70,5 +70,7 @@
     @livewire ('cafe-menu-product-category-create')
   @elseif ($modes['list'])
     @livewire ('cafe-menu-list')
+  @elseif ($modes['display'])
+    @livewire ('cafe-menu.product-category-display', ['productCategory' => $displayingProductCategory,])
   @endif
 </div>
