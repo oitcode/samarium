@@ -1,7 +1,7 @@
 <div class="card">
-<div class="card-body">
+<div class="card-body p-3">
 
-  <h3 class="h5">Upload products from file</h3>
+  <h1 class="h5 font-weight-bold mb-4">Upload products from file</h1>
 
   <div wire:loading class="text-primary">
     <div class="spinner-border text-primary" role="status">
@@ -9,19 +9,22 @@
      Processing ...
   </div>
 
-  @if ($startMode)
-    <button type="submit" class="btn btn-primary" wire:click="preview">Upload</button>
-  @elseif ($previewMode)
-    <button type="submit" class="btn btn-primary" wire:click="importFromFile">Import</button>
-  @endif
-  <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreateProductFromCsvMode')">Cancel</button>
-
-
-  <div class="form-group">
-    <label for="">File</label>
-    <input type="file" class="form-control" wire:model="products_file">
+  <div class="form-group my-4">
+    <label class="h5 mb-2" for="">File</label>
+    <input type="file" class="form-control pl-0 border-0" wire:model="products_file">
     @error('products_file') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
+
+  @if ($startMode)
+    @if (false)
+    <button type="submit" class="btn btn-primary" wire:click="preview">Upload</button>
+    @endif
+    @include ('partials.button-general', ['btnText' => 'Upload', 'clickMethod' => 'preview',])
+  @elseif ($previewMode)
+    <button type="submit" class="btn btn-primary" wire:click="importFromFile">Import</button>
+    @include ('partials.button-general', ['btnText' => 'Import', 'importFromFile' => 'preview',])
+  @endif
+  @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateProductFromCsvMode',])
 
 
 

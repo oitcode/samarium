@@ -5,6 +5,8 @@
       <h1 class="h5 font-weight-bold">
         Product search
       </h1>
+    </div>
+    <div class="my-4">
       <input type="text"
           class="mr-5 h-100 form-control w-50"
           style="{{-- height: 50px; --}} font-size: 1.5rem; {{-- background-color: #cfc; --}}"

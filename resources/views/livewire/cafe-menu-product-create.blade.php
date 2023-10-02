@@ -2,31 +2,31 @@
 
   {{-- Top heading bar --}}
   <div class="mb-4">
-    <h1 style="font-size: 1.3rem;">
+    <h1 class="h5 font-weight-bold">
       Add product
     </h1>
   </div>
 
-  <div class="row border bg-white-rm border-0">
+  <div class="row border bg-primary-rm pb-0 border-0" style="margin:auto;">
 
     {{-- Left side of the product create page --}}
-    <div class="col-md-6">
+    <div class="col-md-6 pl-0">
 
-      <div class="card h-100 shadow-sm border-0">
-        <div class="card-body p-3 border h-100 shadow-sm">
+      <div class="card h-100 shadow-sm-rm border-0 pb-0">
+        <div class="card-body p-3-rm pl-0 border-rm h-100 shadow-sm-rm pb-0">
       
           <div class="form-group">
-            <label for="">Name</label>
+            <label class="h5" for="">Name</label>
             <input type="text"
-                class="form-control"
+                class="form-control shadow-sm"
                 wire:model.defer="name"
                 style="font-size: 1.3rem;">
             @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
       
           <div class="form-group">
-            <label>Category</label>
-            <select class="custom-select" wire:model.defer="product_category_id" style="font-size: 1.3rem;">
+            <label class="h5">Category</label>
+            <select class="custom-select shadow-sm" wire:model.defer="product_category_id" style="font-size: 1.3rem;">
               <option>---</option>
               @foreach ($productCategories as $productCategory)
                 <option value="{{ $productCategory->product_category_id }}">
@@ -39,12 +39,32 @@
       
       
           <div class="form-group">
-            <label for="">Selling price</label>
+            <label class="h5" for="">Selling price</label>
             <input type="text"
-                class="form-control"
+                class="form-control shadow-sm"
                 wire:model.defer="selling_price"
                 style="font-size: 1.3rem;">
             @error('selling_price') <span class="text-danger">{{ $message }}</span> @enderror
+          </div>
+
+          <div class="border-rm bg-white p-2-rm pb-0 mb-3-rm">
+
+            <h2 class="h5">
+              Description
+            </h2>
+            <h3 class="h6 text-muted">
+              Enter product description here
+            </h3>
+            <div class="form-group mb-0">
+              <textarea type="text"
+                  class="form-control mb-0"
+                  rows="5"
+                  wire:model.defer="description"
+                  style="font-size: 1.3rem;">
+              </textarea>
+              @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
           </div>
       
       
@@ -55,12 +75,12 @@
 
 
     {{-- Right side of the product create page --}}
-    <div class="col-md-6 pt-3-rm">
+    <div class="col-md-6 pt-3-rm pl-0">
 
       <div>
       </div>
 
-      <div class="border bg-white p-2 mb-3">
+      <div class="border-rm bg-white pl-0 p-2 mb-3">
 
         <h2 class="h5">
           Image
@@ -78,25 +98,6 @@
 
       </div>
 
-      <div class="border bg-white p-2 mb-3">
-
-        <h2 class="h5">
-          Description
-        </h2>
-        <h3 class="h6 text-muted">
-          Enter product description here
-        </h3>
-        <div class="form-group">
-          <textarea type="text"
-              class="form-control"
-              rows="5"
-              wire:model.defer="description"
-              style="font-size: 1.3rem;">
-          </textarea>
-          @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
-        </div>
-
-      </div>
 
       @if (false)
       <div class="border bg-white p-2 mb-3 shadow-sm">
