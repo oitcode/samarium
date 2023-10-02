@@ -210,12 +210,12 @@
             </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="mobTopMenuDropdown2">
-            <a class="dropdown-item" href="{{ route('dashboard-change-password') }}">
+            <a class="dropdown-item py-3" href="{{ route('dashboard-change-password') }}">
               <i class="fas fa-key text-secondary mr-2"></i>
               Change password
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{ route('logout') }}"
+            <a class="dropdown-item py-3" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();"
             >
