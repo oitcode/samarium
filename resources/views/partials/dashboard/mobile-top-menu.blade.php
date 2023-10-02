@@ -1,15 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0">
-  <a class="navbar-brand p-3" href="{{ route('dashboard') }}">
-    <i class="fas fa-check-circle fa-2x-rm mr-3 text-info"></i>
-    <span class="h4 font-weight-bold">
+<nav class="navbar navbar-expand-lg navbar-dark-rm bg-dark-rm m-0 p-0" style="background-color: {{ env('OC_SELECT_COLOR') }};">
+  <a class="navbar-brand p-3 text-reset" href="{{ route('dashboard') }}" style="color: {{ env('OC_SELECT_TXT_COLOR') }};">
+    <i class="fas fa-check-circle fa-2x-rm mr-3 text-info-rm" style="color: {{ env('OC_SELECT_TXT_COLOR') }};"></i>
+    <span class="h4 font-weight-bold" style="color: {{ env('OC_SELECT_TXT_COLOR') }};">
       Ozone
     </span>
   </a>
-  <button class="navbar-toggler p-3 m-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler p-3 m-3" style="border: 1px solid {{ env('OC_SELECT_TXT_COLOR') }};" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     @if (false)
     <span class="navbar-toggler-icon"></span>
     @endif
-    <i class="fas fa-list fa-2x-rm"></i>
+    <i class="fas fa-list fa-2x-rm" style="color: {{ env('OC_SELECT_TXT_COLOR') }};"></i>
   </button>
 
   <div class="collapse navbar-collapse m-0 p-0 mt-4" id="navbarSupportedContent" style="margin-left: 0;">
@@ -26,6 +26,32 @@
       @endif
 
       @if (preg_match("/shop/i", env('MODULES')))
+        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+          <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuProductDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-dice-d6 text-secondry mr-3"></i>
+            <span class="font-weight-bold">
+            Product
+            </span>
+          </a>
+          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuProductDropdown">
+
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('menu') }}">
+              <i class="fas fa-dice-d6 mr-3"></i>
+              Products
+            </a>
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('product-category') }}">
+              <i class="fas fa-list mr-3"></i>
+              Product category
+            </a>
+
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-inventory') }}">
+              <i class="fas fa-dolly mr-3"></i>
+              Inventory
+            </a>
+
+          </div>
+        </li>
+
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuShopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-shopping-cart text-secondry mr-3"></i>
@@ -63,6 +89,36 @@
             @if (true)
             <div class="dropdown-divider"></div>
             @endif
+
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('customer') }}">
+              <i class="fas fa-users mr-3"></i>
+              Customers
+            </a>
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-vendor') }}">
+              <i class="fas fa-users mr-3"></i>
+              Vendors
+            </a>
+
+            @if (true)
+            <div class="dropdown-divider"></div>
+            @endif
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('online-order') }}">
+              <i class="fas fa-cloud-download-alt mr-3"></i>
+              Weborder
+            </a>
+
+          </div>
+        </li>
+
+        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+          <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuReportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-dice-d6 text-secondry mr-3"></i>
+            <span class="font-weight-bold">
+            Report
+            </span>
+          </a>
+          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuReportDropdown">
+
             <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('daybook') }}">
               <i class="fas fa-book mr-3"></i>
               Daybook
@@ -75,44 +131,6 @@
               <i class="fas fa-chart-line text-secondary mr-3"></i>
               Report
             </a>
-            @if (true)
-            <div class="dropdown-divider"></div>
-            @endif
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('online-order') }}">
-              <i class="fas fa-cloud-download-alt mr-3"></i>
-              Weborder
-            </a>
-
-            @if (true)
-            <div class="dropdown-divider"></div>
-            @endif
-
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('menu') }}">
-              <i class="fas fa-dice-d6 mr-3"></i>
-              Products
-            </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('product-category') }}">
-              <i class="fas fa-list mr-3"></i>
-              Product category
-            </a>
-
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-inventory') }}">
-              <i class="fas fa-dolly mr-3"></i>
-              Inventory
-            </a>
-
-            @if (true)
-            <div class="dropdown-divider"></div>
-            @endif
-
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('customer') }}">
-              <i class="fas fa-users mr-3"></i>
-              Customers
-            </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-vendor') }}">
-              <i class="fas fa-users mr-3"></i>
-              Vendors
-            </a>
 
           </div>
         </li>
@@ -120,40 +138,36 @@
 
       {{-- CMS options --}}
       @if (preg_match("/cms/i", env('MODULES')))
-
-        <li class="nav-item dropdown bg-light text-dark p-3 border">
-          <a class="nav-link dropdown-toggle text-dark" href="#" id="mobTopMenuCmsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+          <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCmsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-edit text-secondry mr-3"></i>
             <span class="font-weight-bold">
             CMS
             </span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="mobTopMenuDropdown2">
-            <a class="dropdown-item py-3" href="{{ route('dashboard-cms-post') }}">
-              <i class="fas fa-edit text-secondary mr-2"></i>
+          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCmsDropdown">
+
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-post') }}">
+              <i class="fas fa-edit mr-3"></i>
               Post
             </a>
-
-            @if (false)
-            <div class="dropdown-divider"></div>
-            @endif
-
-            <a class="dropdown-item py-3" href="{{ route('dashboard-cms-webpage') }}">
-              <i class="fas fa-clone text-secondary mr-2"></i>
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-webpage') }}">
+              <i class="fas fa-file mr-3"></i>
               Page
             </a>
-            <a class="dropdown-item py-3" href="{{ route('dashboard-cms-gallery') }}">
-              <i class="fas fa-images text-secondary mr-2"></i>
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-gallery') }}">
+              <i class="fas fa-images text-secondary mr-3"></i>
               Gallery
             </a>
-            <a class="dropdown-item py-3" href="{{ route('dashboard-cms-nav-menu') }}">
-              <i class="fas fa-link text-secondary mr-2"></i>
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-nav-menu') }}">
+              <i class="fas fa-list text-secondary mr-3"></i>
               Nav menu
             </a>
-            <a class="dropdown-item py-3" href="{{ route('dashboard-cms-theme') }}">
-              <i class="fas fa-palette text-secondary mr-2"></i>
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-theme') }}">
+              <i class="fas fa-palette text-secondary mr-3"></i>
               Theme
             </a>
+
           </div>
         </li>
       @endif
