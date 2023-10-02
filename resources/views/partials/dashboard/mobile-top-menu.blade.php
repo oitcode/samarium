@@ -1,19 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{ route('dashboard') }}">
-    <i class="fas fa-check-circle fa-2x mr-3 text-info" style="{{-- font-size: 1.3rem; --}}"></i>
-    <span class="h2">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0">
+  <a class="navbar-brand p-3" href="{{ route('dashboard') }}">
+    <i class="fas fa-check-circle fa-2x-rm mr-3 text-info"></i>
+    <span class="h4 font-weight-bold">
       Ozone
     </span>
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler p-3 m-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     @if (false)
     <span class="navbar-toggler-icon"></span>
     @endif
-    <i class="fas fa-list fa-2x"></i>
+    <i class="fas fa-list fa-2x-rm"></i>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse m-0 p-0 mt-4" id="navbarSupportedContent" style="margin-left: 0;">
+    <ul class="navbar-nav m-0 p-0 mr-auto-rm" style="margin: auto;">
       @if (false)
         @can ('is-admin')
           <li class="nav-item border bg-light text-dark p-3">
@@ -88,12 +88,12 @@
             @endif
 
             <a class="dropdown-item py-3" href="{{ route('menu') }}">
+              <i class="fas fa-dice-d6 mr-3"></i>
+              Products
+            </a>
+            <a class="dropdown-item py-3" href="{{ route('product-category') }}">
               <i class="fas fa-list mr-3"></i>
-              @if (env('CMP_TYPE') == 'cafe')
-                Menu
-              @else
-                Products
-              @endif
+              Product category
             </a>
 
             <a class="dropdown-item py-3" href="{{ route('dashboard-inventory') }}">
