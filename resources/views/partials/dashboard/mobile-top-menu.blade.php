@@ -28,7 +28,7 @@
       @if (preg_match("/shop/i", env('MODULES')))
         <li class="nav-item dropdown bg-light text-dark p-3 border">
           <a class="nav-link dropdown-toggle text-dark" href="#" id="mobTopMenuShopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-list text-secondry mr-3"></i>
+            <i class="fas fa-shopping-cart text-secondry mr-3"></i>
             <span class="font-weight-bold">
             Shop
             </span>
@@ -123,7 +123,7 @@
 
         <li class="nav-item dropdown bg-light text-dark p-3 border">
           <a class="nav-link dropdown-toggle text-dark" href="#" id="mobTopMenuCmsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-list text-secondry mr-3"></i>
+            <i class="fas fa-edit text-secondry mr-3"></i>
             <span class="font-weight-bold">
             CMS
             </span>
