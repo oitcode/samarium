@@ -129,7 +129,7 @@
             </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="mobTopMenuDropdown2">
-            <a class="dropdown-item py-2" href="{{ route('dashboard-cms-post') }}">
+            <a class="dropdown-item py-3" href="{{ route('dashboard-cms-post') }}">
               <i class="fas fa-edit text-secondary mr-2"></i>
               Post
             </a>
@@ -138,19 +138,19 @@
             <div class="dropdown-divider"></div>
             @endif
 
-            <a class="dropdown-item py-2" href="{{ route('dashboard-cms-webpage') }}">
+            <a class="dropdown-item py-3" href="{{ route('dashboard-cms-webpage') }}">
               <i class="fas fa-clone text-secondary mr-2"></i>
               Page
             </a>
-            <a class="dropdown-item py-2" href="{{ route('dashboard-cms-gallery') }}">
+            <a class="dropdown-item py-3" href="{{ route('dashboard-cms-gallery') }}">
               <i class="fas fa-images text-secondary mr-2"></i>
               Gallery
             </a>
-            <a class="dropdown-item py-2" href="{{ route('dashboard-cms-nav-menu') }}">
+            <a class="dropdown-item py-3" href="{{ route('dashboard-cms-nav-menu') }}">
               <i class="fas fa-link text-secondary mr-2"></i>
               Nav menu
             </a>
-            <a class="dropdown-item py-2" href="{{ route('dashboard-cms-theme') }}">
+            <a class="dropdown-item py-3" href="{{ route('dashboard-cms-theme') }}">
               <i class="fas fa-palette text-secondary mr-2"></i>
               Theme
             </a>
