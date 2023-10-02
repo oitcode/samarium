@@ -44,7 +44,7 @@ class CafeMenuProductCategoryCreate extends Component
         session()->flash('success', 'Product Added');
         $this->resetInputFields();
 
-        $this->emit('productCategoryAdded');
+        $this->emit('productCategoryCreateCompleted');
     }
 
     public function resetInputFields()

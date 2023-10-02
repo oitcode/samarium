@@ -18,8 +18,24 @@ class ProductCategoryComponent extends Component
         'search' => false,
     ];
 
+    protected $listeners = [
+        'productCategoryCreateCompleted',
+        'productCategoryCreateCancelled',
+    ];
+
     public function render()
     {
         return view('livewire.cafe-menu.product-category-component');
+    }
+
+    public function productCategoryCreateCancelled()
+    {
+        $this->exitMode('create');
+    }
+
+    public function productCategoryCreateCompleted()
+    {
+        session()->flash('message', 'Product category created.');
+        $this->exitMode('create');
     }
 }
