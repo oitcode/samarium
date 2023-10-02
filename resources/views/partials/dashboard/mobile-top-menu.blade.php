@@ -26,15 +26,15 @@
       @endif
 
       @if (preg_match("/shop/i", env('MODULES')))
-        <li class="nav-item dropdown bg-light text-dark p-3 border">
-          <a class="nav-link dropdown-toggle text-dark" href="#" id="mobTopMenuShopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+          <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuShopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-shopping-cart text-secondry mr-3"></i>
             <span class="font-weight-bold">
             Shop
             </span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="mobTopMenuShopDropdown">
-            <a class="dropdown-item py-3" href="{{ route('sale') }}">
+          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuShopDropdown">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('sale') }}">
               @if (env('CMP_TYPE') == 'cafe')
                 <i class="fas fa-skating mr-3"></i>
                 Takeaway
@@ -45,17 +45,17 @@
             </a>
 
             @if (env('CMP_TYPE') == 'cafe')
-              <a class="dropdown-item py-3" href="{{ route('cafesale') }}">
+              <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('cafesale') }}">
                 <i class="fas fa-table mr-3"></i>
                 Tables
               </a>
             @endif
 
-            <a class="dropdown-item py-3" href="{{ route('dashboard-purchase') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-purchase') }}">
               <i class="fas fa-shopping-cart mr-3"></i>
               Purchase
             </a>
-            <a class="dropdown-item py-3" href="{{ route('dashboard-expense') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-expense') }}">
               <i class="fas fa-wrench mr-3"></i>
               Expense
             </a>
@@ -63,22 +63,22 @@
             @if (true)
             <div class="dropdown-divider"></div>
             @endif
-            <a class="dropdown-item py-3" href="{{ route('daybook') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('daybook') }}">
               <i class="fas fa-book mr-3"></i>
               Daybook
             </a>
-            <a class="dropdown-item py-3" href="{{ route('weekbook') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('weekbook') }}">
               <i class="fas fa-book mr-3"></i>
               Weekbook
             </a>
-            <a class="dropdown-item py-3" href="{{ route('dashboard-report') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-report') }}">
               <i class="fas fa-chart-line text-secondary mr-3"></i>
               Report
             </a>
             @if (true)
             <div class="dropdown-divider"></div>
             @endif
-            <a class="dropdown-item py-3" href="{{ route('online-order') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('online-order') }}">
               <i class="fas fa-cloud-download-alt mr-3"></i>
               Weborder
             </a>
@@ -87,16 +87,16 @@
             <div class="dropdown-divider"></div>
             @endif
 
-            <a class="dropdown-item py-3" href="{{ route('menu') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('menu') }}">
               <i class="fas fa-dice-d6 mr-3"></i>
               Products
             </a>
-            <a class="dropdown-item py-3" href="{{ route('product-category') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('product-category') }}">
               <i class="fas fa-list mr-3"></i>
               Product category
             </a>
 
-            <a class="dropdown-item py-3" href="{{ route('dashboard-inventory') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-inventory') }}">
               <i class="fas fa-dolly mr-3"></i>
               Inventory
             </a>
@@ -105,11 +105,11 @@
             <div class="dropdown-divider"></div>
             @endif
 
-            <a class="dropdown-item py-3" href="{{ route('customer') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('customer') }}">
               <i class="fas fa-users mr-3"></i>
               Customers
             </a>
-            <a class="dropdown-item py-3" href="{{ route('dashboard-vendor') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-vendor') }}">
               <i class="fas fa-users mr-3"></i>
               Vendors
             </a>
