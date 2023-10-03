@@ -41,7 +41,7 @@
     @livewireStyles
 </head>
 <body style="background-color: #eaeaea;">
-  <div class="mb-5-rm h-100">
+  <div class="h-100">
 
     @if (true)
     <div class="mb-0">
@@ -49,7 +49,7 @@
     </div>
 
     {{-- Mobile top menu --}}
-    <div class="d-md-none col-md-12">
+    <div class="d-md-none col-md-12 p-0">
       @include ('partials.dashboard.mobile-top-menu')
     </div>
     @endif

@@ -30,22 +30,6 @@
 
   </x-toolbar-classic>
 
-  {{-- Show in smaller screens --}}
-  <div class="mb-3 d-md-none">
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('listMode')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'listMode',
-    ])
-
-    @include ('partials.dashboard.spinner-button')
-
-    <div class="clearfix">
-    </div>
-  </div>
-
   {{-- Use required component as per mode --}}
   @if ($modes['onlineOrderDisplay'])
     @livewire ('online-order-display', ['websiteOrder' => $displayingOnlineOrder,])

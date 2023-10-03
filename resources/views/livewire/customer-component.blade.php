@@ -36,28 +36,6 @@
     ])
   </x-toolbar-classic>
 
-  {{-- Show in smaller screens --}}
-  <div class="mb-3 d-md-none">
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('create')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'New',
-        'btnCheckMode' => 'create',
-    ])
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('list')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'list',
-    ])
-
-    @include ('partials.dashboard.spinner-button')
-
-    <div class="clearfix">
-    </div>
-  </div>
-
 
   <!-- Flash message div -->
   @if (session()->has('message'))
