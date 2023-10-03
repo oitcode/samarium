@@ -280,11 +280,13 @@
           'btnText' => 'Calendar',
         ])
 
+        @if (false)
         @include ('partials.dashboard.app-left-menu-button', [
           'btnRoute' => 'dashboard-school-calendar',
           'iconFaClass' => 'fas fa-calendar',
           'btnText' => 'Event',
         ])
+        @endif
       </div>
 
     @endif
