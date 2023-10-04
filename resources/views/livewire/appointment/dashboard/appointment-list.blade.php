@@ -46,7 +46,7 @@
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
     @if ($appointments && count($appointments) > 0)
-      <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
+      <table class="table table-hover shadow-sm border">
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
               {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
@@ -84,26 +84,26 @@
               <td>
                 {{ $appointment->appointment_id }}
               </td>
-              <td class="h5 font-weight-bold d-none d-md-table-cell">
+              <td class="h6 font-weight-bold d-none d-md-table-cell">
                 {{ $appointment->teamMember->name }}
               </td>
-              <td class="h5 font-weight-bold d-none d-md-table-cell">
+              <td class="">
                 {{ $appointment->applicant_name }}
               </td>
-              <td class="h5 font-weight-bold d-none d-md-table-cell">
+              <td class="">
                 {{ $appointment->applicant_phone }}
               </td>
-              <td class="h5 font-weight-bold d-none d-md-table-cell">
+              <td class="">
                 {{ $appointment->applicant_description }}
               </td>
-              <td class="h5 font-weight-bold d-none d-md-table-cell">
+              <td class="">
                 {{ \Carbon\Carbon::create($appointment->appointment_date_time)->toDateString() }}
               </td>
-              <td class="h5 font-weight-bold d-none d-md-table-cell">
+              <td class="">
                 {{ \Carbon\Carbon::create($appointment->appointment_date_time)->toTimeString() }}
               </td>
-              <td class="h5 font-weight-bold d-none d-md-table-cell">
-                <span class="badge badge-primary">Open</span>
+              <td class="">
+                <span class="badge badge-pill badge-primary">Open</span>
               </td>
               @if (false)
               <td>

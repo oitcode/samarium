@@ -1,7 +1,7 @@
 <div>
 
   {{-- Top flash cards --}}
-  @if (true)
+  @if (false)
   <div class="row mb-1">
     <div class="col-md-6">
       {{-- CMS glance --}}
@@ -63,13 +63,11 @@
       <div>
       &nbsp;
       </div>
-      <button class="btn btn-success" style="font-size: 1rem;" wire:click="search">
-        Search
-      </button>
+      @include ('partials.button-general', ['btnText' => 'Search', 'clickMethod' => 'search',])
     </div>
 
     <div class="float-right mr-3">
-      <button class="btn btn-danger h-100 p-3 badge-pill" style="font-size: 1rem;" wire:click="getCreditors">
+      <button class="btn btn-outline-danger h-100 p-3 badge-pill" style="font-size: 1rem;" wire:click="getCreditors">
         Creditors
       </button>
     </div>
@@ -248,7 +246,7 @@
       </table>
     </div>
   @else
-    <div class="text-secondary py-3 px-3" style="font-size: 1.3rem;">
+    <div class="text-secondary py-3" style="font-size: 1.3rem;">
       No customers.
     </div>
   @endif

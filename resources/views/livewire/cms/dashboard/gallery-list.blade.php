@@ -29,25 +29,25 @@
             <tbody>
               @foreach($galleries as $gallery)
               <tr>
-                <td class="text-muted">
+                <td class="text-muted-rm">
                   {{ $gallery->gallery_id }}
                 </td>
 
-                <td class="font-weight-bold">
+                <td class="h6 font-weight-bold">
                   <strong wire:click="$emit('displayGallery', {{ $gallery }})" role="button">
                   {{ $gallery->name }}
                   </strong>
                 </td>
 
-                <td class="text-secondary">
+                <td class="text-secondary-rm">
                   {{ $gallery->description }}
                 </td>
 
-                <td class="text-secondary">
+                <td class="text-secondary-rm">
                   {{ count($gallery->galleryImages) }}
                 </td>
 
-                <td class="text-secondary">
+                <td class="text-secondary-rm">
                   {{ $gallery->totalDiskSpaceOccupied() }}
                 </td>
 

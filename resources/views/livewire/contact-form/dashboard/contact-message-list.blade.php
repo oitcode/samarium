@@ -103,10 +103,10 @@
               <td>
                 {{ $contactMessage->contact_message_id }}
               </td>
-              <td class="h5 font-weight-bold d-none d-md-table-cell">
+              <td class="h6 font-weight-bold d-none d-md-table-cell">
                 {{ $contactMessage->sender_name }}
               </td>
-              <td class="d-none d-md-table-cell font-weight-bold" style="font-size: 1rem;"
+              <td class="d-none d-md-table-cell" style="font-size: 1rem;"
                   wire:click="$emit('displayContactMessage', {{ $contactMessage }})"
                   role="button">
                 {{ \Illuminate\Support\Str::limit($contactMessage->message, 100, $end=' ...') }}
