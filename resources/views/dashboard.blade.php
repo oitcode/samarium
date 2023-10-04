@@ -15,10 +15,10 @@
         Show quick links menu.
     --}}
     <div class="row" style="margin: auto;">
-      <div class="col-md-9 bg-info-rm p-0">
+      <div class="col-md-9 d-none d-md-block bg-info-rm p-0">
         @if (true)
         <div class="h-100 d-flex justify-content-center-rm bg-primary-rm border-rm shadow-sm-rm p-0">
-          <div class="h-100 d-flex flex-column justify-content-center p-3-rm w-100">
+          <div class="h-100 d-flex flex-column justify-content-center-rm p-3-rm w-100">
               @if (true)
                 <div class="">
                   @if (true)
@@ -49,15 +49,12 @@
 
                   <div class="row">
                     <div class="col-md-6">
-                      @livewire ('todo.dashboard.todo-glance')
-                    </div>
-                    <div class="col-md-6">
                       {{-- Product glance --}}
                       <div class="mb-4">
                         @livewire ('shop.dashboard.product-glance')
                       </div>
-
-                    
+                    </div>
+                    <div class="col-md-6">
                     </div>
                   </div>
                 </div>
@@ -67,7 +64,14 @@
         @endif
       </div>
       <div class="col-md-3">
-        @include ('partials.dashboard.mobile-dashboard-main-links')
+        @if (true)
+        <div class="my-3-rm">
+          @include ('partials.dashboard.mobile-dashboard-main-links')
+        </div>
+        @endif
+        <div class="d-none d-md-block">
+          @livewire ('todo.dashboard.todo-glance')
+        </div>
       </div>
     </div>
 

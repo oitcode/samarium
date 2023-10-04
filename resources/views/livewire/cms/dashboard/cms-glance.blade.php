@@ -18,7 +18,7 @@
   {{-- First row --}}
   <div class="row pb-2-rm" style="margin: auto;">
 
-    <div class="col-md-12 p-2-rm m-0 p-0 bg-info-rm" role="button">
+    <div class="col-md-6 p-2-rm m-0 p-0 bg-info-rm" role="button">
       @include ('partials.misc.glance-card', [
           'bsBgClass' => 'bg-white',
           'btnRoute' => 'dashboard-cms-post',
@@ -28,10 +28,9 @@
       ])
     </div>
 
-    @if (false)
-    <div class="col-md-4 p-2 m-0" role="button">
+    <div class="col-md-6 p-2-rm m-0" role="button">
       @include ('partials.misc.glance-card', [
-          'bsBgClass' => 'bg-primary',
+          'bsBgClass' => 'bg-white',
           'btnRoute' => 'dashboard-cms-webpage',
           'iconFaClass' => 'fas fa-clone',
           'btnTextPrimary' => 'Pages',
@@ -39,6 +38,7 @@
       ])
     </div>
 
+    @if (false)
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
           'bsBgClass' => 'bg-primary',

@@ -21,7 +21,9 @@
     @if ($btnTextSecondary)
       <div class="d-flex flex-column justify-content-center p-2 px-3 o-darker-rm" style="">
         <div class="h3 text-primary-rm" style="">
+          @if (false)
           <i class="{{ $iconFaClass }} fa-2x-rm mr-2 mt-1 @if ($bsBgClass != 'bg-white') text-white @else text-secondary @endif"></i>
+          @endif
         </div>
       </div>
     @endif
