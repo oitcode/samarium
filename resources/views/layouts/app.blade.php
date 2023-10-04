@@ -56,7 +56,7 @@
 
     <div class="row" style="margin: auto; min-height: 95vh;">
       {{-- App left menu --}}
-      <div class="col-md-2 p-0 {{ env('OC_ASCENT_BG_COLOR') }} d-none d-md-block border-right shadow-lg">
+      <div class="col-md-2 p-0 {{ env('OC_ASCENT_BG_COLOR') }} d-none d-md-block border-right shadow-sm-rm">
         @if (false)
         @include ('partials.dashboard.app-left-menu')
         @endif

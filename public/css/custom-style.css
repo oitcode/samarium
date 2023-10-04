@@ -133,7 +133,7 @@ animation-play-state:paused;
 }
 
 .o-darker {
-    background: rgba(0, 0, 0, 0.1)
+    background: rgba(0, 0, 0, 0.5)
 }
 
 .o-flipper:hover {

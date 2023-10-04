@@ -38,19 +38,21 @@
     @livewireStyles
 </head>
 
-<body style="height: 100% !important; background-image: linear-gradient(to right, #505 , #55a); {{-- background-color: #55a; --}}">
+<body style="height: 100% !important;  background-image: linear-gradient(45deg, {{ env('OC_SELECT_COLOR') }} , {{ env('OC_SELECT_COLOR') }} 15%, {{
+env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55a; --}}">
 
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
-        <div class="py-4 bg-primary-rm text-primary-rm" style="background-color: #eee; color: #55a;">
+        <div class="py-4 bg-primary-rm text-primary-rm rounded border shadow" style="background-color: #eee; color: {{ env('OC_SELECT_COLOR') }};">
           @if (true)
-          <div class="h2 text-center">
+          <div class="h2 text-center" style="text-shadow: 1px 0 {{ env('OC_SELECT_COLOR') }};text-shadow: -1px 0 {{ env('OC_SELECT_COLOR') }};
+          {{-- font-family: Mono; --}}">
             <i class="fas fa-check-circle mr-1"></i>
             Ozone
           </div>
           @endif
         </div>
-        <div class="row-rm border shadow-sm bg-white d-flex py-3" style="">
+        <div class="row-rm border shadow bg-white d-flex py-3" style="">
           <div class="bg-primary text-white">
             <div class="h2-rm text-center text-white-rm p-0">
               @if (false)
@@ -90,11 +92,11 @@
           </div>
           <div class="col-md-8-rm px-5 py-3">
             @if (true)
-            <h2 class="text-center h4 font-weight-bold text-secondary">
+            <h2 class="text-center h4 font-weight-bold text-secondary mb-4">
               Login
             </h2>
             @endif
-            <div class="text-secondary text-center-rm mb-4">
+            <div class="text-secondary text-center-rm mb-5-rm">
               @if (false)
               Welcome back.
               Please login to your account.
@@ -103,7 +105,7 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
-                <div class="form-group shadow-sm mb-4">
+                <div class="form-group shadow-sm mb-3">
                   <input id="email" type="email"
                       class="form-control @error('email') is-invalid @enderror"
                       style="font-size: 1.2rem;"
@@ -152,8 +154,9 @@
                 </div>
                 @endif
 
-                <div class="form-group mt-4 mb-1">
-                    <button type="submit" class="btn btn-success-rm btn-block py-3 text-white shadow" style="{{-- font-size: 1.3rem; --}} background-color: #55a;">
+                <div class="form-group mt-5 mb-1">
+                    <button type="submit" class="btn btn-success-rm badge-pill btn-block py-3 text-white shadow"
+                        style="{{-- font-size: 1.3rem; --}} background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR') }}, {{ env('OC_SELECT_COLOR') }});">
                         <span class="h5">
                           {{ __('Login') }}
                         </span>
@@ -172,8 +175,8 @@
           </div>
         </div>
 
-        <div class="my-4">
-          <div class="d-flex flex-column justify-content-center text-white">
+        <div class="my-5 text-muted">
+          <div class="d-flex flex-column justify-content-center">
             <div class="d-flex justify-content-center">
               <div class="w-50 text-center">
                 &copy; 2023 OIT

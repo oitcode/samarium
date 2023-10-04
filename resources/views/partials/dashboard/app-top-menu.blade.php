@@ -1,10 +1,12 @@
-<div class="{{ env('OC_ASCENT_BG_COLOR') }}-rm {{ env('OC_ASCENT_TEXT_COLOR') }}-rm bg-dark-rm text-white  py-2 text-right d-none d-md-block mb-3-rm border-bottom-rm"
-    style="{{-- background-color: #55a; color: white; --}} background-image: linear-gradient(to right, #000 , {{ env('OC_SELECT_COLOR', '#000050') }})">
+<div class="d-none d-md-block py-2-rm text-right"
+    style="background-color: {{ env('OC_SELECT_COLOR') }}; color: white; {{--  background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR', '#000050') }} , {{
+    env('OC_SELECT_COLOR', '#000050') }}); --}}">
+  <div class="o-darker-rm py-2">
   @guest
   @else
 
     <div class="float-left d-flex">
-      <div class="p-2">
+      <div class="p-2" style="color: {{ env('OC_SELECT_TXT COLOR') }};">
         <i class="fas fa-feather-alt fa-2x"></i>
         @if (true)
         <span class="h3 ml-3">
@@ -89,7 +91,7 @@
     {{-- Help/Support --}}
     <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
       <a href="{{ route('dashboard-help') }}">
-        <i  class="fas fa-question-circle text-white mr-2"></i>
+        <i  class="fas fa-question-circle text-dark-rm mr-2" style="color: {{ env('OC_SELECT_TXT_COLOR') }}"></i>
       </a>
     </div>
 
@@ -109,4 +111,5 @@
   </div>
 
   @endguest
+  </div>
 </div>
