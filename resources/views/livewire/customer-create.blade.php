@@ -1,7 +1,20 @@
-<x-box-create title="Create customer">
+<div class="bg-white p-3">
+
+  <div class="mb-4">
+    <h1 class="h5 font-weight-bold">
+      Customer create
+    </h1>
+  </div>
+
+  <div class="my-3 mb-4 bg-light border p-2">
+    @if (true)
+    <i class="fas fa-exclamation-circle mr-1"></i>
+    @endif
+    Fields marked with asterik (*) are compulsory.
+  </div>
 
   <div class="form-group">
-    <label for="">Name</label>
+    <label for="">Name *</label>
     <input type="text" class="form-control" wire:model.defer="name">
     @error('name') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
@@ -33,4 +46,4 @@
   @include ('partials.button-store')
   @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
 
-</x-box-create>
+</div>
