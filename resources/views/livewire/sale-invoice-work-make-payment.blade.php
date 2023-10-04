@@ -43,7 +43,7 @@
     <div class="table-responsive mb-0">
       <table class="table mb-0">
         <tbody>
-          <tr class="border-bottom" style="font-size: 1.3rem; height: 50px;">
+          <tr class="border-bottom-rm" style="font-size: 1.3rem; height: 50px;">
             <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4">
                 Customer
@@ -67,11 +67,11 @@
     @endif
 
     <div class="table-responsive mb-0">
-      <table class="table table-bordered-rm mb-0 bg-danger">
+      <table class="table table-bordered-rm mb-0 bg-danger-rm">
         <tbody>
 
 
-          <tr style="height: 50px;" class="bg-light border-bottom">
+          <tr style="height: 50px;" class="bg-light-rm border-danger-rm">
             <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4">
                 Subtotal
@@ -89,7 +89,7 @@
             @continue
           @else
           <tr style="{{-- height: 40px; --}}" class="bg-light border-0">
-            <td class="w-50 p-0-rm bg-info-rm pl-0 pt-2 font-weight-bold border-bottom" style="font-size: calc(0.8rem + 0.2vw);">
+            <td class="w-50 p-0-rm bg-info-rm pl-0 pt-2 font-weight-bold border-bottom-rm border-0" style="font-size: calc(0.8rem + 0.2vw);">
               {{-- Hard code for discount . Temp. Todo permanent design/fix --}} 
               @if (strtolower($key) == 'discount')
                 <div class="ml-4">
@@ -122,7 +122,7 @@
                 </span>
               @endif
             </td>
-            <td class="p-0 h-100 font-weight-bold border-bottom" style="font-size: calc(1rem + 0.2vw);">
+            <td class="p-0 h-100 font-weight-bold border-bottom-rm border-0" style="font-size: calc(1rem + 0.2vw);">
               @if (strtolower($key) == 'vat')
                 {{ $val }}
               @else
@@ -163,7 +163,7 @@
 
           {{-- Todo: Only vat? Any other taxes? --}}
           @if ($has_vat)
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom">
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom-m">
             <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4">
                 Taxable amount
@@ -183,7 +183,7 @@
             @if (strtolower($key) != 'vat')
               @continue
             @else
-            <tr style="height: 50px;" class="bg-light border-bottom">
+            <tr style="height: 50px;" class="bg-light border-bottom-rm">
               <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2" style="font-size: calc(0.8rem + 0.2vw);">
                 @if (strtolower($key) == 'vat')
                   <div class="ml-4">
@@ -202,7 +202,7 @@
             @endif
           @endforeach
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom">
+          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom-rm">
             <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4 d-inline-block">
                 Total
@@ -223,7 +223,7 @@
       <table class="table table-bordered mb-0">
         <tbody>
 
-          <tr style="height: 50px;" class="bg-light-rm border-bottom">
+          <tr style="height: 50px;" class="bg-light-rm border-bottom-rm">
             <td class="w-50 p-0 pt-2 bg-success-rm text-white-rm p-0 font-weight-bold border-0" style="font-size: calc(0.9rem + 0.2vw);">
               <span class="ml-4 d-inline-block mt-2 mb-3" style="font-size: 1rem;">
                 @if (true)
@@ -254,7 +254,7 @@
             </td>
           </tr>
 
-          <tr style="height: 50px;" class="bg-light border-bottom">
+          <tr style="height: 50px;" class="bg-light border-bottom-rm">
             <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <span class="ml-4">
                 Payment type
