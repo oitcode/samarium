@@ -82,7 +82,7 @@
           </h3>
           @endif
           <div class="table-responsive">
-            <table class="table table-sm table-striped table-bordered-rm">
+            <table class="table table-sm table-striped-rm table-bordered-rm">
               <tr>
                 <td>
                   PAN No
@@ -127,129 +127,61 @@
               </div>
               <div class="mb-1">
               </div>
-  
             </div>
           </div>
         </div>
       </div>
 
-      {{-- Company Info     PRINT     --}}
-      <div class="pb-3 border-bottom mb-3-rm p-2 d-none d-md-none d-print-block" style="background-color: #fff; width: 800px !important;">
-        <div class="">
-          <img src="{{ asset('storage/' . $company->logo_image_path) }}" style="width: 50px; height: 50px;">
-          <h1 class="h5 mt-2 mb-0" style="color: gray;">
-            {{ $company->name }}
-          </h1>
-          <h2 class="h6 mb-2 text-muted" style="font-size: 0.7rem;">
-            @if ($has_vat)
-              VAT No:
-            @else
-              PAN No:
-            @endif
-            {{ $company->pan_number }}
-          </h2>
-          <h2 class="h6 mb-0" style="font-size: 0.8rem;">
-            {{ $company->address }}
-          </h2>
-          <h3 class="h6 mb-0" style="font-size: 0.8rem;">
-            {{ $company->phone }}
-          </h3>
+      {{-- Customer info --}}
+      <div class="p-3">
+
+        <div class="h5 text-muted-rm mb-2">
+          Customer
         </div>
-  
-        <div class="">
-          <div class="">
-            <div class="border-rm mt-2">
-              <div class="my-3 border-top border-bottom" style="background-color: gray;">
-                SALE INVOICE
-              </div>
-              <div class="mb-1">
-                <div class="h6 text-muted-rm mb-1" style="font-size: 0.8rem;">
-                  <span class="text-muted" style="font-size: 0.6rem">
-                    Bill no:
-                  </span>
-                  <span style="font-size: 1rem;">
-                    {{ $saleInvoice->sale_invoice_id }}
-                  </span>
-                </div>
-              </div>
-  
-              <div class="mb-1">
-                <div class="text-muted-rm mb-1" style="font-size: 0.8rem;">
-                  <span class="text-muted" style="font-size: 0.6rem">
-                    Date:
-                  </span>
-                  <span>
-                    {{ $saleInvoice->created_at->toDateString() }}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      {{-- Main Info --}}
-      <div class="shadow-rm bg-warning-rm">
-        <div class="card mb-0 shadow-sm border-0">
-          <div class="card-body px-2 bg-dark-rm p-0">
-  
-  
-            <div class="row-rm bg-warning-rm" style="{{-- margin: auto; background-color: #efe; --}}">
-  
-              <div class="col-md-3-rm mb-3-rm border-bottom-rm py-3">
-                <div class="h5 text-muted-rm mb-2">
-                  Customer
-                </div>
-  
+
+        <div class="table-responsive">
+          <table class="table table-sm table-striped-rm table-bordered-rm">
+            <tr>
+              <td>
+                Name
+              </td>
+              <td>
                 @if ($saleInvoice->customer)
-                <div class="col-md-3 p-0">
-                  <table class="table table-sm table-striped table-bordered-rm mb-0">
-                    <tr class="border-0 m-0 p-0">
-                      <td class="w-25-rm pl-0-rm border-0-rm m-0 p-0-rm" style="">
-                        Name
-                      </td>
-                      <td class="border-0-rm m-0 p-0-rm">
-                        @if ($saleInvoice->customer)
-                          {{ $saleInvoice->customer->name }}
-                        @else
-                          <i class="fas fa-exclamation-circle text-muted mr-2"></i>
-                          <span class="text-muted">
-                            None
-                          </span>
-                        @endif
-                      </td>
-                    </tr>
-                    <tr class="border-0 m-0 p-0">
-                      <td class="pl-0-rm border-0-rm m-0 p-0-rm" style="">
-                        PAN No
-                      </td>
-                      <td class="border-0-rm m-0 p-0-rm">
-                        @if ($saleInvoice->customer->pan_num)
-                          {{ $saleInvoice->customer->pan_num }}
-                        @else
-                          <span class="text-muted" style="">
-                            No info
-                          </span>
-                        @endif
-                      </td>
-                    </tr>
-                  </table>
-                </div>
+                  {{ $saleInvoice->customer->name }}
                 @else
-                  <div class="text-muted" style="">
-                    <i class="fas fa-exclamation-circle mr-2"></i>
-                    No info
-                  </div>
+                  <i class="fas fa-exclamation-circle text-muted mr-2"></i>
+                  <span class="text-muted">
+                    None
+                  </span>
                 @endif
-  
-              </div>
-            </div>
-  
-          </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                PAN No
+              </td>
+              <td>
+                @if ($saleInvoice->customer->pan_num)
+                  {{ $saleInvoice->customer->pan_num }}
+                @else
+                  <span class="text-muted" style="">
+                    No info
+                  </span>
+                @endif
+              </td>
+            </tr>
+          </table>
         </div>
-  
-        {{-- Items List --}}
-  
+
+
+        {{--
+            ----
+            ----
+            ---- Items List
+            ----
+            ----
+        --}}
+
         {{-- Show in bigger screens --}}
         <div class="table-responsive border bg-white mb-0 d-none d-md-block">
           <table class="table table-sm table-borderd table-hover border-dark shadow-sm mb-0">
@@ -336,88 +268,6 @@
           </table>
         </div>
 
-  {{-- Print --}}
-  <div class="d-none d-print-block" style="width: 100%;">
-    <table class="border-dark mb-0" style="">
-      <thead>
-        <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
-          <th style="width: 300px;">Item</th>
-          <th style="width: 100px;">Price</th>
-          <th style="width: 100px;">Quantity</th>
-          <th style="width: 100px;">Amount</th>
-        </tr>
-      </thead>
-    
-      <tbody style="">
-        @foreach ($saleInvoice->saleInvoiceItems as $item)
-        <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold-rm">
-          <td>
-            {{ $item->product->name }}
-          </td>
-          <td>
-            {{--
-            @php echo number_format( $item->product->selling_price ); @endphp
-            --}}
-            @php echo number_format( $item->price_per_unit); @endphp
-          </td>
-          <td>
-            <span class="badge badge-pill-rm badge-success">
-              {{ $item->quantity }}
-            </span>
-          </td>
-          <td>
-            @php echo number_format( $item->getTotalAmount() ); @endphp
-          </td>
-        </tr>
-        @endforeach
-      </tbody>
-    
-      <tfoot class="bg-success-rm text-white-rm">
-        <tr class="bg-primary-rm">
-         <td colspan="3" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right pr-3">
-            <strong>
-            Subtotal
-            </strong>
-          </td>
-          <td style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
-            @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
-          </td>
-        </tr>
-        @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
-          <tr class="border-0 mb-0 p-0">
-            <td colspan="3" style="font-size: calc(0.6rem + 0.2vw);"
-                class="
-                  font-weight-bold text-right border-0 p-0 pr-3
-                ">
-              {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
-              @if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) == 'vat')
-              (13%)
-              @endif
-            </td>
-            <td style="font-size: calc(0.6rem + 0.2vw);"
-                class="
-                  @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
-                    text-danger
-                  @endif
-                  font-weight-bold border-0 p-0 pl-1">
-              @php echo number_format( $saleInvoiceAddition->amount ); @endphp
-            </td>
-          </tr>
-        @endforeach
-    
-        <tr class="border-0 bg-danger-rm p-0">
-          <td colspan="3" style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold text-right border-0 pr-3">
-            Total
-          </td>
-          <td style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold border-0">
-            @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
-          </td>
-        </tr>
-      </tfoot>
-    
-    </table>
-  </div>
-  
         {{-- Show in smaller screens --}}
         <div class="table-responsive bg-white mb-0 d-md-none d-print-none mt-3">
           <table class="table table-bordered-rm table-hover border-dark shadow-sm mb-0">
@@ -431,14 +281,14 @@
                 <td>
                   {{ $item->product->name }}
                   <br />
-                  <span class="text-primary mr-3">
+                  <span class="text-secondary mr-3">
                     Rs @php echo number_format( $item->price_per_unit); @endphp
                   </span>
                   <span class="text-secondary" style="">
                     Qty: {{ $item->quantity }}
                   </span>
                 </td>
-                <td>
+                <td class="bg-warning-rm text-right">
                   @php echo number_format( $item->getTotalAmount() ); @endphp
                 </td>
               </tr>
@@ -448,16 +298,16 @@
         </div>
   
         <div class="table-responsive d-md-none d-print-none">
-          <table class="table table-sm">
+          <table class="table table-sm mb-0">
   
-            <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
+            <tfoot class="bg-success-rm text-white-rm" style="background-image: linear-gradient(to right, white, #abc);">
               <tr>
-                <td style="" class="font-weight-bold text-right">
+                <td style="" class="font-weight-bold text-right-rm">
                   <strong>
                   Total
                   </strong>
                 </td>
-                <td style="" class="font-weight-bold">
+                <td style="" class="font-weight-bold text-right">
                   @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
                 </td>
               </tr>
@@ -465,7 +315,7 @@
                 <tr class="border-0">
                   <td style=""
                       class="
-                        font-weight-bold text-right border-0
+                        font-weight-bold text-right-rm border-0
                       ">
                     {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                   </td>
@@ -474,6 +324,7 @@
                         @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                           text-danger
                         @endif
+                        text-right
                         font-weight-bold border-0">
                     @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                   </td>
@@ -481,12 +332,12 @@
               @endforeach
   
               <tr class="border-0">
-                <td  style="" class="font-weight-bold text-right border-0">
+                <td  style="" class="font-weight-bold text-right-rm border-0">
                   <strong>
                   Grand total
                   </strong>
                 </td>
-                <td style="" class="font-weight-bold border-0">
+                <td style="" class="font-weight-bold text-right border-0">
                   @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                 </td>
               </tr>

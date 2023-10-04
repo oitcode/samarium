@@ -1,10 +1,11 @@
 <div>
   <div class="bg-white border p-3">
     <div class="mb-3">
-      <h2 class="h5 font-weight-bold">
+      <h2 class="h5 font-weight-bold mb-4">
         Transactions
       </h2>
     </div>
+    @if (false)
     <div class="mb-4 d-none d-md-block p-0">
 
       {{-- Date selector --}}
@@ -42,6 +43,7 @@
       </div>
 
     </div>
+    @endif
 
     <div class="row">
       <div class="col-md-4">

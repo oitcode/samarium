@@ -1,9 +1,9 @@
 <div>
 
   {{-- Show in bigger screens --}}
-  <div class="card shadow-sm h-100 d-none d-md-block">
+  <div class="card shadow-sm-rm h-100 d-none d-md-block border-0">
     <div class="card-body p-0 bg-danger-rm text-white-rm">
-      <div class="p-3">
+      <div class="p-0">
   
         <div class="">
           <div class="d-flex justify-content-between">
@@ -12,10 +12,12 @@
               Expense
             </h2>
 
+            @if (false)
             <i class="fas fa-tools"></i>
+            @endif
           </div>
 
-          <h2 class="h3 font-weight-bold">
+          <h2 class="h5 font-weight-bold">
             Rs
             @php echo number_format( $todayExpenseTotalAmount ); @endphp
           </h2>
