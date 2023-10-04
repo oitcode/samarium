@@ -4,10 +4,10 @@
     <div class="my-3 font-weight-bold">
       <div class="text-secondary">
         Payment date
+        <span class="" style="">
+          {{ date('Y-m-d') }}
+        </span>
       </div>
-      <span class="badge badge-pill badge-secondary" style="font-size: 1rem;">
-        {{ date('Y-m-d') }}
-      </span>
     </div>
 
     <div class="form-group">
@@ -37,17 +37,12 @@
       @error('deposited_by') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="p-3 m-0">
+    <div class="py-3 m-0">
       <div class="row">
 
         <div class="col-md-8">
-          <button class="btn btn-lg btn-success mr-3" wire:click="store" style="font-size: 1.3rem;">
-            Submit
-          </button>
-
-          <button class="btn btn-lg btn-danger" wire:click="$emit('exitCustomerPaymentCreateMode')" style="font-size: 1.3rem;">
-            Cancel
-          </button>
+          @include ('partials.button-store')
+          @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCustomerPaymentCreateMode'])
         </div>
       </div>
 

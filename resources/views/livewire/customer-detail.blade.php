@@ -1,66 +1,62 @@
-<div class="bg-white p-3 border shadow">
+<div class="bg-white-rm p-3-rm border-rm shadow-rm">
 
-  <h2 class="my-4">
-    {{ $customer->name }}
-  </h2>
-
-  <div class="row">
-    <div class="col-md-3">
-
-      <div>
-        @if ($customer->phone)
-          <i class="fas fa-phone text-secondary mr-3"></i>
-          {{ $customer->phone}}
-        @else
-          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
-          <span class="text-secondary">
-          Phone unknown
-          </span>
-        @endif
-      </div>
-
-      <div>
-        @if ($customer->email)
-          {{ $customer->email}}
-        @else
-          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
-          <span class="text-secondary">
-          Email unknown
-          </span>
-        @endif
-      </div>
-
-      <div>
-        @if ($customer->address)
-          {{ $customer->address}}
-        @else
-          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
-          <span class="text-secondary">
-          Address unknown
-          </span>
-        @endif
-      </div>
-
-      <div>
-        @if ($customer->pan_num)
-          {{ $customer->pan_num}}
-        @else
-          <i class="fas fa-exclamation-circle text-danger mr-3"></i>
-          <span class="text-secondary">
-          PAN number unknown
-          </span>
-        @endif
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <h2 class="h5 text-secondary">
-        Balance
-      </h2>
-      <span class="text-danger" style="font-size: 1.5rem;">
-      Rs
-      @php echo number_format( $customer->getBalance() ); @endphp
-      </span>
+  <div class="bg-white p-3-rm border">
+    <div class="table-responsive">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <td>{{ $customer->name }}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>
+              @if ($customer->email)
+                {{ $customer->email}}
+              @else
+                <i class="fas fa-exclamation-circle text-warning mr-1"></i>
+                <span class="text-secondary">
+                Email unknown
+                </span>
+              @endif
+            </td>
+          </tr>
+          <tr>
+            <th>Phone</th>
+            <td>
+              @if ($customer->phone)
+                <i class="fas fa-phone text-secondary mr-3"></i>
+                {{ $customer->phone}}
+              @else
+                <i class="fas fa-exclamation-circle text-warning mr-1"></i>
+                <span class="text-secondary">
+                Phone unknown
+                </span>
+              @endif
+            </td>
+          </tr>
+          <tr>
+            <th>PAN Num</th>
+            <td>
+              @if ($customer->pan_num)
+                {{ $customer->pan_num}}
+              @else
+                <i class="fas fa-exclamation-circle text-warning mr-1"></i>
+                <span class="text-secondary">
+                PAN number unknown
+                </span>
+              @endif
+            </td>
+          </tr>
+          <tr>
+            <th>Balance</th>
+            <td>
+              Rs
+              @php echo number_format( $customer->getBalance() ); @endphp
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 

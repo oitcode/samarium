@@ -119,7 +119,7 @@
           </div>
         </div>
   
-        <div class="">
+        <div class="d-none d-md-block">
           <div class="h-100 d-flex flex-column justify-content-center">
             <div class="bg-danger-rm border-rm mt-2">
               <div class="mt-4-rm mb-1 p-2 bg-primary-rm text-white-rm text-center" style="{{-- background-color: orange; --}}">
