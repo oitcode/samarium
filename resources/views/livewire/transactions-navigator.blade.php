@@ -2,7 +2,7 @@
   <div class="bg-white border p-3">
     <div class="mb-3">
       <h2 class="h5 font-weight-bold mb-4">
-        Transactions
+        Today
       </h2>
     </div>
     @if (false)
