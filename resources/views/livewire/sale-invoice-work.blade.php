@@ -7,11 +7,11 @@
   {{-- Show in bigger screens --}}
   <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-md-6">
 
       @if ($saleInvoice)
         {{-- Todo: Why true? Why only takeaway? --}} 
-        @if (true || $saleInvoice->takeaway->status == 'open' && $modes['addItem'])
+        @if (true && $saleInvoice->takeaway->status == 'open' && $modes['addItem'])
           @livewire ('sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
         @endif
       @endif
@@ -29,7 +29,7 @@
         <div class="card-body p-0 bg-primary-rm text-danger-rm">
 
 
-          <div class="row p-0 mt-2 py-5" style="margin: auto;">
+          <div class="row p-0 mt-2 pb-5" style="margin: auto;">
 
 
             <div class="col-md-2 mb-3 d-flex">
@@ -467,10 +467,17 @@
 
     </div>
   
+
     <div class="col-md-4">
       @if ($saleInvoice->status != 'closed' && $saleInvoice->payment_status != 'paid' && $modes['makePayment'])
         @livewire ('sale-invoice-work-make-payment', ['saleInvoice' => $saleInvoice,])
       @endif
+    </div>
+
+    <div class="col-md-2">
+      <div class="my-4-rm">
+        @include ('partials.dashboard.sale-invoice-work-options')
+      </div>
     </div>
   </div>
 

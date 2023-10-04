@@ -57,11 +57,9 @@
     {{--
         Show quick links menu.
     --}}
-    <div class="row">
-      <div class="col-md-6">
-        @include ('partials.dashboard.mobile-dashboard-main-links')
-      </div>
-      <div class="col-md-6">
+    <div class="row" style="margin: auto;">
+      <div class="col-md-9 bg-white">
+        @if (false)
         <div class="h-100 d-flex justify-content-center bg-white-rm border-rm shadow-sm-rm">
           <div class="h-100 d-flex flex-column justify-content-center">
             <h2 class="h1 font-weight-bold">
@@ -69,6 +67,10 @@
             </h2>
           </div>
         </div>
+        @endif
+      </div>
+      <div class="col-md-3">
+        @include ('partials.dashboard.mobile-dashboard-main-links')
       </div>
     </div>
 

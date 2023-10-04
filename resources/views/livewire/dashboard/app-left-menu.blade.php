@@ -2,6 +2,7 @@
 @if (true)
 <div class="d-none d-md-block">
 
+  <div class="border-top">
   @include ('partials.dashboard.app-left-menu-button',
       [
           'btnRoute' => 'dashboard',
@@ -9,6 +10,7 @@
           'btnText' => 'Dashboard',
           'bordered' => 'yes',
       ])
+  </div>
 
 
 

@@ -97,7 +97,9 @@
       @elseif ($modes['displayProduct'])
         @livewire ('cafe-menu-product-display', ['product' => $displayingProduct,])
       @elseif ($modes['list'])
+        @if (false)
         @livewire ('cafe-menu-list')
+        @endif
       @elseif ($modes['createProductFromCsvMode'])
         @if (true)
         @livewire ('cafe-menu-product-create-from-csv')

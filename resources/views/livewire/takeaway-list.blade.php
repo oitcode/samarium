@@ -7,7 +7,7 @@
   </button>
 
   {{-- Top flash cards --}}
-  @if (true)
+  @if (false)
   <div class="row mb-1">
     <div class="col-md-6">
       <div class="mb-4">
@@ -36,11 +36,11 @@
   @endif
 
 
-  <div class="d-flex mb-4 pl-3" style="font-size: 1rem;">
-    <div class="mr-4">
+  <div class="d-flex my-4 pl-3-rm" style="font-size: 1rem;">
+    <div class="mr-4 font-weight-bold">
       Today : {{ $todayTakeawayCount }}
     </div>
-    <div class="mr-4">
+    <div class="mr-4 font-weight-bold">
       Total : {{ $totalTakeawayCount }}
     </div>
   </div>

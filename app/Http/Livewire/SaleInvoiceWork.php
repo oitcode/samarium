@@ -26,7 +26,7 @@ class SaleInvoiceWork extends Component
     public $customer_id;
 
     public $modes = [
-        'addItem' => true,
+        'addItem' => false,
         'makePayment' => true,
         'confirmRemoveSaleInvoiceItem' => false,
         'backDate' => false,

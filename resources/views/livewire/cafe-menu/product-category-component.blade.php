@@ -14,7 +14,7 @@
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('create')",
         'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'Category',
+        'btnText' => 'New',
         'btnCheckMode' => 'create',
     ])
 
