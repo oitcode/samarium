@@ -1,5 +1,5 @@
-<div class="m-2 p-3 border-rm">
-  <div class="p-3 border shadow" style="font-size: 1.1rem;">
+<div class="p-0">
+  <div class="my-3 p-3 bg-white border shadow" style="font-size: 1.1rem;">
     @if (true)
     {{-- Category --}}
     <div class="form-group">
@@ -59,18 +59,9 @@
     @endif
 
     {{-- Submit button --}}
-    <div class="my-3">
-      <button class="btn btn-lg btn-success mr-3" wire:click.prevent="addItemToSaleInvoice" style="font-size: 1.3rem;">
-        <i class="fas fa-plus-circle mr-2"></i>
-        Add
-      </button>
-  
-      @if (true)
-      <button class="btn btn-lg btn-danger" wire:click.prevent="resetInputFields" style="font-size: 1.3rem;">
-        <i class="fas fa-sync mr-2"></i>
-        Reset
-      </button>
-      @endif
+    <div class="my-4">
+      @include ('partials.button-general', ['btnText' => 'Add', 'clickMethod' => 'addItemToSaleInvoice',])
+      @include ('partials.button-general', ['btnText' => 'Reset', 'clickMethod' => 'resetInputFields', 'btnColor' => 'light',])
   
       <button wire:loading class="btn">
         <span class="spinner-border text-info mr-3" role="status">

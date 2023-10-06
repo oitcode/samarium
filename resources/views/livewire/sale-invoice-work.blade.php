@@ -34,7 +34,7 @@
 
             <div class="col-md-2 mb-3 d-flex">
               <div>
-                <div class="mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+                <div class="mb-1 h6" style="">
                   Invoice ID
                 </div>
                 <div class="h6">
@@ -44,7 +44,7 @@
             </div>
 
             <div class="col-md-3 mb-3">
-              <div class="mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+              <div class="mb-1 h6" style="">
                 Invoice Date
               </div>
               @if ($modes['backDate'])
@@ -68,8 +68,8 @@
               @endif
             </div>
 
-            <div class="col-md-3 mb-3-rm bg-light-rm text-dark-rm py-2-rm border-left border-right">
-              <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+            <div class="col-md-3 mb-3 bg-light-rm text-dark-rm py-2-rm border-left border-right">
+              <div class="text-muted-rm mb-1 h6" style="">
                 Customer
               </div>
               <div class="d-flex">
@@ -106,8 +106,8 @@
               </div>
             </div>
 
-            <div class="col-md-2" style="font-size: calc(0.6rem + 0.2vw);">
-              <div class="" style="font-size: calc(0.6rem + 0.2vw);">
+            <div class="col-md-2" style="">
+              <div class="" style="">
                 Payment Status
               </div>
               <div>
@@ -131,21 +131,23 @@
               </div>
             </div>
             <div class="col-md-2 bg-warning-rm">
-              <div class="d-flex justify-content-end h-100">
-                <button class="btn btn-light h-100 d-flex flex-column justify-content-start p-0" style="color: green;">
-                  @if (false)
-                  <i class="fas fa-dice-d6"></i>
-                  <br/>
-                  @endif
-                  <span style="font-size: 1.1rem;"> @if ($saleInvoice->takeaway)
-                      Sales
-                    @elseif ($saleInvoice->seatTableBooking)
-                      {{ $saleInvoice->seatTableBooking->seatTable->name }}
-                    @else
-                      Sales
+              <div class="d-none d-md-block">
+                <div class="d-flex justify-content-end-rm h-100">
+                  <button class="btn btn-light h-100 d-flex flex-column justify-content-start p-0" style="color: green;">
+                    @if (false)
+                    <i class="fas fa-dice-d6"></i>
+                    <br/>
                     @endif
-                  </span>
-                </button>
+                    <span style=""> @if ($saleInvoice->takeaway)
+                        Sales
+                      @elseif ($saleInvoice->seatTableBooking)
+                        {{ $saleInvoice->seatTableBooking->seatTable->name }}
+                      @else
+                        Sales
+                      @endif
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -167,7 +169,7 @@
             <div class="table-responsive d-none d-md-block">
               <table class="table table-hover border-dark mb-0">
                 <thead>
-                  <tr class="" style="font-size: calc(0.6rem + 0.2vw);">
+                  <tr class="" style="">
                     <th>--</th>
 
                     {{-- Todo: Good way to deal with takeaway and seat table booking? --}} 
@@ -188,11 +190,11 @@
                   </tr>
                 </thead>
   
-                <tbody style="font-size: 1.3rem;">
+                <tbody style="">
                   @if ($saleInvoice)
                     @if (count($saleInvoice->saleInvoiceItems) > 0)
                       @foreach ($saleInvoice->saleInvoiceItems as $item)
-                      <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm">
+                      <tr style="" class="font-weight-bold text-white-rm">
                         @if (
                               (
                                 $saleInvoice->takeaway &&
@@ -210,7 +212,7 @@
                             </a>
                           </td>
                         @endif
-                        <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+                        <td class="text-secondary" style=""> {{ $loop->iteration }} </td>
                         <td>
                           <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
                           {{ $item->product->name }}
@@ -219,7 +221,7 @@
                           @php echo number_format( $item->price_per_unit ); @endphp
                         </td>
                         <td>
-                          <span class="badge badge-pill-rm badge-success">
+                          <span class="">
                             {{ $item->quantity }}
                           </span>
                         </td>
@@ -232,7 +234,7 @@
                   @endif
                 </tbody>
   
-                <tfoot class="" style="font-size: 0.8rem;">
+                <tfoot class="" style="">
                   <tr class="bg-danger-rm py-0">
                     <td colspan="
                         @if (
@@ -386,7 +388,7 @@
                     </tr>
                   @endforeach
 
-                  <tr class="border-0 bg-success text-white p-0" style="font-size: 1rem;">
+                  <tr class="border-0 bg-success text-white p-0" style="">
                     <td colspan="
                         @if (
                           (
@@ -424,17 +426,17 @@
                 @if ($saleInvoice)
                   @if (count($saleInvoice->saleInvoiceItems) > 0)
                     @foreach ($saleInvoice->saleInvoiceItems as $item)
-                    <tr style="font-size: 1.1rem;" class="font-weight-bold text-white-rm">
+                    <tr style="" class="font-weight-bold text-white-rm">
                       <td>
                         <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                       </td>
                       <td>
                         {{ $item->product->name }}
                         <br />
-                        <span class="text-primary mr-3">
+                        <span class="text-primary-rm mr-3">
                           Rs @php echo number_format( $item->product->selling_price ); @endphp
                         </span>
-                        <span class="text-secondary" style="font-size: 1rem;">
+                        <span class="text-secondary" style="">
                           Qty: {{ $item->quantity }}
                         </span>
                       </td>

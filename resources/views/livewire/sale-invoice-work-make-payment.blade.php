@@ -30,12 +30,12 @@
       </div>
       @endif
   
-      <div class="table-responsive mb-0">
+      <div class="table-responsive mb-0 bg-white">
         <table class="table table-bordered-rm mb-0 bg-danger-rm">
           <tbody>
   
   
-            <tr style="height: 50px;" class="bg-light-rm border-danger-rm">
+            <tr style="height: 50px;" class="">
               <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2" style="font-size: calc(0.8rem + 0.2vw);">
                 <span class="ml-4">
                   Subtotal
@@ -52,7 +52,7 @@
             @if (strtolower($key) == 'vat')
               @continue
             @else
-            <tr style="{{-- height: 40px; --}}" class="bg-light border-0">
+            <tr style="{{-- height: 40px; --}}" class="border-0">
               <td class="w-50 p-0-rm bg-info-rm pl-0 pt-2 font-weight-bold border-bottom-rm border-0" style="font-size: calc(0.8rem + 0.2vw);">
                 {{-- Hard code for discount . Temp. Todo permanent design/fix --}} 
                 @if (strtolower($key) == 'discount')
@@ -127,7 +127,7 @@
   
             {{-- Todo: Only vat? Any other taxes? --}}
             @if ($has_vat)
-            <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom-m">
+            <tr style="font-size: 1.3rem; height: 50px;" class="border-bottom-m">
               <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2" style="font-size: calc(0.8rem + 0.2vw);">
                 <span class="ml-4">
                   Taxable amount
@@ -147,7 +147,7 @@
               @if (strtolower($key) != 'vat')
                 @continue
               @else
-              <tr style="height: 50px;" class="bg-light border-bottom-rm">
+              <tr style="height: 50px;" class="border-bottom-rm">
                 <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2" style="font-size: calc(0.8rem + 0.2vw);">
                   @if (strtolower($key) == 'vat')
                     <div class="ml-4">
@@ -166,7 +166,7 @@
               @endif
             @endforeach
   
-            <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom-rm">
+            <tr style="font-size: 1.3rem; height: 50px;" class="border-bottom-rm">
               <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
                 <span class="ml-4 d-inline-block">
                   Total
@@ -194,7 +194,7 @@
   <div class="mt-4 p-3 bg-light border">
     <div class="d-flex justify-content-between py-1-rm">
       <div class="d-flex flex-column justify-content-center">
-        <h2 class="pl-3" style="font-size: calc(1.1rem + 0.2vw);">
+        <h2 class="pl-2" style="font-size: calc(1.1rem + 0.2vw);">
           Payment
         </h1>
       </div>
