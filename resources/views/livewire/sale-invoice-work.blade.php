@@ -11,7 +11,10 @@
 
       @if ($saleInvoice)
         {{-- Todo: Why true? Why only takeaway? --}} 
+        {{--
         @if (true && $saleInvoice->takeaway->status == 'open' && $modes['addItem'])
+        --}}
+        @if ($modes['addItem'])
           @livewire ('sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
         @endif
       @endif

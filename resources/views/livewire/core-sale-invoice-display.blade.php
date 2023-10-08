@@ -161,11 +161,15 @@
                 PAN No
               </td>
               <td>
-                @if ($saleInvoice->customer->pan_num)
-                  {{ $saleInvoice->customer->pan_num }}
+                @if ($saleInvoice->customer)
+                  @if ($saleInvoice->customer->pan_num)
+                    {{ $saleInvoice->customer->pan_num }}
+                  @else
+                    Not available
+                  @endif
                 @else
                   <span class="text-muted" style="">
-                    No info
+                    Not available
                   </span>
                 @endif
               </td>
