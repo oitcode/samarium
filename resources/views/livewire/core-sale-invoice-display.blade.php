@@ -133,7 +133,7 @@
       </div>
 
       {{-- Customer info --}}
-      <div class="p-3">
+      <div class="p-2">
 
         <div class="h5 text-muted-rm mb-2">
           Customer
