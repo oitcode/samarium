@@ -57,21 +57,27 @@
       <div class="p-3 bg-light text-secondary font-weight-bold mr-5-rm pt-3 pb-1">
         Product Category Name
       </div>
-      <div class="d-flex justify-content-between">
-        {{-- Product name --}}
-        <div class="d-flex-rm flex-grow-1">
-          <div class="bg-white h-100">
-            <h1 class="h5 text-primary-rm p-3">
-              {{ $productCategory->name }}
-            </h1>
+      @if ($modes['updateProductCategoryNameMode'])
+        <div>
+          @livewire ('cafe-menu.product-category.product-category-edit-name', ['productCategory' => $productCategory,])
+        </div>
+      @else
+        <div class="d-flex justify-content-between">
+          {{-- Product name --}}
+          <div class="d-flex-rm flex-grow-1">
+            <div class="bg-white h-100">
+              <h1 class="h5 text-primary-rm p-3">
+                {{ $productCategory->name }}
+              </h1>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-light h-100" wire:click="enterMode('updateProductCategoryNameMode')">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
           </div>
         </div>
-        <div>
-          <button class="btn btn-light h-100" wire:click="enterMode('updateProductNameMode')">
-            <i class="fas fa-pencil-alt"></i>
-          </button>
-        </div>
-      </div>
+      @endif
     </div>
     @if (true)
     <hr class="m-0 p-0"/>
