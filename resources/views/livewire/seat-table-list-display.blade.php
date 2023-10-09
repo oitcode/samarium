@@ -93,10 +93,10 @@
               <h2 class="h3 ml-4-rm">
                 OPEN
               </h2>
-              @endif
               <div class="mr-4">
                 <i class="fas fa-dice-d6 text-secondary-rm fa-3x"></i>
               </div>
+              @endif
             </div>
 
             @if (false)
