@@ -95,7 +95,7 @@
               </h2>
               @endif
               <div class="mr-4">
-                <i class="fas fa-dice-d6 text-success fa-3x"></i>
+                <i class="fas fa-dice-d6 text-secondary-rm fa-3x"></i>
               </div>
             </div>
 
