@@ -49,54 +49,36 @@
     <div class="border p-0">
   
       {{-- Company Info --}}
-      <div class="d-flex justify-content-between pb-3-rm border-bottom mb-3-rm p-2 d-print-none" style="background-color: #fff;">
+      <div class="d-flex-rm justify-content-between-rm pb-3-rm border-bottom mb-3-rm p-2 d-print-none" style="background-color: #fff;">
         <div class="">
           @if (false)
           <img src="{{ asset('storage/' . $company->logo_image_path) }}" style="width: 50px; height: 50px;">
           @endif
+
           <h1 class="my-3 mb-5 h4 text-muted font-weight-bold">
             SALE INVOICE
           </h1>
-          <h1 class="h4 font-weight-bold mt-2 mb-3" style="">
+
+          <h2 class="h4 font-weight-bold mt-2 mb-3" style="">
             {{ $company->name }}
-          </h1>
-          @if (false)
-          <h2 class="h6 mt-3 mb-1 text-muted-rm font-weight-bold" style="">
-            @if ($has_vat)
-              VAT No:
-            @else
-              PAN No:
-            @endif
-            {{ $company->pan_number }}
           </h2>
-          <h2 class="h6 mb-0 d-inline mr-1" style="">
-            {{ $company->address }}
-          </h2>
-          @endif
-          @if (false)
-          <span class="mr-1">
-            |
-          </span>
-          <h3 class="h6 mb-0 d-inline" style="">
-            {{ $company->phone }}
-          </h3>
-          @endif
+
           <div class="table-responsive">
             <table class="table table-sm table-striped-rm table-bordered-rm">
-              <tr>
-                <td>
-                  PAN No
-                </td>
-                <td>
-                  {{ $company->pan_number }}
-                </td>
-              </tr>
               <tr>
                 <td>
                   Address
                 </td>
                 <td>
                   {{ $company->address }}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  PAN No
+                </td>
+                <td>
+                  {{ $company->pan_number }}
                 </td>
               </tr>
               <tr>
@@ -115,10 +97,51 @@
                   {{ $saleInvoice->sale_invoice_date }}
                 </td>
               </tr>
+            <tr>
+              <td colspan="2" class="py-3">
+                <span class="h5 font-weight-bold">
+                  Customer
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Name
+              </td>
+              <td>
+                @if ($saleInvoice->customer)
+                  {{ $saleInvoice->customer->name }}
+                @else
+                  <i class="fas fa-exclamation-circle text-muted mr-2"></i>
+                  <span class="text-muted">
+                    None
+                  </span>
+                @endif
+              </td>
+            </tr>
+            <tr>
+              <td>
+                PAN No
+              </td>
+              <td>
+                @if ($saleInvoice->customer)
+                  @if ($saleInvoice->customer->pan_num)
+                    {{ $saleInvoice->customer->pan_num }}
+                  @else
+                    Not available
+                  @endif
+                @else
+                  <span class="text-muted" style="">
+                    Not available
+                  </span>
+                @endif
+              </td>
+            </tr>
             </table>
           </div>
         </div>
   
+        @if (false)
         <div class="d-none d-md-block">
           <div class="h-100 d-flex flex-column justify-content-center">
             <div class="bg-danger-rm border-rm mt-2">
@@ -130,11 +153,13 @@
             </div>
           </div>
         </div>
+        @endif
       </div>
 
       {{-- Customer info --}}
       <div class="p-2">
 
+        @if (false)
         <div class="h5 text-muted-rm mb-2">
           Customer
         </div>
@@ -176,6 +201,7 @@
             </tr>
           </table>
         </div>
+        @endif
 
 
         {{--
