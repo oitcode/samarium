@@ -4,11 +4,7 @@
   </div>
 
   <div>
-    <button class="btn btn-success mr-2" wire:click="update">
-      Save
-    </button>
-    <button class="btn btn-danger mr-2" wire:click="$emit('productCategoryUpdateNameCancelled')">
-      Cancel
-    </button>
+    @include ('partials.button-update')
+    @include ('partials.button-cancel', ['btnText' => 'Cancel', 'clickEmitEventName' => 'productCategoryUpdateNameCancelled',])
   </div>
 </div>
