@@ -86,10 +86,13 @@
           <div class="p-0 border-bottom" style="background-color: #e0e0e0;">
             <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
                 class="btn-block text-reset font-weight-bold p-3 text-decoration-none" style="font-size: 1rem;">
+              @if (false)
               <img class="img-fluid h-25-rm w-100-rm mr-3"
                   src="{{ asset('storage/' . $productCategory->image_path) }}"
                   alt="{{ $productCategory->name }}"
                   style="max-height: 50px; max-width: 50px;">
+              @endif
+
               {{ strtoupper($productCategory->name) }}
             </a>
           </div>
