@@ -271,7 +271,7 @@
         </div>
       </div>
 
-      <div class="col-md-4 px-2">
+      <div class="col-md-4 p-0 px-0 px-md-2 mt-4 mt-md-0">
         {{--
         |
         | Company info section
