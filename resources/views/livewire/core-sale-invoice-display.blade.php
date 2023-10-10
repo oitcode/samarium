@@ -46,10 +46,10 @@
 
   <div class="bg-white shadow-rm p-0 m-0 col-md-8">
   
-    <div class="border p-0">
+    <div class="border-rm p-0">
   
       {{-- Company Info --}}
-      <div class="d-flex-rm justify-content-between-rm pb-3-rm border-bottom mb-3-rm p-2 d-print-none" style="background-color: #fff;">
+      <div class="d-flex-rm justify-content-between-rm pb-3-rm border-bottom-rm mb-3-rm p-2 d-print-none" style="background-color: #fff;">
         <div class="">
           @if (false)
           <img src="{{ asset('storage/' . $company->logo_image_path) }}" style="width: 50px; height: 50px;">
@@ -63,8 +63,8 @@
             {{ $company->name }}
           </h2>
 
-          <div class="table-responsive">
-            <table class="table table-sm table-striped-rm table-bordered-rm">
+          <div class="table-responsive p-0 py-3" style="background-color: #ddd;">
+            <table class="table table-sm table-striped-rm table-bordered-rm mb-0">
               <tr>
                 <td>
                   Address
@@ -119,7 +119,7 @@
                 @endif
               </td>
             </tr>
-            <tr>
+            <tr class="">
               <td>
                 PAN No
               </td>
@@ -164,8 +164,8 @@
           Customer
         </div>
 
-        <div class="table-responsive">
-          <table class="table table-sm table-striped-rm table-bordered-rm">
+        <div class="table-responsive mb-0">
+          <table class="table table-sm table-striped-rm table-bordered-rm mb-0">
             <tr>
               <td>
                 Name
@@ -212,15 +212,19 @@
             ----
         --}}
 
+        <h2 class="h5 font-weight-bold my-3">
+          Item list
+        </h2>
+
         {{-- Show in bigger screens --}}
-        <div class="table-responsive border bg-white mb-0 d-none d-md-block">
+        <div class="table-responsive border-rm bg-white mb-0 d-none d-md-block">
           <table class="table table-sm table-borderd table-hover border-dark shadow-sm mb-0">
             <thead>
               <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
-                <th class="h5 py-2 pl-2 bg-success text-white">Item</th>
-                <th class="h5 py-2 bg-info text-white">Price</th>
-                <th class="h5 py-2 bg-info text-white">Quantity</th>
-                <th class="h5 py-2 bg-info text-white">Amount</th>
+                <th class="h5 py-2 pl-2 bg-success-rm text-white-rm" style="background-color: #eee;">Item</th>
+                <th class="h5 py-2 bg-info-rm text-white-rm">Price</th>
+                <th class="h5 py-2 bg-info-rm text-white-rm">Quantity</th>
+                <th class="h5 py-2 bg-info-rm text-white-rm">Amount</th>
               </tr>
             </thead>
   
