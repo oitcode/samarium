@@ -46,9 +46,6 @@
             <th>Inventory low</th>
             <th>Used today</th>
             <th>Stock</th>
-            @if (false)
-            <th>Action</th>
-            @endif
           </tr>
         </thead>
 
@@ -86,21 +83,6 @@
                   {{ $product->stock_count }}
                   {{ $product->inventory_unit }}
                 </td>
-                @if (false)
-                <td>
-                  <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-cog text-secondary"></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <button class="dropdown-item" wire:click="displayProductDetail({{ $product }})">
-                        <i class="fas fa-file text-primary mr-2"></i>
-                        View
-                      </button>
-                    </div>
-                  </div>
-                </td>
-                @endif
               </tr>
             @endif
           @endforeach

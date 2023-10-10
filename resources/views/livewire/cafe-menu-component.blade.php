@@ -8,7 +8,6 @@
   |
   --}}
 
-  {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Product">
     @include ('partials.dashboard.spinner-button')
 
@@ -68,6 +67,7 @@
 
   </x-toolbar-classic>
 
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -81,34 +81,40 @@
     </div>
   @endif
 
+
   <div class="" style="">
 
-    <div class="">
-
-      {{-- Use required component as per mode --}}
-      @if ($modes['createProduct'])
-        @livewire ('cafe-menu-product-create')
-      @elseif ($modes['createProductCategory'])
-        @livewire ('cafe-menu-product-category-create')
-      @elseif ($modes['updateProduct'])
-        @livewire ('cafe-menu-product-edit', ['product' => $updatingProduct,])
-      @elseif ($modes['showFullMenuList'])
-        @livewire ('cafe-menu-full-list')
-      @elseif ($modes['updateProductCategory'])
-        @livewire ('cafe-menu-product-category-edit', ['productCategory' => $updatingProductCategory,])
-      @elseif ($modes['displayProduct'])
-        @livewire ('cafe-menu-product-display', ['product' => $displayingProduct,])
-      @elseif ($modes['list'])
-        @if (false)
-        @livewire ('cafe-menu-list')
-        @endif
-      @elseif ($modes['createProductFromCsvMode'])
-        @if (true)
-        @livewire ('cafe-menu-product-create-from-csv')
-        @endif
-      @elseif ($modes['search'])
-        @livewire ('cafe-menu-product-search')
+    {{--
+    |
+    |
+    | Use required component as per mode.
+    |
+    --}}
+    @if ($modes['createProduct'])
+      @livewire ('cafe-menu-product-create')
+    @elseif ($modes['createProductCategory'])
+      @livewire ('cafe-menu-product-category-create')
+    @elseif ($modes['updateProduct'])
+      @livewire ('cafe-menu-product-edit', ['product' => $updatingProduct,])
+    @elseif ($modes['showFullMenuList'])
+      @livewire ('cafe-menu-full-list')
+    @elseif ($modes['updateProductCategory'])
+      @livewire ('cafe-menu-product-category-edit', ['productCategory' => $updatingProductCategory,])
+    @elseif ($modes['displayProduct'])
+      @livewire ('cafe-menu-product-display', ['product' => $displayingProduct,])
+    @elseif ($modes['list'])
+      @if (false)
+      @livewire ('cafe-menu-list')
       @endif
-    </div>
+    @elseif ($modes['createProductFromCsvMode'])
+      @if (true)
+      @livewire ('cafe-menu-product-create-from-csv')
+      @endif
+    @elseif ($modes['search'])
+      @livewire ('cafe-menu-product-search')
+    @endif
+
   </div>
+
+
 </div>

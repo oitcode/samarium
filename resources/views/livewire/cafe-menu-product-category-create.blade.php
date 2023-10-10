@@ -1,11 +1,7 @@
 <div class="card shadow-sm">
-  <div class="card-body p-3-rm">
 
-    @if (false)
-    <h1 class="text-white-rm" style="font-size: 1.3rem;">
-      Product search
-    </h1>
-    @endif
+
+  <div class="card-body p-3-rm">
 
     <h1 class="h5 font-weight-bold mb-4">
       Add product category
@@ -20,21 +16,6 @@
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    @if (false)
-    <div class="form-group">
-      <label for="">Parent Category</label>
-      <select class="form-control" wire:model.defer="parent_product_category_id">
-        <option value="---">---</option>
-        @foreach ($productCategories as $productCategory)
-          <option value="{{ $productCategory->product_category_id }}">
-            {{ $productCategory->name }}
-          </option>
-        @endforeach
-      </select>
-      @error ('parent_product_category_id') <span class="text-danger">{{ $message }}</span> @enderror
-    </div>
-    @endif
-
     <div class="form-group">
       <label class="h5">
         Image
@@ -46,7 +27,7 @@
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="py-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
+    <div class="py-3 m-0">
 
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'productCategoryCreateCancelled',])
@@ -57,4 +38,6 @@
       </button>
     </div>
   </div>
+
+
 </div>

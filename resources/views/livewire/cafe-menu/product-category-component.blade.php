@@ -1,4 +1,6 @@
 <div>
+
+
   {{--
   |
   | Toolbar
@@ -7,7 +9,6 @@
   |
   --}}
 
-  {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Product category">
     @include ('partials.dashboard.spinner-button')
 
@@ -67,7 +68,12 @@
   @endif
 
 
-  {{-- Use required component as per mode --}}
+  {{--
+  |
+  |
+  | Use required component as per mode.
+  |
+  --}}
   @if ($modes['create'])
     @livewire ('cafe-menu-product-category-create')
   @elseif ($modes['list'])
@@ -75,4 +81,6 @@
   @elseif ($modes['display'])
     @livewire ('cafe-menu.product-category-display', ['productCategory' => $displayingProductCategory,])
   @endif
+
+
 </div>
