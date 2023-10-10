@@ -34,9 +34,9 @@
         <div class="col-md-4 py-4">
           <div class="">
             <div class="">
-              <div class="d-flex flex-column">
+              <div class="d-flex flex-column mb-4">
                 <div class="" style="">
-                  <h2 class="h4 text-dark font-weight-bold">
+                  <h2 class="h5 text-dark font-weight-bold">
                     {{ $company->name }}
                   </h2>
                 </div>
