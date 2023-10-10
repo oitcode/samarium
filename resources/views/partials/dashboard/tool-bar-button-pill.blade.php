@@ -1,6 +1,6 @@
 <div>
   {{-- For bigger screens --}}
-  <div class="d-none d-md-block">
+  <div class="d-none d-md-block h-100">
   <div
       class="btn-rm
       @if (false)
