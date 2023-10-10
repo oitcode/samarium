@@ -276,12 +276,12 @@
     </div>
   </div>
 
-  <div class="container py-3 text-center">
+  <div class="container py-3">
     @if (true)
     <h2 class="h5 text-dark font-weight-bold mb-3">
       Products
     </h2>
-    <div class="d-sm-flex justify-content-center" style="text-wrap: wrap !important;">
+    <div class="d-sm-flex-rm justify-content-center-rm" style="">
       @foreach (\App\ProductCategory::where('does_sell', 'yes')->get() as $productCategory)
         <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
             class="text-secondary text-decoration-none text-reset h5-rm mr-3">
