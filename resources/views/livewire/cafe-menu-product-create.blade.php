@@ -1,5 +1,6 @@
 <div class="bg-white p-3">
 
+
   {{-- Top heading bar --}}
   <div class="mb-4">
     <h1 class="h5 font-weight-bold">
@@ -77,9 +78,6 @@
     {{-- Right side of the product create page --}}
     <div class="col-md-6 pt-3-rm pl-0">
 
-      <div>
-      </div>
-
       <div class="border-rm bg-white pl-0 p-2 mb-3">
 
         <h2 class="h5">
@@ -89,9 +87,6 @@
           Enter product image here
         </h3>
         <div class="form-group">
-          @if (false)
-            <label for="">Image</label>
-          @endif
           <input type="file" class="form-control" wire:model="image">
           @error('image') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
@@ -229,63 +224,11 @@
       </div>
       @endif
 
-      @if (false)
-      {{-- Product specification --}}
-      <div class="border p-2 my-4">
-        <h2 class="h5">
-          Product Specifications
-        </h2>
-
-        <div class="mb-4">
-          <button class="btn btn-outline-success" wire:click="addSpecification">
-            Add specification
-          </button>
-        </div>
-
-        @for ($i=0; $i < count($productSpecifications); $i++)
-          <div class="mb-3">
-            <input type="text" class="mr-3" wire:model.defer="productSpecifications.{{ $i }}.0">
-            <input type="text" class="mr-3" wire:model.defer="productSpecifications.{{ $i }}.1">
-
-            @if (false)
-            <span class="mr-3">FOO</span>
-            <span class="mr-3">BAR</span>
-            @endif
-          </div>
-        @endfor
-
-      </div>
-      @endif
-
-
-      @if (false)
-      <div class="border bg-white p-2 mb-3 shadow-sm">
-
-
-        <h2 class="h5">
-          Is active
-        </h2>
-
-        <div class="form-group">
-          @if (false)
-            <label>Is active</label>
-          @endif
-          <select class="custom-select" wire:model.defer="is_active" style="font-size: 1.3rem;">
-            <option>---</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-          </select>
-          @error ('is_active') <span class="text-danger">{{ $message }}</span>@enderror
-        </div>
-
-      </div>
-      @endif
-
 
     </div>
   </div>
 
-  {{-- CONFIRM button tab --}}
+  {{-- Save/Cancel buttons div --}}
   <div class="py-4 m-0">
 
     @include ('partials.button-store')
@@ -296,5 +239,6 @@
       </span>
     </button>
   </div>
+
 
 </div>

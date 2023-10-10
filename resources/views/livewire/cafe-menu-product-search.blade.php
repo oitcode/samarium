@@ -1,4 +1,5 @@
-<div class="">
+<div>
+
 
   <div class="bg-white border p-3 mb-4">
     <div class="mb-4">
@@ -8,8 +9,8 @@
     </div>
     <div class="my-4">
       <input type="text"
-          class="mr-5 h-100 form-control w-50"
-          style="{{-- height: 50px; --}} font-size: 1.5rem; {{-- background-color: #cfc; --}}"
+          class="mr-5 h-100 form-control"
+          style="font-size: 1.5rem;"
           wire:model.defer="product_search_name"
           wire:keydown.enter="search"
           autofocus>
@@ -19,9 +20,10 @@
     </div>
   </div>
 
-  <div class="p-3-rm bg-white border">
 
-    @if ($products != null && count($products) > 0)
+  @if ($products != null && count($products) > 0)
+    <div class="bg-white border p-3">
+
       @foreach ($products as $product)
         <div class="row py-3">
           <div class="col-md-2">
@@ -38,11 +40,13 @@
           </div>
           <div class="col-md-6">
             Rs
-            {{ $product->selling_price }}
+            @php echo number_format($product->selling_price); @endphp
           </div>
         </div>
       @endforeach
-    @endif
 
-  </div>
+    </div>
+  @endif
+
+
 </div>
