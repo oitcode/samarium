@@ -37,12 +37,16 @@
                     href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
                     class="text-reset text-decoration-none"
                 >
-                  <div class="px-3 py-1 border-top">
+                  <div class="px-3 py-2 border-top">
+                      @if (false)
                       <img class="img-fluid h-25-rm w-100-rm"
                           src="{{ asset('storage/' . $productCategory->image_path) }}"
                           alt="{{ $productCategory->name }}"
                           style="max-height: 50px; max-width: 50px;">
-                      {{ $productCategory->name }}
+                      @endif
+                      <span class="h5 font-weight-bold">
+                        {{ $productCategory->name }}
+                      </span>
                   </div>
                 </a>
                 @php
@@ -51,8 +55,10 @@
               @endforeach
               <div class="p-3 border-top">
                 <a href="#o-all-categories">
-                <i class="fas fa-dice-d6 mr-3"></i>
-                Sell all categories
+                @if (false)
+                <i class="fas fa-dice-d6 mr-1"></i>
+                @endif
+                See all categories
                 </a>
               </div>
             </div>
