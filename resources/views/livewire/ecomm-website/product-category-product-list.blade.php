@@ -16,20 +16,22 @@
     </a>
   </div>
   @if (true)
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 p-3">
+  <div class="container mt-4 bg-warning p-0">
+    <div class="row-rm m-0 p-0" style="">
+      <div class="col-md-12-rm p-3-rm p-0">
         <div class="d-flex justify-content-center h-100" style="background-color: #eaeaea;">
           <div class="d-flex flex-column justify-content-center h-100">
             <h2 class="text-white-rm mt-3" style="font-size: 2rem;">
               {{ $productCategory->name }}
             </h2>
             <p class="text-secondary">
-              Please see our products
+              Total products:
+              {{ count($productCategory->products) }}
             </p>
           </div>
         </div>
       </div>
+      @if (false)
       <div class="col-md-4 p-3">
         <div class="border bg-light-rm shadow p-3 h-100 rounded" style="{{--background-color: #eaeaef;--}}">
           <div class="d-flex">
@@ -50,15 +52,18 @@
               </div>
               @endif
             </div>
+            @if (false)
             <div>
               <img class="img-fluid-rm h-25-rm w-100-rm"
                   src="{{ asset('storage/' . $productCategory->image_path) }}"
                   alt="{{ $productCategory->name }}"
                   style="max-height: 150px; max-width: 100px;">
             </div>
+            @endif
           </div>
         </div>
       </div>
+      @endif
     </div>
   </div>
   @endif

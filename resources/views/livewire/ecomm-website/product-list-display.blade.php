@@ -20,7 +20,7 @@
         <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
           <div class="p-2">
             <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
-              <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
+              <h2 class="h5 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
                 {{ strtoupper($product->name) }}
               </h2>
             </a>
@@ -38,7 +38,7 @@
             @endif
 
             @if ($product->selling_price != 0)
-              <div class="h4 text-danger text-left mt-3" style="font-weight: bold;">
+              <div class="h5 text-muted text-left mt-3" style="font-weight: bold;">
                 Rs.
                 @php echo number_format( $product->selling_price ); @endphp
               </div>
