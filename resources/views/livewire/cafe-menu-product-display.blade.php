@@ -11,6 +11,7 @@
     {{ $product->name }}
   </h1>
 
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -24,58 +25,12 @@
     </div>
   @endif
 
-  {{-- Top tool bar --}}
-  @if (false)
-  <div class="mt-3 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}  {{ env('OC_ASCENT_TEXT_COLOR') }}">
-    <div class="my-5-rm">
-    </div>
-
-    <div>
-      @if (false)
-      <button class="btn btn-light mr-1" wire:click="$refresh">
-        <i class="fas fa-pencil-alt"></i>
-        Edit
-      </button>
-      @endif
-
-      <button class="btn btn-primary" wire:click="$refresh">
-        <i class="fas fa-refresh fa-2x"></i>
-        @if (false)
-        Refresh
-        @endif
-      </button>
-
-      <button class="btn btn-danger" wire:click="$emit('exitProductDisplayMode')">
-        <i class="fas fa-times fa-2x"></i>
-        @if (false)
-        Close
-        @endif
-      </button>
-    </div>
-
-  </div>
-  @endif
 
   <div>
-    @if (false)
-    <div class="bg-danger" style="border-top: 10px solid orange;">
-    </div>
-    @endif
     <div>
-      <div class="mt-0 p-2 border-rm d-flex justify-content-between {{ env('OC_ASCENT_BG_COLOR') }}-rm bg-light-rm  {{ env('OC_ASCENT_TEXT_COLOR')
-      }}-rm border"
-          style="background-color: #dadada;">
-        <div class="my-5-rm">
-        </div>
+      <div class="mt-0 p-2 border-rm d-flex justify-content-end border" style="background-color: #dadada;">
 
         <div>
-          @if (false)
-          <button class="btn btn-light mr-1" wire:click="$refresh">
-            <i class="fas fa-pencil-alt"></i>
-            Edit
-          </button>
-          @endif
-
           <button class="btn btn-light" wire:click="$refresh">
             <i class="fas fa-refresh fa-2x-rm"></i>
             @if (false)
@@ -94,11 +49,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-
 
 
   <div class="row border shadow-lg-rm bg-white" style="margin: auto;">
@@ -222,35 +172,29 @@
 
 
         @if ($product->baseProduct)
-        <div class="mb-3">
-          <h2 class="h6 font-weight-bold">
-            Base product
-          </h2>
-          <div>
-          {{ $product->baseProduct->name }}
+          <div class="mb-3">
+            <h2 class="h6 font-weight-bold">
+              Base product
+            </h2>
+            <div>
+            {{ $product->baseProduct->name }}
+            </div>
           </div>
-        </div>
 
-        <div class="mb-3">
-          <h2 class="h6 font-weight-bold">
-            Inventory unit consumption
-          </h2>
-          <div>
-          {{ $product->inventory_unit_consumption }}
-          {{ $product->baseProduct->inventory_unit }}
+          <div class="mb-3">
+            <h2 class="h6 font-weight-bold">
+              Inventory unit consumption
+            </h2>
+            <div>
+            {{ $product->inventory_unit_consumption }}
+            {{ $product->baseProduct->inventory_unit }}
+            </div>
           </div>
-        </div>
         @endif
 
       </div>
     </div>
-
-    {{-- Product other info --}}
-    <div class="col-md-3 border-left-rm bg-secondary-rm text-secondary">
-    </div>
-
-
-    </div>
+  </div>
 
 
 
@@ -260,7 +204,7 @@
       Product specifications
     </h2>
 
-    {{-- Toolbar --}}
+      {{-- Toolbar --}}
       @if ($modes['updateProductAddProductSpecificationMode'])
       @else
         <div class="p-2 bg-white border">
@@ -367,7 +311,7 @@
     <div class="mb-4">
       <h3 class="h5"> Product history </h3>
     </div>
-    @if (true)
+    @if (false)
     <div class="row">
       <div class="col-3">
         Created by

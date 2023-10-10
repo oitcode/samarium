@@ -8,7 +8,7 @@
     </h1>
 
     <div class="form-group mb-4">
-      <label class="h5">Name</label>
+      <label class="h5">Name *</label>
       <input type="text"
           class="form-control shadow-sm"
           wire:model.defer="name"

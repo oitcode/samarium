@@ -17,7 +17,7 @@
         <div class="card-body p-3-rm pl-0 border-rm h-100 shadow-sm-rm pb-0">
       
           <div class="form-group">
-            <label class="h5" for="">Name</label>
+            <label class="h5" for="">Name *</label>
             <input type="text"
                 class="form-control shadow-sm"
                 wire:model.defer="name"
@@ -26,7 +26,7 @@
           </div>
       
           <div class="form-group">
-            <label class="h5">Category</label>
+            <label class="h5">Category *</label>
             <select class="custom-select shadow-sm" wire:model.defer="product_category_id" style="font-size: 1.3rem;">
               <option>---</option>
               @foreach ($productCategories as $productCategory)
@@ -40,7 +40,7 @@
       
       
           <div class="form-group">
-            <label class="h5" for="">Selling price</label>
+            <label class="h5" for="">Selling price *</label>
             <input type="text"
                 class="form-control shadow-sm"
                 wire:model.defer="selling_price"
@@ -51,7 +51,7 @@
           <div class="border-rm bg-white p-2-rm pb-0 mb-3-rm">
 
             <h2 class="h5">
-              Description
+              Description *
             </h2>
             <h3 class="h6 text-muted">
               Enter product description here
@@ -82,6 +82,9 @@
 
         <h2 class="h5">
           Image
+          <span class="text-muted ml-1" style="font-size: 0.7rem">
+            (Optional)
+          </span>
         </h2>
         <h3 class="h6 text-muted">
           Enter product image here
