@@ -271,7 +271,7 @@
     @endif
 
     {{-- Show this for now --}}
-    <div class="container p-5" id="o-all-categories">
+    <div class="container py-5" id="o-all-categories">
       <h2 class="h1 mt-2 mb-1">
         Categories
       </h2>
