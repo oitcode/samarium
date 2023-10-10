@@ -102,11 +102,11 @@
                     <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
                       <div class="p-2">
                         <a href="{{ route('website-product-view', [\App\Product::find($ii)->product_id, \App\Product::find($ii)->name]) }}">
-                          <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
+                          <h2 class="h5 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
                             {{ strtoupper(\App\Product::find($ii)->name) }}
                             <br />
                             @if (\App\Product::find($ii)->selling_price != 0)
-                            <span class="text-danger ml-1-rm">
+                            <span class="text-muted ml-1-rm">
                               Rs {{ \App\Product::find($ii)->selling_price }}
                             </span>
                             @endif
@@ -130,7 +130,7 @@
                       <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
                         <div class="p-2">
                           <a href="{{ route('website-product-view', [\App\Product::find($ii)->product_id, \App\Product::find($ii)->name,]) }}">
-                            <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
+                            <h2 class="h5 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
                               {{ strtoupper(\App\Product::find($ii)->name) }}
                             </h2>
                           </a>
@@ -147,7 +147,7 @@
                           </div>
                           @endif
                           @if ($product->selling_price != 0)
-                            <div class="h4 text-danger text-left mt-3" style="font-weight: bold;">
+                            <div class="h5 text-danger text-left mt-3" style="font-weight: bold;">
                               Rs.
                               @php echo number_format( \App\Product::find($ii)->selling_price ); @endphp
                             </div>
@@ -232,7 +232,7 @@
               </h2>
               @endif
 
-              <h2 class="h4 text-white-rm font-weight-bold" style="font-size: 2rem;">
+              <h2 class="h5 text-white-rm font-weight-bold" style="font-size: 2rem;">
                 {{ strtoupper(\App\Product::first()->name) }}
               </h2>
               <img class="img-fluid h-25-rm w-100-rm"
@@ -244,7 +244,7 @@
                 {{ \App\Product::first()->description }}
               </p>
               @endif
-              <h2 class="h4 text-danger-rm font-weight-bold" style="font-size: 1.5rem; color: orange;">
+              <h2 class="h5 text-danger-rm font-weight-bold" style="font-size: 1.5rem; color: orange;">
                 Rs
                 {{ \App\Product::first()->selling_price }}
               </h2>
@@ -381,7 +381,7 @@
             
                     <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
                       <div class="p-2">
-                          <h2 class="h4 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
+                          <h2 class="h5 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
                             {{ strtoupper($productCategory->name) }}
                           </h2>
             
