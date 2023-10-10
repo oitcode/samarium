@@ -1,7 +1,7 @@
 <div class="border-top bg-white">
 
   {{-- Brand Info --}}
-  @if (false)
+  @if (true)
   <div class="container-fluid py-3" style="background-color: #dcdcdc;">
     <div class="container">
       <div class="row">
