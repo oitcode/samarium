@@ -374,7 +374,7 @@
                           @if ($productCategory->image_path)
                             <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $productCategory->image_path) }}" alt="{{ $productCategory->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
                           @else
-                            <i class="fas fa-dice-d6 fa-8x text-muted m-5"></i>
+                            <i class="fas fa-ellipsis-h fa-4x text-muted m-5"></i>
                           @endif
                       </div>
                     </a>
@@ -388,6 +388,11 @@
                         </a>
             
                       </div>
+                    </div>
+
+                    <div class="p-3 text-muted">
+                      Products:
+                      {{ count($productCategory->products) }}
                     </div>
                   </div>
 
