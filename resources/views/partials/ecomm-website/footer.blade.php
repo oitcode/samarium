@@ -283,7 +283,7 @@
     </h2>
     <div class="d-sm-flex justify-content-center">
       @foreach (\App\ProductCategory::all() as $productCategory)
-        <a href="{{ route('ecomm-collection-webpage-display-terms-of-use') }}"
+        <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
             class="text-secondary text-decoration-none text-reset h5-rm mr-3">
           {{ $productCategory->name }}
         </a>
