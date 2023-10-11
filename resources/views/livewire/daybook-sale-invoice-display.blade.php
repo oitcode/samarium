@@ -78,27 +78,42 @@
                     </span>
                     @endif
 
-                    <div>
-                      <div class="text-primary" style="font-size: 0.8rem;" role="button" wire:click="enterMode('showPayments')">
-                        Show payments
-                      </div>
-                    </div>
                     @if ($modes['showPayments'])
                       <div>
-                        <div>
+                        <div class="text-primary py-3" style="font-size: 0.8rem;" role="button" wire:click="exitMode('showPayments')">
+                          Hide payments
+                        </div>
+                      </div>
+                    @else
+                      <div>
+                        <div class="text-primary py-3" style="font-size: 0.8rem;" role="button" wire:click="enterMode('showPayments')">
+                          Show payments
+                        </div>
+                      </div>
+                    @endif
+
+                    @if ($modes['showPayments'])
+                      <div>
+                        <div class="mb-3 font-weight-bold">
                           Payments
                         </div>
                         <div>
                           @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
                             <div>
-                            Rs
-                            @php echo number_format( $saleInvoicePayment->amount ); @endphp
-                            <span class="badge badge-pill ml-3">
-                            {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
-                            </span>
-                            <span class="badge badge-pill ml-3">
-                            {{ $saleInvoicePayment->payment_date }}
-                            </span>
+                              <div>
+                                Rs
+                                @php echo number_format( $saleInvoicePayment->amount ); @endphp
+                              </div>
+                              <div>
+                                <span class="">
+                                  {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
+                                </span>
+                              </div>
+                              <div>
+                                <span class="">
+                                {{ $saleInvoicePayment->payment_date }}
+                                </span>
+                              </div>
                             </div>
                           @endforeach
                         </div>
@@ -357,71 +372,69 @@
       <div class="table-responsive bg-white mb-0 d-md-none mt-3">
         <table class="table table-bordered-rm table-hover border-dark shadow-sm mb-0">
 
-          <tbody style="font-size: 1.3rem;">
+          <tbody style="">
             @foreach ($saleInvoice->saleInvoiceItems as $item)
-            <tr style="font-size: 1.1rem;" class="font-weight-bold text-white-rm">
+            <tr style="" class="font-weight-bold text-white-rm">
               <td>
                 <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
               </td>
               <td>
                 {{ $item->product->name }}
                 <br />
-                <span class="text-primary mr-3">
+                <span class="mr-3">
                   Rs @php echo number_format( $item->price_per_unit); @endphp
                 </span>
-                <span class="text-secondary" style="font-size: 1rem;">
+                <span class="text-secondary" style="">
                   Qty: {{ $item->quantity }}
                 </span>
               </td>
               <td>
-                @php echo number_format( $item->getTotalAmount() ); @endphp
+                Rs @php echo number_format( $item->getTotalAmount() ); @endphp
               </td>
             </tr>
             @endforeach
           </tbody>
-        </table>
-      </div>
 
-      <div class="table-responsive d-md-none">
-        <table class="table">
-
-          <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
+          <tfoot class="bg-success-rm text-white-rm">
             <tr>
-              <td style="font-size: 1.3rem;" class="font-weight-bold text-right">
+              <td colspan="2" style="" class="font-weight-bold text-right">
                 <strong>
-                Total
+                Subtotal
                 </strong>
               </td>
-              <td style="font-size: 1.3rem;" class="font-weight-bold">
+              <td style="" class="font-weight-bold">
+                Rs
                 @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
               </td>
             </tr>
             @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
               <tr class="border-0">
-                <td style="font-size: 1.3rem;"
+                <td colspan="2" style=""
                     class="
                       font-weight-bold text-right border-0
                     ">
                   {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                 </td>
-                <td style="font-size: 1.3rem;"
+                <td style=""
                     class="
                       @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                         text-danger
                       @endif
                       font-weight-bold border-0">
+                  Rs
                   @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                 </td>
               </tr>
             @endforeach
 
             <tr class="border-0">
-              <td  style="font-size: 1.5rem;" class="font-weight-bold text-right border-0">
+              <td colspan="2" style="" class="font-weight-bold text-right border-0">
                 <strong>
-                Grand total
+                Total
                 </strong>
               </td>
-              <td style="font-size: 1.5rem;" class="font-weight-bold border-0">
+              <td style="" class="font-weight-bold border-0">
+                Rs
                 @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
               </td>
             </tr>
