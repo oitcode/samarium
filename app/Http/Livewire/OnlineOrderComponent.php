@@ -14,7 +14,7 @@ class OnlineOrderComponent extends Component
 
     public $modes = [
         'onlineOrderDisplay' => false,
-        'listMode' => false,
+        'listMode' => true,
     ];
 
     protected $listeners = [
