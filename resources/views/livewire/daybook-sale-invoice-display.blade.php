@@ -281,6 +281,7 @@
                 </strong>
               </td>
               <td style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold">
+                Rs
                 @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
               </td>
             </tr>
@@ -305,6 +306,7 @@
                         text-danger
                       @endif
                       font-weight-bold border-0 pr-4">
+                  Rs
                   @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                 </td>
               </tr>
@@ -322,6 +324,7 @@
                 </td>
                 <td style="font-size: calc(0.8rem + 0.2vw);"
                     class=" font-weight-bold border-0 pr-4">
+                  Rs
                   @php echo number_format( $saleInvoice->getTaxableAmount() ); @endphp
                 </td>
               </tr>
@@ -348,6 +351,7 @@
                         text-danger
                       @endif
                       font-weight-bold border-0">
+                  Rs
                   @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                 </td>
               </tr>
@@ -360,6 +364,7 @@
                 </strong>
               </td>
               <td style="font-size: calc(0.8rem + 0.2vw);" class="font-weight-bold border-0">
+                Rs
                 @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
               </td>
             </tr>
