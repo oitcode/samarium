@@ -7,87 +7,8 @@
     ])
   @endif
 
-  @if (false)
-  <div class="bg-white mb-3 px-3 py-2">
-    {{-- Toolbar --}}
-    <div class="my-4-rm">
-     <div class="">
-       <i class="far fa-filter mr-1"></i>
-       Filter
-     </div>
-    </div>
 
-    <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
-      <div class="spinner-border text-info mr-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </button>
-
-  </div>
-  @endif
-
-  @if (false)
-  <div class="d-flex mb-3">
-    <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
-      <div>
-        <i class="fas fa-filter mr-1"></i>
-        Filter
-      </div>
-    </div>
-    <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
-      Status
-    </div>
-    @if (true)
-    <div class="dropdown">
-      <button class="btn
-          @if ($modes['showOnlyPendingMode'])
-            btn-danger
-          @elseif ($modes['showOnlyDoneMode'])
-            btn-success
-          @elseif ($modes['showAllMode'])
-            btn-light
-          @endif
-          dropdown-toggle"
-          type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        @if ($modes['showOnlyPendingMode'])
-          Pending
-        @elseif ($modes['showOnlyDoneMode'])
-          Done
-        @elseif ($modes['showAllMode'])
-          All
-        @else
-          Whoops
-        @endif
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
-        <button class="dropdown-item" wire:click="enterMode('showOnlyPendingMode')">
-          Pending
-        </button>
-        <button class="dropdown-item" wire:click="enterMode('showOnlyDoneMode')">
-          Done
-        </button>
-        <button class="dropdown-item" wire:click="enterMode('showAllMode')">
-          All
-        </button>
-      </div>
-    </div>
-    @else
-    <div>
-      a<br/>
-      b<br/>
-      c<br/>
-      d<br/>
-    </div>
-    @endif
-  </div>
-  @endif
-
-  <div class="d-flex mb-1 pl-1" style="font-size: 1rem;">
-    @if (false)
-    <div class="mr-4">
-      Today : {{ $todoDisplayCount }}
-    </div>
-    @endif
+  <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
     <div class="mr-4">
       Total : {{ $todoCount }}
     </div>

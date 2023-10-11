@@ -13,7 +13,14 @@
     </div>
   </button>
 
+  <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
+    <div class="mr-4">
+      Total : {{ $contactMessageCount }}
+    </div>
+  </div>
+
   {{-- Filter div --}}
+  @if (false)
   <div class="d-flex mb-3">
     <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
       <div>
@@ -67,6 +74,7 @@
     </div>
     @endif
   </div>
+  @endif
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">

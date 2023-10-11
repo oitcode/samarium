@@ -12,32 +12,11 @@
     </div>
   </button>
 
-  {{-- Top flash cards --}}
-  @if (false)
-  <div class="row mb-1">
-    <div class="col-md-12">
-      <div class="mb-4">
-        @include ('partials.misc.glance-card', [
-            'bsBgClass' => 'bg-white',
-            'btnRoute' => '',
-            'iconFaClass' => 'fas fa-edit',
-            'btnTextPrimary' => 'Vacancies',
-            'btnTextSecondary' => $vacanciesCount,
-        ])
-      </div>
+  <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
+    <div class="mr-4">
+      Total : {{ $vacanciesCount }}
     </div>
   </div>
-  @endif
-
-  @if (false)
-  {{-- Search bar --}}
-  <div class="mb-3 py-2 bg-white">
-    <input type="text" />
-    <button class="btn btn-primary">
-      Search
-    </button>
-  </div>
-  @endif
 
   @if ($vacancies != null && count($vacancies) > 0)
     @if (true)

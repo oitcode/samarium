@@ -13,34 +13,12 @@
     </div>
   </button>
 
-  {{-- Top flash cards --}}
-  @if (true)
-  <div class="row">
-    <div class="col-md-6">
-      <div class="mb-4">
-        @include ('partials.misc.glance-card', [
-            'bsBgClass' => 'bg-white',
-            'btnRoute' => '',
-            'iconFaClass' => 'fas fa-edit',
-            'btnTextPrimary' => 'Appointments',
-            'btnTextSecondary' => $appointmentCount,
-        ])
-      </div>
-    </div>
 
-    <div class="col-md-6">
-      <div class="mb-4">
-        @include ('partials.misc.glance-card', [
-            'bsBgClass' => 'bg-white',
-            'btnRoute' => '',
-            'iconFaClass' => 'fas fa-calendar',
-            'btnTextPrimary' => 'Today',
-            'btnTextSecondary' => $appointmentTodayCount,
-        ])
-      </div>
+  <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
+    <div class="mr-4">
+      Total : {{ $appointmentCount }}
     </div>
   </div>
-  @endif
 
 
   {{-- Show in bigger screens --}}

@@ -16,6 +16,8 @@ class ContactMessageList extends Component
 
     public $deletingContactMessage;
 
+    public $contactMessageCount;
+
     public $modes = [
         'deleteContactMessageMode' => false,
 
@@ -26,6 +28,7 @@ class ContactMessageList extends Component
 
     public function render()
     {
+        $this->contactMessageCount = ContactMessage::count();
         if ($this->modes['showAllMode']) {
             $this->contactMessages = ContactMessage::orderBy('contact_message_id', 'desc')->get();
         } else if ($this->modes['showOnlyNewMode']) {
