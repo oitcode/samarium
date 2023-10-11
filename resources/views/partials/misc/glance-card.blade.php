@@ -12,7 +12,7 @@
         {{ $btnTextPrimary }}
       </div>
       <div class="mt-3-rm h5">
-        <span class="font-weight-bold h3">
+        <span class="font-weight-bold h5">
           {{ $btnTextSecondary }}
         </span>
       </div>
