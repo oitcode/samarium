@@ -21,9 +21,9 @@
     {{ $product->name }}
   </div>
 
-  <div class="row mb-3 border p-2 py-5  bg-white shadow-rm" style="margin: auto;">
+  <div class="row mb-3 border p-2 py-5-rm  bg-white shadow-rm" style="margin: auto;">
     <div class="col-md-8">
-      <div class="row">
+      <div class="row bg-warning-rm">
         <div class="col-md-6">
           <div class="d-flex justify-content-center h-100">
             <div class="d-flex flex-column justify-content-start h-100">
@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 py-3">
+        <div class="col-md-6 pb-3 pl-3">
           <h1 class="h5 ml-2-rm mb-3 font-weight-bold" style="font-weight: bold;">
             {{ strtoupper($product->name) }}
           </h1>
@@ -75,7 +75,7 @@
             <h2 class="h6 font-weight-bold text-secondary">
               Product description
             </h2>
-            <p class="h5 ml-2-rm mb-3 text-secondary-rm border-top-rm border-bottom-rm">
+            <p class="h6 ml-2-rm mb-3 text-secondary-rm border-top-rm border-bottom-rm">
               {{ $product->description }}
             </p>
           </div>
@@ -88,7 +88,7 @@
             <button class="btn btn-danger btn-block-rm badge-pill-rm py-3-rm h2-rm h-100-rm w-100 mb-0 p-3 mb-3"
                 style="{{-- background-color: #5a0; --}} font-family: Arial;"
                 wire:click="addItemToCart({{ $product->product_id }})">
-              <span class="h4">
+              <span class="h5">
                 @if (false)
                 <i class="fas fa-plus-circle mr-1"></i>
                 @endif
@@ -187,6 +187,39 @@
         </div>
     </div>
     <div class="col-md-4">
+
+      @if (false)
+      <div class="mb-4">
+        <h2 class="h6 font-weight-bold text-secondary">
+          Delivery
+        </h2>
+        <div>
+          <i class="fas fa-map-marker-alt mr-1"></i>
+          + 5 miles | Some place
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h2 class="h6 font-weight-bold text-secondary">
+          Service
+        </h2>
+        <div>
+          <i class="fas fa-dice-d6 mr-1"></i>
+          24/7 Working days
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h2 class="h6 font-weight-bold text-secondary">
+          Stats
+        </h2>
+        <div>
+          <i class="fas fa-th mr-1"></i>
+          58 views | 91 Likes | 22 Shares
+        </div>
+      </div>
+      @endif
+
     </div>
 
 
