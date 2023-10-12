@@ -109,6 +109,8 @@
 
         </div>
       </div>
+
+        @if (count($product->productSpecifications) > 0)
         {{-- Product specification --}}
         <div class="bg-white p-3 border-rm mb-3">
           <div>
@@ -150,6 +152,7 @@
             @endif
           </div>
         </div>
+        @endif
 
         {{-- Rating and reviews --}}
         <div class="bg-white p-3 border-rm mb-3">
