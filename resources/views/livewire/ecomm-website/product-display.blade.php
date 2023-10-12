@@ -24,7 +24,7 @@
   <div class="row mb-3 border p-2 py-5-rm  bg-white shadow-rm" style="margin: auto;">
     <div class="col-md-8">
       <div class="row bg-warning-rm">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
           <div class="d-flex justify-content-center h-100">
             <div class="d-flex flex-column justify-content-start h-100">
               @if ($product->image_path)
