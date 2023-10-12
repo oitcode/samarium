@@ -6,8 +6,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
           <div class="">
             @if (true)
             <img src="{{ asset('storage/' . $company->logo_image_path) }}"
@@ -16,6 +14,8 @@
                 style="height: 75px !important;">
             @endif
           </div>
+        </div>
+        <div class="col-md-4">
         </div>
         <div class="col-md-4">
         </div>
@@ -31,8 +31,6 @@
       <div class="row">
 
 
-        <div class="col-md-4 py-4">
-        </div>
 
         <div class="col-md-4 py-4">
           <div class="">
@@ -140,8 +138,23 @@
             </div>
           </div>
 
-          @if (false)
-          <h2 class="h5 mb-3 text-center-tm text-secondary-rm">
+        </div>
+
+        <div class="col-md-4 py-4">
+          @if (true)
+          <h2 class="h5 text-dark font-weight-bold mb-3">
+            About us
+          </h2>
+          <div class="mb-2">
+            {{ $company->brief_description }}
+          </div>
+          @endif
+        </div>
+
+
+        <div class="col-md-4 py-4">
+          @if (true)
+          <h2 class="h5 mb-3 font-weight-bold">
             Follow us
           </h2>
           @endif
@@ -182,94 +195,6 @@
               </div>
             @endif
           </div>
-        </div>
-
-        @if (false)
-        <div class="col-md-4 py-4">
-          @if (false)
-          <h2 class="h5 text-dark font-weight-bold mb-4-rm">
-            Quick Links
-          </h2>
-          <div class="mb-2-rm">
-            <a href="./contact-us"
-                class="text-secondary text-decoration-none text-reset h5-rm">
-              <i class="fas fa-angle-right mr-2"></i>
-              Contact
-            </a>
-          </div>
-          <div class="mb-2-rm">
-            <a href="./about-us"
-                class="text-secondary text-decoration-none text-reset h5-rm">
-              <i class="fas fa-angle-right mr-2"></i>
-              About us
-            </a>
-          </div>
-          <div class="mb-2-rm">
-            <a href="{{ route('ecomm-collection-webpage-display-privacy') }}"
-                class="text-secondary text-decoration-none text-reset h5-rm">
-              <i class="fas fa-angle-right mr-2"></i>
-              How to buy
-            </a>
-          </div>
-          <div class="mb-2-rm">
-            <a href="{{ route('ecomm-collection-webpage-display-sitemap') }}"
-                class="text-secondary text-decoration-none text-reset h5-rm">
-              <i class="fas fa-angle-right mr-2"></i>
-              Location
-            </a>
-          </div>
-          <div class="mb-2-rm">
-            <a href="./post"
-                class="text-secondary text-decoration-none text-reset h5-rm">
-              <i class="fas fa-angle-right mr-2"></i>
-              Blog
-            </a>
-          </div>
-          @endif
-        </div>
-        @endif
-        <div class="col-md-4 py-4">
-          @if (false)
-          <h2 class="h5 text-dark font-weight-bold mb-3">
-            Policy
-          </h2>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-terms-of-use') }}"
-                class="text-secondary text-decoration-none text-reset h5-rm">
-              @if (false)
-              <i class="fas fa-angle-right mr-1"></i>
-              @endif
-              Terms of use
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-privacy') }}"
-                class="text-secondary text-decoration-none text-reset h5-rm">
-              @if (false)
-              <i class="fas fa-angle-right mr-1"></i>
-              @endif
-              Privacy
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-return-policy') }}"
-                class="text-secondary text-decoration-none text-reset h5-rm">
-              @if (false)
-              <i class="fas fa-angle-right mr-1"></i>
-              @endif
-              Return policy
-            </a>
-          </div>
-          <div class="mb-2">
-            <a href="{{ route('ecomm-collection-webpage-display-sitemap') }}"
-                class="text-secondary text-decoration-none text-reset h5-rm">
-              @if (false)
-              <i class="fas fa-angle-right mr-1"></i>
-              @endif
-              Sitemap
-            </a>
-          </div>
-          @endif
         </div>
 
       </div>
