@@ -42,6 +42,8 @@ class CompanyComponent extends Component
         'mediaFromLibrarySelected' =>false,
 
         'companyInfoCreateMode' => false,
+        'briefDescriptionCreateMode' => false,
+        'briefDescriptionUpdateMode' => false,
     ];
 
     protected $listeners = [
@@ -51,6 +53,11 @@ class CompanyComponent extends Component
         'companyInfoCreateCanceled',
 
         'companyInfoDeleted' => 'render',
+
+        'briefDescriptionCreateCancelled',
+        'briefDescriptionCreateCompleted',
+        'briefDescriptionEditCancelled',
+        'briefDescriptionEditCompleted',
     ];
 
     public function render()
@@ -164,5 +171,27 @@ class CompanyComponent extends Component
     public function companyInfoCreateCanceled()
     {
         $this->exitMode('companyInfoCreateMode');
+    }
+
+    public function briefDescriptionCreateCancelled()
+    {
+        $this->exitMode('briefDescriptionCreateMode');
+    }
+
+    public function briefDescriptionCreateCompleted()
+    {
+        session()->flash('message', 'Brief desription added.');
+        $this->exitMode('briefDescriptionCreateMode');
+    }
+
+    public function briefDescriptionEditCancelled()
+    {
+        $this->exitMode('briefDescriptionUpdateMode');
+    }
+
+    public function briefDescriptionEditCompleted()
+    {
+        session()->flash('message', 'Brief desription updated.');
+        $this->exitMode('briefDescriptionUpdateMode');
     }
 }

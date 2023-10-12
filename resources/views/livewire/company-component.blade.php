@@ -337,18 +337,32 @@
       </h2>
 
       @if ($company->brief_description)
-        <div class="py-3">
-          Yes yes
-        </div>
+        @if ($modes['briefDescriptionUpdateMode'])
+          @livewire ('company.brief-description-edit', ['company' => $company,])
+        @else
+          <div class="py-3">
+            {{ $company->brief_description}}
+          </div>
+          <div class="py-3-rm text-muted">
+            <button class="btn btn-light ml-0 pl-0 border-rm text-primary" wire:click="enterMode('briefDescriptionUpdateMode')">
+              <i class="fas fa-pencil-alt mr-1"></i>
+              Edit
+            </button>
+          </div>
+        @endif
       @else
-        <div class="py-3 text-muted">
-          No brief description.
-        </div>
-        <div class="py-3-rm text-muted">
-          <button class="btn btn-light ml-0 pl-0 border-rm text-primary">
-            Add brief description
-          </button>
-        </div>
+        @if ($modes['briefDescriptionCreateMode'])
+          @livewire ('company.brief-description-create', ['company' => $company,])
+        @else
+          <div class="py-3 text-muted">
+            No brief description.
+          </div>
+          <div class="py-3-rm text-muted">
+            <button class="btn btn-light ml-0 pl-0 border-rm text-primary" wire:click="enterMode('briefDescriptionCreateMode')">
+              Add brief description
+            </button>
+          </div>
+        @endif
       @endif
     </div>
 
