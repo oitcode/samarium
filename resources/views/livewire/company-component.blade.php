@@ -309,7 +309,7 @@
                 @if ($modes['companyInfoCreateMode'])
                   @livewire ('company.dashboard.company-info-create', ['company' => $company,])
                 @else
-                  <button class="btn btn-outline-primary shadow-sm" wire:click="enterMode('companyInfoCreateMode')">
+                  <button class="btn btn-light shadow-sm pl-3 text-primary" wire:click="enterMode('companyInfoCreateMode')">
                     Add company info
                   </button>
                 @endif
@@ -320,6 +320,36 @@
         </div>
       </div>
 
+    </div>
+
+
+    {{--
+    |
+    | Brief company description
+    |
+    | Brief description of the company. Could include location, products, niche, or any other
+    | information.
+    | 
+    --}}
+    <div class="my-4 bg-white border p-3">
+      <h2 class="h5 font-weight-bold">
+        Brief description
+      </h2>
+
+      @if ($company->brief_description)
+        <div class="py-3">
+          Yes yes
+        </div>
+      @else
+        <div class="py-3 text-muted">
+          No brief description.
+        </div>
+        <div class="py-3-rm text-muted">
+          <button class="btn btn-light ml-0 pl-0 border-rm text-primary">
+            Add brief description
+          </button>
+        </div>
+      @endif
     </div>
 
   </div>
