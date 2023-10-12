@@ -12,7 +12,7 @@
           background-color: {{ \App\CmsTheme::first()->top_header_bg_color }}; color: {{ \App\CmsTheme::first()->top_header_text_color }};
         @endif"
     >
-      <div class="container py-1">
+      <div class="container py-2">
         <div class="d-flex justify-content-between">
           {{-- Left side --}}
           <div>
@@ -24,7 +24,7 @@
           {{-- Right side --}}
           <div>
             <div class="d-flex">
-              @if (false)
+              @if (true)
               <div class="px-3">
                 <i class="fas fa-user mr-1"></i>
                 Sign in
@@ -34,7 +34,7 @@
                 Create Account
               </div>
               @endif
-              <div class="px-3" style="font-size: 1.1rem;">
+              <div class="px-3" style="">
                 @if ($company->fb_link)
                   <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">
                     <i class="fab fa-facebook fa-3x-rm mr-3"></i>

@@ -3,7 +3,7 @@
 @section ('pageTitleTag')
   <title>
     {{ env ('HOME_PAGE_TITLE', '') }}
-    {{ env ('CMP_NAME', 'Foobiz') }}
+    {{ env ('CMP_NAME', 'Nizbiz') }}
   </title>
 @endsection
 
