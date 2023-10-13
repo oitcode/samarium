@@ -21,11 +21,11 @@
   <div class="container-fluid bg-light-rm d-none d-md-block" style="background-color: #edeaea;">
   <div class="container pt-4-rm">
     <div class="row border-rm shadow-rm">
-      <div class="col-md-4 p-3-rm">
-        <div class="d-flex-rm justify-content-center-rm h-100 bg-danger-rm" style="{{--background-color: orange;--}}">
+      <div class="col-md-3 py-3">
+        <div class="d-flex flex-column justify-content-center h-100 bg-white" style="{{--background-color: orange;--}}">
           @if (true)
-          <div class="d-flex-rm flex-column-rm justify-content-center-rm h-100">
-            <div class="bg-white h-100" style="width: 300px;">
+          <div class="d-flex-rm flex-column-rm justify-content-center-rm h-100-rm">
+            <div class="bg-white h-100" style="">
               @php
                 $ii = 0;
               @endphp
@@ -37,14 +37,14 @@
                     href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
                     class="text-reset text-decoration-none"
                 >
-                  <div class="px-3 py-2 border-top">
+                  <div class="px-3 py-2 border-top-rm">
                       @if (false)
                       <img class="img-fluid h-25-rm w-100-rm"
                           src="{{ asset('storage/' . $productCategory->image_path) }}"
                           alt="{{ $productCategory->name }}"
                           style="max-height: 50px; max-width: 50px;">
                       @endif
-                      <span class="h5 font-weight-bold">
+                      <span class="h6 font-weight-bold">
                         {{ $productCategory->name }}
                       </span>
                   </div>
@@ -68,16 +68,16 @@
 
         </div>
       </div>
-      <div class="col-md-8 p-3">
+      <div class="col-md-9 p-3">
 
         <div>
-          <h2 class="bg-white-rm text-danger-rm font-weight-bold p-3 mb-4" style="{{--background-color: white; color: gray;--}}">
+          <h2 class="h6 bg-white text-danger-rm font-weight-bold p-3 py-4 mb-0" style="{{--background-color: white; color: gray;--}}">
             Featured products
           </h2>
         </div>
 
 
-        <div class="row">
+        <div class="row bg-white py-3" style="margin: auto;">
 
           @for ($ii=1; $ii <= \App\Product::max('product_id') && $ii <= 4; $ii++)
             @if (\App\Product::find($ii))
@@ -86,7 +86,7 @@
               <div class="col-md-3">
                 <a href="{{ route('website-product-view', [\App\Product::find($ii)->product_id, \App\Product::find($ii)->name]) }}"
                     class="text-decoration-none">
-                  <div class="card h-100 shadow">
+                  <div class="card h-100 shadow-rm border-0">
       
                     @if (true)
                     <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">

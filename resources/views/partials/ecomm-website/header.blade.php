@@ -79,7 +79,7 @@
               @endif
           </div>
           <div class="mt-3 d-none d-md-block mr-3">
-            <h1 class="mt-2 text-dark" style="font-weight: bold; font-size: 1.5rem; text-shadow: 0px 1px, 1px 0px, 1px 0px;">
+            <h1 class="h5 font-weight-bold mt-2 text-dark" style="">
               {{ $company->name }}
             </h1>
             @if (true)
@@ -91,11 +91,11 @@
         </div>
         </a>
 
-        @if (false)
+        @if (true)
         <div class="flex-grow-1 d-flex justify-content-center">
           <div class="d-flex flex-column justify-content-center">
             <div>
-              <input type="text" class="py-2 badge-pill-rm rounded shadow-rm mr-3" style="width: 400px;" placeholder="Search for product or a category">
+              <input type="text" class="form-control d-inline py-2 badge-pill-rm rounded shadow-rm mr-3" style="width: 400px;" placeholder="Search for a product">
               <button class="btn btn-outline-danger badge-pill">
                 Search
               </button>
