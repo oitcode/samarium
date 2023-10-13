@@ -30,7 +30,7 @@
               @if ($product->image_path)
                 <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 500px; {{--max-width: 100px;--}}">
               @else
-                <i class="fas fa-dice-d6 fa-10x text-muted m-5"></i>
+                <i class="fas fa-ellipsis-h fa-10x text-muted m-5"></i>
               @endif
             </div>
           </div>

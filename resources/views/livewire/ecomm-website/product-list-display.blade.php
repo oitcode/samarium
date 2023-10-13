@@ -6,25 +6,25 @@
   {{-- Show in bigger screens --}}
   <div class="d-none-rm d-md-block-rm h-100">
 
+    <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
     <div class="card h-100 shadow-sm border-0">
 
       <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-          <div class="d-flex justify-content-center bg-warning-rm">
+          <div class="d-flex justify-content-center bg-warning-rm     "
+              style="@if ($product->image_path) @else background-color: #eed;  @endif">
             @if ($product->image_path)
               <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
             @else
-              <i class="fas fa-dice-d6 fa-8x text-muted m-5"></i>
+              <i class="fas fa-ellipsis-h fa-6x text-muted m-5"></i>
             @endif
           </div>
 
         <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
           <div class="p-2">
-            <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}">
-              <h2 class="h5 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
-                {{ strtoupper($product->name) }}
-              </h2>
-            </a>
-            @if (false)
+            <h2 class="h5 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
+              {{ strtoupper($product->name) }}
+            </h2>
+            @if (true)
             <div class="mb-1" style="font-size: 0.7rem;">
               <i class="far fa-star" style="color: orange;"></i>
               <i class="far fa-star" style="color: orange;"></i>
@@ -44,7 +44,7 @@
               </div>
             @endif
 
-            @if (false)
+            @if (true)
               @if (rand()%2 == 0)
               <div class="h6 text-dark text-left">
                 Free shipping
@@ -72,18 +72,10 @@
             </div>
 
           </div>
-          @if (false)
-          <div class="mb-4 px-2">
-            <button class="btn btn-success mt-3 p-3 px-3" wire:click.prevent="addItemToCart({{ $product->product_id }})">
-              <span class="h5">
-              ADD TO CART
-              </span>
-            </button>
-          </div>
-          @endif
         </div>
       </div>
 
     </div>
+    </a>
   </div>
 </div>
