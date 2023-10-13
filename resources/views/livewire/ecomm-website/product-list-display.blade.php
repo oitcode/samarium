@@ -44,7 +44,7 @@
               </div>
             @endif
 
-            @if (true)
+            @if (false)
               @if (rand()%2 == 0)
               <div class="h6 text-dark text-left">
                 Free shipping
