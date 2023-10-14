@@ -92,7 +92,7 @@
                     <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
                         <div class="d-flex justify-content-center bg-warning-rm">
                             @if (\App\Product::find($ii)->image_path)
-                              <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . \App\Product::find($ii)->image_path) }}" alt="{{
+                              <img class="img-fluid h-25-rm w-100" src="{{ asset('storage/' . \App\Product::find($ii)->image_path) }}" alt="{{
                               \App\Product::find($ii)->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
                             @else
                               <i class="fas fa-ellipsis-h fa-8x text-muted m-5"></i>
