@@ -1,15 +1,15 @@
 <div class="p-3-rm border-rm bg-warning-rm">
 
   {{-- Breadcrumb --}}
-  <div class="py-1 text-secondary mb-4-rm" style="font-size: 1.15rem;">
-    <a class="text-primary-rm"
+  <div class="py-1 text-secondary-rm mb-4-rm" style="font-size: 1.15rem;">
+    <a class="text-primary-rm text-reset"
         href="{{ route('website-home') }}"
         style="{{-- color: #000; --}}">
       Home
     </a>
 
     <i class="fas fa-angle-right  mx-1"></i>
-    <a class="text-primary-rm"
+    <a class="text-primary-rm text-reset"
         href=""
         style="{{-- color: #000; --}}">
       {{ $productCategory->name }}
@@ -21,7 +21,7 @@
       <div class="col-md-12-rm p-3-rm p-0">
         <div class="d-flex justify-content-center h-100" style="background-color: #eaeaea;">
           <div class="d-flex flex-column justify-content-center h-100">
-            <h2 class="text-white-rm mt-3" style="font-size: 2rem;">
+            <h2 class="text-white-rm mt-3" style="">
               {{ $productCategory->name }}
             </h2>
             <p class="text-secondary">

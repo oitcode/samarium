@@ -21,8 +21,8 @@
 
         <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
           <div class="p-2">
-            <h2 class="h5 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
-              {{ strtoupper($product->name) }}
+            <h2 class="h6 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
+              {{ ucwords($product->name) }}
             </h2>
             @if (true)
             <div class="mb-1" style="font-size: 0.7rem;">
@@ -38,9 +38,13 @@
             @endif
 
             @if ($product->selling_price != 0)
-              <div class="h5 text-muted text-left mt-3" style="font-weight: bold;">
+              <div class="65 text-muted text-left mt-3" style="font-weight: bold;">
                 Rs.
                 @php echo number_format( $product->selling_price ); @endphp
+              </div>
+            @else
+              <div class="65 text-muted text-left mt-3" style="font-weight: bold;">
+                &nbsp;
               </div>
             @endif
 
