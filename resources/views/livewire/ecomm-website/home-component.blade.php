@@ -83,10 +83,10 @@
             @if (\App\Product::find($ii))
 
 
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <a href="{{ route('website-product-view', [\App\Product::find($ii)->product_id, \App\Product::find($ii)->name]) }}"
                     class="text-decoration-none">
-                  <div class="card h-100 shadow-rm border-0">
+                  <div class="card h-100 shadow-rm border-0-rm border">
       
                     @if (true)
                     <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
@@ -99,15 +99,17 @@
                             @endif
                         </div>
       
-                      <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
+                      <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto" style="{{-- background-color: #f5f5f5; --}}">
                         <div class="p-2">
-                            <h2 class="h5 font-weight-bold mt-2 mb-2-rm text-dark" style="font-family: Arial;">
-                              {{ strtoupper(\App\Product::find($ii)->name) }}
+                            <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark" style="font-family: Arial;">
+                              {{ ucwords(\App\Product::find($ii)->name) }}
                             </h2>
                             <div class="mt-0 text-muted h6 font-weight-bold">
                               @if (\App\Product::find($ii)->selling_price != 0)
                                 Rs
                                 @php echo number_format( \App\Product::find($ii)->selling_price ); @endphp
+                              @else
+                              &nbsp;
                               @endif
                             </div>
       
