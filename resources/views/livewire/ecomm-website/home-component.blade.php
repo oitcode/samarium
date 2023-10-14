@@ -304,16 +304,16 @@
                           @endif
                       </div>
             
-                    <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="background-color: #f5f5f5;">
+                    <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="">
                       <div class="p-2">
-                          <h2 class="h5 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
-                            {{ strtoupper($productCategory->name) }}
+                          <h2 class="h6 font-weight-bold mt-2 mb-2 text-dark text-center" style="font-family: Arial;">
+                            {{ ucwords($productCategory->name) }}
                           </h2>
             
                       </div>
                     </div>
 
-                    <div class="p-3 text-muted">
+                    <div class="py-1 px-2 text-muted text-center">
                       Products:
                       {{ count($productCategory->products) }}
                     </div>
