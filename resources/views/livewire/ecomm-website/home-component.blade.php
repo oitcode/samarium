@@ -83,10 +83,10 @@
             @if (\App\Product::find($ii))
 
 
-              <div class="col-md-4">
+              <div class="col-md-4 border-rm border-danger-rm">
                 <a href="{{ route('website-product-view', [\App\Product::find($ii)->product_id, \App\Product::find($ii)->name]) }}"
                     class="text-decoration-none">
-                  <div class="card h-100 shadow-rm border-0-rm border">
+                  <div class="card h-100 shadow-rm border-0-rm border-rm border-0">
       
                     @if (true)
                     <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
@@ -408,4 +408,13 @@
     @endif
   @endif
   </div>
+
+
+  <div class="container-fluid py-4-rm bg-white border py-0" style="background-image: linear-gradient(to bottom right, #a55, #822);">
+    <div class="container py-0">
+      @livewire ('ecomm-website.subscribe-us')
+    </div>
+  </div>
+
+
 </div>
