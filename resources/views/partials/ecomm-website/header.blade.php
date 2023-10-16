@@ -92,13 +92,19 @@
         </a>
 
         @if (true)
-        <div class="flex-grow-1 d-flex justify-content-center">
-          <div class="d-flex flex-column justify-content-center">
-            <div>
-              <input type="text" class="form-control d-inline py-2 badge-pill-rm rounded shadow-rm mr-3" style="width: 400px;" placeholder="Search for a product">
-              <button class="btn btn-outline-danger badge-pill">
-                Search
-              </button>
+        <div class="flex-grow-1 d-flex justify-content-center-rm bg-info-rm">
+          <div class="d-flex flex-column justify-content-center flex-grow-1 bg-success-rm px-4">
+            <div class="w-100 bg-warning">
+
+              <div class="input-group mr-sm-2">
+                  <input type="text" class="form-control" id="" placeholder="Search for a product or category">
+                  <div class="input-group-append">
+                    <div class="input-group-text bg-danger" role="button">
+                      <i class="fas fa-search px-2 text-white"></i>
+                    </div>
+                  </div>
+              </div>
+
             </div>
           </div>
         </div>
