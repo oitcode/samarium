@@ -8,14 +8,14 @@
           Subscribe us
         </h2>
         <p class="text-muted-rm text-center-rm">
-          Subscribe to our newsletter to get the latest updates.
+          Please enter your email address to get regular updates on our products.
         </p>
 
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Enter a valid email address" />
         </div>
         <div class="mt-4 d-flex justify-content-center-rm">
-          <button class="btn btn-danger shadow">
+          <button class="btn btn-danger shadow border border-light">
             Subscribe
           </button>
         </div>

@@ -413,7 +413,7 @@
   </div>
 
 
-  <div class="container-fluid py-4-rm bg-white border py-0" style="background-image: linear-gradient(to bottom right, #a55, #822);">
+  <div class="container-fluid py-4-rm bg-white border py-0" style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);">
     <div class="container py-0">
       @livewire ('ecomm-website.subscribe-us')
     </div>
