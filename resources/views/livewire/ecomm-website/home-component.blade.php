@@ -308,18 +308,18 @@
                       </div>
             
                     <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="">
-                      <div class="p-2">
-                          <h2 class="h6 font-weight-bold mt-2 mb-2 text-dark text-center" style="font-family: Arial;">
+                      <div class="pt-2">
+                          <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark text-center py-0 my-0" style="font-family: Arial;">
                             {{ ucwords($productCategory->name) }}
                           </h2>
             
                       </div>
+                      <div class="py-1 px-2 pb-3 text-muted text-center">
+                        Products:
+                        {{ count($productCategory->products) }}
+                      </div>
                     </div>
 
-                    <div class="py-1 px-2 text-muted text-center">
-                      Products:
-                      {{ count($productCategory->products) }}
-                    </div>
                   </div>
 
                 </div>
