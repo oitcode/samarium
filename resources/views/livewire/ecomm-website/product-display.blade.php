@@ -21,7 +21,7 @@
     {{ $product->name }}
   </div>
 
-  <div class="row mb-3 border p-2 py-5-rm  bg-white shadow-rm" style="margin: auto;">
+  <div class="row mb-3 border p-2 py-5-rm shadow-rm pt-3" style="margin: auto;">
     <div class="col-md-8">
       <div class="row bg-warning-rm">
         <div class="col-md-6 mb-4">
@@ -40,6 +40,7 @@
             {{ strtoupper($product->name) }}
           </h1>
 
+          @if (false)
           <div class="my-3">
             <span class="badge-rm badge-pill-rm badge-success-rm" style="">
               Available
@@ -50,6 +51,7 @@
             </span>
             @endif
           </div>
+          @endif
 
           @if (true)
           <div class="mb-3" style="font-size: 0.7rem;">
@@ -110,10 +112,34 @@
         </div>
       </div>
 
-        @if (count($product->productSpecifications) > 0)
-        {{-- Product specification --}}
-        <div class="bg-white p-3 border-rm mb-3">
+        {{-- Features --}}
+        <div class="bg-white px-3 border-rm mb-3-rm">
           <div>
+            <div class="mb-3">
+              <strong>
+                Features
+              </strong>
+            </div>
+            <div class="px-3" style="">
+              <ul class="pl-0">
+                <li>Metal body</li>
+                <li>Robust and durable </li>
+                <li>Rust free</li>
+                <li>Quality check passed</li>
+                <li>ISO:9001 certified</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+
+        {{-- Product specification --}}
+        @if (count($product->productSpecifications) > 0)
+        <div class="bg-white p-3-rm border-rm mb-3">
+          <div>
+            @if (false)
             <div class="mb-3">
               <strong class="text-muted">
                 PRODUCT DETAILS
@@ -125,17 +151,17 @@
               </strong>
               @endif
             </div>
+            @endif
 
             @if (count($product->productSpecifications) > 0)
-              <hr />
-              <div class="mb-5">
+              <div class="mb-5-rm">
                 <div class="mt-4">
-                  <h3 class="h5 ml-2 mb-3" style="font-weight: bold;">
+                  <h3 class="h6 font-weight-bold ml-2 mb-3" style="font-weight: bold;">
                     Specifications
                   </h3>
                 </div>
-                <div class="table-responsive border-rm">
-                  <table class="table mb-0">
+                <div class="table-responsive border-rm mb-0">
+                  <table class="table table-bordered mb-0">
                     @foreach ($product->productSpecifications as $spec)
                       <tr class="">
                         <th class="bg-light-rm border-dark" style="{{-- background-color: #eee; --}}">
@@ -154,8 +180,11 @@
         </div>
         @endif
 
+        <hr />
+
+
         {{-- Rating and reviews --}}
-        <div class="bg-white p-3 border-rm mb-3">
+        <div class="bg-white p-3-rm border-rm mb-3">
           <div>
             <div class="mb-3">
               <strong>
@@ -188,39 +217,54 @@
             </div>
           </div>
         </div>
+
+        <hr />
+
+        {{-- Questions and answers --}}
+        <div class="bg-white p-3-rm border-rm mb-3">
+          <div>
+            <div class="mb-3">
+              <strong>
+                Question and answers
+              </strong>
+            </div>
+          </div>
+        </div>
     </div>
     <div class="col-md-4">
+
+      @if (true)
+      <div class="mb-4">
+        <h2 class="h6 font-weight-bold text-secondary">
+          Stock
+        </h2>
+        <div>
+          <i class="fas fa-check-circle mr-1 text-success"></i>
+          Available
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h2 class="h6 font-weight-bold text-secondary">
+          Shipping
+        </h2>
+        <div>
+          <i class="fas fa-check-circle mr-1 text-success"></i>
+          Available
+        </div>
+      </div>
 
       @if (false)
       <div class="mb-4">
         <h2 class="h6 font-weight-bold text-secondary">
-          Delivery
+          Return
         </h2>
         <div>
-          <i class="fas fa-map-marker-alt mr-1"></i>
-          + 5 miles | Some place
+          <i class="fas fa-times-circle mr-1 text-danger"></i>
+          No return
         </div>
       </div>
-
-      <div class="mb-4">
-        <h2 class="h6 font-weight-bold text-secondary">
-          Service
-        </h2>
-        <div>
-          <i class="fas fa-dice-d6 mr-1"></i>
-          24/7 Working days
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <h2 class="h6 font-weight-bold text-secondary">
-          Stats
-        </h2>
-        <div>
-          <i class="fas fa-th mr-1"></i>
-          58 views | 91 Likes | 22 Shares
-        </div>
-      </div>
+      @endif
       @endif
 
     </div>
