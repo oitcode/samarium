@@ -112,6 +112,7 @@
         </div>
       </div>
 
+        @if (false)
         {{-- Features --}}
         <div class="bg-white px-3 border-rm mb-3-rm">
           <div>
@@ -133,6 +134,7 @@
         </div>
 
         <hr />
+        @endif
 
 
         {{-- Product specification --}}
@@ -178,9 +180,9 @@
             @endif
           </div>
         </div>
+        <hr />
         @endif
 
-        <hr />
 
 
         {{-- Rating and reviews --}}
