@@ -1,8 +1,8 @@
 <div class="container-fluid py-4" style="background-color: #eee;">
   <div class="container my-4-rm mb-5-rm bg-warning-rm">
   
-      <div class="d-flex justify-content-start my-3 py-3 bg-white border">
-        <h1 class="bg-light text-dark p-3 mx-3" style="font-weight: bold; {{-- font-size: 1.5rem --}}; text-shadow: 0px 1px, 1px 0px, 1px 0px;">
+      <div class="d-flex justify-content-start mb-2 py-3 bg-white border">
+        <h1 class="h4 font-weight-bold bg-light text-dark pl-3 mx-3-rm" style="">
           Checkout
         </h1>
         @if (false)
@@ -190,8 +190,18 @@
             </button>
           </div>
         @else
-          <div class="my-4 text-secondary">
-            No items in cart. Please add products to cart.
+          <div class="bg-white my-4-rm py-4 pl-3 text-secondary-rm">
+            <div class="mb-4">
+              <h3 class="h6 font-weight-bold mb-3">
+                Shopping cart is empty!
+              </h3>
+              No items in cart. Please add products to cart.
+            </div>
+            <div class="">
+              <button class="btn btn-danger">
+                Shop now
+              </button>
+            </div>
           </div>
         @endif
   
