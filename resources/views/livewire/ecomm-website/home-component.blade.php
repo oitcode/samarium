@@ -18,115 +18,118 @@
 
   @if (true)
   {{-- Show only in big screens for now --}}
-  <div class="container-fluid bg-light-rm d-none d-md-block" style="background-color: #edeaea;">
+  <div class="container-fluid bg-light-rm d-none d-md-block py-4" style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);">
   <div class="container pt-4-rm">
     <div class="row border-rm shadow-rm">
-      <div class="col-md-3 py-3">
-        <div class="d-flex flex-column justify-content-center h-100 bg-white" style="{{--background-color: orange;--}}">
-          @if (true)
-          <div class="d-flex-rm flex-column-rm justify-content-center-rm h-100-rm">
-            <div class="bg-white h-100" style="">
+      <div class="col-md-3 py-3-rm bg-info-rm">
+        <div class="d-flex flex-column h-100" >
+          <div class="bg-white h-100-rm py-3 flex-grow-1" style="">
+            <div class="mb-3 pl-3 font-weight-bold text-secondary">
+              Product categories
+            </div>
+            @php
+              $ii = 0;
+            @endphp
+            @foreach ($productCategories as $productCategory)
+              @if ($ii >= 5)
+                @break
+              @endif
+              <a
+                  href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
+                  class="text-reset text-decoration-none"
+              >
+                <div class="px-3 py-2 border-top-rm">
+                    @if (false)
+                    <img class="img-fluid h-25-rm w-100-rm"
+                        src="{{ asset('storage/' . $productCategory->image_path) }}"
+                        alt="{{ $productCategory->name }}"
+                        style="max-height: 50px; max-width: 50px;">
+                    @endif
+                    <span class="h6 font-weight-bold">
+                      {{ $productCategory->name }}
+                    </span>
+                </div>
+              </a>
               @php
-                $ii = 0;
+                $ii++;
               @endphp
-              @foreach ($productCategories as $productCategory)
-                @if ($ii >= 5)
-                  @break
-                @endif
-                <a
-                    href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-                    class="text-reset text-decoration-none"
-                >
-                  <div class="px-3 py-2 border-top-rm">
-                      @if (false)
-                      <img class="img-fluid h-25-rm w-100-rm"
-                          src="{{ asset('storage/' . $productCategory->image_path) }}"
-                          alt="{{ $productCategory->name }}"
-                          style="max-height: 50px; max-width: 50px;">
-                      @endif
-                      <span class="h6 font-weight-bold">
-                        {{ $productCategory->name }}
-                      </span>
-                  </div>
-                </a>
-                @php
-                  $ii++;
-                @endphp
-              @endforeach
-              <div class="p-3 border-top">
-                <a href="#o-all-categories">
-                @if (false)
-                <i class="fas fa-dice-d6 mr-1"></i>
-                @endif
-                See all categories
-                </a>
-              </div>
+            @endforeach
+            <div class="p-3 border-top">
+              <a href="#o-all-categories">
+              @if (false)
+              <i class="fas fa-dice-d6 mr-1"></i>
+              @endif
+              See all categories
+              </a>
             </div>
           </div>
-          @endif
-
-
         </div>
+
+
       </div>
-      <div class="col-md-9 p-3">
-
-        <div>
-          <h2 class="h6 bg-white text-danger-rm font-weight-bold p-3 py-4 mb-0" style="{{--background-color: white; color: gray;--}}">
-            Featured products
-          </h2>
-        </div>
+      <div class="col-md-9 pt-3 bg-white">
 
 
-        <div class="row bg-white py-3" style="margin: auto;">
 
-          @for ($ii=1; $ii <= \App\Product::max('product_id') && $ii <= 3; $ii++)
-            @if (\App\Product::find($ii))
+        <div class="d-flex flex-column h-100">
+          <div>
+            <h2 class="h6 bg-white text-secondary font-weight-bold p-3-rm py-4-rm mb-0" style="{{--background-color: white; color: gray;--}}">
+              Featured products
+            </h2>
+          </div>
+          <div class="flex-grow-1 bg-white">
+          <div class="row bg-white py-3" style="margin: auto;">
+
+            @for ($ii=1; $ii <= \App\Product::max('product_id') && $ii <= 3; $ii++)
+              @if (\App\Product::find($ii))
 
 
-              <div class="col-md-4 border-rm border-danger-rm">
-                <a href="{{ route('website-product-view', [\App\Product::find($ii)->product_id, \App\Product::find($ii)->name]) }}"
-                    class="text-decoration-none">
-                  <div class="card h-100 shadow-rm border-0-rm border-rm border-0">
+                <div class="col-md-4 bg-danger-rm border-rm border-danger-rm">
+                  <a href="{{ route('website-product-view', [\App\Product::find($ii)->product_id, \App\Product::find($ii)->name]) }}"
+                      class="text-decoration-none">
+                    <div class="card h-100 shadow-rm border-0-rm border-rm border-0">
       
-                    @if (true)
-                    <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-                        <div class="d-flex justify-content-center bg-warning-rm">
-                            @if (\App\Product::find($ii)->image_path)
-                              <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . \App\Product::find($ii)->image_path) }}" alt="{{
-                              \App\Product::find($ii)->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
-                            @else
-                              <i class="fas fa-ellipsis-h fa-8x text-muted m-5"></i>
-                            @endif
-                        </div>
-      
-                      <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto" style="{{-- background-color: #f5f5f5; --}}">
-                        <div class="p-2">
-                            <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark" style="font-family: Arial;">
-                              {{ ucwords(\App\Product::find($ii)->name) }}
-                            </h2>
-                            <div class="mt-0 text-muted h6 font-weight-bold">
-                              @if (\App\Product::find($ii)->selling_price != 0)
-                                Rs
-                                @php echo number_format( \App\Product::find($ii)->selling_price ); @endphp
+                      @if (true)
+                      <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
+                          <div class="d-flex justify-content-center bg-warning-rm">
+                              @if (\App\Product::find($ii)->image_path)
+                                <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . \App\Product::find($ii)->image_path) }}" alt="{{
+                                \App\Product::find($ii)->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
                               @else
-                              &nbsp;
+                                <i class="fas fa-ellipsis-h fa-8x text-muted m-5"></i>
                               @endif
-                            </div>
+                          </div>
       
+                        <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto" style="{{-- background-color: #f5f5f5; --}}">
+                          <div class="p-2">
+                              <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark" style="font-family: Arial;">
+                                {{ ucwords(\App\Product::find($ii)->name) }}
+                              </h2>
+                              <div class="mt-0 text-muted h6 font-weight-bold">
+                                @if (\App\Product::find($ii)->selling_price != 0)
+                                  Rs
+                                  @php echo number_format( \App\Product::find($ii)->selling_price ); @endphp
+                                @else
+                                &nbsp;
+                                @endif
+                              </div>
+      
+                          </div>
                         </div>
                       </div>
+                      @endif
+
+
                     </div>
-                    @endif
+                  </a>
+                </div>
 
 
-                  </div>
-                </a>
-              </div>
+              @endif
+            @endfor
 
-
-            @endif
-          @endfor
-
+          </div>
+          </div>
         </div>
 
         @if (false)
