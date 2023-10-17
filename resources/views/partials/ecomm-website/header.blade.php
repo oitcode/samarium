@@ -32,6 +32,11 @@
                     Sign in
                   </a>
                 @else
+                  <a href="" class="text-reset text-decoration-none mr-4">
+                    <i class="fas fa-user mr-1"></i>
+                    Profile
+                  </a>
+
                   <a class="text-reset text-decoration-none" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();"

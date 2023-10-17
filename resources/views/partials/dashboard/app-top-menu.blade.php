@@ -102,7 +102,7 @@
 
     {{-- Go to website --}}
     <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
-      <a href="/">
+      <a href="/" target="_blank">
         <i  class="fas fa-cat text-dark-rm mr-2" style="color: {{ env('OC_SELECT_TXT_COLOR') }}"></i>
       </a>
     </div>

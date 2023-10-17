@@ -286,7 +286,7 @@
       <div class="row bg-danger-rm">
         @foreach ($productCategories as $productCategory)
 
-          <div class="col-md-3 my-4">
+          <div class="col-6 col-md-3 my-4">
             <div class="h-100 shadow-rm">
               {{-- Show in smaller screens --}}
               <div class="d-md-none">
