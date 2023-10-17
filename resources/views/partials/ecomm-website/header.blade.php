@@ -179,10 +179,12 @@
   </button>
 
   <a class="navbar-brand p-3 text-reset" href="/" style="">
-    <i class="fas fa-check-circle fa-2x-rm mr-1 text-info-rm" style=""></i>
+    <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
+    @if (false)
     <span class="h4 font-weight-bold" style="">
       {{ $company->name }}
     </span>
+    @endif
   </a>
 
   <div class="px-3">
