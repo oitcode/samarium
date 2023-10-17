@@ -167,18 +167,107 @@
 
 
   {{-- Show in smaller screens --}}
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark-rm bg-dark-rm m-0 p-0 d-md-none" style="">
+  <button class="navbar-toggler p-3 m-3" style="border: 1px solid gray;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    @if (false)
+    <span class="navbar-toggler-icon"></span>
+    @endif
+    <i class="fas fa-list fa-2x-rm" style=""></i>
+  </button>
+
+  <a class="navbar-brand p-3 text-reset" href="/" style="">
+    <i class="fas fa-check-circle fa-2x-rm mr-1 text-info-rm" style=""></i>
+    <span class="h4 font-weight-bold" style="">
+      {{ $company->name }}
+    </span>
+  </a>
+
+  <div class="px-3">
+    @livewire ('ecomm-website.shopping-cart-badge')
+  </div>
+
+
+  <div class="collapse navbar-collapse m-0 p-0 mt-4" id="navbarSupportedContent" style="margin-left: 0;">
+    <ul class="navbar-nav m-0 p-0 mr-auto-rm" style="margin: auto;">
+
+
+      {{-- Common things --}}
+
+      @guest
+        <li class="nav-item border bg-light text-dark p-3">
+          <a class="nav-link text-dark" href="{{ route('login') }}">
+            <i class="fas fa-user mr-3"></i>
+            <span class="font-weight-bold">
+            Sign in 
+            </span>
+          </a>
+        </li>
+        <li class="nav-item border bg-light text-dark p-3">
+          <a class="nav-link text-dark" href="{{ route('website-user-signup') }}">
+            <i class="fas fa-lock mr-3"></i>
+            <span class="font-weight-bold">
+            Create account
+            </span>
+          </a>
+        </li>
+      @else
+        <li class="nav-item border bg-light text-dark p-3">
+          <a class="nav-link text-dark" href="{{ route('dashboard-help') }}">
+            <i class="fas fa-user mr-3"></i>
+            <span class="font-weight-bold">
+            My profile
+            </span>
+          </a>
+        </li>
+        <li class="nav-item border bg-light text-dark p-3">
+          <a class="nav-link text-dark" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"
+          >
+            <i class="fas fa-power-off mr-2 text-danger font-weight-bold"></i>
+            <span class="text-danger font-weight-bold">
+            Logout
+          </a>
+        </li>
+      @endguest
+
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
   <div class="container-fluid p-0 bg-warning-rm d-md-none">
-    <div class="d-flex justify-content-between p-3">
+    @if (false)
+    <div class="d-flex justify-content-between p-3" style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);
+        {{--
+        border-bottom: 5px solid #FF512F;
+        border-top: 5px solid #FF512F;
+        --}}
+        ">
       <a href="{{ route('website-home') }}" class="text-decoration-none">
-        <div class="d-flex">
+        <div class="d-flex bg-info-rm">
           <div class="mr-4 d-flex flex-column justify-content-center">
               <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 40px;">
           </div>
-          <div class="mr-3">
-            <h1 class="h6 text-dark" style="font-weight: bold;">{{ $company->name }}</h1>
+          <div class="d-flex flex-column justify-content-center mr-3 bg-warning-rm">
+            <h1 class="h5 font-weight-bold text-dark mb-0 pb-0" style="font-weight: bold;">{{ $company->name }}</h1>
+            @if (false)
             <div class="text-secondary">
               {{ $company->tagline }}
             </div>
+            @endif
           </div>
         </div>
       </a>
@@ -194,12 +283,25 @@
     </div>
 
     <div>
-      @if (true)
+      @if (false)
         <div class="d-flex flex-column justify-content-center h-100 bg-light">
           @include ('partials.ecomm-website.top-menu')
         </div>
       @endif
     </div>
+    @endif
+
+    <div class="p-2" style="background-image: linear-gradient(to bottom right, #eee, #ddd);">
+      <div class="input-group mr-sm-2">
+          <input type="text" class="form-control py-4" id="" placeholder="Search for a product or category">
+          <div class="input-group-append">
+            <div class="input-group-text bg-white" role="button">
+              <i class="fas fa-search px-2 text-secondary"></i>
+            </div>
+          </div>
+      </div>
+    </div>
+
   </div>
 
 </div>

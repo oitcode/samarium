@@ -277,7 +277,7 @@
 
     {{-- Show this for now --}}
     <div class="container py-5" id="o-all-categories">
-      <h2 class="h1 mt-2 mb-1">
+      <h2 class="h4 font-weight-bold mt-2 mb-1">
         Categories
       </h2>
       <p class="text-secondary">
