@@ -15,7 +15,7 @@
       @if (false)
       <hr />
       @endif
-  
+
       @if (session()->has('cart'))
       <div class="row" style="margin: auto;">
         <div class="col-md-6 bg-white text-white-rm border-right px-5 py-2 shadow-rm">
@@ -198,13 +198,31 @@
               No items in cart. Please add products to cart.
             </div>
             <div class="">
-              <button class="btn btn-danger">
+              <a href="/" class="btn btn-danger">
                 Shop now
-              </button>
+              </a>
             </div>
           </div>
         @endif
   
       @endif
+  
+      @guest
+        <div class="bg-white border p-3 my-2">
+          <div class="font-weight-bold mb-3">
+            You are not signed in!
+          </div>
+          <div class="mb-3">
+            Sign in to use many more features.
+          </div>
+          <div>
+            <a href="{{ route('login') }}" class="btn btn-success">
+              Sign in
+            </a>
+          </div>
+        </div>
+      @endguest
+
+
   </div>
 </div>

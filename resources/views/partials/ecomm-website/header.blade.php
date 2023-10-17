@@ -26,12 +26,32 @@
             <div class="d-flex">
               @if (true)
               <div class="px-3">
-                <i class="fas fa-user mr-1"></i>
-                Sign in
+                @guest
+                  <a href="{{ route('login') }} " class="text-reset text-decoration-none">
+                    <i class="fas fa-user mr-1"></i>
+                    Sign in
+                  </a>
+                @else
+                  <a class="text-reset text-decoration-none" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();"
+                  >
+                    <i class="fas fa-power-off mr-2 text-warning-rm"></i>
+                    Logout
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+                @endguest
               </div>
               <div class="px-3">
-                <i class="fas fa-lock mr-1"></i>
-                Create Account
+                @guest
+                  <a href="{{ route('website-user-signup') }} " class="text-reset text-decoration-none">
+                    <i class="fas fa-lock mr-1"></i>
+                    Create Account
+                  </a>
+                @endguest
               </div>
               @endif
               <div class="px-3" style="">

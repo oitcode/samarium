@@ -43,12 +43,33 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
 
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
+        <div class="mb-5 text-center">
+          <div class="mb-3">
+            @if (\App\Company::first())
+              <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
+                  class="img-fluid-rm"
+                  alt="{{ \App\Company::first()->name }} logo"
+                  style="height: 75px !important;">
+            @else
+              <i class="fas fa-check-circle mr-1"></i>
+            @endif
+          </div>
+          @if (false)
+          <div class="h6 font-weight-bold">
+            @if (\App\Company::first())
+              {{ \App\Company::first()->name }}
+            @else
+              Ozone
+            @endif
+          </div>
+          @endif
+        </div>
+
         <div class="py-4 bg-primary-rm text-primary-rm rounded border shadow" style="background-color: #eee; color: {{ env('OC_SELECT_COLOR') }};">
           @if (true)
           <div class="h2 text-center" style="text-shadow: 1px 0 {{ env('OC_SELECT_COLOR') }};text-shadow: -1px 0 {{ env('OC_SELECT_COLOR') }};
           {{-- font-family: Mono; --}}">
-            <i class="fas fa-check-circle mr-1"></i>
-            Ozone
+            Login
           </div>
           @endif
         </div>
@@ -91,7 +112,7 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
             </div>
           </div>
           <div class="col-md-8-rm px-5 py-3">
-            @if (true)
+            @if (false)
             <h2 class="text-center h4 font-weight-bold text-secondary mb-4">
               Login
             </h2>

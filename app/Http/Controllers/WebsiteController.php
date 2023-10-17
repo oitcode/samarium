@@ -224,4 +224,12 @@ class WebsiteController extends Controller
             ->with('vacancy', $vacancy)
             ->with('company', $company);
     }
+
+    public function userSignup()
+    {
+        $company = Company::first();
+
+        return view('user.website.signup')
+            ->with('company', $company);
+    }
 }

@@ -283,6 +283,16 @@ Route::get('/book-appointment/{id}', 'WebsiteController@bookAppointment')->name(
  */
 Route::get('/vacancy/{id}/{name}', 'WebsiteController@vacancyView')->name('website-vacancy-view');
 
+/*
+ *-----------------------------------------------------------------------------
+ * User Signup
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+Route::get('/user/signup', 'WebsiteController@userSignup')->name('website-user-signup');
+
 
 /*
  *-----------------------------------------------------------------------------

@@ -95,9 +95,16 @@
       </a>
     </div>
 
-    {{-- User related. Is placed on top right part. --}}
+    {{-- Misc. Misc operations. --}}
     <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem;">
       @include ('partials.dashboard.app-top-menu-misc-dropdown')
+    </div>
+
+    {{-- Go to website --}}
+    <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
+      <a href="/">
+        <i  class="fas fa-cat text-dark-rm mr-2" style="color: {{ env('OC_SELECT_TXT_COLOR') }}"></i>
+      </a>
     </div>
 
     @if (false)
