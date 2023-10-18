@@ -71,6 +71,15 @@
 
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="d-none d-md-block">
+                  @livewire ('todo.dashboard.todo-glance')
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -80,9 +89,6 @@
       <div class="">
         {{-- Show quick links menu. --}}
         @include ('partials.dashboard.mobile-dashboard-main-links')
-      </div>
-      <div class="d-none d-md-block">
-        @livewire ('todo.dashboard.todo-glance')
       </div>
     </div>
 
