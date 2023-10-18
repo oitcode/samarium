@@ -18,7 +18,7 @@
 
   @if (true)
   {{-- Show only in big screens for now --}}
-  <div class="container-fluid bg-light-rm d-none d-md-block py-4" style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);">
+  <div class="container-fluid bg-light-rm d-none d-md-block py-4" style="background-image: linear-gradient(to bottom right, #eee, #ddd);">
   <div class="container pt-4-rm">
     <div class="row border-rm shadow-rm">
       <div class="col-md-3 py-3-rm bg-info-rm">
