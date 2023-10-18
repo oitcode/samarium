@@ -63,6 +63,12 @@
 
               </div>
               <div class="col-md-6">
+
+                {{-- Online order glance --}}
+                <div class="mb-4">
+                  @livewire ('online-order.dashboard.online-order-glance')
+                </div>
+
               </div>
             </div>
           </div>
