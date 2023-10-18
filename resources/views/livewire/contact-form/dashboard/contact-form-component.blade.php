@@ -1,11 +1,7 @@
 <div>
 
-  @if (false)
-  <x-component-header>
-    Contact message
-  </x-component-header>
-  @endif
 
+  {{-- Top toolbar --}}
   <x-toolbar-classic toolbarTitle="Contact Message">
 
     @include ('partials.dashboard.spinner-button')
@@ -44,6 +40,7 @@
 
   </x-toolbar-classic>
 
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -57,9 +54,18 @@
     </div>
   @endif
 
+
+  {{--
+     |
+     | Use the required component as per mode
+     |
+  --}}
+
   @if ($modes['listContactMessageMode'])
     @livewire ('contact-form.dashboard.contact-message-list')
   @elseif ($modes['displayContactMessageMode'])
     @livewire ('contact-form.dashboard.contact-message-display', ['contactMessage' => $displayingContactMessage,])
   @endif
+
+
 </div>
