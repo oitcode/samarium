@@ -1,5 +1,6 @@
 <div>
 
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     @include ('partials.flash-message', [
@@ -7,7 +8,8 @@
     ])
   @endif
 
-  <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+
+  <button wire:loading class="btn" style="font-size: 1.5rem;">
     <div class="spinner-border text-info mr-3" role="status">
       <span class="sr-only">Loading...</span>
     </div>
@@ -133,9 +135,12 @@
 
   </div>
 
+
   @if (false)
   @if ($modes['confirmDeleteMode'])
     @livewire ('todo-list-confirm-delete', ['todo' => $deletingTodo,])
   @endif
   @endif
+
+
 </div>

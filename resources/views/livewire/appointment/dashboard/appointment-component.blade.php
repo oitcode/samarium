@@ -1,11 +1,7 @@
 <div>
 
-  @if (false)
-  <x-component-header>
-    Appointment
-  </x-component-header>
-  @endif
 
+  {{-- Top toolbar --}}
   <x-toolbar-classic toolbarTitle="Appointment">
 
     @include ('partials.dashboard.spinner-button')
@@ -35,6 +31,7 @@
 
   </x-toolbar-classic>
 
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -48,7 +45,16 @@
     </div>
   @endif
 
+
+  {{--
+     |
+     | Use the required component as per mode
+     |
+  --}}
+
   @if ($modes['listAppointmentMode'])
     @livewire ('appointment.dashboard.appointment-list')
   @endif
+
+
 </div>
