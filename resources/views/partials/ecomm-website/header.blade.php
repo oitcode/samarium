@@ -32,7 +32,7 @@
                     Sign in
                   </a>
                 @else
-                  <a href="" class="text-reset text-decoration-none mr-4">
+                  <a href="{{ route('website-user-profile') }}" class="text-reset text-decoration-none mr-4">
                     <i class="fas fa-user mr-1"></i>
                     Profile
                   </a>
@@ -217,7 +217,7 @@
         </li>
       @else
         <li class="nav-item border bg-light text-dark p-3">
-          <a class="nav-link text-dark" href="{{ route('dashboard-help') }}">
+          <a class="nav-link text-dark" href="{{ route('website-user-profile') }}">
             <i class="fas fa-user mr-3"></i>
             <span class="font-weight-bold">
             My profile

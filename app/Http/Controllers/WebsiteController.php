@@ -232,4 +232,12 @@ class WebsiteController extends Controller
         return view('user.website.signup')
             ->with('company', $company);
     }
+
+    public function userProfile()
+    {
+        $company = Company::first();
+
+        return view('user.website.profile')
+            ->with('company', $company);
+    }
 }

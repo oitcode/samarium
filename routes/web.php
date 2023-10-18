@@ -285,13 +285,14 @@ Route::get('/vacancy/{id}/{name}', 'WebsiteController@vacancyView')->name('websi
 
 /*
  *-----------------------------------------------------------------------------
- * User Signup
+ * User related
  *-----------------------------------------------------------------------------
  *
  *
  *
  */
 Route::get('/user/signup', 'WebsiteController@userSignup')->name('website-user-signup');
+Route::get('/user/profile', 'WebsiteController@userProfile')->name('website-user-profile');
 
 
 /*
