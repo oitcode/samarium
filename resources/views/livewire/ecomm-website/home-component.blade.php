@@ -73,7 +73,7 @@
 
         <div class="d-flex flex-column h-100">
           <div>
-            <h2 class="h6 bg-white text-secondary font-weight-bold p-3-rm py-4-rm mb-0" style="{{--background-color: white; color: gray;--}}">
+            <h2 class="h6 bg-white text-secondary font-weight-bold p-3-rm py-4-rm mb-4" style="{{--background-color: white; color: gray;--}}">
               Featured products
             </h2>
           </div>
@@ -102,10 +102,10 @@
       
                         <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto" style="{{-- background-color: #f5f5f5; --}}">
                           <div class="p-2">
-                              <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark" style="font-family: Arial;">
+                              <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark text-center" style="font-family: Arial;">
                                 {{ ucwords(\App\Product::find($ii)->name) }}
                               </h2>
-                              <div class="mt-0 text-muted h6 font-weight-bold">
+                              <div class="mt-0 text-muted h6 font-weight-bold text-center">
                                 @if (\App\Product::find($ii)->selling_price != 0)
                                   Rs
                                   @php echo number_format( \App\Product::find($ii)->selling_price ); @endphp
