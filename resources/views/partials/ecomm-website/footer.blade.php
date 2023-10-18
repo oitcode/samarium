@@ -107,6 +107,22 @@
 
             <div class="mr-3 mb-2">
               @if (false)
+              <i class="fas fa-phone mr-2"></i>
+              @else
+              <strong>
+                <span class="text-muted">
+                    WHATSAPP
+                </span>
+              </strong>
+              @endif
+              </br>
+              <a aria-label="Chat on WhatsApp" href="https://wa.me/00000">
+                Click to chat on whatsapp
+              </a> 
+            </div>
+
+            <div class="mr-3 mb-2">
+              @if (false)
               <i class="fas fa-envelope mr-2"></i>
               @else
               <strong>
