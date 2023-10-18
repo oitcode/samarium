@@ -80,8 +80,18 @@
           <div class="flex-grow-1 bg-white">
           <div class="row bg-white py-3" style="margin: auto;">
 
-            @for ($ii=1; $ii <= \App\Product::max('product_id') && $ii <= 3; $ii++)
+            @php
+              $jj = 0;
+            @endphp
+
+            @for ($ii=1; $ii <= \App\Product::max('product_id'); $ii++)
+
+
               @if (\App\Product::find($ii))
+
+                @php
+                  $jj++;
+                @endphp
 
 
                 <div class="col-md-4 bg-danger-rm border-rm border-danger-rm">
@@ -126,6 +136,11 @@
 
 
               @endif
+
+              @if ($jj >= 3)
+                @break
+              @endif
+
             @endfor
 
           </div>
