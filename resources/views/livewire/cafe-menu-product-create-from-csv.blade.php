@@ -16,6 +16,7 @@
       <input type="file" class="form-control pl-0 border-0" wire:model="products_file">
       @error('products_file') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
+
   
     @if ($startMode)
       @include ('partials.button-general', ['btnText' => 'Upload', 'clickMethod' => 'preview',])
@@ -24,7 +25,6 @@
       @include ('partials.button-general', ['btnText' => 'Import', 'importFromFile' => 'preview',])
     @endif
     @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateProductFromCsvMode',])
-  
   
   
     @if ($previewMode)

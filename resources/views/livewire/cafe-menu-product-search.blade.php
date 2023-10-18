@@ -21,6 +21,7 @@
   </div>
 
 
+  {{-- Show search results --}}
   @if ($products != null && count($products) > 0)
     <div class="bg-white border p-3">
 
@@ -45,6 +46,11 @@
         </div>
       @endforeach
 
+    </div>
+  @else
+    <div class="bg-white border p-3">
+      <i class="fas fa-exclamantion-circle mr-1"></i>
+      No match found.
     </div>
   @endif
 

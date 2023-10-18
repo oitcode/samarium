@@ -1,6 +1,6 @@
 <div>
 
-  {{-- Show in bigger screens --}}
+  {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Inventory">
     @include ('partials.dashboard.spinner-button')
 
@@ -28,6 +28,7 @@
     ])
 
   </x-toolbar-classic>
+
 
   @if ($modes['productDetail'])
     @livewire ('inventory-product-detail', ['product' => $displayingProduct,])

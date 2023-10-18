@@ -28,18 +28,18 @@
 
   <div>
     <div>
-      <div class="mt-0 p-2 border-rm d-flex justify-content-end border" style="background-color: #dadada;">
+      <div class="mt-0 p-2 d-flex justify-content-end border" style="background-color: #dadada;">
 
         <div>
           <button class="btn btn-light" wire:click="$refresh">
-            <i class="fas fa-refresh fa-2x-rm"></i>
+            <i class="fas fa-refresh"></i>
             @if (false)
             Refresh
             @endif
           </button>
 
           <button class="btn btn-light" wire:click="$emit('exitProductDisplayMode')">
-            <i class="fas fa-times fa-2x-rm"></i>
+            <i class="fas fa-times"></i>
             @if (false)
             Close
             @endif
@@ -51,7 +51,7 @@
   </div>
 
 
-  <div class="row border shadow-lg-rm bg-white" style="margin: auto;">
+  <div class="row border bg-white" style="margin: auto;">
 
     {{-- Product image --}}
     <div class="col-md-3 bg-light">
@@ -81,9 +81,9 @@
     </div>
 
     {{-- Product info --}}
-    <div class="col-md-6 bg-primary-rm text-white-rm border-right-rm">
-      <div class="px-3 bg-white-rm border-rm shadow-rm">
-        <div class="bg-success-rm text-white-rm">
+    <div class="col-md-6">
+      <div class="px-3">
+        <div>
           @if ($modes['updateProductNameMode'])
             @livewire ('product.dashboard.product-edit-name', ['product' => $product,])
           @else
@@ -99,7 +99,7 @@
                 </div>
                 @endif
                 <div>
-                  <h1 class="h5 text-primary-rm">
+                  <h1 class="h5">
                     {{ $product->name }}
                   </h1>
                 </div>
@@ -119,7 +119,7 @@
             Category
           </div>
           <div class="d-flex justify-content-between" style="">
-            <span class="badge-rm badge-dark-rm">
+            <span>
               {{ $product->productCategory->name }}
             </span>
             <button class="btn btn-light">
@@ -197,7 +197,6 @@
   </div>
 
 
-
   {{-- Product specifications --}}
   <div class="my-3 bg-white border">
     <h2 class="h5 m-3">
@@ -234,14 +233,14 @@
 
     @if (count($product->productSpecifications) > 0)
       <div class="mb-5">
-        <div class="table-responsive border-rm">
+        <div class="table-responsive">
           <table class="table mb-0">
             @foreach ($product->productSpecifications as $spec)
               <tr class="">
-                <th class="bg-light-rm border-dark" style="background-color: #eee;">
+                <th class="border-dark" style="background-color: #eee;">
                   {{ $spec->spec_heading }}
                 </th>
-                <td class="bg-success-rm text-white-rm border-dark">
+                <td class="border-dark">
                   {{ $spec->spec_value }}
                 </td>
               </tr>
@@ -251,28 +250,28 @@
       </div>
     @endif
 
-
   </div>
 
 
+  {{-- Active/Inactive, Show/Hide in website. --}} 
   <div class="my-4">
     <div>
-      <div class="mt-0 p-2 border-rm d-flex justify-content-between border"
+      <div class="mt-0 p-2 d-flex justify-content-between border"
           style="background-color: #dadada;">
-        <div class="my-5-rm">
+        <div>
           @if ($product->is_active == 0)
             <button class="btn btn-light mr-1" wire:click="makeProductActive">
-              <i class="fas fa-eye fa-2x-rm mr-2"></i>
+              <i class="fas fa-eye mr-2"></i>
               @if (true)
-              <span class="h5-rm bg-danger-rm">
+              <span>
                 Make active </span>
               @endif
             </button>
           @elseif ($product->is_active == 1)
             <button class="btn btn-light mr-1" wire:click="makeProductInactive">
-              <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+              <i class="fas fa-eye-slash mr-2"></i>
               @if (true)
-              <span class="h5-rm bg-light-rm">
+              <span>
                 Make inactive
               </span>
               @endif
@@ -280,7 +279,7 @@
 
             @if ($product->show_in_front_end == 'yes')
               <button class="btn btn-light mr-1" wire:click="makeProductNotVisibleInFrontEnd">
-                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+                <i class="fas fa-eye-slash mr-2"></i>
                 @if (true)
                 <span class="">
                   Hide in website
@@ -289,7 +288,7 @@
               </button>
             @else
               <button class="btn btn-light mr-1" wire:click="makeProductVisibleInFrontEnd">
-                <i class="fas fa-eye-slash fa-2x-rm mr-2"></i>
+                <i class="fas fa-eye-slash mr-2"></i>
                 @if (true)
                 <span class="">
                   Show in website
@@ -307,7 +306,7 @@
 
 
   {{-- Creation and update info --}} 
-  <div class="border bg-white p-3 my-3 shadow-rm">
+  <div class="border bg-white p-3 my-3">
     <div class="mb-4">
       <h3 class="h5"> Product history </h3>
     </div>
@@ -340,7 +339,7 @@
   </div>
 
   {{-- Inventory info --}}
-  <div class="border-rm bg-white p-3 mb-3 text-secondary-rm">
+  <div class="bg-white p-3 mb-3">
     <div class="mb-4">
       <h3 class="h5">
         Stock info
@@ -376,7 +375,7 @@
       </div>
 
       {{-- Base product --}}
-      <div class="border-rm bg-white-rm mb-3">
+      <div class="mb-3">
         <div class="row">
           <div class="col-6">
             Base product
@@ -393,7 +392,6 @@
     @endif
 
   </div>
-
 
 
 </div>

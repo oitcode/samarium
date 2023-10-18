@@ -1,7 +1,7 @@
 <div class="card shadow-sm">
 
 
-  <div class="card-body p-3-rm">
+  <div class="card-body">
 
     <h1 class="h5 font-weight-bold mb-4">
       Add product category

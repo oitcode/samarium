@@ -8,13 +8,13 @@
     </h1>
   </div>
 
-  <div class="row border bg-primary-rm pb-0 border-0" style="margin:auto;">
+  <div class="row border pb-0 border-0" style="margin:auto;">
 
     {{-- Left side of the product create page --}}
     <div class="col-md-6 pl-0">
 
-      <div class="card h-100 shadow-sm-rm border-0 pb-0">
-        <div class="card-body p-3-rm pl-0 border-rm h-100 shadow-sm-rm pb-0">
+      <div class="card h-100 border-0 pb-0">
+        <div class="card-body pl-0 h-100 pb-0">
       
           <div class="form-group">
             <label class="h5" for="">Name *</label>
@@ -48,7 +48,7 @@
             @error('selling_price') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
 
-          <div class="border-rm bg-white p-2-rm pb-0 mb-3-rm">
+          <div class="bg-white pb-0">
 
             <h2 class="h5">
               Description *
@@ -76,9 +76,9 @@
 
 
     {{-- Right side of the product create page --}}
-    <div class="col-md-6 pt-3-rm pl-0">
+    <div class="col-md-6 pl-0">
 
-      <div class="border-rm bg-white pl-0 p-2 mb-3">
+      <div class="bg-white pl-0 p-2 mb-3">
 
         <h2 class="h5">
           Image
@@ -111,7 +111,7 @@
           </div>
           <div class="col-md-6">
             <div class="d-flex justify-content-end">
-              <div class="pt-3-rm">
+              <div>
                 @if ($modes['stockApplicable'])
                   <button class="btn btn-danger" wire:click="makeStockNotApplicable">
                     Stock not applicable

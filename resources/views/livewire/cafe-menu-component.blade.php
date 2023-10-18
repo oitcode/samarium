@@ -1,13 +1,7 @@
 <div class="p-3 p-md-0">
 
-  {{--
-  |
-  | Toolbar
-  |
-  | Top toolbar of the component.
-  |
-  --}}
 
+  {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Product">
     @include ('partials.dashboard.spinner-button')
 
@@ -82,14 +76,14 @@
   @endif
 
 
-  <div class="" style="">
+  <div>
 
     {{--
-    |
     |
     | Use required component as per mode.
     |
     --}}
+
     @if ($modes['createProduct'])
       @livewire ('cafe-menu-product-create')
     @elseif ($modes['createProductCategory'])

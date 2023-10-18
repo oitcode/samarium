@@ -1,4 +1,6 @@
 <div>
+
+
   @if ($modes['productCategoryProductList'])
     @livewire ('cafe-menu-product-category-product-list', ['productCategory' => $selectedProductCategory,])
   @else
@@ -7,7 +9,7 @@
       @if ($products == null || count($products) == 0)
 
         <div class="table-responsive bg-white">
-          <table class="table">
+          <table class="table table-hover mb-0">
             <thead>
               <tr>
                 <th>Category</th>
@@ -36,4 +38,6 @@
       @endif
     </div>
   @endif
+
+
 </div>
