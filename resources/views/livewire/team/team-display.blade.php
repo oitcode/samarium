@@ -1,4 +1,6 @@
-<div class="p-3 bg-white-rm border-rm">
+<div class="p-3">
+
+
     {{-- Top flash cards --}}
     @if (! $modes['updateTeamMemberMode'])
     <div class="row mb-1">
@@ -32,21 +34,8 @@
       </div>
     @endif
 
-    @if (false)
-    <div class="d-flex flex-column">
-      @if ($team->image_path)
-        <div class="my-3">
-          <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
-        </div>
-      @endif
-      <h2 class="h2 mb-4 text-dark font-weight-bold">
-        {{ $team->name }}
-      </h2>
-    </div>
-    @endif
 
-
-    {{-- Top tool bar --}}
+    {{-- Tool bar --}}
     <x-toolbar-classic>
 
       @include ('partials.dashboard.spinner-button')
@@ -91,6 +80,7 @@
 
     </x-toolbar-classic>
 
+
     <!-- Flash message div -->
     @if (session()->has('message'))
       <div class="p-2">
@@ -103,6 +93,7 @@
         </div>
       </div>
     @endif
+
 
     @if ($modes['createTeamMemberMode'])
       @livewire ('team.team-display-team-member-create', ['team' => $team,])
@@ -120,9 +111,6 @@
         </h3>
       </div>
 
-      @if (false)
-      @include ('partials.team-display', ['team' => $team, 'displayTeamName' => false,])
-      @endif
 
       <div>
         @if ($displayTeamName ?? true)
@@ -142,4 +130,6 @@
       </div>
 
     @endif
+
+
 </div>

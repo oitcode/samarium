@@ -1,5 +1,6 @@
 <div>
 
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     @include ('partials.flash-message', [
@@ -7,41 +8,25 @@
     ])
   @endif
 
-  <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+
+  <button wire:loading class="btn" style="font-size: 1.5rem;">
     <div class="spinner-border text-info mr-3" role="status">
       <span class="sr-only">Loading...</span>
     </div>
   </button>
 
-  {{-- Top flash cards --}}
-  @if (true)
-  <div class="row mb-1">
-    <div class="col-md-12">
-      <div class="mb-4">
-        @include ('partials.misc.glance-card', [
-            'bsBgClass' => 'bg-white',
-            'btnRoute' => '',
-            'iconFaClass' => 'fas fa-users',
-            'btnTextPrimary' => 'Teams',
-            'btnTextSecondary' => $teamsCount,
-        ])
-      </div>
+
+  <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
+    <div class="mr-4">
+      Total : {{ $teamsCount }}
     </div>
   </div>
-  @endif
 
-  {{-- Search bar --}}
-  <div class="mb-3 p-2 bg-white">
-    <input type="text" wire:model.defer="team_search_name" />
-    <button class="btn btn-primary" wire:click="search">
-      Search
-    </button>
-  </div>
 
   @if ($searchResultTeams != null && count($searchResultTeams))
     {{-- Show in bigger screens --}}
     <div class="table-responsive d-none d-md-block">
-      <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
+      <table class="table table-hover shadow-sm border">
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
               {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
@@ -57,11 +42,6 @@
 
         <tbody class="bg-white">
           @foreach ($searchResultTeams as $team)
-            @if (false)
-            @if ($team->team_type != 'playing_team')
-              @continue
-            @endif
-            @endif
             <tr>
               <td>
                 @if ($team->image_path)
@@ -88,7 +68,7 @@
     @if (true)
     {{-- Show in bigger screens --}}
     <div class="table-responsive d-none d-md-block">
-      <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
+      <table class="table table-hover shadow-sm border">
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
               {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
@@ -104,11 +84,6 @@
 
         <tbody class="bg-white">
           @foreach ($teams as $team)
-            @if (false)
-            @if ($team->team_type != 'playing_team')
-              @continue
-            @endif
-            @endif
             <tr>
               <td>
                 @if ($team->image_path)
@@ -151,6 +126,7 @@
 
     </div>
     @endif
+
     {{-- Pagination links --}}
     {{ $teams->links() }}
   @else
@@ -159,4 +135,6 @@
       No teams
     </div>
   @endif
+
+
 </div>

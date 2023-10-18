@@ -1,7 +1,9 @@
 <div class="card shadow-sm">
+
+
   <div class="card-body p-3">
 
-    <h1 class="text-white-rm" style="font-size: 1.3rem;">
+    <h1 class="" style="font-size: 1.3rem;">
       Create team member
     </h1>
 
@@ -70,16 +72,6 @@
       @error ('email') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    @if (false)
-    <div class="form-group">
-      <label for="">Description</label>
-      <input type="text"
-          class="form-control"
-          wire:model.defer="description"
-          style="font-size: 1.3rem;">
-      @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
-    </div>
-    @endif
 
     <div class="py-3 m-0">
 
@@ -92,4 +84,6 @@
       </button>
     </div>
   </div>
+
+
 </div>

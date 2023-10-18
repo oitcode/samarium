@@ -1,10 +1,5 @@
 <div>
 
-  @if (false)
-  <x-component-header>
-    Team
-  </x-component-header>
-  @endif
 
   {{-- Top tool bar --}}
   <x-toolbar-classic toolbarTitle="Team">
@@ -43,6 +38,7 @@
 
   </x-toolbar-classic>
 
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -57,6 +53,12 @@
   @endif
 
 
+  {{--
+     |
+     | Use the required component as per mode
+     |
+  --}}
+
   @if ($modes['createMode'])
     @livewire ('team.team-create')
   @elseif ($modes['listMode'])
@@ -64,5 +66,6 @@
   @elseif ($modes['displayMode'])
     @livewire ('team.team-display', ['team' => $displayingTeam, 'displayTeamName' => false,])
   @endif
+
 
 </div>
