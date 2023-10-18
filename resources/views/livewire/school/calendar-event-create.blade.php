@@ -1,32 +1,12 @@
 <div class="p-3 bg-white border">
+
+
   <div class="d-flex justify-content-start">
     <h2 class="h5">
       <i class="fas fa-plus-circle mr-1"></i>
       Add event
     </h2>
   </div>
-
-  @if (false)
-  <div class="my-2">
-    <div class="p-0 m-0">
-      <button class="btn btn-lg-rm badge-pill btn-success mr-3" wire:click="store">
-        <i class="fas fa-check-circle mr-1"></i>
-        Confirm
-      </button>
-
-      <button class="btn btn-lg-rm btn-danger badge-pill mr-3" wire:click="$emit('exitCalendarEventCreate')">
-        <i class="fas fa-times-circle mr-1"></i>
-        Cancel
-      </button>
-
-      <button wire:loading class="btn">
-        <span class="spinner-border text-info mr-3" role="status">
-        </span>
-      </button>
-
-    </div>
-  </div>
-  @endif
 
 
   <div class="form-group">
@@ -37,6 +17,7 @@
         style="font-size: 1.3rem;">
     @error ('title') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
+
 
   {{-- Date part --}}
   @if (true || ! $eventCreationDay)
@@ -53,8 +34,9 @@
   </div>
   @endif
 
+
   <div class="d-flex mb-4">
-    <div class="form-group-rm mr-5">
+    <div class="mr-5">
       @if ($modes['multiDay'])
         <div class="d-flex">
           <span class="mr-2">Start Date:</span>
@@ -115,18 +97,6 @@
     @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
-  @if (false)
-  <div class="form-group">
-    <label for="">Description</label>
-    <textarea type="text"
-        rows="5"
-        class="form-control"
-        wire:model.defer="description"
-        style="font-size: 1.3rem;">
-    </textarea>
-    @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
-  </div>
-  @endif
 
   <div class="py-3 m-0">
 
@@ -138,5 +108,6 @@
       </span>
     </button>
   </div>
+
 
 </div>

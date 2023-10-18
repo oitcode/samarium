@@ -1,11 +1,5 @@
 <div>
 
-  @if (false)
-  {{-- Component herobar --}}
-  <x-component-header>
-    Calendar
-  </x-component-header>
-  @endif
 
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Calendar">
@@ -37,6 +31,13 @@
 
   </x-toolbar-classic>
 
+
+  {{--
+     |
+     | Use the required component as per mode
+     |
+  --}}
+
   @if ($modes['eventCreate'])
     @if ($eventCreationDay)
       @livewire ('school.calendar-event-create', ['eventCreationDay' => $eventCreationDay,])
@@ -46,10 +47,10 @@
   @elseif ($modes['displayCalendarEventMode'])
     @livewire ('school.calendar-event-display', ['calendarEvent' => $displayingCalendarEvent,])
   @else
-  <div class="d-flex justify-content-between-rm border-rm bg-white mb-4">
+  <div class="d-flex bg-white mb-4">
     <div class="d-flex flex-column justify-content-center mr-2 px-3">
       <div class="dropdown py-3">
-        <button class="btn btn-primary-rm dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Select Month
         </button>
         <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
@@ -69,7 +70,7 @@
       </div>
       @if ($displayMonthName)
         <div>
-          <h2 class="h2 pb-3 text-center bg-primary-rm text-white-rm mb-0 font-weight-bold px-3" {{-- style="background-color: #eee;" --}}>
+          <h2 class="h2 pb-3 text-center mb-0 font-weight-bold px-3" {{-- style="background-color: #eee;" --}}>
             {{ $displayMonthName }}
           </h2>
         </div>
@@ -83,7 +84,7 @@
       <div class="table-responsive border">
         <table class="table table-sm table-hover mb-0">
           <thead>
-            <tr class="bg-light text-white-rm py-5">
+            <tr class="bg-light py-5">
               <th class="py-4" style="width: 300px;">Date</th>
               <th class="py-4">Day</th>
               <th class="py-4">Details</th>
@@ -148,5 +149,6 @@
     @endif
   </div>
   @endif
+
 
 </div>
