@@ -85,6 +85,35 @@
 
   </div>
 
+  <div class="my-3">
+    <div class="p-3 bg-light text-secondary font-weight-bold mr-5-rm pt-3 pb-1">
+      Product Category Image
+    </div>
+    @if ($modes['updateProductCategoryImageMode'])
+      <div>
+        @livewire ('cafe-menu.product-category.product-category-edit-image', ['productCategory' => $productCategory,])
+      </div>
+    @else
+      <div class="d-flex justify-content-between bg-white">
+        {{-- Product image --}}
+        <div class="d-flex-rm flex-grow-1">
+          @if ($productCategory->image_path)
+            <img src="{{ asset('storage/' . $productCategory->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
+          @else
+            <div class="p-3">
+              <i class="fas fa-th text-muted fa-8x"></i>
+            </div>
+          @endif
+        </div>
+        <div>
+          <button class="btn btn-light h-100" wire:click="enterMode('updateProductCategoryImageMode')">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+        </div>
+      </div>
+    @endif
+  </div>
+
   <div class=" bg-white-rm border-rm shadow-rm">
     <div class="bg-success-rm text-white-rm">
       <div class="p-3 bg-light text-secondary font-weight-bold mr-5-rm pt-3 pb-1">

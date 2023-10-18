@@ -14,11 +14,15 @@ class ProductCategoryDisplay extends Component
 
     public $modes = [
         'updateProductCategoryNameMode' => false,
+        'updateProductCategoryImageMode' => false,
     ];
 
     protected $listeners = [
         'productCategoryUpdateNameCompleted',
         'productCategoryUpdateNameCancelled',
+
+        'productCategoryUpdateImageCancelled',
+        'productCategoryUpdateImageCompleted',
     ];
 
     public function render()
@@ -34,5 +38,15 @@ class ProductCategoryDisplay extends Component
     public function productCategoryUpdateNameCancelled()
     {
         $this->exitMode('updateProductCategoryNameMode');
+    }
+
+    public function productCategoryUpdateImageCompleted()
+    {
+        $this->exitMode('updateProductCategoryImageMode');
+    }
+
+    public function productCategoryUpdateImageCancelled()
+    {
+        $this->exitMode('updateProductCategoryImageMode');
     }
 }
