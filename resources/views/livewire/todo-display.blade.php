@@ -1,4 +1,6 @@
 <div>
+
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -12,11 +14,12 @@
     </div>
   @endif
 
+
   <div class="row">
     <div class="col-md-8">
       <div class="bg-white p-3 border">
 
-        <div class="px-3-rm mb-5">
+        <div class="mb-5">
           <div class="d-flex justify-content-between">
             <div>
               <span class="h4 font-weight-bold">
@@ -43,14 +46,11 @@
           </div>
           <div class="col-md-12 d-flex flex-column justify-content-center">
 
-            <div class="table-responsive border-rm">
+            <div class="table-responsive">
               <table class="table border-bottom">
                 <tbody>
                   <tr>
                     <th>
-                      @if (false)
-                      <i class="fas fa-heading mr-1"></i>
-                      @endif
                       Title
                     </th>
                     <td>
@@ -79,9 +79,6 @@
                   </tr>
                   <tr>
                     <th>
-                      @if (false)
-                      <i class="fas fa-calendar mr-1"></i>
-                      @endif
                       Date
                     </th>
                     <td>
@@ -99,9 +96,6 @@
 
             <div class="my-5">
               <h2 class="h4 font-weight-bold mb-3">
-                @if (false)
-                <i class="fas fa-comment mr-1"></i>
-                @endif
                 Description
               </h2>
               <p>
@@ -114,12 +108,11 @@
     </div>
     <div class="col-md-4 px-3">
       <div class="bg-white border">
-        <div class="table-responsive border-rm">
+        <div class="table-responsive">
           <table class="table border-bottom mb-0">
             <tbody>
               <tr wire:key="{{ rand() }}">
                 <th>
-                  <i class="fas fa-reply-rm mr-1"></i>
                   Status
                 </th>
                 <td>
@@ -166,4 +159,6 @@
       </div>
     </div>
   </div>
+
+
 </div>

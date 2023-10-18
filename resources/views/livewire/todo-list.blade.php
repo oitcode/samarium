@@ -1,6 +1,7 @@
 <div>
 
-  <!-- Flash message div -->
+
+  {{-- Flash message div --}}
   @if (session()->has('message'))
     @include ('partials.flash-message', [
         'flashMessage' => session('message'),
@@ -16,7 +17,7 @@
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
-    <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
+    <table class="table table-hover shadow-sm border">
       <thead>
         <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
             {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
@@ -104,4 +105,6 @@
     @livewire ('todo-list-confirm-delete', ['todo' => $deletingTodo,])
   @endif
   @endif
+
+
 </div>

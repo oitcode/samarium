@@ -1,13 +1,7 @@
 <div class="p-3 p-md-0">
 
-  @if (false)
-  <x-component-header>
-    Tasks
-  </x-component-header>
-  @endif
 
   {{-- Top tool bar --}}
-  {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Tasks">
 
     @include ('partials.dashboard.spinner-button')
@@ -73,5 +67,6 @@
   @if ($modes['deleteMode'])
     @livewire ('todo-delete-confirm', ['deletingTodo' => $deletingTodo,])
   @endif
+
 
 </div>
