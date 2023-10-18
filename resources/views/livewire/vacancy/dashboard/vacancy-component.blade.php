@@ -1,13 +1,7 @@
 <div>
 
-  @if (false)
-  <x-component-header>
-    Vacancy
-  </x-component-header>
-  @endif
 
   {{-- Top tool bar --}}
-  {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Vacancy">
 
     @include ('partials.dashboard.spinner-button')
@@ -35,6 +29,7 @@
 
   </x-toolbar-classic>
 
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -47,6 +42,7 @@
       </div>
     </div>
   @endif
+
 
   {{-- Use the required component as per mode --}}
   @if ($modes['createMode'])

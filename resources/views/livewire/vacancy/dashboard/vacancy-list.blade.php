@@ -1,4 +1,6 @@
 <div>
+
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     @include ('partials.flash-message', [
@@ -6,11 +8,13 @@
     ])
   @endif
 
-  <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+
+  <button wire:loading class="btn" style="font-size: 1.5rem;">
     <div class="spinner-border text-info mr-3" role="status">
       <span class="sr-only">Loading...</span>
     </div>
   </button>
+
 
   <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
     <div class="mr-4">
@@ -18,11 +22,12 @@
     </div>
   </div>
 
+
   @if ($vacancies != null && count($vacancies) > 0)
     @if (true)
     {{-- Show in bigger screens --}}
     <div class="table-responsive d-none d-md-block">
-      <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
+      <table class="table table-hover shadow-sm border">
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
               {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
@@ -68,6 +73,7 @@
 
     </div>
     @endif
+
     {{-- Pagination links --}}
     {{ $vacancies->links() }}
   @else
@@ -76,4 +82,6 @@
       No vacancies
     </div>
   @endif
+
+
 </div>

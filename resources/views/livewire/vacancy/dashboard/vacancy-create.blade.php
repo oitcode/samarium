@@ -1,12 +1,14 @@
 <div class="card shadow-sm">
+
+
   <div class="card-body p-3">
 
-    <h1 class="text-white-rm" style="font-size: 1.3rem;">
+    <h1 class="h5 font-weight-bold mb-4">
       Create vacancy
     </h1>
 
     <div class="form-group">
-      <label for="">Title</label>
+      <label for="">Title *</label>
       <input type="text"
           class="form-control"
           wire:model.defer="title"
@@ -15,7 +17,7 @@
     </div>
 
     <div class="form-group">
-      <label for="">Description</label>
+      <label for="">Description *</label>
       <input type="text"
           class="form-control"
           wire:model.defer="description"
@@ -23,7 +25,7 @@
       @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="py-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
+    <div class="py-3 m-0">
 
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'vacancyCreateCancelled',])
@@ -34,4 +36,6 @@
       </button>
     </div>
   </div>
+
+
 </div>
