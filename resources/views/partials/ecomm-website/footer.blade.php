@@ -105,6 +105,7 @@
               </strong>
             </div>
 
+            @if ($company->companyInfos()->where('info_key', 'Whatsapp')->first())
             <div class="mr-3 mb-2">
               @if (false)
               <i class="fas fa-phone mr-2"></i>
@@ -116,10 +117,40 @@
               </strong>
               @endif
               </br>
-              <a aria-label="Chat on WhatsApp" href="https://wa.me/00000">
-                Click to chat on whatsapp
+              <a aria-label="Chat on WhatsApp"
+                  href="https://wa.me/{{ preg_replace("/[^0-9]/", "", $company->companyInfos()->where('info_key', 'Whatsapp')->first()->info_value ) }}"
+                  class="text-reset">
+
+                <i class="fab fa-whatsapp fa-2x mr-1 text-success"></i>
+                <strong>
+                  {{ $company->companyInfos()->where('info_key', 'Whatsapp')->first()->info_value }}
+                </strong>
               </a> 
             </div>
+            @endif
+
+            @if (false)
+            @if ($company->companyInfos()->where('info_key', 'Viber')->first())
+            <div class="mr-3 mb-2">
+              @if (false)
+              <i class="fas fa-phone mr-2"></i>
+              @else
+              <strong>
+                <span class="text-muted">
+                    VIBER
+                </span>
+              </strong>
+              @endif
+              </br>
+              <a aria-label="Chat on Viber" href="viber://contact?number=%2B{{ preg_replace('/[^0-9]/', '', $company->companyInfos()->where('info_key', 'Viber')->first()->info_value ) }}">
+                <i class="fab fa-viber fa-2x mr-1" style="color: purple;"></i>
+                <strong>
+                  {{ $company->companyInfos()->where('info_key', 'Viber')->first()->info_value }}
+                </strong>
+              </a> 
+            </div>
+            @endif
+            @endif
 
             <div class="mr-3 mb-2">
               @if (false)
