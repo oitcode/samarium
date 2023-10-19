@@ -1,5 +1,12 @@
 <div class="border-top bg-white">
 
+  {{-- Subscribe us --}}
+  <div class="container-fluid py-4-rm bg-white border py-0" style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);">
+    <div class="container py-0">
+      @livewire ('ecomm-website.subscribe-us')
+    </div>
+  </div>
+
   {{-- Brand Info --}}
   @if (true)
   <div class="container-fluid py-3" style="background-color: #dcdcdc;">
