@@ -50,7 +50,7 @@
           <div class="d-none d-md-block my-3-rm text-secondary-rm ml-5" style="font-size: 1rem;">
 
             <input type="date" wire:model.defer="daybookDate" class="ml-5">
-            <button class="btn {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}" wire:click="setTransactionsDate">
+            <button class="btn btn-light" wire:click="setTransactionsDate">
               Go
             </button>
           </div>
