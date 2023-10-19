@@ -8,7 +8,7 @@
   <div class="d-flex flex-column-rm justify-content-between border-rm shadow-rm {{ $bsBgClass ?? 'bg-success' }} p-2 m-0" style="">
     <div class="px-3 @if ($bsBgClass != 'bg-white') text-white @endif flex-grow-1" style="">
 
-      <div class="mb-4 h5">
+      <div class="h6 font-weight-bold mb-4 text-secondary">
         {{ $btnTextPrimary }}
       </div>
       <div class="mt-3-rm h5">
