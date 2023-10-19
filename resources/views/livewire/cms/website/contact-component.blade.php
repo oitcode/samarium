@@ -1,4 +1,6 @@
 <div>
+
+
   @if (false)
   <div class="container-fluid py-4 border">
     <div class="container">
@@ -8,9 +10,10 @@
     </div>
   </div>
   @endif
+
   <div class="container-fluid bg-white border-rm">
   <div class="container pt-3 pb-5">
-    <div class="d-flex justify-content-center">
+    <div class="row">
       @if (true)
       <div class="col-md-6 p-4 text-secondary-rm" style="">
           <div class="d-flex mb-4">
