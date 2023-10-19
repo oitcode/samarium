@@ -21,7 +21,7 @@
     {{ $product->name }}
   </div>
 
-  <div class="row mb-3 border p-2 py-5-rm shadow-rm pt-3" style="margin: auto;">
+  <div class="row mb-3 border p-2 py-5-rm shadow-rm pt-3 bg-white" style="margin: auto;">
     <div class="col-md-8">
       <div class="row bg-warning-rm">
         <div class="col-md-6 mb-4">
@@ -63,6 +63,11 @@
             <span class="mx-1 text-muted">
               (0) reviews
             </span>
+            @if (false)
+            <span class="mx-3 text-secondary">
+            53 views
+            </span>
+            @endif
           </div>
           @endif
 
@@ -183,17 +188,40 @@
         <hr />
         @endif
 
+        @if (false)
+        {{-- Youtube video --}}
+        <div class="bg-white p-3-rm border-rm mb-3">
+          <div>
+            <div class="mb-2">
+              <strong>
+                Video preview
+              </strong>
+            </div>
+
+            <div class="col-md-12">
+               <iframe class="w-100" height="315" src="https://www.youtube.com/embed/v=vabnZ9-ex7o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        @endif
+
+        <hr />
 
 
         {{-- Rating and reviews --}}
         <div class="bg-white p-3-rm border-rm mb-3">
           <div>
-            <div class="mb-3">
+            <div class="mb-2">
               <strong>
                 Rating and reviews
               </strong>
             </div>
-            <div class="px-3" style="color: orange;">
+            @if (false)
+            <div class="mb-3">
+              <a href="">Add your review</a>
+            </div>
+            @endif
+            <div class="px-3-rm" style="color: orange;">
               <div>
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 <i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -225,15 +253,40 @@
         {{-- Questions and answers --}}
         <div class="bg-white p-3-rm border-rm mb-3">
           <div>
-            <div class="mb-3">
+            <div class="mb-2">
               <strong>
                 Question and answers
               </strong>
             </div>
+            @if (false)
+            <div>
+              <a href="">Ask a question</a>
+            </div>
+            @endif
           </div>
         </div>
+
+        @if (false)
+        <hr />
+
+        {{-- Share --}}
+        <div class="mb-4">
+          <div class="mb-3">
+            <strong>
+              Share
+            </strong>
+          </div>
+          <div>
+            <i class="fab fa-facebook fa-2x mr-4"></i>
+            <i class="fab fa-whatsapp fa-2x mr-4"></i>
+            <i class="fab fa-viber fa-2x mr-4"></i>
+          </div>
+        </div>
+        @endif
     </div>
+
     <div class="col-md-4">
+
 
       @if (true)
       <div class="mb-4">
@@ -276,30 +329,18 @@
 
 
   @if (false)
-  <hr class="mb-5"/>
+  <hr class="my-5"/>
   @endif
 
-  @if (false)
+  @if (true)
   {{-- You may also like section --}}
-  <div class="my-5 pt-5">
-    <h2 class="text-center mb-5" style="font-family: Arial;">YOU MAY ALSO LIKE</h2>
+  <div class="my-5 px-3 pt-3 bg-white border shadow">
+    <h2 class="h5 font-weight-bold text-center-rm mt-2 mb-4" style="font-family: Arial;">
+      YOU MAY ALSO LIKE
+    </h2>
 
-    <div class="row">
-      <div class="col-md-3">
-          @livewire ('ecomm-website.product-list-display', ['product' => \App\Product::where('product_id', 1)->first(), ])
-      </div>
-      <div class="col-md-3">
-          @livewire ('ecomm-website.product-list-display', ['product' => \App\Product::where('product_id', 2)->first(), ])
-      </div>
-      <div class="col-md-3">
-          @livewire ('ecomm-website.product-list-display', ['product' => \App\Product::where('product_id', 3)->first(), ])
-      </div>
-  @if (false)
-      <div class="col-md-3">
-          @livewire ('ecomm-website.product-list-display', ['product' => \App\Product::where('product_id', 4)->first(), ])
-      </div>
-  @endif
-    </div>
+    @livewire ('ecomm-website.product-category-random-product-list', ['productCategory' => $product->productCategory,])
+
   </div>
   @endif
 
