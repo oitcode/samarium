@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 {{--
    |
    | Welcome to the dashboard!
@@ -10,12 +11,10 @@
    |
 --}}
 
+
 @section ('content')
 
   <x-component-header>
-    @if (false)
-    <i  class="fas fa-th text-muted mr-2"></i>
-    @endif
     Dashboard
   </x-component-header>
 
@@ -25,7 +24,7 @@
     <div class="col-md-9 d-none d-md-block p-0">
       <div class="h-100 d-flex p-0">
         <div class="h-100 d-flex flex-column w-100">
-          <div class="">
+          <div>
             <div class="mb-4">
               @livewire ('transactions-navigator')
             </div>
@@ -86,7 +85,7 @@
     </div>
 
     <div class="col-md-3">
-      <div class="">
+      <div>
         {{-- Show quick links menu. --}}
         @include ('partials.dashboard.mobile-dashboard-main-links')
       </div>

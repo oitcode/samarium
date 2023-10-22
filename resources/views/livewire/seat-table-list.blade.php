@@ -1,4 +1,6 @@
 <div>
+
+
   {{-- For bigger screens --}}
   <div class="d-none d-md-block">
     <div class="row">
@@ -10,6 +12,7 @@
     </div>
   </div>
 
+
   {{-- For smaller screens --}}
   <div class="row d-md-none">
     @foreach ($seatTables as $seatTable)
@@ -18,4 +21,6 @@
       </div>
     @endforeach
   </div>
+
+
 </div>

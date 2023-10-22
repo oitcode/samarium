@@ -1,5 +1,6 @@
 <div>
 
+
   <div class="row">
 
     <div class="col-md-8">
@@ -25,8 +26,8 @@
 
           <div class="row p-0 mt-2" style="margin: auto;">
 
-            <div class="col-md-3 mb-3-rm bg-light text-dark py-2 border-left border-right">
-              <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+            <div class="col-md-3 bg-light text-dark py-2 border-left border-right">
+              <div class="mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
                 Vendor
               </div>
               <div class="d-flex">
@@ -69,8 +70,8 @@
                 Purchase Date
               </div>
               @if ($modes['backDate'])
-                <div class="">
-                  <div class="d-flex-rm">
+                <div>
+                  <div>
                     <input type="date" wire:model.defer="purchase_date">
                     <div class="mt-2">
                       <button class="btn btn-light" wire:click="changePurchaseDate">
@@ -133,7 +134,7 @@
             <div class="table-responsive border d-none d-md-block">
               <table class="table table-hover mb-0">
                 <thead>
-                  <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+                  <tr style="font-size: calc(0.6rem + 0.2vw);">
                     <th>--</th>
                     <th>#</th>
                     <th>Item</th>
@@ -147,9 +148,9 @@
                 <tbody class="bg-white" style="font-size: calc(0.6rem + 0.2vw);">
                   @if (count($purchase->purchaseItems) > 0)
                     @foreach ($purchase->purchaseItems as $item)
-                    <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm">
+                    <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
                       <td>
-                        <a href="" wire:click.prevent="confirmRemoveItemFromPurchase({{ $item->purchase_item_id }})" class="">
+                        <a href="" wire:click.prevent="confirmRemoveItemFromPurchase({{ $item->purchase_item_id }})">
                         <i class="fas fa-trash text-danger"></i>
                         </a>
                       </td>
@@ -159,7 +160,7 @@
                         {{ $item->product->name }}
                       </td>
                       <td>
-                        <span class="badge badge-pill-rm badge-success">
+                        <span class="badge badge-success">
                           {{ $item->quantity }}
                         </span>
                       </td>
@@ -177,14 +178,14 @@
                   @endif
                 </tbody>
   
-                <tfoot class="bg-success-rm text-white-rm" style="font-size: 0.8rem;">
+                <tfoot style="font-size: 0.8rem;">
                   <tr>
                     <td colspan="6" class="font-weight-bold text-right">
                       <strong>
                       Subtotal
                       </strong>
                     </td>
-                    <td style="">
+                    <td>
                       @php echo number_format( $purchase->getTotalAmountRaw(), 2 ); @endphp
                     </td>
                   </tr>
@@ -225,7 +226,7 @@
                 <tbody class="bg-white">
                   @if (count($purchase->purchaseItems) > 0)
                     @foreach ($purchase->purchaseItems as $item)
-                    <tr class="font-weight-bold text-white-rm">
+                    <tr class="font-weight-bold">
                       <td>
                         <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                       </td>
@@ -254,7 +255,7 @@
                         @php echo number_format( $item->getTotalAmount(), 2 ); @endphp
                       </td>
                       <td>
-                        <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})" class="">
+                        <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})">
                         <i class="fas fa-trash text-danger"></i>
                         </a>
                       </td>
@@ -294,5 +295,6 @@
         'purchaseItem' => $deletingPurchaseItem,
     ])
   @endif
+
 
 </div>

@@ -36,16 +36,10 @@
         <div>
           <button class="btn btn-light" wire:click="$refresh">
             <i class="fas fa-refresh"></i>
-            @if (false)
-            Refresh
-            @endif
           </button>
 
           <button class="btn btn-light" wire:click="$emit('productCategoryDisplayCancelled')">
             <i class="fas fa-times"></i>
-            @if (false)
-            Close
-            @endif
           </button>
         </div>
 
@@ -137,5 +131,6 @@
     @endif
 
   </div>
+
 
 </div>

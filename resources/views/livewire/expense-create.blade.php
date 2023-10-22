@@ -1,4 +1,6 @@
 <div>
+
+
   <div class="row">
     <div class="col-md-8">
       @if ($expense->creation_status != 'created')
@@ -19,7 +21,7 @@
                 onclick="this.disabled=true;"
                 class="btn
                     {{ env('OC_ASCENT_BTN_COLOR', 'btn-light') }}
-                    mr-3-rm w-100 py-3"
+                    w-100 py-3"
                 wire:click="finishCreation"
                 style="font-size: calc(1rem + 0.2vw);">
               <i class="fas fa-check-circle mr-3"></i>
@@ -35,7 +37,7 @@
               </button>
               <button
                   onclick="this.disabled=true;"
-                  class="btn btn-lg btn-warning-rm"
+                  class="btn btn-lg"
                   wire:click="finishPayment"
                   style="font-size: 1.3rem; background-color: orange">
                 PRINT
@@ -48,4 +50,6 @@
     </div>
     @endif
   </div>
+
+
 </div>

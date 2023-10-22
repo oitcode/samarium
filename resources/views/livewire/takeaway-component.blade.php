@@ -1,9 +1,10 @@
 <div class="p-3 p-md-0">
 
+
   <div class="mb-3">
 
-    <div class="d-flex-rm">
-      {{-- Show in bigger screens --}}
+    <div>
+      {{-- Toolbar --}}
       <x-toolbar-classic toolbarTitle="Sales">
         @include ('partials.dashboard.spinner-button')
 
@@ -42,7 +43,13 @@
     </div>
   </div>
 
-  {{-- Use required component as per mode --}}
+
+  {{--
+     |
+     | Use required component as per mode
+     |
+  --}}
+
   @if ($modes['create'])
     @livewire ('takeaway-create')
   @elseif ($modes['display'])
@@ -54,8 +61,7 @@
   @elseif ($modes['list'])
     @livewire ('takeaway-list')
   @else
-    @if (false)
-    Welcome
-    @endif
   @endif
+
+
 </div>

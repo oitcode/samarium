@@ -1,5 +1,6 @@
 <div>
 
+
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Inventory">
     @include ('partials.dashboard.spinner-button')
@@ -37,11 +38,7 @@
     <div class="table-responsive bg-white border">
       <table class="table table-sm table-hover mb-0">
         <thead>
-          <tr class="
-              {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
-              "
-              style="">
+          <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }} {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}">
             <th colspan="2">Item</th>
             <th>Inventory Unit</th>
             <th>Inventory low</th>
@@ -53,7 +50,7 @@
         <tbody>
           @foreach ($products as $product)
             @if ($product->stock_applicable == 'yes')
-              <tr class="" wire:click="displayProductDetail({{ $product }})" role="button">
+              <tr wire:click="displayProductDetail({{ $product }})" role="button">
                 <td style="width: 50px;">
                   @if ($product->image_path)
                     <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
@@ -91,5 +88,6 @@
       </table>
     </div>
   @endif
+
 
 </div>

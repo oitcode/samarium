@@ -1,4 +1,6 @@
 <div class="p-0">
+
+
   <div class="my-3 p-3 bg-white border shadow" style="font-size: 1.1rem;">
     @if (true)
     {{-- Category --}}
@@ -22,7 +24,7 @@
       <label>
         Product
       </label>
-      <select class="w-100 h-100 custom-control border-0-rm" wire:model.defer="product_id" wire:change="selectItem">
+      <select class="w-100 h-100 custom-control" wire:model.defer="product_id" wire:change="selectItem">
         <option>---</option>
   
         @foreach ($products as $product)
@@ -54,7 +56,7 @@
       <label>
         Quantity
       </label>
-      <input class="w-100 h-100 font-weight-bold border-0-rm" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
+      <input class="w-100 h-100 font-weight-bold" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
     </div>
     @endif
 
@@ -69,4 +71,6 @@
       </button>
     </div>
   </div>
+
+
 </div>

@@ -19,9 +19,6 @@
             <tbody>
               @foreach ($productCategories as $productCategory)
                 <tr>
-                  {{--
-                  <td wire:click="selectCategory('{{ $productCategory->product_category_id }}')" role="button">
-                  --}}
                   <td wire:click="$emit('displayProductCategory', {{ $productCategory }} )" role="button">
                     <strong>
                       {{ $productCategory->name }}

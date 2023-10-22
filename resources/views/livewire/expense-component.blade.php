@@ -1,7 +1,7 @@
 <div class="p-3 p-md-0">
-  <!-- Menu tool bar -->
 
-  {{-- Show in bigger screens --}}
+
+  {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Expense">
     @include ('partials.dashboard.spinner-button')
 
@@ -51,7 +51,6 @@
 
   </x-toolbar-classic>
 
-  <!-- ./Menu tool bar -->
 
   {{-- Flash message div --}}
   @if (session()->has('message'))
@@ -67,12 +66,14 @@
   @endif
 
 
-  {{-- Use required component as per mode --}}
+  {{--
+     |
+     | Use required component as per mode
+     |
+  --}}
 
   @if ($modes['create'])
-    @if (true)
     @livewire ('expense-create')
-    @endif
   @elseif ($modes['list'])
     @livewire ('expense-list')
   @elseif ($modes['display'])
@@ -89,5 +90,6 @@
   @elseif ($modes['createCategory'])
     @livewire ('expense-category-create')
   @endif
+
 
 </div>

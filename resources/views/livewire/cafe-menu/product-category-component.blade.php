@@ -19,15 +19,6 @@
         'btnCheckMode' => 'list',
     ])
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('search')",
-        'btnIconFaClass' => 'fas fa-search',
-        'btnText' => 'Search',
-        'btnCheckMode' => 'search',
-    ])
-    @endif
-
     @if ($modes['display'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "",

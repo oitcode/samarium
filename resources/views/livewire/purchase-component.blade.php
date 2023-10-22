@@ -1,6 +1,7 @@
 <div class="p-3 p-md-0">
 
-  {{-- Show in bigger screens --}}
+
+  {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Purchase">
     @include ('partials.dashboard.spinner-button')
 
@@ -36,7 +37,13 @@
 
   </x-toolbar-classic>
 
-  {{-- Use the required component as per mode --}}
+
+  {{--
+     |
+     | Use required component as per mode
+     |
+  --}}
+
   @if ($modes['create'])
     @livewire ('purchase-create')
   @elseif ($modes['list'])
@@ -51,5 +58,6 @@
       @livewire ('core-purchase-display', ['purchase' => $displayingPurchase,])
     @endif
   @endif
+
 
 </div>

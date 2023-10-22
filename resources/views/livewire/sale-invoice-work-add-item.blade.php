@@ -1,4 +1,5 @@
-<div style="">
+<div>
+
 
   <!-- Flash message div -->
   <div class="">
@@ -13,8 +14,9 @@
     @endif
   </div>
 
+
   {{-- Show in bigger screen --}}
-  <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block" style="">
+  <div class="mb-3 border shadow-sm d-none d-md-block" style="">
 
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
@@ -138,5 +140,6 @@
       </div>
     @endif
   </div>
+
 
 </div>

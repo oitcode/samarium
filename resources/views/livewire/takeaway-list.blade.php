@@ -1,42 +1,14 @@
 <div>
 
-  <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+
+  <button wire:loading class="btn" style="font-size: 1.5rem;">
     <div class="spinner-border text-info mr-3" role="status">
       <span class="sr-only">Loading...</span>
     </div>
   </button>
 
-  {{-- Top flash cards --}}
-  @if (false)
-  <div class="row mb-1">
-    <div class="col-md-6">
-      <div class="mb-4">
-        @include ('partials.misc.glance-card', [
-            'bsBgClass' => 'bg-white',
-            'btnRoute' => '',
-            'iconFaClass' => 'fas fa-skating',
-            'btnTextPrimary' => 'Today',
-            'btnTextSecondary' => $todayTakeawayCount,
-        ])
-      </div>
-    </div>
 
-    <div class="col-md-6">
-      <div class="mb-4">
-        @include ('partials.misc.glance-card', [
-            'bsBgClass' => 'bg-white',
-            'btnRoute' => '',
-            'iconFaClass' => 'fas fa-skating',
-            'btnTextPrimary' => 'Total',
-            'btnTextSecondary' => $totalTakeawayCount,
-        ])
-      </div>
-    </div>
-  </div>
-  @endif
-
-
-  <div class="d-flex my-4 pl-3-rm" style="font-size: 1rem;">
+  <div class="d-flex my-4" style="font-size: 1rem;">
     <div class="mr-4 font-weight-bold">
       Today : {{ $todayTakeawayCount }}
     </div>
@@ -45,9 +17,10 @@
     </div>
   </div>
 
+
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
-    <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border">
+    <table class="table table-hover shadow-sm border">
       <thead>
         <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
             {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
@@ -73,11 +46,6 @@
           <th>
             Amount
           </th>
-          @if (false)
-          <th>
-            Action
-          </th>
-          @endif
         </tr>
       </thead>
 
@@ -137,26 +105,6 @@
                 @php echo number_format( $takeaway->getTotalAmount() ); @endphp
               @endif
             </td>
-            @if (false)
-            <td>
-              <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-cog text-secondary"></i>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item" wire:click="$emit('displayTakeaway', {{ $takeaway->takeaway_id }})">
-                    <i class="fas fa-file text-primary mr-2"></i>
-                    View
-                  </button>
-                  <button class="dropdown-item" wire:click="confirmDeleteTakeaway({{ $takeaway }})">
-                    <i class="fas fa-trash text-danger mr-2"></i>
-                    Delete
-                  </button>
-                </div>
-              </div>
-
-            </td>
-            @endif
           </tr>
         @endforeach
       </tbody>
@@ -166,6 +114,7 @@
     {{ $takeaways->links() }}
 
   </div>
+
 
   {{-- Show in smaller screens --}}
   <div class="table-responsive d-md-none border bg-white">
@@ -181,12 +130,12 @@
             <p>
               @if (\Carbon\Carbon::today()->toDateString() == $takeaway->created_at->toDateString())
                 <i class="fas fa-star mr-2 text-primary"></i>
-                <span class="badge-rm badge-pill-rm badge-primary-rm text-primary">
+                <span class="text-primary">
                   Today
                 </span>
 
               @else
-                <span class="text-secondary-rm" style="font-size: 1rem;">
+                <span style="font-size: 1rem;">
                   {{ $takeaway->created_at->toDateString() }}
                 </span>
               @endif
@@ -245,4 +194,6 @@
   @if ($modes['confirmDelete'])
     @livewire ('takeaway-list-confirm-delete', ['takeaway' => $deletingTakeaway,])
   @endif
+
+
 </div>

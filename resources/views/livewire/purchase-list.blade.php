@@ -1,9 +1,10 @@
 <div>
 
-  <div class="mt-2 mb-3 text-secondary py-3-rm bg-warning-rm d-none d-md-block" style="font-size: 1rem;">
+
+  <div class="mt-2 mb-3 text-secondary d-none d-md-block" style="font-size: 1rem;">
 
     <div class="d-flex">
-      <div class="mt-0 text-secondary py-3-rm mr-3" style="font-size: 1.3rem;">
+      <div class="mt-0 text-secondary mr-3" style="font-size: 1.3rem;">
         <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setPreviousDay">
           <i class="fas fa-arrow-left"></i>
         </button>
@@ -40,9 +41,9 @@
     </div>
   </div>
   {{-- Show in smaller screens --}}
-  <div class="mt-2 mb-3 text-secondary py-3-rm bg-warning-rm d-md-none" style="font-size: 1rem;">
+  <div class="mt-2 mb-3 text-secondary d-md-none" style="font-size: 1rem;">
 
-    <div class="mt-0 text-secondary py-3-rm mr-3" style="font-size: 1.3rem;">
+    <div class="mt-0 text-secondary mr-3" style="font-size: 1.3rem;">
       <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left"></i>
       </button>
@@ -82,7 +83,7 @@
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive bg-white d-none d-md-block">
-    <table class="table table-bordered-rm border mb-0" style="font-size: 1rem;">
+    <table class="table border mb-0" style="font-size: 1rem;">
       <thead>
         <tr class="
             {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
@@ -95,9 +96,6 @@
           <th style="width: 200px;">Payment Status</th>
           <th>Pending</th>
           <th>Amount</th>
-          @if (false)
-          <th style="width: 200px;">Action</th>
-          @endif
         </tr>
       </thead>
 
@@ -107,7 +105,7 @@
             <td>
               {{ $purchase->purchase_id }}
             </td>
-            <td class="" style="font-size: 0.8rem;">
+            <td style="font-size: 0.8rem;">
               {{ $purchase->purchase_date }}
             </td>
             <td>
@@ -159,25 +157,6 @@
                 @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
               @endif
             </td>
-            @if (false)
-            <td>
-              <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-cog text-secondary"></i>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item" wire:click="$emit('displayPurchase', {{ $purchase->purchase_id }})">
-                    <i class="fas fa-file text-primary mr-2"></i>
-                    View
-                  </button>
-                  <button class="dropdown-item" wire:click="enterConfirmDeletePurchaseMode({{ $purchase }})">
-                    <i class="fas fa-trash text-danger mr-2"></i>
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </td>
-            @endif
           </tr>
         @endforeach
       </tbody>
@@ -195,9 +174,10 @@
     </table>
   </div>
 
+
   {{-- Show in smaller screens --}}
   <div class="table-responsive bg-white d-md-none">
-    <table class="table table-bordered-rm border mb-0">
+    <table class="table border mb-0">
 
       <tbody>
         @foreach ($purchases as $purchase)
@@ -284,5 +264,6 @@
   @if ($modes['confirmDeletePurchase'])
     @livewire ('purchase-list-purchase-delete-confirm', ['purchase' => $deletingPurchase,])
   @endif
+
 
 </div>
