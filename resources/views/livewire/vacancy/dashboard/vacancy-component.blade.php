@@ -44,7 +44,12 @@
   @endif
 
 
-  {{-- Use the required component as per mode --}}
+  {{--
+     |
+     | Use required component as per mode
+     |
+  --}}
+
   @if ($modes['createMode'])
     @livewire ('vacancy.dashboard.vacancy-create')
   @elseif ($modes['listMode'])

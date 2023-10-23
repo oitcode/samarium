@@ -8,7 +8,7 @@
     </h1>
 
     <div class="form-group">
-      <label for="">Title *</label>
+      <label>Title *</label>
       <input type="text"
           class="form-control"
           wire:model.defer="title"
@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-group">
-      <label for="">Description *</label>
+      <label>Description *</label>
       <input type="text"
           class="form-control"
           wire:model.defer="description"
