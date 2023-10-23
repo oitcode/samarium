@@ -67,22 +67,22 @@
               <td class="h6 font-weight-bold d-none d-md-table-cell">
                 {{ $appointment->teamMember->name }}
               </td>
-              <td class="">
+              <td>
                 {{ $appointment->applicant_name }}
               </td>
-              <td class="">
+              <td>
                 {{ $appointment->applicant_phone }}
               </td>
-              <td class="">
+              <td>
                 {{ $appointment->applicant_description }}
               </td>
-              <td class="">
+              <td>
                 {{ \Carbon\Carbon::create($appointment->appointment_date_time)->toDateString() }}
               </td>
-              <td class="">
+              <td>
                 {{ \Carbon\Carbon::create($appointment->appointment_date_time)->toTimeString() }}
               </td>
-              <td class="">
+              <td>
                 <span class="badge badge-pill badge-primary">Open</span>
               </td>
               @if (false)
