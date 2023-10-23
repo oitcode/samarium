@@ -1,4 +1,5 @@
 <div>
+
   
   <h2 class="text-secondary">
     Online order details
@@ -10,7 +11,7 @@
       <div class="mb-4">
 
         <div class="table-responsive bg-white">
-          <table class="table table-bordered-rm border" style="font-size: 1.1rem;">
+          <table class="table border" style="font-size: 1.1rem;">
             <tbody>
 
               <tr>
@@ -152,5 +153,6 @@
     <div class="col-md-6">
     </div>
   </div>
+
 
 </div>

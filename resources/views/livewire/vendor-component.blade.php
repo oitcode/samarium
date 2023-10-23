@@ -1,6 +1,7 @@
 <div class="p-3 p-md-0">
 
-  {{-- Show in bigger screens --}}
+
+  {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Vendor">
 
     @include ('partials.dashboard.spinner-button')
@@ -50,7 +51,13 @@
     </div>
   @endif
 
-  {{-- Use required component as per mode --}}
+
+  {{--
+     |
+     | Use required component as per mode
+     |
+  --}}
+
   @if ($modes['create'])
     @livewire ('vendor-create')
   @elseif ($modes['display'])
@@ -58,5 +65,6 @@
   @elseif ($modes['list'])
     @livewire ('vendor-list')
   @endif
+
 
 </div>

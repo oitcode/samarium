@@ -1,5 +1,6 @@
 <div>
 
+
   <div class="d-flex mb-4 pl-2" style="font-size: 1rem;">
     <div class="mr-4">
       New : {{ $newOrderCount }}
@@ -18,7 +19,7 @@
 
       {{-- Show in bigger screens --}}
       <div class="table-responsive mb-3 d-none d-md-block">
-        <table class="table table-bordered-rm table-hover border">
+        <table class="table table-hover border">
           <thead>
             <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}"  style="font-size: 1.1rem;">
               <th style="width: 120px;">
@@ -66,10 +67,10 @@
                 <td class="pl-3">
                   {{ $order->phone }}
                 </td>
-                <td class="text-secondary-rm" style="">
+                <td>
                   {{ \Illuminate\Support\Str::limit($order->address, 15, $end=' ...') }}
                 </td>
-                <td class="text-secondary-rm font-weight-bold" style="font-size: 0.9rem;">
+                <td class="font-weight-bold" style="font-size: 0.9rem;">
                   Rs
                   @php echo number_format( $order->getTotalAmount() ); @endphp
                 </td>
@@ -105,7 +106,7 @@
 
       {{-- Show in smaller screens --}}
       <div class="table-responsive mb-3 d-md-none">
-        <table class="table table-bordered-rm table-hover border">
+        <table class="table table-hover border">
           <tbody class="bg-white">
             @foreach ($websiteOrders as $order)
               <tr role="button" wire:click="$emit('displayOnlineOrder', {{ $order->website_order_id }})">
@@ -130,7 +131,7 @@
                     {{ \Illuminate\Support\Str::limit($order->address, 15, $end=' ...') }}
                   <div>
                 </td>
-                <td class="text-secondary-rm" style="font-size: 1rem;">
+                <td style="font-size: 1rem;">
                   Rs
                   @php echo number_format( $order->getTotalAmount() ); @endphp
                 </td>
@@ -178,5 +179,6 @@
     <div class="col-md-2">
     </div>
   </div>
+
 
 </div>

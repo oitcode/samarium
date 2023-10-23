@@ -1,5 +1,6 @@
 <div class="p-3 p-md-0">
 
+
   {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Weborder">
 
@@ -30,10 +31,18 @@
 
   </x-toolbar-classic>
 
-  {{-- Use required component as per mode --}}
+
+  {{--
+     |
+     | Use required component as per mode
+     |
+  --}}
+
   @if ($modes['onlineOrderDisplay'])
     @livewire ('online-order-display', ['websiteOrder' => $displayingOnlineOrder,])
   @elseif ($modes['listMode'])
     @livewire ('online-order-list')
   @endif
+
+
 </div>

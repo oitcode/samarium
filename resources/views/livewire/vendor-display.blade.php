@@ -1,4 +1,6 @@
 <div>
+
+
   <div class="bg-white p-2 border">
     <h2 class="my-4">
       {{ $vendor->name }}
@@ -95,9 +97,14 @@
         </div>
       </div>
     </div>
-    {{-- ./Toolbar --}}
 
-    {{-- Use required component as per mode --}}
+
+    {{--
+       |
+       | Use required component as per mode
+       |
+    --}}
+
     @if ($modes['purchaseList'])
       @livewire ('core-purchase-list', ['vendor' => $vendor,])
     @elseif ($modes['settle'])
@@ -105,4 +112,6 @@
     @endif
 
   </div>
+
+
 </div>
