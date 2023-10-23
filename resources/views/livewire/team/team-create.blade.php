@@ -1,12 +1,14 @@
 <div class="card shadow-sm">
+
+
   <div class="card-body p-3">
 
-    <h1 class="text-white-rm" style="font-size: 1.3rem;">
+    <h1 class="h5 font-weight-bold">
       Create team
     </h1>
 
     <div class="form-group">
-      <label for="">Name</label>
+      <label>Name</label>
       <input type="text"
           class="form-control"
           wire:model.defer="name"
@@ -15,7 +17,7 @@
     </div>
 
     <div class="form-group">
-      <label for="">Team type</label>
+      <label>Team type</label>
       <select class="form-control" wire:model.defer="team_type">
         <option>---</option>
         <option value="playing_team">Playing Team</option>
@@ -25,7 +27,7 @@
     </div>
 
     <div class="form-group">
-      <label for="">Comment</label>
+      <label>Comment</label>
       <input type="text"
           class="form-control"
           wire:model.defer="comment"
@@ -54,26 +56,15 @@
 
     @if ($modes['selectImageFromNewUploadMode'])
       <div class="form-group">
-        <label for="">Image</label>
-        @if (true)
-          <input type="file" class="form-control" wire:model="image">
-          @error('image') <span class="text-danger">{{ $message }}</span> @enderror
-        @endif
+        <label>Image</label>
+        <input type="file" class="form-control" wire:model="image">
+        @error('image') <span class="text-danger">{{ $message }}</span> @enderror
       </div>
     @elseif ($modes['selectImageFromLibraryMode'])
       @livewire ('cms.dashboard.media-select-image-component')
     @endif
 
     <div class="py-3 m-0">
-      @if (false)
-      <button class="btn btn-lg badge-pill btn-success mr-3" wire:click="store">
-        Confirm
-      </button>
-
-      <button class="btn btn-lg btn-danger badge-pill mr-3" wire:click="$emit('exitCreateMode')">
-        Cancel
-      </button>
-      @endif
 
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
@@ -84,4 +75,6 @@
       </button>
     </div>
   </div>
+
+
 </div>
