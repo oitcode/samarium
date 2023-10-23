@@ -1,6 +1,7 @@
 <div class="p-3 p-md-0">
 
-  {{-- Show in bigger screens --}}
+
+  {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Customer">
 
     @include ('partials.dashboard.spinner-button')
@@ -51,37 +52,19 @@
   @endif
 
 
-  {{-- Use required component as per mode --}}
+  {{--
+     |
+     | Use required component as per mode
+     |
+  --}}
+
   @if ($modes['create'])
     @livewire ('customer-create')
   @elseif ($modes['list'])
     @livewire ('customer-list')
   @elseif ($modes['display'])
     @livewire ('customer-detail', ['customer' => $displayingCustomer,])
-  @else
-    @if (false)
-    <div class="row" style="margin: auto;">
-      <div class="col-md-2 shadow-sm p-0 mr-5 mb-4">
-        @include ('partials.misc.flash-card-simple', [
-            'fcCardColor' => 'bg-light text-dark',
-            'fcTitle' => 'Customers',
-            'fcData' => $totalCustomers,
-            'fcIconFaClass' => 'fas fa-users',
-        ])
-      </div>
-      <div class="col-md-2 shadow-sm p-0 mr-5 mb-4">
-        @include ('partials.misc.flash-card-simple', [
-            'fcCardColor' => 'bg-danger text-white',
-            'fcTitle' => 'Debtors',
-            'fcData' => $totalDebtors,
-            'fcIconFaClass' => 'fas fa-exclamation-circle',
-        ])
-      </div>
-    </div>
-    @endif
-    @if (false)
-    Welcome
-    @endif
   @endif
+
 
 </div>

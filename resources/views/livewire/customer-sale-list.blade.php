@@ -1,4 +1,6 @@
 <div>
+
+
   @if ($saleInvoices != null && count($saleInvoices) > 0)
 
     {{-- Show in bigger screens --}}
@@ -145,4 +147,6 @@
       No sales.
     </div>
   @endif
+
+
 </div>

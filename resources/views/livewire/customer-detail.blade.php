@@ -1,6 +1,7 @@
-<div class="bg-white-rm p-3-rm border-rm shadow-rm">
+<div>
 
-  <div class="bg-white p-3-rm border">
+
+  <div class="bg-white border">
     <div class="table-responsive">
       <table class="table">
         <tbody>
@@ -93,7 +94,13 @@
       </div>
     </div>
   </div>
-  {{-- ./Toolbar --}}
+
+
+  {{--
+     |
+     | Use required component as per mode
+     |
+  --}}
 
   @if ($modes['salesHistory'])
     @livewire ('customer-sale-list', ['customer' => $customer,])
@@ -110,5 +117,6 @@
   @if ($modes['saleInvoiceDisplay'])
     @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
   @endif
+
 
 </div>

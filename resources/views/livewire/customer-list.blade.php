@@ -1,40 +1,5 @@
 <div>
 
-  {{-- Top flash cards --}}
-  @if (false)
-  <div class="row mb-1">
-    <div class="col-md-6">
-      {{-- CMS glance --}}
-      <div class="mb-4">
-        @include ('partials.misc.glance-card', [
-            'bsBgClass' => 'bg-white',
-            'btnRoute' => '',
-            'iconFaClass' => 'fas fa-users',
-            'btnTextPrimary' => 'Customers',
-            'btnTextSecondary' => $total,
-        ])
-      </div>
-
-    </div>
-
-    <div class="col-md-6">
-      @if (true)
-        {{-- Shop glance --}}
-        <div class="mb-4">
-          @include ('partials.misc.glance-card', [
-              'bsBgClass' => 'bg-white',
-              'btnRoute' => '',
-              'iconFaClass' => 'fas fa-users',
-              'btnTextPrimary' => 'Creditors',
-              'btnTextSecondary' => $total,
-          ])
-        </div>
-      @endif
-    </div>
-  </div>
-  @endif
-
-  {{-- Search Bar --}}
 
   {{-- Show in bigger screens --}}
   <div class="mb-4 p-3 bg-white border d-none d-md-block">
@@ -76,6 +41,7 @@
     </div>
   </div>
 
+
   {{-- Show in smaller screens --}}
   <div class="mb-4 p-3 bg-white border d-md-none">
 
@@ -97,7 +63,7 @@
         <input type="text" wire:model.defer="customerSearch.name" style="font-size: 1.1rem;" wire:keydown.enter="search" />
       </div>
 
-      <div class="">
+      <div>
         <div>
           <label class="text-secondary">
             <i class="fas fa-phone mr-3"></i>
@@ -119,6 +85,7 @@
     </div>
   </div>
 
+
   {{-- List info --}}
   <div class="my-3 text-secondary">
     Displaying
@@ -128,6 +95,7 @@
     customers
   </div>
 
+
   {{-- Customer table --}}
   @if ($customers != null && count($customers) > 0)
 
@@ -136,9 +104,6 @@
       <table class="table table-hover mb-0">
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}" style="font-size: 1rem;">
-            @if (false)
-            <th></th>
-            @endif
             <th>Name</th>
             <th>Phone</th>
             <th>Balance</th>
@@ -148,28 +113,12 @@
         <tbody class="bg-white">
           @foreach ($customers as $customer)
             <tr class="border" wire:click="$emit('displayCustomer', {{ $customer->customer_id }})" role="button">
-              @if (false)
-              <td style="width: 5vw;">
-
-                <div class="dropdown">
-                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-cog text-secondary"></i>
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button class="dropdown-item">
-                      <i class="fas fa-file text-primary mr-2"></i>
-                      View
-                    </button>
-                  </div>
-                </div>
-              </td>
-              @endif
               <td>
                 <span style="font-size: calc(1rem + 0.1vw);">
                   {{ ucwords($customer->name) }}
                 </span>
               </td>
-              <td class="text-secondary-rm" style="font-size: 1rem;">
+              <td style="font-size: 1rem;">
                 {{ $customer->phone }}
               </td>
               <td>
@@ -177,7 +126,7 @@
                   <span class="text-muted mr-1" style="font-size: 0.9rem;">
                     Rs
                   </span>
-                  <span class="text-danger-rm font-weight-bold">
+                  <span class="font-weight-bold">
                     @php echo number_format( $customer->getBalance() ); @endphp
                   </span>
                 @else
@@ -190,6 +139,7 @@
         </tbody>
       </table>
     </div>
+
 
     {{-- Show in smaller screens --}}
     <div class="table-responsive border d-md-none">
@@ -232,7 +182,7 @@
                   <span class="text-muted mr-1" style="font-size: 0.9rem;">
                     Rs
                   </span>
-                  <span class="text-danger-rm font-weight-bold">
+                  <span class="font-weight-bold">
                     @php echo number_format( $customer->getBalance() ); @endphp
                   </span>
                 @else
@@ -250,4 +200,6 @@
       No customers.
     </div>
   @endif
+
+
 </div>

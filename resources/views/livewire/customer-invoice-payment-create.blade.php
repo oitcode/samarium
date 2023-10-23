@@ -1,5 +1,6 @@
 <x-box-create title="Receive sale invoice payment">
 
+
   <div class="row">
     <div class="col-md-3">
       <div class="table-responsive">
@@ -99,19 +100,19 @@
   <div class="bg-light border p-2">
 
     <div class="form-group">
-      <label for="">Amount *</label>
+      <label>Amount *</label>
       <input type="text" class="form-control" wire:model.defer="pay_amount" style="font-size: 1.3rem;">
       @error('pay_amount') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
-      <label for="">Deposited by</label>
+      <label>Deposited by</label>
       <input type="text" class="form-control" wire:model.defer="deposited_by" style="font-size: 1.3rem;">
       @error('deposited_by') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
-      <label for="">Payment type</label>
+      <label>Payment type</label>
       <select class="w-100 h-100 custom-control"
           wire:model.defer="sale_invoice_payment_type_id" style="font-size: 1.3rem;">
         <option>---</option>
@@ -130,5 +131,6 @@
     <button type="submit" class="btn btn-success" wire:click="store" style="font-size: 1.3rem;">Submit</button>
     <button type="submit" class="btn btn-danger" wire:click="$emit('exitSaleInvoicePaymentCreateMode')" style="font-size: 1.3rem;">Cancel</button>
   </div>
+
 
 </x-box-create>

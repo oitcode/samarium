@@ -63,7 +63,7 @@
             {{ $company->name }}
           </h2>
 
-          <div class="table-responsive p-0 py-3" style="background-color: #ddd;">
+          <div class="table-responsive p-0 py-3">
             <table class="table table-sm table-striped-rm table-bordered-rm mb-0">
               <tr>
                 <td>
