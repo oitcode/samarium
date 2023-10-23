@@ -10,7 +10,7 @@
 
 
   <div class="form-group">
-    <label for="">Title</label>
+    <label>Title</label>
     <input type="text"
         class="form-control"
         wire:model.defer="title"
@@ -88,7 +88,7 @@
 
 
   <div class="form-group">
-    <label for="">Is holiday</label>
+    <label>Is holiday</label>
     <select class="form-control" wire:model.defer="is_holiday">
       <option>---</option>
       <option value="no">No</option>

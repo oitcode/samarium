@@ -113,13 +113,13 @@
                 </td>
                 <td>
                   @if ($day['day']->format('l') == 'Saturday')
-                    <span class="">
+                    <span>
                       Holiday
                     </span>
                     <br />
                   @endif
                   @foreach ($day['events'] as $event)
-                    <span class="">
+                    <span>
                       {{ $event->title }}
                     </span>
                     <button class="btn text-primary" wire:click="displayCalendarEvent({{ $event }})">
