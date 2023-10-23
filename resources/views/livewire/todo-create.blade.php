@@ -1,12 +1,14 @@
 <div class="card shadow-sm">
+
+
   <div class="card-body p-3">
 
-    <h1 class="text-white-rm" style="font-size: 1.3rem;">
+    <h1 class="h5 font-weight-bold">
       Create todo
     </h1>
 
     <div class="form-group">
-      <label for="">Title</label>
+      <label>Title</label>
       <input type="text"
           class="form-control"
           wire:model.defer="title"
@@ -15,7 +17,7 @@
     </div>
 
     <div class="form-group">
-      <label for="">Description</label>
+      <label>Description</label>
       <input type="text"
           class="form-control"
           wire:model.defer="description"
@@ -34,4 +36,6 @@
       </button>
     </div>
   </div>
+
+
 </div>

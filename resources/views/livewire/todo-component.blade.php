@@ -53,7 +53,12 @@
   @endif
 
 
-  {{-- Use the required component as per mode --}}
+  {{--
+     |
+     | Use required component as per mode
+     |
+  --}}
+
   @if ($modes['createMode'])
     @livewire ('todo-create')
   @elseif ($modes['listMode'])

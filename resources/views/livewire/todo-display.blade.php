@@ -83,9 +83,6 @@
                     </th>
                     <td>
                       {{ $todo->created_at->toDateString() }}
-                      @if (false)
-                      {{ $todo->created_at->format('g:i A') }}
-                      @endif
                     </td>
                     <td>
                     </td>
