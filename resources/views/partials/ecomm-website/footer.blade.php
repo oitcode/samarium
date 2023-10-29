@@ -9,7 +9,7 @@
 
   {{-- Brand Info --}}
   @if (true)
-  <div class="container-fluid py-3" style="background-color: #dcdcdc;">
+  <div class="container-fluid py-3" style="{{-- background-color: #dcdcdc; --}}">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
