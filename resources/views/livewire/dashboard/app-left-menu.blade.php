@@ -450,6 +450,12 @@
   ])
 
   @include ('partials.dashboard.app-left-menu-button', [
+    'btnRoute' => 'dashboard-newsletter-subscription',
+    'iconFaClass' => 'fas fa-envelope',
+    'btnText' => 'Newsletter Subscription',
+  ])
+
+  @include ('partials.dashboard.app-left-menu-button', [
     'btnRoute' => 'dashboard-vacancy',
     'iconFaClass' => 'fas fa-edit',
     'btnText' => 'Vacancy',
