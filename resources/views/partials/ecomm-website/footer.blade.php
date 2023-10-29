@@ -206,9 +206,9 @@
           @endif
 
           <div class="my-4">
-            <a href="./contact-us" class="text-reset-rm text-decoration-none">Contact us</a>
+            <a href="/contact-us" class="text-reset-rm text-decoration-none">Contact us</a>
             <br/>
-            <a href="./post" class="text-reset-rm text-decoration-none">Blog</a>
+            <a href="/post" class="text-reset-rm text-decoration-none">Blog</a>
           </div>
         </div>
 
