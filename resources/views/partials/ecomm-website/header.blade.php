@@ -54,7 +54,7 @@
                 @guest
                   <a href="{{ route('register') }} " class="text-reset text-decoration-none">
                     <i class="fas fa-lock mr-1"></i>
-                    Signup
+                    Sign up
                   </a>
                 @endguest
               </div>
@@ -208,10 +208,10 @@
           </a>
         </li>
         <li class="nav-item border bg-light text-dark p-3">
-          <a class="nav-link text-dark" href="{{ route('website-user-signup') }}">
+          <a class="nav-link text-dark" href="{{ route('register') }}">
             <i class="fas fa-lock mr-3"></i>
             <span class="font-weight-bold">
-            Create account
+            Sign up
             </span>
           </a>
         </li>
