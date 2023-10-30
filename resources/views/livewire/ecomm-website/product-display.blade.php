@@ -216,7 +216,7 @@
                 Rating and reviews
               </strong>
             </div>
-            @if (false)
+            @if (true)
             <div class="mb-3">
               <a href="">Add your review</a>
             </div>
@@ -258,7 +258,7 @@
                 Question and answers
               </strong>
             </div>
-            @if (false)
+            @if (true)
             <div>
               <a href="">Ask a question</a>
             </div>
@@ -266,7 +266,7 @@
           </div>
         </div>
 
-        @if (false)
+        @if (true)
         <hr />
 
         {{-- Share --}}

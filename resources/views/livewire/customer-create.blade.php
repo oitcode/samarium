@@ -19,7 +19,14 @@
   </div>
 
   <div class="form-group">
-    <label>Phone</label>
+    <label>
+      Phone
+      @if (false)
+      <small class="text-secondary">
+      (Optional)
+      </small>
+      @endif
+    </label>
     <input type="text" class="form-control" wire:model.defer="phone">
     @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
   </div>

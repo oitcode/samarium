@@ -1,16 +1,16 @@
 <div class="card">
   <div class="card-body" style="font-size: 1.3rem;">
   
-    <h3 class="h5 text-secondary">
+    <h1 class="h5 font-weight-bold mb-4">
       @if ($is_post == 'yes')
         Create new post
       @else
         Create new page
       @endif
-    </h3>
+    </h1>
   
     <div class="form-group">
-      <label for="">Name</label>
+      <label for="">Name *</label>
       <input type="text"
           class="form-control"
           wire:model.defer="name"
@@ -20,7 +20,7 @@
 
     @if ($is_post == 'no')
     <div class="form-group">
-      <label for="">Permalink</label>
+      <label for="">Permalink *</label>
       <input type="text"
           class="form-control"
           wire:model.defer="permalink"

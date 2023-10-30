@@ -2,15 +2,14 @@
 
 
   <div class="d-flex justify-content-start">
-    <h2 class="h5">
-      <i class="fas fa-plus-circle mr-1"></i>
+    <h1 class="h5 font-weight-bold mb-4">
       Add event
-    </h2>
+    </h1>
   </div>
 
 
   <div class="form-group">
-    <label>Title</label>
+    <label>Title *</label>
     <input type="text"
         class="form-control"
         wire:model.defer="title"
@@ -21,19 +20,18 @@
 
   {{-- Date part --}}
   @if (true || ! $eventCreationDay)
-  <div class="my-2">
+  <div class="my-2 mt-5">
       @if ($modes['multiDay'])
-        <button class="btn btn-sm btn-primary" wire:click="exitMode('multiDay')">
+        <button class="btn btn-sm btn-light pl-0" wire:click="exitMode('multiDay')">
           Single day
         </button>
       @else
-        <button class="btn btn-sm btn-primary" wire:click="enterMode('multiDay')">
+        <button class="btn btn-sm btn-light pl-0" wire:click="enterMode('multiDay')">
           Date range
         </button>
       @endif
   </div>
   @endif
-
 
   <div class="d-flex mb-4">
     <div class="mr-5">
@@ -50,10 +48,14 @@
           @endif
         </div>
       @else
-        <div class="d-flex">
-          <span class="mr-2">Date:</span>
+        <div class="d-flex flex-column">
+          <div>
+            Date *
+          </div>
           @if ($start_date)
-            {{ $selectedStartDay }}
+            <div>
+              {{ $selectedStartDay }}
+            </div>
           @else
             <div class="text-muted">
               <i class="fas fa-exclamation-circle mr-1"></i>
@@ -87,8 +89,9 @@
   </div>
 
 
+
   <div class="form-group">
-    <label>Is holiday</label>
+    <label>Is holiday *</label>
     <select class="form-control" wire:model.defer="is_holiday">
       <option>---</option>
       <option value="no">No</option>

@@ -3,12 +3,12 @@
 
   <div class="card-body p-3">
 
-    <h1 class="h5 font-weight-bold">
+    <h1 class="h5 font-weight-bold mb-4">
       Create team
     </h1>
 
     <div class="form-group">
-      <label>Name</label>
+      <label>Name *</label>
       <input type="text"
           class="form-control"
           wire:model.defer="name"

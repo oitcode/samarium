@@ -1,7 +1,11 @@
 <div class="p-2 border bg-white">
 
+  <h1 class="h5 font-weight-bold mb-4">
+    Create new gallery
+  </h1>
+
   <div class="form-group">
-    <label>Name</label>
+    <label>Name *</label>
     <input type="text" class="form-control" id="" wire:model.defer="name" placeholder="Name">
     @error('name') <span class="text-danger">{{ $message }}</span>@enderror
   </div>
@@ -14,7 +18,7 @@
   </div>
 
   <div class="form-group">
-    <label>Images</label>
+    <label>Images *</label>
     <input type="file" class="form-control" wire:model="images" multiple>
     @error('images') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
