@@ -26,7 +26,8 @@ use App\Webpage;
  *
  *
  */
-Auth::routes(['register' => false,]);
+//Auth::routes(['register' => false,]);
+Auth::routes();
 
 /*
  *-----------------------------------------------------------------------------

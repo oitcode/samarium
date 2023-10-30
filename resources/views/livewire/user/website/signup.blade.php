@@ -34,7 +34,7 @@
   
 
   <div class="py-3">
-    @include ('partials.button-general', ['btnText' => 'Signup', 'clickMethod' => '',])
+    @include ('partials.button-general', ['btnText' => 'Signup', 'clickMethod' => 'store',])
   </div>
 
   <div class="py-3 text-secondary">

@@ -24,6 +24,8 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+    public $company;
+
     /**
      * Where to redirect users after registration.
      *
@@ -38,6 +40,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        $this->company = \App\Company::first();
+
         $this->middleware('guest');
     }
 
@@ -69,5 +73,26 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+
+    /**
+     * Where to redirect users after login.
+     *
+     * This is a function with the same name as the property. 
+     * Todo: Is this security safe?
+     *
+     */
+    protected function redirectTo()
+    {
+        return '/user/profile';
+    }
+
+    public function showRegistrationForm()
+    {
+        $company = \App\Company::first();
+
+        return view('auth.register')
+            ->with('company', $company);
     }
 }

@@ -37,4 +37,21 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    /**
+     * Where to redirect users after login.
+     *
+     * This is a function with the same name as the property. 
+     * Todo: Is this security safe?
+     *
+     */
+    protected function redirectTo()
+    {
+        if (\Auth::user()->role == 'admin') {
+            return '/dashboard';
+        } else if (\Auth::user()->role == 'standard') {
+            return '/user/profile';
+        }   
+    }
 }

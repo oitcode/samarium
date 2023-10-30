@@ -52,9 +52,9 @@
               </div>
               <div class="px-3">
                 @guest
-                  <a href="{{ route('website-user-signup') }} " class="text-reset text-decoration-none">
+                  <a href="{{ route('register') }} " class="text-reset text-decoration-none">
                     <i class="fas fa-lock mr-1"></i>
-                    Create Account
+                    Signup
                   </a>
                 @endguest
               </div>

@@ -1,7 +1,7 @@
 <div>
 
 
-  <div class="px-3 text-white">
+  <div class="px-3-rm text-white">
     <div class="row">
       <div class="col-md-6 py-4">
         <h2 class="h5 font-weight-bold text-center-rm">
