@@ -202,14 +202,6 @@
       Product gallery
     </h2>
 
-      {{-- Toolbar --}}
-      @if (false)
-      @if ($modes['updateProductAddProductSpecificationMode'])
-      @else
-      @endif
-      @livewire ('cms.dashboard.gallery-display', ['gallery' => \App\Gallery::first(),])
-      @endif
-
 
     @if ($product->gallery)
       <div class="my-3">
@@ -224,14 +216,18 @@
       </div>
     @else
       <div class="my-3">
-        <span class="px-3 my-3 text-secondary">
-          <i class="fas fa-exclamation-circle mr-1"></i>
-          No gallery
-        </span>
-        <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
-          <i class="fas fa-plus-circle mr-1"></i>
-          Add gallery
-        </button>
+        @if (! $modes['createProductGalleryMode'])
+          <span class="px-3 my-3 text-secondary">
+            <i class="fas fa-exclamation-circle mr-1"></i>
+            No gallery
+          </span>
+          <button class="btn btn-light" wire:click="enterMode('createProductGalleryMode')">
+            <i class="fas fa-plus-circle mr-1"></i>
+            Add gallery
+          </button>
+        @else
+          @livewire ('product.dashboard.product-gallery-create', ['product' => $product,])
+        @endif
       </div>
     @endif
 

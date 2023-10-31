@@ -117,29 +117,53 @@
         </div>
       </div>
 
-        @if (false)
-        {{-- Features --}}
-        <div class="bg-white px-3 border-rm mb-3-rm">
-          <div>
-            <div class="mb-3">
-              <strong>
-                Features
-              </strong>
-            </div>
-            <div class="px-3" style="">
-              <ul class="pl-0">
-                <li>Metal body</li>
-                <li>Robust and durable </li>
-                <li>Rust free</li>
-                <li>Quality check passed</li>
-                <li>ISO:9001 certified</li>
-              </ul>
+      @if ($product->gallery)
+      {{-- Product gallery --}}
+      <div class="bg-white px-3 border-rm mb-3-rm">
+        <div>
+          <div class="mb-3">
+            <strong>
+              Gallery
+            </strong>
+          </div>
+          <div class="px-3" style="">
+            <div class="row">
+            @foreach ($product->gallery->galleryImages as $galleryImage)
+              <div class="col-md-3 mb-3 p-3 border">
+                <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid">
+              </div>
+            @endforeach
             </div>
           </div>
         </div>
+      </div>
 
-        <hr />
-        @endif
+      <hr />
+      @endif
+
+      @if (false)
+      {{-- Features --}}
+      <div class="bg-white px-3 border-rm mb-3-rm">
+        <div>
+          <div class="mb-3">
+            <strong>
+              Features
+            </strong>
+          </div>
+          <div class="px-3" style="">
+            <ul class="pl-0">
+              <li>Metal body</li>
+              <li>Robust and durable </li>
+              <li>Rust free</li>
+              <li>Quality check passed</li>
+              <li>ISO:9001 certified</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+      @endif
 
 
         {{-- Product specification --}}
