@@ -20,6 +20,7 @@ class CafeMenuProductDisplay extends Component
         'updateProductAddProductSpecificationMode' => false,
 
         'createProductGalleryMode' => false,
+        'updateProductVideoMode' => false,
     ];
 
     protected $listeners = [
@@ -40,6 +41,9 @@ class CafeMenuProductDisplay extends Component
 
         'createProductGalleryCompleted',
         'createProductGalleryCancelled',
+
+        'productUpdateVideoLinkCompleted',
+        'productUpdateVideoLinkCancelled',
     ];
 
     public function render()
@@ -138,5 +142,15 @@ class CafeMenuProductDisplay extends Component
     public function createProductGalleryCancelled()
     {
         $this->exitMode('createProductGalleryMode');
+    }
+
+    public function productUpdateVideoLinkCompleted()
+    {
+        $this->exitMode('updateProductVideoMode');
+    }
+
+    public function productUpdateVideoLinkCancelled()
+    {
+        $this->exitMode('updateProductVideoMode');
     }
 }

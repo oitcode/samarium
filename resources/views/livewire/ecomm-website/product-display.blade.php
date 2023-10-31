@@ -212,7 +212,7 @@
         <hr />
         @endif
 
-        @if (false)
+        @if (true)
         {{-- Youtube video --}}
         <div class="bg-white p-3-rm border-rm mb-3">
           <div>
@@ -222,9 +222,15 @@
               </strong>
             </div>
 
-            <div class="col-md-12">
-               <iframe class="w-100" height="315" src="https://www.youtube.com/embed/v=vabnZ9-ex7o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+            @if ($product->video_link)
+              <div class="col-md-12">
+                 <iframe class="w-100" height="315" src="https://www.youtube.com/embed/{{ $product->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            @else
+              <div class="col-md-12">
+                No video
+              </div>
+            @endif
           </div>
         </div>
         @endif

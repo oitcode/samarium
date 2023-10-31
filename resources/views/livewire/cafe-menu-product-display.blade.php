@@ -234,6 +234,31 @@
 
   </div>
 
+  {{-- Product video --}}
+  <div class="my-3 bg-white border">
+    <h2 class="h5 m-3">
+      Product video
+    </h2>
+
+    @if ($product->video_link)
+      <div class="p-3">
+        Video set
+      </div>
+    @else
+      @if ($modes['updateProductVideoMode'])
+        @livewire ('product.dashboard.product-edit-video-link', ['product' => $product,])
+      @else
+        <div class="py-3">
+          <button class="btn btn-light" wire:click="enterMode('updateProductVideoMode')">
+            <i class="fas fa-plus-circle mr-1"></i>
+            Add video
+          </button>
+        </div>
+      @endif
+    @endif
+
+  </div>
+
   {{-- Product specifications --}}
   <div class="my-3 bg-white border">
     <h2 class="h5 m-3">
@@ -274,10 +299,10 @@
           <table class="table mb-0">
             @foreach ($product->productSpecifications as $spec)
               <tr class="">
-                <th class="border-dark" style="background-color: #eee;">
+                <th class="border-muted" style="width: 200px;">
                   {{ $spec->spec_heading }}
                 </th>
-                <td class="border-dark">
+                <td class="border-muted">
                   {{ $spec->spec_value }}
                 </td>
               </tr>
@@ -294,7 +319,7 @@
   {{-- Active/Inactive, Show/Hide in website. --}} 
   <div class="my-4 bg-white">
     <h2 class="h5 m-3 pt-3">
-      Misc settings
+      Additional settings
     </h2>
     <div>
       <div class="mt-0 p-2 d-flex justify-content-between border"
