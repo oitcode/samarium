@@ -71,12 +71,11 @@ Please view our Github Wiki pages.
 
 ## Contributing
 
-Please fork the project, make necessary changes and send a pull request. 
+Fork, edit and send pull request.
 
 ## Issues
 
-If you face any issue please raise an issue in github.
-If you want to propose any enhancement please raise an issue in github.
+Please raise an issue in github.
 
 ## License
 
