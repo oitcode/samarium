@@ -40,7 +40,9 @@ Auth::routes();
  */
 
 /* Dashboard */
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')
+    ->middleware('isAdmin')
+    ->name('dashboard');
 
 /* Product category */
 Route::get('/dashboard/productCategory', 'ProductCategoryController@index')->name('product-category');
