@@ -196,6 +196,26 @@
     </div>
   </div>
 
+  {{-- Product gallery --}}
+  <div class="my-3 bg-white border">
+    <h2 class="h5 m-3">
+      Product gallery
+    </h2>
+
+      {{-- Toolbar --}}
+      @if ($modes['updateProductAddProductSpecificationMode'])
+      @else
+        <div class="p-2 bg-white border">
+            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
+              <i class="fas fa-plus-circle mr-1"></i>
+              Add gallery
+            </button>
+        </div>
+      @endif
+
+    @livewire ('cms.dashboard.gallery-display', ['gallery' => \App\Gallery::first(),])
+
+  </div>
 
   {{-- Product specifications --}}
   <div class="my-3 bg-white border">
@@ -253,11 +273,15 @@
   </div>
 
 
+
   {{-- Active/Inactive, Show/Hide in website. --}} 
-  <div class="my-4">
+  <div class="my-4 bg-white">
+    <h2 class="h5 m-3 pt-3">
+      Misc settings
+    </h2>
     <div>
       <div class="mt-0 p-2 d-flex justify-content-between border"
-          style="background-color: #dadada;">
+          style="{{-- background-color: #dadada; --}}">
         <div>
           @if ($product->is_active == 0)
             <button class="btn btn-light mr-1" wire:click="makeProductActive">
@@ -321,7 +345,7 @@
     </div>
     @endif
     <div class="row">
-      <div class="col-3">
+      <div class="col-1">
         Created at
       </div>
       <div class="col-6" style="font-size: 0.8rem;">
@@ -329,7 +353,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-3">
+      <div class="col-1">
         Updated at
       </div>
       <div class="col-6" style="font-size: 0.8rem;">
