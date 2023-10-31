@@ -205,26 +205,27 @@
 
     @if ($product->gallery)
       <div class="my-3">
-        <span class="px-3 my-3 text-secondary">
-          <i class="fas fa-exclamation-circle mr-1"></i>
-          Yes
-        </span>
         <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
-          <i class="fas fa-plus-circle mr-1"></i>
+          <i class="fas fa-pencil-alt mr-1"></i>
           Edit gallery
         </button>
+        @livewire ('product.dashboard.product-gallery-display', ['product' => $product,])
       </div>
     @else
       <div class="my-3">
         @if (! $modes['createProductGalleryMode'])
           <span class="px-3 my-3 text-secondary">
+            @if (false)
             <i class="fas fa-exclamation-circle mr-1"></i>
+            @endif
             No gallery
           </span>
-          <button class="btn btn-light" wire:click="enterMode('createProductGalleryMode')">
-            <i class="fas fa-plus-circle mr-1"></i>
-            Add gallery
-          </button>
+          <div class="mt-4">
+            <button class="btn btn-light" wire:click="enterMode('createProductGalleryMode')">
+              <i class="fas fa-plus-circle mr-1"></i>
+              Add gallery
+            </button>
+          </div>
         @else
           @livewire ('product.dashboard.product-gallery-create', ['product' => $product,])
         @endif
