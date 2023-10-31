@@ -203,17 +203,37 @@
     </h2>
 
       {{-- Toolbar --}}
+      @if (false)
       @if ($modes['updateProductAddProductSpecificationMode'])
       @else
-        <div class="p-2 bg-white border">
-            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
-              <i class="fas fa-plus-circle mr-1"></i>
-              Add gallery
-            </button>
-        </div>
+      @endif
+      @livewire ('cms.dashboard.gallery-display', ['gallery' => \App\Gallery::first(),])
       @endif
 
-    @livewire ('cms.dashboard.gallery-display', ['gallery' => \App\Gallery::first(),])
+
+    @if ($product->gallery)
+      <div class="my-3">
+        <span class="px-3 my-3 text-secondary">
+          <i class="fas fa-exclamation-circle mr-1"></i>
+          Yes
+        </span>
+        <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
+          <i class="fas fa-plus-circle mr-1"></i>
+          Edit gallery
+        </button>
+      </div>
+    @else
+      <div class="my-3">
+        <span class="px-3 my-3 text-secondary">
+          <i class="fas fa-exclamation-circle mr-1"></i>
+          No gallery
+        </span>
+        <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
+          <i class="fas fa-plus-circle mr-1"></i>
+          Add gallery
+        </button>
+      </div>
+    @endif
 
   </div>
 

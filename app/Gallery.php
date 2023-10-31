@@ -41,6 +41,15 @@ class Gallery extends Model
         return $this->hasMany('App\GalleryImage', 'gallery_id', 'gallery_id');
     }
 
+    /*
+     * product table.
+     *
+     */
+    public function product()
+    {
+        return $this->belongsTo('App\Product', 'gallery_id', 'gallery_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Methods

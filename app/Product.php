@@ -48,6 +48,15 @@ class Product extends Model
     }
 
     /*
+     * gallery table.
+     *
+     */
+    public function gallery()
+    {
+        return $this->hasOne('App\Gallery', 'gallery_id', 'gallery_id');
+    }
+
+    /*
      * product table.
      *
      * Yes, this table has a relation with itself. Some products have
