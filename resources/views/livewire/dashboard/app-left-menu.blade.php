@@ -456,6 +456,12 @@
   ])
 
   @include ('partials.dashboard.app-left-menu-button', [
+    'btnRoute' => 'dashboard-testimonial',
+    'iconFaClass' => 'fas fa-sms',
+    'btnText' => 'Testimonial',
+  ])
+
+  @include ('partials.dashboard.app-left-menu-button', [
     'btnRoute' => 'dashboard-vacancy',
     'iconFaClass' => 'fas fa-edit',
     'btnText' => 'Vacancy',

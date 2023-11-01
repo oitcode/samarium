@@ -121,6 +121,9 @@ Route::get('/dashboard/vacancy', 'VacancyController@index')->name('dashboard-vac
 /* Newsletter subscription  */
 Route::get('/dashboard/newsletter-subscription', 'NewsletterSubscriptionController@index')->name('dashboard-newsletter-subscription');
 
+/* Newsletter subscription  */
+Route::get('/dashboard/testimonial', 'TestimonialController@index')->name('dashboard-testimonial');
+
 /*
  *-----------------------------------------------------------------------------
  * Website routes
