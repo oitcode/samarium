@@ -147,9 +147,11 @@ Route::get('/product/category/{id}/{name}', 'WebsiteController@productCategoryPr
 /* Product View */
 Route::get('/product/{id}/{name}', 'WebsiteController@productView')->name('website-product-view');
 
-/* Checkout page  */
+/* Checkout page */
 Route::get('/checkout', 'WebsiteController@checkout')->name('website-checkout');
 
+/* Write testimonial page */
+Route::get('/write-testimonial', 'WebsiteController@writeTestimonial')->name('website-write-testimonial');
 
 /*
  *-----------------------------------------------------------------------------

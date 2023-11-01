@@ -240,4 +240,12 @@ class WebsiteController extends Controller
         return view('user.website.profile')
             ->with('company', $company);
     }
+
+    public function writeTestimonial()
+    {
+        $company = Company::first();
+
+        return view('testimonial.website.testimonial-create')
+            ->with('company', $company);
+    }
 }
