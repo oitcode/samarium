@@ -11,7 +11,7 @@
           </h2>
 
           {{-- Basic info --}}
-          <div class="table-responsive py-5">
+          <div class="table-responsive py-5-rm">
             <table class="table mb-0">
               <tr class="border-top">
                 <th class="border-0">Name</th>
