@@ -12,7 +12,7 @@
           background-color: {{ \App\CmsTheme::first()->top_header_bg_color }}; color: {{ \App\CmsTheme::first()->top_header_text_color }};
         @endif"
     >
-      <div class="container py-2">
+      <div class="container py-2 pl-4">
         <div class="d-flex justify-content-between">
           {{-- Left side --}}
           <div>
@@ -100,19 +100,21 @@
         <div class="d-flex">
           <div class="mr-4 d-flex flex-column justify-content-center">
               @if (true)
-              <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid-rm mt-4" style="max-width: 50px; max-height: 50px;">
+              <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid-rm mt-4" style="max-width: 100px; max-height: 100px;">
               @endif
           </div>
-          <div class="mt-3 d-none d-md-block mr-3">
-            <h1 class="h5 font-weight-bold mt-2 text-dark" style="">
-              {{ $company->name }}
-            </h1>
-            @if (true)
-            <div class="text-secondary">
-              {{ $company->tagline }}
+          @if (false)
+            <div class="mt-3 d-none d-md-block mr-3">
+              <h1 class="h5 font-weight-bold mt-2 text-dark" style="">
+                {{ $company->name }}
+              </h1>
+              @if (true)
+              <div class="text-secondary">
+                {{ $company->tagline }}
+              </div>
+              @endif
             </div>
-            @endif
-          </div>
+          @endif
         </div>
         </a>
 
