@@ -8,7 +8,12 @@
 
     <div class="form-group">
       <label class="m-0">Your name (optional)</label>
-      <input type="text" class="form-control" />
+      <input type="text" class="form-control" wire:model.defer="writer_name" />
+    </div>
+
+    <div class="form-group">
+      <label class="m-0">Your info (optional)</label>
+      <input type="text" class="form-control" wire:model.defer="writer_info" />
     </div>
 
     @if (false)
@@ -29,11 +34,11 @@
 
     <div class="form-group">
       <label class="m-0">Testimonial *</label>
-      <textarea rows="5" class="form-control"></textarea>
+      <textarea rows="5" class="form-control" wire:model.defer="body" ></textarea>
     </div>
 
     <div class="mb-2">
-      <button class="btn btn-danger p-3">
+      <button class="btn btn-danger p-3" wire:click="store">
         Submit
       </button>
     </div>
