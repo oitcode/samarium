@@ -1,5 +1,6 @@
 <div>
 
+
   {{-- Online store hero --}}
   @if (false)
   @include ('partials.os.hero')
@@ -427,6 +428,21 @@
   @endif
   </div>
 
+
+
+  @if (\App\Testimonial::count() > 0)
+    <div class="container-fluid py-5 border bg-white">
+      <div class="container">
+        <h2 class="h4 font-weight-bold">
+          Testimonials
+        </h2>
+        <div class="h6 text-secondary mb-5">
+          What our customers say
+        </div>
+        @livewire ('testimonial.website.testimonial-list')
+      </div>
+    </div>
+  @endif
 
 
 </div>
