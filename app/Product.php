@@ -57,6 +57,15 @@ class Product extends Model
     }
 
     /*
+     * product_question table.
+     *
+     */
+    public function productQuestions()
+    {
+        return $this->hasMany('App\ProductQuestion', 'product_id', 'product_id');
+    }
+
+    /*
      * gallery table.
      *
      */

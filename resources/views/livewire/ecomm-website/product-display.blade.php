@@ -306,7 +306,7 @@
 
             {{-- Show product reviews --}}
             @foreach ($product->productReviews as $productReview)
-              <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="{{-- border-top: 2px solid red !important; --}} background-color: #ffa;">
+              <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="{{-- border-top: 2px solid red !important; --}} background-color: #fafafa;">
                 <span class="font-weight-bold">
                   {{ $productReview->writer_name }}
                 </span>
@@ -337,11 +337,35 @@
               </div>
               <div>
                 <div class="mb-3">
-                  <a href="">Ask a question</a>
+                  <a href="" wire:click.prevent="enterMode('createProductQuestionMode')">
+                    Ask a question
+                  </a>
                 </div>
               </div>
             </div>
           </div>
+
+          @if ($modes['createProductQuestionMode'])
+            <div class="p-3-rm bg-warning-rm">
+              @livewire ('product.website.product-question-create', ['product' => $product,])
+            </div>
+          @endif
+
+          @if (count($product->productQuestions) > 0)
+            {{-- Show product reviews --}}
+            @foreach ($product->productQuestions as $productQuestion)
+              <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="{{-- border-top: 2px solid red !important; --}} background-color: #fafafa;">
+                {{ $productQuestion->question_text }}
+
+                <div class="text-secondary">
+                  {{ count($productQuestion->productAnswers) }} answers
+                </div>
+              </div>
+            @endforeach
+          @else
+            No questions
+          @endif
+
         </div>
 
         @if (true)

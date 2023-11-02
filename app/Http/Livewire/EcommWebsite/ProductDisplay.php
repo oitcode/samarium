@@ -16,11 +16,16 @@ class ProductDisplay extends Component
 
     public $modes = [
         'createProductReviewMode' => false,
+
+        'createProductQuestionMode' => false,
     ];
 
     protected $listeners = [
         'createProductReviewCompleted',
         'createProductReviewCancelled',
+
+        'createProductQuestionCompleted',
+        'createProductQuestionCancelled',
     ];
 
     public function render()
@@ -58,5 +63,15 @@ class ProductDisplay extends Component
     public function createProductReviewCompleted()
     {
         $this->exitMode('createProductReviewMode');
+    }
+
+    public function createProductQuestionCancelled()
+    {
+        $this->exitMode('createProductQuestionMode');
+    }
+
+    public function createProductQuestionCompleted()
+    {
+        $this->exitMode('createProductQuestionMode');
     }
 }
