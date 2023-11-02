@@ -308,11 +308,15 @@
           </div>
           <div>
             <i class="fab fa-facebook fa-2x mr-4"></i>
+
             <a href="https://api.whatsapp.com/send?text={{ url()->current() }}" data-action="share/whatsapp/share">
               <i class="fab fa-whatsapp fa-2x mr-4 text-success"></i>
             </a>
 
-            <i class="fab fa-viber fa-2x mr-4"></i>
+            <a href="viber://forward?text={{ url()->current() }}">
+              <i class="fab fa-viber fa-2x mr-4" style="color: purple;"></i>
+            </a>
+
           </div>
         </div>
         @endif
