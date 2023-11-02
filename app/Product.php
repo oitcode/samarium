@@ -48,6 +48,15 @@ class Product extends Model
     }
 
     /*
+     * product_review table.
+     *
+     */
+    public function productReviews()
+    {
+        return $this->hasMany('App\ProductReview', 'product_id', 'product_id');
+    }
+
+    /*
      * gallery table.
      *
      */
@@ -180,5 +189,10 @@ class Product extends Model
         }
 
         return $highest;
+    }
+
+    public function getStarReviewCount($stars)
+    {
+        return $this->productReviews()->where('rating', $stars)->count();
     }
 }

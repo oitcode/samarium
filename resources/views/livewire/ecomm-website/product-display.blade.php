@@ -216,10 +216,19 @@
         {{-- Youtube video --}}
         <div class="bg-white p-3-rm border-rm mb-3">
           <div>
-            <div class="mb-2">
-              <strong>
-                Video preview
-              </strong>
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>
+                  Video preview
+                </strong>
+              </div>
+              <div>
+                @if (false)
+                <div class="mb-3">
+                  Good day
+                </div>
+                @endif
+              </div>
             </div>
 
             @if ($product->video_link)
@@ -227,7 +236,7 @@
                  <iframe class="w-100" height="315" src="https://www.youtube.com/embed/{{ $product->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
             @else
-              <div class="col-md-12">
+              <div class="col-md-12 p-0">
                 No video
               </div>
             @endif
@@ -241,40 +250,77 @@
         {{-- Rating and reviews --}}
         <div class="bg-white p-3-rm border-rm mb-3">
           <div>
-            <div class="mb-2">
-              <strong>
-                Rating and reviews
-              </strong>
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>
+                  Rating and reviews
+                </strong>
+              </div>
+              <div>
+                @if ($modes['createProductReviewMode'])
+                @else
+                  <div class="mb-3">
+                    <button class="btn btn-light pl-0 pt-0 text-primary" wire:click="enterMode('createProductReviewMode')">
+                      Add your review
+                    </button>
+                  </div>
+                @endif
+              </div>
             </div>
-            @if (true)
-            <div class="mb-3">
-              <a href="">Add your review</a>
-            </div>
+
+            @if ($modes['createProductReviewMode'])
+              <div class="p-3-rm bg-warning-rm">
+                @livewire ('product.website.product-review-create', ['product' => $product,])
+              </div>
             @endif
+
+            <div class="mb-3">
+              {{ count($product->productReviews) }} reviews
+            </div>
+
+            {{-- Show star ratings. --}}
             <div class="px-3-rm" style="color: orange;">
               <div>
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                (0)
+                ({{ $product->getStarReviewCount(5) }})
               </div>
               <div>
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
-                (0)
+                ({{ $product->getStarReviewCount(4) }})
               </div>
               <div>
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                (0)
+                ({{ $product->getStarReviewCount(3) }})
               </div>
               <div>
                 <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                (0)
+                ({{ $product->getStarReviewCount(2) }})
               </div>
               <div>
                 <i class="fas fa-star"></i>
-                (0)
+                ({{ $product->getStarReviewCount(1) }})
               </div>
             </div>
+
+            {{-- Show product reviews --}}
+            @foreach ($product->productReviews as $productReview)
+              <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="{{-- border-top: 2px solid red !important; --}} background-color: #ffa;">
+                <span class="font-weight-bold">
+                  {{ $productReview->writer_name }}
+                </span>
+                <br />
+                <span class="text-muted">
+                  {{ $productReview->writer_info }}
+                </span>
+                <br />
+                <br />
+                {{ $productReview->review_text }}
+                <br />
+              </div>
+            @endforeach
+
           </div>
         </div>
 
@@ -283,16 +329,18 @@
         {{-- Questions and answers --}}
         <div class="bg-white p-3-rm border-rm mb-3">
           <div>
-            <div class="mb-2">
-              <strong>
-                Question and answers
-              </strong>
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>
+                  Question and answers
+                </strong>
+              </div>
+              <div>
+                <div class="mb-3">
+                  <a href="">Ask a question</a>
+                </div>
+              </div>
             </div>
-            @if (true)
-            <div>
-              <a href="">Ask a question</a>
-            </div>
-            @endif
           </div>
         </div>
 
@@ -349,7 +397,7 @@
         </div>
       </div>
 
-      @if (false)
+      @if (true)
       <div class="mb-4">
         <h2 class="h6 font-weight-bold text-secondary">
           Return

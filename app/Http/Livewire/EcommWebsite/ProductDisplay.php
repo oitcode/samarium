@@ -4,11 +4,24 @@ namespace App\Http\Livewire\EcommWebsite;
 
 use Livewire\Component;
 
+use App\Traits\ModesTrait;
+
 use App\Product;
 
 class ProductDisplay extends Component
 {
+    use ModesTrait;
+
     public $product;
+
+    public $modes = [
+        'createProductReviewMode' => false,
+    ];
+
+    protected $listeners = [
+        'createProductReviewCompleted',
+        'createProductReviewCancelled',
+    ];
 
     public function render()
     {
@@ -35,5 +48,15 @@ class ProductDisplay extends Component
         }
 
         $this->emit('itemAddedToCart');
+    }
+
+    public function createProductReviewCancelled()
+    {
+        $this->exitMode('createProductReviewMode');
+    }
+
+    public function createProductReviewCompleted()
+    {
+        $this->exitMode('createProductReviewMode');
     }
 }
