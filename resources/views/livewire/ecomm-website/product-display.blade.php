@@ -307,7 +307,10 @@
             </strong>
           </div>
           <div>
-            <i class="fab fa-facebook fa-2x mr-4"></i>
+
+            <a href="http://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" class="text-decoration-none text-primary">
+              <i class="fab fa-facebook fa-2x mr-4"></i>
+            </a>
 
             <a href="https://api.whatsapp.com/send?text={{ url()->current() }}" data-action="share/whatsapp/share">
               <i class="fab fa-whatsapp fa-2x mr-4 text-success"></i>
