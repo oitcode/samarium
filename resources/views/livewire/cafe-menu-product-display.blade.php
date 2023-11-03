@@ -344,6 +344,36 @@
   </div>
 
 
+  {{-- Questions and answers --}}
+  <div class="bg-white p-3 mb-3">
+    <div class="mb-4">
+      <h3 class="h5">
+        Questions & Answers
+      </h3>
+    </div>
+    @if (count($product->productQuestions) > 0)
+      {{-- Show product reviews --}}
+      @foreach ($product->productQuestions as $productQuestion)
+        <div class="py-2 border-rm my-3 mb-4 bg-white-rm shadow-sm-rm" style="{{-- border-top: 2px solid red !important; --}} background-color: #fafafa;">
+          <div>
+            {{ $productQuestion->question_text }}
+          </div>
+          <hr class="m-0 p-0"/>
+          <div class="text-secondary">
+            <span class="mr-3">
+              {{ count($productQuestion->productAnswers) }} answers
+            </span>
+            <span class="text-primary">
+              Add answer
+            </span>
+          </div>
+        </div>
+      @endforeach
+    @else
+      No questions
+    @endif
+  </div>
+
 
   {{-- Active/Inactive, Show/Hide in website. --}} 
   <div class="my-4 bg-white">
@@ -400,38 +430,6 @@
   </div>
 
 
-  {{-- Creation and update info --}} 
-  <div class="border bg-white p-3 my-3">
-    <div class="mb-4">
-      <h3 class="h5"> Product history </h3>
-    </div>
-    @if (false)
-    <div class="row">
-      <div class="col-3">
-        Created by
-      </div>
-      <div class="col-6">
-        xx
-      </div>
-    </div>
-    @endif
-    <div class="row">
-      <div class="col-1">
-        Created at
-      </div>
-      <div class="col-6" style="font-size: 0.8rem;">
-        {{ $product->created_at }}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-1">
-        Updated at
-      </div>
-      <div class="col-6" style="font-size: 0.8rem;">
-        {{ $product->updated_at }}
-      </div>
-    </div>
-  </div>
 
   {{-- Inventory info --}}
   <div class="bg-white p-3 mb-3">
@@ -486,6 +484,39 @@
       </div>
     @endif
 
+  </div>
+
+  {{-- Creation and update info --}} 
+  <div class="border bg-white p-3 my-3">
+    <div class="mb-4">
+      <h3 class="h5"> Product history </h3>
+    </div>
+    @if (false)
+    <div class="row">
+      <div class="col-3">
+        Created by
+      </div>
+      <div class="col-6">
+        xx
+      </div>
+    </div>
+    @endif
+    <div class="row">
+      <div class="col-1">
+        Created at
+      </div>
+      <div class="col-6" style="font-size: 0.8rem;">
+        {{ $product->created_at }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        Updated at
+      </div>
+      <div class="col-6" style="font-size: 0.8rem;">
+        {{ $product->updated_at }}
+      </div>
+    </div>
   </div>
 
 
