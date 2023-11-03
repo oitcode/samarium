@@ -61,16 +61,17 @@
           @if ($modes['updateProductNameMode'])
             @livewire ('product.dashboard.product-edit-name', ['product' => $product,])
           @else
-            <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1">
+            <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
               Product Name
-              <button class="btn btn-light text-primary" wire:click="enterMode('updateProductNameMode')">
+              <a href="" class="text-primary p-0 m-0" wire:click.prevent="enterMode('updateProductNameMode')">
                 @if (false)
                 <i class="fas fa-pencil-alt text-muted"></i>
                 @endif
                 Edit
-              </button>
+              </a>
             </div>
-            <div class="d-flex justify-content-between my-1">
+            <hr class="m-0 p-0" />
+            <div class="d-flex justify-content-between my-0">
               {{-- Product name --}}
               <div class="d-flex">
                 @if (false)
@@ -92,14 +93,14 @@
         @endif
 
         <div class="mb-4">
-          <div class="bg-white text-secondary font-weight-bold mr-5 py-1">
+          <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
             Category
-            <button class="btn btn-light text-primary">
+            <a class="text-primary">
                 @if (false)
                 <i class="fas fa-pencil-alt text-muted"></i>
                 @endif
                 Edit
-            </button>
+            </a>
           </div>
           <div class="d-flex justify-content-between" style="">
             <span>
@@ -115,14 +116,14 @@
           @if ($modes['updateProductDescriptionMode'])
             @livewire ('product.dashboard.product-edit-description', ['product' => $product,])
           @else
-            <div class="bg-white text-secondary font-weight-bold mr-5 py-1">
+            <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
               Description
-              <button class="btn btn-light text-primary" wire:click="enterMode('updateProductDescriptionMode')">
+              <a class="text-primary" wire:click="enterMode('updateProductDescriptionMode')">
                 @if (false)
                 <i class="fas fa-pencil-alt text-muted"></i>
                 @endif
                 Edit
-              </button>
+              </a>
             </div>
             <div class="d-flex justify-content-between font-weight-bold">
               {{ $product->description }}
@@ -137,14 +138,14 @@
           @if ($modes['updateProductPriceMode'])
             @livewire ('product.dashboard.product-edit-price', ['product' => $product,])
           @else
-            <div class="bg-white text-secondary font-weight-bold mr-5 py-1">
+            <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
               Price
-              <button class="btn btn-light text-primary p-0 ml-2" wire:click="enterMode('updateProductPriceMode')">
+              <a class="text-primary p-0 ml-2" wire:click="enterMode('updateProductPriceMode')">
                 @if (false)
                 <i class="fas fa-pencil-alt text-muted"></i>
                 @endif
                 Edit
-              </button>
+              </a>
             </div>
             <div class="d-flex justify-content-between font-weight-bold">
               Rs
