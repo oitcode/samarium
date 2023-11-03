@@ -39,12 +39,6 @@
               Date
             </th>
             <th>
-              Status
-            </th>
-            <th>
-              Applications
-            </th>
-            <th>
               Action
             </th>
           </tr>
@@ -58,9 +52,9 @@
                   {{ $vacancy->title }}
                 </span>
               </td>
-              <td>2023 August 13</td>
-              <td>Open</td>
-              <td>24</td>
+              <td>
+              {{ $vacancy->created_at->toDateString() }}
+              </td>
               <td>
                 <button class="btn mr-3" wire:click="">
                   <i class="fas fa-trash-alt"></i>
