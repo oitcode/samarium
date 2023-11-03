@@ -34,6 +34,10 @@ class WebsiteController extends Controller
 
         $product = Product::find($id);
 
+        /* Increate product view count. */
+        $product->website_views = $product->website_views + 1;
+        $product->save();
+
         return view('ecomm-website.product-view')
             ->with('product', $product)
             ->with('company', $company)
