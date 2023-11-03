@@ -62,7 +62,7 @@ class TodoList extends Component
         }
         */
 
-        $this->todos = Todo::all();
+        $this->todos = Todo::orderBy('todo_id', 'desc')->get();
 
         $this->todoCount = count($this->todos);
         $this->todoDisplayCount = $this->todoCount;;

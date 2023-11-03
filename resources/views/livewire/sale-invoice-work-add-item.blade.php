@@ -18,24 +18,30 @@
   {{-- Show in bigger screen --}}
   <div class="mb-3 border shadow-sm d-none d-md-block" style="">
 
+    @if (true)
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
           <tr class="bg-white" style="font-size: calc(0.6rem + 0.2vw);">
-            <th class="py-2" style="width: 200px;">Search Item</th>
+            <th class="py-2 border-0 pl-2" style="width: 200px;" colspan="6">Search Item</th>
+            @if (false)
             <th class="py-2">Category</th>
             <th class="py-2">Item</th>
             <th class="py-2" style="width: 100px;">Price</th>
             <th class="py-2" style="width: 50px;">Qty</th>
             <th class="py-2" style="width: 100px;">Total</th>
+            @endif
           </tr>
         </thead>
   
         <tbody>
           <tr class="p-0 font-weight-bold" style="height: 50px; font-size: calc(0.8rem + 0.2vw);">
-            <td class="p-0 h-100">
-              <input class="m-0 w-100 h-100 border-0" type="text" wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
+            <td class="p-2 pb-4 h-100 bg-white border-0">
+              <input class="m-0 w-100 h-100 border-rm shadow-lg-rm py-2 shadow-lg-rm" type="text"
+                  style="border: 1px solid red;"
+                  wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
+            @if (false)
             <td class="p-0 h-100">
               <select class="w-100 h-100 custom-control border-0" wire:model.defer="search_product_category_id" wire:change="selectProductCategory">
                 <option>---</option>
@@ -75,12 +81,14 @@
                 @endif
               </div>
             </td>
+            @endif
           </tr>
         </tbody>
       </table>
     </div>
   
-    <div class="p-2 m-0 bg-white">
+    @if (false)
+    <div class="p-2 m-0 bg-warning">
       <div class="row">
         <div class="col-md-8">
           <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSaleInvoice" style="font-size: calc(0.7rem + 0.2vw);">
@@ -113,6 +121,8 @@
       </div>
   
     </div>
+    @endif
+    @endif
   
   </div>
 
