@@ -384,11 +384,21 @@
             {{-- Show product reviews --}}
             @foreach ($product->productQuestions as $productQuestion)
               <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="{{-- border-top: 2px solid red !important; --}} background-color: #fafafa;">
+                Q:
                 {{ $productQuestion->question_text }}
 
                 <div class="text-secondary">
                   {{ count($productQuestion->productAnswers) }} answers
                 </div>
+
+                @if (count($productQuestion->productAnswers) > 0)
+                  @foreach ($productQuestion->productAnswers as $productAnswer)
+                    <div class="my-1 border-top">
+                      A:
+                      {{ $productAnswer->answer_text }}
+                    </div>
+                  @endforeach
+                @endif
               </div>
             @endforeach
           @else

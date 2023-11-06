@@ -6,11 +6,16 @@ use Livewire\Component;
 
 use App\Traits\ModesTrait;
 
+use App\ProductQuestion;
+use App\ProductAnswer;
+
 class CafeMenuProductDisplay extends Component
 {
     use ModesTrait;
 
     public $product;
+
+    public $answeringProductQuestion;
 
     public $modes = [
         'updateProductNameMode' => false,
@@ -21,6 +26,8 @@ class CafeMenuProductDisplay extends Component
 
         'createProductGalleryMode' => false,
         'updateProductVideoMode' => false,
+
+        'createProductAnswerMode' => false,
     ];
 
     protected $listeners = [
@@ -44,6 +51,9 @@ class CafeMenuProductDisplay extends Component
 
         'productUpdateVideoLinkCompleted',
         'productUpdateVideoLinkCancelled',
+
+        'createProductAnswerCompleted',
+        'createProductAnswerCancelled',
     ];
 
     public function render()
@@ -152,5 +162,25 @@ class CafeMenuProductDisplay extends Component
     public function productUpdateVideoLinkCancelled()
     {
         $this->exitMode('updateProductVideoMode');
+    }
+
+    public function answerQuestion(ProductQuestion $productQuestion)
+    {
+        $this->answeringProductQuestion = $productQuestion;
+        $this->enterMode('createProductAnswerMode');
+    }
+
+    public function createProductAnswerCompleted()
+    {
+        $this->answeringProductQuestion = null;
+        $this->exitMode('createProductAnswerMode');
+
+        session()->flash('message', 'Product Answer added');
+    }
+
+    public function createProductAnswerCancelled()
+    {
+        $this->answeringProductQuestion = null;
+        $this->exitMode('createProductAnswerMode');
     }
 }
