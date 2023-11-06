@@ -307,6 +307,7 @@
               {{ count($product->productReviews) }} reviews
             </div>
 
+            @if (false)
             {{-- Show star ratings. --}}
             <div class="px-3-rm" style="color: orange;">
               <div>
@@ -332,21 +333,29 @@
                 ({{ $product->getStarReviewCount(1) }})
               </div>
             </div>
+            @endif
 
             {{-- Show product reviews --}}
             @foreach ($product->productReviews as $productReview)
               <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="{{-- border-top: 2px solid red !important; --}} background-color: #fafafa;">
-                <span class="font-weight-bold">
-                  {{ $productReview->writer_name }}
-                </span>
-                <br />
-                <span class="text-muted">
-                  {{ $productReview->writer_info }}
-                </span>
-                <br />
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <span class="font-weight-bold">
+                      {{ $productReview->writer_name }}
+                    </span>
+                    <br />
+                    <span class="text-muted">
+                      {{ $productReview->writer_info }}
+                    </span>
+                  </div>
+                  <div>
+                    @for ($i=0; $i<$productReview->rating; $i++)
+                     <i class="fas fa-star" style="color: orange;"></i> 
+                    @endfor
+                  </div>
+                </div>
                 <br />
                 {{ $productReview->review_text }}
-                <br />
               </div>
             @endforeach
 
