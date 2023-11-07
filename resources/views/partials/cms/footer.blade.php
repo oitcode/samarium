@@ -65,95 +65,29 @@
 
     </div>
   
-    @if (false)
+    @if (true)
     <div class="col-md-3">
-      <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
-        Services
-      </div>
+      @if (true)
+      <h2 class="h5 text-dark-rm font-weight-bold mb-3">
+        About us
+      </h2>
       <div class="mb-2">
-        <a href=""
-            class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          Geotechnical investigation
-        </a>
+        {{ $company->brief_description }}
       </div>
-      <div class="mb-2">
-        <a href=""
-            class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          Design works
-        </a>
-      </div>
-      <div class="mb-2">
-        <a href=""
-            class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          Protection works design
-        </a>
-      </div>
-      <div class="mb-2">
-        <a href=""
-            class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          Slope stability analysis
-        </a>
-      </div>
-      <div class="mb-2">
-        <a href=""
-            class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          Topographical survey
-        </a>
-      </div>
-      <div class="mb-2">
-        <a href=""
-            class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          Construction supervision
-        </a>
+      @endif
+
+      <div class="my-4">
+        <a href="/contact-us" class="text-reset-rm text-decoration-none">Contact us</a>
+        <br/>
+        <a href="/post" class="text-reset-rm text-decoration-none">Blog</a>
+        <br/>
+        <a href="/write-testimonial" class="text-reset-rm text-decoration-none">Feedback</a>
       </div>
     </div>
     @endif
 
     @if (true)
     <div class="col-md-3">
-      <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
-        Quick Links
-      </div>
-      <div class="mb-2">
-        <a href="" class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          Home
-        </a>
-      </div>
-      <div class="mb-2">
-        <a href="" class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          About us
-        </a>
-      </div>
-      <div class="mb-2">
-        <a href="" class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          Services
-        </a>
-      </div>
-      <div class="mb-2">
-        <a href="" class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          Portfolio
-        </a>
-      </div>
-      <div class="mb-2">
-        <a href="" class="text-white text-decoration-none">
-          <i class="fas fa-angle-right mr-2"></i>
-          Contact us
-        </a>
-      </div>
-    </div>
-
-    @if (true)
-    <div class="col-md-2" style="font-size: 1rem;">
       <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
         Follow us
       </div>
@@ -194,7 +128,7 @@
         @endif
       </div>
     </div>
-    @endif
+
     @endif
   </div>
 

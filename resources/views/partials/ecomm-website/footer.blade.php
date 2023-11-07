@@ -50,49 +50,7 @@
                 </div>
               </div>
             </div>
-            @if (false)
-            <p class="text-secondary">
-              Rekha boutique is a boutique store selling all types
-              of boutique dress and ornaments. Located in Kamalpokhari,
-              Kathmandu, Nepal we provide free shipping inside
-              Kathmandu valley.
-            </p>
-            @endif
-            @if (false)
-            <h2 class="h5 mb-3 text-center-tm text-secondary-rm">
-              ABOUT US
-            </h2>
-            @if (false)
-            <p class="text-secondary">
-              Enter your email to get latest updates
-              delivered to your inbox.
-            </p>
-            <input type="text" class="form-control" placeholder="Email"/>
-            <div class="my-3">
-              <button class="btn btn-block btn-danger">
-                Subscribe
-              </button>
-            </div>
-            @endif
-
-            @endif
-
           </div>
-          @if (false)
-          <div class="d-flex justify-content-center-rm">
-            <div>
-              <div>
-                <h2 class="h5 mb-3 font-weight-bold" style="{{-- font-family: Mono; --}}">
-                  @if (false)
-                  {{ $company->name }}
-                  @else
-                  Contact us
-                  @endif
-                </h2>
-              </div>
-            </div>
-          </div>
-          @endif
 
           <div class="d-flex flex-column justify-content-center">
 

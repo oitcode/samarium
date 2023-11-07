@@ -407,6 +407,67 @@
   @endif
 
 
+  @if (preg_match("/crm/i", env('MODULES')))
+
+    @if ($modes['team'])
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "exitMode('crm')",
+          'btnIconFaClass' => 'fas fa-users',
+          'btnText' => 'CRM',
+          'btnCheckMode' => 'crm',
+      ])
+    @else
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "enterModeSilent('crm')",
+          'btnIconFaClass' => 'fas fa-users',
+          'btnText' => 'CRM',
+          'btnCheckMode' => 'crm',
+      ])
+    @endif
+
+    @if ($modes['crm'])
+
+      {{--
+      |
+      |
+      | Team route buttons
+      |
+      |
+      --}}
+      <div class="o-animated-rm mb-3 border-bottom">
+        @include ('partials.dashboard.app-left-menu-button', [
+          'btnRoute' => 'dashboard-contact-form',
+          'iconFaClass' => 'fas fa-sms',
+          'btnText' => 'Contact message',
+        ])
+
+        @include ('partials.dashboard.app-left-menu-button', [
+          'btnRoute' => 'dashboard-appointment',
+          'iconFaClass' => 'fas fa-paste',
+          'btnText' => 'Appointment',
+        ])
+
+        @include ('partials.dashboard.app-left-menu-button', [
+          'btnRoute' => 'dashboard-newsletter-subscription',
+          'iconFaClass' => 'fas fa-envelope',
+          'btnText' => 'Newsletter subscription',
+        ])
+
+        @include ('partials.dashboard.app-left-menu-button', [
+          'btnRoute' => 'dashboard-testimonial',
+          'iconFaClass' => 'fas fa-sms',
+          'btnText' => 'Testimonial',
+        ])
+      </div>
+
+    @endif
+
+    @if (false)
+    <hr class="m-0 p-0"/>
+    @endif
+  @endif
+
+
   @if ($modes['bgc'])
     {{--
     |
@@ -436,30 +497,6 @@
   | 
   |
   --}}
-
-  @include ('partials.dashboard.app-left-menu-button', [
-    'btnRoute' => 'dashboard-contact-form',
-    'iconFaClass' => 'fas fa-comment',
-    'btnText' => 'Contact Messages',
-  ])
-
-  @include ('partials.dashboard.app-left-menu-button', [
-    'btnRoute' => 'dashboard-appointment',
-    'iconFaClass' => 'fas fa-paste',
-    'btnText' => 'Appointment',
-  ])
-
-  @include ('partials.dashboard.app-left-menu-button', [
-    'btnRoute' => 'dashboard-newsletter-subscription',
-    'iconFaClass' => 'fas fa-envelope',
-    'btnText' => 'Newsletter Subscription',
-  ])
-
-  @include ('partials.dashboard.app-left-menu-button', [
-    'btnRoute' => 'dashboard-testimonial',
-    'iconFaClass' => 'fas fa-sms',
-    'btnText' => 'Testimonial',
-  ])
 
   @include ('partials.dashboard.app-left-menu-button', [
     'btnRoute' => 'dashboard-vacancy',

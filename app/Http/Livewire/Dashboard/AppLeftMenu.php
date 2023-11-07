@@ -20,6 +20,7 @@ class AppLeftMenu extends Component
         'bgc' => false,
         'team' => false,
         'report' => false,
+        'crm' => false,
     ];
 
     public function mount()
@@ -66,6 +67,13 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/school/calendar'
         ) {
             $this->enterModeSilent('school');
+        } else if (
+            $uri == '/dashboard/contact-form' ||
+            $uri == '/dashboard/appointment' ||
+            $uri == '/dashboard/newsletter-subscription' ||
+            $uri == '/dashboard/testimonial'
+        ) {
+            $this->enterModeSilent('crm');
         }
     }
 
