@@ -15,31 +15,32 @@
             <div class="row">
               <div class="col-md-8">
                 <div class="text-secondary">
-                  10 minutes ago
+                  Posted on
+                  {{ $vacancy->created_at->toDateString() }}
                 </div>
                 <h2 class="h5 font-weight-bold">
                   {{ $vacancy->title }}
                 </h2>
-                <div class="text-dark">
+                <div class="text-dark mt-3">
                   <i class="fas fa-map-marker-alt mr-1"></i>
-                  Bhadrapur, Jhapa, Nepal
+                  {{ $vacancy->job_location }}
                 </div>
 
-                <div class="text-secondary">
-                  We need a staff to do our offic works. The requirement for
-                  the job is that you need to be efficient and productive.
-                  You will get a good salary, and a great working environment.
+                <div class="text-secondary mt-3">
+                  {{ $vacancy->description }}
                 </div>
 
               </div>
               <div class="col-md-4">
+                @if (false)
                 <span class="badge badge-pill badge-success">
                 <i class="fas fa-star"></i>
                 </span>
                 Full time
+                @endif
               </div>
             </div>
-            <div class="p-2">
+            <div class="py-2">
               <a href="{{ route('website-vacancy-view',
                   [
                       $vacancy->vacancy_id, 

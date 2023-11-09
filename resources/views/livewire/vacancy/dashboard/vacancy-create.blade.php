@@ -17,6 +17,15 @@
     </div>
 
     <div class="form-group">
+      <label>Job location *</label>
+      <input type="text"
+          class="form-control"
+          wire:model.defer="job_location"
+          style="font-size: 1.3rem;">
+      @error ('job_location') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
+    <div class="form-group">
       <label>Description *</label>
       <input type="text"
           class="form-control"

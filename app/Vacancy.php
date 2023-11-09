@@ -21,6 +21,6 @@ class Vacancy extends Model
     protected $primaryKey = 'vacancy_id';
 
     protected $fillable = [
-         'title', 'description', 'status',
+         'title', 'job_location', 'description', 'status',
     ];
 }

@@ -10,6 +10,7 @@ class VacancyCreate extends Component
 {
     public $title;
     public $description;
+    public $job_location;
 
     public function render()
     {
@@ -20,6 +21,7 @@ class VacancyCreate extends Component
     {
         $validatedData = $this->validate([
             'title' => 'required',
+            'job_location' => 'required',
             'description' => 'required',
         ]);
 
