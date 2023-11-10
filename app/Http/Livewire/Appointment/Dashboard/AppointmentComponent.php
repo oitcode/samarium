@@ -6,6 +6,8 @@ use Livewire\Component;
 
 use App\Traits\ModesTrait;
 
+use App\Appointment;
+
 class AppointmentComponent extends Component
 {
     use ModesTrait;
@@ -21,10 +23,17 @@ class AppointmentComponent extends Component
     ];
 
     protected $listeners = [
+        'displayAppointment',
     ];
 
     public function render()
     {
         return view('livewire.appointment.dashboard.appointment-component');
+    }
+
+    public function displayAppointment(Appointment $appointment)
+    {
+        $this->displayingAppointment = $appointment;  
+        $this->enterMode('displayAppointmentMode');
     }
 }

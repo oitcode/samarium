@@ -54,6 +54,8 @@
 
   @if ($modes['listAppointmentMode'])
     @livewire ('appointment.dashboard.appointment-list')
+  @elseif ($modes['displayAppointmentMode'])
+    @livewire ('appointment.dashboard.appointment-display', ['appointment' => $displayingAppointment,])
   @endif
 
 

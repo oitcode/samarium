@@ -64,7 +64,7 @@
               <td>
                 {{ $appointment->appointment_id }}
               </td>
-              <td class="h6 font-weight-bold d-none d-md-table-cell">
+              <td class="h6 font-weight-bold d-none d-md-table-cell" role="button" wire:click="$emit('displayAppointment', {{ $appointment }})">
                 {{ $appointment->teamMember->name }}
               </td>
               <td>
