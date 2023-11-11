@@ -1,4 +1,6 @@
 <div class="bg-white p-3 border">
+
+
   <div class="d-flex justify-content-between">
     <div>
       <h2 class="h5 font-weight-bold">
@@ -18,6 +20,10 @@
         </span>
       </a>
     </div>
+  </div>
+
+  <div class="text-secondary">
+    Showing {{ count($todos) }} out of {{ $totalTodo }} tasks.
   </div>
 
   @foreach ($todos as $todo)
@@ -63,5 +69,6 @@
       </div>
     </div>
   @endforeach
+
 
 </div>
