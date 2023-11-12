@@ -1,4 +1,6 @@
 <div class="p-3 p-md-0">
+
+
   <x-component-header>
     Daybook
   </x-component-header>
@@ -398,5 +400,21 @@
       </div>
     </div>
   @endif
+
+
+  {{-- Purchase --}}
+  <div class="my-5">
+    <h2 class="h5 font-weight-bold">Purchase</h2>
+    @include ('partials.dashboard.daybook-purchase')
+  </div>
+
+  {{-- Expense --}}
+  <div class="my-5">
+    <h2 class="h5 font-weight-bold">Expense</h2>
+    @if (false)
+    @include ('partials.dashboard.daybook-expense')
+    @endif
+  </div>
+
 
 </div>

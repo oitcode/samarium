@@ -13,6 +13,12 @@ use App\SeatTableBooking;
 use App\SaleInvoicePaymentType;
 use App\Product;
 
+use App\Purchase;
+use App\PurchaseItem;
+use App\PurchasePaymentType;
+
+use App\Expense;
+
 class DaybookComponent extends Component
 {
     use WithPagination;
@@ -25,6 +31,12 @@ class DaybookComponent extends Component
     public $totalAmount;
     public $totalCashAmount;
     public $totalCreditAmount;
+
+    public $totalPurchaseAmount;
+    public $todayPurchaseCount;
+    public $todayPurchaseItems = array();
+    public $purchasePaymentByType = array();
+    public $netPurchasePendingAmount;
 
     public $seatTableBookings;
     public $totalBookingAmount;
@@ -55,6 +67,11 @@ class DaybookComponent extends Component
 
     public function render()
     {
+        /*
+         *
+         * Do sale_invoice related work.
+         *
+         */
         $saleInvoices = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->orderBy('sale_invoice_id', 'desc')->paginate(100);
 
         $this->todaySaleInvoiceCount = SaleInvoice::where('sale_invoice_date', $this->daybookDate)->count();
@@ -77,8 +94,38 @@ class DaybookComponent extends Component
 
         $this->getSaleItemQuantity($saleInvoices);
 
+
+        /*
+         *
+         * Do purchase related work.
+         *
+         */
+
+        $purchases = Purchase::where('purchase_date', $this->daybookDate)->orderBy('purchase_id', 'desc')->paginate(100);
+        $this->todayPurchaseCount = Purchase::where('purchase_date', $this->daybookDate)->count();
+        $this->totalPurchaseAmount = $this->getTotalPurchaseAmount($purchases);
+
+        $this->purchasePaymentByType = array();
+        foreach (PurchasePaymentType::all() as $purchasePaymentType) {
+            $this->purchasePaymentByType += array(
+                $purchasePaymentType->name
+                =>
+                $this->getPurchasePaymentTotalByType($purchases, $purchasePaymentType->purchase_payment_type_id)
+            );
+        }
+
+        $this->calculateNetPurchasePendingAmount($purchases);
+        $this->getPurchaseItemQuantity($purchases);
+
+
+        /*
+         *
+         * Return the view with required info.
+         *
+         */
         return view('livewire.daybook-component')
-            ->with('saleInvoices', $saleInvoices);
+            ->with('saleInvoices', $saleInvoices)
+            ->with('purchases', $purchases);
     }
 
     /* Clear modes */
@@ -179,6 +226,17 @@ class DaybookComponent extends Component
         return $total;
     }
 
+    public function getTotalPurchaseAmount($purchases)
+    {
+        $total = 0;
+
+        foreach ($purchases as $purchase) {
+            $total += $purchase->getTotalAmount();
+        }
+
+        return $total;
+    }
+
     public function exitDisplaySaleInvoiceMode()
     {
         $this->displayingSaleInvoice = null;
@@ -195,6 +253,23 @@ class DaybookComponent extends Component
             foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment) {
                 if ($saleInvoicePayment->sale_invoice_payment_type_id == $paymentTypeId) {
                     $total += $saleInvoicePayment->amount;
+                }
+            }
+        }
+
+        return $total;
+    }
+
+    public function getPurchasePaymentTotalByType($purchases, $purchasePaymentTypeId)
+    {
+        $purchasePaymentType = PurchasePaymentType::find($purchasePaymentTypeId);
+
+        $total = 0;
+
+        foreach ($purchases as $purchase) {
+            foreach ($purchase->purchasePayments as $purchasePayment) {
+                if ($purchasePayment->purchase_payment_type_id == $purchasePaymentTypeId) {
+                    $total += $purchasePayment->amount;
                 }
             }
         }
@@ -238,9 +313,45 @@ class DaybookComponent extends Component
         });
     }
 
+    public function getPurchaseItemQuantity($purchases)
+    {
+        $this->todayPurchaseItems = array();
+
+        foreach ($purchases as $purchase) {
+            foreach ($purchase->purchaseItems as $purchaseItem) {
+                if ($this->itemInTodayPurchaseItems($purchaseItem->product)) {
+                    $this->updateTodayPurchaseItemsCount($purchaseItem);
+                } else {
+                    $this->addToTodayPurchaseItemsCount($purchaseItem);
+                }
+            }
+        }
+
+        usort($this->todayPurchaseItems, function ($a, $b) {
+            if ($b['quantity'] < $a['quantity']) {
+                return -1;
+            } else if ($b['quantity'] == $a['quantity']) {
+                return 0;
+            } else {
+                return 1;
+            }
+        });
+    }
+
     public function itemInTodayItems(Product $product)
     {
         foreach ($this->todayItems as $item) {
+            if ($item['product']->product_id == $product->product_id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function itemInTodayPurchaseItems(Product $product)
+    {
+        foreach ($this->todayPurchaseItems as $item) {
             if ($item['product']->product_id == $product->product_id) {
                 return true;
             }
@@ -259,6 +370,16 @@ class DaybookComponent extends Component
         }
     }
 
+    public function updateTodayPurchaseItemsCount(PurchaseItem $purchaseItem)
+    {
+        for ($i=0; $i < count($this->todayPurchaseItems); $i++) {
+            if ($this->todayPurchaseItems[$i]['product']->product_id == $purchaseItem->product->product_id) {
+                $this->todayPurchaseItems[$i]['quantity'] += $purchaseItem->quantity;
+                break;
+            }
+        }
+    }
+
     public function addToTodayItemsCount(SaleInvoiceItem $saleInvoiceItem)
     {
         $line = array();
@@ -267,6 +388,16 @@ class DaybookComponent extends Component
         $line['quantity'] = $saleInvoiceItem->quantity;
 
         $this->todayItems[] = $line;
+    }
+
+    public function addToTodayPurchaseItemsCount(PurchaseItem $purchaseItem)
+    {
+        $line = array();
+
+        $line['product'] = $purchaseItem->product;
+        $line['quantity'] = $purchaseItem->quantity;
+
+        $this->todayPurchaseItems[] = $line;
     }
 
     public function calculateNetPendingAmount($saleInvoices)
@@ -278,5 +409,16 @@ class DaybookComponent extends Component
         }
 
         $this->netPendingAmount = $pendingAmount;
+    }
+
+    public function calculateNetPurchasePendingAmount($purchases)
+    {
+        $pendingAmount = 0;
+
+        foreach ($purchases as $purchase) {
+            $pendingAmount += $purchase->getPendingAmount();
+        }
+
+        $this->netPurchasePendingAmount = $pendingAmount;
     }
 }
