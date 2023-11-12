@@ -411,9 +411,7 @@
   {{-- Expense --}}
   <div class="my-5">
     <h2 class="h5 font-weight-bold">Expense</h2>
-    @if (false)
     @include ('partials.dashboard.daybook-expense')
-    @endif
   </div>
 
 
