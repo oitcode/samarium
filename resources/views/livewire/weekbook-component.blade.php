@@ -10,6 +10,7 @@
     <div class="float-left mr-5">
     </div>
 
+    @if (false)
     <button class="btn btn-success-rm p-3 pr-5 float-right border shadow-sm bg-white" wire:click="" style="font-size:1.3rem;">
       <h2>
         <span class="mr-2">
@@ -18,6 +19,7 @@
         @php echo number_format($totalAmount); @endphp
       </h2>
     </button>
+    @endif
 
     <div class="d-flex float-left my-3 text-secondary-rm border-rm p-3 bg-success-rm text-white-rm shadow-sm-rm" style="font-size: 0.8rem;">
       <button class="btn btn-success-rm m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
@@ -126,49 +128,91 @@
               Day
             </th>
             <th>
-              Bills
+              Sales
             </th>
             <th>
-              Total
+              Purchase
+            </th>
+            <th>
+              Expense
             </th>
           </tr>
         </thead>
 
         <tbody class="bg-white">
+            {{--
             @foreach ($weekBook as $day)
+            --}}
+            @for ($i=0; $i<7; $i++)
               <tr style="font-size: calc(0.6rem + 0.2vw);"> 
                 <td>
-                  @if (\Carbon\Carbon::today() == $day['day'])
+                  @if (\Carbon\Carbon::today() == $weekBook[$i]['day'])
                     <span class="badge badge-success">
                       TODAY
                     </span>
 
                   @else
                     <span class="text-secondary">
-                      {{ $day['day']->format('Y F d') }}
+                      {{ $weekBook[$i]['day']->format('Y F d') }}
                     </span>
                   @endif
                 </td>
                 <td>
-                  {{ $day['day']->format('l') }}
+                  {{ $weekBook[$i]['day']->format('l') }}
                 </td>
                 <td>
-                  {{ $day['totalBills'] }}
+                  {{ $weekBook[$i]['totalBills'] }}
+                  <span class="text-secondary mr-3">
+                  bills
+                  </span>
+                  <span class="text-secondary">
+                  Total:
+                  </span>
+                  Rs
+                  @php echo number_format( $weekBook[$i]['totalAmount'] ); @endphp
                 </td>
-                <td class="font-weight-bold">
-                @php echo number_format( $day['totalAmount'] ); @endphp
+                <td>
+                  {{ $weekBookPurchase[$i]['totalBills'] }}
+                  <span class="text-secondary mr-3">
+                  bills
+                  </span>
+                  <span class="text-secondary">
+                  Total:
+                  </span>
+                  Rs
+                  @php echo number_format( $weekBookPurchase[$i]['totalAmount'] ); @endphp
+                </td>
+                <td>
+                  {{ $weekBookExpense[$i]['totalBills'] }}
+                  <span class="text-secondary mr-3">
+                  bills
+                  </span>
+                  <span class="text-secondary">
+                  Total:
+                  </span>
+                  Rs
+                  @php echo number_format( $weekBookExpense[$i]['totalAmount'] ); @endphp
                 </td>
               <tr>
+            @endfor
+            {{--
             @endforeach
+            --}}
         </tbody>
 
         <tfoot class="bg-white">
           <tr>
-            <td colspan="3" class="text-right mr-3 font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
+            <td colspan="2" class="text-right mr-3 font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
               Total
             </td>
             <td class="font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
               @php echo number_format($totalAmount); @endphp
+            </td>
+            <td class="font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
+              @php echo number_format($totalAmountPurchase); @endphp
+            </td>
+            <td class="font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
+              @php echo number_format($totalAmountExpense); @endphp
             </td>
           </tr>
         </tfoot>
@@ -195,32 +239,38 @@
         @endif
 
         <tbody class="bg-white">
+            {{--
             @foreach ($weekBook as $day)
+            --}}
+            @for ($i=0; $i<7; $i++)
               <tr> 
                 <td>
-                  @if (\Carbon\Carbon::today() == $day['day'])
+                  @if (\Carbon\Carbon::today() == $weekBook[$i]['day'])
                     <span class="badge badge-success">
                       TODAY
                     </span>
 
                   @else
                     <span class="text-secondary" style="font-size: 1rem;">
-                      {{ $day['day']->format('Y F d') }}
+                      {{ $weekBook[$i]['day']->format('Y F d') }}
                     </span>
                   @endif
                   <div>
-                    {{ $day['day']->format('l') }}
+                    {{ $weekBook[$i]['day']->format('l') }}
                   </div>
                 </td>
                 <td>
-                  {{ $day['totalBills'] }}
+                  {{ $weekBook[$i]['totalBills'] }}
                 </td>
                 <td class="font-weight-bold" style="font-size: 1rem;">
                 Rs
-                @php echo number_format( $day['totalAmount'] ); @endphp
+                @php echo number_format( $weekBook[$i]['totalAmount'] ); @endphp
                 </td>
               <tr>
+            @endfor
+            {{--
             @endforeach
+            --}}
         </tbody>
 
       </table>
@@ -228,4 +278,6 @@
 
 
   @endif
+
+
 </div>
