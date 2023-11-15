@@ -23,7 +23,7 @@
       <table class="table table-sm table-bordered m-0">
         <thead>
           <tr class="bg-white" style="font-size: calc(0.6rem + 0.2vw);">
-            <th class="py-2 border-0 pl-2" style="width: 200px;">Search Item</th>
+            <th class="py-2 border-0-rm pl-2" style="width: 200px;">Search Item</th>
             @if (true)
             <th class="py-2">Category</th>
             <th class="py-2">Item</th>
@@ -36,8 +36,8 @@
   
         <tbody>
           <tr class="p-0 font-weight-bold" style="height: 50px; font-size: calc(0.8rem + 0.2vw);">
-            <td class="p-2 pb-4 h-100 bg-white border-0">
-              <input class="m-0 w-100 h-100 border-rm shadow-lg-rm py-2 shadow-lg-rm" type="text"
+            <td class="p-2-rm pb-4-rm h-100 bg-white border-0-rm">
+              <input class="m-0 w-100 h-100 border-0 shadow-lg-rm py-2 shadow-lg-rm" type="text"
                   wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
             @if (true)
