@@ -98,16 +98,33 @@
       {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('l') }}
     </div>
 
-    <div class="shadow-sm-rm" style="">
-      <div class="card">
-        <div class="card-body p-0 bg-success text-white">
-          <div class="p-4">
-            <h2 class="font-weight-bold" style="font-size: 2rem;">
-              Rs
-              @php echo number_format( $totalAmount ); @endphp
-            </h2>
-          </div>
-        </div>
+    <div class="my-4">
+      <div class="table-responsive bg-white">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Sale</th>
+              <td>
+                Rs
+                @php echo number_format( $totalAmount ); @endphp
+              </td>
+            </tr>
+            <tr>
+              <th>Purchase</th>
+              <td>
+                Rs
+                @php echo number_format( $totalAmountPurchase ); @endphp
+              </td>
+            </tr>
+            <tr>
+              <th>Expense</th>
+              <td>
+                Rs
+                @php echo number_format( $totalAmountExpense ); @endphp
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -228,9 +245,11 @@
             <th>
               Day
             </th>
+            @if (false)
             <th>
               Bills
             </th>
+            @endif
             <th>
               Total
             </th>
@@ -259,12 +278,35 @@
                     {{ $weekBook[$i]['day']->format('l') }}
                   </div>
                 </td>
+                @if (false)
                 <td>
                   {{ $weekBook[$i]['totalBills'] }}
                 </td>
+                @endif
                 <td class="font-weight-bold" style="font-size: 1rem;">
+                <span class="text-secondary">
+                Sale:
+                </span>
+                <br/>
+                {{ $weekBook[$i]['totalBills'] }} bills
                 Rs
                 @php echo number_format( $weekBook[$i]['totalAmount'] ); @endphp
+                <br/>
+                <span class="text-secondary">
+                Purchase:
+                </span>
+                <br/>
+                {{ $weekBookPurchase[$i]['totalBills'] }} bills
+                Rs
+                @php echo number_format( $weekBookPurchase[$i]['totalAmount'] ); @endphp
+                <br/>
+                <span class="text-secondary">
+                Expense:
+                </span>
+                <br/>
+                {{ $weekBookExpense[$i]['totalBills'] }} bills
+                Rs
+                @php echo number_format( $weekBookExpense[$i]['totalAmount'] ); @endphp
                 </td>
               <tr>
             @endfor

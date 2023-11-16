@@ -93,17 +93,36 @@
       </div>
 
       @if (! $modes['displaySaleInvoice'])
-      <div class="shadow-sm-rm">
-        <div class="card">
-          <div class="card-body p-0 bg-success text-white">
-            <div class="p-4">
-              <h2 class="font-weight-bold" style="font-size: 2rem;">
-                Rs
-                @php echo number_format( $totalSaleAmount ); @endphp
-              </h2>
-            </div>
-          </div>
+      <div class="my-4">
+
+        <div class="table-responsive bg-white">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>Sale</th>
+                <td>
+                  Rs
+                  @php echo number_format( $totalSaleAmount ); @endphp
+                </td>
+              </tr>
+              <tr>
+                <th>Purchase</th>
+                <td>
+                  Rs
+                  @php echo number_format( $totalPurchaseAmount ); @endphp
+                </td>
+              </tr>
+              <tr>
+                <th>Expense</th>
+                <td>
+                  Rs
+                  @php echo number_format( $totalExpenseAmount ); @endphp
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
       </div>
       @endif
 
