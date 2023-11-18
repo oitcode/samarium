@@ -1,4 +1,4 @@
-<div class="sticky-top-rm bg-white">
+<div class="sticky-top-rm bg-danger">
 
   {{-- Logo and menu --}}
 
@@ -55,7 +55,7 @@
 
   {{-- SMALLER SCREEN --}}
   <div class="d-md-none">
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0 bg-warning">
       @if (true)
       @include ('partials.cms.site-top-menu-mob')
       @endif

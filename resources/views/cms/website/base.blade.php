@@ -132,12 +132,8 @@
 
     {{-- Header --}}
     @include ('partials.cms.headers-header')
-    @if (false)
-    @include ('partials.cms.header')
-    @endif
 
     {{-- Top navigation menu --}}
-    {{-- Product category menu --}}
     @livewire ('cms.website.menu-wp')
 
     <div class="@if (isset($webpage) && $webpage->is_post == 'yes') @else @endif">
