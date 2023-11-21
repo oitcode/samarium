@@ -331,6 +331,7 @@
     | information.
     | 
     --}}
+    @if ($company)
     <div class="my-4 bg-white border p-3">
       <h2 class="h5 font-weight-bold">
         Brief description
@@ -365,6 +366,7 @@
         @endif
       @endif
     </div>
+    @endif
 
   </div>
 
