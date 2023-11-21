@@ -46,7 +46,7 @@ class NavMenuDisplayNavMenuItemCreate extends Component
         $cmsNavMenuItem->order = $this->getHighestMenuItemOrder() + 1;
 
         // $cmsNavMenuItem->type = $validatedData['o_type'];
-        $cmsNavMenuItem->type = 'link';
+        $cmsNavMenuItem->type = 'item';
 
         $cmsNavMenuItem->save();
 
