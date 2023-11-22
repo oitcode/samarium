@@ -74,6 +74,11 @@
         <i class="fas fa-arrow-right mr-3"></i>
       </button>
 
+      <input type="date" wire:model.defer="daybookDate" class="ml-5">
+      <button class="btn {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }} mx-3" wire:click="render">
+        Go
+      </button>
+
       <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
         <div class="spinner-border text-info mr-3" role="status">
           <span class="sr-only">Loading...</span>
