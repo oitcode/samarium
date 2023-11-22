@@ -76,6 +76,14 @@
       <i class="fas fa-arrow-right mr-3"></i>
     </button>
 
+    <input type="date" wire:model.defer="weekStartDate" class="ml-3">
+    <button class="btn mx-3
+        {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+        "
+        wire:click="setStartOfWeek">
+      Go
+    </button>
+
     <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
       <div class="spinner-border text-info mr-3" role="status">
         <span class="sr-only">Loading...</span>

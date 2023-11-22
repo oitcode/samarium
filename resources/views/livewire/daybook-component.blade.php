@@ -74,7 +74,7 @@
         <i class="fas fa-arrow-right mr-3"></i>
       </button>
 
-      <input type="date" wire:model.defer="daybookDate" class="ml-5">
+      <input type="date" wire:model.defer="daybookDate" class="ml-3">
       <button class="btn {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }} mx-3" wire:click="render">
         Go
       </button>
