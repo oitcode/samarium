@@ -20,8 +20,8 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light border bg-warning p-0">
     @if (true)
-    <a class="navbar-brand" href="{{ route('website-home') }}" style="color: #004;">
-      <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
+    <a class="navbar-brand p-3" href="{{ route('website-home') }}" style="color: #004;">
+      <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 60px;">
       @if (false)
       {{ $company->name }}
       @endif
