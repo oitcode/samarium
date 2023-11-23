@@ -2,7 +2,23 @@
 
 
   <div class="form-group">
-    <input type="date" class="form-control" wire:model.defer="start_date">
+     @livewire ('school.calendar-date-picker-nepali', ['emitDate' => 'start_date',], key(rand()))
+
+  </div>
+
+  <div class="my-4">
+     <div>
+       <strong>
+         Date:
+       </strong>
+     </div>
+     <div>
+       @if ($start_date)
+         {{ $start_date }}
+       @else
+         Not selected
+       @endif
+     </div>
   </div>
 
   <div>

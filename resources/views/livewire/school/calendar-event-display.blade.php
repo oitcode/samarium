@@ -3,7 +3,7 @@
 
   <div class="bg-white p-3 border">
 
-    @if (false)
+    @if (true)
     {{-- Temp refresh --}}
     <div class="mb-3">
       <i class="fas fa-refresh" wire:click="$refresh"></i>
@@ -54,7 +54,7 @@
     </div>
     <hr />
 
-    {{-- Is holidar --}}
+    {{-- Is holiday --}}
     <div class="my-3">
       <div class="mb-3">
         <strong>
@@ -74,6 +74,66 @@
         @endif
       </div>
     </div>
+    <hr />
+
+    {{-- Danger zone --}}
+    <div class="mb-3">
+      <strong>
+        Danger zone
+      </strong>
+    </div>
+
+    <div class="col-md-6 p-0 border border-secondary-rm rounded">
+
+      {{-- Change visibility --}}
+      <div class="">
+        <div class="d-flex justify-content-between p-3">
+          <div>
+            <div class="">
+              <strong>
+                Change event visibility
+              </strong>
+            </div>
+            <div>
+              This event is currently public
+            </div>
+          </div>
+
+          <div>
+            <button class="btn btn-outline-danger">
+              Change visibility
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr />
+
+      {{-- Delete event --}}
+      <div class="">
+        <div class="d-flex justify-content-between p-3">
+          <div>
+            <div class="">
+              <strong>
+                Delete this event
+              </strong>
+            </div>
+            <div>
+              Once you delete, it cannot be undone. Please be sure.
+            </div>
+          </div>
+
+          <div>
+            <button class="btn btn-outline-danger">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
 
   </div>
 
