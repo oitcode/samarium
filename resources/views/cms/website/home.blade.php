@@ -62,26 +62,33 @@
 @endif
 
 @if (preg_match("/bgc/i", env('MODULES')))
+  {{-- If BGC --}}
   @if (\App\Team::where('team_type', 'playing_team')->first())
     <div class="container my-4">
       @include ('partials.team.team-block-display')
     </div>
   @endif
-@endif
-
-@if (\App\Webpage::where('name', 'Home')->where('visibility', 'public')->first())
-  @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Home')->where('visibility', 'public')->first(),])
-@elseif (\App\Webpage::where('name', 'Post')->where('visibility', 'public')->first())
-  @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Post')->where('visibility', 'public')->first(),])
+@elseif (preg_match("/school/i", env('MODULES')))
+  {{-- If school --}}
+  <div class="container my-4">
+    @include ('partials.school.school-quick-links-display')
+  </div>
 @else
-  <div class="container-fluid py-4 border bg-danger text-white">
-    <div class="container">
-      <div class="h3">
-        <i class="fas fa-exclamation-circle mr-2"></i>
-        Home page not set yet. Please set up the home page.
+  {{-- All other cases --}}
+  @if (\App\Webpage::where('name', 'Home')->where('visibility', 'public')->first())
+    @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Home')->where('visibility', 'public')->first(),])
+  @elseif (\App\Webpage::where('name', 'Post')->where('visibility', 'public')->first())
+    @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Post')->where('visibility', 'public')->first(),])
+  @else
+    <div class="container-fluid py-4 border bg-danger text-white">
+      <div class="container">
+        <div class="h3">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          Home page not set yet. Please set up the home page.
+        </div>
       </div>
     </div>
-  </div>
+  @endif
 @endif
 
 <div>
