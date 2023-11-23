@@ -144,27 +144,7 @@
     </div>
 
     {{-- Footer --}}
-    <div class="container-fluid border pt-4 pb-5"
-        style="
-        background-color:
-            @if (\App\CmsTheme::first())
-              {{ \App\CmsTheme::first()->footer_bg_color }}
-            @else
-              orange
-            @endif
-            ;
-        color:
-            @if (\App\CmsTheme::first())
-              {{ \App\CmsTheme::first()->footer_text_color }}
-            @else
-              white
-            @endif
-            ;
-        ">
-      <div class="container">
-        @include ('partials.cms.footer')
-      </div>
-    </div>
+    @include ('partials.cms.footer')
 
   </div>
   @endif

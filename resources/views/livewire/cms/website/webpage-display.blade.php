@@ -100,6 +100,30 @@
 --}}
 @else
 
+  {{-- Share buttons --}}
+  @if ($webpage->is_post == 'yes')
+    <div class="container my-4">
+      <strong>
+        Share
+      </strong>
+      <div class="mt-3">
+
+        <a href="http://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" class="text-decoration-none text-primary">
+          <i class="fab fa-facebook fa-2x mr-4"></i>
+        </a>
+
+        <a href="https://api.whatsapp.com/send?text={{ url()->current() }}" data-action="share/whatsapp/share">
+          <i class="fab fa-whatsapp fa-2x mr-4 text-success"></i>
+        </a>
+
+        <a href="viber://forward?text={{ url()->current() }}">
+          <i class="fab fa-viber fa-2x mr-4" style="color: purple;"></i>
+        </a>
+
+      </div>
+    </div>
+  @endif
+
   @if (!is_null($webpage->webpageContents) && count($webpage->webpageContents) > 0)
   
     @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
