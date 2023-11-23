@@ -41,7 +41,7 @@
   @endif
 @endif
 
-@if (false)
+@if (true)
 {{-- Hero/Featured image --}}
 @if (\App\CmsTheme::first())
 <div class="container-fluid bg-light p-0 d-none d-md-block" 

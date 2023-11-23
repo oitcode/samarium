@@ -20,7 +20,7 @@
             @if (true)
             <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
             @endif
-            @if (false)
+            @if (true)
             <div class="d-flex flex-column justify-content-center ml-3">
               <div class="mt-3">
                 <h2 class="h4 font-weight-bold">
@@ -34,7 +34,7 @@
           <div class="d-flex mb-2">
             <i class="fas fa-map-marker-alt text-primary mr-2"></i>
             <div class="d-flex flex-column justify-content-center-rm ml-3">
-              <span class="text-secondary font-weight-bold" style="font-size: 1rem;">
+              <span class="text-secondary-rm font-weight-bold" style="font-size: 1rem;">
                 {{ $company->address }}
               </span>
             </div>
@@ -42,14 +42,14 @@
   
           <p class="mb-2" style="">
             <i class="fas fa-phone text-primary mr-2"></i>
-            <span class="text-secondary font-weight-bold" style="font-size: 1rem;">
+            <span class="text-secondary-rm font-weight-bold" style="font-size: 1rem;">
               {{ $company->phone }}
             </span>
           </p>
   
           <p class="mb-2" style="">
             <i class="fas fa-envelope text-primary mr-2"></i>
-            <span class="text-secondary font-weight-bold" style="font-size: 1rem;">
+            <span class="text-secondary-rm font-weight-bold" style="font-size: 1rem;">
               {{ $company->email }}
             </span>
           </p>

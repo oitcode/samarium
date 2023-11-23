@@ -38,7 +38,10 @@
 
   <div class="border bg-white p-0">
     @if ($displayMonthName)
-      <h3 class="h3 text-center py-4 bg-primary text-white mb-0">
+      <h3 class="h3 text-center py-4 mb-0"
+          style="background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;
+              color:@if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_text_color }} @else @endif ; 
+          ">
         <span class="mr-2">
           2080
         </span>
@@ -75,7 +78,7 @@
                       @endif
                       {{ $day['day']->format('F d') }}
                       @if (\Carbon\Carbon::today() == $day['day'])
-                        <span class="badge badge-success ml-3">
+                        <span class="badge badge-pill badge-success ml-3">
                           TODAY
                         </span>
                       @endif

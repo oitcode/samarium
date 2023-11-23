@@ -4,15 +4,17 @@
     <div class="container py-4">
       @if (\App\Gallery::all() != null && count(\App\Gallery::all()) > 0)
           @foreach (\App\Gallery::all() as $gallery)
-            <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
-              {{ $gallery->name }}
-            </h2>
-            <div class="row">
-            @foreach ($gallery->galleryImages as $galleryImage)
-              <div class="col-md-3 mb-3 p-3 border">
-                <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid">
+            <div class="my-3">
+              <h2 class="h4 font-weight-bold mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
+                {{ $gallery->name }}
+              </h2>
+              <div class="row">
+              @foreach ($gallery->galleryImages as $galleryImage)
+                <div class="col-md-3 mb-3 p-3 border-rm">
+                  <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid">
+                </div>
+              @endforeach
               </div>
-            @endforeach
             </div>
           @endforeach
         </div>

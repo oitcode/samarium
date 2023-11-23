@@ -86,9 +86,9 @@
               Published: 
             </span>
             {{ $webpage->created_at->toDateString() }}
-            @if (false)
+            @if (true)
             |
-            {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'nepali')  }}
+            {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'english')  }}
             @endif
           </div>
           <div class="pl-4 border-left">

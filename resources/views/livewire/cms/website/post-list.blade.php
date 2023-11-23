@@ -1,13 +1,15 @@
 <div>
   @foreach ($posts as $post)
-    <div class="d-flex my-4 border shadow">
-      <div class="bg-danger">
-      &nbsp; &nbsp;
+    <div class="d-flex my-4 border shadow-sm">
+      <div class=""
+          style="background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;"
+      >
+      &nbsp;
       </div>
-      <div class="flex-grow-1 d-flex justify-content-between p-3 bg-light text-dark">
+      <div class="flex-grow-1 d-flex justify-content-between p-3 bg-white text-dark">
         <div class="text-dark">
           <a href="{{ route('website-webpage-' . $post->permalink) }}" class="text-reset">
-            <h2>
+            <h2 class="h3 font-weight-bold">
               {{ $post->name }}
             </h2>
           </a>

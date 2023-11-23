@@ -12,7 +12,7 @@
           <div class="bg-warning-rm mr-3">
             <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
           </div>
-          @if (false)
+          @if (true)
           <div class="d-flex flex-column justify-content-center bg-info-rm pt-3">
             <h1 class="h4"
                 style="
