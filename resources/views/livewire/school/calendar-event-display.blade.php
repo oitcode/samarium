@@ -3,7 +3,7 @@
 
   <div class="bg-white p-3 border">
 
-    @if (true)
+    @if (false)
     {{-- Temp refresh --}}
     <div class="mb-3">
       <i class="fas fa-refresh" wire:click="$refresh"></i>
@@ -85,6 +85,7 @@
 
     <div class="col-md-6 p-0 border border-secondary-rm rounded">
 
+      @if (false)
       {{-- Change visibility --}}
       <div class="">
         <div class="d-flex justify-content-between p-3">
@@ -107,6 +108,7 @@
         </div>
       </div>
       <hr />
+      @endif
 
       {{-- Delete event --}}
       <div class="">
@@ -123,16 +125,24 @@
           </div>
 
           <div>
-            <button class="btn btn-outline-danger">
-              Delete
-            </button>
+            @if ($modes['deleteMode'])
+              <button class="btn btn-danger" wire:click="deleteEvent">
+                Confirm delete
+              </button>
+              <button class="btn btn-light" wire:click="exitMode('deleteMode')">
+                Cancel
+              </button>
+            @else
+              <button class="btn btn-outline-danger" wire:click="enterMode('deleteMode')">
+                Delete
+              </button>
+            @endif
           </div>
         </div>
       </div>
 
 
     </div>
-
 
 
   </div>

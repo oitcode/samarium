@@ -60,6 +60,7 @@ class CalendarComponent extends Component
     protected $listeners = [
         'calendarEventCreated',
         'exitCalendarEventCreate',
+        'calendarEventDeleted',
     ];
 
     public function render()
@@ -148,5 +149,10 @@ class CalendarComponent extends Component
     {
         $this->displayingCalendarEvent = $event;
         $this->enterMode('displayCalendarEventMode');
+    }
+
+    public function calendarEventDeleted()
+    {
+        $this->exitMode('displayCalendarEventMode');
     }
 }

@@ -16,6 +16,8 @@ class CalendarEventDisplay extends Component
         'editNameMode' => false,
         'editDateMode' => false,
         'editIsHolidayMode' => false,
+
+        'deleteMode' => false,
     ];
 
     protected $listeners = [
@@ -62,5 +64,19 @@ class CalendarEventDisplay extends Component
     public function calendarEventUpdateDateCompleted()
     {
         $this->exitMode('editDateMode');
+    }
+
+    public function deleteEvent()
+    {
+        $this->calendarEvent->delete();
+
+        session()->flash('message', 'Calendar event deleted.');
+
+        /*
+         * Is this a good approach? Instead of redirecting cant we just emit some event 
+         * and do something better?
+         *
+         */
+        return redirect()->to('/dashboard/school/calendar');
     }
 }
