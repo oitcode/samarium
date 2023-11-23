@@ -13,9 +13,9 @@
       <div>
         Event name
 
-        <span class="text-primary ml-3" wire:click="enterMode('editNameMode')">
+        <button class="btn text-primary ml-3" wire:click="enterMode('editNameMode')">
           Edit
-        </span>
+        </button>
 
       </div>
       <div>
@@ -32,9 +32,9 @@
       <div>
         Event date
 
-        <span class="text-primary ml-3">
+        <button class="btn text-primary ml-3" wire:click="enterMode('editIsHolidayMode')">
           Edit
-        </span>
+        </button>
 
       </div>
       <div>
@@ -47,13 +47,17 @@
       <div>
         Is holiday
 
-        <span class="text-primary ml-3">
+        <button class="btn text-primary ml-3" wire:click="enterMode('editIsHolidayMode')">
           Edit
-        </span>
+        </button>
 
       </div>
       <div>
-        {{ $calendarEvent->is_holiday }}
+        @if ($modes['editIsHolidayMode'])
+          @livewire ('calendar.dashboard.calendar-event-edit-is-holiday', ['calendarEvent' => $calendarEvent,])
+        @else
+          {{ $calendarEvent->is_holiday }}
+        @endif
       </div>
     </div>
 

@@ -21,6 +21,9 @@ class CalendarEventDisplay extends Component
     protected $listeners = [
         'calendarEventUpdateNameCancelled',
         'calendarEventUpdateNameCompleted',
+
+        'calendarEventUpdateIsHolidayCancelled',
+        'calendarEventUpdateIsHolidayCompleted',
     ];
 
     public function render()
@@ -36,5 +39,15 @@ class CalendarEventDisplay extends Component
     public function calendarEventUpdateNameCompleted()
     {
         $this->exitMode('editNameMode');
+    }
+
+    public function calendarEventUpdateIsHolidayCancelled()
+    {
+        $this->exitMode('editIsHolidayMode');
+    }
+
+    public function calendarEventUpdateIsHolidayCompleted()
+    {
+        $this->exitMode('editIsHolidayMode');
     }
 }
