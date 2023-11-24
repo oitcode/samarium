@@ -107,6 +107,14 @@ class CalendarComponent extends Component
         $this->today['day'] = $day->copy();
         $this->today['is_holiday'] = $this->checkIfDayIsHoliday($day->copy());
         $this->today['events'] = $this->getEventsForTheDay($day->copy());
+
+        $this->today['is_holiday'] = 'no';
+        foreach ($this->today['events'] as $event) {
+            if ($event->is_holiday == 'yes') {
+                $this->today['is_holiday'] = 'yes';
+                break;
+            }
+        }
     }
 
     public function populateMonthBook()

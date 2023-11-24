@@ -7,28 +7,51 @@
   @endif
 
   {{-- Today --}}
-  <div class="my-4 border p-3 bg-warning">
-    <div class="font-weight-bold">
-      Today: 
-      {{ $today['day']->format('Y F d') }}
-    </div>
-    <div class="font-weight-bold">
-    @if (count($today['events']) > 0)
-      @foreach ($today['events'] as $event)
-        <span class="badge badge-pill badge-primary">
-          {{ $event->title }}
+  <div class="my-4 border p-3-rm bg-white rounded">
+    <div class="row" style="margin: auto;">
+      <div class="col-md-3 p-3 bg-primary-rm text-white-rm">
+        <span class="h5 font-weight-bold mb-3">
+        TODAY
         </span>
+        @if ($today['is_holiday'] == 'yes')
+          <br/>
+          <span class="badge badge-pill badge-danger h5 font-weight-bold p-2">
+            HOLIDAY
+          </span>
+        @endif
+      </div>
+      <div class="col-md-3 bg-info-rm text-white-rm p-3">
+        <h2 class="h5 font-weight-bold mb-3">
+          {{ strtoupper($today['day']->format('l')) }}
+        </h2>
+        {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($today['day']->toDateString(), 'english')  }}
         <br />
-      @endforeach
-    @else
-      No events
-    @endif
+        <span class="">
+          {{ $today['day']->format('Y F d') }}
+        </span>
+      </div>
+      <div class="col-md-6 bg-success-rm text-white-rm p-3 flex-grow-1">
+        <h2 class="h5 font-weight-bold mb-3">
+          EVENTS
+        </h2>
+        @if (count($today['events']) > 0)
+          @foreach ($today['events'] as $event)
+            <i class="fas fa-calendar mr-1"></i>
+            <span class="">
+              {{ $event->title }}
+            </span>
+            <br />
+          @endforeach
+        @else
+          No events
+        @endif
+      </div>
     </div>
   </div>
 
   @if (false)
   @else
-  <div class="border-rm bg-white mb-4">
+  <div class="border-rm bg-white mb-4-rm">
     <div class="d-flex">
       <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
         <button class="btn btn-primary dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
