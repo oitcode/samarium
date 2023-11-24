@@ -11,6 +11,7 @@
                 User
               </span>
             </div>
+            @if (false)
             <div>
               <button class="btn mr-2" wire:click="$refresh">
                 <i class="fas fa-refresh"></i>
@@ -22,6 +23,7 @@
                 <i class="fas fa-pencil-alt"></i>
               </button>
             </div>
+            @endif
           </div>
         </div>
 
@@ -96,6 +98,7 @@
     </div>
   </div>
 
+  @if (false)
   <div class="row">
     <div class="col-md-8">
       <div class="bg-white p-3 border">
@@ -170,4 +173,5 @@
     <div class="col-md-4 px-3">
     </div>
   </div>
+  @endif
 </div>

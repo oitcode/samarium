@@ -409,7 +409,7 @@
 
   @if (preg_match("/crm/i", env('MODULES')))
 
-    @if ($modes['team'])
+    @if ($modes['crm'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('crm')",
           'btnIconFaClass' => 'fas fa-users',
