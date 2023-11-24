@@ -26,12 +26,15 @@
 {{-- Notifications/post displayer  --}}
 @if (\App\WebpageCategory::where('name', 'notice')->first())
   @if (count(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->get()) > 0)
-  <div class="container-fluid bg-dark-rm text-white p-0 d-none d-md-block" style="background-color: brown;">
+  <div class="container-fluid bg-dark-rm text-white p-0" style="background-color: brown;">
     <div class="container" style="font-size: 1.3rem; white-space: nowrap; overflow: hidden;">
       <div class="o-ltr py-3 ">
         <div class="d-inline mr-5">
           <a href="{{ route('website-webpage-' . \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->orderBy('webpage_id', 'desc')->first()->permalink) }}"
               class="text-reset" style="">
+            <span class="badge badge-pill badge-light">
+              Notice
+            </span>
             {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->orderBy('webpage_id', 'desc')->first()->name }}
           </a>
         </div>
