@@ -4,6 +4,20 @@
     Help
   </x-component-header>
 
+
+  {{-- Temporary message --}}
+  <div class="mb-3 p-2 bg-white border">
+    <h1 class="h5 pt-2 font-weight-bold">
+      <i class="fas fa-exclamation-circle mr-1 text-danger"></i>
+      Help documentation is coming soon
+    </h1>
+
+    <div class="text-muted">
+      We are creating help documentation for our users. We will soon update the help pages. Please check back in future.
+    </div>
+  </div>
+
+
   {{-- Block --}}
   <div class="">
 
