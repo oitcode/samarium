@@ -136,8 +136,6 @@
           <a href="/contact-us" class="text-reset-rm text-decoration-none">Contact us</a>
           <br/>
           <a href="/post" class="text-reset-rm text-decoration-none">Blog</a>
-          <br/>
-          <a href="/write-testimonial" class="text-reset-rm text-decoration-none">Feedback</a>
         </div>
       </div>
       @endif
