@@ -6,6 +6,26 @@
   </div>
   @endif
 
+  {{-- Today --}}
+  <div class="my-4 border p-3 bg-warning">
+    <div class="font-weight-bold">
+      Today: 
+      {{ $today['day']->format('Y F d') }}
+    </div>
+    <div class="font-weight-bold">
+    @if (count($today['events']) > 0)
+      @foreach ($today['events'] as $event)
+        <span class="badge badge-pill badge-primary">
+          {{ $event->title }}
+        </span>
+        <br />
+      @endforeach
+    @else
+      No events
+    @endif
+    </div>
+  </div>
+
   @if (false)
   @else
   <div class="border-rm bg-white mb-4">

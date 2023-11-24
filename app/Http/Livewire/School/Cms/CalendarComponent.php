@@ -50,6 +50,8 @@ class CalendarComponent extends Component
     public $startDay;
     public $endDay;
 
+    public $today;
+
     public $displayingCalendarEvent;
 
     public $modes = [
@@ -66,6 +68,8 @@ class CalendarComponent extends Component
         if ($this->displayMonthName) {
             $this->populateMonthBook();
         }
+
+        $this->populateToday();
 
         return view('livewire.school.cms.calendar-component');
     }
@@ -92,6 +96,17 @@ class CalendarComponent extends Component
     public function selectMonth($monthName)
     {
         $this->displayMonthName = $monthName;
+    }
+
+    public function populateToday()
+    {
+        $day = Carbon::today();
+
+        $this->today = array();
+
+        $this->today['day'] = $day->copy();
+        $this->today['is_holiday'] = $this->checkIfDayIsHoliday($day->copy());
+        $this->today['events'] = $this->getEventsForTheDay($day->copy());
     }
 
     public function populateMonthBook()
