@@ -156,16 +156,48 @@
               Page
             </a>
             <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-gallery') }}">
-              <i class="fas fa-images text-secondary mr-3"></i>
+              <i class="fas fa-images mr-3"></i>
               Gallery
             </a>
             <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-nav-menu') }}">
-              <i class="fas fa-list text-secondary mr-3"></i>
+              <i class="fas fa-list mr-3"></i>
               Nav menu
             </a>
             <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-theme') }}">
-              <i class="fas fa-palette text-secondary mr-3"></i>
+              <i class="fas fa-palette mr-3"></i>
               Theme
+            </a>
+
+          </div>
+        </li>
+      @endif
+
+      {{-- CRM options --}}
+      @if (preg_match("/crm/i", env('MODULES')))
+        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+          <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCrmDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-users text-secondry mr-3"></i>
+            <span class="font-weight-bold">
+            CRM
+            </span>
+          </a>
+          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCrmDropdown">
+
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-contact-form') }}">
+              <i class="fas fa-comment mr-3"></i>
+              Contact message
+            </a>
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-appointment') }}">
+              <i class="fas fa-paste mr-3"></i>
+              Appointment
+            </a>
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-newsletter-subscription') }}">
+              <i class="fas fa-envelope mr-3"></i>
+              Newsletter subscription
+            </a>
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-testimonial') }}">
+              <i class="fas fa-comment mr-3"></i>
+              Testimonial
             </a>
 
           </div>
