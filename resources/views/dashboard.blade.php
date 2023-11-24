@@ -25,52 +25,56 @@
       <div class="h-100 d-flex p-0">
         <div class="h-100 d-flex flex-column w-100">
           <div>
-            <div class="mb-4">
-              @livewire ('transactions-navigator')
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                @if (preg_match("/cms/i", env('MODULES'))) 
-                  {{-- CMS glance --}}
-                  <div class="mb-4">
-                    @livewire ('cms.dashboard.cms-glance')
-                  </div>
 
-                @endif
-
+            {{-- Transactions navigator --}}
+            @if (preg_match("/shop/i", env('MODULES')))
+              <div class="mb-4">
+                @livewire ('transactions-navigator')
               </div>
+            @endif
 
-              <div class="col-md-6">
-                @if (preg_match("/shop/i", env('MODULES')))
+            <div class="row">
 
-                  {{-- Shop glance --}}
+              {{-- CMS glance --}}
+              @if (preg_match("/cms/i", env('MODULES'))) 
+                <div class="col-md-6">
+                    {{-- CMS glance --}}
+                    <div class="mb-4">
+                      @livewire ('cms.dashboard.cms-glance')
+                    </div>
+                </div>
+              @endif
+
+              {{-- Shop glance --}}
+              @if (preg_match("/shop/i", env('MODULES')))
+                <div class="col-md-6">
                   <div class="mb-4">
                     @livewire ('shop.dashboard.shop-glance')
                   </div>
+                </div>
+              @endif
 
-                @endif
-              </div>
+              {{-- Product glance --}}
+              @if (preg_match("/shop/i", env('MODULES')))
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    @livewire ('shop.dashboard.product-glance')
+                  </div>
+                </div>
+              @endif
+
+              {{-- Online order glance --}}
+              @if (preg_match("/shop/i", env('MODULES')))
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    @livewire ('online-order.dashboard.online-order-glance')
+                  </div>
+                </div>
+              @endif
+
             </div>
 
-            <div class="row">
-              <div class="col-md-6">
-
-                {{-- Product glance --}}
-                <div class="mb-4">
-                  @livewire ('shop.dashboard.product-glance')
-                </div>
-
-              </div>
-              <div class="col-md-6">
-
-                {{-- Online order glance --}}
-                <div class="mb-4">
-                  @livewire ('online-order.dashboard.online-order-glance')
-                </div>
-
-              </div>
-            </div>
-
+            {{-- Todo glance --}}
             <div class="row">
               <div class="col-md-6">
                 <div class="d-none d-md-block">
