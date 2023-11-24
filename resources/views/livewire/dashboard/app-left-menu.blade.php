@@ -252,14 +252,14 @@
     @if ($modes['school'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('school')",
-          'btnIconFaClass' => 'fas fa-building',
+          'btnIconFaClass' => 'fas fa-calendar',
           'btnText' => 'Calendar',
           'btnCheckMode' => 'school',
       ])
     @else
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "enterModeSilent('school')",
-          'btnIconFaClass' => 'fas fa-building',
+          'btnIconFaClass' => 'fas fa-calendar',
           'btnText' => 'Calendar',
           'btnCheckMode' => 'school',
       ])

@@ -204,6 +204,26 @@
         </li>
       @endif
 
+      {{-- Calendar options --}}
+      @if (preg_match("/school/i", env('MODULES')))
+        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+          <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCalendarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-calendar text-secondry mr-3"></i>
+            <span class="font-weight-bold">
+            Calendar
+            </span>
+          </a>
+          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCalendarDropdown">
+
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-school-calendar') }}">
+              <i class="fas fa-calendar mr-3"></i>
+              Calendar
+            </a>
+
+          </div>
+        </li>
+      @endif
+
       {{-- Common things --}}
       <li class="nav-item border bg-light text-dark p-3">
         <a class="nav-link text-dark" href="{{ route('company') }}">
