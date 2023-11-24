@@ -50,6 +50,10 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
                   class="img-fluid-rm"
                   alt="{{ \App\Company::first()->name }} logo"
                   style="height: 75px !important;">
+
+              <div class="h5 font-weight-bold my-3">
+                {{ \App\Company::first()->name }}
+              </div>
             @else
               <i class="fas fa-check-circle mr-1"></i>
             @endif
@@ -199,11 +203,14 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
         <div class="my-5 text-muted">
           <div class="d-flex flex-column justify-content-center">
             <div class="d-flex justify-content-center">
-              <div class="w-50 text-center">
-                &copy; 2023 OIT
+              <div class="w-50-rm text-center">
+                &copy; 2023 
+                @if (\App\Company::first())
+                  {{ \App\Company::first()->name }}
+                @endif
                 <br />
-                @if (false)
-                By logging into the application you accept our terms and conditions.
+                @if (true)
+                Powered by OIT Ozone
                 @endif
               </div>
             </div>
