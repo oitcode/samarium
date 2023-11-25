@@ -15,16 +15,18 @@
           </a>
           <div class="d-flex flex-column">
             <div class="mr-5">
-              <i class="far fa-clock mr-2"></i>
+              <i class="far fa-calendar mr-1"></i>
+              Posted on:
               {{ $post->created_at->toDateString() }}
               @if (true)
-              |
+              (
               {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($post->created_at->toDateString(), 'english')  }}
+              )
               @endif
             </div>
-            <div>
+            <div class="mt-1">
               @foreach ($post->webpageCategories as $category)
-                <span class="badge badge-danger mr-3">
+                <span class="badge badge-danger badge-pill mr-3 p-1 px-2">
                   {{ $category->name }}
                 </span>
               @endforeach

@@ -26,6 +26,7 @@
                 Todo
               </span>
             </div>
+            @if (false)
             <div>
               <button class="btn mr-2" wire:click="$refresh">
                 <i class="fas fa-refresh"></i>
@@ -34,6 +35,7 @@
                 <i class="fas fa-trash"></i>
               </button>
             </div>
+            @endif
           </div>
         </div>
 
