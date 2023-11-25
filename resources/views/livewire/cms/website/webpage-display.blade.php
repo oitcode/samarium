@@ -197,6 +197,19 @@
       </div>
     @endif
   @endif
+  
+  {{-- Previous, next posts section --}} 
+  @if ($webpage->is_post == 'yes')
+    <div class="container-fluid bg-light border-top pt-4">
+      <div class="container p-3">
+        <h2 class="h4 font-weight-bold">
+          Related posts
+        </h2>
+
+        @livewire ('cms.website.related-posts', ['webpage' => $webpage, 'relation' => 'previous',])
+      </div>
+    </div>
+  @endif
 @endif
 
 </div>
