@@ -26,10 +26,19 @@
         <div class="h-100 d-flex flex-column w-100">
           <div>
 
+            @if (false)
             {{-- Transactions navigator --}}
             @if (preg_match("/shop/i", env('MODULES')))
               <div class="mb-4">
                 @livewire ('transactions-navigator')
+              </div>
+            @endif
+            @endif
+
+            {{-- Calendar glance/navigator --}}
+            @if (preg_match("/calendar/i", env('MODULES')))
+              <div class="mb-4">
+                @livewire ('calendar.dashboard.calendar-glance-component')
               </div>
             @endif
 

@@ -121,6 +121,11 @@
                   <span class="text-secondary" style="{{--font-size: 0.5rem;--}}">
                     {{ $day['day']->format('Y F d') }}
                   </span>
+                  @if (\Carbon\Carbon::today() == $day['day'])
+                    <span class="badge badge-pill badge-success ml-3">
+                      TODAY
+                    </span>
+                  @endif
                 </td>
                 <td class="font-weight-bold">
                   {{ $day['day']->format('l') }}
