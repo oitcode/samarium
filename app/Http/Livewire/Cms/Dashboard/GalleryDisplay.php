@@ -17,6 +17,8 @@ class GalleryDisplay extends Component
     public $modes = [
         'updateGalleryNameMode' => false,
         'addGalleryImagesMode' => false,
+
+        'updateShowInGalleryPageMode' => false,
     ];
 
     protected $listeners = [
@@ -110,5 +112,17 @@ class GalleryDisplay extends Component
     public function addGalleryImagesCancelled()
     {
         $this->exitMode('addGalleryImagesMode');
+    }
+
+    public function toggleGalleryPageVisibility()
+    {
+        if ($this->gallery->show_in_gallery_page == 'yes') {
+            $this->gallery->show_in_gallery_page = 'no';
+        } else {
+            $this->gallery->show_in_gallery_page = 'yes';
+        }
+
+        $this->gallery->save();
+        $this->render();
     }
 }

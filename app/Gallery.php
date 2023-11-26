@@ -22,6 +22,7 @@ class Gallery extends Model
 
     protected $fillable = [
         'name', 'description', 'comment',
+        'show_in_gallery_page',
     ];
 
 

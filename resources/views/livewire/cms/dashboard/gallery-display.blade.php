@@ -1,5 +1,6 @@
 <div class="p-2 bg-white-rm">
 
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -84,4 +85,34 @@
       </div>
     @endif
   </div>
+
+
+  {{-- Settings --}}
+  <div class="bg-white my-3 p-3">
+    <h4 class="h5 mb-4">Settings</h4>
+
+    {{-- Show in gallery page setitng --}}
+    <div>
+      <div class="font-weight-bold mb-3">
+        Show in gallery page
+      </div>
+        <div>
+          @if ($gallery->show_in_gallery_page == 'yes')
+            <i class="fas fa-check-circle text-success"></i>
+            Yes
+          @else
+            <i class="fas fa-times-circle text-danger"></i>
+            No
+          @endif
+          <div>
+            <button class="btn text-primary pl-0" wire:click="toggleGalleryPageVisibility">
+              Toggle visibility
+            </button>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+
 </div>
