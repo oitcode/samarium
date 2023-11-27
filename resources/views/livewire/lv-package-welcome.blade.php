@@ -7,6 +7,7 @@
       </h2>
       @endif
 
+      @if (false)
       <div class="mb-3">
         <h3 class="h5 font-weight-bold">
           Easy. Secure.
@@ -15,6 +16,7 @@
           Improving.
         </h3>
       </div>
+      @endif
 
       <div class="mb-3">
         Software developed for your organizations daily needs. Continuously improving.
