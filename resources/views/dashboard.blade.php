@@ -81,6 +81,15 @@
                 </div>
               @endif
 
+              {{-- Notice glance --}}
+              @if (preg_match("/shop/i", env('MODULES')))
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    @livewire ('cms.dashboard.notice-glance-component')
+                  </div>
+                </div>
+              @endif
+
             </div>
 
             {{-- Todo glance --}}
