@@ -120,6 +120,8 @@
                       <select class="custom-control w-75" wire:model.defer="todo_status">
                         <option value="pending">Pending</option>
                         <option value="progress">Progress</option>
+                        <option value="deferred">Deferred</option>
+                        <option value="cancelled">Cancelled</option>
                         <option value="done">Done</option>
                       </select>
                       <div class="my-3">
@@ -139,6 +141,14 @@
                         @elseif ($todo->status == 'progress')
                           <span class="badge badge-warning badge-pill">
                             Progress
+                          </span>
+                        @elseif ($todo->status == 'deferred')
+                          <span class="badge badge-light badge-pill">
+                            Deferred
+                          </span>
+                        @elseif ($todo->status == 'cancelled')
+                          <span class="badge badge-light badge-pill">
+                            Cancelled
                           </span>
                         @elseif ($todo->status == 'done')
                           <span class="badge badge-success badge-pill">
