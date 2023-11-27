@@ -82,10 +82,19 @@
               @endif
 
               {{-- Notice glance --}}
-              @if (preg_match("/shop/i", env('MODULES')))
+              @if (preg_match("/crm/i", env('MODULES')))
                 <div class="col-md-6">
                   <div class="mb-4">
                     @livewire ('cms.dashboard.notice-glance-component')
+                  </div>
+                </div>
+              @endif
+
+              {{-- Contact form glance --}}
+              @if (preg_match("/crm/i", env('MODULES')))
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    @livewire ('contact-form.dashboard.contact-message-glance-component')
                   </div>
                 </div>
               @endif

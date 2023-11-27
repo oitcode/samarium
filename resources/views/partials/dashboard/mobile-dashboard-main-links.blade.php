@@ -96,4 +96,28 @@
     @endcan
   @endif
 
+  @if (preg_match("/cms/i", env('MODULES')))
+    @can ('is-admin')
+    <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
+      <a href="{{ route('dashboard-cms-post') }}" class="btn btn-success p-3 w-100">
+        <i class="fas fa-edit mr-3"></i>
+        <br/>
+        Post
+      </a>
+    </div>
+    @endcan
+  @endif
+
+  @if (preg_match("/school/i", env('MODULES')))
+    @can ('is-admin')
+    <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
+      <a href="{{ route('dashboard-school-calendar') }}" class="btn btn-primary p-3 w-100">
+        <i class="fas fa-calendar mr-3"></i>
+        <br/>
+        Calendar
+      </a>
+    </div>
+    @endcan
+  @endif
+
 </div>

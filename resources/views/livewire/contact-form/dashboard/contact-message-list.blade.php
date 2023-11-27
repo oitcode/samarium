@@ -100,9 +100,11 @@
             <th class="d-none d-md-table-cell">
               Status
             </th>
+            @if (false)
             <th>
               Action
             </th>
+            @endif
           </tr>
         </thead>
 
@@ -142,6 +144,7 @@
                 @endif
                 @endif
               </td>
+              @if (false)
               <td>
                 @if (false)
                 <div class="dropdown">
@@ -178,6 +181,7 @@
                 </div>
 
               </td>
+              @endif
             </tr>
           @endforeach
         </tbody>
