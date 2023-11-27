@@ -1,6 +1,6 @@
 {{-- Show on smaller screens --}}
 {{-- Show on all screens --update -- --}}
-<div class="row p-3-rm justify-content-between-rm bg-light-rm mb-4" style="margin: auto;">
+<div class="row p-3-rm justify-content-between-rm bg-light-rm mb-3" style="margin: auto;">
 
   @if (preg_match("/shop/i", env('MODULES')))
   <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">

@@ -116,6 +116,14 @@
     </div>
 
     <div class="col-md-3">
+      <div class="mb-3 d-none d-md-block">
+        @livewire ('lv-package-welcome')
+      </div>
+
+      <div class="mb-3 d-none d-md-block">
+        @livewire ('lv-company-info')
+      </div>
+
       <div>
         {{-- Show quick links menu. --}}
         @include ('partials.dashboard.mobile-dashboard-main-links')
