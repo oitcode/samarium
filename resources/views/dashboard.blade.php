@@ -26,7 +26,7 @@
         <div class="h-100 d-flex flex-column w-100">
           <div>
 
-            @if (false)
+            @if (true)
             {{-- Transactions navigator --}}
             @if (preg_match("/shop/i", env('MODULES')))
               <div class="mb-4">

@@ -13,7 +13,7 @@
             <i class="far fa-arrow-alt-circle-left fa-2x text-secondary"></i>
           </button>
 
-          <button class="btn btn-dark mr-3 px-2 font-weight-bold rounded-lg" style="min-width: 300px;">
+          <button class="btn {{ env('OC_ASCENT_BTN_COLOR', 'btn-dark') }} mr-3 px-2 font-weight-bold rounded-lg" style="min-width: 300px;">
             @if (\Carbon\Carbon::today() == \Carbon\Carbon::create($calendarDate))
               <span class="">
                 TODAY
