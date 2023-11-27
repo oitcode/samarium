@@ -42,7 +42,9 @@
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
+              @if (false)
               <th>Action</th>
+              @endif
             </tr>
           </thead>
   
@@ -73,6 +75,7 @@
                 @endif
               </td>
 
+              @if (false)
               <td>
                 <span class="btn btn-tool text-danger btn-sm" wire:click="deleteUser({{ $user }})">
                   <i class="fas fa-trash mr-1"></i>
@@ -89,6 +92,7 @@
                   @endif
                 @endif
               </td>
+              @endif
             </tr>
             @endforeach
           </tbody>
