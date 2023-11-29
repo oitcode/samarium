@@ -22,7 +22,7 @@
           {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
 
           <input type="date" wire:model.defer="daybookDate" class="ml-5">
-          <button class="btn {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}" wire:click="render">
+          <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="render">
             Go
           </button>
         </div>
@@ -75,7 +75,7 @@
       </button>
 
       <input type="date" wire:model.defer="daybookDate" class="ml-3">
-      <button class="btn {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }} mx-3" wire:click="render">
+      <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mx-3" wire:click="render">
         Go
       </button>
 
@@ -165,12 +165,28 @@
       @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
     @endif
   @else
+    <h2 class="h5 font-weight-bold">Sale</h2>
+    <hr />
+
+    <div class="my-3 px-2 py-3 bg-white border">
+      <div class="d-flex">
+        <div class="mr-3 font-weight-bold">
+          Total:
+          Rs
+          @php echo number_format( $totalSaleAmount ); @endphp
+        </div>
+        <div class="font-weight-bold">
+          Bills: {{ $todaySaleInvoiceCount }}
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-12">
         @if ( true {{--$saleInvoices != null && count($saleInvoices) > 0--}})
 
           {{-- Show in bigger screens --}}
-          <div class="table-responsive d-none d-md-block mb-5">
+          <div class="table-responsive d-none d-md-block mb-3">
             <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
               <thead>
                 <tr class="bg-white" style="font-size: 1rem;">
@@ -218,7 +234,7 @@
                           <i class="fas fa-user-circle text-muted mr-2"></i>
                           {{ $saleInvoice->customer->name }}
                         @else
-                          <i class="fas fa-exclamation-circle text-warning mr-3"></i>
+                          <i class="fas fa-exclamation-circle text-warning mr-1"></i>
                           <span class="text-secondary" style="font-size: 1rem;">
                             Unknown
                           </span>
@@ -265,7 +281,7 @@
           </div>
 
           {{-- Show in smaller screens --}}
-          <div class="table-responsive d-md-none bg-white border">
+          <div class="table-responsive d-md-none bg-white border mb-3">
             <table class="table">
               <tbody>
                 @foreach ($saleInvoices as $saleInvoice)
@@ -345,7 +361,7 @@
         @endif
         
         {{-- Payment by types --}}
-        <div class="mt-4 border">
+        <div class="border mb-3">
           <h2 class="h5 font-weight-bold bg-white p-3 mb-0 border">
             Payment by types
           </h2>
@@ -380,8 +396,8 @@
       </div>
 
       {{-- Daybook item count div --}}
-      <div class="col-md-6 mt-5">
-        <h2 class="h5 font-weight-bold text-muted-rm mb-3">
+      <div class="col-md-12 border">
+        <h2 class="h5 font-weight-bold p-3 mb-0 bg-white border">
           Product sale count
         </h2>
         @if (count($todayItems) > 0)
@@ -429,12 +445,14 @@
   {{-- Purchase --}}
   <div class="my-5">
     <h2 class="h5 font-weight-bold">Purchase</h2>
+    <hr />
     @include ('partials.dashboard.daybook-purchase')
   </div>
 
   {{-- Expense --}}
   <div class="my-5">
     <h2 class="h5 font-weight-bold">Expense</h2>
+    <hr />
     @include ('partials.dashboard.daybook-expense')
   </div>
 

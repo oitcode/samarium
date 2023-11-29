@@ -1,10 +1,14 @@
-<div>
-  <h2 class="font-weight-bold pt-1" style="font-size: 1.5rem;">
-    <span class="mr-2">
+<div class="my-3 px-2 py-3 bg-white border">
+  <div class="d-flex">
+    <div class="mr-3 font-weight-bold">
+      Total:
       Rs
-    </span>
-    @php echo number_format( $totalExpenseAmount ); @endphp
-  </h2>
+      @php echo number_format( $totalExpenseAmount ); @endphp
+    </div>
+    <div class="font-weight-bold">
+      Bills: {{ $todayExpenseCount }}
+    </div>
+  </div>
 </div>
 
 <div class="row">
@@ -14,7 +18,7 @@
     @if (true)
 
       {{-- Show in bigger screens --}}
-      <div class="table-responsive d-none d-md-block mb-5">
+      <div class="table-responsive d-none d-md-block mb-3">
         <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
           <thead>
             <tr class="bg-white" style="font-size: 1rem;">
@@ -47,7 +51,7 @@
                       <i class="fas fa-user-circle text-muted mr-2"></i>
                       {{ $expense->vendor->name }}
                     @else
-                      <i class="fas fa-exclamation-circle text-warning mr-3"></i>
+                      <i class="fas fa-exclamation-circle text-warning mr-1"></i>
                       <span class="text-secondary" style="font-size: 1rem;">
                         Unknown
                       </span>
@@ -66,7 +70,7 @@
       </div>
 
       {{-- Show in smaller screens --}}
-      <div class="table-responsive d-md-none bg-white border">
+      <div class="table-responsive d-md-none bg-white border mb-3">
         <table class="table">
           <tbody>
             @foreach ($expenses as $expense)
@@ -119,7 +123,7 @@
     @endif
     
     {{-- Payment by types --}}
-    <div class="mt-4 border">
+    <div class="border">
       <h2 class="h5 font-weight-bold bg-white p-3 mb-0 border">
         Payment by types
       </h2>
