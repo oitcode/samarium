@@ -49,4 +49,16 @@ class ProductCategoryDisplay extends Component
     {
         $this->exitMode('updateProductCategoryImageMode');
     }
+
+    public function toggleProductCategorySellability()
+    {
+        if ($this->productCategory->does_sell == 'yes') {
+            $this->productCategory->does_sell = 'no';
+        } else {
+            $this->productCategory->does_sell = 'yes';
+        }
+
+        $this->productCategory->save();
+        $this->render();
+    }
 }
