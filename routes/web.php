@@ -241,6 +241,18 @@ Route::get('/dashboard/school/calendar', 'SchoolCalendarController@index')->name
 
 /*
  *-----------------------------------------------------------------------------
+ * Calendar
+ *-----------------------------------------------------------------------------
+ *
+ *
+ *
+ */
+
+Route::get('/dashboard/calendar/calendar-group', 'CalendarGroupController@index')->name('dashboard-calendar-group');
+
+
+/*
+ *-----------------------------------------------------------------------------
  * Print
  *-----------------------------------------------------------------------------
  *

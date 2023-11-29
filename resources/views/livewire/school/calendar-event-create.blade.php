@@ -113,15 +113,28 @@
   </div>
 
 
-
-  <div class="form-group">
+  {{-- Is holiday --}}
+  <div class="form-group mb-4">
     <label class="h5 font-weight-bold">Is holiday *</label>
     <select class="form-control" wire:model.defer="is_holiday">
       <option>---</option>
       <option value="no">No</option>
       <option value="yes">Yes</option>
     </select>
-    @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
+    @error ('is_holiday') <span class="text-danger">{{ $message }}</span> @enderror
+  </div>
+
+
+  {{-- Calendar group --}}
+  <div class="form-group mb-4">
+    <label class="h5 font-weight-bold">Calendar group *</label>
+    <select class="form-control" wire:model.defer="calendar_group">
+      <option>---</option>
+      <option value="Kindergarten">Kindergarten</option>
+      <option value="school">School</option>
+      <option value="plustwo">Plus 2</option>
+    </select>
+    @error ('calendar_group') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
 

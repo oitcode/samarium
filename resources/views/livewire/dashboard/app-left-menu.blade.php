@@ -282,6 +282,12 @@
           'btnText' => 'Calendar',
         ])
 
+        @include ('partials.dashboard.app-left-menu-button', [
+          'btnRoute' => 'dashboard-calendar-group',
+          'iconFaClass' => 'fas fa-users',
+          'btnText' => 'Calendar group',
+        ])
+
         @if (false)
         @include ('partials.dashboard.app-left-menu-button', [
           'btnRoute' => 'dashboard-school-calendar',
