@@ -1,10 +1,20 @@
 <div class="container py-3">
-  @if (false)
-  <div class="border p-3 mb-4">
-    <button class="btn btn-light badge-pill border mr-4" wire:click="enterMode('eventCreate')">Add event</button>
-    <button class="btn btn-light badge-pill border mr-4" wire:click="">Select month</button>
+
+
+  {{-- Calendar group choose option --}}
+  <div class="mb-3">
+    <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="calendarGroupDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ $selectedCalendarGroup->name }}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="calendarGroupDropdownMenu">
+        @foreach ($calendarGroups as $calendarGroup)
+          <button class="dropdown-item" type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
+        @endforeach
+      </div>
+    </div>
   </div>
-  @endif
+
 
   {{-- Today --}}
   <div class="my-4 border p-3-rm bg-white rounded">

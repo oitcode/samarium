@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Traits\ModesTrait;
 
 use App\SchoolCalendarEvent;
+use App\CalendarGroup;
 
 
 class CalendarComponent extends Component
@@ -54,13 +55,20 @@ class CalendarComponent extends Component
 
     public $displayingCalendarEvent;
 
+    public $calendarGroups;
+    public $selectedCalendarGroup;
+
     public $modes = [
         'eventCreate' => false,
     ];
 
     public function mount()
     {
+        $this->calendarGroups = CalendarGroup::all();
+
         $this->displayMonthName = $this->getTodaysNepaliMonth();
+
+        $this->selectedCalendarGroup = CalendarGroup::first();
     }
 
     public function render()
@@ -165,5 +173,10 @@ class CalendarComponent extends Component
             ->get();
 
         return $events;
+    }
+
+    public function selectCalendarGroup(CalendarGroup $calendarGroup)
+    {
+        dd ($calendarGroup);
     }
 }
