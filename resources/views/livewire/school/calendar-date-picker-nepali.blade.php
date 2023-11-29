@@ -1,17 +1,53 @@
-<div class="my-3-rm">
+<div>
+
+
   <div class="col-md-9-rm">
+
   <div class="d-flex flex-column">
-    <div class="d-flex justify-content-start mb-2">
+    <div class="d-flex justify-content-start mb-2-rm">
+
       <button class="btn btn-light badge-pill mr-4" wire:click="selectPreviousMonth">
         Previous
       </button>
+
+      @if (false)
       <div class="p-2 mr-4 font-weight-bold">
         {{ $displayMonthName }}
       </div>
+      @endif
+
+      <div class="dropdown py-3-rm">
+        <button class="btn dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Select Month
+        </button>
+        <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Baisakh')">Baisakh</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Jestha')">Jestha</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Asadh')">Asadh</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Shrawan')">Shrawan</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Bhadra')">Bhadra</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Ashwin')">Ashwin</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Kartik')">Kartik</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Mangsir')">Mangsir</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Poush')">Poush</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Magh')">Magh</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Falgun')">Falgun</button>
+          <button class="dropdown-item" type="button" wire:click="selectMonth('Chaitra')">Chaitra</button>
+        </div>
+      </div>
+
       <button class="btn btn-light badge-pill" wire:click="selectNextMonth">
         Next
       </button>
+
     </div>
+
+    <div class="d-flex justify-content-center">
+      <strong>
+        {{ $displayMonthName }}
+      </strong>
+    </div>
+
     <div class="d-flex justify-content-start bg-warning-rm p-0">
 
       <div class="p-0 border m-0">
@@ -157,4 +193,6 @@
     </div>
   </div>
   </div>
+
+
 </div>

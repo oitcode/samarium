@@ -8,36 +8,63 @@
   </div>
 
 
-  <div class="form-group">
-    <label>Title *</label>
+  {{-- Title --}}
+  <div class="form-group mb-4">
+    <label class="h5 font-weight-bold">Title *</label>
     <input type="text"
-        class="form-control"
+        class="form-control bg-light rounded-lg"
         wire:model.defer="title"
         style="font-size: 1.3rem;">
     @error ('title') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
+  {{-- Single/Multi day setting --}}
+  <div class="form-group mb-4">
+    <label class="h5 font-weight-bold">Single or Multiple day *</label>
+    @if (false)
+    <select class="form-control" wire:model.defer="single_multiple">
+      <option class="single">Single day</option>
+      <option class="multiple">Multiple days</option>
+    </select>
+    @error ('single_multiple') <span class="text-danger">{{ $message }}</span> @enderror
+    @endif
+
+    <div>
+      @if ($modes['multiDay'])
+        <div class="">
+          Multiple days
+        </div>
+        <div>
+          <button class="btn text-primary pl-0" wire:click="exitMode('multiDay')">
+            Make Single day
+          </button>
+        </div>
+      @else
+        <div class="">
+          Single day
+        </div>
+        <div>
+          <button class="btn text-primary pl-0" wire:click="enterMode('multiDay')">
+            Make Multiple day
+          </button>
+        </div>
+      @endif
+    </div>
+  </div>
+
 
   {{-- Date part --}}
   @if (true || ! $eventCreationDay)
-  <div class="my-2 mt-5">
-      @if ($modes['multiDay'])
-        <button class="btn btn-sm btn-light pl-0" wire:click="exitMode('multiDay')">
-          Single day
-        </button>
-      @else
-        <button class="btn btn-sm btn-light pl-0" wire:click="enterMode('multiDay')">
-          Date range
-        </button>
-      @endif
+  <div>
+    <label class="h5 font-weight-bold">Date *</label>
   </div>
   @endif
 
   <div class="d-flex mb-4">
     <div class="mr-5">
       @if ($modes['multiDay'])
-        <div class="d-flex">
-          <span class="mr-2">Start Date:</span>
+        <div class="d-flex mb-2">
+          <span class="mr-2 font-weight-bold">Start Date:</span>
           @if ($start_date)
             {{ $selectedStartDay }}
           @else
@@ -48,10 +75,7 @@
           @endif
         </div>
       @else
-        <div class="d-flex flex-column">
-          <div>
-            Date *
-          </div>
+        <div class="d-flex flex-column mb-2">
           @if ($start_date)
             <div>
               {{ $selectedStartDay }}
@@ -72,8 +96,8 @@
 
     @if ($modes['multiDay'])
       <div>
-        <div class="d-flex">
-          <span class="mr-2">End Date: </span>
+        <div class="d-flex mb-2">
+          <span class="mr-2 font-weight-bold">End Date: </span>
             @if ($end_date)
               {{ $selectedEndDay }}
             @else
@@ -91,7 +115,7 @@
 
 
   <div class="form-group">
-    <label>Is holiday *</label>
+    <label class="h5 font-weight-bold">Is holiday *</label>
     <select class="form-control" wire:model.defer="is_holiday">
       <option>---</option>
       <option value="no">No</option>

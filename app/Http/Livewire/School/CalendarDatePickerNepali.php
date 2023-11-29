@@ -233,4 +233,9 @@ class CalendarDatePickerNepali extends Component
         //$day = json_decode($d);
         $this->emit('dateSelected', $d, $this->displayMonthName, $this->emitDate);
     }
+
+    public function selectMonth($monthName)
+    {
+        $this->displayMonthName = $monthName;
+    }
 }
