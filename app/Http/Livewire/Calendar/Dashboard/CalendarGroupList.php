@@ -12,6 +12,8 @@ class CalendarGroupList extends Component
 
     public function render()
     {
+        $this->calendarGroups = CalendarGroup::all();
+
         return view('livewire.calendar.dashboard.calendar-group-list');
     }
 }

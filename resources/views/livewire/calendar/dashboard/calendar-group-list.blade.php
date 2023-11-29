@@ -11,7 +11,7 @@
             <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
                 {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
                 p-4" style="font-size: 1rem;">
-              <th>Calendar group ID</th>
+              <th class="w-25">Calendar group ID</th>
               <th>Name</th>
             </tr>
           </thead>
