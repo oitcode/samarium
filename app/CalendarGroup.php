@@ -23,4 +23,24 @@ class CalendarGroup extends Model
     protected $fillable = [
          'name',
     ];
+
+
+    /*-------------------------------------------------------------------------
+     * Relationships
+     *-------------------------------------------------------------------------
+     *
+     */
+
+    /*
+     * school_calendar_event table.
+     *
+     */
+    public function schoolCalendarEvents()
+    {
+        return $this->belongsToMany(
+            'App\SchoolCalendarEvent',
+            'school_calendar_event__calendar_group',
+            'calendar_group_id', 'school_calendar_event_id'
+        );
+    }
 }

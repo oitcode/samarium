@@ -8,6 +8,8 @@ use Carbon\Carbon;
 use App\Traits\ModesTrait;
 
 use App\SchoolCalendarEvent;
+use App\CalendarGroup;
+use App\SchoolCalendarEventCalendarGroup;
 
 class CalendarEventCreate extends Component
 {
@@ -48,14 +50,18 @@ class CalendarEventCreate extends Component
     public $is_holiday;
     public $start_date;
     public $end_date;
+    public $calendar_group_id;
 
     public $selectedStartDay;
     public $selectedEndDay;
 
     public $eventCreationDay = null;
 
+    public $calendarGroups;
+
     public $modes = [
         'multiDay' => false,
+        'allCalendarGroups' => true,
     ];
 
     protected $listeners = [
@@ -71,6 +77,8 @@ class CalendarEventCreate extends Component
             $this->selectedStartDay = $this->convertEnglishToNepaliDate($this->start_date);
             $this->selectedEndDay = $this->selectedStartDay;
         }
+
+        $this->calendarGroups = CalendarGroup::all();
     }
 
     public function render()
@@ -86,9 +94,27 @@ class CalendarEventCreate extends Component
             'is_holiday' => 'required',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
+            'calendar_group_id' => 'nullable',
         ]);
 
-        SchoolCalendarEvent::create($validatedData);
+        $calendarEvent = SchoolCalendarEvent::create($validatedData);
+
+
+        if (! $this->modes['allCalendarGroups']) {
+
+            /*
+             * Record for which calendar group this event is for.
+             *
+             */
+
+            $schoolCalendarEventCalendarGroup = new SchoolCalendarEventCalendarGroup;
+
+            $schoolCalendarEventCalendarGroup->school_calendar_event_id = $calendarEvent->school_calendar_event_id;
+            $schoolCalendarEventCalendarGroup->calendar_group_id = $validatedData['calendar_group_id'];
+
+            $schoolCalendarEventCalendarGroup->save();
+        }
+
 
         $this->emit('calendarEventCreated');
     }

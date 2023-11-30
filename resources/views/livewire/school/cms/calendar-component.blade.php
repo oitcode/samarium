@@ -156,10 +156,14 @@
                     <br />
                   @endif
                   @foreach ($day['events'] as $event)
-                    <span class="badge badge-pill badge-primary">
+
+                    <span class="badge badge-pill badge-primary h5 p-2 px-3" style="font-size: 0.9rem;">
+                      @foreach ($event->calendarGroups as $calendarGroup)
+                        {{ $calendarGroup->name }}
+                        :&nbsp;&nbsp;
+                      @endforeach
                       {{ $event->title }}
                     </span>
-                    <br />
                   @endforeach
                 </td>
               </tr>

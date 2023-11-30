@@ -24,4 +24,25 @@ class SchoolCalendarEvent extends Model
          'title', 'description', 'is_holiday',
          'start_date', 'end_date',
     ];
+
+
+    /*-------------------------------------------------------------------------
+     * Relationships
+     *-------------------------------------------------------------------------
+     *
+     */
+
+
+    /*
+     * calendar_group table.
+     *
+     */
+    public function calendarGroups()
+    {
+        return $this->belongsToMany(
+            'App\CalendarGroup',
+            'school_calendar_event__calendar_group',
+            'school_calendar_event_id', 'calendar_group_id'
+        );
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\School\Cms;
 
 use Livewire\Component;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 use App\Traits\ModesTrait;
 
@@ -159,7 +160,21 @@ class CalendarComponent extends Component
             ->where('is_holiday', 'yes')
             ->get();
 
-        if (count($events)) {
+        $calendarGroupEvent = collect([]);
+
+        foreach ($events as $event) {
+            if ($event->calendarGroups && count($event->calendarGroups) > 0) {
+                foreach ($event->calendarGroups as $calendarGroup) {
+                    if ($calendarGroup->calendar_group_id == $this->selectedCalendarGroup->calendar_group_id) {
+                        $calendarGroupEvent->push($event);
+                    }
+                }
+            } else {
+                $calendarGroupEvent->push($event);
+            }
+        }
+
+        if (count($calendarGroupEvent)) {
             return true;
         } else {
             return false;
@@ -172,11 +187,25 @@ class CalendarComponent extends Component
             ->whereDate('end_date', '>=', $day->toDateString())
             ->get();
 
-        return $events;
+        $calendarGroupEvent = collect([]);
+
+        foreach ($events as $event) {
+            if ($event->calendarGroups && count($event->calendarGroups) > 0) {
+                foreach ($event->calendarGroups as $calendarGroup) {
+                    if ($calendarGroup->calendar_group_id == $this->selectedCalendarGroup->calendar_group_id) {
+                        $calendarGroupEvent->push($event);
+                    }
+                }
+            } else {
+                $calendarGroupEvent->push($event);
+            }
+        }
+
+        return $calendarGroupEvent;
     }
 
     public function selectCalendarGroup(CalendarGroup $calendarGroup)
     {
-        dd ($calendarGroup);
+        $this->selectedCalendarGroup = $calendarGroup;
     }
 }
