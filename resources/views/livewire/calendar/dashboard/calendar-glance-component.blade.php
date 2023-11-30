@@ -48,18 +48,6 @@
           </div>
         </div>
 
-        <div class="float-left">
-          @if ($today['is_holiday'])
-            <button class="btn btn-light">
-              <i class="fas fa-flag text-danger"></i>
-              HOLIDAY
-            </button>
-          @else
-            <button class="btn btn-light">
-              NOT A HOLIDAY
-            </button>
-          @endif
-        </div>
         <div wire:loading>
           <div class="spinner-border text-info mr-3" role="status">
             <span class="sr-only">Loading...</span>
@@ -74,15 +62,6 @@
     </div>
 
 
-    {{-- Show if holidary or not --}}
-    <div class="col-md-6 p-0 bg-danger-rm text-white-rm mb-3-rm">
-      @if (false)
-      <h2 class="h5 font-weight-bold mb-3">
-        Holiday
-      </h2>
-      @endif
-    </div>
-
     <div class="row" style="margin: auto;">
       <div class="col-md-6 p-0 bg-danger-rm text-white-rm border-rm bg-warning-rm border-rm">
         {{-- Show calendar events for the selected date --}}
@@ -93,7 +72,20 @@
           @foreach ($today['events'] as $event)
             <div class="mb-3 p-2 border rounded-lg shadow-rm bg-dark-rm text-white-rm py-3">
               <i class="fas fa-calendar mr-1 @if ($event->is_holiday == 'yes') text-danger @else text-primary @endif"></i>
-              <span class="h6">
+
+              @foreach ($event->calendarGroups as $calendarGroup )
+                <span class="badge badge-primary badge-pill mr-3 px-3">
+                  {{ $calendarGroup->name }}
+                </span>
+              @endforeach
+
+              @if ($event->is_holiday == 'yes')
+                <span class="badge badge-danger badge-pill mr-3 px-3">
+                  Holiday
+                </span>
+              @endif
+
+              <span class="h6 font-weight-bold">
                 {{ $event->title }}
               </span>
             </div>
