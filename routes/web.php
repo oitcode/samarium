@@ -53,6 +53,9 @@ Route::get('/dashboard/customer', 'CustomerController@index')->name('customer');
 /* Sale */
 Route::get('/dashboard/sale', 'SaleController@takeaway')->name('sale');
 
+/* Sale quotation */
+Route::get('/dashboard/sale-quotation', 'SaleQuotationController@index')->name('dashboard-sale-quotation');
+
 /* Daybook */
 Route::get('/dashboard/daybook', 'DaybookController@index')->name('daybook');
 /* Weekbook */

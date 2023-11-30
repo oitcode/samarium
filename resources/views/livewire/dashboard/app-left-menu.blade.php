@@ -176,6 +176,12 @@
           'iconFaClass' => 'fas fa-book',
           'btnText' => 'Accounting',
         ])
+
+        @include ('partials.dashboard.app-left-menu-button', [
+          'btnRoute' => 'dashboard-sale-quotation',
+          'iconFaClass' => 'fas fa-edit',
+          'btnText' => 'Quotation',
+        ])
       </div>
     @endif
     @if (false)
