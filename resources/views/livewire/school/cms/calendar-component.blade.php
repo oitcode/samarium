@@ -1,19 +1,21 @@
 <div class="container py-3">
 
 
-  {{-- Calendar group choose option --}}
-  <div class="mb-3">
-    <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
-      <button class="btn btn-primary dropdown-toggle" type="button" id="calendarGroupDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ $selectedCalendarGroup->name }}
-      </button>
-      <div class="dropdown-menu" aria-labelledby="calendarGroupDropdownMenu">
-        @foreach ($calendarGroups as $calendarGroup)
-          <button class="dropdown-item" type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
-        @endforeach
+  @if ($calendarGroups && count($calendarGroups) > 0)
+    {{-- Calendar group choose option --}}
+    <div class="mb-3">
+      <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="calendarGroupDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ $selectedCalendarGroup->name }}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="calendarGroupDropdownMenu">
+          @foreach ($calendarGroups as $calendarGroup)
+            <button class="dropdown-item" type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
+          @endforeach
+        </div>
       </div>
     </div>
-  </div>
+  @endif
 
 
   {{-- Today --}}
