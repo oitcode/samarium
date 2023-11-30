@@ -19,9 +19,16 @@
   </x-component-header>
 
 
+
   <div class="row" style="margin: auto;">
 
     <div class="col-md-9 d-none d-md-block p-0">
+
+      {{-- Announcement --}}
+      @if (env('ANNOUNCEMENT'))
+        @include ('partials.misc.dashboard-vendor-announcement')
+      @endif
+
       <div class="h-100 d-flex p-0">
         <div class="h-100 d-flex flex-column w-100">
           <div>
