@@ -9,7 +9,12 @@
     <div class="px-3 @if ($bsBgClass != 'bg-white') text-white @endif flex-grow-1" style="">
 
       <div class="h6 font-weight-bold mb-4 text-secondary">
-        {{ $btnTextPrimary }}
+        @if (strtolower($btnTextPrimary) == 'new')
+          <span class="badge badge-pill badge-danger p-2-rm" style="">
+          {{ $btnTextPrimary }}
+        @else
+          {{ $btnTextPrimary }}
+        @endif
       </div>
       <div class="mt-3-rm h5">
         <span class="font-weight-bold h5">
