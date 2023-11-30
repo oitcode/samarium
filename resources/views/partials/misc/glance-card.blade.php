@@ -5,12 +5,12 @@
       href="#"
     @endif
     class="text-reset text-decoration-none">
-  <div class="d-flex flex-column-rm justify-content-between border-rm shadow-rm {{ $bsBgClass ?? 'bg-success' }} p-2 m-0" style="">
+  <div class="d-flex flex-column-rm justify-content-between-rm border-rm shadow-rm {{ $bsBgClass ?? 'bg-success' }} p-2 m-0" style="">
     <div class="px-3 @if ($bsBgClass != 'bg-white') text-white @endif flex-grow-1" style="">
 
       <div class="h6 font-weight-bold mb-4 text-secondary">
         @if (strtolower($btnTextPrimary) == 'new')
-          <span class="badge badge-pill badge-danger p-2-rm" style="">
+          <span class="badge badge-pill badge-danger">
           {{ $btnTextPrimary }}
         @else
           {{ $btnTextPrimary }}
@@ -23,6 +23,7 @@
       </div>
     </div>
 
+    @if (false)
     @if ($btnTextSecondary)
       <div class="d-flex flex-column justify-content-center p-2 px-3 o-darker-rm" style="">
         <div class="h3 text-primary-rm" style="">
@@ -31,6 +32,7 @@
           @endif
         </div>
       </div>
+    @endif
     @endif
   </div>
 </a>
