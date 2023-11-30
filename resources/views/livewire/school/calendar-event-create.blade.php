@@ -125,45 +125,47 @@
   </div>
 
 
-{{-- Calendar group decision --}}
-  <div class="form-group mb-4">
-    <label class="h5 font-weight-bold">Applicable to *</label>
-
-    <div>
-      @if ($modes['allCalendarGroups'])
-        <div class="">
-          All calendar groups
-        </div>
-        <div>
-          <button class="btn text-primary pl-0" wire:click="exitMode('allCalendarGroups')">
-            Make for a single group
-          </button>
-        </div>
-      @else
-        <div class="">
-          Single calendar group
-        </div>
-        <div>
-          <button class="btn text-primary pl-0" wire:click="enterMode('allCalendarGroups')">
-            Make for all group
-          </button>
-        </div>
-      @endif
-    </div>
-  </div>
-
-  @if (! $modes['allCalendarGroups'])
-    {{-- Calendar group --}}
+  @if ($calendarGroups != null &&  count($calendarGroups) > 0)
+    {{-- Calendar group decision --}}
     <div class="form-group mb-4">
-      <label class="h5 font-weight-bold">Calendar group *</label>
-      <select class="form-control" wire:model.defer="calendar_group_id">
-        <option>---</option>
-        @foreach ($calendarGroups as $calendarGroup)
-          <option value="{{ $calendarGroup->calendar_group_id }}">{{ $calendarGroup->name }}</option>
-        @endforeach
-      </select>
-      @error ('calendar_group_id') <span class="text-danger">{{ $message }}</span> @enderror
+      <label class="h5 font-weight-bold">Applicable to *</label>
+
+      <div>
+        @if ($modes['allCalendarGroups'])
+          <div class="">
+            All calendar groups
+          </div>
+          <div>
+            <button class="btn text-primary pl-0" wire:click="exitMode('allCalendarGroups')">
+              Make for a single group
+            </button>
+          </div>
+        @else
+          <div class="">
+            Single calendar group
+          </div>
+          <div>
+            <button class="btn text-primary pl-0" wire:click="enterMode('allCalendarGroups')">
+              Make for all group
+            </button>
+          </div>
+        @endif
+      </div>
     </div>
+
+    @if (! $modes['allCalendarGroups'])
+      {{-- Calendar group --}}
+      <div class="form-group mb-4">
+        <label class="h5 font-weight-bold">Calendar group *</label>
+        <select class="form-control" wire:model.defer="calendar_group_id">
+          <option>---</option>
+          @foreach ($calendarGroups as $calendarGroup)
+            <option value="{{ $calendarGroup->calendar_group_id }}">{{ $calendarGroup->name }}</option>
+          @endforeach
+        </select>
+        @error ('calendar_group_id') <span class="text-danger">{{ $message }}</span> @enderror
+      </div>
+    @endif
   @endif
 
 
