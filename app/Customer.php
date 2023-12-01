@@ -52,6 +52,15 @@ class Customer extends Model
     }
 
     /*
+     * sale_quotation table.
+     *
+     */
+    public function saleQuotations()
+    {
+        return $this->hasMany('App\SaleQuotation', 'customer_id', 'customer_id');
+    }
+
+    /*
      * ab_account table.
      *
      */
