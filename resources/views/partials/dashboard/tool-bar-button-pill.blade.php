@@ -3,14 +3,20 @@
   <div class="d-none d-md-block h-100">
   <div
       class="border btn-rm
-      @if (false)
+      @if (true)
       @isset($btnCheckMode)
         @isset ($modes)
           @isset ($modes[$btnCheckMode])
             @if ($modes[$btnCheckMode])
               border-bottom-rm border-danger-rm
+              bg-success
+              text-white
             @else
-              bg-white
+              @if ($btnText == 'New' || $btnText == 'Create')
+                {{ env('OC_ASCENT_BG_COLOR') }} text-white
+              @else
+                bg-white
+              @endif
             @endif
           @else
             bg-white
@@ -22,12 +28,17 @@
         bg-white
       @endisset
       @endif
-      m-0 mr-3 px-4 h-100 o-flipper py-3 d-flex flex-column justify-content-center
+      m-0 mr-3 px-4 h-100 o-flipper py-3 d-flex flex-column justify-content-center badge-pill
+      @if (false)
       @if ($btnText == 'New' || $btnText == 'Create')
         {{ env('OC_ASCENT_BG_COLOR') }}
         {{ env('OC_ASCENT_TEXT_COLOR') }}
         shadow-lg
         badge-pill
+      @else
+        bg-white
+        badge-pill
+      @endif
       @endif
       "
 
@@ -44,9 +55,12 @@
               padding-bottom: 10px;
               background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
               color: white;
+              color: white;
+              background-color: green !important;
               --}}
-              color: {{ env('OC_SELECT_COLOR', '#000050') }};
-              border-bottom: 5px solid {{ env('OC_SELECT_COLOR', '#000050') }} !important;
+              {{--
+              border: 1px solid {{ env('OC_SELECT_COLOR', '#000050') }} !important;
+              --}}
             @endif
           @endisset
         @endisset
