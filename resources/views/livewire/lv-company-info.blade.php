@@ -1,7 +1,7 @@
 <div class="d-flex-rm justify-content-center-rm border bg-white text-white-rm p-3 shadow">
     <div>
       @if (true)
-      <h2 class="h5 text-success-rm font-weight-bold mb-3">
+      <h2 class="h6 text-success-rm font-weight-bold mb-1">
         <div class="mb-3">
           <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 75px;">
         </div>
@@ -9,7 +9,7 @@
       </h2>
       @endif
 
-      @if (true)
+      @if (false)
       <div class="">
         <h3 class="h6 mb-0 text-secondary">
           {{ $company->tagline }}
