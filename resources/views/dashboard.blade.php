@@ -25,8 +25,10 @@
     <div class="col-md-9 d-none d-md-block p-0">
 
       {{-- Announcement --}}
+      @if (true)
       @if (env('ANNOUNCEMENT'))
         @include ('partials.misc.dashboard-vendor-announcement')
+      @endif
       @endif
 
       <div class="h-100 d-flex p-0">

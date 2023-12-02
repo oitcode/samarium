@@ -1,4 +1,4 @@
-<div class="d-flex-rm justify-content-center-rm border bg-dark text-white p-3 shadow-sm">
+<div class="d-flex-rm justify-content-center-rm border bg-primary-rm text-white-rm p-3 shadow-sm {{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}">
     <div>
       @if (true)
       <h2 class="h3 text-success-rm font-weight-bold mb-3">

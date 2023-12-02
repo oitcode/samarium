@@ -1,4 +1,4 @@
-<div class="p-2">
+<div class="p-2-rm">
   <div class="alert alert-primary alert-dismissible fade show h5" role="alert">
     <i class="fas fa-exclamation-circle fa-2x-rm mr-3"></i>
     <span>
