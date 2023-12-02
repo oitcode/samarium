@@ -1,7 +1,7 @@
 <div>
 
   {{-- Show in bigger screens --}}
-  <div class="mb-3 d-none d-md-block d-md-flex justify-content-between bg-white border">
+  <div class="mb-3 py-3 d-none d-md-block d-md-flex justify-content-between bg-white border">
     <div>
       @isset ($toolbarTitle)
         <div class="h-100 d-flex flex-column justify-content-center bg-warning-rm">

@@ -2,7 +2,7 @@
   {{-- For bigger screens --}}
   <div class="d-none d-md-block h-100">
   <div
-      class="btn-rm
+      class="border btn-rm
       @if (false)
       @isset($btnCheckMode)
         @isset ($modes)
@@ -22,7 +22,15 @@
         bg-white
       @endisset
       @endif
-      border-rm shadow-rm m-0 badge-pill-rm mr-4-rm px-4 h-100 border-none shadow-none o-flipper py-3 d-flex flex-column justify-content-center rounded"
+      m-0 mr-3 px-4 h-100 o-flipper py-3 d-flex flex-column justify-content-center
+      @if ($btnText == 'New' || $btnText == 'Create')
+        {{ env('OC_ASCENT_BG_COLOR') }}
+        {{ env('OC_ASCENT_TEXT_COLOR') }}
+        shadow-lg
+        badge-pill
+      @endif
+      "
+
   
   
       style="font-size: 1.1rem;
@@ -38,7 +46,7 @@
               color: white;
               --}}
               color: {{ env('OC_SELECT_COLOR', '#000050') }};
-              border-bottom: 5px solid {{ env('OC_SELECT_COLOR', '#000050') }};
+              border-bottom: 5px solid {{ env('OC_SELECT_COLOR', '#000050') }} !important;
             @endif
           @endisset
         @endisset
@@ -48,10 +56,8 @@
   
       wire:click="{{ $btnClickMethod }}" role="button">
     <div class="">
-      <div class="d-flex justify-content-center">
-        <i class="{{ $btnIconFaClass }} mr-2"></i>
-      </div>
-      <div class="d-flex justify-content-center">
+      <div class="">
+        <i class="{{ $btnIconFaClass }} mr-2 p-0"></i>
         <strong>
           {{ $btnText }}
         </strong>
