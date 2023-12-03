@@ -1,11 +1,11 @@
 <div>
 
   {{-- Show in bigger screens --}}
-  <div class="mb-3 py-3 d-none d-md-block d-md-flex justify-content-between bg-white-rm border-rm">
+  <div class="mb-3 py-3 d-none d-md-block d-md-flex justify-content-between bg-white border">
     <div>
       @isset ($toolbarTitle)
         <div class="h-100 d-flex flex-column justify-content-center bg-warning-rm">
-          <h1 class="h1 font-weight-bold px-3 pt-4-rm btn {{  env('OC_ASCENT_BTN_COLOR') }} badge-pill p-3" style="font-size: 1.5rem;">
+          <h1 class="h1 font-weight-bold px-3 pt-4-rm btn-rm {{  env('OC_ASCENT_BTN_COLOR') }}-rm badge-pill-rm p-3" style="font-size: 1.5rem;">
             {{ $toolbarTitle }}
           </h1>
         </div>
