@@ -12,11 +12,13 @@
               bg-success
               text-white
             @else
+              {{--
               @if ($btnText == 'New' || $btnText == 'Create')
                 {{ env('OC_ASCENT_BG_COLOR') }} text-white
               @else
                 bg-white
               @endif
+              --}}
             @endif
           @else
             bg-white
@@ -30,6 +32,7 @@
       @endif
       m-0 mr-3 px-4 h-100 o-flipper py-3 d-flex flex-column justify-content-center badge-pill
       @if (false)
+      {{--
       @if ($btnText == 'New' || $btnText == 'Create')
         {{ env('OC_ASCENT_BG_COLOR') }}
         {{ env('OC_ASCENT_TEXT_COLOR') }}
@@ -39,6 +42,7 @@
         bg-white
         badge-pill
       @endif
+      --}}
       @endif
       "
 
