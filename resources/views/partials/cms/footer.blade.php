@@ -133,9 +133,18 @@
         @endif
 
         <div class="my-4">
-          <a href="/contact-us" class="text-reset-rm text-decoration-none">Contact us</a>
-          <br/>
-          <a href="/post" class="text-reset-rm text-decoration-none">Blog</a>
+          <div class="my-2">
+            <a href="/contact-us" class="text-reset text-decoration-none text-underline">
+              <i class="fas fa-arrow-right mr-1"></i>
+              Contact us
+            </a>
+          </div>
+          <div class="">
+            <a href="/post" class="text-reset text-decoration-none text-underline">
+              <i class="fas fa-arrow-right mr-1"></i>
+              Blog
+            </a>
+          </div>
         </div>
       </div>
       @endif
