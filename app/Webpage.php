@@ -107,4 +107,15 @@ class Webpage extends Model
         return $highest;
     }
 
+    public function hasCategory($name)
+    {
+        foreach ($this->webpageCategories as $category) {
+            if ($category->name == $name) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
