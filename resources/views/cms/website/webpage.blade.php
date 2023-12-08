@@ -32,39 +32,53 @@
 @endsection
 
 @section ('pageAnnouncer')
+  {{-- Notice badge --}}
+  @if ($webpage->hasCategory('notice'))
+    <div class="py-3 bg-danger text-white font-weight-bold">
+      <div class="container h4 mb-0 font-weight-bold">
+        <i class="fas fa-exclamation-circle mr-2"></i>
+        Notice
+      </div>
+    </div>
+  @endif
+
   <div class="container-fluid o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm"
       style="
       @if (false && $webpage->is_post == 'yes')
       @else
-        background-image:
-            linear-gradient(to right,
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_bg_color }}
-              @else
-                orange
-              @endif
-            ,
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_bg_color }}
-              @else
-                orange
-              @endif
-            )
+        @if (true || ! $webpage->hasCategory('notice'))
+          background-image:
+              linear-gradient(to right,
+                @if (\App\CmsTheme::first())
+                  {{ \App\CmsTheme::first()->ascent_bg_color }}
+                @else
+                  orange
+                @endif
+              ,
+                @if (\App\CmsTheme::first())
+                  {{ \App\CmsTheme::first()->ascent_bg_color }}
+                @else
+                  orange
+                @endif
+              )
+        @endif
       @endif
   ;">
     <div class="o-overlay text-white-rm">
       <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') border-left-rm border-right-rm @else @endif bg-primary-rm">
-      <h1 class="h1 font-weight-bold"
+      <h1 class="h3 font-weight-bold"
           style="
             @if (false && $webpage->is_post == 'yes')
               color: #000;
             @else
+              @if (true || ! $webpage->hasCategory('notice'))
                 color:
                       @if (\App\CmsTheme::first())
                         {{ \App\CmsTheme::first()->ascent_text_color }}
                       @else
                         white
                       @endif
+              @endif
             @endif
           ;">
         {{ $webpage->name }}
@@ -72,13 +86,15 @@
       @if ($webpage->is_post == 'yes')
         <div class="d-flex mt-4 text-white-rm"
             style="
-                color:
-                      @if (\App\CmsTheme::first())
-                        {{ \App\CmsTheme::first()->ascent_text_color }}
-                      @else
-                        black
-                      @endif
-                      ;
+                @if (true || ! $webpage->hasCategory('notice'))
+                  color:
+                        @if (\App\CmsTheme::first())
+                          {{ \App\CmsTheme::first()->ascent_text_color }}
+                        @else
+                          black
+                        @endif
+                        ;
+                @endif
             ">
           <div class="mr-4">
             <i class="far fa-clock text-primary-rm mr-1"></i>
@@ -105,12 +121,10 @@
           </div>
         </div>
       @endif
-      @if (false)
-      Home/AboutUs
-      @endif
       </div>
     </div>
   </div>
+
 
   {{-- Featured image --}}
   <div class="container my-4-rm">
