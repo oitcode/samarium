@@ -48,7 +48,17 @@
   <div class="container">
     <div class="row">
     
-      <div class="col-md-6" style="font-size: 1.3rem;">
+      <div class="col-md-3" style="font-size: 1.3rem;">
+        <div class="mb-4">
+          @if (true)
+          <img src="{{ asset('storage/' . $company->logo_image_path) }}"
+              class="img-fluid-rm"
+              alt="{{ $company->name }} logo"
+              style="height: 150px !important;">
+          @endif
+        </div>
+      </div>
+      <div class="col-md-3" style="font-size: 1.3rem;">
         @if (false)
         <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
           Address
@@ -93,14 +103,6 @@
         </div>
         @endif
 
-        <div class="mb-4">
-          @if (true)
-          <img src="{{ asset('storage/' . $company->logo_image_path) }}"
-              class="img-fluid-rm"
-              alt="{{ $company->name }} logo"
-              style="height: 100px !important;">
-          @endif
-        </div>
 
         {{-- Show additional company info if any --}}
         @if (count($company->companyInfos) > 0)
