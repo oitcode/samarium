@@ -203,7 +203,8 @@
       &copy; 2023 | {{ $company->name }} | All rights reserved
     </div>
     <div>
-      Website developed by <a href="https://oit.com.np" target="_blank">OIT</a>
+      Powered by
+      <a href="https://oit.com.np" class="text-reset" target="_blank"><u>OIT</u></a>
       <i class="fas fa-check-circle ml-2"></i>
     </div>
   </div>
