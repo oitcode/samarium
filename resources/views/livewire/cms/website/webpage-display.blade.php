@@ -38,6 +38,8 @@
       @endif
     @endforeach
   @endif
+@elseif ($webpage->name == 'Products')
+  @livewire ('ecomm-website.home-component')
 @elseif ($webpage->name == 'News')
   <div class="container my-4">
     @livewire ('cms.website.post-list')
