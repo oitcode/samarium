@@ -142,7 +142,7 @@
           <div class="">
             <a href="/post" class="text-reset text-decoration-none text-underline">
               <i class="fas fa-arrow-right mr-1"></i>
-              Blog
+              Posts
             </a>
           </div>
         </div>
