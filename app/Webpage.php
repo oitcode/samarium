@@ -110,7 +110,7 @@ class Webpage extends Model
     public function hasCategory($name)
     {
         foreach ($this->webpageCategories as $category) {
-            if ($category->name == $name) {
+            if (strtolower($category->name) == strtolower($name)) {
                 return true;
             }
         }
