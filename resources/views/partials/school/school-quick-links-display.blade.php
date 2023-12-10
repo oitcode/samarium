@@ -6,7 +6,7 @@ Quick links to pages that are most relevant to school.
 
 <div class="bg-white">
   <div class="row p-3">
-    <div class="col-6 col-md-2 d-flex justify-content-center bg-danger text-white border p-0">
+    <div class="col-6 col-md-3 d-flex justify-content-center bg-danger text-white border p-0">
       <a href="/calendar" class="p-3 py-5 text-reset">
         <div class="text-center">
           <div class="mb-2">
@@ -18,7 +18,7 @@ Quick links to pages that are most relevant to school.
         </div>
       </a>
     </div>
-    <div class="col-6 col-md-2 d-flex justify-content-center bg-primary text-white border p-0">
+    <div class="col-6 col-md-3 d-flex justify-content-center bg-primary text-white border p-0">
       <a href="/noticeboard" class="p-3 py-5 text-reset">
         <div class="text-center">
           <div class="mb-2">
@@ -30,7 +30,7 @@ Quick links to pages that are most relevant to school.
         </div>
       </a>
     </div>
-    <div class="col-6 col-md-2 d-flex justify-content-center bg-info text-white border p-0">
+    <div class="col-6 col-md-3 d-flex justify-content-center bg-info text-white border p-0">
       <a href="/gallery" class="p-3 py-5 text-reset">
         <div class="text-center">
           <div class="mb-2">
@@ -42,7 +42,7 @@ Quick links to pages that are most relevant to school.
         </div>
       </a>
     </div>
-    <div class="col-6 col-md-2 d-flex justify-content-center bg-success text-white border p-0">
+    <div class="col-6 col-md-3 d-flex justify-content-center bg-success text-white border p-0">
       <a href="/contact-us" class="p-3 py-5 text-reset">
         <div class="text-center">
           <div class="mb-2">
