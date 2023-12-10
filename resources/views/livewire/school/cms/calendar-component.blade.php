@@ -68,6 +68,15 @@
           {{ $today['day']->format('Y F d') }}
         </span>
       </div>
+      @if ($today['is_holiday'] == 'yes')
+        <div class="col-md-3 p-3 bg-success-rm text-white-rm border">
+          <div class="badge badge-pill badge-danger px-3">
+            <span class="h5 font-weight-bold">
+              HOLIDAY
+            </span>
+          </div>
+        </div>
+      @endif
       <div class="col-md-6 bg-success-rm text-white-rm p-3 flex-grow-1">
         <h2 class="h5 font-weight-bold mb-3">
           EVENTS
