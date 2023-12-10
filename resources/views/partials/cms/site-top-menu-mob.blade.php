@@ -22,7 +22,7 @@
     @if (true)
     <a class="navbar-brand p-3" href="{{ route('website-home') }}" style="color: #000;">
       <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 60px;">
-      <span class="h5 font-weight-bold ml-2"  style="width: 200 px !important;">
+      <span class="h6 font-weight-bold ml-2"  style="width: 200 px !important;">
         @if (true)
           {{ \Illuminate\Support\Str::limit($company->name, 25, $end=' ...') }}
         @endif
