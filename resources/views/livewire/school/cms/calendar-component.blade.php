@@ -28,6 +28,7 @@
     </div>
 
     <div class="row" style="margin: auto;
+      {{--
       background-color:
           @if (\App\CmsTheme::first())
             {{ \App\CmsTheme::first()->ascent_bg_color }}
@@ -42,6 +43,7 @@
             white
           @endif
       ;
+      --}}
     ">
       @if (false)
       <div class="col-md-3 p-3 bg-primary-rm text-white-rm">
