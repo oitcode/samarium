@@ -26,7 +26,58 @@
   </div>
   @endif
 
-  <div class="container-fluid border pt-4 pb-5"
+  <div class="container-fluid bg-primary-rm text-white-rm p-0"
+      style="
+      background-color:
+          @if (\App\CmsTheme::first())
+            {{ \App\CmsTheme::first()->footer_bg_color }}
+          @else
+            orange
+          @endif
+          ;
+      color:
+          @if (\App\CmsTheme::first())
+            {{ \App\CmsTheme::first()->footer_text_color }}
+          @else
+            white
+          @endif
+      ;
+      ">
+
+    <div class="p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <img src="{{ asset('storage/' . $company->logo_image_path) }}"
+                class="img-fluid-rm"
+                alt="{{ $company->name }} logo"
+                style="height: 150px !important;">
+          </div>
+          <div class="col-md-3 mb-3">
+            <div class="h5 font-weight-bold">
+              ADDRESS
+            </div>
+            {{ $company->address }}
+          </div>
+          <div class="col-md-3 mb-3">
+            <div class="h5 font-weight-bold">
+              PHONE
+            </div>
+            {{ $company->phone }}
+          </div>
+          <div class="col-md-3 mb-3">
+            <div class="h5 font-weight-bold">
+              EMAIL
+            </div>
+            {{ $company->email }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid border-rm pt-4 pb-3"
       style="
       background-color:
           @if (\App\CmsTheme::first())
@@ -45,9 +96,11 @@
       ">
 
 
+
   <div class="container">
     <div class="row">
     
+      @if (false)
       <div class="col-md-3" style="font-size: 1.3rem;">
         <div class="mb-4">
           @if (true)
@@ -122,6 +175,7 @@
         @endif
 
       </div>
+      @endif
     
       @if (true)
       <div class="col-md-3">
@@ -134,22 +188,33 @@
         </div>
         @endif
 
+      </div>
+      @endif
+
+      <div class="col-md-3">
+        <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
+          Quick links
+        </div>
         <div class="my-4">
           <div class="my-2">
             <a href="/contact-us" class="text-reset text-decoration-none text-underline">
+              @if (false)
               <i class="fas fa-arrow-right mr-1"></i>
+              @endif
               Contact us
             </a>
           </div>
           <div class="">
             <a href="/post" class="text-reset text-decoration-none text-underline">
+              @if (false)
               <i class="fas fa-arrow-right mr-1"></i>
+              @endif
               Posts
             </a>
           </div>
         </div>
       </div>
-      @endif
+
 
       @if (true)
       <div class="col-md-3">
@@ -193,6 +258,28 @@
           @endif
         </div>
       </div>
+
+      <div class="col-md-3">
+        @if (false)
+        <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
+          &nbsp;
+        </div>
+        @endif
+        <div class="my-4">
+          @if (false)
+          <div>
+            &copy; 2023 | {{ $company->name }} | All rights reserved
+          </div>
+          @endif
+          <div>
+            Powered by
+            <a href="https://oit.com.np" class="text-reset" target="_blank"><u>OIT</u></a>
+            <i class="fas fa-check-circle ml-2"></i>
+          </div>
+        </div>
+      </div>
+
+
 
       @endif
     </div>
