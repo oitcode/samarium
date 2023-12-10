@@ -1,26 +1,49 @@
 <div class="container py-3">
 
 
-  @if ($calendarGroups && count($calendarGroups) > 0)
-    {{-- Calendar group choose option --}}
-    <div class="mb-3">
-      <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="calendarGroupDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ $selectedCalendarGroup->name }}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="calendarGroupDropdownMenu">
-          @foreach ($calendarGroups as $calendarGroup)
-            <button class="dropdown-item" type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
-          @endforeach
-        </div>
-      </div>
-    </div>
-  @endif
 
 
   {{-- Today --}}
-  <div class="my-4 border p-3-rm bg-white rounded">
-    <div class="row" style="margin: auto;">
+  <div class="my-4 mb-5 border p-3-rm rounded shadow">
+
+    <div style="
+      background-color:
+          @if (\App\CmsTheme::first())
+            {{ \App\CmsTheme::first()->ascent_bg_color }}
+          @else
+            orange
+          @endif
+          ;
+      color:
+          @if (\App\CmsTheme::first())
+            {{ \App\CmsTheme::first()->ascent_text_color }}
+          @else
+            white
+          @endif
+          ;
+    ">
+      <div class="h5 p-3 mb-0 font-weight-bold" style="background-color: rgba(0, 0, 0, 0.5);">
+        TODAY
+      </div>
+    </div>
+
+    <div class="row" style="margin: auto;
+      background-color:
+          @if (\App\CmsTheme::first())
+            {{ \App\CmsTheme::first()->ascent_bg_color }}
+          @else
+            orange
+          @endif
+          ;
+      color:
+          @if (\App\CmsTheme::first())
+            {{ \App\CmsTheme::first()->ascent_text_color }}
+          @else
+            white
+          @endif
+      ;
+    ">
+      @if (false)
       <div class="col-md-3 p-3 bg-primary-rm text-white-rm">
         <span class="h5 font-weight-bold mb-3">
         TODAY
@@ -32,6 +55,7 @@
           </span>
         @endif
       </div>
+      @endif
       <div class="col-md-3 bg-info-rm text-white-rm p-3">
         <h2 class="h5 font-weight-bold mb-3">
           {{ strtoupper($today['day']->format('l')) }}
@@ -63,27 +87,47 @@
 
   @if (false)
   @else
-  <div class="border-rm bg-white mb-4-rm">
-    <div class="d-flex">
-      <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Select Month
-        </button>
-        <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Baisakh')">Baisakh</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Jestha')">Jestha</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Asadh')">Asadh</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Shrawan')">Shrawan</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Bhadra')">Bhadra</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Ashwin')">Ashwin</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Kartik')">Kartik</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Mangsir')">Mangsir</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Poush')">Poush</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Magh')">Magh</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Falgun')">Falgun</button>
-          <button class="dropdown-item" type="button" wire:click="selectMonth('Chaitra')">Chaitra</button>
+  <div class="d-flex">
+    <div class="border-rm bg-white mb-4-rm">
+      <div class="d-flex">
+        <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Month
+          </button>
+          <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Baisakh')">Baisakh</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Jestha')">Jestha</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Asadh')">Asadh</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Shrawan')">Shrawan</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Bhadra')">Bhadra</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Ashwin')">Ashwin</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Kartik')">Kartik</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Mangsir')">Mangsir</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Poush')">Poush</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Magh')">Magh</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Falgun')">Falgun</button>
+            <button class="dropdown-item" type="button" wire:click="selectMonth('Chaitra')">Chaitra</button>
+          </div>
         </div>
       </div>
+    </div>
+    @if ($calendarGroups && count($calendarGroups) > 0)
+      {{-- Calendar group choose option --}}
+      <div class="mb-3">
+        <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="calendarGroupDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ $selectedCalendarGroup->name }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="calendarGroupDropdownMenu">
+            @foreach ($calendarGroups as $calendarGroup)
+              <button class="dropdown-item" type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
+            @endforeach
+          </div>
+        </div>
+      </div>
+    @endif
+
+    <div>
       <button wire:loading class="btn">
         <span class="spinner-border text-info mr-3" role="status">
         </span>
