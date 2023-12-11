@@ -91,10 +91,10 @@
 @elseif (preg_match("/school/i", env('MODULES')))
   {{-- If school --}}
   <div class="container my-4">
-    @livewire ('calendar.website.today-display')
+    @include ('partials.school.school-quick-links-display')
   </div>
   <div class="container mb-4">
-    @include ('partials.school.school-quick-links-display')
+    @livewire ('calendar.website.today-display')
   </div>
 @else
   {{-- All other cases --}}

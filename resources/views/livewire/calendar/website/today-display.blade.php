@@ -4,20 +4,20 @@
   <div style="
     background-color:
         @if (\App\CmsTheme::first())
-          {{ \App\CmsTheme::first()->ascent_bg_color }}
+          {{ \App\CmsTheme::first()->footer_bg_color }}
         @else
           orange
         @endif
         ;
     color:
         @if (\App\CmsTheme::first())
-          {{ \App\CmsTheme::first()->ascent_text_color }}
+          {{ \App\CmsTheme::first()->footer_text_color }}
         @else
           white
         @endif
         ;
   ">
-    <div class="h5 p-3 mb-0 font-weight-bold" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div class="h5 p-3 mb-0 font-weight-bold" style="background-color: rgba(0, 0, 0, 0.2);">
       TODAY
     </div>
   </div>
