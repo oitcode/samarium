@@ -52,7 +52,7 @@
       @if (false)
       <span class="navbar-toggler-icon p-5 bg-danger text-white "></span>
       @endif
-      <i class="fas fa-bars fa-2x border p-2" style="
+      <i class="fas fa-bars fa-2x border-rm p-2-rm" style="
           {{--
           background-color:
               @if (\App\CmsTheme::first())
