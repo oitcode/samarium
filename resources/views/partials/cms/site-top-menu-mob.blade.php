@@ -18,9 +18,27 @@
   </div>
   @endif
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border bg-warning p-0">
+  <nav class="navbar navbar-expand-lg navbar-light-rm bg-light-rm border bg-warning-rm p-0"
+      style="
+      background-color: orange;
+          background-color:
+              @if (\App\CmsTheme::first())
+                {{ \App\CmsTheme::first()->footer_bg_color }}
+              @else
+                orange
+              @endif
+              ;
+          color:
+              @if (\App\CmsTheme::first())
+                {{ \App\CmsTheme::first()->footer_text_color }}
+              @else
+                white
+              @endif
+          ;
+  ">
+
     @if (true)
-    <a class="navbar-brand p-3" href="{{ route('website-home') }}" style="color: #000;">
+    <a class="navbar-brand p-3 text-reset" href="{{ route('website-home') }}" style="{{--color: #000;--}}">
       <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 60px;">
       <span class="h6 font-weight-bold ml-2"  style="width: 200 px !important;">
         @if (true)
@@ -30,7 +48,28 @@
     </a>
     @endif
     <button class="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+
+      @if (false)
+      <span class="navbar-toggler-icon p-5 bg-danger text-white "></span>
+      @endif
+      <i class="fas fa-bars fa-2x border p-2" style="
+          {{--
+          background-color:
+              @if (\App\CmsTheme::first())
+                {{ \App\CmsTheme::first()->footer_bg_color }}
+              @else
+                orange
+              @endif
+              ;
+              --}}
+          color:
+              @if (\App\CmsTheme::first())
+                {{ \App\CmsTheme::first()->footer_text_color }}
+              @else
+                white
+              @endif
+          ;
+      "></i>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
