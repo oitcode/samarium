@@ -3,9 +3,12 @@
   <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
     <div class="d-flex justify-content-center flex-grow-1 bg-warning-rm">
       @if (true)
-      <div class="d-flex flex-column justify-content-center h-100">
+      <div class="d-flex-rm flex-column-rm justify-content-center-rm h-100-rm" style="border-radius: 50% !important; width: 150px !important; height: 150px !important;">
         @if ($person->image_path)
-          <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $person->image_path) }}" alt="{{ $person->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
+          <div>
+            <img class="img-fluid-rm shadow-lg h-25-rm w-100-rm rounded-circle-rm" src="{{ asset('storage/' . $person->image_path) }}" alt="{{ $person->name }}"
+                style="border: 1px solid white; border-radius: 50%; width: 150px; height: 150px;">
+          </div>
         @else
           <div class="py-5">
             <i class="fas fa-user fa-5x text-secondary"></i>
@@ -29,28 +32,21 @@
               &nbsp;
             @endif
           </div>
+          @if ($person->phone)
           <div class="mb-1 text-secondary">
             <i class="fas fa-phone mr-1"></i>
-            @if ($person->phone)
-              {{ $person->phone }}
-            @else
-              <span class="text-muted">
-                Not available
-              </span>
-            @endif
+            {{ $person->phone }}
           </div>
+          @endif
+          @if ($person->email)
           <div class="mb-1 text-secondary">
             <i class="fas fa-envelope mr-1"></i>
-            @if ($person->email)
-              {{ $person->email }}
-            @else
-              <span class="text-muted">
-                Not available
-              </span>
-            @endif
+            {{ $person->email }}
           </div>
+          @endif
         </div>
 
+        @if (false)
         <div class="my-2">
           <div class="h5 mb-2 text-primary">
             <a href="{{ route('website-book-appointment', $person->team_member_id) }}" class="btn btn-primary">
@@ -58,6 +54,7 @@
             </a>
           </div>
         </div>
+        @endif
 
         @if (false)
         <div class="mb-1" style="font-size: 0.7rem;">
