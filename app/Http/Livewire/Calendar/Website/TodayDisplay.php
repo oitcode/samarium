@@ -6,10 +6,22 @@ use Livewire\Component;
 use Carbon\Carbon;
 
 use App\SchoolCalendarEvent;
+use App\CalendarGroup;
 
 class TodayDisplay extends Component
 {
     public $today;
+
+    public $selectedCalendarGroup;
+
+    public $calendarGroups;
+
+    public function mount()
+    {
+        $this->calendarGroups = CalendarGroup::all();
+
+        $this->selectedCalendarGroup = CalendarGroup::first();
+    }
 
     public function render()
     {
