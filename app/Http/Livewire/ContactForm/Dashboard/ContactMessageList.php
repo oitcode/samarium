@@ -22,6 +22,7 @@ class ContactMessageList extends Component
         'deleteContactMessageMode' => false,
 
         'showOnlyNewMode' => true,
+        'showOnlyProgressMode' => false,
         'showOnlyDoneMode' => false,
         'showAllMode' => false,
     ];
@@ -33,6 +34,8 @@ class ContactMessageList extends Component
             $this->contactMessages = ContactMessage::orderBy('contact_message_id', 'desc')->get();
         } else if ($this->modes['showOnlyNewMode']) {
             $this->contactMessages = ContactMessage::where('status', 'new')->orderBy('contact_message_id', 'desc')->get();
+        } else if ($this->modes['showOnlyProgressMode']) {
+            $this->contactMessages = ContactMessage::where('status', 'progress')->orderBy('contact_message_id', 'desc')->get();
         } else if ($this->modes['showOnlyDoneMode']) {
             $this->contactMessages = ContactMessage::where('status', 'done')->orderBy('contact_message_id', 'desc')->get();
         } else {

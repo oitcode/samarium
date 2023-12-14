@@ -14,66 +14,66 @@
     </div>
   </button>
 
-  <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
+  <div class="bg-white border my-3 p-3" style="font-size: 1rem;">
     <div class="mr-4">
       Total : {{ $contactMessageCount }}
     </div>
   </div>
 
   {{-- Filter div --}}
-  @if (false)
-  <div class="d-flex mb-3">
-    <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
-      <div>
-        <i class="fas fa-filter mr-1"></i>
-        Filter
+  @if (true)
+  <div class="mb-3 p-3 bg-white border">
+    <div class="font-weight-bold h5 mb-4">
+      Filter
+    </div>
+
+    <div class="d-flex">
+      <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
+        Status
       </div>
-    </div>
-    <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
-      Status
-    </div>
-    @if (true)
-    <div class="dropdown">
-      <button class="btn
+      @if (true)
+      <div class="dropdown">
+        <button class="btn
+            @if ($modes['showOnlyNewMode'])
+              btn-danger
+            @elseif ($modes['showOnlyDoneMode'])
+              btn-success
+            @elseif ($modes['showOnlyProgressMode'])
+              btn-warning
+            @elseif ($modes['showAllMode'])
+              btn-light
+            @endif
+            dropdown-toggle"
+            type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           @if ($modes['showOnlyNewMode'])
-            btn-danger
+            New
           @elseif ($modes['showOnlyDoneMode'])
-            btn-success
+            Done
+          @elseif ($modes['showOnlyProgressMode'])
+            Progress
           @elseif ($modes['showAllMode'])
-            btn-light
+            All
+          @else
+            Whoops
           @endif
-          dropdown-toggle"
-          type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        @if ($modes['showOnlyNewMode'])
-          New
-        @elseif ($modes['showOnlyDoneMode'])
-          Done
-        @elseif ($modes['showAllMode'])
-          All
-        @else
-          Whoops
-        @endif
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
-        <button class="dropdown-item" wire:click="enterMode('showOnlyNewMode')">
-          New
         </button>
-        <button class="dropdown-item" wire:click="enterMode('showOnlyDoneMode')">
-          Done
-        </button>
-        <button class="dropdown-item" wire:click="enterMode('showAllMode')">
-          All
-        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
+          <button class="dropdown-item" wire:click="enterMode('showOnlyNewMode')">
+            New
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showOnlyProgressMode')">
+            Progress
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showOnlyDoneMode')">
+            Done
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showAllMode')">
+            All
+          </button>
+        </div>
       </div>
+      @endif
     </div>
-    @else
-    <div>
-      a<br/>
-      b<br/>
-      c<br/>
-      d<br/>
-    </div>
-    @endif
   </div>
   @endif
 
