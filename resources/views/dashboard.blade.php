@@ -25,7 +25,7 @@
     <div class="col-md-9 d-none d-md-block p-0">
 
       {{-- Announcement --}}
-      @if (true)
+      @if (false)
       @if (env('ANNOUNCEMENT'))
         @include ('partials.misc.dashboard-vendor-announcement')
       @endif
@@ -35,7 +35,7 @@
         <div class="h-100 d-flex flex-column w-100">
           <div>
 
-            @if (true)
+            @if (false)
             {{-- Transactions navigator --}}
             @if (preg_match("/shop/i", env('MODULES')))
               <div class="mb-4">
@@ -44,15 +44,18 @@
             @endif
             @endif
 
+            @if (true)
             {{-- Calendar glance/navigator --}}
             @if (preg_match("/calendar/i", env('MODULES')))
               <div class="mb-4">
                 @livewire ('calendar.dashboard.calendar-glance-component')
               </div>
             @endif
+            @endif
 
             <div class="row">
 
+              @if (false)
               {{-- CMS glance --}}
               @if (preg_match("/cms/i", env('MODULES'))) 
                 <div class="col-md-6">
@@ -61,6 +64,7 @@
                       @livewire ('cms.dashboard.cms-glance')
                     </div>
                 </div>
+              @endif
               @endif
 
               {{-- Shop glance --}}
@@ -72,6 +76,7 @@
                 </div>
               @endif
 
+              @if (false)
               {{-- Product glance --}}
               @if (preg_match("/shop/i", env('MODULES')))
                 <div class="col-md-6">
@@ -79,6 +84,7 @@
                     @livewire ('shop.dashboard.product-glance')
                   </div>
                 </div>
+              @endif
               @endif
 
               {{-- Online order glance --}}
@@ -112,10 +118,12 @@
 
             {{-- Todo glance --}}
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-12">
+                @if (false)
                 <div class="d-none d-md-block">
                   @livewire ('todo.dashboard.todo-glance')
                 </div>
+                @endif
               </div>
             </div>
 
@@ -129,13 +137,17 @@
         @livewire ('lv-package-welcome')
       </div>
 
+      @if (false)
       <div class="mb-3 d-none d-md-block">
         @livewire ('lv-company-info')
       </div>
+      @endif
 
       <div>
         {{-- Show quick links menu. --}}
+        @if (false)
         @include ('partials.dashboard.mobile-dashboard-main-links')
+        @endif
       </div>
     </div>
 
