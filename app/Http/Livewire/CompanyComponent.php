@@ -44,6 +44,9 @@ class CompanyComponent extends Component
         'companyInfoCreateMode' => false,
         'briefDescriptionCreateMode' => false,
         'briefDescriptionUpdateMode' => false,
+
+        'googleMapShareLinkCreateMode' => false,
+        'googleMapShareLinkUpdateMode' => false,
     ];
 
     protected $listeners = [
@@ -58,6 +61,11 @@ class CompanyComponent extends Component
         'briefDescriptionCreateCompleted',
         'briefDescriptionEditCancelled',
         'briefDescriptionEditCompleted',
+
+        'googleMapShareLinkCreateCancelled',
+        'googleMapShareLinkCreateCompleted',
+        'googleMapShareLinkEditCancelled',
+        'googleMapShareLinkEditCompleted',
     ];
 
     public function render()
@@ -193,5 +201,27 @@ class CompanyComponent extends Component
     {
         session()->flash('message', 'Brief desription updated.');
         $this->exitMode('briefDescriptionUpdateMode');
+    }
+
+    public function googleMapShareLinkCreateCancelled()
+    {
+        $this->exitMode('googleMapShareLinkCreateMode');
+    }
+
+    public function googleMapShareLinkCreateCompleted()
+    {
+        session()->flash('message', 'Google map share link added.');
+        $this->exitMode('googleMapShareLinkCreateMode');
+    }
+
+    public function googleMapShareLinkEditCancelled()
+    {
+        $this->exitMode('googleMapShareLinkUpdateMode');
+    }
+
+    public function googleMapShareLinkEditCompleted()
+    {
+        session()->flash('message', 'Google map share link updated.');
+        $this->exitMode('googleMapShareLinkUpdateMode');
     }
 }

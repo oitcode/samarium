@@ -368,6 +368,51 @@
     </div>
     @endif
 
+
+    {{--
+    |
+    | Google map share link
+    |
+    | Google map share link of the company
+    | 
+    --}}
+    @if ($company)
+    <div class="my-4 bg-white border p-3">
+      <h2 class="h5 font-weight-bold">
+        Google map share link
+      </h2>
+
+      @if ($company->google_map_share_link)
+        @if ($modes['googleMapShareLinkUpdateMode'])
+          @livewire ('company.google-map-share-link-edit', ['company' => $company,])
+        @else
+          <div class="py-3">
+            {{ $company->google_map_share_link}}
+          </div>
+          <div class="py-3-rm text-muted">
+            <button class="btn btn-light ml-0 pl-0 border-rm text-primary" wire:click="enterMode('googleMapShareLinkUpdateMode')">
+              <i class="fas fa-pencil-alt mr-1"></i>
+              Edit
+            </button>
+          </div>
+        @endif
+      @else
+        @if ($modes['googleMapShareLinkCreateMode'])
+          @livewire ('company.google-map-share-link-create', ['company' => $company,])
+        @else
+          <div class="py-3 text-muted">
+            No google map share link.
+          </div>
+          <div class="py-3-rm text-muted">
+            <button class="btn btn-light ml-0 pl-0 border-rm text-primary" wire:click="enterMode('googleMapShareLinkCreateMode')">
+              Add google map share link.
+            </button>
+          </div>
+        @endif
+      @endif
+    </div>
+    @endif
+
   </div>
 
 </div>

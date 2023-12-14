@@ -98,12 +98,20 @@
 
   @if (true)
   <div class="container my-5">
-    <h2 class="h4 font-weight-bold mb-5">
+    <h2 class="h4 font-weight-bold mb-3">
       Find us in google map
     </h2>
+
+    <p class="mb-3">
+      You can view our location in google map.
+    </p>
+
+    <a href="{{ \App\Company::first()->google_map_share_link }}" class="btn-rm btn-light-rm text-primary-rm" target="_blank">View in google map</a>
+    @if (false)
     <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.402332516907!2d85.3210802763031!3d27.704861476184142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a81aedca93%3A0xfa75dcc816e991ca!2sAlphasoft%20Trading%20International%20Pvt.%20Ltd.!5e0!3m2!1sen!2snp!4v1702433232937!5m2!1sen!2snp"
     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    @endif
   </div>
   @else
   <a href="https://maps.app.goo.gl/uvaEURq1oyEM6LBT7" target="_blank">Click here to see in google map</a>
