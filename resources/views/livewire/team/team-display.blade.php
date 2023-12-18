@@ -1,6 +1,7 @@
-<div class="p-3">
+<div class="p-3-rm">
 
 
+    @if (false)
     {{-- Top flash cards --}}
     @if (! $modes['updateTeamMemberMode'])
     <div class="row mb-1">
@@ -33,10 +34,11 @@
         Team > {{ $team->name }}
       </div>
     @endif
+    @endif
 
 
     {{-- Tool bar --}}
-    <x-toolbar-classic>
+    <x-toolbar-classic toolbarTitle="{{ $team->name }}">
 
       @include ('partials.dashboard.spinner-button')
 
@@ -105,7 +107,7 @@
       @livewire ('team.team-display-team-member-update', ['teamMember' => $updatingTeamMember,])
     @else
       {{-- Members --}}
-      <div class="my-4">
+      <div class="mt-5 mb-3">
         <h3 class="h4">
           Team members
         </h3>
@@ -113,7 +115,7 @@
 
 
       <div>
-        @if ($displayTeamName ?? true)
+        @if (false && $displayTeamName ?? true)
         <h3 class="my-4">
           {{ $team->name }}
         </h3>
