@@ -29,7 +29,6 @@ class ContactMessageList extends Component
 
     public function render()
     {
-        $this->contactMessageCount = ContactMessage::count();
         if ($this->modes['showAllMode']) {
             $this->contactMessages = ContactMessage::orderBy('contact_message_id', 'desc')->get();
         } else if ($this->modes['showOnlyNewMode']) {
@@ -41,6 +40,8 @@ class ContactMessageList extends Component
         } else {
             dd ('Whoops');
         }
+
+        $this->contactMessageCount = count($this->contactMessages);
 
         return view('livewire.contact-form.dashboard.contact-message-list');
     }

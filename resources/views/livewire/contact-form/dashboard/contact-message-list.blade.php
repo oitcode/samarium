@@ -8,17 +8,6 @@
     ])
   @endif
 
-  <button wire:loading class="btn" style="font-size: 1.5rem;">
-    <div class="spinner-border text-info mr-3" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </button>
-
-  <div class="bg-white border my-3 p-3" style="font-size: 1rem;">
-    <div class="mr-4">
-      Total : {{ $contactMessageCount }}
-    </div>
-  </div>
 
   {{-- Filter div --}}
   @if (true)
@@ -76,6 +65,23 @@
     </div>
   </div>
   @endif
+
+
+  <div class="d-flex justify-content-between-rm mb-3 bg-white border ">
+    <div class="p-3 flex-grow-1-rm" style="font-size: 1rem;">
+      <div class="mr-4">
+        Total : {{ $contactMessageCount }}
+      </div>
+    </div>
+    <div class="pt-3">
+      <div wire:loading class="pr-3" style="">
+        <div class="spinner-border text-info" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
