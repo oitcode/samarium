@@ -17,7 +17,7 @@ class AppointmentList extends Component
 
     public function render()
     {
-        $this->appointments = Appointment::orderBy('appointment_date_time', 'ASC')->get();
+        $this->appointments = Appointment::orderBy('appointment_date_time', 'DESC')->get();
         $this->appointmentCount = Appointment::count();
         $this->appointmentTodayCount = Appointment::whereDate('appointment_date_time', Carbon::today())->count();
 

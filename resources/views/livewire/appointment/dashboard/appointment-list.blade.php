@@ -35,16 +35,18 @@
               ID
             </th>
             <th>
-              Staff name
+              Applicant
             </th>
             <th>
-              Applicant name
+              Phone
             </th>
-            <th class="d-none d-md-table-cell">
-              Applicant phone
-            </th>
+            @if (false)
             <th>
               Description
+            </th>
+            @endif
+            <th>
+              Staff name
             </th>
             <th class="d-none d-md-table-cell">
               Date
@@ -64,17 +66,23 @@
               <td>
                 {{ $appointment->appointment_id }}
               </td>
-              <td class="h6 font-weight-bold d-none d-md-table-cell" role="button" wire:click="$emit('displayAppointment', {{ $appointment }})">
-                {{ $appointment->teamMember->name }}
+              <td>
+                <strong>
+                  {{ $appointment->applicant_name }}
+                </strong>
               </td>
               <td>
-                {{ $appointment->applicant_name }}
+                <div class="">
+                  {{ $appointment->applicant_phone }}
+                </div>
               </td>
-              <td>
-                {{ $appointment->applicant_phone }}
-              </td>
+              @if (false)
               <td>
                 {{ $appointment->applicant_description }}
+              </td>
+              @endif
+              <td class="h6 font-weight-bold d-none d-md-table-cell" role="button" wire:click="$emit('displayAppointment', {{ $appointment }})">
+                {{ $appointment->teamMember->name }}
               </td>
               <td>
                 {{ \Carbon\Carbon::create($appointment->appointment_date_time)->toDateString() }}
@@ -83,7 +91,31 @@
                 {{ \Carbon\Carbon::create($appointment->appointment_date_time)->toTimeString() }}
               </td>
               <td>
-                <span class="badge badge-pill badge-primary">Open</span>
+                @if ($appointment->status == 'requested')
+                  <span class="badge badge-pill badge-danger badge-primary">
+                  {{ $appointment->status }}
+                  </span>
+                @elseif ($appointment->status == 'accepted')
+                  <span class="badge badge-pill badge-primary badge-primary">
+                  {{ $appointment->status }}
+                  </span>
+                @elseif ($appointment->status == 'rejected')
+                  <span class="badge badge-pill badge-dark badge-primary">
+                  {{ $appointment->status }}
+                  </span>
+                @elseif ($appointment->status == 'progress')
+                  <span class="badge badge-pill badge-warning badge-primary">
+                  {{ $appointment->status }}
+                  </span>
+                @elseif ($appointment->status == 'done')
+                  <span class="badge badge-pill badge-success badge-primary">
+                  {{ $appointment->status }}
+                  </span>
+                @else
+                  <span class="badge badge-pill badge-light badge-primary">
+                    Unknown
+                  </span>
+                @endif
               </td>
               @if (false)
               <td>
