@@ -57,12 +57,15 @@
                 {{ $testimonial->writer_info }}
               </td>
               <td>
-                {{ $testimonial->body }}
+                {{ \Illuminate\Support\Str::limit($testimonial->body, 100, $end=' ...') }}
               </td>
               <td>
+                <i class="fas fa-ellipsis-h text-secondary"></i>
+                @if (false)
                 <button class="btn mr-3" wire:click="">
                   <i class="fas fa-trash-alt"></i>
                 </button>
+                @endif
               </td>
             </tr>
           @endforeach

@@ -148,6 +148,8 @@
               @endif
             </td>
             <td>
+              <i class="fas fa-ellipsis-h text-secondary"></i>
+              @if (false)
               <button class="dropdown-item" wire:click="deleteTodo({{ $todo }})">
                 <i class="fas fa-trash text-danger mr-2"></i>
                 Delete
@@ -163,6 +165,7 @@
                   </span>
 
                 @endif
+              @endif
               @endif
             </td>
           </tr>
