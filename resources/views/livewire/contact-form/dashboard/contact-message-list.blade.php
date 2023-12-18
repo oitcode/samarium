@@ -117,10 +117,14 @@
         <tbody class="bg-white">
           @foreach ($contactMessages as $contactMessage)
             <tr>
-              <td>
+              <td
+                  wire:click="$emit('displayContactMessage', {{ $contactMessage }})"
+                  role="button">
                 {{ $contactMessage->contact_message_id }}
               </td>
-              <td class="h6 font-weight-bold d-none d-md-table-cell">
+              <td class="h6 font-weight-bold d-none d-md-table-cell"
+                  wire:click="$emit('displayContactMessage', {{ $contactMessage }})"
+                  role="button">
                 {{ $contactMessage->sender_name }}
               </td>
               <td class="d-none d-md-table-cell" style="font-size: 1rem;"
