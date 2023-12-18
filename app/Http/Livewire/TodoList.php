@@ -32,11 +32,14 @@ class TodoList extends Component
     ];
 
     public $modes = [
-        // 'confirmDeleteMode' => false,
+        'deleteTodoMode' => false,
 
-        'showOnlyPendingMode' => true,
+        'showOnlyPendingMode' => false,
+        'showOnlyProgressMode' => false,
         'showOnlyDoneMode' => false,
-        'showAllMode' => false,
+        'showOnlyDeferredMode' => false,
+        'showOnlyCancelledMode' => false,
+        'showAllMode' => true,
 
         'delete' => false, 
         'cannotDelete' => false, 
@@ -50,22 +53,30 @@ class TodoList extends Component
 
     public function render()
     {
-        /*
-        if ($this->modes['showAllMode']) {
-            $this->todos = Todo::orderBy('created_at', 'DESC')->get();
-        } else if ($this->modes['showOnlyPendingMode']) {
-            $this->todos = Todo::where('status', 'pending')->orderBy('created_at', 'DESC')->get();
-        } else if ($this->modes['showOnlyDoneMode']) {
-            $this->todos = Todo::where('status', 'done')->orderBy('created_at', 'DESC')->get();
-        } else {
-            // dd ('Whoops');
-        }
-        */
 
-        $this->todos = Todo::orderBy('todo_id', 'desc')->get();
-
-        $this->todoCount = count($this->todos);
+        // $this->todoDisplayCount = $this->todoCount;;
         $this->todoDisplayCount = $this->todoCount;;
+
+        // $this->todos = Todo::orderBy('todo_id', 'desc')->get();
+        if ($this->modes['showAllMode']) {
+            $this->todos = Todo::orderBy('todo_id', 'desc')->get();
+        } else if ($this->modes['showOnlyPendingMode']) {
+            $this->todos = Todo::where('status', 'pending')->orderBy('todo_id', 'desc')->get();
+        } else if ($this->modes['showOnlyProgressMode']) {
+            $this->todos = Todo::where('status', 'progress')->orderBy('todo_id', 'desc')->get();
+        } else if ($this->modes['showOnlyDoneMode']) {
+            $this->todos = Todo::where('status', 'done')->orderBy('todo_id', 'desc')->get();
+        } else if ($this->modes['showOnlyDeferredMode']) {
+            $this->todos = Todo::where('status', 'deferred')->orderBy('todo_id', 'desc')->get();
+        } else if ($this->modes['showOnlyCancelledMode']) {
+            $this->todos = Todo::where('status', 'cancelled')->orderBy('todo_id', 'desc')->get();
+        } else {
+            dd ('Whoops');
+        }
+
+        // $this->todoCount = count($this->todos);
+        $this->todoCount = $this->todos->count();
+
 
         return view('livewire.todo-list');
     }

@@ -9,11 +9,83 @@
   @endif
 
 
-  <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
+  {{-- Filter div --}}
+  @if (true)
+  <div class="mb-3 p-3 bg-white border">
+    <div class="font-weight-bold h5 mb-4">
+      Filter
+    </div>
+
+    <div class="d-flex">
+      <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
+        Status
+      </div>
+      @if (true)
+      <div class="dropdown">
+        <button class="btn
+            @if ($modes['showOnlyPendingMode'])
+              btn-danger
+            @elseif ($modes['showOnlyDoneMode'])
+              btn-success
+            @elseif ($modes['showOnlyProgressMode'])
+              btn-warning
+            @elseif ($modes['showOnlyDeferredMode'])
+              btn-secondary
+            @elseif ($modes['showOnlyCancelledMode'])
+              btn-dark
+            @elseif ($modes['showAllMode'])
+              btn-light border
+            @endif
+            dropdown-toggle"
+            type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          @if ($modes['showOnlyPendingMode'])
+            Pending
+          @elseif ($modes['showOnlyDoneMode'])
+            Done
+          @elseif ($modes['showOnlyProgressMode'])
+            Progress
+          @elseif ($modes['showAllMode'])
+            All
+          @elseif ($modes['showOnlyDeferredMode'])
+            Deferred
+          @elseif ($modes['showOnlyCancelledMode'])
+            Cancelled
+          @else
+            Whoops
+          @endif
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
+          <button class="dropdown-item" wire:click="enterMode('showOnlyPendingMode')">
+            Pending
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showOnlyProgressMode')">
+            Progress
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showOnlyDoneMode')">
+            Done
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showOnlyDeferredMode')">
+            Deferred
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showOnlyCancelledMode')">
+            Cancelled
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showAllMode')">
+            All
+          </button>
+        </div>
+      </div>
+      @endif
+    </div>
+  </div>
+  @endif
+
+  <div class="bg-white border my-3 p-3" style="font-size: 1rem;">
     <div class="mr-4">
       Total : {{ $todoCount }}
     </div>
   </div>
+
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
