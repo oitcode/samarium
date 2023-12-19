@@ -88,7 +88,7 @@
 
 
   {{-- Show in bigger screens --}}
-  <div class="table-responsive d-none d-md-block">
+  <div class="table-responsive d-none-rm d-md-block-rm">
     <table class="table table-hover shadow-sm border">
       <thead>
         <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
@@ -97,7 +97,7 @@
           <th>
             ID
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="">
             Title
           </th>
           <th class="d-none d-md-table-cell">
@@ -121,7 +121,7 @@
             <td>
               {{ $todo->todo_id }}
             </td>
-            <td class="h6 font-weight-bold d-none d-md-table-cell" wire:click="$emit('displayTodo', {{ $todo }})" role="button">
+            <td class="h6 font-weight-bold" wire:click="$emit('displayTodo', {{ $todo }})" role="button">
               {{ \Illuminate\Support\Str::limit($todo->title, 60, $end=' ...') }}
             </td>
             <td class="d-none d-md-table-cell" style="font-size: 1rem;">

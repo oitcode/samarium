@@ -1,4 +1,4 @@
-<div>
+<div class="bg-info-rm">
 
 
   <!-- Flash message div -->
@@ -17,8 +17,9 @@
 
   <div class="row">
     <div class="col-md-8">
-      <div class="bg-white p-3 border">
+      <div class="bg-white p-3-rm border">
 
+        @if (false)
         <div class="mb-5">
           <div class="d-flex justify-content-between">
             <div>
@@ -26,7 +27,6 @@
                 Todo
               </span>
             </div>
-            @if (false)
             <div>
               <button class="btn mr-2" wire:click="$refresh">
                 <i class="fas fa-refresh"></i>
@@ -35,70 +35,72 @@
                 <i class="fas fa-trash"></i>
               </button>
             </div>
-            @endif
           </div>
         </div>
+        @endif
 
-        <div class="row">
-          <div class="col-md-4">
-            <div class="d-flex justify-content-center">
-              <div class="d-flex flex-column justify-content-center h-100">
+        <div class="">
+
+          <div class="p-3-rm">
+
+            <div class="border-bottom p-3">
+              <span class="text-muted">
+                Title
+              </span>
+              <br />
+              @if ($modes['updateTitleMode'])
+                <div class="form-group">
+                  <input type="text" class="form-control" wire:model.defer="title" />
+                </div>
+              @else
+                <div class="font-weight-bold h6 mb-0">
+                  {{ $todo->title }}
+                </div>
+              @endif
+              @if ($modes['updateTitleMode'])
+                <button class="btn btn-success mr-2" wire:click="updateTitle">
+                  <i class="fas fa-check-circle"></i>
+                </button>
+                <button class="btn btn-danger" wire:click="exitMode('updateTitleMode')">
+                  <i class="fas fa-times-circle"></i>
+                </button>
+              @else
+                <button class="btn pl-0 text-primary" wire:click="enterMode('updateTitleMode')">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+              @endif
+            </div>
+
+            <div class="d-flex border-bottom mb-3 pb-3">
+              <div class="pt-3 pl-3">
+                <span class="text-muted">
+                  ID
+                </span>
+                <br />
+                {{ $todo->todo_id }}
+              </div>
+
+              <div class="pt-3 pl-3">
+                <span class="text-muted">
+                  Date
+                </span>
+                <br />
+                {{ $todo->created_at->toDateString() }}
               </div>
             </div>
-          </div>
-          <div class="col-md-12 d-flex flex-column justify-content-center">
 
-            <div class="table-responsive">
-              <table class="table border-bottom">
-                <tbody>
-                  <tr>
-                    <th>
-                      Title
-                    </th>
-                    <td>
-                      @if ($modes['updateTitleMode'])
-                        <div class="form-group">
-                          <input type="text" class="form-control" wire:model.defer="title" />
-                        </div>
-                      @else
-                        {{ $todo->title }}
-                      @endif
-                    </td>
-                    <td>
-                      @if ($modes['updateTitleMode'])
-                        <button class="btn btn-success mr-2" wire:click="updateTitle">
-                          <i class="fas fa-check-circle"></i>
-                        </button>
-                        <button class="btn btn-danger" wire:click="exitMode('updateTitleMode')">
-                          <i class="fas fa-times-circle"></i>
-                        </button>
-                      @else
-                        <button class="btn" wire:click="enterMode('updateTitleMode')">
-                          <i class="fas fa-pencil-alt"></i>
-                        </button>
-                      @endif
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>
-                      Date
-                    </th>
-                    <td>
-                      {{ $todo->created_at->toDateString() }}
-                    </td>
-                    <td>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="my-5">
-              <h2 class="h4 font-weight-bold mb-3">
+            <div class="pt-3 pl-3">
+              <div class="text-muted mb-3-rm">
                 Description
-              </h2>
+              </div>
               <p>
-                {{ $todo->description }}
+                @if ($todo->description)
+                  {{ $todo->description }}
+                @else
+                  <span class="text-muted">
+                    None
+                  </span>
+                @endif
               </p>
             </div>
           </div>
@@ -106,9 +108,9 @@
       </div>
     </div>
     <div class="col-md-4 px-3">
-      <div class="bg-white border">
+      <div class="bg-white border h-100">
         <div class="table-responsive">
-          <table class="table border-bottom mb-0">
+          <table class="table border-bottom-rm mb-0">
             <tbody>
               <tr wire:key="{{ rand() }}">
                 <th>
