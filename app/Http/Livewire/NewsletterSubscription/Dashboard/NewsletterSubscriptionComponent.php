@@ -6,9 +6,13 @@ use Livewire\Component;
 
 use App\Traits\ModesTrait;
 
+use App\NewsletterSubscription;
+
 class NewsletterSubscriptionComponent extends Component
 {
     use ModesTrait;
+
+    public $displayingNewsletterSubscription;
 
     public $modes = [
         'createMode' => false,
@@ -18,8 +22,19 @@ class NewsletterSubscriptionComponent extends Component
         'deleteMode' => false,
     ];
 
+    public $listeners = [
+        'displayNewsletterSubscription',
+    ];
+
     public function render()
     {
         return view('livewire.newsletter-subscription.dashboard.newsletter-subscription-component');
+    }
+
+    public function displayNewsletterSubscription(NewsletterSubscription $newsletterSubscription)
+    {
+        $this->displayingNewsletterSubscription = $newsletterSubscription;
+
+        $this->enterMode('displayMode');
     }
 }

@@ -13,6 +13,15 @@
         'btnCheckMode' => 'listMode',
     ])
 
+    @if ($modes['displayMode'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('displayMode')",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Newsletter subscription display',
+          'btnCheckMode' => 'displayMode',
+      ])
+    @endif
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
         'btnIconFaClass' => 'fas fa-refresh',
@@ -48,7 +57,7 @@
   @elseif ($modes['listMode'])
     @livewire ('newsletter-subscription.dashboard.newsletter-subscription-list')
   @elseif ($modes['displayMode'])
-    @livewire ('vacancy-display', ['vacancy' => $displayingVacancy,])
+    @livewire ('newsletter-subscription.dashboard.newsletter-subscription-display', ['newsletterSubscription' => $displayingNewsletterSubscription,])
   @elseif ($modes['updateMode'])
     @livewire ('vacancy-update', ['vacancy' => $updatingVacancy,])
   @endif
