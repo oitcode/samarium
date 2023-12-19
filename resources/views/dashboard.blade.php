@@ -137,11 +137,12 @@
         @livewire ('lv-package-welcome')
       </div>
 
-      @if (false)
       <div class="mb-3 d-none d-md-block">
-        @livewire ('lv-company-info')
+        @if (false)
+          @livewire ('lv-company-info')
+          @livewire ('clock-display-component')
+        @endif
       </div>
-      @endif
 
       <div>
         {{-- Show quick links menu. --}}
