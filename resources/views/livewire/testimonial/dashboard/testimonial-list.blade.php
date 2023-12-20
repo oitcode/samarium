@@ -53,10 +53,10 @@
               <td class="h6 font-weight-bold" wire:click="$emit('displayTestimonial', {{ $testimonial }})" role="button">
                 {{ $testimonial->writer_name }}
               </td>
-              <td>
+              <td wire:click="$emit('displayTestimonial', {{ $testimonial }})" role="button">
                 {{ $testimonial->writer_info }}
               </td>
-              <td>
+              <td wire:click="$emit('displayTestimonial', {{ $testimonial }})" role="button">
                 {{ \Illuminate\Support\Str::limit($testimonial->body, 100, $end=' ...') }}
               </td>
               <td>

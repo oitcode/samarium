@@ -54,6 +54,8 @@
 
   @if ($modes['listTestimonialMode'])
     @livewire ('testimonial.dashboard.testimonial-list')
+  @elseif ($modes['displayTestimonialMode'])
+    @livewire ('testimonial.dashboard.testimonial-display', ['testimonial' => $displayingTestimonial,])
   @endif
 
 
