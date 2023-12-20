@@ -6,9 +6,13 @@ use Livewire\Component;
 
 use App\Traits\ModesTrait;
 
+use App\Vacancy;
+
 class VacancyComponent extends Component
 {
     use ModesTrait;
+
+    public $displayingVacancy;
 
     public $modes = [
         'createMode' => false,
@@ -20,6 +24,8 @@ class VacancyComponent extends Component
     protected $listeners = [
         'vacancyCreateCompleted',
         'vacancyCreateCancelled',
+
+        'displayVacancy',
     ];
 
     public function render()
@@ -35,5 +41,12 @@ class VacancyComponent extends Component
     public function vacancyCreateCancelled()
     {
         $this->exitMode('createMode');
+    }
+
+    public function displayVacancy(Vacancy $vacancy)
+    {
+        $this->displayingVacancy = $vacancy;
+
+        $this->enterMode('displayMode');
     }
 }

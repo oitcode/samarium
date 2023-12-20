@@ -20,6 +20,15 @@
         'btnCheckMode' => 'listMode',
     ])
 
+    @if ($modes['displayMode'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('displayMode')",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Vacancy display',
+          'btnCheckMode' => 'displayMode',
+      ])
+    @endif
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
         'btnIconFaClass' => 'fas fa-refresh',
@@ -55,7 +64,7 @@
   @elseif ($modes['listMode'])
     @livewire ('vacancy.dashboard.vacancy-list')
   @elseif ($modes['displayMode'])
-    @livewire ('vacancy-display', ['vacancy' => $displayingVacancy,])
+    @livewire ('vacancy.dashboard.vacancy-display', ['vacancy' => $displayingVacancy,])
   @elseif ($modes['updateMode'])
     @livewire ('vacancy-update', ['vacancy' => $updatingVacancy,])
   @endif
