@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\SaleInvoice;
+use App\SaleQuotation;
 
 class PrintController extends Controller
 {
@@ -34,5 +35,13 @@ class PrintController extends Controller
 
         return view('print.sale-invoice')
             ->with('saleInvoice', $saleInvoice);
+    }
+
+    public function printSaleQuotation($saleQuotationId)
+    {
+        $saleQuotation = SaleQuotation::find($saleQuotationId);
+
+        return view('print.sale-quotation')
+            ->with('saleQuotation', $saleQuotation);
     }
 }

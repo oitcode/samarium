@@ -263,6 +263,7 @@ Route::get('/dashboard/calendar/calendar-group', 'CalendarGroupController@index'
  *
  */
 Route::get('/dashboard/print/saleInvoice/{id}', 'PrintController@printSaleInvoice')->name('dashboard-print-sale-invoice');
+Route::get('/dashboard/print/saleQuotation/{id}', 'PrintController@printSaleQuotation')->name('dashboard-print-sale-quotation');
 
 
 /*

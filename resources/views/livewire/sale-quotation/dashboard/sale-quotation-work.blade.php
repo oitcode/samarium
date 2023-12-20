@@ -416,7 +416,7 @@
     
         <div class="col-md-2">
           <div>
-            @include ('partials.dashboard.sale-invoice-work-options')
+            @include ('partials.dashboard.sale-quotation-work-options')
           </div>
         </div>
       </div>
