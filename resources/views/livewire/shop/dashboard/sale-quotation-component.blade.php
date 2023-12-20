@@ -51,7 +51,7 @@
   --}}
 
   @if ($modes['createSaleQuotationMode'])
-    TODO
+    @livewire ('sale-quotation.dashboard.sale-quotation-create')
   @elseif ($modes['listSaleQuotationMode'])
     TODO
   @endif

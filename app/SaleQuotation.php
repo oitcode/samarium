@@ -51,4 +51,62 @@ class SaleQuotation extends Model
     {
         return $this->belongsTo('App\Customer', 'customer_id', 'customer_id');
     }
+
+    /*
+     * sale_quotation_item table.
+     *
+     */
+    public function saleQuotationItems()
+    {
+        return $this->hasMany('App\SaleQuotationItem', 'sale_quotation_id', 'sale_quotation_id');
+    }
+
+
+
+    /*-------------------------------------------------------------------------
+     * Methods
+     *-------------------------------------------------------------------------
+     *
+     */
+
+    /*
+     * Get total amount.
+     *
+     */
+    public function getTotalAmount()
+    {
+        $total = 0;
+
+        foreach ($this->saleQuotationItems as $saleQuotationItem) {
+            $totalPrice = $saleQuotationItem->price_per_unit * $saleQuotationItem->quantity;
+            $total += $totalPrice;
+        }
+
+
+        /*
+        foreach ($this->saleInvoiceAdditions as $saleInvoiceAddition)  {
+            if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'plus') {
+                $total += $saleInvoiceAddition->amount;
+            } else if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'minus') {
+                $total -= $saleInvoiceAddition->amount;
+            } else {
+              die ('Whoops!');
+            }
+        }
+        */
+
+        return $total;
+    }
+
+    public function getTotalAmountRaw()
+    {
+        $total = 0;
+
+        foreach ($this->saleQuotationItems as $saleQuotationItem) {
+            $totalPrice = $saleQuotationItem->price_per_unit * $saleQuotationItem->quantity;
+            $total += $totalPrice;
+        }
+
+        return $total;
+    }
 }
