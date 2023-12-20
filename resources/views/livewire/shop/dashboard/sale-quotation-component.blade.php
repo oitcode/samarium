@@ -20,6 +20,15 @@
         'btnCheckMode' => 'listSaleQuotationMode',
     ])
 
+    @if ($modes['displaySaleQuotationMode'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('displaySaleQuotationMode')",
+          'btnIconFaClass' => 'fas fa-circle',
+          'btnText' => 'Sale quotation display',
+          'btnCheckMode' => 'displaySaleQuotationMode',
+      ])
+    @endif
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
         'btnIconFaClass' => 'fas fa-refresh',
@@ -53,7 +62,9 @@
   @if ($modes['createSaleQuotationMode'])
     @livewire ('sale-quotation.dashboard.sale-quotation-create')
   @elseif ($modes['listSaleQuotationMode'])
-    TODO
+    @livewire ('sale-quotation.dashboard.sale-quotation-list')
+  @elseif ($modes['displaySaleQuotationMode'])
+    @livewire ('sale-quotation.dashboard.sale-quotation-work', ['saleQuotation' => $displayingSaleQuotation,])
   @endif
 
 

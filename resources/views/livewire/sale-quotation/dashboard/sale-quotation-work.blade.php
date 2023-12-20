@@ -409,8 +409,10 @@
         </div>
       
     
+        @if (false)
         <div class="col-md-4">
         </div>
+        @endif
     
         <div class="col-md-2">
           <div>
