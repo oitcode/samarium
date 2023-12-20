@@ -9,16 +9,19 @@
   @endif
 
 
-  <button wire:loading class="btn" style="font-size: 1.5rem;">
-    <div class="spinner-border text-info mr-3" role="status">
-      <span class="sr-only">Loading...</span>
+
+
+  <div class="d-flex bg-white border p-3 mb-3">
+    <div class="" style="font-size: 1rem;">
+      <div class="mr-4">
+        Total : {{ $vacanciesCount }}
+      </div>
     </div>
-  </button>
 
-
-  <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
-    <div class="mr-4">
-      Total : {{ $vacanciesCount }}
+    <div wire:loading>
+      <div class="spinner-border text-info mx-3" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
   </div>
 
