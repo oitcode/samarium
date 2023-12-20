@@ -40,7 +40,8 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/purchase' ||
             $uri == '/dashboard/vendor' ||
             $uri == '/dashboard/expense' ||
-            $uri == '/dashboard/onlineorder'
+            $uri == '/dashboard/onlineorder' ||
+            $uri == '/dashboard/sale-quotation'
         ) {
             $this->enterModeSilent('shop');
         } else if (
