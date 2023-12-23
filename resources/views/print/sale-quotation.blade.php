@@ -25,6 +25,7 @@
     <style>
       html, body {
         overflow-x: hidden;
+        font-size: calc(1rem + 0.2vw);
       }
     </style>
 
@@ -33,7 +34,7 @@
     @livewireStyles
 </head>
 
-<body style="background-color: #eee;">
+<body style="background-color: #ddd;">
 
   <div class="container">
     @livewire ('core-sale-quotation-display', ['saleQuotation' => $saleQuotation, 'display_toolbar' => false,])
