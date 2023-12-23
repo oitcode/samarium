@@ -559,7 +559,7 @@
     </div>
     @endif
     <div class="my-2 text-muted-rm" style="color: {{ env('OC_UNSELECT_TXT_COLOR') }};">
-      Version 0.8.0
+      Version 0.8.1
     </div>
   </div>
 
