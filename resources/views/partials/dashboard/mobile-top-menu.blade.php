@@ -257,7 +257,7 @@
         <a class="nav-link text-dark" href="{{ route('dashboard-todo') }}">
           <i class="fas fa-list mr-3"></i>
           <span class="font-weight-bold">
-          Todo
+          Tasks
           </span>
         </a>
       </li>
