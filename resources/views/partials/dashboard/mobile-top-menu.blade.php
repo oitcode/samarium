@@ -106,6 +106,10 @@
               <i class="fas fa-cloud-download-alt mr-3"></i>
               Weborder
             </a>
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-sale-quotation') }}">
+              <i class="fas fa-edit mr-3"></i>
+              Quotation
+            </a>
 
           </div>
         </li>
