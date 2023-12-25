@@ -24,8 +24,8 @@
 
 
   @if ($searchResultTeams != null && count($searchResultTeams))
-    {{-- Show in bigger screens --}}
-    <div class="table-responsive d-none d-md-block">
+    {{-- Show in bigger and smaller screens --}}
+    <div class="table-responsive">
       <table class="table table-hover shadow-sm border">
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
@@ -66,8 +66,8 @@
 
   @if ($teams != null && count($teams) > 0)
     @if (true)
-    {{-- Show in bigger screens --}}
-    <div class="table-responsive d-none d-md-block">
+    {{-- Show in bigger and smaller screens --}}
+    <div class="table-responsive">
       <table class="table table-hover shadow-sm border">
         <thead>
           <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
