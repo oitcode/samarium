@@ -23,8 +23,8 @@
   </div>
 
 
-  {{-- Show in bigger screens --}}
-  <div class="table-responsive d-none d-md-block">
+  {{-- Show in bigger and smaller screens --}}
+  <div class="table-responsive">
     @if ($appointments && count($appointments) > 0)
       <table class="table table-hover shadow-sm border">
         <thead>
@@ -48,7 +48,7 @@
             <th>
               Staff name
             </th>
-            <th class="d-none d-md-table-cell">
+            <th class="">
               Date
             </th>
             <th>
@@ -81,7 +81,7 @@
                 {{ $appointment->applicant_description }}
               </td>
               @endif
-              <td class="h6 font-weight-bold d-none d-md-table-cell" role="button" wire:click="$emit('displayAppointment', {{ $appointment }})">
+              <td class="h6 font-weight-bold" role="button" wire:click="$emit('displayAppointment', {{ $appointment }})">
                 {{ $appointment->teamMember->name }}
               </td>
               <td>
