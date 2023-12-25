@@ -83,8 +83,8 @@
   </div>
 
 
-  {{-- Show in bigger screens --}}
-  <div class="table-responsive d-none d-md-block">
+  {{-- Show in bigger and smaller screens --}}
+  <div class="table-responsive">
     @if ($contactMessages && count($contactMessages) > 0)
       <table class="table table-hover shadow-sm border">
         <thead>
@@ -97,13 +97,13 @@
             <th>
               Sender name
             </th>
-            <th class="d-none d-md-table-cell">
+            <th class="">
               Message
             </th>
             <th>
               Date
             </th>
-            <th class="d-none d-md-table-cell">
+            <th class="">
               Status
             </th>
             @if (false)
@@ -122,17 +122,17 @@
                   role="button">
                 {{ $contactMessage->contact_message_id }}
               </td>
-              <td class="h6 font-weight-bold d-none d-md-table-cell"
+              <td class="h6 font-weight-bold"
                   wire:click="$emit('displayContactMessage', {{ $contactMessage }})"
                   role="button">
                 {{ $contactMessage->sender_name }}
               </td>
-              <td class="d-none d-md-table-cell" style="font-size: 1rem;"
+              <td class="" style="font-size: 1rem;"
                   wire:click="$emit('displayContactMessage', {{ $contactMessage }})"
                   role="button">
                 {{ \Illuminate\Support\Str::limit($contactMessage->message, 100, $end=' ...') }}
               </td>
-              <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+              <td class="" style="font-size: 1rem;">
                 {{ $contactMessage->created_at->toDateString() }}
               </td>
               <td>
