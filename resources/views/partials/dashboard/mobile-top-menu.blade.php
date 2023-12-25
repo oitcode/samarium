@@ -114,6 +114,87 @@
           </div>
         </li>
 
+        {{-- CMS options --}}
+        @if (preg_match("/cms/i", env('MODULES')))
+          <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+            <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCmsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-edit text-secondry mr-3"></i>
+              <span class="font-weight-bold">
+              CMS
+              </span>
+            </a>
+            <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCmsDropdown">
+
+              <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-post') }}">
+                <i class="fas fa-edit mr-3"></i>
+                Post
+              </a>
+              <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-webpage') }}">
+                <i class="fas fa-file mr-3"></i>
+                Page
+              </a>
+              <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-gallery') }}">
+                <i class="fas fa-images mr-3"></i>
+                Gallery
+              </a>
+              <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-nav-menu') }}">
+                <i class="fas fa-list mr-3"></i>
+                Nav menu
+              </a>
+              <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-theme') }}">
+                <i class="fas fa-palette mr-3"></i>
+                Theme
+              </a>
+
+            </div>
+          </li>
+        @endif
+
+        {{-- Calendar options --}}
+        @if (preg_match("/school/i", env('MODULES')))
+          <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+            <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCalendarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-calendar text-secondry mr-3"></i>
+              <span class="font-weight-bold">
+              Calendar
+              </span>
+            </a>
+            <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCalendarDropdown">
+
+              <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-school-calendar') }}">
+                <i class="fas fa-calendar mr-3"></i>
+                Calendar
+              </a>
+
+            </div>
+          </li>
+        @endif
+
+        {{-- Team options --}}
+        @if (preg_match("/team/i", env('MODULES')))
+          <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+            <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuTeamDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-calendar text-secondry mr-3"></i>
+              <span class="font-weight-bold">
+              Team
+              </span>
+            </a>
+            <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuTeamDropdown">
+
+              <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-team') }}">
+                <i class="fas fa-calendar mr-3"></i>
+                Team
+              </a>
+
+              <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-quick-contacts') }}">
+                <i class="fas fa-calendar mr-3"></i>
+                Quick contacts
+              </a>
+
+            </div>
+          </li>
+        @endif
+
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuReportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-dice-d6 text-secondry mr-3"></i>
@@ -140,41 +221,6 @@
         </li>
       @endif
 
-      {{-- CMS options --}}
-      @if (preg_match("/cms/i", env('MODULES')))
-        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
-          <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCmsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-edit text-secondry mr-3"></i>
-            <span class="font-weight-bold">
-            CMS
-            </span>
-          </a>
-          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCmsDropdown">
-
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-post') }}">
-              <i class="fas fa-edit mr-3"></i>
-              Post
-            </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-webpage') }}">
-              <i class="fas fa-file mr-3"></i>
-              Page
-            </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-gallery') }}">
-              <i class="fas fa-images mr-3"></i>
-              Gallery
-            </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-nav-menu') }}">
-              <i class="fas fa-list mr-3"></i>
-              Nav menu
-            </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-theme') }}">
-              <i class="fas fa-palette mr-3"></i>
-              Theme
-            </a>
-
-          </div>
-        </li>
-      @endif
 
       {{-- CRM options --}}
       @if (preg_match("/crm/i", env('MODULES')))
@@ -208,27 +254,24 @@
         </li>
       @endif
 
-      {{-- Calendar options --}}
-      @if (preg_match("/school/i", env('MODULES')))
-        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
-          <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCalendarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-calendar text-secondry mr-3"></i>
-            <span class="font-weight-bold">
-            Calendar
-            </span>
-          </a>
-          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCalendarDropdown">
-
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-school-calendar') }}">
-              <i class="fas fa-calendar mr-3"></i>
-              Calendar
-            </a>
-
-          </div>
-        </li>
-      @endif
 
       {{-- Common things --}}
+      <li class="nav-item border bg-light text-dark p-3">
+        <a class="nav-link text-dark" href="{{ route('dashboard-vacancy') }}">
+          <i class="fas fa-users mr-3"></i>
+          <span class="font-weight-bold">
+          Vacancy
+          </span>
+        </a>
+      </li>
+      <li class="nav-item border bg-light text-dark p-3">
+        <a class="nav-link text-dark" href="{{ route('dashboard-todo') }}">
+          <i class="fas fa-list mr-3"></i>
+          <span class="font-weight-bold">
+          Tasks
+          </span>
+        </a>
+      </li>
       <li class="nav-item border bg-light text-dark p-3">
         <a class="nav-link text-dark" href="{{ route('company') }}">
           <i class="fas fa-home mr-3"></i>
@@ -250,14 +293,6 @@
           <i class="fas fa-users mr-3"></i>
           <span class="font-weight-bold">
           Users
-          </span>
-        </a>
-      </li>
-      <li class="nav-item border bg-light text-dark p-3">
-        <a class="nav-link text-dark" href="{{ route('dashboard-todo') }}">
-          <i class="fas fa-list mr-3"></i>
-          <span class="font-weight-bold">
-          Tasks
           </span>
         </a>
       </li>
