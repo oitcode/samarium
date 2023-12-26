@@ -9,16 +9,17 @@
   @endif
 
 
-  <button wire:loading class="btn" style="font-size: 1.5rem;">
-    <div class="spinner-border text-info mr-3" role="status">
-      <span class="sr-only">Loading...</span>
+  <div class="d-flex justify-content-start">
+    <div class="d-flex mb-3 pl-3 mr-3" style="font-size: 1rem;">
+      <div class="mr-4">
+        Total : {{ $teamsCount }}
+      </div>
     </div>
-  </button>
 
-
-  <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
-    <div class="mr-4">
-      Total : {{ $teamsCount }}
+    <div wire:loading>
+      <div class="spinner-border text-info mr-3" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
   </div>
 
