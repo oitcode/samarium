@@ -158,9 +158,9 @@
         {{ $displayMonthName }}
       </h3>
       <div class="table-responsive border">
-        <table class="table table-sm table-bordered w-auto-rm mb-0">
+        <table class="table table-sm table-bordered-rm w-auto-rm mb-0">
           <thead>
-            <tr class="bg-dark text-white">
+            <tr class="bg-dark text-white d-none d-md-table-row">
               <th class="w-25">Date</th>
               @if (true)
               <th class="w-25">Day</th>
@@ -172,11 +172,12 @@
             @foreach ($monthBook as $day)
               <tr
                   class="
+                      border
                       @if ($day['day']->format('l') == 'Saturday') table-danger @endif
                       @if ($day['is_holiday']) table-danger @endif
                   "
               >
-                <td>
+                <td class="d-block d-md-table-cell border-0">
                   <div>
                     <span class="mr-3 font-weight-bold">
                       {{ $displayMonthName }}
@@ -202,10 +203,10 @@
                   <div>
                   </div>
                 </td>
-                <td class="font-weight-bold">
+                <td class="font-weight-bold d-block d-md-table-cell border-0">
                   {{ $day['day']->format('l') }}
                 </td>
-                <td>
+                <td class="d-block d-md-table-cell border-0">
                   @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
                     <span class=" badge badge-pill badge-danger">
                       Holiday
