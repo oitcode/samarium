@@ -59,7 +59,20 @@
           Description
         </div>
         <div class="col-md-9 border p-3 flex-grow-1-rm">
-          {{ $todo->description }}
+          @if ($modes['updateDescriptionMode'])
+            @livewire ('todo.dashboard.todo-edit-description', ['todo' => $todo,])
+          @else
+            <div class="d-flex justify-content-between">
+              <div>
+                {{ $todo->description }}
+              </div>
+              <div>
+                <button class="btn btn-light" wire:click="enterMode('updateDescriptionMode')">
+                  Edit
+                </button>
+              </div>
+            </div>
+          @endif
         </div>
       </div>
     </div>
