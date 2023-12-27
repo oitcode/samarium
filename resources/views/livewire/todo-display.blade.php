@@ -87,47 +87,42 @@
     </div>
 
     <div>
-      @if ($modes['updateStatus'])
-        <select class="custom-control w-75" wire:model.defer="todo_status">
-          <option value="pending">Pending</option>
-          <option value="progress">Progress</option>
-          <option value="deferred">Deferred</option>
-          <option value="cancelled">Cancelled</option>
-          <option value="done">Done</option>
-        </select>
-        <div class="my-3">
-          <button class="btn btn-sm btn-success ml-2" wire:click="changeStatus">
-            Save
-          </button>
-          <button class="btn btn-sm btn-danger ml-2" wire:click="exitMode('updateStatus')">
-            Cancel
-          </button>
-        </div>
+      @if ($modes['updateStatusMode'])
+        @livewire ('todo.dashboard.todo-edit-status', ['todo' => $todo,])
+
       @else
-        <div role="button" wire:click="enterMode('updateStatus')">
-          @if ($todo->status == 'pending')
-            <span class="badge badge-danger badge-pill">
-              Pending
-            </span>
-          @elseif ($todo->status == 'progress')
-            <span class="badge badge-warning badge-pill">
-              Progress
-            </span>
-          @elseif ($todo->status == 'deferred')
-            <span class="badge badge-light badge-pill">
-              Deferred
-            </span>
-          @elseif ($todo->status == 'cancelled')
-            <span class="badge badge-light badge-pill">
-              Cancelled
-            </span>
-          @elseif ($todo->status == 'done')
-            <span class="badge badge-success badge-pill">
-              Done
-            </span>
-          @else
-            {{ $todo->status }}
-          @endif
+        <div class="d-flex justify-content-between">
+          <div>
+            @if ($todo->status == 'pending')
+              <span class="badge badge-danger badge-pill">
+                Pending
+              </span>
+            @elseif ($todo->status == 'progress')
+              <span class="badge badge-warning badge-pill">
+                Progress
+              </span>
+            @elseif ($todo->status == 'deferred')
+              <span class="badge badge-light badge-pill">
+                Deferred
+              </span>
+            @elseif ($todo->status == 'cancelled')
+              <span class="badge badge-light badge-pill">
+                Cancelled
+              </span>
+            @elseif ($todo->status == 'done')
+              <span class="badge badge-success badge-pill">
+                Done
+              </span>
+            @else
+              {{ $todo->status }}
+            @endif
+          </div>
+
+          <div>
+            <button class="btn btn-light" wire:click="enterMode('updateStatusMode')">
+            Edit
+            </button>
+          </div>
         </div>
       @endif
     </div>

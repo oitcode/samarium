@@ -16,9 +16,9 @@ class TodoDisplay extends Component
     public $todo_status;
 
     public $modes = [
-        'updateStatus' => false,
         'updateTitleMode' => false,
         'updateDescriptionMode' => false,
+        'updateStatusMode' => false,
     ];
 
     protected $listeners = [
@@ -27,6 +27,9 @@ class TodoDisplay extends Component
 
         'todoUpdateDescriptionCancelled',
         'todoUpdateDescriptionCompleted',
+
+        'todoUpdateStatusCancelled',
+        'todoUpdateStatusCompleted',
     ];
 
     public function mount()
@@ -82,5 +85,15 @@ class TodoDisplay extends Component
     public function todoUpdateDescriptionCompleted()
     {
         $this->exitMode('updateDescriptionMode');
+    }
+
+    public function todoUpdateStatusCancelled()
+    {
+        $this->exitMode('updateStatusMode');
+    }
+
+    public function todoUpdateStatusCompleted()
+    {
+        $this->exitMode('updateStatusMode');
     }
 }
