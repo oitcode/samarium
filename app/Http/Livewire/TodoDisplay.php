@@ -20,6 +20,11 @@ class TodoDisplay extends Component
         'updateTitleMode' => false,
     ];
 
+    protected $listeners = [
+        'todoUpdateTitleCancelled',
+        'todoUpdateTitleCompleted',
+    ];
+
     public function mount()
     {
         $this->todo_status = $this->todo->status;
@@ -53,5 +58,15 @@ class TodoDisplay extends Component
         $this->exitMode('updateTitleMode');
 
         session()->flash('message', 'Title updated');
+    }
+
+    public function todoUpdateTitleCancelled()
+    {
+        $this->exitMode('updateTitleMode');
+    }
+
+    public function todoUpdateTitleCompleted()
+    {
+        $this->exitMode('updateTitleMode');
     }
 }
