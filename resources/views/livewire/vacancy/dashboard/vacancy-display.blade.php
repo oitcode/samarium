@@ -70,7 +70,20 @@
           Description
         </div>
         <div class="col-md-9 border p-3 flex-grow-1-rm">
-          {{ $vacancy->description }}
+          @if ($modes['updateDescriptionMode'])
+            @livewire ('vacancy.dashboard.vacancy-edit-description', ['vacancy' => $vacancy,])
+          @else
+            <div class="d-flex justify-content-between">
+              <div>
+                {{ $vacancy->description }}
+              </div>
+              <div>
+                <button class="btn btn-light" wire:click="enterMode('updateDescriptionMode')">
+                  Edit
+                </button>
+              </div>
+            </div>
+          @endif
         </div>
       </div>
     </div>

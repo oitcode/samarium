@@ -14,11 +14,15 @@ class VacancyDisplay extends Component
 
     public $modes = [
         'updateTitleMode' => false,
+        'updateDescriptionMode' => false,
     ];
 
     protected $listeners = [
         'vacancyUpdateTitleCancelled',
         'vacancyUpdateTitleCompleted',
+
+        'vacancyUpdateDescriptionCancelled',
+        'vacancyUpdateDescriptionCompleted',
     ];
 
     public function render()
@@ -34,5 +38,15 @@ class VacancyDisplay extends Component
     public function vacancyUpdateTitleCompleted()
     {
         $this->exitMode('updateTitleMode');
+    }
+
+    public function vacancyUpdateDescriptionCancelled()
+    {
+        $this->exitMode('updateDescriptionMode');
+    }
+
+    public function vacancyUpdateDescriptionCompleted()
+    {
+        $this->exitMode('updateDescriptionMode');
     }
 }
