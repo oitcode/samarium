@@ -13,7 +13,20 @@
           Title
         </div>
         <div class="col-md-9 border p-3">
-          {{ $vacancy->title }}
+          @if ($modes['updateTitleMode'])
+            @livewire ('vacancy.dashboard.vacancy-edit-title', ['vacancy' => $vacancy,])
+          @else
+            <div class="d-flex justify-content-between">
+              <div>
+                {{ $vacancy->title }}
+              </div>
+              <div>
+                <button class="btn btn-light" wire:click="enterMode('updateTitleMode')">
+                  Edit
+                </button>
+              </div>
+            </div>
+          @endif
         </div>
       </div>
     </div>
