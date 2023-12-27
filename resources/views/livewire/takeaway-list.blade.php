@@ -2,7 +2,62 @@
 
 
 
+  {{-- Filter div --}}
+  @if (true)
+  <div class="mb-3 p-3 bg-white border">
+    <div class="font-weight-bold h5 mb-4">
+      Filter
+    </div>
 
+    <div class="d-flex">
+      <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
+        Payment status
+      </div>
+      @if (true)
+      <div class="dropdown">
+        <button class="btn
+            @if ($modes['showOnlyPendingMode'])
+              btn-danger
+            @elseif ($modes['showOnlyPaidMode'])
+              btn-success
+            @elseif ($modes['showOnlyPartiallyPaidMode'])
+              btn-warning
+            @elseif ($modes['showAllMode'])
+              btn-light border
+            @endif
+            dropdown-toggle"
+            type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          @if ($modes['showOnlyPendingMode'])
+            Pending
+          @elseif ($modes['showOnlyPaidMode'])
+            Paid
+          @elseif ($modes['showOnlyPartiallyPaidMode'])
+            Partially paid
+          @elseif ($modes['showAllMode'])
+            All
+          @else
+            Whoops
+          @endif
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
+          <button class="dropdown-item" wire:click="enterMode('showOnlyPendingMode')">
+            Pending
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showOnlyPartiallyPaidMode')">
+            Partially paid
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showOnlyPaidMode')">
+            Paid
+          </button>
+          <button class="dropdown-item" wire:click="enterMode('showAllMode')">
+            All
+          </button>
+        </div>
+      </div>
+      @endif
+    </div>
+  </div>
+  @endif
   <div class="d-flex bg-white border p-3 mb-3">
     <div class="d-flex" style="font-size: 1rem;">
       <div class="mr-4 font-weight-bold">

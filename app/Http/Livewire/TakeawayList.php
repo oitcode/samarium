@@ -5,11 +5,14 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+use App\Traits\ModesTrait;
+
 use App\Takeaway;
 
 class TakeawayList extends Component
 {
     use WithPagination;
+    use ModesTrait;
 
     // public $takeaways;
 
@@ -23,6 +26,14 @@ class TakeawayList extends Component
 
     public $modes = [
         'confirmDelete' => false,
+
+        'showOnlyPendingMode' => false,
+        'showOnlyPartiallyPaidMode' => false,
+        'showOnlyPaidMode' => false,
+        'showAllMode' => true,
+
+        'delete' => false, 
+        'cannotDelete' => false, 
     ];
 
     protected $listeners = [
@@ -33,33 +44,38 @@ class TakeawayList extends Component
     public function render()
     {
 
-        $takeaways = Takeaway::orderBy('takeaway_id', 'desc')->paginate(5);
-        $this->totalTakeawayCount = Takeaway::count();
+        if ($this->modes['showAllMode']) {
+            $takeaways = Takeaway::orderBy('takeaway_id', 'desc')->paginate(5);
+            $this->totalTakeawayCount = Takeaway::count();
+        } else if ($this->modes['showOnlyPendingMode']) {
+
+            $takeaways = Takeaway::whereHas('saleInvoice', function ($query) {
+                $query->where('payment_status', 'pending');
+            })->orderBy('takeaway_id', 'desc');
+
+            $this->totalTakeawayCount = $takeaways->count();
+            $takeaways  = $takeaways->paginate(5);
+
+        } else if ($this->modes['showOnlyPartiallyPaidMode']) {
+            $takeaways = Takeaway::whereHas('SaleInvoice', function ($query) {
+                $query->where('payment_status', 'partially_paid');
+            })->orderBy('takeaway_id', 'desc');
+            $this->totalTakeawayCount = $takeaways->count();
+            $takeaways  = $takeaways->paginate(5);
+        } else if ($this->modes['showOnlyPaidMode']) {
+            $takeaways = Takeaway::whereHas('SaleInvoice', function ($query) {
+                $query->where('payment_status', 'paid');
+            })->orderBy('takeaway_id', 'desc');
+            $this->totalTakeawayCount = $takeaways->count();
+            $takeaways  = $takeaways->paginate(5);
+        } else {
+            dd ('Whoops');
+        }
+
         $this->todayTakeawayCount = Takeaway::whereDate('created_at', date('Y-m-d'))->count();
 
         return view('livewire.takeaway-list')
             ->with('takeaways', $takeaways);
-    }
-
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
     }
 
     public function confirmDeleteTakeaway(Takeaway $takeaway)
