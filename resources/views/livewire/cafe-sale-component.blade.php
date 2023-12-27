@@ -8,14 +8,30 @@
 
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Tables">
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createSeatTableMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
         'btnText' => 'New',
         'btnCheckMode' => 'createSeatTableMode',
     ])
+    @endif
 
     @include ('partials.dashboard.spinner-button')
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('editSettingsMode')",
+        'btnIconFaClass' => 'fas fa-cogs',
+        'btnText' => 'Settings',
+        'btnCheckMode' => 'editSettingsMode',
+    ])
+
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "clearModes",
+        'btnIconFaClass' => 'fas fa-refresh',
+        'btnText' => '',
+        'btnCheckMode' => '',
+    ])
   </x-toolbar-classic>
 
 
@@ -29,6 +45,8 @@
     @livewire ('seat-table-work-display', ['seatTable' => $workingSeatTable,])
   @elseif ($modes['seatTableDisplayXypher'])
     @livewire ('seat-table-display', ['seatTable' => displayingSeatTable,])
+  @elseif ($modes['editSettingsMode'])
+    @livewire ('seat-table.dashboard.seat-table-settings-component')
   @elseif ($modes['createSeatTableMode'])
     @livewire ('seat-table-create')
   @else

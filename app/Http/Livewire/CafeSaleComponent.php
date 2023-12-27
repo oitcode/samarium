@@ -21,6 +21,8 @@ class CafeSaleComponent extends Component
         'createSeatTableMode' => false,
 
         'seatTableDisplayXypher' => false,
+
+        'editSettingsMode' => false,
     ];
 
     protected $listeners = [
