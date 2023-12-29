@@ -14,15 +14,28 @@
 
 @section ('content')
 
-  <x-component-header>
-    Dashboard
-  </x-component-header>
+  <div class="d-flex justify-content-between mb-3">
+    <div class="flex-grow-1 p-0">
+      @if (false)
+      <x-component-header x>
+        Dashboard
+      </x-component-header>
+      @else
+      @endif
+    </div>
+    @if (false)
+    <div class="border-danger">
+      @livewire ('lv-package-welcome')
+    </div>
+    @endif
+  </div>
+
 
 
 
   <div class="row" style="margin: auto;">
 
-    <div class="col-md-9 d-none d-md-block p-0">
+    <div class="col-md-12 d-none d-md-block p-0">
 
       {{-- Announcement --}}
       @if (false)
@@ -44,21 +57,13 @@
             @endif
             @endif
 
-            @if (true)
-            {{-- Calendar glance/navigator --}}
-            @if (preg_match("/calendar/i", env('MODULES')))
-              <div class="mb-4">
-                @livewire ('calendar.dashboard.calendar-glance-component')
-              </div>
-            @endif
-            @endif
 
-            <div class="row">
+            <div class="row mb-5">
 
               @if (false)
               {{-- CMS glance --}}
               @if (preg_match("/cms/i", env('MODULES'))) 
-                <div class="col-md-6">
+                <div class="col-md-3">
                     {{-- CMS glance --}}
                     <div class="mb-4">
                       @livewire ('cms.dashboard.cms-glance')
@@ -69,7 +74,7 @@
 
               {{-- Shop glance --}}
               @if (preg_match("/shop/i", env('MODULES')))
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="mb-4">
                     @livewire ('shop.dashboard.shop-glance')
                   </div>
@@ -79,7 +84,7 @@
               @if (false)
               {{-- Product glance --}}
               @if (preg_match("/shop/i", env('MODULES')))
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="mb-4">
                     @livewire ('shop.dashboard.product-glance')
                   </div>
@@ -89,7 +94,7 @@
 
               {{-- Online order glance --}}
               @if (preg_match("/shop/i", env('MODULES')))
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="mb-4">
                     @livewire ('online-order.dashboard.online-order-glance')
                   </div>
@@ -98,7 +103,7 @@
 
               {{-- Notice glance --}}
               @if (preg_match("/crm/i", env('MODULES')))
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="mb-4">
                     @livewire ('cms.dashboard.notice-glance-component')
                   </div>
@@ -107,7 +112,7 @@
 
               {{-- Contact form glance --}}
               @if (preg_match("/crm/i", env('MODULES')))
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="mb-4">
                     @livewire ('contact-form.dashboard.contact-message-glance-component')
                   </div>
@@ -116,10 +121,19 @@
 
             </div>
 
+            @if (false)
+            {{-- Calendar glance/navigator --}}
+            @if (preg_match("/calendar/i", env('MODULES')))
+              <div class="mb-4">
+                @livewire ('calendar.dashboard.calendar-glance-component')
+              </div>
+            @endif
+            @endif
+
             {{-- Todo glance --}}
             <div class="row">
               <div class="col-md-12">
-                @if (false)
+                @if (true)
                 <div class="d-none d-md-block">
                   @livewire ('todo.dashboard.todo-glance')
                 </div>
@@ -133,10 +147,6 @@
     </div>
 
     <div class="col-md-3">
-      <div class="mb-3 d-none d-md-block">
-        @livewire ('lv-package-welcome')
-      </div>
-
       <div class="mb-3 d-none d-md-block">
         @if (false)
           @livewire ('lv-company-info')

@@ -1,7 +1,7 @@
 <div>
 
 
-  <div class="bg-white border pt-3 pl-3">
+  <div class="bg-white-rm border-rm pt-3 pl-3">
     <div class="d-flex justify-content-between">
 
       @if (true)
@@ -9,11 +9,25 @@
 
         {{-- Date selector --}}
         <div class="float-left d-flex bg-warning-rm">
+
+
           <button class="btn btn-light mr-3 p-0 bg-white-rm badge-pill-rm" wire:click="setPreviousDay">
             <i class="far fa-arrow-alt-circle-left fa-2x text-secondary"></i>
           </button>
 
-          <button class="btn {{ env('OC_ASCENT_BTN_COLOR', 'btn-dark') }} mr-3 px-2 font-weight-bold rounded-lg" style="min-width: 300px;">
+          <button class="btn btn-light m-0 p-0 bg-white-rm badge-pill-rm" wire:click="setNextDay">
+            <i class="far fa-arrow-alt-circle-right fa-2x text-secondary"></i>
+          </button>
+
+          <div class="d-none d-md-block ml-3" style="font-size: 1rem;">
+
+            <input type="date" wire:model.defer="calendarDate" class="">
+            <button class="btn btn-light" wire:click="setCalendarDate">
+              Go
+            </button>
+          </div>
+
+          <span class="btn-rm {{ env('OC_ASCENT_BTN_COLOR', 'btn-dark') }}-rm mr-3 px-2 font-weight-bold rounded-lg ml-5 pt-2" style="min-width: 300px;">
             @if (\Carbon\Carbon::today() == \Carbon\Carbon::create($calendarDate))
               <span class="">
                 TODAY
@@ -33,19 +47,7 @@
                 {{ Carbon\Carbon::parse($calendarDate)->format('l') }}
               </span>
             @endif
-          </button>
-
-          <button class="btn btn-light m-0 p-0 bg-white-rm badge-pill-rm" wire:click="setNextDay">
-            <i class="far fa-arrow-alt-circle-right fa-2x text-secondary"></i>
-          </button>
-
-          <div class="d-none d-md-block my-3-rm text-secondary-rm ml-3" style="font-size: 1rem;">
-
-            <input type="date" wire:model.defer="calendarDate" class="ml-5">
-            <button class="btn btn-light" wire:click="setCalendarDate">
-              Go
-            </button>
-          </div>
+          </span>
         </div>
 
         <div wire:loading>
@@ -91,7 +93,9 @@
             </div>
           @endforeach
         @else
-          No events
+          <div class="my-2">
+            No events
+          </div>
         @endif
       </div>
       @if (false)

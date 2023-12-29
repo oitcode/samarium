@@ -1,19 +1,20 @@
-<div class="bg-white border">
+<div class="">
 
 
   {{-- First row --}}
   <div class="row pb-2-rm" style="margin: auto;">
 
-    <div class="col-md-6 p-2-rm m-0 p-0 bg-info-rm" role="button">
+    <div class="col-md-12 p-2-rm m-0 p-0 bg-info-rm" role="button">
       @include ('partials.misc.glance-card', [
-          'bsBgClass' => 'bg-white',
+          'bsBgClass' => 'bg-success',
           'btnRoute' => 'dashboard-cms-post',
-          'iconFaClass' => 'fas fa-dice-d6',
+          'iconFaClass' => 'fas fa-bell',
           'btnTextPrimary' => 'Notice',
           'btnTextSecondary' => $noticeCount,
       ])
     </div>
 
+    @if (false)
     @if ($todayNoticeCount > 0)
       <div class="col-md-6 p-2-rm m-0" role="button">
         @include ('partials.misc.glance-card', [
@@ -40,6 +41,7 @@
         </div>
         @endif
       </div>
+    @endif
     @endif
 
   </div>

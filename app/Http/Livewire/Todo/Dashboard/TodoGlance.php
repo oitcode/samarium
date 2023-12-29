@@ -14,7 +14,7 @@ class TodoGlance extends Component
     public function render()
     {
         $this->totalTodo = Todo::count();
-        $this->todos = Todo::orderBy('todo_id', 'desc')->limit(25)->get();
+        $this->todos = Todo::orderBy('todo_id', 'desc')->limit(5)->get();
 
         return view('livewire.todo.dashboard.todo-glance');
     }

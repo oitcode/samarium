@@ -1,4 +1,4 @@
-<div class="bg-white border">
+<div class="bg-white-rm border-rm">
 
   @if (false)
   <div class="d-flex justify-content-between">
@@ -29,7 +29,7 @@
 
     <div class="col-md-12 p-0 m-0" role="button">
       @include ('partials.misc.glance-card', [
-          'bsBgClass' => 'bg-white',
+          'bsBgClass' => 'bg-primary',
           'btnRoute' => 'sale',
           'iconFaClass' => 'fas fa-dice-d6',
           'btnTextPrimary' => 'Sales',
