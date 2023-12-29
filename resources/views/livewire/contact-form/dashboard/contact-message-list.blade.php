@@ -15,6 +15,7 @@
     <div class="font-weight-bold h5 mb-4">
       Filter
     </div>
+    <hr />
 
     <div class="d-flex">
       <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
