@@ -43,7 +43,7 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
 
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
-        <div class="mb-5 text-center">
+        <div class="mb-3 text-center">
           <div class="mb-3">
             @if (\App\Company::first())
               <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"

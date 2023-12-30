@@ -523,6 +523,50 @@
   @endif
 
 
+  @if (preg_match("/project/i", env('MODULES')))
+
+    @if ($modes['project'])
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "exitMode('project')",
+          'btnIconFaClass' => 'fas fa-th',
+          'btnText' => 'Project',
+          'btnCheckMode' => 'project',
+      ])
+    @else
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "enterModeSilent('project')",
+          'btnIconFaClass' => 'fas fa-th',
+          'btnText' => 'Project',
+          'btnCheckMode' => 'project',
+      ])
+    @endif
+
+    @if ($modes['project'])
+
+      {{--
+      |
+      |
+      | HR route buttons
+      |
+      |
+      --}}
+      <div class="o-animated-rm mb-3 border-bottom">
+
+        @include ('partials.dashboard.app-left-menu-button', [
+          'btnRoute' => 'dashboard-todo',
+          'iconFaClass' => 'fas fa-tasks',
+          'btnText' => 'Tasks',
+        ])
+      </div>
+
+    @endif
+
+    @if (false)
+    <hr class="m-0 p-0"/>
+    @endif
+  @endif
+
+
   @if ($modes['bgc'])
     {{--
     |
@@ -574,12 +618,6 @@
     ])
   @endcan
   @endif
-
-  @include ('partials.dashboard.app-left-menu-button', [
-    'btnRoute' => 'dashboard-todo',
-    'iconFaClass' => 'fas fa-tasks',
-    'btnText' => 'Tasks',
-  ])
 
   @if (false)
   @include ('partials.dashboard.app-left-menu-button', [
