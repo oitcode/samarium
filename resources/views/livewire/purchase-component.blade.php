@@ -19,6 +19,13 @@
         'btnCheckMode' => 'list',
     ])
 
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('search')",
+        'btnIconFaClass' => 'fas fa-search',
+        'btnText' => 'Search',
+        'btnCheckMode' => 'search',
+    ])
+
     @if ($modes['display'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('display')",
@@ -57,6 +64,8 @@
     @else
       @livewire ('core-purchase-display', ['purchase' => $displayingPurchase,])
     @endif
+  @elseif ($modes['search'])
+    @livewire ('purchase-search')
   @endif
 
 

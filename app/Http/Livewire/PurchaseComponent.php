@@ -16,6 +16,7 @@ class PurchaseComponent extends Component
         'display' => false,
         'update' => false,
         'delete' => false,
+        'search' => false,
     ];
 
     protected $listeners = [
