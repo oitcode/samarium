@@ -22,6 +22,13 @@
             'btnCheckMode' => 'list',
         ])
 
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('search')",
+            'btnIconFaClass' => 'fas fa-search',
+            'btnText' => 'Search',
+            'btnCheckMode' => 'search',
+        ])
+
         @if ($modes['display'])
           @include ('partials.dashboard.tool-bar-button-pill', [
               'btnClickMethod' => "enterMode('display')",
@@ -60,6 +67,8 @@
     @endif
   @elseif ($modes['list'])
     @livewire ('takeaway-list')
+  @elseif ($modes['search'])
+    @livewire ('takeaway-search')
   @else
   @endif
 

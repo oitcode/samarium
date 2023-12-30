@@ -14,6 +14,7 @@ class TakeawayComponent extends Component
         'create' => false,
         'list' => true,
         'display' => false,
+        'search' => false,
     ];
 
     protected $listeners = [
