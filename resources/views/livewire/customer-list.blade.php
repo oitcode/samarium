@@ -1,6 +1,7 @@
 <div>
 
 
+  @if (false)
   {{-- Show in bigger screens --}}
   <div class="mb-4 p-3 bg-white border d-none d-md-block">
 
@@ -40,6 +41,7 @@
     <div class="clearfix">
     </div>
   </div>
+  @endif
 
 
   {{-- Show in smaller screens --}}
