@@ -20,6 +20,13 @@
         'btnCheckMode' => 'listSaleQuotationMode',
     ])
 
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('searchSaleQuotationMode')",
+        'btnIconFaClass' => 'fas fa-search',
+        'btnText' => 'Search',
+        'btnCheckMode' => 'searchSaleQuotationMode',
+    ])
+
     @if ($modes['displaySaleQuotationMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('displaySaleQuotationMode')",
@@ -63,6 +70,8 @@
     @livewire ('sale-quotation.dashboard.sale-quotation-create')
   @elseif ($modes['listSaleQuotationMode'])
     @livewire ('sale-quotation.dashboard.sale-quotation-list')
+  @elseif ($modes['searchSaleQuotationMode'])
+    @livewire ('sale-quotation.dashboard.sale-quotation-search')
   @elseif ($modes['displaySaleQuotationMode'])
     @livewire ('sale-quotation.dashboard.sale-quotation-work', ['saleQuotation' => $displayingSaleQuotation,])
   @endif

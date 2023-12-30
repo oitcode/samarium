@@ -18,6 +18,7 @@ class SaleQuotationComponent extends Component
         'createSaleQuotationMode' => false,
         'listSaleQuotationMode' => false,
         'displaySaleQuotationMode' => false,
+        'searchSaleQuotationMode' => false,
     ];
 
     protected $listeners = [
