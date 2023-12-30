@@ -20,6 +20,13 @@
         'btnCheckMode' => 'list',
     ])
 
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('search')",
+        'btnIconFaClass' => 'fas fa-search',
+        'btnText' => 'Search',
+        'btnCheckMode' => 'search',
+    ])
+
     @if ($modes['display'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('display')",
@@ -60,6 +67,8 @@
 
   @if ($modes['create'])
     @livewire ('vendor-create')
+  @elseif ($modes['search'])
+    @livewire ('vendor-search')
   @elseif ($modes['display'])
     @livewire ('vendor-display', ['vendor' => $displayingVendor,])
   @elseif ($modes['list'])
