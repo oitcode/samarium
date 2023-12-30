@@ -21,6 +21,7 @@ class AppLeftMenu extends Component
         'team' => false,
         'report' => false,
         'crm' => false,
+        'hr' => false,
     ];
 
     public function mount()
@@ -75,6 +76,10 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/testimonial'
         ) {
             $this->enterModeSilent('crm');
+        } else if (
+            $uri == '/dashboard/vacancy'
+        ) {
+            $this->enterModeSilent('hr');
         }
     }
 

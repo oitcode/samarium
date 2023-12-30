@@ -479,6 +479,49 @@
     @endif
   @endif
 
+  @if (preg_match("/hr/i", env('MODULES')))
+
+    @if ($modes['hr'])
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "exitMode('hr')",
+          'btnIconFaClass' => 'fas fa-users',
+          'btnText' => 'HR',
+          'btnCheckMode' => 'hr',
+      ])
+    @else
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "enterModeSilent('hr')",
+          'btnIconFaClass' => 'fas fa-users',
+          'btnText' => 'HR',
+          'btnCheckMode' => 'hr',
+      ])
+    @endif
+
+    @if ($modes['hr'])
+
+      {{--
+      |
+      |
+      | HR route buttons
+      |
+      |
+      --}}
+      <div class="o-animated-rm mb-3 border-bottom">
+
+        @include ('partials.dashboard.app-left-menu-button', [
+          'btnRoute' => 'dashboard-vacancy',
+          'iconFaClass' => 'fas fa-edit',
+          'btnText' => 'Vacancy',
+        ])
+      </div>
+
+    @endif
+
+    @if (false)
+    <hr class="m-0 p-0"/>
+    @endif
+  @endif
+
 
   @if ($modes['bgc'])
     {{--
@@ -509,12 +552,6 @@
   | 
   |
   --}}
-
-  @include ('partials.dashboard.app-left-menu-button', [
-    'btnRoute' => 'dashboard-vacancy',
-    'iconFaClass' => 'fas fa-edit',
-    'btnText' => 'Vacancy',
-  ])
 
   @if (false)
   @include ('partials.dashboard.app-left-menu-button', [

@@ -51,9 +51,11 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
                   alt="{{ \App\Company::first()->name }} logo"
                   style="height: 75px !important;">
 
+              @if (false)
               <div class="h5 font-weight-bold my-3">
                 {{ \App\Company::first()->name }}
               </div>
+              @endif
             @else
               <i class="fas fa-check-circle mr-1"></i>
             @endif

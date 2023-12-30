@@ -58,6 +58,7 @@
             @endif
 
 
+            @if (true)
             <div class="row mb-5">
 
               @if (false)
@@ -120,6 +121,7 @@
               @endif
 
             </div>
+            @endif
 
             @if (false)
             {{-- Calendar glance/navigator --}}
