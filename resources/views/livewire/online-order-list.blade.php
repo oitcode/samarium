@@ -14,7 +14,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
       @if ($websiteOrders != null && count($websiteOrders) > 0)
 
       {{-- Show in bigger screens --}}

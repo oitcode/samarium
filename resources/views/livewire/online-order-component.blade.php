@@ -13,6 +13,13 @@
         'btnCheckMode' => 'listMode',
     ])
 
+    @include ('partials.dashboard.tool-bar-button-pill', [
+        'btnClickMethod' => "enterMode('searchMode')",
+        'btnIconFaClass' => 'fas fa-search',
+        'btnText' => 'Search',
+        'btnCheckMode' => 'searchMode',
+    ])
+
     @if ($modes['onlineOrderDisplay'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('onlineOrderDisplay')",
@@ -42,6 +49,8 @@
     @livewire ('online-order-display', ['websiteOrder' => $displayingOnlineOrder,])
   @elseif ($modes['listMode'])
     @livewire ('online-order-list')
+  @elseif ($modes['searchMode'])
+    @livewire ('online-order-search')
   @endif
 
 
