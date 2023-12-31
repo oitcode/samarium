@@ -23,6 +23,7 @@ class AppLeftMenu extends Component
         'crm' => false,
         'hr' => false,
         'project' => false,
+        'document' => false,
     ];
 
     public function mount()
@@ -85,6 +86,11 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/todo'
         ) {
             $this->enterModeSilent('project');
+        } else if (
+            $uri == '/dashboard/document/url-link' ||
+            $uri == '/dashboard/document/file'
+        ) {
+            $this->enterModeSilent('document');
         }
     }
 

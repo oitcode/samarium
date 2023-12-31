@@ -89,4 +89,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Expense', 'creator_id', 'id');
     }
+
+    /*
+     * url_link table.
+     *
+     */
+    public function urlLinks()
+    {
+        return $this->hasMany('App\UrlLink', 'creator_id', 'id');
+    }
 }

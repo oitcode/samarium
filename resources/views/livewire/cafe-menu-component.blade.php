@@ -64,6 +64,7 @@
 
   <!-- Flash message div -->
   @if (session()->has('message'))
+    @if (false)
     <div class="p-2">
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="fas fa-check-circle mr-3"></i>
@@ -73,6 +74,8 @@
         </button>
       </div>
     </div>
+    @endif
+    @include ('partials.flash-message-modal', ['message' => session('message'),])
   @endif
 
 

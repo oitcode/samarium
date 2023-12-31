@@ -127,6 +127,12 @@ Route::get('/dashboard/newsletter-subscription', 'NewsletterSubscriptionControll
 /* Newsletter subscription  */
 Route::get('/dashboard/testimonial', 'TestimonialController@index')->name('dashboard-testimonial');
 
+/* Url link  */
+Route::get('/dashboard/document/url-link', 'UrlLinkController@index')->name('dashboard-document-url-link');
+
+/* Document  */
+Route::get('/dashboard/document/file', 'DocumentFileController@index')->name('dashboard-document-file');
+
 /*
  *-----------------------------------------------------------------------------
  * Website routes
