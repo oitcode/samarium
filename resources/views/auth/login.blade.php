@@ -41,6 +41,42 @@
 <body style="height: 100% !important;  background-image: linear-gradient(45deg, {{ env('OC_SELECT_COLOR') }} , {{ env('OC_SELECT_COLOR') }} 15%, {{
 env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55a; --}}">
 
+  <div class="row h-100">
+    @if (true)
+    <div class="col-md-4 bg-primary text-white">
+      <div class="d-flex flex-column justify-content-center h-100">
+        <div class="p-5">
+          <h2 class="h4 font-weight-bold">
+            Ozone
+          </h2>
+          <div class="my-4 p-3-rm-rm border-rm">
+            Version 0.8.2
+          </div>
+          @if (false)
+          <ul class="list-group bg-transparent">
+            <li class="list-group-item bg-transparent border-0 p-0">
+              <i class="fas fa-check-circle mr-1"></i>
+              Modular
+            </li>
+            <li class="list-group-item bg-transparent border-0 p-0">
+              <i class="fas fa-check-circle mr-1"></i>
+              PHP
+            </li>
+            <li class="list-group-item bg-transparent border-0 p-0">
+              <i class="fas fa-check-circle mr-1"></i>
+              Open source
+            </li>
+            <li class="list-group-item bg-transparent border-0 p-0">
+              <i class="fas fa-check-circle mr-1"></i>
+              Version 0.8.2
+            </li>
+          </ul>
+          @endif
+        </div>
+      </div>
+    </div>
+    @endif
+    <div class="col-md-8">
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
         <div class="mb-3 text-center">
@@ -71,15 +107,15 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
           @endif
         </div>
 
-        <div class="py-4 bg-primary-rm text-primary-rm rounded border shadow" style="background-color: #eee; color: {{ env('OC_SELECT_COLOR') }};">
+        <div class="py-4 bg-primary-rm text-primary-rm rounded border shadow-rm" style="background-color: #eee; color: {{ env('OC_SELECT_COLOR') }};">
           @if (true)
-          <div class="h2 text-center" style="text-shadow: 1px 0 {{ env('OC_SELECT_COLOR') }};text-shadow: -1px 0 {{ env('OC_SELECT_COLOR') }};
+          <div class="h4 text-center" style="text-shadow: 1px 0 {{ env('OC_SELECT_COLOR') }};text-shadow: -1px 0 {{ env('OC_SELECT_COLOR') }};
           {{-- font-family: Mono; --}}">
             Login
           </div>
           @endif
         </div>
-        <div class="row-rm border shadow bg-white d-flex py-3" style="">
+        <div class="row-rm border shadow-sm bg-white d-flex py-3" style="">
           <div class="bg-primary text-white">
             <div class="h2-rm text-center text-white-rm p-0">
               @if (false)
@@ -149,7 +185,7 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
                   @enderror
                 </div>
 
-                <div class="form-group shadow-sm mb-4">
+                <div class="form-group shadow-sm mb-2">
                     @if (false)
                     <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                     @endif
@@ -181,7 +217,7 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
                 </div>
                 @endif
 
-                <div class="form-group mt-5 mb-1">
+                <div class="form-group mt-3 mb-1">
                     <button type="submit" class="btn btn-success-rm badge-pill btn-block py-3 text-white shadow"
                         style="{{-- font-size: 1.3rem; --}} background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR') }}, {{ env('OC_SELECT_COLOR') }});">
                         <span class="h5">
@@ -202,7 +238,7 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
           </div>
         </div>
 
-        <div class="my-5 text-muted">
+        <div class="my-3 text-muted">
           <div class="d-flex flex-column justify-content-center">
             <div class="d-flex justify-content-center">
               <div class="w-50-rm text-center">
@@ -211,8 +247,8 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
                   {{ \App\Company::first()->name }}
                 @endif
                 <br />
-                @if (true)
-                Powered by OIT Ozone
+                @if (false)
+                Ozone v0.8.2
                 @endif
               </div>
             </div>
@@ -243,6 +279,9 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
         </div>
     </div>
   </div>
+    </div>
+  </div>
+
 
   <!-- Livewire scripts -->
   @livewireScripts
