@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\DocumentFile;
+
 class DocumentFileController extends Controller
 {
     /**
@@ -25,5 +27,12 @@ class DocumentFileController extends Controller
     public function index()
     {
         return view('document-file.dashboard.document-file');
+    }
+
+    public function pdfDisplayFile($documentFileId)
+    {
+        $documentFile = DocumentFile::find($documentFileId);
+
+        return response()->file('storage/' . $documentFile->file_path);
     }
 }

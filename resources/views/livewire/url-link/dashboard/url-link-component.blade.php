@@ -53,19 +53,21 @@
   @endif
 
 
-  {{--
-     |
-     | Use the required component as per mode
-     |
-  --}}
+  <div class="p-2">
+    {{--
+       |
+       | Use the required component as per mode
+       |
+    --}}
 
-  @if ($modes['create'])
-    @livewire ('url-link.dashboard.url-link-create')
-  @elseif ($modes['list'])
-    @livewire ('url-link.dashboard.url-link-list')
-  @elseif ($modes['display'])
-    @livewire ('appointment.dashboard.appointment-display', ['appointment' => $displayingAppointment,])
-  @endif
+    @if ($modes['create'])
+      @livewire ('url-link.dashboard.url-link-create')
+    @elseif ($modes['list'])
+      @livewire ('url-link.dashboard.url-link-list')
+    @elseif ($modes['display'])
+      @livewire ('appointment.dashboard.appointment-display', ['appointment' => $displayingAppointment,])
+    @endif
+  </div>
 
 
 </div>

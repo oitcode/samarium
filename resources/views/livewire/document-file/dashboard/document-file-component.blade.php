@@ -60,11 +60,13 @@
   --}}
 
   @if ($modes['create'])
-    @livewire ('url-link.dashboard.url-link-create')
+    @livewire ('document-file.dashboard.document-file-create')
   @elseif ($modes['list'])
-    @livewire ('url-link.dashboard.url-link-list')
+    @livewire ('document-file.dashboard.document-file-list')
   @elseif ($modes['display'])
     @livewire ('appointment.dashboard.appointment-display', ['appointment' => $displayingAppointment,])
+  @elseif ($modes['pdfDisplay'])
+    @livewire ('document-file.dashboard.document-file-display-pdf', ['documentFile' => $pdfDisplayingDocumentFile,])
   @endif
 
 

@@ -70,7 +70,7 @@
         @endif
 
         {{-- Content goes here --}}
-        <div class="py-3">
+        <div class="py-3-rm">
           @yield('content')
 
           {{-- ostrich branding --}}

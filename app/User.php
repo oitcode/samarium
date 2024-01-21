@@ -98,4 +98,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\UrlLink', 'creator_id', 'id');
     }
+
+    /*
+     * document_file table.
+     *
+     */
+    public function documentFiles()
+    {
+        return $this->hasMany('App\DocumentFile', 'creator_id', 'id');
+    }
 }

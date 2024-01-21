@@ -132,6 +132,7 @@ Route::get('/dashboard/document/url-link', 'UrlLinkController@index')->name('das
 
 /* Document  */
 Route::get('/dashboard/document/file', 'DocumentFileController@index')->name('dashboard-document-file');
+Route::get('/dashboard/document/file/display/{id}', 'DocumentFileController@pdfDisplayFile')->name('dashboard-document-file-pdf-display');
 
 /*
  *-----------------------------------------------------------------------------
