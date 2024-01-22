@@ -1,16 +1,27 @@
-@extends('layouts.app')
+{{--
+ **
+ * Ozone - A Laravel Livewire Application For Users
+ *
+ * @package  Ozone
+ * @author   SPS
+ *
+--}}
 
 
 {{--
-   |
-   | Welcome to the dashboard!
-   |
-   | This is the blade file of dashboard main screen. Our dashboard is a simple one
-   | so that anyone can use it with ease. It is this screen that the admin users
-   | will see most of the time. Keep it simple and clean. Simple is good.
-   |
+|--------------------------------------------------------------------------
+| Welcome to the dashboard
+|--------------------------------------------------------------------------
+|
+| This is the blade file of dashboard main screen. Our dashboard is a
+| simple one so that anyone can use it with ease. It is this screen
+| that the admin users will see most of the time. Keep it simple
+| and clean. Simple is good.
+|
 --}}
 
+
+@extends ('layouts.app')
 
 @section ('content')
 
@@ -29,8 +40,6 @@
     </div>
     @endif
   </div>
-
-
 
 
   <div class="row" style="margin: auto;">
