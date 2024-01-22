@@ -31,47 +31,49 @@
             <div class="card-body p-0">
     
     
-              <div class="row p-0 mt-2 pb-5" style="margin: auto;">
-    
-    
-                <div class="col-md-2 mb-3 d-flex">
-                  <div>
-                    <div class="mb-1 h6">
+              <div class="row p-0 mt-2 pb-5-rm" style="margin: auto;">
+
+
+                <div class="col-md-2 d-flex-rm">
+                  <div class="mb-4">
+                    <div class="mb-1 h6 font-weight-bold">
                       Invoice ID
                     </div>
                     <div class="h6">
                       {{ $saleInvoice->sale_invoice_id }}
                     </div>
                   </div>
-                </div>
-    
-                <div class="col-md-3 mb-3">
-                  <div class="mb-1 h6">
-                    Invoice Date
-                  </div>
-                  @if ($modes['backDate'])
-                    <div>
+
+                  <div class="">
+                    <div class="mb-1 h6 font-weight-bold">
+                      Invoice Date
+                    </div>
+                    @if ($modes['backDate'])
                       <div>
-                        <input type="date" wire:model.defer="sale_invoice_date">
-                        <div class="mt-2">
-                          <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
-                            <i class="fas fa-check-circle text-success"></i>
-                          </button>
-                          <button class="btn btn-light" wire:click="exitMode('backDate')">
-                            <i class="fas fa-times-circle text-danger"></i>
-                          </button>
+                        <div>
+                          <input type="date" wire:model.defer="sale_invoice_date">
+                          <div class="mt-2">
+                            <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
+                              <i class="fas fa-check-circle text-success"></i>
+                            </button>
+                            <button class="btn btn-light" wire:click="exitMode('backDate')">
+                              <i class="fas fa-times-circle text-danger"></i>
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  @else
-                    <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
-                      {{ $saleInvoice->sale_invoice_date }}
-                    </div>
-                  @endif
+                    @else
+                      <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
+                        {{ $saleInvoice->sale_invoice_date }}
+                      </div>
+                    @endif
+                  </div>
+
                 </div>
     
-                <div class="col-md-3 mb-3 border-left border-right">
-                  <div class="mb-1 h6">
+    
+                <div class="col-md-5 mb-3 border-left border-right">
+                  <div class="mb-1 h6 font-weight-bold">
                     Customer
                   </div>
                   <div class="d-flex">
@@ -109,7 +111,7 @@
                 </div>
     
                 <div class="col-md-2">
-                  <div>
+                  <div class="font-weight-bold">
                     Payment Status
                   </div>
                   <div>
@@ -132,10 +134,10 @@
                     @endif
                   </div>
                 </div>
+
                 <div class="col-md-2">
                   <div class="d-none d-md-block">
-                    <div class="d-flex h-100">
-                      <button class="btn btn-light h-100 d-flex flex-column justify-content-start p-0" style="color: green;">
+                    <div class="d-flex h-100 h1 font-weight-bold">
                         <span> @if ($saleInvoice->takeaway)
                             Sales
                           @elseif ($saleInvoice->seatTableBooking)
@@ -144,7 +146,6 @@
                             Sales
                           @endif
                         </span>
-                      </button>
                     </div>
                   </div>
                 </div>
