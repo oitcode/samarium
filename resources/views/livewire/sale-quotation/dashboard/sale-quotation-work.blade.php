@@ -30,47 +30,47 @@
             <div class="card-body p-0">
     
     
-              <div class="row p-0 mt-2 pb-5" style="margin: auto;">
+              <div class="row p-0 mt-2" style="margin: auto;">
     
     
-                <div class="col-md-2 mb-3 d-flex">
-                  <div>
-                    <div class="mb-1 h6">
+                <div class="col-md-2 mb-3">
+                  <div class="mb-4">
+                    <div class="mb-1 h6 font-weight-bold">
                       Quotation ID
                     </div>
                     <div class="h6">
                       {{ $saleQuotation->sale_quotation_id }}
                     </div>
                   </div>
-                </div>
-    
-                <div class="col-md-3 mb-3">
-                  <div class="mb-1 h6">
-                    Quotation Date
-                  </div>
-                  @if ($modes['backDate'])
-                    <div>
+
+                  <div>
+                    <div class="mb-1 h6 font-weight-bold">
+                      Quotation Date
+                    </div>
+                    @if ($modes['backDate'])
                       <div>
-                        <input type="date" wire:model.defer="sale_quotation_date">
-                        <div class="mt-2">
-                          <button class="btn btn-light" wire:click="changeSaleQuotationDate">
-                            <i class="fas fa-check-circle text-success"></i>
-                          </button>
-                          <button class="btn btn-light" wire:click="exitMode('backDate')">
-                            <i class="fas fa-times-circle text-danger"></i>
-                          </button>
+                        <div>
+                          <input type="date" wire:model.defer="sale_quotation_date">
+                          <div class="mt-2">
+                            <button class="btn btn-light" wire:click="changeSaleQuotationDate">
+                              <i class="fas fa-check-circle text-success"></i>
+                            </button>
+                            <button class="btn btn-light" wire:click="exitMode('backDate')">
+                              <i class="fas fa-times-circle text-danger"></i>
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  @else
-                    <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
-                      {{ $saleQuotation->sale_quotation_date }}
-                    </div>
-                  @endif
+                    @else
+                      <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
+                        {{ $saleQuotation->sale_quotation_date }}
+                      </div>
+                    @endif
+                  </div>
                 </div>
     
                 <div class="col-md-3 mb-3 border-left border-right">
-                  <div class="mb-1 h6">
+                  <div class="mb-1 h6 font-weight-bold">
                     Customer
                   </div>
                   <div class="d-flex">
@@ -126,12 +126,8 @@
 
                 <div class="col-md-2">
                   <div class="d-none d-md-block">
-                    <div class="d-flex h-100">
-                      <button class="btn btn-light h-100 d-flex flex-column justify-content-start p-0" style="color: green;">
-                        <span>
-                          Sale quotation
-                        </span>
-                      </button>
+                    <div class="d-flex h-100 h1 font-weight-bold">
+                        Sale quotation
                     </div>
                   </div>
                 </div>
