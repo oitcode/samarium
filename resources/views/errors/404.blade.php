@@ -32,44 +32,27 @@
         overflow-x: hidden;
       }
     </style>
-
-
-    <!-- Livewire -->
-    @livewireStyles
 </head>
 
-<body style="height: 100% !important;  background-image: linear-gradient(45deg, {{ env('OC_SELECT_COLOR') }} , {{ env('OC_SELECT_COLOR') }} 15%, {{
-env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55a; --}}">
+<body style="height: 100% !important;">
 
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
-        <div class="mb-5 text-center">
+        <div class="mb-3 text-center">
           <div class="mb-3">
             @if (\App\Company::first())
               <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
                   class="img-fluid-rm"
                   alt="{{ \App\Company::first()->name }} logo"
                   style="height: 75px !important;">
-
-              <div class="h5 font-weight-bold my-3">
-                {{ \App\Company::first()->name }}
-              </div>
             @else
               <i class="fas fa-check-circle mr-1"></i>
             @endif
           </div>
-          @if (false)
-          <div class="h6 font-weight-bold">
-            @if (\App\Company::first())
-              {{ \App\Company::first()->name }}
-            @else
-              Ozone
-            @endif
-          </div>
-          @endif
         </div>
 
-        {{-- Main error message display --}}
+
+        {{-- Main error message display. --}}
         <div>
           <h1 class="h1 font-weight-bold text-center">
             404 | Page not found
@@ -77,32 +60,15 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
         </div>
 
 
-        <div class="my-5-rm text-muted p-3 text-center">
-          Content you are looking for could not be found
+        {{-- Error message brief description. --}}
+        <div class="text-muted p-3 text-center">
+          Content you are looking for could not be found.
           Please go to <a href="/">home</a> page.
         </div>
 
-        <div class="my-5 text-muted">
-          <div class="d-flex flex-column justify-content-center">
-            <div class="d-flex justify-content-center">
-              <div class="w-50-rm text-center">
-                &copy; 2023 
-                @if (\App\Company::first())
-                  {{ \App\Company::first()->name }}
-                @endif
-                <br />
-                @if (true)
-                Powered by OIT Ozone
-                @endif
-              </div>
-            </div>
 
-          </div>
-        </div>
     </div>
   </div>
 
-  <!-- Livewire scripts -->
-  @livewireScripts
 </body>
 </html>
