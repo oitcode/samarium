@@ -65,7 +65,7 @@
     @elseif ($modes['list'])
       @livewire ('url-link.dashboard.url-link-list')
     @elseif ($modes['display'])
-      @livewire ('appointment.dashboard.appointment-display', ['appointment' => $displayingAppointment,])
+      @livewire ('url-link.dashboard.url-link-display', ['urlLink' => $displayingUrlLink,])
     @endif
   </div>
 

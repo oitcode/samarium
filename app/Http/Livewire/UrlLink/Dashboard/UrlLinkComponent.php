@@ -6,9 +6,13 @@ use Livewire\Component;
 
 use App\Traits\ModesTrait;
 
+use App\UrlLink;
+
 class UrlLinkComponent extends Component
 {
     use ModesTrait;
+
+    public $displayingUrlLink;
 
     public $modes = [
         'create' => false,
@@ -19,6 +23,8 @@ class UrlLinkComponent extends Component
     protected $listeners = [
         'urlLinkCreateCancelled',
         'urlLinkCreateCompleted',
+
+        'displayUrlLink',
     ];
 
     public function render()
@@ -34,5 +40,11 @@ class UrlLinkComponent extends Component
     public function urlLinkCreateCompleted()
     {
         $this->exitMode('create');
+    }
+
+    public function displayUrlLink(UrlLink $urlLink)
+    {
+        $this->displayingUrlLink = $urlLink;
+        $this->enterMode('display');
     }
 }
