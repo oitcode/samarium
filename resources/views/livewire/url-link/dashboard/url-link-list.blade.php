@@ -54,7 +54,7 @@
                     {{ $urlLink->url }}
                   </span>
                 </td>
-                <td>
+                <td wire:click="$emit('displayUrlLink', {{ $urlLink }})" role="button">
                 {{ $urlLink->description }}
                 </td>
                 <td>

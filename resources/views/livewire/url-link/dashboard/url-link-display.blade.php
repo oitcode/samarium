@@ -58,6 +58,17 @@
     <div class="">
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
+          Posted By
+        </div>
+        <div class="col-md-9 border p-3">
+          {{ $urlLink->creator->name }}
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <div class="row" style="margin: auto;">
+        <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Description
         </div>
         <div class="col-md-9 border p-3 flex-grow-1-rm">
