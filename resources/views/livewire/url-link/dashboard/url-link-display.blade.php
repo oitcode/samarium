@@ -20,7 +20,9 @@
           @else
             <div class="d-flex justify-content-between">
               <div>
-                {{ $urlLink->url }}
+                <a href="{{ $urlLink->url }}" target="_blank">
+                  {{ $urlLink->url }}
+                </a>
               </div>
               <div>
                 <button class="btn btn-light" wire:click="enterMode('updateUrlMode')">
