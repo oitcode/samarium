@@ -64,7 +64,7 @@
   @elseif ($modes['list'])
     @livewire ('document-file.dashboard.document-file-list')
   @elseif ($modes['display'])
-    @livewire ('appointment.dashboard.appointment-display', ['appointment' => $displayingAppointment,])
+    @livewire ('document-file.dashboard.document-file-display', ['documentFile' => $displayingDocumentFile,])
   @elseif ($modes['pdfDisplay'])
     @livewire ('document-file.dashboard.document-file-display-pdf', ['documentFile' => $pdfDisplayingDocumentFile,])
   @endif

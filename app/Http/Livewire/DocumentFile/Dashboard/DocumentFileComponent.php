@@ -31,6 +31,8 @@ class DocumentFileComponent extends Component
 
         'documentFileCreateCancelled',
         'documentFileCreateCompleted',
+
+        'displayDocumentFile',
     ];
 
     public function render()
@@ -52,5 +54,11 @@ class DocumentFileComponent extends Component
     {
         $this->pdfDisplayingDocumentFile = $documentFile;
         $this->enterMode('pdfDisplay');
+    }
+
+    public function displayDocumentFile(DocumentFile $documentFile)
+    {
+        $this->displayingDocumentFile = $documentFile;
+        $this->enterMode('display');
     }
 }
