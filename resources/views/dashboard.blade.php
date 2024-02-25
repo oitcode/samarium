@@ -68,7 +68,9 @@
 
     {{-- Todo glance --}}
      <div class="">
-       @livewire ('todo.dashboard.todo-glance')
+       @if (preg_match("/project/i", env('MODULES')))
+         @livewire ('todo.dashboard.todo-glance')
+       @endif
      </div>
 
   </div>
