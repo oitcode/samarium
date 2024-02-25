@@ -9,79 +9,76 @@
   @endif
 
 
+
   {{-- Filter div --}}
   @if (true)
-  <div class="mb-3 p-3 bg-white border">
-    <div class="font-weight-bold h5 mb-4">
-      Filter
-    </div>
-    <hr />
-
-    <div class="d-flex">
-      <div class="d-flex flex-column justify-content-center mr-4 font-weight-bold">
-        Status
-      </div>
-      @if (true)
-      <div class="dropdown">
-        <button class="btn
-            @if ($modes['showOnlyNewMode'])
-              btn-danger
-            @elseif ($modes['showOnlyDoneMode'])
-              btn-success
-            @elseif ($modes['showOnlyProgressMode'])
-              btn-warning
-            @elseif ($modes['showAllMode'])
-              btn-light
-            @endif
-            dropdown-toggle"
-            type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          @if ($modes['showOnlyNewMode'])
-            New
-          @elseif ($modes['showOnlyDoneMode'])
-            Done
-          @elseif ($modes['showOnlyProgressMode'])
-            Progress
-          @elseif ($modes['showAllMode'])
-            All
-          @else
-            Whoops
-          @endif
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
-          <button class="dropdown-item" wire:click="enterMode('showOnlyNewMode')">
-            New
-          </button>
-          <button class="dropdown-item" wire:click="enterMode('showOnlyProgressMode')">
-            Progress
-          </button>
-          <button class="dropdown-item" wire:click="enterMode('showOnlyDoneMode')">
-            Done
-          </button>
-          <button class="dropdown-item" wire:click="enterMode('showAllMode')">
-            All
-          </button>
-        </div>
+  <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
+    <div class="font-weight-bold h6 d-flex">
+      @if (false)
+      <div class="mr-4">
+        Filter
       </div>
       @endif
+      <div class="d-flex">
+        @if (true)
+        <div class="mr-4 font-weight-bold pt-2">
+          @if (false)
+          Status
+          @endif
+          <i class="fas fa-filter mr-2"></i>
+        </div>
+        @endif
+        @if (true)
+        <div class="dropdown">
+          <button class="btn
+              @if ($modes['showOnlyNewMode'])
+                btn-danger
+              @elseif ($modes['showOnlyDoneMode'])
+                btn-success
+              @elseif ($modes['showOnlyProgressMode'])
+                btn-warning
+              @elseif ($modes['showAllMode'])
+                btn-light
+              @endif
+              dropdown-toggle"
+              type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @if ($modes['showOnlyNewMode'])
+              New
+            @elseif ($modes['showOnlyDoneMode'])
+              Done
+            @elseif ($modes['showOnlyProgressMode'])
+              Progress
+            @elseif ($modes['showAllMode'])
+              All
+            @else
+              Whoops
+            @endif
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
+            <button class="dropdown-item" wire:click="enterMode('showOnlyNewMode')">
+              New
+            </button>
+            <button class="dropdown-item" wire:click="enterMode('showOnlyProgressMode')">
+              Progress
+            </button>
+            <button class="dropdown-item" wire:click="enterMode('showOnlyDoneMode')">
+              Done
+            </button>
+            <button class="dropdown-item" wire:click="enterMode('showAllMode')">
+              All
+            </button>
+          </div>
+        </div>
+        @endif
+      </div>
+    </div>
+
+
+    <div class="pt-2 font-weight-bold">
+      Total : {{ $contactMessageCount }}
     </div>
   </div>
   @endif
-
-
-  <div class="d-flex justify-content-between-rm mb-3 bg-white border ">
-    <div class="p-3 flex-grow-1-rm" style="font-size: 1rem;">
-      <div class="mr-4">
-        Total : {{ $contactMessageCount }}
-      </div>
-    </div>
-    <div class="pt-3">
-      <div wire:loading class="pr-3" style="">
-        <div class="spinner-border text-info" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
   {{-- Show in bigger and smaller screens --}}
