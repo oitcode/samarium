@@ -50,7 +50,7 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  {{-- background-color: #55
             Ozone
           </h2>
           <div class="my-4 p-3-rm-rm border-rm">
-            Version 0.8.2
+            Version 0.8.3
           </div>
           @if (false)
           <ul class="list-group bg-transparent">
