@@ -2,10 +2,10 @@
   @if (!is_null($purchases) && count($purchases) > 0)
 
     {{-- Show in bigger screens --}}
-    <div class="table-responsive d-none d-md-block" style="font-size: 1.1rem;">
-      <table class="table">
+    <div class="table-responsive d-none d-md-block bg-white" style="font-size: 1.1rem;">
+      <table class="table mb-0">
         <thead>
-          <tr class="text-secondary">
+          <tr class="">
             <th>ID</th>
             <th>Date</th>
             <th>Vendor</th>

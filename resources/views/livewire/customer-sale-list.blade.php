@@ -4,18 +4,18 @@
   @if ($saleInvoices != null && count($saleInvoices) > 0)
 
     {{-- Show in bigger screens --}}
-    <div class="table-responsive d-none d-md-block">
-      <table class="table table-sm table-hover">
+    <div class="table-responsive d-none d-md-block bg-white">
+      <table class="table table-sm table-hover mb-0">
         <thead>
-          <tr class="text-secondary" style="font-size: calc(0.7rem + 0.3vw);">
-            <th>ID</th>
-            <th>Date</th>
-            <th>Customer</th>
-            <th>Total</th>
-            <th>Paid</th>
-            <th>Pending</th>
-            <th>Payment status</th>
-            <th>Action</th>
+          <tr class="text-secondary-rm" style="font-size: calc(0.7rem + 0.3vw);">
+            <th class="py-2">ID</th>
+            <th class="py-2">Date</th>
+            <th class="py-2">Customer</th>
+            <th class="py-2">Total</th>
+            <th class="py-2">Paid</th>
+            <th class="py-2">Pending</th>
+            <th class="py-2">Payment status</th>
+            <th class="py-2">Action</th>
           </tr>
         </thead>
         <tbody>

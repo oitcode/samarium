@@ -3,13 +3,12 @@
 
   @if ($vendors != null && count($vendors) > 0)
     <div class="table-responsive bg-white border shadow-sm">
-      <table class="table table-hover">
+      <table class="table table-hover mb-0">
         <thead>
           <tr class="
               {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
               {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
-              "
-              style="font-size: 1rem;">
+              ">
             <th>ID</th>
             <th>Name</th>
             <th>Pending</th>
@@ -17,7 +16,7 @@
         </thead>
         <tbody>
           @foreach ($vendors as $vendor)
-            <tr style="font-size: 0.8rem;" wire:click="$emit('displayVendor', {{ $vendor }})" role="button">
+            <tr style="" wire:click="$emit('displayVendor', {{ $vendor }})" role="button">
               <td>
                 {{ $vendor->vendor_id }}
               </td>
