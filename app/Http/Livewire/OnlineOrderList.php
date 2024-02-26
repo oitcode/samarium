@@ -5,10 +5,14 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+use App\Traits\ModesTrait;
+
 use App\WebsiteOrder;
 
 class OnlineOrderList extends Component
 {
+    use ModesTrait;
+
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
@@ -19,10 +23,32 @@ class OnlineOrderList extends Component
     public $todayOrderCount;
     public $totalOrderCount;
 
+    public $modes = [
+        'showOnlyNewMode' => false,
+        'showOnlyOpenMode' => false,
+        'showOnlyDeliveredMode' => false,
+        'showOnlyRejectedMode' => false,
+        'showAllMode' => true,
+    ];
+
     public function render()
     {
         $websiteOrders = WebsiteOrder::orderBy('website_order_id', 'desc')->paginate(10);
         $this->setOrderCounts();
+
+        if ($this->modes['showAllMode']) {
+            $websiteOrders = WebsiteOrder::orderBy('website_order_id', 'desc')->paginate(10);
+        } else if ($this->modes['showOnlyNewMode']) {
+            $websiteOrders = WebsiteOrder::where('status', 'new')->paginate(10);
+        } else if ($this->modes['showOnlyOpenMode']) {
+            $websiteOrders = WebsiteOrder::where('status', 'open')->paginate(10);
+        } else if ($this->modes['showOnlyDeliveredMode']) {
+            $websiteOrders = WebsiteOrder::where('status', 'delivered')->paginate(10);
+        } else if ($this->modes['showOnlyRejectedMode']) {
+            $websiteOrders = WebsiteOrder::where('status', 'rejected')->paginate(10);
+        } else {
+            dd ('Whoops');
+        }
 
         return view('livewire.online-order-list')
             ->with('websiteOrders', $websiteOrders);

@@ -1,6 +1,88 @@
 <div>
 
 
+  {{-- Filter div --}}
+  @if (true)
+  <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
+    <div class="font-weight-bold h6 d-flex">
+      <div class="d-flex">
+        <div class="mr-4 font-weight-bold pt-2">
+          <i class="fas fa-filter mr-2"></i>
+        </div>
+        @if (true)
+        <div class="dropdown">
+          <button class="btn
+              @if ($modes['showOnlyNewMode'])
+                btn-danger
+              @elseif ($modes['showOnlyOpenMode'])
+                btn-warning
+              @elseif ($modes['showOnlyRejectedMode'])
+                btn-secondary
+              @elseif ($modes['showOnlyDeliveredMode'])
+                btn-success
+              @elseif ($modes['showAllMode'])
+                btn-light border
+              @endif
+              dropdown-toggle"
+              type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @if ($modes['showOnlyNewMode'])
+              New
+            @elseif ($modes['showOnlyOpenMode'])
+              Open
+            @elseif ($modes['showOnlyRejectedMode'])
+              Rejected
+            @elseif ($modes['showOnlyDeliveredMode'])
+              Delivered
+            @elseif ($modes['showAllMode'])
+              All
+            @else
+              Whoops
+            @endif
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
+            <button class="dropdown-item" wire:click="enterMode('showOnlyNewMode')">
+              New
+            </button>
+            <button class="dropdown-item" wire:click="enterMode('showOnlyOpenMode')">
+              Open
+            </button>
+            <button class="dropdown-item" wire:click="enterMode('showOnlyDeliveredMode')">
+              Delivered
+            </button>
+            <button class="dropdown-item" wire:click="enterMode('showOnlyRejectedMode')">
+              Rejected
+            </button>
+            <button class="dropdown-item" wire:click="enterMode('showAllMode')">
+              All
+            </button>
+          </div>
+        </div>
+        @endif
+      </div>
+    </div>
+
+
+    <div class="pt-2">
+      <div class="d-flex" style="font-size: 1rem;">
+        <div class="mr-4 font-weight-bold">
+          Total : {{ count($websiteOrders) }}
+        </div>
+        @if (false)
+        <div class="mr-4 font-weight-bold">
+          Today : {{ $todayOrderCount }}
+        </div>
+        <div class="mr-4 font-weight-bold">
+          Total : {{ $totalOrderCount }}
+        </div>
+        @endif
+      </div>
+    </div>
+  </div>
+  @endif
+
+
+
+  @if (false)
   <div class="d-flex mb-4 pl-2" style="font-size: 1rem;">
     <div class="mr-4">
       New : {{ $newOrderCount }}
@@ -12,6 +94,9 @@
       Total : {{ $totalOrderCount }}
     </div>
   </div>
+  @endif
+
+
 
   <div class="row">
     <div class="col-md-12">
