@@ -110,6 +110,11 @@
     @livewire ('core-purchase-list', ['vendor' => $vendor,])
   @elseif ($modes['settle'])
     @livewire ('vendor-display-settle', ['vendor' => $vendor,])
+  @elseif ($modes['purchasePaymentCreate'])
+    @livewire ('vendor-purchase-payment-create', ['purchase' => $paymentMakingPurchase,])
+  @elseif ($modes['purchaseDisplay'])
+    @livewire ('core-purchase-display', ['purchase' => $displayingPurchase,])
   @endif
+
 
 </div>

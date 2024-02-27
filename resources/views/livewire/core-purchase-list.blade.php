@@ -74,9 +74,13 @@
                     <i class="fas fa-cog text-secondary"></i>
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button class="dropdown-item" wire:click="">
+                    <button class="dropdown-item" wire:click="$emit('displayPurchase', {{ $purchase }})">
+                      <i class="fas fa-folder text-primary mr-2"></i>
+                      View bill
+                    </button>
+                    <button class="dropdown-item" wire:click="$emit('makePurchasePayment', {{ $purchase->purchase_id }})">
                       <i class="fas fa-money-check-alt text-primary mr-2"></i>
-                      Receive payment
+                      Make payment
                     </button>
                     <button class="dropdown-item" wire:click="">
                       <i class="fas fa-print text-primary mr-2"></i>
