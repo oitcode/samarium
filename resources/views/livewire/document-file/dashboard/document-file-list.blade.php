@@ -9,21 +9,27 @@
   @endif
 
 
-
-
-  <div class="d-flex bg-white border p-3 mb-3">
-    <div class="" style="font-size: 1rem;">
-      <div class="mr-4">
-        Total : {{ $documentFilesCount }}
+  {{-- Filter div --}}
+  @if (true)
+  <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
+    <div class="font-weight-bold h6 d-flex">
+      <div class="d-flex">
+        @if (true)
+        <div class="mr-4 font-weight-bold pt-2">
+          @if (false)
+          <i class="fas fa-filter mr-2"></i>
+          @endif
+        </div>
+        @endif
       </div>
     </div>
 
-    <div wire:loading>
-      <div class="spinner-border text-info mx-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+
+    <div class="pt-2 font-weight-bold">
+      Total : {{ $documentFilesCount }}
     </div>
   </div>
+  @endif
 
 
     @if (true)

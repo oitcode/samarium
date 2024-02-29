@@ -9,19 +9,27 @@
   @endif
 
 
-  <div class="d-flex justify-content-start">
-    <div class="d-flex mb-3 pl-3 mr-3" style="font-size: 1rem;">
-      <div class="mr-4">
-        Total : {{ $teamsCount }}
+  {{-- Filter div --}}
+  @if (true)
+  <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
+    <div class="font-weight-bold h6 d-flex">
+      <div class="d-flex">
+        @if (true)
+        <div class="mr-4 font-weight-bold pt-2">
+          @if (false)
+          <i class="fas fa-filter mr-2"></i>
+          @endif
+        </div>
+        @endif
       </div>
     </div>
 
-    <div wire:loading>
-      <div class="spinner-border text-info mr-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+
+    <div class="pt-2 font-weight-bold">
+      Total : {{ $teamsCount }}
     </div>
   </div>
+  @endif
 
 
   @if ($searchResultTeams != null && count($searchResultTeams))

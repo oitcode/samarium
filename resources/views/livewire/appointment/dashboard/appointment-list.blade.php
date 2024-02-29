@@ -16,11 +16,27 @@
   </button>
 
 
-  <div class="d-flex mb-3 pl-3" style="font-size: 1rem;">
-    <div class="mr-4">
+  {{-- Filter div --}}
+  @if (true)
+  <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
+    <div class="font-weight-bold h6 d-flex">
+      <div class="d-flex">
+        @if (true)
+        <div class="mr-4 font-weight-bold pt-2">
+          @if (false)
+          <i class="fas fa-filter mr-2"></i>
+          @endif
+        </div>
+        @endif
+      </div>
+    </div>
+
+
+    <div class="pt-2 font-weight-bold">
       Total : {{ $appointmentCount }}
     </div>
   </div>
+  @endif
 
 
   {{-- Show in bigger and smaller screens --}}
