@@ -13,13 +13,33 @@ Open source ERP software created using Laravel, Livewire and Bootstrap.
 - CRM
 - Invoicing
 
+## Server requirements
+
+This software is made using Laravel which used PHP and PHP libraries.
+Below dependencies must be installed.
+
+- PHP >= 7.2.5
+- BCMath PHP Extension
+- Ctype PHP Extension
+- Fileinfo PHP extension
+- JSON PHP Extension
+- Mbstring PHP Extension
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Tokenizer PHP Extension
+- XML PHP Extension
+
+For database MySQL database is used. Please install MySQL for database.
+
+- MySQL 
+
 ## Installation
 
 Installation script is available with this package.
 You just need to run the script and installation will be completed.
 
 Please run below script in Ubuntu 20 or higher. If you are using any other operating system
-than ubuntu 20 then please modify the bash script accordingly.
+then please modify the bash script accordingly.
 
 `bash app-install.sh`
 
