@@ -15,6 +15,13 @@ Open source ERP software created using Laravel, Livewire and Bootstrap.
 
 ## Server requirements
 
+If you are using Ubuntu 20 or higher just run the below bash script to install
+all the required dependencies.
+
+`bash dependency-install.sh`
+
+However if you want to install dependencies manually follow below instructions.
+
 This software is made using Laravel which used PHP and PHP libraries.
 Below dependencies must be installed.
 
