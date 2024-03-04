@@ -112,6 +112,9 @@ Route::get('/dashboard/help', 'HelpController@index')->name('dashboard-help');
 /* Users */
 Route::get('/dashboard/users', 'UsersController@index')->name('dashboard-users');
 
+/* User groups */
+Route::get('/dashboard/user-group', 'UserGroupController@index')->name('dashboard-user-group');
+
 /* Contact form / message  */
 Route::get('/dashboard/contact-form', 'ContactFormController@index')->name('dashboard-contact-form');
 

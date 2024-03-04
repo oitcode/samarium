@@ -20,6 +20,11 @@
         Users
       </a>
 
+      <a class="dropdown-item" href="{{ route('dashboard-user-group') }}">
+        <i class="fas fa-users text-secondary mr-2"></i>
+        User group
+      </a>
+
       @if (false)
       <div class="dropdown-divider mb-0"></div>
       @endif

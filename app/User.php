@@ -107,4 +107,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\DocumentFile', 'creator_id', 'id');
     }
+
+    /*
+     * user_group table.
+     *
+     */
+    public function createdUserGroups()
+    {
+        return $this->hasMany('App\UserGroup', 'creator_id', 'id');
+    }
 }
