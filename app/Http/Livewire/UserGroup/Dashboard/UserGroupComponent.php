@@ -25,9 +25,23 @@ class UserGroupComponent extends Component
         'userGroupCreated',
 
         'displayUserGroup',
+
+        'createUserGroupCompleted',
     ];
+
     public function render()
     {
         return view('livewire.user-group.dashboard.user-group-component');
+    }
+
+    public function exitCreateUserGroupMode()
+    {
+        $this->exitMode('createUserGroupMode');
+    }
+
+    public function createUserGroupCompleted()
+    {
+        session()->flash('message', 'User group created');
+        $this->exitMode('createUserGroupMode');
     }
 }
