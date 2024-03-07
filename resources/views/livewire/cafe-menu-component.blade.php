@@ -12,7 +12,7 @@
         'btnCheckMode' => 'createProduct',
     ])
 
-    @if (false)
+    @if (true)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('list')",
         'btnIconFaClass' => 'fas fa-list',
@@ -101,7 +101,9 @@
       @livewire ('cafe-menu-product-display', ['product' => $displayingProduct,])
     @elseif ($modes['list'])
       @if (false)
-      @livewire ('cafe-menu-list')
+        @livewire ('cafe-menu-list')
+      @else
+        @livewire ('cafe-menu-product-list')
       @endif
     @elseif ($modes['createProductFromCsvMode'])
       @if (true)
