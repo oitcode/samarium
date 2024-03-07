@@ -44,4 +44,10 @@ class UserGroupComponent extends Component
         session()->flash('message', 'User group created');
         $this->exitMode('createUserGroupMode');
     }
+
+    public function displayUserGroup(UserGroup $userGroup)
+    {
+        $this->displayingUserGroup = $userGroup;
+        $this->enterMode('displayUserGroupMode');
+    }
 }
