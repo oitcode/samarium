@@ -81,31 +81,18 @@
           <div class="flex-grow-1 bg-white">
           <div class="row bg-white py-3" style="margin: auto;">
 
-            @php
-              $jj = 0;
-            @endphp
-
-            @for ($ii=1; $ii <= \App\Product::max('product_id'); $ii++)
-
-
-              @if (\App\Product::find($ii))
-
-                @php
-                  $jj++;
-                @endphp
-
-
+            @foreach (\App\Product::where('featured_product', 'yes')->get() as $product)
                 <div class="col-md-4 bg-danger-rm border-rm border-danger-rm">
-                  <a href="{{ route('website-product-view', [\App\Product::find($ii)->product_id, \App\Product::find($ii)->name]) }}"
+                  <a href="{{ route('website-product-view', [$product->product_id, \App\Product::find($ii)->name]) }}"
                       class="text-decoration-none">
                     <div class="card h-100 shadow-rm border-0-rm border-rm border-0">
       
                       @if (true)
                       <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
                           <div class="d-flex justify-content-center bg-warning-rm">
-                              @if (\App\Product::find($ii)->image_path)
-                                <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . \App\Product::find($ii)->image_path) }}" alt="{{
-                                \App\Product::find($ii)->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
+                              @if ($product->image_path)
+                                <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{
+                                $product->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
                               @else
                                 <i class="fas fa-ellipsis-h fa-8x text-muted m-5"></i>
                               @endif
@@ -114,12 +101,12 @@
                         <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto" style="{{-- background-color: #f5f5f5; --}}">
                           <div class="p-2">
                               <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark text-center" style="font-family: Arial;">
-                                {{ ucwords(\App\Product::find($ii)->name) }}
+                                {{ ucwords($product->name) }}
                               </h2>
                               <div class="mt-0 text-muted h6 font-weight-bold text-center">
-                                @if (\App\Product::find($ii)->selling_price != 0)
+                                @if ($product->selling_price != 0)
                                   Rs
-                                  @php echo number_format( \App\Product::find($ii)->selling_price ); @endphp
+                                  @php echo number_format( $product->selling_price ); @endphp
                                 @else
                                 &nbsp;
                                 @endif
@@ -134,15 +121,7 @@
                     </div>
                   </a>
                 </div>
-
-
-              @endif
-
-              @if ($jj >= 3)
-                @break
-              @endif
-
-            @endfor
+            @endforeach
 
           </div>
           </div>
