@@ -455,6 +455,26 @@
             @endif
           @else
           @endif
+
+          @if ($product->featured_product == 'yes')
+            <button class="btn btn-light mr-1" wire:click="makeProductFeaturedProductUndo">
+              <i class="fas fa-lock mr-2"></i>
+              @if (true)
+              <span class="">
+                Remove from featured product
+              </span>
+              @endif
+            </button>
+          @else
+            <button class="btn btn-light mr-1" wire:click="makeProductFeaturedProduct">
+              <i class="fas fa-star mr-2"></i>
+              @if (true)
+              <span class="">
+                Mark as featured product
+              </span>
+              @endif
+            </button>
+          @endif
         </div>
 
       </div>

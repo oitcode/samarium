@@ -29,6 +29,7 @@ class Product extends Model
          'is_active', 'show_in_front_end',
          'is_base_product', 'stock_notification_count',
          'opening_stock_count', 'opening_stock_timestamp',
+         'featured_product',
     ];
 
 

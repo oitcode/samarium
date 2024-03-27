@@ -127,6 +127,8 @@ class CafeMenuProductCreate extends Component
             $validatedData['image_path'] = $imagePath;
         }
 
+        $validatedData['featured_product'] = 'no';
+
         DB::beginTransaction();
 
         try {

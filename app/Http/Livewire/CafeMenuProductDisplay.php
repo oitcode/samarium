@@ -183,4 +183,18 @@ class CafeMenuProductDisplay extends Component
         $this->answeringProductQuestion = null;
         $this->exitMode('createProductAnswerMode');
     }
+
+    public function makeProductFeaturedProduct()
+    {
+        $this->product->featured_product = 'yes';
+        $this->product->save();
+        session()->flash('message', 'Product marked as featured product.');
+    }
+
+    public function makeProductFeaturedProductUndo()
+    {
+        $this->product->featured_product = 'no';
+        $this->product->save();
+        session()->flash('message', 'Product removed from featured product.');
+    }
 }
