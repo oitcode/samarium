@@ -45,6 +45,21 @@ class CalendarEventCreate extends Component
         'Chaitra' => [ '2024-03-14', '2024-04-12', ],
     ];
 
+    public $monthInfo2081 = [
+        'Baisakh' => [ '2024-04-13', '2024-05-13', ],
+        'Jestha' => [ '2024-05-14', '2024-06-14', ],
+        'Asadh' => [ '2024-06-15', '2024-07-15', ],
+        'Shrawan' => [ '2024-07-16', '2024-08-16', ],
+        'Bhadra' => [ '2024-08-17', '2024-09-16', ],
+        'Ashwin' => [ '2024-09-17', '2024-10-16', ],
+        'Kartik' => [ '2024-10-17', '2024-11-15', ],
+        'Mangsir' => [ '2024-11-16', '2024-12-15', ],
+        'Poush' => [ '2024-12-16', '2025-01-13', ],
+        'Magh' => [ '2025-01-14', '2025-02-12', ],
+        'Falgun' => [ '2025-02-13', '2025-03-13', ],
+        'Chaitra' => [ '2025-03-14', '2025-04-13', ],
+    ];
+
     public $title;
     public $description;
     public $is_holiday;
@@ -147,7 +162,7 @@ class CalendarEventCreate extends Component
         $nepaliMonth = '';
         $nepaliDate = '';
 
-        foreach ($this->monthInfo2080 as $key => $val) {
+        foreach ($this->monthInfo2081 as $key => $val) {
             if ($englishDate >= $val[0] && $englishDate <= $val[1]) {
                 $nepaliMonth = $nepaliMonth . $key;   
                 break;
@@ -155,7 +170,7 @@ class CalendarEventCreate extends Component
         }
 
         $checkDay = Carbon::parse($englishDate);
-        $day = Carbon::parse($this->monthInfo2080[$nepaliMonth][0]);
+        $day = Carbon::parse($this->monthInfo2081[$nepaliMonth][0]);
 
         /* Looping through 100 times, because month has only 30-ish days */
         for ($i=0; $i < 100; $i++) {
