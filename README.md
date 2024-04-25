@@ -6,6 +6,8 @@
 
 Open source ERP software created using Laravel, Livewire and Bootstrap.
 
+![screenshot](dashboard-screenshot-1.png)
+
 ## Features
 
 - Admin dashboard
