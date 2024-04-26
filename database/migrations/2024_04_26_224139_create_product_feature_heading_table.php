@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductFeatureTable extends Migration
+class CreateProductFeatureHeadingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateProductFeatureTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_feature', function (Blueprint $table) {
-            $table->bigIncrements('product_feature_id');
+        Schema::create('product_feature_heading', function (Blueprint $table) {
+            $table->bigIncrements('product_feature_heading_id');
 
-            $table->string('feature');
+            $table->string('feature_heading');
 
             /*
              * Foreign key to product table.
              *
              */
             $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id', 'fk_product_feature__product')
+            $table->foreign('product_id', 'fk_product_feature_heading__product')
                 ->references('product_id')->on('product');
 
             $table->integer('position');
@@ -39,6 +39,6 @@ class CreateProductFeatureTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_feature');
+        Schema::dropIfExists('product_feature_heading');
     }
 }
