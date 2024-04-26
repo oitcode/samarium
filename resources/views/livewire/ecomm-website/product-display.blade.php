@@ -241,6 +241,69 @@
         <hr />
         @endif
 
+        {{-- Product specification --}}
+        @if (count($product->productFeatures) > 0)
+        <div class="bg-white p-3-rm border-rm mb-3">
+          <div>
+
+            @if (count($product->productFeatures) > 0)
+              <div class="mb-5-rm">
+                <div class="mt-4">
+                  <h3 class="h6 font-weight-bold ml-2 mb-3" style="font-weight: bold;">
+                    Features
+                  </h3>
+                </div>
+
+
+                @if (count($product->productFeatureHeadings) > 0)
+                  <div class="mb-5">
+                    <div class="table-responsive">
+                      <table class="table mb-0">
+                        @foreach ($product->productFeatureHeadings as $productFeatureHeading)
+                          <tr class="">
+                            <th class="border-muted" style="width: 200px;">
+                              {{ $productFeatureHeading->feature_heading }}
+                            </th>
+                          </tr>
+                          @foreach ($productFeatureHeading->productFeatures as $productFeature)
+                            <tr class="">
+                              <th class="border-muted" style="width: 200px;">
+                                {{ $productFeature->feature}}
+                              </th>
+                            </tr>
+                          @endforeach
+                        @endforeach
+                      </table>
+                    </div>
+                  </div>
+                @endif
+
+                @if (count($product->productFeatures) > 0)
+                  <div class="mb-5">
+                    <div class="table-responsive">
+                      <table class="table mb-0">
+                        @foreach ($product->productFeatures as $feature)
+                          @if ($feature->product_feature_heading_id == null)
+                            <tr class="">
+                              <th class="border-muted" style="width: 200px;">
+                                {{ $feature->feature }}
+                              </th>
+                            </tr>
+                          @endif
+                        @endforeach
+                      </table>
+                    </div>
+                  </div>
+                @endif
+
+
+              </div>
+            @endif
+          </div>
+        </div>
+        <hr />
+        @endif
+
         @if (true)
         {{-- Youtube video --}}
         <div class="bg-white p-3-rm border-rm mb-3">
