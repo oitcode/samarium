@@ -161,7 +161,7 @@ class Product extends Model
      */
     public function productFeatures()
     {
-        return $this->hasMany('App\ProductFeatures', 'product_id', 'product_id');
+        return $this->hasMany('App\ProductFeature', 'product_id', 'product_id');
     }
 
     public function isUsedToday()
