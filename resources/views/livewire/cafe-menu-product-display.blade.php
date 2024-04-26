@@ -364,10 +364,10 @@
     </h2>
 
       {{-- Toolbar --}}
-      @if ($modes['updateProductAddProductSpecificationMode'])
+      @if ($modes['updateProductAddProductFeatureMode'])
       @else
         <div class="p-2 bg-white border">
-            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
+            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductFeatureMode')">
               <i class="fas fa-plus-circle mr-1"></i>
               Add feature
             </button>
@@ -387,8 +387,8 @@
       </div>
     @endif
 
-    @if ($modes['updateProductAddProductSpecificationMode'])
-      @livewire ('product.dashboard.product-edit-add-product-specification', ['product' => $product,])
+    @if ($modes['updateProductAddProductFeatureMode'])
+      @livewire ('product.dashboard.product-edit-add-product-feature', ['product' => $product,])
     @endif
 
     @if (count($product->productFeatures) > 0)

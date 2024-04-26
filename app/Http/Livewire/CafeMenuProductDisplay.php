@@ -28,6 +28,7 @@ class CafeMenuProductDisplay extends Component
         'updateProductVideoMode' => false,
 
         'createProductAnswerMode' => false,
+        'updateProductAddProductFeatureMode' => false,
     ];
 
     protected $listeners = [
@@ -45,6 +46,9 @@ class CafeMenuProductDisplay extends Component
 
         'productEditAddProductSpecificationModeCancelled',
         'productEditAddProductSpecificationModeCompleted',
+
+        'productEditAddProductFeatureModeCancelled',
+        'productEditAddProductFeatureModeCompleted',
 
         'createProductGalleryCompleted',
         'createProductGalleryCancelled',
@@ -142,6 +146,17 @@ class CafeMenuProductDisplay extends Component
     public function productEditAddProductSpecificationModeCancelled()
     {
         $this->exitMode('updateProductAddProductSpecificationMode');
+    }
+
+    public function productEditAddProductFeatureModeCompleted()
+    {
+        $this->exitMode('updateProductAddProductFeatureMode');
+        session()->flash('addSpecMessage', 'Product feature added');
+    }
+
+    public function productEditAddProductFeatureModeCancelled()
+    {
+        $this->exitMode('updateProductAddProductFeatureMode');
     }
 
     public function createProductGalleryCompleted()
