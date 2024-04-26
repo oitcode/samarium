@@ -410,6 +410,13 @@
                   {{ $productFeatureHeading->feature_heading }}
                 </th>
               </tr>
+              @foreach ($productFeatureHeading->productFeatures as $productFeature)
+                <tr class="">
+                  <th class="border-muted" style="width: 200px;">
+                    {{ $productFeature->feature}}
+                  </th>
+                </tr>
+              @endforeach
             @endforeach
           </table>
         </div>
@@ -421,11 +428,13 @@
         <div class="table-responsive">
           <table class="table mb-0">
             @foreach ($product->productFeatures as $feature)
-              <tr class="">
-                <th class="border-muted" style="width: 200px;">
-                  {{ $feature->feature }}
-                </th>
-              </tr>
+              @if ($feature->product_feature_heading_id == null)
+                <tr class="">
+                  <th class="border-muted" style="width: 200px;">
+                    {{ $feature->feature }}
+                  </th>
+                </tr>
+              @endif
             @endforeach
           </table>
         </div>

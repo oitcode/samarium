@@ -11,9 +11,14 @@ class ProductEditAddProductFeature extends Component
     public $product;
 
     public $feature;
+    public $product_feature_heading_id;
+
+    public $productFeatureHeadings;
 
     public function render()
     {
+        $this->productFeatureHeadings = $this->product->productFeatureHeadings;
+
         return view('livewire.product.dashboard.product-edit-add-product-feature');
     }
 
@@ -21,6 +26,7 @@ class ProductEditAddProductFeature extends Component
     {
         $validatedData= $this->validate([
              'feature' => 'required|string',
+             'product_feature_heading_id' => 'nullable',
         ]);
 
         $productFeature = new ProductFeature;
@@ -29,6 +35,10 @@ class ProductEditAddProductFeature extends Component
 
         $productFeature->position = $this->product->getLastSpecPosition() + 1;
         $productFeature->feature = $validatedData['feature'];
+
+        if ($validatedData['product_feature_heading_id'] != '---') {
+            $productFeature->product_feature_heading_id = $validatedData['product_feature_heading_id'];
+        }
 
         $productFeature->save();
 
