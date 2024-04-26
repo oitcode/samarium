@@ -367,6 +367,11 @@
       @if ($modes['updateProductAddProductFeatureMode'])
       @else
         <div class="p-2 bg-white border">
+            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductFeatureHeadingMode')">
+              <i class="fas fa-plus-circle mr-1"></i>
+              Add feature heading
+            </button>
+
             <button class="btn btn-light" wire:click="enterMode('updateProductAddProductFeatureMode')">
               <i class="fas fa-plus-circle mr-1"></i>
               Add feature
@@ -387,8 +392,28 @@
       </div>
     @endif
 
+    @if ($modes['updateProductAddProductFeatureHeadingMode'])
+      @livewire ('product.dashboard.product-edit-add-product-feature-heading', ['product' => $product,])
+    @endif
+
     @if ($modes['updateProductAddProductFeatureMode'])
       @livewire ('product.dashboard.product-edit-add-product-feature', ['product' => $product,])
+    @endif
+
+    @if (count($product->productFeatureHeadings) > 0)
+      <div class="mb-5">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            @foreach ($product->productFeatureHeadings as $productFeatureHeading)
+              <tr class="">
+                <th class="border-muted" style="width: 200px;">
+                  {{ $productFeatureHeading->feature_heading }}
+                </th>
+              </tr>
+            @endforeach
+          </table>
+        </div>
+      </div>
     @endif
 
     @if (count($product->productFeatures) > 0)

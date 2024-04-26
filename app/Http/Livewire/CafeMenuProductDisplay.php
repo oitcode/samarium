@@ -29,6 +29,7 @@ class CafeMenuProductDisplay extends Component
 
         'createProductAnswerMode' => false,
         'updateProductAddProductFeatureMode' => false,
+        'updateProductAddProductFeatureHeadingMode' => false,
     ];
 
     protected $listeners = [
@@ -49,6 +50,9 @@ class CafeMenuProductDisplay extends Component
 
         'productEditAddProductFeatureModeCancelled',
         'productEditAddProductFeatureModeCompleted',
+
+        'productEditAddProductFeatureHeadingModeCancelled',
+        'productEditAddProductFeatureHeadingModeCompleted',
 
         'createProductGalleryCompleted',
         'createProductGalleryCancelled',
@@ -157,6 +161,17 @@ class CafeMenuProductDisplay extends Component
     public function productEditAddProductFeatureModeCancelled()
     {
         $this->exitMode('updateProductAddProductFeatureMode');
+    }
+
+    public function productEditAddProductFeatureHeadingModeCompleted()
+    {
+        $this->exitMode('updateProductAddProductFeatureHeadingMode');
+        session()->flash('addSpecMessage', 'Product feature heading added');
+    }
+
+    public function productEditAddProductFeatureHeadingModeCancelled()
+    {
+        $this->exitMode('updateProductAddProductFeatureHeadingMode');
     }
 
     public function createProductGalleryCompleted()

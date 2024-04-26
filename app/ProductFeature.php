@@ -44,7 +44,7 @@ class ProductFeature extends Model
      * product_feature_heading table.
      *
      */
-    public function product()
+    public function productFeatureHeading()
     {
         return $this->belongsTo('App\ProductFeatureHeading', 'product_feature_heading_id', 'product_feature_heading_id');
     }
