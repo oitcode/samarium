@@ -357,6 +357,58 @@
 
   </div>
 
+  {{-- Product feature --}}
+  <div class="my-3 bg-white border">
+    <h2 class="h5 m-3">
+      Product features
+    </h2>
+
+      {{-- Toolbar --}}
+      @if ($modes['updateProductAddProductSpecificationMode'])
+      @else
+        <div class="p-2 bg-white border">
+            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
+              <i class="fas fa-plus-circle mr-1"></i>
+              Add feature
+            </button>
+        </div>
+      @endif
+
+    <!-- Flash message div -->
+    @if (session()->has('addFeatureMessage'))
+      <div class="p-2">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <i class="fas fa-check-circle mr-3"></i>
+          {{ session('addFeatureMessage') }}
+          <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+            <span class="text-danger" aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    @endif
+
+    @if ($modes['updateProductAddProductSpecificationMode'])
+      @livewire ('product.dashboard.product-edit-add-product-specification', ['product' => $product,])
+    @endif
+
+    @if (count($product->productFeatures) > 0)
+      <div class="mb-5">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            @foreach ($product->productFeatures as $feature)
+              <tr class="">
+                <th class="border-muted" style="width: 200px;">
+                  {{ $feature->feature }}
+                </th>
+              </tr>
+            @endforeach
+          </table>
+        </div>
+      </div>
+    @endif
+
+  </div>
+
 
   {{-- Questions and answers --}}
   <div class="bg-white p-3 mb-3">
