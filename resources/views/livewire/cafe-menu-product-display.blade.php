@@ -312,14 +312,15 @@
       @if ($modes['updateProductAddProductSpecificationMode'])
       @else
         <div class="p-2 bg-white border">
-            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationHeadingMode')">
-              <i class="fas fa-plus-circle mr-1"></i>
-              Add specification heading
-            </button>
             <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
               <i class="fas fa-plus-circle mr-1"></i>
               Add specification
             </button>
+            <button class="btn btn-light mr-3" wire:click="enterMode('updateProductAddProductSpecificationHeadingMode')">
+              <i class="fas fa-plus-circle mr-1"></i>
+              Add specification heading
+            </button>
+            @include ('partials.dashboard.spinner-button')
         </div>
       @endif
 
@@ -404,15 +405,17 @@
       @if ($modes['updateProductAddProductFeatureMode'])
       @else
         <div class="p-2 bg-white border">
+            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductFeatureMode')">
+              <i class="fas fa-plus-circle mr-1"></i>
+              Add feature
+            </button>
+
             <button class="btn btn-light" wire:click="enterMode('updateProductAddProductFeatureHeadingMode')">
               <i class="fas fa-plus-circle mr-1"></i>
               Add feature heading
             </button>
 
-            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductFeatureMode')">
-              <i class="fas fa-plus-circle mr-1"></i>
-              Add feature
-            </button>
+            @include ('partials.dashboard.spinner-button')
         </div>
       @endif
 

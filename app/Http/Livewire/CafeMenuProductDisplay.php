@@ -170,7 +170,7 @@ class CafeMenuProductDisplay extends Component
     public function productEditAddProductFeatureModeCompleted()
     {
         $this->exitMode('updateProductAddProductFeatureMode');
-        session()->flash('addSpecMessage', 'Product feature added');
+        session()->flash('addFeatureMessage', 'Product feature added');
     }
 
     public function productEditAddProductFeatureModeCancelled()
@@ -181,7 +181,7 @@ class CafeMenuProductDisplay extends Component
     public function productEditAddProductFeatureHeadingModeCompleted()
     {
         $this->exitMode('updateProductAddProductFeatureHeadingMode');
-        session()->flash('addSpecMessage', 'Product feature heading added');
+        session()->flash('addFeatureMessage', 'Product feature heading added');
     }
 
     public function productEditAddProductFeatureHeadingModeCancelled()
