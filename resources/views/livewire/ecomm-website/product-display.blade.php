@@ -217,28 +217,27 @@
                   </h3>
                 </div>
 
-
                 @if (count($product->productFeatureHeadings) > 0)
+                  @foreach ($product->productFeatureHeadings as $productFeatureHeading)
                   <div class="my-4">
                     <div class="table-responsive">
                       <table class="table table-bordered mb-0">
-                        @foreach ($product->productFeatureHeadings as $productFeatureHeading)
+                        <tr class="">
+                          <th class="border-dark bg-primary text-white p-3" style="width: 200px;">
+                            {{ $productFeatureHeading->feature_heading }}
+                          </th>
+                        </tr>
+                        @foreach ($productFeatureHeading->productFeatures as $productFeature)
                           <tr class="">
-                            <th class="border-dark bg-primary text-white p-3" style="width: 200px;">
-                              {{ $productFeatureHeading->feature_heading }}
-                            </th>
+                            <td class="border-dark font-weight-bold" style="">
+                              {{ $productFeature->feature}}
+                            </td>
                           </tr>
-                          @foreach ($productFeatureHeading->productFeatures as $productFeature)
-                            <tr class="">
-                              <td class="border-dark font-weight-bold" style="">
-                                {{ $productFeature->feature}}
-                              </td>
-                            </tr>
-                          @endforeach
                         @endforeach
                       </table>
                     </div>
                   </div>
+                  @endforeach
                 @endif
 
                 @if (count($product->productFeatures) > 0)
