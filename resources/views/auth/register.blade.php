@@ -93,6 +93,7 @@
                   experience.
                 </div>
 
+                @if (false)
                 <h2 class="h6 font-weight-bold">
                   Sign up to get benefits
                 </h2>
@@ -115,6 +116,8 @@
                     Much more
                   </div>
                 </div>
+                @endif
+
               </div>
             </div>
 
