@@ -347,19 +347,19 @@
     @if (count($product->productSpecificationHeadings) > 0)
       <div class="mb-5">
         <div class="table-responsive">
-          <table class="table mb-0">
+          <table class="table table-bordered mb-0">
             @foreach ($product->productSpecificationHeadings as $productSpecificationHeading)
               <tr class="">
-                <th class="border-muted" style="width: 200px;">
+                <th class="bg-primary text-white border-dark" colspan="2" style="width: 200px;">
                   {{ $productSpecificationHeading->specification_heading }}
                 </th>
               </tr>
               @foreach ($productSpecificationHeading->productSpecifications as $productSpecification)
                 <tr class="">
-                  <th class="border-muted" style="width: 200px;">
+                  <th class="border-dark" style="width: 200px;">
                     {{ $productSpecification->spec_heading}}
                   </th>
-                  <td class="border-muted" style="width: 200px;">
+                  <td class="border-dark" style="width: 200px;">
                     {{ $productSpecification->spec_value}}
                   </td>
                 </tr>
@@ -373,14 +373,14 @@
     @if (count($product->productSpecifications) > 0)
       <div class="mb-5">
         <div class="table-responsive">
-          <table class="table mb-0">
+          <table class="table table-bordered mb-0">
             @foreach ($product->productSpecifications as $productSpecification)
               @if ($productSpecification->product_specification_heading_id == null)
                 <tr class="">
-                  <th class="border-muted" style="width: 200px;">
+                  <th class="border-dark" style="width: 200px;">
                     {{ $productSpecification->spec_heading }}
                   </th>
-                  <td class="border-muted" style="width: 200px;">
+                  <td class="border-dark" style="width: 200px;">
                     {{ $productSpecification->spec_value}}
                   </td>
                 </tr>
@@ -440,16 +440,16 @@
     @if (count($product->productFeatureHeadings) > 0)
       <div class="mb-5">
         <div class="table-responsive">
-          <table class="table mb-0">
+          <table class="table table-bordered mb-0">
             @foreach ($product->productFeatureHeadings as $productFeatureHeading)
               <tr class="">
-                <th class="border-muted" style="width: 200px;">
+                <th class="bg-primary text-white border-dark" style="width: 200px;">
                   {{ $productFeatureHeading->feature_heading }}
                 </th>
               </tr>
               @foreach ($productFeatureHeading->productFeatures as $productFeature)
                 <tr class="">
-                  <th class="border-muted" style="width: 200px;">
+                  <th class="border-dark" style="width: 200px;">
                     {{ $productFeature->feature}}
                   </th>
                 </tr>
@@ -463,11 +463,11 @@
     @if (count($product->productFeatures) > 0)
       <div class="mb-5">
         <div class="table-responsive">
-          <table class="table mb-0">
+          <table class="table table-bordered mb-0">
             @foreach ($product->productFeatures as $feature)
               @if ($feature->product_feature_heading_id == null)
                 <tr class="">
-                  <th class="border-muted" style="width: 200px;">
+                  <th class="border-dark" style="width: 200px;">
                     {{ $feature->feature }}
                   </th>
                 </tr>
