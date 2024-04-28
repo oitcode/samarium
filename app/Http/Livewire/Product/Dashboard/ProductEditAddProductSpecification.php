@@ -12,9 +12,14 @@ class ProductEditAddProductSpecification extends Component
 
     public $keyword;
     public $value;
+    public $product_specification_heading_id;
+
+    public $productSpecificationHeadings;
 
     public function render()
     {
+        $this->productSpecificationHeadings = $this->product->productSpecificationHeadings;
+
         return view('livewire.product.dashboard.product-edit-add-product-specification');
     }
 
@@ -23,6 +28,7 @@ class ProductEditAddProductSpecification extends Component
         $validatedData= $this->validate([
              'keyword' => 'required|string',
              'value' => 'required|string',
+             'product_specification_heading_id' => 'nullable',
         ]);
 
         $validatedData['spec_heading'] = $validatedData['keyword'];
@@ -35,6 +41,10 @@ class ProductEditAddProductSpecification extends Component
         $productSpecification->position = $this->product->getLastSpecPosition() + 1;
         $productSpecification->spec_heading = $validatedData['keyword'];
         $productSpecification->spec_value = $validatedData['value'];
+
+        if ($validatedData['product_specification_heading_id'] != '---') {
+            $productSpecification->product_specification_heading_id = $validatedData['product_specification_heading_id'];
+        }
 
         $productSpecification->save();
 

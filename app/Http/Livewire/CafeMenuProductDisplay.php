@@ -23,6 +23,7 @@ class CafeMenuProductDisplay extends Component
         'updateProductPriceMode' => false,
         'updateProductImageMode' => false,
         'updateProductAddProductSpecificationMode' => false,
+        'updateProductAddProductSpecificationHeadingMode' => false,
 
         'createProductGalleryMode' => false,
         'updateProductVideoMode' => false,
@@ -47,6 +48,9 @@ class CafeMenuProductDisplay extends Component
 
         'productEditAddProductSpecificationModeCancelled',
         'productEditAddProductSpecificationModeCompleted',
+
+        'productEditAddProductSpecificationHeadingModeCancelled',
+        'productEditAddProductSpecificationHeadingModeCompleted',
 
         'productEditAddProductFeatureModeCancelled',
         'productEditAddProductFeatureModeCompleted',
@@ -150,6 +154,17 @@ class CafeMenuProductDisplay extends Component
     public function productEditAddProductSpecificationModeCancelled()
     {
         $this->exitMode('updateProductAddProductSpecificationMode');
+    }
+
+    public function productEditAddProductSpecificationHeadingModeCompleted()
+    {
+        $this->exitMode('updateProductAddProductSpecificationHeadingMode');
+        session()->flash('addSpecMessage', 'Product specification heading added');
+    }
+
+    public function productEditAddProductSpecificationHeadingModeCancelled()
+    {
+        $this->exitMode('updateProductAddProductSpecificationHeadingMode');
     }
 
     public function productEditAddProductFeatureModeCompleted()

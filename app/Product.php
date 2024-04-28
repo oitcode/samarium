@@ -147,6 +147,15 @@ class Product extends Model
     }
 
     /*
+     * product_specification_heading table.
+     *
+     */
+    public function productSpecificationHeadings()
+    {
+        return $this->hasMany('App\ProductSpecificationHeading', 'product_id', 'product_id');
+    }
+
+    /*
      * product_specification table.
      *
      */

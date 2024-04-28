@@ -312,6 +312,10 @@
       @if ($modes['updateProductAddProductSpecificationMode'])
       @else
         <div class="p-2 bg-white border">
+            <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationHeadingMode')">
+              <i class="fas fa-plus-circle mr-1"></i>
+              Add specification heading
+            </button>
             <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
               <i class="fas fa-plus-circle mr-1"></i>
               Add specification
@@ -332,23 +336,55 @@
       </div>
     @endif
 
+    @if ($modes['updateProductAddProductSpecificationHeadingMode'])
+      @livewire ('product.dashboard.product-edit-add-product-specification-heading', ['product' => $product,])
+    @endif
+
     @if ($modes['updateProductAddProductSpecificationMode'])
       @livewire ('product.dashboard.product-edit-add-product-specification', ['product' => $product,])
+    @endif
+
+    @if (count($product->productSpecificationHeadings) > 0)
+      <div class="mb-5">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            @foreach ($product->productSpecificationHeadings as $productSpecificationHeading)
+              <tr class="">
+                <th class="border-muted" style="width: 200px;">
+                  {{ $productSpecificationHeading->specification_heading }}
+                </th>
+              </tr>
+              @foreach ($productSpecificationHeading->productSpecifications as $productSpecification)
+                <tr class="">
+                  <th class="border-muted" style="width: 200px;">
+                    {{ $productSpecification->spec_heading}}
+                  </th>
+                  <td class="border-muted" style="width: 200px;">
+                    {{ $productSpecification->spec_value}}
+                  </td>
+                </tr>
+              @endforeach
+            @endforeach
+          </table>
+        </div>
+      </div>
     @endif
 
     @if (count($product->productSpecifications) > 0)
       <div class="mb-5">
         <div class="table-responsive">
           <table class="table mb-0">
-            @foreach ($product->productSpecifications as $spec)
-              <tr class="">
-                <th class="border-muted" style="width: 200px;">
-                  {{ $spec->spec_heading }}
-                </th>
-                <td class="border-muted">
-                  {{ $spec->spec_value }}
-                </td>
-              </tr>
+            @foreach ($product->productSpecifications as $productSpecification)
+              @if ($productSpecification->product_specification_heading_id == null)
+                <tr class="">
+                  <th class="border-muted" style="width: 200px;">
+                    {{ $productSpecification->spec_heading }}
+                  </th>
+                  <td class="border-muted" style="width: 200px;">
+                    {{ $productSpecification->spec_value}}
+                  </td>
+                </tr>
+              @endif
             @endforeach
           </table>
         </div>
@@ -356,6 +392,7 @@
     @endif
 
   </div>
+
 
   {{-- Product feature --}}
   <div class="my-3 bg-white border">
