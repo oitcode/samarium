@@ -171,7 +171,73 @@
       @endif
 
 
-        {{-- Product specification --}}
+
+      {{-- Product specification --}}
+      @if (count($product->productSpecifications) > 0)
+        <div class="mb-5-rm">
+          <div class="mt-4 bg-primary text-white p-3">
+            <h3 class="h6 font-weight-bold mb-0" style="font-weight: bold;">
+              SPECIFICATIONS
+            </h3>
+          </div>
+
+          @if (count($product->productSpecificationHeadings) > 0)
+            @foreach ($product->productSpecificationHeadings as $productSpecificationHeading)
+            <div class="my-4">
+              <div class="table-responsive">
+                <table class="table table-bordered mb-0">
+                  <tr class="">
+                    <th class="border-dark bg-primary text-white p-3" style="width: 200px;" colspan="2">
+                      {{ $productSpecificationHeading->specification_heading }}
+                    </th>
+                  </tr>
+                  @foreach ($productSpecificationHeading->productSpecifications as $productSpecification)
+                    <tr class="">
+                      <th class="border-dark font-weight-bold" style="width: 200px;">
+                        {{ $productSpecification->spec_heading}}
+                      </th>
+                      <td class="border-dark font-weight-bold" style="width: 200px;">
+                        {{ $productSpecification->spec_value}}
+                      </td>
+                    </tr>
+                  @endforeach
+                </table>
+              </div>
+            </div>
+            @endforeach
+          @endif
+
+          @if (count($product->productSpecifications) > 0)
+            <div class="my-4">
+              <div class="table-responsive">
+                <table class="table table-bordered mb-0">
+                  @foreach ($product->productSpecifications as $productSpecification)
+                    @if ($productSpecification->product_specification_heading_id == null)
+                      <tr class="">
+                        <th class="border-dark" style="width: 200px;">
+                          {{ $productSpecification->spec_heading }}
+                        </th>
+                        <td class="border-dark" style="width: 200px;">
+                          {{ $productSpecification->spec_value }}
+                        </td>
+                      </tr>
+                    @endif
+                  @endforeach
+                </table>
+              </div>
+            </div>
+          @endif
+
+
+        </div>
+      @endif
+
+
+
+
+
+
+        @if (false)
         @if (count($product->productSpecifications) > 0)
         <div class="bg-white p-3-rm border-rm mb-3">
           <div>
@@ -199,6 +265,14 @@
                 </div>
               </div>
             @endif
+            @endif
+
+
+
+
+
+
+
           </div>
         </div>
         <hr />
