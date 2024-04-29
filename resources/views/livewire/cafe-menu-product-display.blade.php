@@ -375,10 +375,21 @@
                     @endif
                   </th>
                   <td class="border-dark" style="width: 200px;">
-                    {{ $productSpecification->spec_value}}
-                    <button class="btn btn-light">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    @if ($modes['updateProductUpdateProductSpecificationValue'])
+                      @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
+                        @livewire ('product.dashboard.product-specification-value-edit', ['productSpecification' => $productSpecification,])
+                      @else
+                        {{ $productSpecification->spec_value }}
+                        <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+                      @endif
+                    @else
+                      {{ $productSpecification->spec_value }}
+                      <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
+                    @endif
                   </td>
                 </tr>
               @endforeach
@@ -396,16 +407,38 @@
               @if ($productSpecification->product_specification_heading_id == null)
                 <tr class="">
                   <th class="border-dark" style="width: 200px;">
-                    {{ $productSpecification->spec_heading }}
-                    <button class="btn btn-light">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    @if ($modes['updateProductUpdateProductSpecificationKeyword'])
+                      @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
+                        @livewire ('product.dashboard.product-specification-keyword-edit', ['productSpecification' => $productSpecification,])
+                      @else
+                        {{ $productSpecification->spec_heading}}
+                        <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+                      @endif
+                    @else
+                      {{ $productSpecification->spec_heading}}
+                      <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
+                    @endif
                   </th>
                   <td class="border-dark" style="width: 200px;">
-                    {{ $productSpecification->spec_value}}
-                    <button class="btn btn-light">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    @if ($modes['updateProductUpdateProductSpecificationValue'])
+                      @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
+                        @livewire ('product.dashboard.product-specification-value-edit', ['productSpecification' => $productSpecification,])
+                      @else
+                        {{ $productSpecification->spec_value }}
+                        <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+                      @endif
+                    @else
+                      {{ $productSpecification->spec_value }}
+                      <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
+                    @endif
                   </td>
                 </tr>
               @endif

@@ -35,6 +35,7 @@ class CafeMenuProductDisplay extends Component
         'updateProductAddProductFeatureHeadingMode' => false,
 
         'updateProductUpdateProductSpecificationKeyword' => false,
+        'updateProductUpdateProductSpecificationValue' => false,
     ];
 
     protected $listeners = [
@@ -73,6 +74,9 @@ class CafeMenuProductDisplay extends Component
 
         'productSpecificationUpdateKeywordCancelled',
         'productSpecificationUpdateKeywordCompleted',
+
+        'productSpecificationUpdateValueCancelled',
+        'productSpecificationUpdateValueCompleted',
     ];
 
     public function render()
@@ -266,5 +270,23 @@ class CafeMenuProductDisplay extends Component
     {
         $this->updatingProductSpecification = null;
         $this->exitMode('updateProductUpdateProductSpecificationKeyword');
+    }
+
+    public function updateProductSpecificationValue(ProductSpecification $productSpecification)
+    {
+        $this->enterMode('updateProductUpdateProductSpecificationValue');
+        $this->updatingProductSpecification = $productSpecification;
+    }
+
+    public function productSpecificationUpdateValueCancelled()
+    {
+        $this->updatingProductSpecification = null;
+        $this->exitMode('updateProductUpdateProductSpecificationValue');
+    }
+
+    public function productSpecificationUpdateValueCompleted()
+    {
+        $this->updatingProductSpecification = null;
+        $this->exitMode('updateProductUpdateProductSpecificationValue');
     }
 }
