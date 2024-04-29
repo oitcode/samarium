@@ -9,6 +9,7 @@ use App\Traits\ModesTrait;
 use App\ProductQuestion;
 use App\ProductAnswer;
 use App\ProductSpecification;
+use App\ProductFeature;
 
 class CafeMenuProductDisplay extends Component
 {
@@ -18,6 +19,8 @@ class CafeMenuProductDisplay extends Component
 
     public $answeringProductQuestion;
     public $updatingProductSpecification;
+
+    public $updatingProductFeature;
 
     public $modes = [
         'updateProductNameMode' => false,
@@ -36,6 +39,8 @@ class CafeMenuProductDisplay extends Component
 
         'updateProductUpdateProductSpecificationKeyword' => false,
         'updateProductUpdateProductSpecificationValue' => false,
+
+        'updateProductUpdateProductFeature' => false,
     ];
 
     protected $listeners = [
@@ -77,6 +82,9 @@ class CafeMenuProductDisplay extends Component
 
         'productSpecificationUpdateValueCancelled',
         'productSpecificationUpdateValueCompleted',
+
+        'productFeatureUpdateCancelled',
+        'productFeatureUpdateCompleted',
     ];
 
     public function render()
@@ -288,5 +296,23 @@ class CafeMenuProductDisplay extends Component
     {
         $this->updatingProductSpecification = null;
         $this->exitMode('updateProductUpdateProductSpecificationValue');
+    }
+
+    public function updateProductFeature(ProductFeature $productFeature)
+    {
+        $this->enterMode('updateProductUpdateProductFeature');
+        $this->updatingProductFeature = $productFeature;
+    }
+
+    public function productFeatureUpdateCancelled()
+    {
+        $this->updatingProductFeature = null;
+        $this->exitMode('updateProductUpdateProductFeature');
+    }
+
+    public function productFeatureUpdateCompleted()
+    {
+        $this->updatingProductFeature = null;
+        $this->exitMode('updateProductUpdateProductFeature');
     }
 }

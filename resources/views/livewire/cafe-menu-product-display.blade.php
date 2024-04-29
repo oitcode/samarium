@@ -509,7 +509,21 @@
               @foreach ($productFeatureHeading->productFeatures as $productFeature)
                 <tr class="">
                   <th class="border-dark" style="width: 200px;">
-                    {{ $productFeature->feature}}
+                    @if ($modes['updateProductUpdateProductFeature'])
+                      @if ($updatingProductFeature->product_feature_id == $productFeature->product_feature_id)
+                        @livewire ('product.dashboard.product-feature-edit', ['productFeature' => $productFeature,])
+                      @else
+                        {{ $productFeature->feature }}
+                        <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+                      @endif
+                    @else
+                      {{ $productFeature->feature }}
+                      <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
+                    @endif
                   </th>
                 </tr>
               @endforeach
@@ -523,11 +537,25 @@
       <div class="mb-5">
         <div class="table-responsive">
           <table class="table table-bordered mb-0">
-            @foreach ($product->productFeatures as $feature)
-              @if ($feature->product_feature_heading_id == null)
+            @foreach ($product->productFeatures as $productFeature)
+              @if ($productFeature->product_feature_heading_id == null)
                 <tr class="">
                   <th class="border-dark" style="width: 200px;">
-                    {{ $feature->feature }}
+                    @if ($modes['updateProductUpdateProductFeature'])
+                      @if ($updatingProductFeature->product_feature_id == $productFeature->product_feature_id)
+                        @livewire ('product.dashboard.product-feature-edit', ['productFeature' => $productFeature,])
+                      @else
+                        {{ $productFeature->feature }}
+                        <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+                      @endif
+                    @else
+                      {{ $productFeature->feature }}
+                      <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
+                    @endif
                   </th>
                 </tr>
               @endif
