@@ -460,6 +460,26 @@
                       </button>
                     @endif
                   </td>
+                  <td class="border-dark" style="width: 200px;">
+                    @if ($modes['deleteProductSpecificationMode'])
+                      @if ($deletingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
+                        <button class="btn btn-danger" wire:click="confirmDeleteProductSpecification({{ $productSpecification }})">
+                          Confirm delete
+                        </button>
+                        <button class="btn btn-light" wire:click="cancelDeleteProductSpecification">
+                          Cancel
+                        </button>
+                      @else
+                        <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      @endif
+                    @else
+                      <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    @endif
+                  </td>
                 </tr>
               @endif
             @endforeach
