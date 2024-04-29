@@ -542,7 +542,7 @@
           <table class="table table-bordered mb-0">
             @foreach ($product->productFeatureHeadings as $productFeatureHeading)
               <tr class="">
-                <th class="bg-primary text-white border-dark" style="width: 200px;">
+                <th colspan="2" class="bg-primary text-white border-dark" style="width: 200px;">
                   {{ $productFeatureHeading->feature_heading }}
                 </th>
               </tr>
@@ -565,6 +565,26 @@
                       </button>
                     @endif
                   </th>
+                  <td class="border-dark" style="width: 200px;">
+                    @if ($modes['deleteProductFeatureMode'])
+                      @if ($deletingProductFeature->product_feature_id == $productFeature->product_feature_id)
+                        <button class="btn btn-danger" wire:click="confirmDeleteProductFeature({{ $productFeature }})">
+                          Confirm delete
+                        </button>
+                        <button class="btn btn-light" wire:click="cancelDeleteProductFeature">
+                          Cancel
+                        </button>
+                      @else
+                        <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      @endif
+                    @else
+                      <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    @endif
+                  </td>
                 </tr>
               @endforeach
             @endforeach
@@ -597,6 +617,26 @@
                       </button>
                     @endif
                   </th>
+                  <td class="border-dark" style="width: 200px;">
+                    @if ($modes['deleteProductFeatureMode'])
+                      @if ($deletingProductFeature->product_feature_id == $productFeature->product_feature_id)
+                        <button class="btn btn-danger" wire:click="confirmDeleteProductFeature({{ $productFeature }})">
+                          Confirm delete
+                        </button>
+                        <button class="btn btn-light" wire:click="cancelDeleteProductFeature">
+                          Cancel
+                        </button>
+                      @else
+                        <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      @endif
+                    @else
+                      <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    @endif
+                  </td>
                 </tr>
               @endif
             @endforeach
