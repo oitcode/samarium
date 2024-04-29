@@ -22,6 +22,8 @@ class CafeMenuProductDisplay extends Component
 
     public $updatingProductFeature;
 
+    public $deletingProductSpecification;
+
     public $modes = [
         'updateProductNameMode' => false,
         'updateProductDescriptionMode' => false,
@@ -41,6 +43,10 @@ class CafeMenuProductDisplay extends Component
         'updateProductUpdateProductSpecificationValue' => false,
 
         'updateProductUpdateProductFeature' => false,
+
+        'updateProductUpdateProductGalleryMode' => false,
+
+        'deleteProductSpecificationMode' => false,
     ];
 
     protected $listeners = [
@@ -314,5 +320,25 @@ class CafeMenuProductDisplay extends Component
     {
         $this->updatingProductFeature = null;
         $this->exitMode('updateProductUpdateProductFeature');
+    }
+
+    public function deleteProductSpecification(ProductSpecification $productSpecification)
+    {
+        $this->deletingProductSpecification = $productSpecification; 
+        $this->enterMode('deleteProductSpecificationMode');
+    }
+
+    public function cancelDeleteProductSpecification()
+    {
+        $this->deletingProductSpecification = null;
+        $this->exitMode('deleteProductSpecificationMode');
+    }
+
+    public function confirmDeleteProductSpecification(ProductSpecification $productSpecification)
+    {
+        $this->deletingProductSpecification->delete();
+        $this->deletingProductSpecification = null;
+        $this->exitMode('deleteProductSpecificationMode');
+        $this->product->refresh();
     }
 }

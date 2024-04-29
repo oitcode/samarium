@@ -248,7 +248,7 @@
 
     @if ($product->gallery)
       <div class="my-3">
-        <button class="btn btn-light" wire:click="enterMode('updateProductAddProductSpecificationMode')">
+        <button class="btn btn-light" wire:click="enterMode('updateProductUpdateProductGalleryMode')">
           <i class="fas fa-pencil-alt mr-1"></i>
           Edit gallery
         </button>
@@ -388,6 +388,26 @@
                       {{ $productSpecification->spec_value }}
                       <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
                         <i class="fas fa-pencil-alt"></i>
+                      </button>
+                    @endif
+                  </td>
+                  <td class="border-dark" style="width: 200px;">
+                    @if ($modes['deleteProductSpecificationMode'])
+                      @if ($deletingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
+                        <button class="btn btn-danger" wire:click="confirmDeleteProductSpecification({{ $productSpecification }})">
+                          Confirm delete
+                        </button>
+                        <button class="btn btn-light" wire:click="cancelDeleteProductSpecification">
+                          Cancel
+                        </button>
+                      @else
+                        <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      @endif
+                    @else
+                      <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
+                        <i class="fas fa-trash"></i>
                       </button>
                     @endif
                   </td>
