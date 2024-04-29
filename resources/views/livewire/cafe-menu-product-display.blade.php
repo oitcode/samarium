@@ -351,17 +351,34 @@
           <table class="table table-bordered mb-0">
             @foreach ($product->productSpecificationHeadings as $productSpecificationHeading)
               <tr class="">
-                <th class="bg-primary text-white border-dark" colspan="2" style="width: 200px;">
+                <th class="bg-primary text-white border-dark" colspan="3" style="width: 200px;">
                   {{ $productSpecificationHeading->specification_heading }}
                 </th>
               </tr>
               @foreach ($productSpecificationHeading->productSpecifications as $productSpecification)
                 <tr class="">
                   <th class="border-dark" style="width: 200px;">
-                    {{ $productSpecification->spec_heading}}
+                    @if ($modes['updateProductUpdateProductSpecificationKeyword'])
+                      @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
+                        @livewire ('product.dashboard.product-specification-keyword-edit', ['productSpecification' => $productSpecification,])
+                      @else
+                        {{ $productSpecification->spec_heading}}
+                        <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
+                          <i class="fas fa-pencil-alt"></i>
+                        </button>
+                      @endif
+                    @else
+                      {{ $productSpecification->spec_heading}}
+                      <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
+                        <i class="fas fa-pencil-alt"></i>
+                      </button>
+                    @endif
                   </th>
                   <td class="border-dark" style="width: 200px;">
                     {{ $productSpecification->spec_value}}
+                    <button class="btn btn-light">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
                   </td>
                 </tr>
               @endforeach
@@ -380,9 +397,15 @@
                 <tr class="">
                   <th class="border-dark" style="width: 200px;">
                     {{ $productSpecification->spec_heading }}
+                    <button class="btn btn-light">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
                   </th>
                   <td class="border-dark" style="width: 200px;">
                     {{ $productSpecification->spec_value}}
+                    <button class="btn btn-light">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
                   </td>
                 </tr>
               @endif

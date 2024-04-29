@@ -8,6 +8,7 @@ use App\Traits\ModesTrait;
 
 use App\ProductQuestion;
 use App\ProductAnswer;
+use App\ProductSpecification;
 
 class CafeMenuProductDisplay extends Component
 {
@@ -16,6 +17,7 @@ class CafeMenuProductDisplay extends Component
     public $product;
 
     public $answeringProductQuestion;
+    public $updatingProductSpecification;
 
     public $modes = [
         'updateProductNameMode' => false,
@@ -31,6 +33,8 @@ class CafeMenuProductDisplay extends Component
         'createProductAnswerMode' => false,
         'updateProductAddProductFeatureMode' => false,
         'updateProductAddProductFeatureHeadingMode' => false,
+
+        'updateProductUpdateProductSpecificationKeyword' => false,
     ];
 
     protected $listeners = [
@@ -66,6 +70,9 @@ class CafeMenuProductDisplay extends Component
 
         'createProductAnswerCompleted',
         'createProductAnswerCancelled',
+
+        'productSpecificationUpdateKeywordCancelled',
+        'productSpecificationUpdateKeywordCompleted',
     ];
 
     public function render()
@@ -241,5 +248,23 @@ class CafeMenuProductDisplay extends Component
         $this->product->featured_product = 'no';
         $this->product->save();
         session()->flash('message', 'Product removed from featured product.');
+    }
+
+    public function updateProductSpecificationKeyword(ProductSpecification $productSpecification)
+    {
+        $this->enterMode('updateProductUpdateProductSpecificationKeyword');
+        $this->updatingProductSpecification = $productSpecification;
+    }
+
+    public function productSpecificationUpdateKeywordCancelled()
+    {
+        $this->updatingProductSpecification = null;
+        $this->exitMode('updateProductUpdateProductSpecificationKeyword');
+    }
+
+    public function productSpecificationUpdateKeywordCompleted()
+    {
+        $this->updatingProductSpecification = null;
+        $this->exitMode('updateProductUpdateProductSpecificationKeyword');
     }
 }
