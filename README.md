@@ -10,6 +10,12 @@ Open source ERP software created using Laravel, Livewire and Bootstrap.
 
 ## Features
 
+Please checkout this application demo in below url:
+
+[example.com](https://example.com)
+
+## Features
+
 - Admin dashboard
 - CMS
 - CRM
