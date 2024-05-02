@@ -120,7 +120,7 @@
 
           <div class="my-4 text-center text-secondary">
             <h3 class="h6 font-weight-bold">
-              &copy; 2023 OIT | oit.com.np
+              &copy; 2024 OIT | oit.com.np
             </h3>
           </div>
 

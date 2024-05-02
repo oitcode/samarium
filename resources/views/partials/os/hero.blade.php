@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <div class="d-flex flex-column justify-content-center h-100 pl-5 pt-5 pt-md-0">
         <h2 class="h1 text-white mb-5" style="font-size: 2.5rem; color: #004; font-family: Arial; font-weight: bold;">
-          Sports shop | Nepal
+          Ecommerce shop
         </h2>
 
         <div class="row text-white">

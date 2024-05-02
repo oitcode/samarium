@@ -40,10 +40,7 @@
         <div class="bg-warning-rm p-3 shadow-sm col-md-3" style="background-color: #ffa;">
           <div style="font-size: 1rem;">
             <i class="fas fa-exclamation-circle fa-2x-rm mr-2 text-danger"></i>
-            Pay by 25th of next month
-          </div>
-          <div style="font-size: 0.6rem;">
-            Failure to do so will result in fine imposed by IRD Government of Nepal.
+            Please check your local tax regulations. 
           </div>
         </div>
       </div>
