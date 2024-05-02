@@ -8,7 +8,7 @@ Open source ERP software created using Laravel, Livewire and Bootstrap.
 
 ![screenshot](dashboard-screenshot-1.png)
 
-## Features
+## Demo
 
 Please checkout this application demo in below url:
 
