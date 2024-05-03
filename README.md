@@ -21,42 +21,14 @@ Please checkout this application demo in below url:
 - CRM
 - Invoicing
 
-## Server requirements
-
-If you are using Ubuntu 20 or higher just run the below bash script to install
-all the required dependencies.
-
-`bash dependency-install.sh`
-
-However if you want to install dependencies manually follow below instructions.
-
-This software is made using Laravel which used PHP and PHP libraries.
-Below dependencies must be installed.
-
-- PHP >= 7.2.5
-- BCMath PHP Extension
-- Ctype PHP Extension
-- Fileinfo PHP extension
-- JSON PHP Extension
-- Mbstring PHP Extension
-- OpenSSL PHP Extension
-- PDO PHP Extension
-- Tokenizer PHP Extension
-- XML PHP Extension
-
-For database MySQL database is used. Please install MySQL for database.
-
-- MySQL 
-
 ## Installation
 
-Installation script is available with this package.
-You just need to run the script and installation will be completed.
-
-Please run below script in Ubuntu 20 or higher. If you are using any other operating system
-then please modify the bash script accordingly.
+In Ubuntu 20 or later, please run below installation script in bash shell.
 
 `bash app-install.sh`
+
+If you want to see detailed information on installation process please
+visit our installation documentation.
 
 ## Running the app
 
@@ -66,21 +38,16 @@ Now open your web browser and visit
 - 127.0.0.1 to see the website
 - 127.0.0.1/dashboard to see the dashboard
 
-## Learning
-
-Please view our Github Wiki pages.
-
 ## Contributing
 
-Fork, edit and send pull request.
-
 __Please contribute to this project.__ If you are interested in developing
-software using livewire and/or bootstrap then please consider
-checking out this project. 
+software using livewire and/or bootstrap then please fork, edit and
+send pull request.
 
 ## Issues
 
-Please raise an issue in github.
+If you find any issue in this application, you can help by raising an issue
+here in our github repo.
 
 ## License
 
