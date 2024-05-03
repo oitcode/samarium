@@ -71,6 +71,9 @@
   {{-- Product features --}}
   @include ('partials.product.product-display.product-features')
 
+  {{-- Product options --}}
+  @include ('partials.product.product-display.product-options')
+
   {{-- Questions and answers --}}
   @include ('partials.product.product-display.question-and-answer')
 
