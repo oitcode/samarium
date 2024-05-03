@@ -1,4 +1,4 @@
-<div>
+<div style="background-color: #888;">
 
 
   {{-- Online store hero --}}
@@ -68,9 +68,9 @@
 
 
       </div>
+
+
       <div class="col-md-9 pt-3 bg-white">
-
-
 
         <div class="d-flex flex-column h-100">
           <div>
@@ -363,15 +363,6 @@
           @endif
 
 
-
-
-
-
-
-
-
-
-
         @endforeach
       </div>
     </div>
@@ -410,9 +401,9 @@
 
 
   @if (\App\Testimonial::count() > 0)
-    <div class="container-fluid py-5 border bg-white">
+    <div class="container-fluid py-5 border bg-light">
       <div class="container">
-        <h2 class="h4 font-weight-bold mb-5">
+        <h2 class="h4 font-weight-bold mb-4">
           What our customers say
         </h2>
         @livewire ('testimonial.website.testimonial-list')
