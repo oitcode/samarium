@@ -25,6 +25,7 @@
 
   <div class="d-none d-md-block p-0">
 
+    {{-- Upper part of the dashboard screen --}}
     <div class="row mb-5 pt-3">
 
       {{-- Shop glance --}}
@@ -66,8 +67,9 @@
     </div>
 
 
-    {{-- Todo glance --}}
+     {{-- Lower part of the dashboard screen --}}
      <div class="">
+       {{-- Todo glance --}}
        @if (preg_match("/project/i", env('MODULES')))
          @livewire ('todo.dashboard.todo-glance')
        @endif
