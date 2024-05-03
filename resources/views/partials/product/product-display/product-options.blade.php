@@ -4,17 +4,17 @@
   </h2>
 
   {{-- Toolbar --}}
-  @if ($modes['updateProductAddProductFeatureMode'])
+  @if ($modes['updateProductAddProductOptionMode'])
   @else
     <div class="p-2 bg-white border">
-        <button class="btn btn-light" wire:click="enterMode('updateProductAddProductFeatureMode')">
+        <button class="btn btn-light" wire:click="enterMode('updateProductAddProductOptionMode')">
           <i class="fas fa-plus-circle mr-1"></i>
-          Add feature
+          Add option
         </button>
 
-        <button class="btn btn-light" wire:click="enterMode('updateProductAddProductFeatureHeadingMode')">
+        <button class="btn btn-light" wire:click="enterMode('updateProductAddProductOptionHeadingMode')">
           <i class="fas fa-plus-circle mr-1"></i>
-          Add feature heading
+          Add option heading
         </button>
 
         @include ('partials.dashboard.spinner-button')
@@ -22,11 +22,11 @@
   @endif
 
   <!-- Flash message div -->
-  @if (session()->has('addFeatureMessage'))
+  @if (session()->has('addProductOptionMessage'))
     <div class="p-2">
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="fas fa-check-circle mr-3"></i>
-        {{ session('addFeatureMessage') }}
+        {{ session('addProductOptionMessage') }}
         <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
           <span class="text-danger" aria-hidden="true">&times;</span>
         </button>
@@ -34,121 +34,72 @@
     </div>
   @endif
 
-  @if ($modes['updateProductAddProductFeatureHeadingMode'])
-    @livewire ('product.dashboard.product-edit-add-product-feature-heading', ['product' => $product,])
+  @if ($modes['updateProductAddProductOptionHeadingMode'])
+    @livewire ('product.dashboard.product-edit-add-product-option-heading', ['product' => $product,])
   @endif
 
-  @if ($modes['updateProductAddProductFeatureMode'])
-    @livewire ('product.dashboard.product-edit-add-product-feature', ['product' => $product,])
+  @if ($modes['updateProductAddProductOptionMode'])
+    @livewire ('product.dashboard.product-edit-add-product-option', ['product' => $product,])
   @endif
 
-  @if (count($product->productFeatureHeadings) > 0)
+  @if (count($product->productOptionHeadings) > 0)
     <div class="mb-5">
       <div class="table-responsive">
         <table class="table table-bordered mb-0">
-          @foreach ($product->productFeatureHeadings as $productFeatureHeading)
+          @foreach ($product->productOptionHeadings as $productOptionHeading)
             <tr class="">
               <th colspan="2" class="bg-primary text-white border-dark" style="width: 200px;">
-                {{ $productFeatureHeading->feature_heading }}
+                {{ $productOptionHeading->product_option_heading_name }}
               </th>
             </tr>
-            @foreach ($productFeatureHeading->productFeatures as $productFeature)
+            @if (true)
+            @foreach ($productOptionHeading->productOptions as $productOption)
               <tr class="">
                 <th class="border-dark" style="width: 200px;">
-                  @if ($modes['updateProductUpdateProductFeature'])
-                    @if ($updatingProductFeature->product_feature_id == $productFeature->product_feature_id)
-                      @livewire ('product.dashboard.product-feature-edit', ['productFeature' => $productFeature,])
+                  @if ($modes['updateProductUpdateProductOption'])
+                    @if ($updatingProductOption->product_option_id == $productOption->product_option_id)
+                      @livewire ('product.dashboard.product-option-edit', ['productOption' => $productOption,])
                     @else
-                      {{ $productFeature->feature }}
-                      <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
+                      {{ $productOption->product_option_name }}
+                      <button class="btn btn-light" wire:click="updateProductOption({{ $productOption }})">
                         <i class="fas fa-pencil-alt"></i>
                       </button>
                     @endif
                   @else
-                    {{ $productFeature->feature }}
-                    <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
+                    {{ $productOption->product_option_name }}
+                    <button class="btn btn-light" wire:click="updateProductOption({{ $productOption }})">
                       <i class="fas fa-pencil-alt"></i>
                     </button>
                   @endif
                 </th>
                 <td class="border-dark" style="width: 200px;">
-                  @if ($modes['deleteProductFeatureMode'])
-                    @if ($deletingProductFeature->product_feature_id == $productFeature->product_feature_id)
-                      <button class="btn btn-danger" wire:click="confirmDeleteProductFeature({{ $productFeature }})">
+                  @if ($modes['deleteProductOptionMode'])
+                    @if ($deletingProductOption->product_option_id == $productOption->product_option_id)
+                      <button class="btn btn-danger" wire:click="confirmDeleteProductOption({{ $productOption }})">
                         Confirm delete
                       </button>
-                      <button class="btn btn-light" wire:click="cancelDeleteProductFeature">
+                      <button class="btn btn-light" wire:click="cancelDeleteProductOption">
                         Cancel
                       </button>
                     @else
-                      <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
+                      <button class="btn btn-light" wire:click="deleteProductOption({{ $productOption }})">
                         <i class="fas fa-trash"></i>
                       </button>
                     @endif
                   @else
-                    <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
+                    <button class="btn btn-light" wire:click="deleteProductOption({{ $productOption }})">
                       <i class="fas fa-trash"></i>
                     </button>
                   @endif
                 </td>
               </tr>
             @endforeach
-          @endforeach
-        </table>
-      </div>
-    </div>
-  @endif
-
-  @if (count($product->productFeatures) > 0)
-    <div class="mb-5">
-      <div class="table-responsive">
-        <table class="table table-bordered mb-0">
-          @foreach ($product->productFeatures as $productFeature)
-            @if ($productFeature->product_feature_heading_id == null)
-              <tr class="">
-                <th class="border-dark" style="width: 200px;">
-                  @if ($modes['updateProductUpdateProductFeature'])
-                    @if ($updatingProductFeature->product_feature_id == $productFeature->product_feature_id)
-                      @livewire ('product.dashboard.product-feature-edit', ['productFeature' => $productFeature,])
-                    @else
-                      {{ $productFeature->feature }}
-                      <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>
-                    @endif
-                  @else
-                    {{ $productFeature->feature }}
-                    <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
-                  @endif
-                </th>
-                <td class="border-dark" style="width: 200px;">
-                  @if ($modes['deleteProductFeatureMode'])
-                    @if ($deletingProductFeature->product_feature_id == $productFeature->product_feature_id)
-                      <button class="btn btn-danger" wire:click="confirmDeleteProductFeature({{ $productFeature }})">
-                        Confirm delete
-                      </button>
-                      <button class="btn btn-light" wire:click="cancelDeleteProductFeature">
-                        Cancel
-                      </button>
-                    @else
-                      <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    @endif
-                  @else
-                    <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  @endif
-                </td>
-              </tr>
             @endif
           @endforeach
         </table>
       </div>
     </div>
   @endif
+
 
 </div>

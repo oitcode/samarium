@@ -16,7 +16,7 @@ class CreateProductOptionHeadingTable extends Migration
         Schema::create('product_option_heading', function (Blueprint $table) {
             $table->bigIncrements('product_option_heading_id');
 
-            $table->string('product_opton_heading_name');
+            $table->string('product_option_heading_name');
 
             /*
              * Foreign key to product table.

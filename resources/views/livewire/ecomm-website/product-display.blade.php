@@ -340,6 +340,49 @@
         <hr />
         @endif
 
+        {{-- Product Options --}}
+        @if (count($product->productOptions) > 0)
+        <div class="bg-white p-3-rm border-rm mb-3">
+          <div>
+
+            @if (count($product->productOptions) > 0)
+              <div class="mb-5-rm">
+                <div class="mt-4 bg-primary text-white p-3">
+                  <h3 class="h6 font-weight-bold mb-0" style="font-weight: bold;">
+                    OptionS
+                  </h3>
+                </div>
+
+                @if (count($product->productOptionHeadings) > 0)
+                  @foreach ($product->productOptionHeadings as $productOptionHeading)
+                  <div class="my-4">
+                    <div class="table-responsive">
+                      <table class="table table-bordered mb-0">
+                        <tr class="">
+                          <th class="border-dark bg-primary text-white p-3" style="width: 200px;">
+                            {{ $productOptionHeading->product_option_heading_name }}
+                          </th>
+                        </tr>
+                        @foreach ($productOptionHeading->productOptions as $productOption)
+                          <tr class="">
+                            <td class="border-dark font-weight-bold" style="">
+                              {{ $productOption->product_option_name}}
+                            </td>
+                          </tr>
+                        @endforeach
+                      </table>
+                    </div>
+                  </div>
+                  @endforeach
+                @endif
+
+              </div>
+            @endif
+          </div>
+        </div>
+        <hr />
+        @endif
+
         @if (true)
         {{-- Youtube video --}}
         <div class="bg-white p-3-rm border-rm mb-3">

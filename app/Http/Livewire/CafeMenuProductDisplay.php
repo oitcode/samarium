@@ -49,6 +49,12 @@ class CafeMenuProductDisplay extends Component
 
         'deleteProductSpecificationMode' => false,
         'deleteProductFeatureMode' => false,
+
+        'updateProductAddProductOptionMode' => false,
+        'updateProductAddProductOptionHeadingMode' => false,
+
+        'updateProductUpdateProductOption' => false,
+        'deleteProductOptionMode' => false,
     ];
 
     protected $listeners = [
@@ -93,6 +99,12 @@ class CafeMenuProductDisplay extends Component
 
         'productFeatureUpdateCancelled',
         'productFeatureUpdateCompleted',
+
+        'productEditAddProductOptionHeadingModeCancelled',
+        'productEditAddProductOptionHeadingModeCompleted',
+
+        'productEditAddProductOptionModeCancelled',
+        'productEditAddProductOptionModeCompleted',
     ];
 
     public function render()
@@ -362,5 +374,27 @@ class CafeMenuProductDisplay extends Component
         $this->deletingProductFeature = null;
         $this->exitMode('deleteProductFeatureMode');
         $this->product->refresh();
+    }
+
+    public function productEditAddProductOptionHeadingModeCancelled()
+    {
+        $this->exitMode('updateProductAddProductOptionHeadingMode');
+    }
+
+    public function productEditAddProductOptionHeadingModeCompleted()
+    {
+        $this->exitMode('updateProductAddProductOptionHeadingMode');
+        session()->flash('addProductOptionMessage', 'Product option heading added');
+    }
+
+    public function productEditAddProductOptionModeCancelled()
+    {
+        $this->exitMode('updateProductAddProductOptionMode');
+    }
+
+    public function productEditAddProductOptionModeCompleted()
+    {
+        $this->exitMode('updateProductAddProductOptionMode');
+        session()->flash('addProductOptionMessage', 'Product option dded');
     }
 }
