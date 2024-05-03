@@ -41,7 +41,7 @@ Now open your web browser and visit
 ## Contributing
 
 __Please contribute to this project.__ If you are interested in developing
-software using livewire and/or bootstrap then please fork, edit and
+web application using laravel, livewire and bootstrap then please fork, edit and
 send pull request.
 
 ## Issues
