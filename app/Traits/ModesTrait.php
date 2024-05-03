@@ -4,6 +4,15 @@ namespace App\Traits;
 
 trait ModesTrait
 {
+    /*
+     *  Modes Trait
+     *
+     *  This trait can be used to add mode functionality to classes. 
+     *  This is extensively used in our application.
+     *
+     */
+
+
     /* Clear modes */
     public function clearModes()
     {
@@ -20,7 +29,7 @@ trait ModesTrait
         $this->modes[$modeName] = true;
     }
 
-    /* Enter mode */
+    /* Exit mode */
     public function exitMode($modeName)
     {
         $this->modes[$modeName] = false;
