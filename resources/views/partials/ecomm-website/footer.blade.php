@@ -8,7 +8,7 @@
   </div>
 
   {{-- Brand Info --}}
-  @if (true)
+  @if (false)
   <div class="container-fluid py-3" style="{{-- background-color: #dcdcdc; --}}">
     <div class="container">
       <div class="row">
@@ -214,6 +214,16 @@
                   <i class="fab fa-tiktok fa-2x text-danger"></i>
                 </a>
               </div>
+            @endif
+          </div>
+
+          <hr />
+          <div class="">
+            @if (true)
+            <img src="{{ asset('storage/' . $company->logo_image_path) }}"
+                class="img-fluid-rm"
+                alt="{{ $company->name }} logo"
+                style="height: 75px !important;">
             @endif
           </div>
 

@@ -19,7 +19,7 @@
 
   @if (true)
   {{-- Show only in big screens for now --}}
-  <div class="container-fluid bg-light-rm d-none d-md-block py-4" style="background-image: linear-gradient(to bottom right, #eee, #ddd);">
+  <div class="container-fluid bg-light-rm d-none d-md-block py-4" style="background-image: linear-gradient(to right, #a00, #003);">
   <div class="container pt-4-rm">
     <div class="row border-rm shadow-rm">
       <div class="col-md-3 py-3-rm bg-info-rm">
@@ -412,12 +412,9 @@
   @if (\App\Testimonial::count() > 0)
     <div class="container-fluid py-5 border bg-white">
       <div class="container">
-        <h2 class="h4 font-weight-bold">
-          Testimonials
-        </h2>
-        <div class="h6 text-secondary mb-5">
+        <h2 class="h4 font-weight-bold mb-5">
           What our customers say
-        </div>
+        </h2>
         @livewire ('testimonial.website.testimonial-list')
       </div>
     </div>

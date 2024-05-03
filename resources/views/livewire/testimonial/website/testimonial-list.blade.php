@@ -3,20 +3,25 @@
 
   @if ($testimonials != null && count($testimonials) > 0)
     @if (true)
-    <div class="">
+    <div class="row">
       @foreach ($testimonials as $testimonial)
-        <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="{{-- border-top: 2px solid red !important; --}} background-color: #ffa;">
-          <span class="font-weight-bold">
-            {{ $testimonial->writer_name }}
-          </span>
-          <br />
-          <span class="text-muted">
-            {{ $testimonial->writer_info }}
-          </span>
-          <br />
-          <br />
-          {{ $testimonial->body }}
-          <br />
+        <div class="col-md-4 p-3 border-rm my-3 mb-4 bg-white-rm shadow-sm-rm">
+          <div class="h-100 p-3 shadow" style="{{-- border-top: 2px solid red !important; --}} background-color: #cdd;">
+            <i class="fas fa-quote-left fa-2x"></i>
+            <br/>
+            <br/>
+            {{ $testimonial->body }}
+            <br />
+            <br />
+            <span class="font-weight-bold">
+              {{ $testimonial->writer_name }}
+            </span>
+            <br />
+            <span class="text-muted-rm">
+              {{ $testimonial->writer_info }}
+            </span>
+            <br />
+          </div>
         </div>
       @endforeach
     </div>
