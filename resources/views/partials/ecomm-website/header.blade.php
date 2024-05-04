@@ -1,96 +1,88 @@
-<div class="sticky-top-rm bg-white border-bottom">
+<div class="sticky-top-rm bg-dark text-white border-bottom-rm p-0 px-0">
 
   {{-- Show in bigger screens --}}
-  <div class="container-fluid p-0 bg-warning-rm d-none d-md-block">
-    <div class="container-fluid 
-      @if (! \App\CmsTheme::first())
-        bg-danger text-white
-      @endif
-      border-bottom"
-      style="
-        @if (\App\CmsTheme::first())
-          background-color: {{ \App\CmsTheme::first()->top_header_bg_color }}; color: {{ \App\CmsTheme::first()->top_header_text_color }};
-        @endif"
-    >
-      <div class="container py-2 pl-4">
-        <div class="d-flex justify-content-between">
-          {{-- Left side --}}
-          <div>
-            <i class="fas fa-phone mr-1"></i>
-            <strong>
-              {{ $company->phone }}
-            </strong>
-          </div>
-          {{-- Right side --}}
-          <div>
-            <div class="d-flex">
-              @if (true)
-              <div class="px-3">
-                @guest
-                  <a href="{{ route('login') }} " class="text-reset text-decoration-none">
-                    <i class="fas fa-user mr-1"></i>
-                    Sign in
-                  </a>
-                @else
-                  <a href="{{ route('website-user-profile') }}" class="text-reset text-decoration-none mr-4">
-                    <i class="fas fa-user mr-1"></i>
-                    Profile
-                  </a>
+  <div class="container-fluid p-0 bg-danger d-none d-md-block">
+      <div class="container-fluid" style="background-color: rgba(0, 0, 0, 0.3);">
+        <div class="container py-2 pl-4">
+          <div class="d-flex justify-content-between">
+            {{-- Left side --}}
+            <div>
+              24*7 Customer support
+              <i class="fas fa-phone mx-1"></i>
+              <strong>
+                {{ $company->phone }}
+              </strong>
+            </div>
+            {{-- Right side --}}
+            <div>
+              <div class="d-flex">
+                @if (true)
+                <div class="px-3">
+                  @guest
+                    <a href="{{ route('login') }} " class="text-reset text-decoration-none">
+                      <i class="fas fa-user mr-1"></i>
+                      Sign in
+                    </a>
+                  @else
+                    <a href="{{ route('website-user-profile') }}" class="text-reset text-decoration-none mr-4">
+                      <i class="fas fa-user mr-1"></i>
+                      Profile
+                    </a>
 
-                  <a class="text-reset text-decoration-none" href="{{ route('logout') }}"
-                      onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();"
-                  >
-                    <i class="fas fa-power-off mr-2 text-warning-rm"></i>
-                    Logout
-                  </a>
+                    <a class="text-reset text-decoration-none" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                    >
+                      <i class="fas fa-power-off mr-2 text-warning-rm"></i>
+                      Logout
+                    </a>
 
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                  </form>
-                @endguest
-              </div>
-              <div class="px-3">
-                @guest
-                  <a href="{{ route('register') }} " class="text-reset text-decoration-none">
-                    <i class="fas fa-lock mr-1"></i>
-                    Sign up
-                  </a>
-                @endguest
-              </div>
-              @endif
-              <div class="px-3" style="">
-                @if ($company->fb_link)
-                  <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">
-                    <i class="fab fa-facebook fa-3x-rm mr-3"></i>
-                  </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                  @endguest
+                </div>
+                <div class="px-3">
+                  @guest
+                    <a href="{{ route('register') }} " class="text-reset text-decoration-none">
+                      <i class="fas fa-lock mr-1"></i>
+                      Sign up
+                    </a>
+                  @endguest
+                </div>
                 @endif
-                @if ($company->twitter_link)
-                  <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
-                    <i class="fab fa-twitter fa-3x-rm mr-3"></i>
-                  </a>
-                @endif
-                @if ($company->insta_link)
-                  <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
-                    <i class="fab fa-instagram fa-3x-rm mr-3"></i>
-                  </a>
-                @endif
-                @if ($company->youtube_link)
-                  <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
-                    <i class="fab fa-youtube fa-3x-rm mr-3"></i>
-                  </a>
-                @endif
-                @if ($company->tiktok_link)
-                  <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
-                    <i class="fab fa-tiktok fa-3x-rm mr-3"></i>
-                  </a>
-                @endif
+                <div class="px-3" style="">
+                  @if ($company->fb_link)
+                    <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">
+                      <i class="fab fa-facebook fa-3x-rm mr-3"></i>
+                    </a>
+                  @endif
+                  @if ($company->twitter_link)
+                    <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
+                      <i class="fab fa-twitter fa-3x-rm mr-3"></i>
+                    </a>
+                  @endif
+                  @if ($company->insta_link)
+                    <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
+                      <i class="fab fa-instagram fa-3x-rm mr-3"></i>
+                    </a>
+                  @endif
+                  @if ($company->youtube_link)
+                    <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
+                      <i class="fab fa-youtube fa-3x-rm mr-3"></i>
+                    </a>
+                  @endif
+                  @if ($company->tiktok_link)
+                    <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
+                      <i class="fab fa-tiktok fa-3x-rm mr-3"></i>
+                    </a>
+                  @endif
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
     <div class="container py-2">
       <div class="d-flex justify-content-between h-100 bg-info-rm pl-2">

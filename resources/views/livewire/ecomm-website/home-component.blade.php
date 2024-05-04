@@ -1,4 +1,4 @@
-<div style="background-color: #888;">
+<div style="">
 
 
   {{-- Online store hero --}}
@@ -19,13 +19,13 @@
 
   @if (true)
   {{-- Show only in big screens for now --}}
-  <div class="container-fluid bg-light-rm d-none d-md-block py-4" style="background-image: linear-gradient(to right, #a00, #003);">
+  <div class="container-fluid bg-light d-none d-md-block py-4" style="{{--background-image: linear-gradient(to right, #a00, #003);--}}">
   <div class="container pt-4-rm">
     <div class="row border-rm shadow-rm">
       <div class="col-md-3 py-3-rm bg-info-rm">
         <div class="d-flex flex-column h-100" >
-          <div class="bg-white h-100-rm py-3 flex-grow-1" style="">
-            <div class="mb-3 pl-3 font-weight-bold text-secondary">
+          <div class="bg-white h-100-rm py-3 flex-grow-1 border rounded" style="">
+            <div class="h4 mb-3 pl-3 font-weight-bold text-white-rm">
               Product categories
             </div>
             @php
@@ -37,7 +37,7 @@
               @endif
               <a
                   href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-                  class="text-reset text-decoration-none"
+                  class="text-reset-rm text-decoration-none text-dark"
               >
                 <div class="px-3 py-2 border-top-rm">
                     @if (false)
@@ -47,6 +47,7 @@
                         style="max-height: 50px; max-width: 50px;">
                     @endif
                     <span class="h6 font-weight-bold">
+                      <i class="fas fa-arrow-right mr-1"></i>
                       {{ $productCategory->name }}
                     </span>
                 </div>
@@ -56,7 +57,7 @@
               @endphp
             @endforeach
             <div class="p-3 border-top">
-              <a href="#o-all-categories">
+              <a href="#o-all-categories" class="text-dark">
               @if (false)
               <i class="fas fa-dice-d6 mr-1"></i>
               @endif
@@ -70,16 +71,16 @@
       </div>
 
 
-      <div class="col-md-9 pt-3 bg-white">
+      <div class="col-md-9 pt-3 bg-white-rm">
 
         <div class="d-flex flex-column h-100">
           <div>
-            <h2 class="h6 bg-white text-secondary font-weight-bold p-3-rm py-4-rm mb-4" style="{{--background-color: white; color: gray;--}}">
+            <h2 class="h4 bg-white-rm text-dark font-weight-bold p-3-rm py-4-rm mb-4" style="{{--background-color: white; color: gray;--}}">
               Featured products
             </h2>
           </div>
-          <div class="flex-grow-1 bg-white">
-          <div class="row bg-white py-3" style="margin: auto;">
+          <div class="flex-grow-1 bg-white-rm">
+          <div class="row bg-white-rm py-3" style="margin: auto;">
 
             @foreach (\App\Product::where('featured_product', 'yes')->get() as $product)
                 <div class="col-md-4 bg-danger-rm border-rm border-danger-rm">
