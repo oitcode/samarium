@@ -46,7 +46,7 @@
                         alt="{{ $productCategory->name }}"
                         style="max-height: 50px; max-width: 50px;">
                     @endif
-                    <button class="btn btn-outline-danger w-100">
+                    <button class="btn btn-outline-danger w-100 text-left-rm">
                       <span class="h6 font-weight-bold">
                         @if (false)
                         <i class="fas fa-arrow-right mr-1"></i>
@@ -64,8 +64,11 @@
               <a href="#o-all-categories" class="text-dark">
               @if (false)
               <i class="fas fa-dice-d6 mr-1"></i>
-              @endif
               See all categories
+              @endif
+              <button class="btn btn-danger w-100 text-left-rm">
+                See all categories
+              </button>
               </a>
             </div>
           </div>
