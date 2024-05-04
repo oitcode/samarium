@@ -46,7 +46,7 @@
                         alt="{{ $productCategory->name }}"
                         style="max-height: 50px; max-width: 50px;">
                     @endif
-                    <button class="btn btn-danger w-100">
+                    <button class="btn btn-outline-danger w-100">
                       <span class="h6 font-weight-bold">
                         @if (false)
                         <i class="fas fa-arrow-right mr-1"></i>
