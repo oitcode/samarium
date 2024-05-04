@@ -46,17 +46,21 @@
                         alt="{{ $productCategory->name }}"
                         style="max-height: 50px; max-width: 50px;">
                     @endif
-                    <span class="h6 font-weight-bold">
-                      <i class="fas fa-arrow-right mr-1"></i>
-                      {{ $productCategory->name }}
-                    </span>
+                    <button class="btn btn-danger w-100">
+                      <span class="h6 font-weight-bold">
+                        @if (false)
+                        <i class="fas fa-arrow-right mr-1"></i>
+                        @endif
+                        {{ $productCategory->name }}
+                      </span>
+                    </button>
                 </div>
               </a>
               @php
                 $ii++;
               @endphp
             @endforeach
-            <div class="p-3 border-top">
+            <div class="p-3 border-top text-center">
               <a href="#o-all-categories" class="text-dark">
               @if (false)
               <i class="fas fa-dice-d6 mr-1"></i>
