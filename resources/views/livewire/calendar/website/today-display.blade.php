@@ -1,4 +1,4 @@
-<div class="my-4-rm mb-5-rm border p-3-rm rounded shadow">
+<div class="my-4-rm mb-5-rm border p-3-rm rounded shadow bg-white">
 
 
   <div style="

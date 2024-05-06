@@ -5,7 +5,7 @@ Quick links to pages that are most relevant to school.
 --}}
 
 <div class="bg-white">
-  <div class="row p-3">
+  <div class="row p-3-rm">
     <div class="col-6 col-md-3 d-flex justify-content-center bg-danger-rm text-white-rm border p-0"
         style="
           background-color:

@@ -58,9 +58,34 @@
                            background-size: cover;
                            background-repeat: no-repeat;
                            background-position: center;
-                           height: 700px;">
+                           background-attachment: fixed;
+                           height: 500px;">
   <div class="o-overlay py-5 h-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          @if (true)
+          <div class="mb-4 px-4">
+            @include ('partials.school.school-quick-links-display')
+          </div>
+          <div class="container mb-4-rm">
+            @livewire ('calendar.website.today-display')
+          </div>
+          @else
+          <div class="p-5">
+            <h2 class="h1 font-weight-bold text-center text-white">
+              {{ $company->name }}
+            </h2>
+          </div>
+          @endif
+        </div>
+        <div class="col-md-4">
+          @livewire ('notice.dashboard.latest-notice-list')
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>
 
 {{-- Show in smaller screens --}}
@@ -90,12 +115,14 @@
   @endif
 @elseif (preg_match("/school/i", env('MODULES')))
   {{-- If school --}}
+  @if (false)
   <div class="container my-4">
     @include ('partials.school.school-quick-links-display')
   </div>
   <div class="container mb-4">
     @livewire ('calendar.website.today-display')
   </div>
+  @endif
 @else
   {{-- All other cases --}}
   @if (\App\Webpage::where('name', 'Home')->where('visibility', 'public')->first())

@@ -42,7 +42,7 @@
     </div>
   @endif
 
-  <div class="container-fluid o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm"
+  <div class="container-fluid o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm p-0"
       style="
       @if (false && $webpage->is_post == 'yes')
       @else
@@ -64,7 +64,7 @@
         @endif
       @endif
   ;">
-    <div class="o-overlay text-white-rm">
+    <div class="o-overlay-rm text-white-rm">
       <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') border-left-rm border-right-rm @else @endif bg-primary-rm">
       <h1 class="h3 font-weight-bold"
           style="

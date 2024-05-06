@@ -1,17 +1,8 @@
 <div class="float-left border-right-rm" style="font-size: 1.3rem;">
   <a href="{{ route($btnRoute) }}"
       class="btn
-             @if (false)
-             @if(Route::current()->getName() == $btnRoute)
-               btn-danger-rm
-             @else
-               btn-light-rm
-               text-white-rm
-             @endif
-             @endif
           font-weight-bold
           p-3 rounded-0"
-          
           style="
             @if (true)
             background-color:
@@ -22,11 +13,13 @@
                  orange
                @endif
              @else
+               {{--
                @if (\App\CmsTheme::first())
                 {{ \App\CmsTheme::first()->nav_menu_bg_color }};
                @else
                  white
                @endif
+               --}}
              @endif
              ;
             color:
