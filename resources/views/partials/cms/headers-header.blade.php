@@ -116,10 +116,10 @@
 
 
       <a href="{{ route('website-home') }}" class="text-decoration-none">
-      <div class="d-flex">
+      <div class="d-flex bg-warning-rm py-3">
         <div class="mr-4 d-flex flex-column justify-content-center">
             @if (true)
-            <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid-rm mt-4" style="max-width: 100px; max-height: 100px;">
+            <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid-rm mt-4-rm" style="max-width: 100px; max-height: 100px;">
             @endif
         </div>
         @if (false)
@@ -137,9 +137,14 @@
       </div>
       </a>
 
+
       @if (true)
-      <div class="flex-grow-1 d-flex justify-content-center-rm bg-info-rm">
+      <div class="d-flex justify-content-center-rm bg-success-rm flex-grow-1">
+
         <div class="d-flex flex-column justify-content-center flex-grow-1 bg-success-rm px-4">
+          <h1 class="h5 font-weight-bold mb-3" style="font-family: Mono;">
+            {{ $company->name }}
+          </h1>
           <div class="w-100 bg-warning">
 
             <div class="input-group mr-sm-2">
@@ -153,13 +158,10 @@
 
           </div>
         </div>
-      </div>
-      @endif
-  
-      <div class="px-5 h-100-rm mt-3-rm bg-primary-rm border-rm border-left-primary text-white-rm"
-          style="{{--background-color: #004;font-size: 1.2rem; font-weight: bold;--}} ">
 
       </div>
+      @endif
+
   
     </div>
   </div>
