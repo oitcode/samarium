@@ -269,7 +269,7 @@
         <div class="my-4">
           @if (false)
           <div>
-            &copy; 2023 | {{ $company->name }} | All rights reserved
+            &copy; 2024 | {{ $company->name }} | All rights reserved
           </div>
           @endif
           <div>
@@ -290,7 +290,7 @@
   @if (true)
   <div class="text-center">
     <div>
-      &copy; 2023 | {{ $company->name }} | All rights reserved
+      &copy; 2024 | {{ $company->name }} | All rights reserved
     </div>
     <div>
       Powered by
