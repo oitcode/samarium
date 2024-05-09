@@ -113,6 +113,10 @@
         @if (true)
         <div class="flex-grow-1 d-flex justify-content-center-rm bg-info-rm">
           <div class="d-flex flex-column justify-content-center flex-grow-1 bg-success-rm px-4">
+
+            <h1 class="h5 font-weight-bold mb-3" style="font-family: Mono;">
+              {{ $company->name }}
+            </h1>
             <div class="w-100 bg-warning">
 
               <div class="input-group mr-sm-2">
@@ -135,6 +139,9 @@
           {{-- Shopping cart badge (checkout link) --}}
           @if (true)
             <div class="d-flex flex-column justify-content-center h-100 bg-danger-rm text-white-rm p-5-rm o-darker">
+              <div class="mb-2">
+              &nbsp;
+              </div>
               @livewire ('ecomm-website.shopping-cart-badge')
             </div>
           @else
