@@ -1,4 +1,4 @@
-<div class="border bg-white">
+<div class="border bg-white mx-3">
 
     <div class="table-responsive">
       <table class="table">
@@ -8,7 +8,7 @@
           </th>
         </tr>
         @foreach ($notices as $notice) 
-        <tr> <td> {{ $notice->name }} </td> </tr>
+        <tr> <td class="text-primary font-weight-bold"> {{ $notice->name }} </td> </tr>
         @endforeach
       </table>
     </div>

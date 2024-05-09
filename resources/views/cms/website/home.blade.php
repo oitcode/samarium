@@ -73,7 +73,7 @@
           <div class="mb-4 px-4">
             @include ('partials.school.school-quick-links-display')
           </div>
-          <div class="container mb-4-rm">
+          <div class="container mb-4">
             @livewire ('calendar.website.today-display')
           </div>
           @else
