@@ -47,7 +47,7 @@
 {{-- Hero/Featured image --}}
 @if (\App\CmsTheme::first())
 {{-- Show in bigger screens --}}
-<div class="container-fluid bg-light p-0 d-none-rm d-md-block-rm" 
+<div class="container-fluid bg-white p-0 d-none-rm d-md-block-rm" 
   style="
            {{--
            background-image: @if (\App\CmsTheme::first())
@@ -56,16 +56,16 @@
              url({{ asset('img/school-5.jpg') }})
            @endif
            ;
-           --}}
            background-size: cover;
            background-repeat: no-repeat;
            background-position: center;
+           --}}
            {{--
            background-attachment: fixed;
            height: 500px;
            --}}
            ">
-  <div class="o-overlay py-5 h-100">
+  <div class="o-overlay-rm py-5 h-100">
     <div class="container">
       <div class="row">
         <div class="col-md-8">
