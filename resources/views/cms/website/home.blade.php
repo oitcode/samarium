@@ -26,7 +26,7 @@
 @include ('partials.cms.website.newest-notice-flasher')
 
 {{-- Hero/Featured Div --}}
-<div class="container-fluid bg-white p-0 d-none-rm d-md-block-rm" 
+<div class="container-fluid bg-white p-0 py-5" 
   style="
            {{--
            background-image: @if (\App\CmsTheme::first())
@@ -43,42 +43,38 @@
            --}}
            "
 >
-  <div class="o-overlay-rm py-5 h-100">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8">
-          @if (true)
-          <div class="mb-4 px-4">
-            @include ('partials.school.school-quick-links-display')
-          </div>
-          <div class="container mb-4">
-            @livewire ('calendar.website.today-display')
-          </div>
-          @else
-          <div class="p-5">
-            <h2 class="h1 font-weight-bold text-center text-white">
-              {{ $company->name }}
-            </h2>
-          </div>
-          @endif
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        @if (true)
+        <div class="mb-4 px-4">
+          @include ('partials.school.school-quick-links-display')
         </div>
-        <div class="col-md-4">
-          @livewire ('notice.dashboard.latest-notice-list')
+        <div class="container mb-4">
+          @livewire ('calendar.website.today-display')
         </div>
+        @else
+        <div class="p-5">
+          <h2 class="h1 font-weight-bold text-center text-white">
+            {{ $company->name }}
+          </h2>
+        </div>
+        @endif
+      </div>
+      <div class="col-md-4">
+        @livewire ('notice.dashboard.latest-notice-list')
       </div>
     </div>
   </div>
 
 </div>
 
-@endif
-
 
 {{--
 |
 |
 |
-| Show required content module wise.
+| Display the home webpage.
 |
 |
 |
