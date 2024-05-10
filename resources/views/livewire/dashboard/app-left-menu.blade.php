@@ -57,6 +57,13 @@
                 'btnText' => 'Product category',
             ])
 
+        @include ('partials.dashboard.app-left-menu-button',
+            [
+                'btnRoute' => 'product-question',
+                'iconFaClass' => 'fas fa-question',
+                'btnText' => 'Product question',
+            ])
+
         @include ('partials.dashboard.app-left-menu-button', [
           'btnRoute' => 'dashboard-inventory',
           'iconFaClass' => 'fas fa-dolly',

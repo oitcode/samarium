@@ -70,8 +70,8 @@ Route::get('/dashboard/purchase', 'PurchaseController@index')->name('dashboard-p
 /* Menu */
 Route::get('/dashboard/menu', 'MenuController@index')->name('menu');
 
-/* Product Category */
-Route::get('/dashboard/product-category', 'ProductCategoryController@index')->name('product-category');
+/* Product question */
+Route::get('/dashboard/product-category', 'ProductQuestionController@index')->name('product-question');
 
 /* Seat Tables */
 Route::get('/dashboard/cafesale', 'SeatTableController@index')->name('cafesale');
