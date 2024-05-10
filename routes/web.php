@@ -45,7 +45,7 @@ Route::get('/dashboard', 'DashboardController@index')
     ->name('dashboard');
 
 /* Product category */
-Route::get('/dashboard/productCategory', 'ProductCategoryController@index')->name('product-category');
+Route::get('/dashboard/product-category', 'ProductCategoryController@index')->name('product-category');
 
 /* Customer */
 Route::get('/dashboard/customer', 'CustomerController@index')->name('customer');
@@ -71,7 +71,7 @@ Route::get('/dashboard/purchase', 'PurchaseController@index')->name('dashboard-p
 Route::get('/dashboard/menu', 'MenuController@index')->name('menu');
 
 /* Product question */
-Route::get('/dashboard/product-category', 'ProductQuestionController@index')->name('product-question');
+Route::get('/dashboard/product-question', 'ProductQuestionController@index')->name('product-question');
 
 /* Seat Tables */
 Route::get('/dashboard/cafesale', 'SeatTableController@index')->name('cafesale');

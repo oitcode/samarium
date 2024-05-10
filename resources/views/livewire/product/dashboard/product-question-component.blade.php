@@ -2,7 +2,7 @@
 
 
   {{-- Toolbar --}}
-  <x-toolbar-classic toolbarTitle="Product category">
+  <x-toolbar-classic toolbarTitle="Product question">
     @include ('partials.dashboard.spinner-button')
 
     @include ('partials.dashboard.tool-bar-button-pill', [

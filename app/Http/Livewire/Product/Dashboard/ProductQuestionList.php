@@ -12,7 +12,7 @@ class ProductQuestionList extends Component
 
     public function render()
     {
-        $this->productQuestions = ProductQuestion::all();
+        $this->productQuestions = ProductQuestion::orderBy('product_question_id', 'desc')->get();
 
         return view('livewire.product.dashboard.product-question-list');
     }

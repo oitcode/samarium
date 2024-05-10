@@ -25,6 +25,9 @@
           <th class="d-none d-md-table-cell">
             Question
           </th>
+          <th class="d-none d-md-table-cell">
+            Status
+          </th>
           <th>
             Action
           </th>
@@ -42,6 +45,11 @@
             </td>
             <td class="d-none d-md-table-cell font-weight-bold" style="font-size: 1rem;">
               {{ $productQuestion->question_text }}
+            </td>
+            <td>
+              <span class="badge badge-pill badge-danger p-2">
+                New
+              </span>
             </td>
             <td>
               <i class="fas fa-ellipsis-h text-secondary"></i>
