@@ -88,6 +88,7 @@
     </div>
   @endif
 @else
+  @if (false)
   {{-- All other cases --}}
   @if (\App\Webpage::where('name', 'Home')->where('visibility', 'public')->first())
     @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Home')->where('visibility', 'public')->first(),])
@@ -95,6 +96,7 @@
     @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Post')->where('visibility', 'public')->first(),])
   @else
     @include ('partials.cms.website.home-page-not-set-yet')
+  @endif
   @endif
 @endif
 
