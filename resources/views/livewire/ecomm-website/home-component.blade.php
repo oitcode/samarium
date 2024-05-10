@@ -22,6 +22,8 @@
   <div class="container-fluid bg-light d-none d-md-block py-4" style="{{--background-image: linear-gradient(to right, #a00, #003);--}}">
   <div class="container pt-4-rm">
     <div class="row border-rm shadow-rm">
+
+      {{-- Product categories --}}
       <div class="col-md-3 py-3-rm bg-info-rm">
         <div class="d-flex flex-column h-100" >
           <div class="bg-white h-100-rm py-3 flex-grow-1 border rounded" style="">
@@ -78,6 +80,7 @@
       </div>
 
 
+      {{-- Featured products --}}
       <div class="col-md-9 pt-3 bg-white-rm">
 
         <div class="d-flex flex-column h-100">
@@ -135,111 +138,11 @@
           </div>
         </div>
 
-        @if (false)
-        @if (false)
-        <div>
-          <div class="d-flex">
-            <div class="p-1 border mr-3 bg-white">
-             Fres shipping
-            </div>
-            <div class="p-1 border mr-3 bg-white">
-             Cash on delivery
-            </div>
-            <div class="p-1 border mr-3 bg-white">
-             Best shop
-            </div>
-          </div>
-        </div>
-        @endif
-        <div>
-          <div class="d-flex justify-content-center-rm">
-
-            <div>
-              @if (true)
-              @if (false)
-              <h2 class="h5 text-white-rm badge-rm badge-pill-rm badge-success-rm mb-5 py-3"
-                  style="font-size: 1rem; border-top: 5px solid brown;">
-                FEATURED PRODUCT
-              </h2>
-              @endif
-
-              <h2 class="h5 text-white-rm font-weight-bold" style="font-size: 2rem;">
-                {{ strtoupper(\App\Product::first()->name) }}
-              </h2>
-              <img class="img-fluid h-25-rm w-100-rm"
-                  src="{{ asset('storage/' . \App\Product::first()->image_path) }}"
-                  alt="Product image"
-                  style="max-height: 100px; max-width: 100px;">
-              @if (false)
-              <p class="text-secondary-rm" style="">
-                {{ \App\Product::first()->description }}
-              </p>
-              @endif
-              <h2 class="h5 text-danger-rm font-weight-bold" style="font-size: 1.5rem; color: orange;">
-                Rs
-                {{ \App\Product::first()->selling_price }}
-              </h2>
-              <div class="my-3">
-                <a href="{{ route('website-product-view', [\App\Product::first()->product_id, \App\Product::first()->name]) }}"
-                    class="btn btn-block btn-danger p-3">
-                  VIEW PRODUCT
-                </a>
-              </div>
-              @endif
-            </div>
-
-            <div class="">
-              @if (\App\Product::first())
-                <div class="shadow-lg-rm">
-                  @if (false)
-                    @livewire ('ecomm-website.product-list-display', ['product' => \App\Product::first(),])
-                  @else
-                    @if (false)
-                    <img class="img-fluid h-25-rm w-100-rm"
-                        src="{{ asset('storage/' . \App\Product::first()->image_path) }}"
-                        alt="Product image"
-                        style="max-height: 250px; max-width: 250px;">
-                    @endif
-                  @endif
-                </div>
-              @else
-                <div class="border bg-light-rm shadow p-3 h-100 rounded" style="background-color: #eaeaef;">
-                  <div class="d-flex">
-                    <div>
-                      <p class="text-secondary">
-                        Thanks for visiting our online store.
-                      </p>
-                      <p class="text-secondary">
-                        Explore our products.
-                      </p>
-                      <div class="mt-5 mb-4">
-                        <a href=""  class="font-weight-bold" style="color: orange;">
-                          <span style="font-size: 1.1rem;">
-                            Register now
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                    <div>
-                      <img class="img-fluid h-25-rm w-100-rm"
-                          src="{{ asset('storage/' . $company->logo_image_path) }}"
-                          alt="Our image collection"
-                          style="{{--max-height: 250px; max-width: 250px;--}}">
-                    </div>
-                  </div>
-                </div>
-              @endif
-            </div>
-          </div>
-        </div>
-        @endif
       </div>
     </div>
   </div>
   </div>
   @endif
-
-
 
 
   {{-- Show product search --}}
@@ -279,7 +182,81 @@
     @endif
 
 
-    {{-- Show this for now --}}
+    {{--
+    |
+    |
+    |
+    |
+    | Most viewed products
+    |
+    |
+    |
+    |
+    --}}
+    <div class="container py-5">
+      <h2 class="h4 font-weight-bold mt-2 mb-1">
+        Most viewed
+      </h2>
+      <p class="text-secondary">
+        Our most viewed products
+      </p>
+      <div class="row bg-danger-rm">
+        @foreach (\App\Product::orderBy('website_views', 'desc')->limit('3')->get() as $product)
+          <div class="col-md-4 bg-danger-rm border-rm border-danger-rm">
+            <a href="{{ route('website-product-view', [$product->product_id, \App\Product::find($ii)->name]) }}"
+                class="text-decoration-none">
+              <div class="card h-100 shadow-rm border-0-rm border-rm border-0">
+      
+                @if (true)
+                <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
+                    <div class="d-flex justify-content-center bg-warning-rm">
+                        @if ($product->image_path)
+                          <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{
+                          $product->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
+                        @else
+                          <i class="fas fa-ellipsis-h fa-8x text-muted m-5"></i>
+                        @endif
+                    </div>
+      
+                  <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto" style="{{-- background-color: #f5f5f5; --}}">
+                    <div class="p-2">
+                        <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark text-center" style="font-family: Arial;">
+                          {{ ucwords($product->name) }}
+                        </h2>
+                        <div class="mt-0 text-muted h6 font-weight-bold text-center">
+                          @if ($product->selling_price != 0)
+                            Rs
+                            @php echo number_format( $product->selling_price ); @endphp
+                          @else
+                          &nbsp;
+                          @endif
+                        </div>
+      
+                    </div>
+                  </div>
+                </div>
+                @endif
+
+
+              </div>
+            </a>
+          </div>
+        @endforeach
+      </div>
+    </div>
+
+
+    {{--
+    |
+    |
+    |
+    |
+    | Show all product categories
+    |
+    |
+    |
+    |
+    --}}
 
     <div class="container py-5" id="o-all-categories">
       <h2 class="h4 font-weight-bold mt-2 mb-1">
@@ -337,70 +314,6 @@
       </div>
     </div>
 
-
-    {{--
-    |
-    |
-    |
-    |
-    | Most viewed products
-    |
-    |
-    |
-    |
-    --}}
-    <div class="container py-5" id="o-all-categories">
-      <h2 class="h4 font-weight-bold mt-2 mb-1">
-        Most viewed
-      </h2>
-      <p class="text-secondary">
-        Our most viewed products
-      </p>
-      <div class="row bg-danger-rm">
-        @foreach (\App\Product::orderBy('website_views', 'desc')->limit('3')->get() as $product)
-          <div class="col-md-4 bg-danger-rm border-rm border-danger-rm">
-            <a href="{{ route('website-product-view', [$product->product_id, \App\Product::find($ii)->name]) }}"
-                class="text-decoration-none">
-              <div class="card h-100 shadow-rm border-0-rm border-rm border-0">
-      
-                @if (true)
-                <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-                    <div class="d-flex justify-content-center bg-warning-rm">
-                        @if ($product->image_path)
-                          <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{
-                          $product->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
-                        @else
-                          <i class="fas fa-ellipsis-h fa-8x text-muted m-5"></i>
-                        @endif
-                    </div>
-      
-                  <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto" style="{{-- background-color: #f5f5f5; --}}">
-                    <div class="p-2">
-                        <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark text-center" style="font-family: Arial;">
-                          {{ ucwords($product->name) }}
-                        </h2>
-                        <div class="mt-0 text-muted h6 font-weight-bold text-center">
-                          @if ($product->selling_price != 0)
-                            Rs
-                            @php echo number_format( $product->selling_price ); @endphp
-                          @else
-                          &nbsp;
-                          @endif
-                        </div>
-      
-                    </div>
-                  </div>
-                </div>
-                @endif
-
-
-              </div>
-            </a>
-          </div>
-        @endforeach
-      </div>
-    </div>
-
   @else
     @if (false)
     <div>
@@ -433,6 +346,17 @@
   </div>
 
 
+  {{--
+  |
+  |
+  |
+  |
+  | Testimonials
+  |
+  |
+  |
+  |
+  --}}
 
   @if (\App\Testimonial::count() > 0)
     <div class="container-fluid py-5 border bg-light">
