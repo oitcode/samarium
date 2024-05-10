@@ -8,7 +8,13 @@
           </th>
         </tr>
         @foreach ($notices as $notice) 
-        <tr> <td class="text-primary font-weight-bold"> {{ $notice->name }} </td> </tr>
+        <tr>
+          <td class="text-primary font-weight-bold">
+            <a href="{{ route('website-webpage-' . $notice->permalink) }}">
+              {{ $notice->name }}
+            </a>
+          </td>
+        </tr>
         @endforeach
       </table>
     </div>
