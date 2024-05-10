@@ -23,30 +23,9 @@
 
 @section ('content')
 
-{{-- Notifications/post displayer  --}}
-@if (\App\WebpageCategory::where('name', 'notice')->first())
-  @if (count(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->get()) > 0)
-  <a href="{{ route('website-webpage-' . \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->permalink) }}"
-      class="text-reset text-decoration-none" style="">
-    <div class="container-fluid bg-dark-rm text-danger p-0" style="background-color: #fdd;">
-      <div class="container" style="font-size: 1.3rem; white-space: nowrap; overflow: hidden;">
-        <div class="o-ltr py-3 ">
-          <div class="d-inline mr-5">
-              <span class="badge badge-pill badge-light">
-                Notice
-              </span>
-              {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->name }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-  @endif
-@endif
+@include ('partials.cms.website.newest-notice-flasher')
 
-{{-- Hero/Featured image --}}
-@if (\App\CmsTheme::first())
-{{-- Show in bigger screens --}}
+{{-- Hero/Featured Div --}}
 <div class="container-fluid bg-white p-0 d-none-rm d-md-block-rm" 
   style="
            {{--
@@ -59,12 +38,11 @@
            background-size: cover;
            background-repeat: no-repeat;
            background-position: center;
-           --}}
-           {{--
            background-attachment: fixed;
            height: 500px;
            --}}
-           ">
+           "
+>
   <div class="o-overlay-rm py-5 h-100">
     <div class="container">
       <div class="row">
@@ -95,22 +73,23 @@
 
 @endif
 
+
+{{--
+|
+|
+|
+| Show required content module wise.
+|
+|
+|
+--}}
 @if (preg_match("/bgc/i", env('MODULES')))
+  {{-- This is temporary workaround for BGC --}} 
   {{-- If BGC --}}
   @if (\App\Team::where('team_type', 'playing_team')->first())
     <div class="container my-4">
       @include ('partials.team.team-block-display')
     </div>
-  @endif
-@elseif (preg_match("/school/i", env('MODULES')))
-  {{-- If school --}}
-  @if (false)
-  <div class="container my-4">
-    @include ('partials.school.school-quick-links-display')
-  </div>
-  <div class="container mb-4">
-    @livewire ('calendar.website.today-display')
-  </div>
   @endif
 @else
   {{-- All other cases --}}
@@ -119,21 +98,8 @@
   @elseif (\App\Webpage::where('name', 'Post')->where('visibility', 'public')->first())
     @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Post')->where('visibility', 'public')->first(),])
   @else
-    <div class="container-fluid py-4 border bg-danger text-white">
-      <div class="container">
-        <div class="h3">
-          <i class="fas fa-exclamation-circle mr-2"></i>
-          Home page not set yet. Please set up the home page.
-        </div>
-      </div>
-    </div>
+    @include ('partials.cms.website.home-page-not-set-yet')
   @endif
 @endif
-
-<div>
-  @if (false)
-  @livewire ('cms.website.contact-component')
-  @endif
-</div>
 
 @endsection
