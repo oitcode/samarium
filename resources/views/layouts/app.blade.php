@@ -1,4 +1,20 @@
 <!doctype html>
+
+{{--
+|
+| Dashboard layout blade file.
+|
+| Author: _______ _________
+|
+|
+| All the webpages of dashboard extend this blade file. It is a simple
+| layout with a top menu, left menu and content.
+|
+| If you want to remove top menu, left menu or content (??),
+| then you can remove them by modifying this file.
+|
+--}}
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -43,62 +59,48 @@
 <body style="background-color: #eaeaea;">
   <div class="h-100">
 
-    @if (true)
+    {{--
+    |
+    | Top menu
+    |
+    --}}
     <div class="mb-0">
       @include ('partials.dashboard.app-top-menu')
-    </div>
 
-    {{-- Mobile top menu --}}
+    {{--
+    |
+    | Top menu mobile
+    |
+    --}}
     <div class="d-md-none col-md-12 p-0">
       @include ('partials.dashboard.mobile-top-menu')
     </div>
     @endif
 
     <div class="row" style="margin: auto; min-height: 95vh;">
-      {{-- App left menu --}}
+      {{--
+      |
+      | App left menu
+      |
+      --}}
       <div class="col-md-2 p-0 {{ env('OC_ASCENT_BG_COLOR') }} d-none d-md-block border-right shadow-sm-rm">
-        @if (false)
-        @include ('partials.dashboard.app-left-menu')
-        @endif
         @livewire ('dashboard.app-left-menu')
       </div>
 
       <div class="col-md-10">
-        {{-- App top menu --}}
-        @if (false)
-        @include ('partials.dashboard.app-top-menu')
-        @endif
-
-        {{-- Content goes here --}}
+        {{--
+        |
+        | Content
+        |
+        --}}
         <div class="py-3-rm">
-          @yield('content')
-
-          {{-- ostrich branding --}}
-          <div class="d-flex justify-content-center my-5">
-            <div class="d-flex flex-column" style="color: #ccc;">
-              <h2 class="h3 text-secondary-rm d-flex justify-content-center">
-                <i><strong>
-                  Ozone
-                </strong></i>
-              </h2>
-              <h2 class="h5 text-secondary-rm d-flex justify-content-center">
-                  v0.8.4
-              </h2>
-            </div>
-          </div>
+          @yield ('content')
+          @include ('partials.dashboard.pkg-branding')
         </div>
 
       </div>
     </div>
   </div>
-
-
-  @if (env('APP_FOOTER') == true)
-    {{-- Screen-bottom info bar --}}
-    <div class="fixed-bottom">
-      @include ('partials.dashboard.app-footer')
-    </div>
-  @endif
 
   <!-- Livewire scripts -->
   @livewireScripts
