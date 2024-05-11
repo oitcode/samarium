@@ -4,13 +4,24 @@ namespace App\Traits;
 
 trait ModesTrait
 {
-    /*
-     *  Modes Trait
-     *
-     *  This trait can be used to add mode functionality to classes. 
-     *  This is extensively used in our application.
-     *
-     */
+    /**
+    |---------------------------------------------------------------------------
+    |  Ozone - A Laravel Livewire Application For Users
+    |---------------------------------------------------------------------------
+    |
+    | @package  Ozone
+    | @author   _____
+    |
+    */
+
+    /**
+      *
+      *  Modes Trait
+      *
+      *  This trait can be used to add mode functionality to classes. 
+      *  This is extensively used in our application.
+      *
+      */
 
 
     /* Clear modes */
