@@ -13,8 +13,13 @@
 | Welcome to the dashboard
 |--------------------------------------------------------------------------
 |
+| Dashboard blade file.
+|
 | This is the blade file of dashboard main screen. It is this screen
 | that the admin users will see most of the time.
+|
+| If you want to modify the dashboard screen of our application,
+| then this is the file that you have to edit.
 |
 --}}
 
@@ -25,7 +30,11 @@
 
   <div class="d-none d-md-block p-0">
 
-    {{-- Upper part of the dashboard screen --}}
+    {{--
+    |
+    | Upper part
+    |
+    --}}
     <div class="row mb-5 pt-3">
 
       {{-- Shop glance --}}
@@ -67,13 +76,17 @@
     </div>
 
 
-     {{-- Lower part of the dashboard screen --}}
-     <div class="">
-       {{-- Todo glance --}}
-       @if (preg_match("/project/i", env('MODULES')))
-         @livewire ('todo.dashboard.todo-glance')
-       @endif
-     </div>
+    {{--
+    |
+    | Lower part
+    |
+    --}}
+    <div class="">
+      {{-- Todo glance --}}
+      @if (preg_match("/project/i", env('MODULES')))
+        @livewire ('todo.dashboard.todo-glance')
+      @endif
+    </div>
 
   </div>
 
