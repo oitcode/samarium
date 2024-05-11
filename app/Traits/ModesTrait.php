@@ -2,29 +2,31 @@
 
 namespace App\Traits;
 
+/**
+ * Ozone - A Laravel Livewire Application For Users
+ *
+ * @package  Ozone
+ * @author   _____
+ */
+
 trait ModesTrait
 {
-    /**
-    |---------------------------------------------------------------------------
-    |  Ozone - A Laravel Livewire Application For Users
-    |---------------------------------------------------------------------------
+    /*
+    |--------------------------------------------------------------------------
+    | Modes Trait
+    |--------------------------------------------------------------------------
     |
-    | @package  Ozone
-    | @author   _____
+    | This trait can be used to add mode functionality to classes.
+    | This is extensively used in our application.
     |
     */
 
-    /**
-      *
-      *  Modes Trait
-      *
-      *  This trait can be used to add mode functionality to classes. 
-      *  This is extensively used in our application.
-      *
-      */
-
-
-    /* Clear modes */
+    /*
+    | Clear modes
+    |
+    | Clears all the modes.
+    |
+    */
     public function clearModes()
     {
         foreach ($this->modes as $key => $val) {
@@ -32,7 +34,12 @@ trait ModesTrait
         }
     }
 
-    /* Enter mode */
+    /*
+    | Enter mode
+    |
+    | Enter a particulare mode.
+    |
+    */
     public function enterMode($modeName)
     {
         $this->clearModes();
@@ -40,13 +47,24 @@ trait ModesTrait
         $this->modes[$modeName] = true;
     }
 
-    /* Exit mode */
+    /*
+    | Exit mode
+    |
+    | Exit a particulare mode.
+    |
+    */
     public function exitMode($modeName)
     {
         $this->modes[$modeName] = false;
     }
 
-    /* Enter mode sliently */
+    /*
+    | Enter mode silent
+    |
+    | Enter a mode. However do not exit from other modes
+    | while doing so.
+    |
+    */
     public function enterModeSilent($modeName)
     {
         $this->modes[$modeName] = true;

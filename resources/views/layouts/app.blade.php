@@ -52,7 +52,6 @@
       }
     </style>
 
-
     <!-- Livewire -->
     @livewireStyles
 </head>
@@ -75,7 +74,6 @@
     <div class="d-md-none col-md-12 p-0">
       @include ('partials.dashboard.mobile-top-menu')
     </div>
-    @endif
 
     <div class="row" style="margin: auto; min-height: 95vh;">
       {{--
