@@ -1,4 +1,20 @@
 <!doctype html>
+
+{{--
+|
+| Ecomm webpage layout blade file.
+|
+| Author: _______ _________
+|
+|
+| All the webpages of ecomm website extend this blade file. It is a simple
+| layout with a header, content and footer.
+|
+| If you want to remove header, content (??) or footer,
+| then you can remove them by modifying this file.
+|
+--}}
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     @yield ('googleAnalyticsTag')
@@ -40,20 +56,27 @@
   @else
     <div class="p-0">
 
-      {{-- Header --}}
+      {{--
+      |
+      | Header
+      |
+      --}}
       @include ('partials.ecomm-website.header')
 
-      {{-- Top navigation menu --}}
-      {{-- Product category menu --}}
-      @if (false)
-      @include ('partials.top-menu')
-      @endif
+      {{--
+      |
+      | Content
+      |
+      --}}
+      @yield ('content')
 
-      {{-- Content goes here !!! --}}
-      @yield('content')
-
-      {{-- Footer --}}
+      {{--
+      |
+      | Footer
+      |
+      --}}
       @include ('partials.ecomm-website.footer')
+
     </div>
   @endif
 
