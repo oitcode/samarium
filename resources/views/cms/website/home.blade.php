@@ -53,6 +53,9 @@
         <div class="container mb-4">
           @livewire ('calendar.website.today-display')
         </div>
+        <div class="p-3">
+          @livewire ('cms.website.post-list')
+        </div>
         @else
         <div class="p-5">
           <h2 class="h1 font-weight-bold text-center text-white">
@@ -63,6 +66,7 @@
       </div>
       <div class="col-md-4">
         @livewire ('notice.dashboard.latest-notice-list')
+
       </div>
     </div>
   </div>
