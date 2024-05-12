@@ -37,7 +37,8 @@ trait ModesTrait
     /*
     | Enter mode
     |
-    | Enter a particulare mode.
+    | Enter a particulare mode. Before doing so quit
+    | all other modes.
     |
     */
     public function enterMode($modeName)
