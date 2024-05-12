@@ -1,3 +1,11 @@
+{{--
+|
+| Navigation menu desktop.
+|
+| This is the navigation menu for bigger screens (desktop, laptop, etc).
+|
+--}}
+
 <div class="py-2-rm text-right mb-3-rm border-bottom-rm w-100">
 
   {{-- Top menu buttons. --}}

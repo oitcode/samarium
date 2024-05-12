@@ -1,22 +1,12 @@
-<div class="bg-danger">
-  @if (false)
-  {{-- Company/Brand info --}}
-  <div class="d-flex justify-content-center p-3 bg-white">
-    <a href="{{ route('website-home') }}" class="text-decoration-none">
-      <div class="d-flex flex-column">
-        <div class="d-flex justify-content-center mb-4">
-            <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="width: 75px; height: 75px;">
-        </div>
-        <div class="mr-3">
-          <h1 class="h6 text-dark text-center" style="font-weight: bold;">{{ $company->name }}</h1>
-          <div class="text-secondary text-center">
-            {{ $company->tagline }}
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-  @endif
+{{--
+|
+| Navigation menu mobile.
+|
+| This is the navigation menu for smaller screens (mobile, etc).
+|
+--}}
+
+<div>
 
   <nav class="navbar navbar-expand-lg navbar-light-rm bg-light-rm border-bottom bg-warning-rm p-0"
       style="
@@ -47,11 +37,9 @@
       </span>
     </a>
     @endif
+
     <button class="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
-      @if (false)
-      <span class="navbar-toggler-icon p-5 bg-danger text-white "></span>
-      @endif
       <i class="fas fa-bars fa-2x border-rm p-2-rm" style="
           {{--
           background-color:
@@ -103,6 +91,13 @@
             @endif
           @endforeach
         @endif
+
+
+        {{--
+        |
+        | Social media  links
+        |
+        --}}
         <li class="nav-item p-2 bg-transparent text-white border-bottom-rm text-center-rm">
           <div class="nav-link h4 text-reset font-weight-bold">
             <div class="p-3" style="background-color: rgba(0, 0, 0, 0.5);">
@@ -146,6 +141,7 @@
             </div>
           </div>
         </li>
+
       </ul>
     </div>
   </nav>

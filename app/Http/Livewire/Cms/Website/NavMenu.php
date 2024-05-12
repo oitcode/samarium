@@ -7,7 +7,7 @@ use Livewire\Component;
 use App\CmsNavMenu;
 use App\Company;
 
-class MenuWp extends Component
+class NavMenu extends Component
 {
     public $cmsNavMenu;
 
@@ -17,7 +17,7 @@ class MenuWp extends Component
 
         $company = Company::first();
 
-        return view('livewire.cms.website.menu-wp')
+        return view('livewire.cms.website.nav-menu')
             ->with('company', $company);
     }
 }

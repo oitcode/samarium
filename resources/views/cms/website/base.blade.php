@@ -80,7 +80,7 @@
     | Nav menu
     |
     --}}
-    @livewire ('cms.website.menu-wp')
+    @livewire ('cms.website.nav-menu')
 
     {{--
     |
