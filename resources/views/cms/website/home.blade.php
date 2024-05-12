@@ -53,9 +53,6 @@
         <div class="container mb-4">
           @livewire ('calendar.website.today-display')
         </div>
-        <div class="container mb-4">
-          @livewire ('calendar.website.today-display')
-        </div>
         @else
         <div class="p-5">
           <h2 class="h1 font-weight-bold text-center text-white">
