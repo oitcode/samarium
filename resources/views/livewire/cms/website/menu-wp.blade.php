@@ -1,8 +1,20 @@
 <div class="sticky-top-rm bg-danger-rm">
 
-  {{-- Logo and menu --}}
+  {{--
+  |
+  | Navigation menu of cms website.
+  |
+  | This is the blade file for navigation menu of cms websites.
+  | We have different code for bigger and smaller screens.
+  |
+  --}}
 
-  {{-- BIGGER SCREEN --}}
+
+  {{--
+  |
+  | BIGGER SCREEN
+  |
+  --}}
   <div class="d-none d-md-block">
     <div class="container-fluid p-0"
         style="
@@ -14,53 +26,24 @@
       <div class="m-0" style="background-color: rgba(0, 0, 0, 0.5);">
         <div class="container">
           <div class="d-flex justify-content-between">
-
-            @if (false)
-            <div class="py-3 pl-4">
-              <a href="{{ route('website-home') }}" class="text-decoration-none">
-                <div class="d-flex">
-                  <div class="bg-warning-rm mr-3">
-                    <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
-                  </div>
-                  <div class="d-flex flex-column justify-content-center bg-info-rm pt-3">
-                    <h1 class="h5"
-                        style="
-                        color:
-                          @if (\App\CmsTheme::first())
-                            {{ \App\CmsTheme::first()->ascent_bg_color }}
-                          @else
-                            orange
-                          @endif
-                          ;
-                        font-family: Arial; font-weight: bold;
-                        "
-                    >
-                      {{ $company->name }}
-                    </h1>
-                  </div>
-                </div>
-              </a>
+            <div class="">
+              @include ('partials.cms.nav-menu-desktop')
             </div>
-            @endif
-
-            <div class="py-3-rm">
-              @if (true)
-              @include ('partials.cms.top-menu-act')
-              @endif
-            </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  {{-- SMALLER SCREEN --}}
+
+  {{--
+  |
+  | SMALLER SCREEN
+  |
+  --}}
   <div class="d-md-none">
     <div class="container-fluid p-0 bg-warning">
-      @if (true)
-      @include ('partials.cms.site-top-menu-mob')
-      @endif
+      @include ('partials.cms.nav-menu-mobile')
     </div>
   </div>
 
