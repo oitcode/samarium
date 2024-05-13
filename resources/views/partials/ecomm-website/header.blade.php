@@ -171,26 +171,44 @@
 
 
 
-<nav class="navbar navbar-expand-lg navbar-dark-rm bg-dark-rm m-0 p-0 d-md-none" style="">
-  <button class="navbar-toggler p-3 m-3" style="border: 1px solid gray;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    @if (false)
-    <span class="navbar-toggler-icon"></span>
-    @endif
-    <i class="fas fa-list fa-2x-rm" style=""></i>
-  </button>
+<nav class="navbar navbar-expand-lg navbar-danger bg-danger m-0 p-0 d-md-none" style="">
 
   <a class="navbar-brand p-3 text-reset" href="/" style="">
     <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
-    @if (false)
-    <span class="h4 font-weight-bold" style="">
+    @if (true)
+    <span class="h6 font-weight-bold ml-2" style="">
       {{ $company->name }}
     </span>
     @endif
   </a>
 
+  <button class="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <i class="fas fa-bars fa-2x border-rm p-2-rm" style="
+        {{--
+        background-color:
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->footer_bg_color }}
+            @else
+              orange
+            @endif
+            ;
+            --}}
+        color:
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->footer_text_color }}
+            @else
+              white
+            @endif
+        ;
+    "></i>
+  </button>
+
+  @if (false)
   <div class="px-3">
     @livewire ('ecomm-website.shopping-cart-badge')
   </div>
+  @endif
 
 
   <div class="collapse navbar-collapse m-0 p-0 mt-4" id="navbarSupportedContent" style="margin-left: 0;">
