@@ -254,7 +254,7 @@
       <div class="d-flex justify-content-center">
         <div class="" style="color: #aaa;">
           <div>
-            &copy; 2023
+            &copy; 2024
             {{ $company->name }}
             @if (false)
             |
