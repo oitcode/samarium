@@ -2,8 +2,20 @@
 @include ('collection.login.login-1' {{-- . \App\CmsTheme::first()->login_page --}} )
 @endif
 
-@if (true)
 <!doctype html>
+
+
+{{--
+|
+| Login page blade file.
+|
+| This is the blade file of our login page. Many options from default laravel
+| login page are removed or disabled. Please modify this file if you need
+| any changes.
+|
+--}}
+
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="height: 100% !important;">
 <head>
     <meta charset="utf-8">
@@ -33,16 +45,13 @@
       }
     </style>
 
-
     <!-- Livewire -->
     @livewireStyles
 </head>
 
-<body style="height: 100% !important;  {{-- background-image: linear-gradient(45deg, {{ env('OC_SELECT_COLOR') }} , {{ env('OC_SELECT_COLOR') }} 15%, {{
-env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  background-color: #55a; --}}">
+<body style="height: 100% !important;">
 
   <div class="row h-100">
-    @if (true)
 
     {{--
     | 
@@ -61,7 +70,6 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  background-color: #55a; --
         </div>
       </div>
     </div>
-    @endif
 
     {{--
     | 
@@ -86,12 +94,9 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  background-color: #55a; --
             </div>
 
             <div class="py-4 bg-primary-rm text-primary-rm rounded border shadow-rm" style="background-color: #eee; color: {{ env('OC_SELECT_COLOR') }};">
-              @if (true)
-              <div class="h4 text-center" style="text-shadow: 1px 0 {{ env('OC_SELECT_COLOR') }};text-shadow: -1px 0 {{ env('OC_SELECT_COLOR') }};
-              {{-- font-family: Mono; --}}">
+              <div class="h4 text-center" style="text-shadow: 1px 0 {{ env('OC_SELECT_COLOR') }};text-shadow: -1px 0 {{ env('OC_SELECT_COLOR') }};">
                 Login
               </div>
-              @endif
             </div>
             <div class="row-rm border shadow-sm bg-white d-flex py-3" style="">
               <div class="col-md-8-rm px-5 py-3">
@@ -128,9 +133,6 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  background-color: #55a; --
                     |
                     --}}
                     <div class="form-group shadow-sm mb-2">
-                        @if (false)
-                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-                        @endif
 
                         <input id="password" type="password"
                             class="form-control @error('password') is-invalid @enderror"
@@ -171,7 +173,7 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  background-color: #55a; --
                     --}}
                     <div class="form-group mt-3 mb-1">
                         <button type="submit" class="btn btn-success-rm badge-pill btn-block py-3 text-white shadow"
-                            style="{{-- font-size: 1.3rem; --}} background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR') }}, {{ env('OC_SELECT_COLOR') }});">
+                            style="background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR') }}, {{ env('OC_SELECT_COLOR') }});">
                             <span class="h5">
                               {{ __('Login') }}
                             </span>
@@ -197,12 +199,8 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  background-color: #55a; --
             |
             --}}
             <div class="my-3 text-muted">
-              <div class="d-flex flex-column justify-content-center">
-                <div class="d-flex justify-content-center">
-                  <div class="w-50-rm text-center">
-                    {{ date('Y M d') }}
-                  </div>
-                </div>
+              <div class="text-center">
+                {{ date('Y M d') }}
               </div>
             </div>
 
@@ -216,4 +214,3 @@ env('OC_SELECT_COLOR') }} 15%, #fff 15%, #fff 100%);  background-color: #55a; --
   @livewireScripts
 </body>
 </html>
-@endif
