@@ -160,7 +160,7 @@
       <div class="d-flex justify-content-center-rm bg-success-rm flex-grow-1">
 
         <div class="d-flex flex-column justify-content-center flex-grow-1 bg-success-rm px-4">
-          <h1 class="h5 font-weight-bold mb-3" style="font-family: Mono;">
+          <h1 class="h5 font-weight-bold my-3" style="font-family: Mono;">
             {{ $company->name }}
           </h1>
           <div class="w-100 bg-warning">
