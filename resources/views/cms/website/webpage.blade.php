@@ -43,10 +43,8 @@
     </div>
   @endif
 
-  <div class="container-fluid o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm p-0-rm py-5-rm"
+  <div class="container o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm p-0 py-5-rm"
       style= "
-      padding-top: 100px;
-      padding-bottom: 100px;
       {{--
       @if (false && $webpage->is_post == 'yes')
       @else
@@ -79,12 +77,15 @@
       background-repeat: no-repeat;
       background-position: center;
       {{--
-      height: 500px;
       background-attachment: fixed;
+      height: 500px;
       --}}
 
   ;">
-    <div class="o-overlay-rm text-white-rm">
+    <div class="o-overlay text-white-rm h-100" style="
+      padding-top: 50px;
+      padding-bottom: 50px;
+    ">
       <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') border-left-rm border-right-rm @else @endif bg-primary-rm">
       <h1 class="h3 font-weight-bold"
           style="
