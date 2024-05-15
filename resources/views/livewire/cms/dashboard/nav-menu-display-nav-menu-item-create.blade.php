@@ -3,7 +3,7 @@
   
     <h3 class="h5 text-secondary">Add item to menu</h3>
   
-    @if (false)
+    @if (true)
     <div class="form-group">
       <label for="">Name</label>
       <input type="text"
