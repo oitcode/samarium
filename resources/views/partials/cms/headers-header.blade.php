@@ -111,7 +111,25 @@
       </div>
   </div>
 
-  <div class="container py-2 d-none d-md-block">
+  <div class="container-fluid p-0"
+  style="
+           {{--
+           background-image: @if (\App\CmsTheme::first())
+             url({{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }})
+           @else
+             url({{ asset('img/school-5.jpg') }})
+           @endif
+           ;
+           background-size: cover;
+           background-repeat: no-repeat;
+           background-position: center;
+           height: 500px;
+           background-attachment: fixed;
+           --}}
+           "
+  >
+  <div class="container-fluid py-2 d-none d-md-block o-overlay">
+  <div class="container">
     <div class="d-flex justify-content-between h-100 bg-info-rm pl-2">
 
 
@@ -164,6 +182,8 @@
 
   
     </div>
+  </div>
+  </div>
   </div>
 
 

@@ -32,6 +32,7 @@
 @endsection
 
 @section ('pageAnnouncer')
+
   {{-- Notice badge --}}
   @if ($webpage->hasCategory('notice'))
     <div class="py-3 bg-danger text-white font-weight-bold">
@@ -42,8 +43,11 @@
     </div>
   @endif
 
-  <div class="container-fluid o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm p-0"
-      style="
+  <div class="container-fluid o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm p-0-rm py-5-rm"
+      style= "
+      padding-top: 100px;
+      padding-bottom: 100px;
+      {{--
       @if (false && $webpage->is_post == 'yes')
       @else
         @if (true || ! $webpage->hasCategory('notice'))
@@ -63,6 +67,22 @@
               )
         @endif
       @endif
+      --}}
+
+      background-image: @if (\App\CmsTheme::first())
+        url({{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }})
+      @else
+        url({{ asset('img/school-5.jpg') }})
+      @endif
+      ;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      {{--
+      height: 500px;
+      background-attachment: fixed;
+      --}}
+
   ;">
     <div class="o-overlay-rm text-white-rm">
       <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') border-left-rm border-right-rm @else @endif bg-primary-rm">
