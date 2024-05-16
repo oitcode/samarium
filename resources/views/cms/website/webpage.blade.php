@@ -43,6 +43,7 @@
     </div>
   @endif
 
+  @if ($webpage->is_post != 'yes')
   <div class="container o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm p-0 py-5-rm"
       style= "
       {{--
@@ -145,6 +146,7 @@
       </div>
     </div>
   </div>
+  @endif
 
 
   {{-- Featured image --}}

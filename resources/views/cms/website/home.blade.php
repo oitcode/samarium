@@ -44,8 +44,82 @@
            "
 >
   <div class="container">
+
+
+
+
+
+
+
+
     <div class="row">
       <div class="col-md-8">
+
+
+
+
+
+        {{--
+        |
+        | Show a cool grid of pages
+        |
+        |
+        |
+        --}}
+        <div class="mb-4">
+          <div class="row">
+            @foreach (\App\Webpage::where('name', 'like', '%Study in%')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->limit('4')->get() as $webpage)
+              <div class="col-6 mb-3">
+                <a href="{{ route('website-webpage-' . $webpage->permalink) }}">
+                  <div style="
+                    background-image: @if (\App\CmsTheme::first())
+                      url({{ asset('storage/' . $webpage->featured_image_path) }})
+                    @else
+                      url({{ asset('img/school-5.jpg') }})
+                    @endif
+                    ;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    height: 300px;
+                    {{--
+                    background-attachment: fixed;
+                    --}}
+                  ">
+                    @if (false)
+                    <img src="{{ asset('storage/' . $webpage->featured_image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    @endif
+
+                    <div class="o-overlay p-3-rm h-100 d-flex flex-column justify-content-end">
+                      <div class="p-3" style="background-color: rgba(0, 0, 0, 0.5);">
+                        <h2 class="text-white h4 font-weight-bold">
+                          {{ $webpage->name }}
+                        </h2>
+                      </div>
+                    </div>
+
+
+
+
+
+
+                  </div>
+                </a>
+              </div>
+            @endforeach
+          </div>
+        </div>
+
+
+
+
+
         @if (true)
         <div class="mb-4 px-4">
           @include ('partials.school.school-quick-links-display')
