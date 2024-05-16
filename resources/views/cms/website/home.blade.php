@@ -66,10 +66,11 @@
         |
         |
         --}}
-        <div class="mb-4">
+        <div class="mb-4 px-2">
           <div class="row">
-            @foreach (\App\Webpage::where('name', 'like', '%Study in%')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->limit('4')->get() as $webpage)
-              <div class="col-6 mb-3">
+            @foreach (\App\Webpage::whereHas('webpageCategories', function ($query) { $query->where('name', 'featured');})->where('visibility', 'public')->orderBy('webpage_id', 'desc')->limit('4')->get() as $webpage)
+
+              <div class="col-6 mb-1 p-0 pr-1">
                 <a href="{{ route('website-webpage-' . $webpage->permalink) }}">
                   <div style="
                     background-image: @if (\App\CmsTheme::first())
