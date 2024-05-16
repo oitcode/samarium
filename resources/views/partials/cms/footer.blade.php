@@ -40,7 +40,7 @@
             <img src="{{ asset('storage/' . $company->logo_image_path) }}"
                 class="img-fluid-rm"
                 alt="{{ $company->name }} logo"
-                style="height: 150px !important;">
+                style="height: 150px !important; max-width: 200px !important;">
           </div>
 
           <div class="col-md-3 mb-3">
