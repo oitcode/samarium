@@ -43,7 +43,7 @@
     </div>
   @endif
 
-  @if ($webpage->is_post != 'yes')
+  @if ($webpage->is_post != 'yes' && $webpage->featured_image_path == null)
   <div class="container o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm p-0 py-5-rm"
       style= "
       {{--
@@ -149,17 +149,47 @@
   @endif
 
 
-  {{-- Featured image --}}
-  <div class="container my-4-rm">
-    @if ($webpage->featured_image_path)
-      <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $webpage->featured_image_path) }}" alt="{{ $webpage->name }}"
-      style="max-height: 500px;{{-- max-width: 100px;--}}">
-    @else
-    @endif
-  </div>
 @endsection
 @endif
 
 @section ('content')
-  @livewire ('cms.website.webpage-display', ['webpage' => $webpage,])
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-md-12">
+        {{-- Featured image --}}
+        <div class="">
+          @if ($webpage->featured_image_path)
+            <div class="d-flex-rm justify-content-center-rm">
+              <div>
+                <div style="
+                  background-image: url({{ asset('storage/' . $webpage->featured_image_path) }});
+                  background-size: 100% 100%;
+                  background-repeat: no-repeat;
+                  background-position: top center;
+                  height: 500px;
+                  {{--
+                  background-attachment: fixed;
+                  --}}
+                ">
+                <div class="mb-4-rm border-rm p-3 py-5 shadow-rm bg-dark-rm text-white-rm o-overlay">
+                  <h1 class="h2 font-weight-bold text-center text-white" style="{{--font-family: Mono;--}}">
+                    {{ strtoupper($webpage->name) }}
+                  </h1>
+                </div>
+                </div>
+                @if (false)
+                <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . $webpage->featured_image_path) }}" alt="{{ $webpage->name }}"
+                style="{{--max-height: 200px;width: 1200px;--}}">
+                @endif
+              </div>
+            </div>
+          @else
+          @endif
+        </div>
+        @livewire ('cms.website.webpage-display', ['webpage' => $webpage,])
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
 @endsection
