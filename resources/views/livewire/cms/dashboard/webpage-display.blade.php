@@ -167,6 +167,31 @@
                   @endif
                 </th>
               </tr>
+              <tr>
+                <th class="border-0"> Featured </th>
+                <th class="border-0">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      @if ($webpage->featured_webpage == 'yes')
+                        YES
+                      @else
+                        NO
+                      @endif
+                    </div>
+                    <div>
+                      @if ($webpage->featured_webpage == 'yes')
+                        <button class="btn btn-light mx-3" wire:click="makeWebpageFeaturedWebpageUndo">
+                          <i class="fas fa-toggle-off"></i>
+                        </button>
+                      @else
+                        <button class="btn btn-light mx-3" wire:click="makeWebpageFeaturedWebpage">
+                          <i class="fas fa-toggle-on"></i>
+                        </button>
+                      @endif
+                    </div>
+                  </div>
+                </th>
+              </tr>
             </tbody>
           </table>
         </div>
