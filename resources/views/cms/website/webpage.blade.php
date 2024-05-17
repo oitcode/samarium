@@ -46,28 +46,6 @@
   @if ($webpage->is_post != 'yes' && $webpage->featured_image_path == null)
   <div class="container o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm p-0 py-5-rm"
       style= "
-      {{--
-      @if (false && $webpage->is_post == 'yes')
-      @else
-        @if (true || ! $webpage->hasCategory('notice'))
-          background-image:
-              linear-gradient(to right,
-                @if (\App\CmsTheme::first())
-                  {{ \App\CmsTheme::first()->ascent_bg_color }}
-                @else
-                  orange
-                @endif
-              ,
-                @if (\App\CmsTheme::first())
-                  {{ \App\CmsTheme::first()->ascent_bg_color }}
-                @else
-                  orange
-                @endif
-              )
-        @endif
-      @endif
-      --}}
-
       background-image: @if (\App\CmsTheme::first())
         url({{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }})
       @else
@@ -153,34 +131,46 @@
 @endif
 
 @section ('content')
-  <div class="container my-4">
+  <div class="container p-0">
     <div class="row">
       <div class="col-md-12">
         {{-- Featured image --}}
-        <div class="">
+        <div class="" style="background-image: linear-gradient(to right, white 0%, white 25%, {{ env('OC_SELECT_COLOR') }} 25%, {{ env('OC_SELECT_COLOR') }} 100%);">
           @if ($webpage->featured_image_path)
-            <div class="d-flex-rm justify-content-center-rm">
-              <div>
-                <div style="
+            <div class="row">
+              <div class="col-md-6 py-4 justify-content-end">
+                <div class="" style="
                   background-image: url({{ asset('storage/' . $webpage->featured_image_path) }});
+                  {{--
                   background-size: 100% 100%;
+                  --}}
+                  background-size: auto 100%;
                   background-repeat: no-repeat;
-                  background-position: top center;
+                  background-position: top right;
                   height: 500px;
                   {{--
                   background-attachment: fixed;
+                  background-color: green;
                   --}}
                 ">
-                <div class="mb-4-rm border-rm p-3 py-5 shadow-rm bg-dark-rm text-white-rm o-overlay">
-                  <h1 class="h2 font-weight-bold text-center text-white" style="{{--font-family: Mono;--}}">
-                    {{ strtoupper($webpage->name) }}
-                  </h1>
-                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
                 </div>
                 @if (false)
                 <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . $webpage->featured_image_path) }}" alt="{{ $webpage->name }}"
                 style="{{--max-height: 200px;width: 1200px;--}}">
                 @endif
+              </div>
+              <div class="col-md-6 bg-danger-rm d-flex flex-column justify-content-center">
+                <div class="mb-4-rm border-rm p-3 py-5 shadow-rm bg-dark-rm text-white-rm o-overlay-rm">
+                  <h1 class="h2 font-weight-bold text-center text-white" style="{{--font-family: Mono;--}}">
+                    {{ strtoupper($webpage->name) }}
+                  </h1>
+                </div>
               </div>
             </div>
           @else
