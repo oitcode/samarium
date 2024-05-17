@@ -135,7 +135,7 @@
     <div class="row">
       <div class="col-md-12">
         {{-- Featured image --}}
-        <div class="" style="background-image: linear-gradient(to right, white 0%, white 25%, {{ env('OC_SELECT_COLOR') }} 25%, {{ env('OC_SELECT_COLOR') }} 100%);">
+        <div class="" style="{{-- background-image: linear-gradient(to right, white 0%, white 25%, {{ env('OC_SELECT_COLOR') }} 25%, {{ env('OC_SELECT_COLOR') }} 100%); --}}">
           @if ($webpage->featured_image_path)
             <div class="row">
               <div class="col-md-6 py-4 justify-content-end">
@@ -167,7 +167,7 @@
               </div>
               <div class="col-md-6 bg-danger-rm d-flex flex-column justify-content-center">
                 <div class="mb-4-rm border-rm p-3 py-5 shadow-rm bg-dark-rm text-white-rm o-overlay-rm">
-                  <h1 class="h2 font-weight-bold text-center text-white" style="{{--font-family: Mono;--}}">
+                  <h1 class="h2 font-weight-bold text-center text-white-rm" style="{{--font-family: Mono;--}}">
                     {{ strtoupper($webpage->name) }}
                   </h1>
                 </div>
