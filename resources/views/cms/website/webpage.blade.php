@@ -144,9 +144,9 @@
                   {{--
                   background-size: 100% 100%;
                   --}}
-                  background-size: auto 100%;
+                  background-size: 100% 100%;
                   background-repeat: no-repeat;
-                  background-position: top right;
+                  background-position: top left;
                   height: 500px;
                   {{--
                   background-attachment: fixed;
