@@ -174,6 +174,13 @@
               </div>
             </div>
           @else
+            <div class="col-md-6-rm bg-danger-rm d-flex flex-column justify-content-center bg-primary">
+              <div class="mb-4-rm border-rm pt-3 py-1 shadow-rm bg-dark-rm text-white-rm o-overlay-rm">
+                <h1 class="h4 font-weight-bold text-white-rm" style="{{--font-family: Mono;--}}">
+                  {{ $webpage->name }}
+                </h1>
+              </div>
+            </div>
           @endif
         </div>
         @livewire ('cms.website.webpage-display', ['webpage' => $webpage,])

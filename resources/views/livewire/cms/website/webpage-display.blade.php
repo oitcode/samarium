@@ -125,25 +125,25 @@
 @else
 
   @if ($webpage->is_post == 'yes')
-  <div class="container">
+  <div class="container bg-danger">
     <div class="d-flex">
 
       {{-- View count --}}
-      <div class="m-4">
+      <div class="m-4-rm">
         <strong>
           Views
         </strong>
-        <div class="mt-3">
+        <div class="mt-3-rm">
           {{ $webpage->website_views }}
         </div>
       </div>
 
       {{-- Share buttons --}}
-      <div class="m-4">
+      <div class="m-rm-4">
         <strong>
           Share
         </strong>
-        <div class="mt-3">
+        <div class="mt-3-rm">
 
           <a href="http://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" class="text-decoration-none text-primary">
             <i class="fab fa-facebook fa-2x mr-4"></i>
