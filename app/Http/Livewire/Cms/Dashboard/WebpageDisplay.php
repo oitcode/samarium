@@ -104,4 +104,20 @@ class WebpageDisplay extends Component
 
         $this->render();
     }
+
+    public function makeWebpageFeaturedWebpage()
+    {
+        $this->webpage->featured_webpage = 'yes';
+        $this->webpage->update();
+
+        $this->render();
+    }
+
+    public function makeWebpageFeaturedWebpageUndo()
+    {
+        $this->webpage->featured_webpage = 'no';
+        $this->webpage->update();
+
+        $this->render();
+    }
 }
