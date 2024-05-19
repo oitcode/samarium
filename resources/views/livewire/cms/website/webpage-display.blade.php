@@ -125,11 +125,11 @@
 @else
 
   @if ($webpage->is_post == 'yes')
-  <div class="container bg-danger">
+  <div class="container bg-danger-rm">
     <div class="d-flex">
 
       {{-- View count --}}
-      <div class="m-4-rm">
+      <div class="mr-4">
         <strong>
           Views
         </strong>
