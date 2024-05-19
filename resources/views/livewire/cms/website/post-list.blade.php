@@ -1,7 +1,7 @@
 <div>
   <div class="row-rm">
   @foreach ($posts as $post)
-    <div class="col-md-6-rm my-4-rm border shadow-sm mb-4">
+    <div class="col-md-6-rm my-4-rm border rounded shadow-sm-rm mb-2">
       @if (false)
       <div class="p-3">
         27 votes
@@ -29,27 +29,30 @@
       <div class="flex-grow-1 d-flex justify-content-between p-3 bg-white text-dark">
         <div class="text-dark">
           <a href="{{ route('website-webpage-' . $post->permalink) }}" class="text-reset">
-            <h2 class="h4 font-weight-bold">
+            <h2 class="h5 font-weight-bold">
               {{ $post->name }}
             </h2>
           </a>
           <div class="d-flex flex-column">
-            <div class="mr-5">
-              <i class="far fa-calendar mr-1"></i>
-              @if (false)
-              Posted on:
-              @endif
-              {{ $post->created_at->toDateString() }}
+            <div class="mr-5 text-muted">
               @if (true)
               <span class="text-muted">
                 {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($post->created_at->toDateString(), 'english')  }}
               </span>
+              2081
+              @endif
+              <br />
+              @if (false)
+              <i class="far fa-calendar mr-1-rm"></i>
+              Posted on:
+              {{ $post->created_at->format('M d Y') }}
               @endif
             </div>
-            <div class="mt-1">
+            <div class="mt-2 text-muted">
+              Categories:
               @foreach ($post->webpageCategories as $category)
-                <span class="badge badge-light badge-pill mr-3 p-1 px-2">
-                  {{ $category->name }}
+                <span class="badge badge-light badge-pill-rm mr-1 p-1-rm px-2-rm">
+                  {{ ucfirst($category->name) }}
                 </span>
               @endforeach
             </div>

@@ -133,7 +133,7 @@
 @section ('content')
   <div class="container p-0">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 p-0 px-2">
         {{-- Featured image --}}
         <div class="" style="{{-- background-image: linear-gradient(to right, white 0%, white 25%, {{ env('OC_SELECT_COLOR') }} 25%, {{ env('OC_SELECT_COLOR') }} 100%); --}}">
           @if ($webpage->featured_image_path)
