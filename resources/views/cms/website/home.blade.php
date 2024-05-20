@@ -122,11 +122,8 @@
 
 
         @if (true)
-        <div class="mb-4 px-4">
+        <div class="mb-4 px-2">
           @include ('partials.school.school-quick-links-display')
-        </div>
-        <div class="container mb-4">
-          @livewire ('calendar.website.today-display')
         </div>
         @else
         <div class="p-5">
@@ -136,7 +133,10 @@
         </div>
         @endif
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 px-2">
+        <div class="container mb-4 p-0">
+          @livewire ('calendar.website.today-display')
+        </div>
         @livewire ('notice.dashboard.latest-notice-list')
         <div class="my-3">
           @livewire ('cms.website.latest-post-list')
