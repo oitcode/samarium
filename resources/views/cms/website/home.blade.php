@@ -26,7 +26,7 @@
 @include ('partials.cms.website.newest-notice-flasher')
 
 {{-- Hero/Featured Div --}}
-<div class="container-fluid bg-white p-0 py-5" 
+<div class="container-fluid bg-white-rm p-0 py-5" 
   style="
            {{--
            background-image: @if (\App\CmsTheme::first())
@@ -66,6 +66,7 @@
         |
         |
         --}}
+        @if (\App\Webpage::whereHas('webpageCategories', function ($query) { $query->where('name', 'featured');})->where('visibility', 'public')->count() > 0)
         <div class="mb-4 px-2">
           <div class="row">
             @foreach (\App\Webpage::whereHas('webpageCategories', function ($query) { $query->where('name', 'featured');})->where('visibility', 'public')->orderBy('webpage_id', 'desc')->limit('4')->get() as $webpage)
@@ -116,6 +117,7 @@
             @endforeach
           </div>
         </div>
+        @endif
 
 
 
