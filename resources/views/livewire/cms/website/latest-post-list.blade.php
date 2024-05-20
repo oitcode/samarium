@@ -1,4 +1,4 @@
-<div class="border bg-white mx-3">
+<div class="border bg-white">
 
     <div class="table-responsive">
       <table class="table">
