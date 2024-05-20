@@ -6,7 +6,7 @@
   {{-- Show in bigger screens --}}
   <div class="d-none-rm d-md-block-rm h-100">
 
-    <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}" class="text-reset text-decoration-none">
+    <a href="{{ route('website-product-view', [$product->product_id, str_replace(" ", "-", $product->name),]) }}" class="text-reset text-decoration-none">
     <div class="card h-100 shadow-sm border-0">
 
       <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">

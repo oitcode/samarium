@@ -94,7 +94,7 @@
 
             @foreach (\App\Product::where('featured_product', 'yes')->get() as $product)
                 <div class="col-md-4 bg-danger-rm border-rm border-danger-rm">
-                  <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}"
+                  <a href="{{ route('website-product-view', [$product->product_id, str_replace(" ", "-", $product->name)]) }}"
                       class="text-decoration-none">
                     <div class="card h-100 shadow-rm border-0-rm border-rm border-0">
       
@@ -203,7 +203,7 @@
       <div class="row bg-danger-rm">
         @foreach (\App\Product::orderBy('website_views', 'desc')->limit('3')->get() as $product)
           <div class="col-6 col-md-4 bg-danger-rm border-rm border-danger-rm">
-            <a href="{{ route('website-product-view', [$product->product_id, $product->name]) }}"
+            <a href="{{ route('website-product-view', [$product->product_id, str_replace(" ", "-", $product->name)]) }}"
                 class="text-decoration-none">
               <div class="card h-100 shadow-rm border-0-rm border-rm border-0">
       
