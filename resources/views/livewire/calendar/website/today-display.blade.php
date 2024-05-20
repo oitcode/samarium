@@ -1,4 +1,4 @@
-<div class="rounded">
+<div class="rounded bg-white">
 
 
   @if (true)
@@ -24,12 +24,12 @@
   @endif
 
   <div>
-    <span class="text-success-rm p-1-rm border border-danger-rm px-2 bg-success text-white">
-    Today
-    </span>,
   </div>
   <div class="border bg-danger-rm" style="">
     <div class="h6 px-2 mb-0 mt-3 text-muted mb-2">
+      <span class="text-success-rm p-1-rm border-rm border-danger-rm px-2-rm bg-success-rm text-white-rm font-weight-bold text-dark">
+      Today
+      </span>,
       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($today['day']->toDateString(), 'english')  }}
       2081,
       {{ $today['day']->format('l') }}
@@ -62,7 +62,7 @@
       </div>
       @endif
     @endif
-    <div class="col-md-6-rm bg-success-rm text-white-rm px-3 pb-3 flex-grow-1">
+    <div class="col-md-6-rm bg-success-rm text-white-rm px-2 pb-3 flex-grow-1">
       @if (false)
       <h2 class="h5 font-weight-bold mb-0">
         Events
@@ -77,7 +77,9 @@
           <br />
         @endforeach
       @else
-        No calendar events
+        <div class="p-0">
+          No calendar events
+        </div>
       @endif
     </div>
   </div>
