@@ -23,6 +23,7 @@
 
 @section ('content')
 
+@include ('partials.cms.website.newest-notice-flasher-modal')
 @include ('partials.cms.website.newest-notice-flasher')
 
 {{-- Hero/Featured Div --}}
