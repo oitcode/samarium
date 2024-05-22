@@ -126,12 +126,11 @@
 
 
 
-
   @if (!is_null($webpage->webpageContents) && count($webpage->webpageContents) > 0)
   
     @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
   
-      <div class="container border-rm border-success-rm p-0 px-2" 
+      <div class="container border-rm border-success-rm p-0 px-2 mb-3" 
           style="
               font-size: 1.2em;
               @foreach ($webpageContent->cmsWebpageContentCssOptions as $cssOption)
