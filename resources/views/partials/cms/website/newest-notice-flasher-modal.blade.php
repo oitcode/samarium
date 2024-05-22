@@ -8,12 +8,13 @@
             class="img-fluid-rm"
             alt="{{ $company->name }} logo"
             style="height: 100px !important; max-width: 100px !important;">
-        @if (false)
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        @if (true)
+        <button type="button" class="close-rm btn btn-danger" data-dismiss="modal" aria-label="Close">
           @if (false)
           <span aria-hidden="true">&times;</span>
           @endif
-          <i class="fas fa-times-circle fa-2x text-danger"></i>
+          <i class="fas fa-times-circle fa-2x text-danger-rm"></i>
+          Close
         </button>
         @endif
       </div>
