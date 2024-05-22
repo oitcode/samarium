@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-keyboard="false" data-backdrop="static">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-lg-rm" role="document">
     <div class="modal-content">
 
       <div class="modal-header">
@@ -8,25 +8,52 @@
             class="img-fluid-rm"
             alt="{{ $company->name }} logo"
             style="height: 100px !important; max-width: 100px !important;">
+        @if (false)
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           @if (false)
           <span aria-hidden="true">&times;</span>
           @endif
           <i class="fas fa-times-circle fa-2x text-danger"></i>
         </button>
+        @endif
       </div>
 
       <div class="modal-body">
 
-      <h5 class="modal-title h4 font-weight-bold mb-3" id="exampleModalLabel">Notice</h5>
+
 {{-- Notifications/post displayer  --}}
 @if (\App\WebpageCategory::where('name', 'notice')->first())
   @if (count(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->get()) > 0)
-    <div class="container-fluid bg-dark-rm text-danger p-0" style="background-color: #fdd;">
+    <div class="container-fluid bg-dark-rm text-danger-rm p-0" style="{{-- background-color: #fdd; --}}">
       <div class="container" style="font-size: 1.3rem;">
         <div class="o-ltr-rm py-3 ">
-          <div class="d-inline mr-5">
+          <div class="mb-1 font-weight-bold">
               {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->name }}
+          </div>
+
+
+
+          {{-- Published info --}}
+          <div class="px-3-rm text-secondary mb-4" style="font-size: 1rem;">
+            Published on:
+            @if (false)
+              {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->created_at->toDateString() }}
+            @else
+              {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->created_at->toDateString(), 'english')  }}
+              2081
+            @endif
+
+          </div>
+
+
+
+
+          <div>
+            <img src="{{ asset('storage/' . \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post',
+            'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->featured_image_path) }}"
+                class="img-fluid"
+                alt="{{ $company->name }} logo"
+                style="height: 400px !important; max-width: 400px !important;">
           </div>
         </div>
       </div>
