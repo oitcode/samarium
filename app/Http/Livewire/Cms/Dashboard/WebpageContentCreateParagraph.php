@@ -24,7 +24,7 @@ class WebpageContentCreateParagraph extends Component
         ]);
 
         /* Prepare the content */
-        $content = '<p>' . $validatedData['paragraph'] . '</p>';
+        $content = '<p class="m-0 p-0">' . $validatedData['paragraph'] . '</p>';
 
         $webpageContent = new WebpageContent;
 

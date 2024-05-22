@@ -129,21 +129,18 @@
 
   @if (!is_null($webpage->webpageContents) && count($webpage->webpageContents) > 0)
   
-    <hr />
     @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
   
-      <div class="container-fluid bg-white-rm p-0 border-rm" 
-          style="font-size: 1.2em; ">
-  
-  
-        <div class="container p-0">
-
-          <div class="p-0" style="
+      <div class="container border-rm border-success-rm p-0" 
+          style="
+              font-size: 1.2em;
               @foreach ($webpageContent->cmsWebpageContentCssOptions as $cssOption)
                   {{ $cssOption->option_name }}: {{ $cssOption->option_value }};
               @endforeach
           ">
-            <div class="row p-0" style="">
+  
+            @if (true)
+            <div class="row p-0" style="margin: auto;">
                 
               @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->body))
                 <div class="col-md-6">
@@ -158,14 +155,15 @@
                     @else
                         col-md-8
                     @endif
-                    justify-content-center align-self-center" style="font-size: 1.1em !important; width: 500px !important;">
+                    p-0 m-0
+                    justify-content-center-rm align-self-center-rm p-0" style="font-size: 1.1em !important;{{-- width: 500px !important;--}}">
                   @if ($webpageContent->title)
-                    <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
+                    <h2 class="h1 mt-3-rm mb-4-rm mb-0" style="color: #000; font-family: Arial; font-weight: bold;">
                       {{ $webpageContent->title}}
                     </h2>
                   @endif
                   @if ($webpageContent->body)
-                    <div class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif p-3">
+                    <div class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif bg-warning-rm">
                       {!! $webpageContent->body !!}
                     </div>
                   @endif
@@ -182,9 +180,8 @@
                 @endif
               @endif
             </div>
-          </div>
-        </div>
-  
+            @endif
+
       </div>
   
     @endforeach
