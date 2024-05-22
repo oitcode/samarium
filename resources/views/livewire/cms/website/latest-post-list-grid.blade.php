@@ -8,7 +8,10 @@
           <div class="bg-white border p-3">
 
             <h2 class="h4 font-weight-bold mb-1">
+              @if (false)
               {{ \Illuminate\Support\Str::limit($webpage->name, 25, $end=' ...') }}
+              @endif
+              {{ $webpage->name }}
             </h2>
 
             <div class="text-secondary">
