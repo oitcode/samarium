@@ -140,7 +140,7 @@
           ">
   
             @if (true)
-            <div class="row p-0" style="margin: auto;">
+            <div class="row" style="margin: auto;">
                 
               @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->body))
                 <div class="col-md-6">
@@ -163,7 +163,7 @@
                     </h2>
                   @endif
                   @if ($webpageContent->body)
-                    <div class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif bg-warning-rm">
+                    <div class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif bg-warning-rm px-3">
                       {!! $webpageContent->body !!}
                     </div>
                   @endif
