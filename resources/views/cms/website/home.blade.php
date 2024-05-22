@@ -67,6 +67,10 @@
         |
         |
         --}}
+        <div>
+          @livewire ('cms.website.latest-post-list-grid')
+        </div>
+
         @if (\App\Webpage::whereHas('webpageCategories', function ($query) { $query->where('name', 'featured');})->where('visibility', 'public')->count() > 0)
         <div class="mb-4 px-2">
           <div class="row">
