@@ -22,7 +22,7 @@
   </div>
 
   <div class="row mb-3 border p-2 py-5-rm shadow-rm pt-3 bg-white" style="margin: auto;">
-    <div class="col-md-8">
+    <div class="col-md-8 bg-white-rm border-rm">
       <div class="row bg-warning-rm">
         <div class="col-md-6 mb-4">
           <div class="d-flex justify-content-center h-100">
@@ -77,7 +77,6 @@
               @php echo number_format( $product->selling_price ); @endphp
             </h3>
           @endif
-          <hr />
           <div class="">
             <h2 class="h6 font-weight-bold text-secondary">
               Product description
@@ -86,7 +85,7 @@
               {{ $product->description }}
             </p>
           </div>
-          @if (true)
+          @if (false)
           <hr />
           @endif
 
@@ -590,7 +589,7 @@
     <div class="col-md-4">
 
 
-      @if (true)
+      @if (false)
       <div class="mb-4">
         <h2 class="h6 font-weight-bold text-secondary">
           Stock
@@ -623,6 +622,62 @@
       </div>
       @endif
       @endif
+
+
+      <div class="border bg-white p-3 mb-3">
+        <h2 class="h5 font-weight-bold text-primary">
+          Any question?
+        </h2>
+
+        @if (false)
+        <p class="text-muted" style="font-size: 0.9rem;">
+          If you have any question related to this product
+          then please feel free to ask your question here.
+        </p>
+        @endif
+
+
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Phone">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" rows="3" placeholder="Question"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block py-2">
+          Submit
+        </button>
+        <br/>
+        @if (false)
+        <p class="text-muted" style="font-size: 0.7rem;">
+          ** Your contact details wont be published.
+        </p>
+        @endif
+      </div>
+
+      <div class="border p-3 mb-3">
+        <h2 class="h5 font-weight-bold text-primary">
+          Share this product
+        </h2>
+
+        <div>
+
+          <a href="http://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" class="text-decoration-none text-primary">
+            <i class="fab fa-facebook fa-2x mr-4"></i>
+          </a>
+
+          <a href="https://api.whatsapp.com/send?text={{ url()->current() }}" data-action="share/whatsapp/share">
+            <i class="fab fa-whatsapp fa-2x mr-4 text-success"></i>
+          </a>
+
+          <a href="viber://forward?text={{ url()->current() }}">
+            <i class="fab fa-viber fa-2x mr-4" style="color: purple;"></i>
+          </a>
+
+        </div>
+      </div>
 
     </div>
 
