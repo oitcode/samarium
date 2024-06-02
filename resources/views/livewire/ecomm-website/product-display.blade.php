@@ -313,7 +313,7 @@
                             <td class="border-primary-rm font-weight-bold-rm" style="">
                               @if ($productFeatureHeading->feature_heading == 'Package Includes')
                                 <i class="fas fa-check-circle text-success mr-1"></i>
-                              @elseif ($productFeatureHeading->feature_heading == 'Package excludes')
+                              @elseif (strtolower($productFeatureHeading->feature_heading) == 'package excludes')
                                 <i class="fas fa-times-circle text-danger mr-1"></i>
                               @else
                                 <i class="fas fas fa-angle-double-right mr-1"></i>
