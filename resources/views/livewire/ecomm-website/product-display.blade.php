@@ -174,7 +174,7 @@
       {{-- Product specification --}}
       @if (count($product->productSpecifications) > 0)
         <div class="mb-5-rm">
-          <div class="mt-4 bg-primary text-white p-3">
+          <div class="mt-4 bg-light text-dark p-3">
             <h3 class="h6 font-weight-bold mb-0" style="font-weight: bold;">
               SPECIFICATIONS
             </h3>
@@ -184,18 +184,18 @@
             @foreach ($product->productSpecificationHeadings as $productSpecificationHeading)
             <div class="my-4">
               <div class="table-responsive">
-                <table class="table table-bordered mb-0">
+                <table class="table table-bordered mb-0" style="background-color: #eee;">
                   <tr class="">
-                    <th class="border-dark bg-primary text-white p-3" style="width: 200px;" colspan="2">
+                    <th class="border-primary-rm bg-light-rm text-primary-rm p-3" style="width: 200px;" colspan="2">
                       {{ $productSpecificationHeading->specification_heading }}
                     </th>
                   </tr>
                   @foreach ($productSpecificationHeading->productSpecifications as $productSpecification)
                     <tr class="">
-                      <th class="border-dark font-weight-bold" style="width: 200px;">
+                      <th class="border-primary-rm font-weight-bold" style="width: 200px;">
                         {{ $productSpecification->spec_heading}}
                       </th>
-                      <td class="border-dark font-weight-bold" style="width: 200px;">
+                      <td class="border-primary-rm font-weight-bold-rm" style="width: 200px;">
                         {{ $productSpecification->spec_value}}
                       </td>
                     </tr>
@@ -209,14 +209,21 @@
           @if (count($product->productSpecifications) > 0)
             <div class="my-4">
               <div class="table-responsive">
-                <table class="table table-bordered mb-0">
+                <table class="table table-bordered mb-0" style="background-color: #eee;">
                   @foreach ($product->productSpecifications as $productSpecification)
                     @if ($productSpecification->product_specification_heading_id == null)
+                      @if ($loop->first)
+                        <tr class="">
+                          <th class="border-primary-rm bg-light-rm text-primary-rm p-3" style="width: 200px;" colspan="2">
+                            General specifications
+                          </th>
+                        </tr>
+                      @endif
                       <tr class="">
-                        <th class="border-dark" style="width: 200px;">
+                        <th class="border-dark-rm" style="width: 200px;">
                           {{ $productSpecification->spec_heading }}
                         </th>
-                        <td class="border-dark" style="width: 200px;">
+                        <td class="border-dark-rm" style="width: 200px;">
                           {{ $productSpecification->spec_value }}
                         </td>
                       </tr>
@@ -277,6 +284,7 @@
         <hr />
         @endif
 
+        <hr />
         {{-- Product features --}}
         @if (count($product->productFeatures) > 0)
         <div class="bg-white p-3-rm border-rm mb-3">
@@ -284,7 +292,7 @@
 
             @if (count($product->productFeatures) > 0)
               <div class="mb-5-rm">
-                <div class="mt-4 bg-primary text-white p-3">
+                <div class="mt-4 bg-light text-dark p-3">
                   <h3 class="h6 font-weight-bold mb-0" style="font-weight: bold;">
                     FEATURES
                   </h3>
@@ -294,15 +302,22 @@
                   @foreach ($product->productFeatureHeadings as $productFeatureHeading)
                   <div class="my-4">
                     <div class="table-responsive">
-                      <table class="table table-bordered mb-0">
+                      <table class="table table-bordered-rm mb-0 border" style="background-color: #eee;">
                         <tr class="">
-                          <th class="border-dark bg-primary text-white p-3" style="width: 200px;">
+                          <th class="border-primary-rm bg-light-rm text-dark p-3" style="width: 200px;">
                             {{ $productFeatureHeading->feature_heading }}
                           </th>
                         </tr>
                         @foreach ($productFeatureHeading->productFeatures as $productFeature)
                           <tr class="">
-                            <td class="border-dark font-weight-bold" style="">
+                            <td class="border-primary-rm font-weight-bold-rm" style="">
+                              @if ($productFeatureHeading->feature_heading == 'Package Includes')
+                                <i class="fas fa-check-circle text-success mr-1"></i>
+                              @elseif ($productFeatureHeading->feature_heading == 'Package excludes')
+                                <i class="fas fa-times-circle text-danger mr-1"></i>
+                              @else
+                                <i class="fas fas fa-angle-double-right mr-1"></i>
+                              @endif
                               {{ $productFeature->feature}}
                             </td>
                           </tr>
@@ -316,13 +331,19 @@
                 @if (count($product->productFeatures) > 0)
                   <div class="my-4">
                     <div class="table-responsive">
-                      <table class="table table-bordered mb-0">
+                      <table class="table table-bordered-rm mb-0" style="background-color: #eee;">
+                        <tr class="">
+                          <th class="border-primary-rm bg-light-rm text-dark p-3" style="width: 200px;">
+                            General features
+                          </th>
+                        </tr>
                         @foreach ($product->productFeatures as $feature)
                           @if ($feature->product_feature_heading_id == null)
                             <tr class="">
-                              <th class="border-dark" style="width: 200px;">
+                              <td class="border-primary-rm" style="width: 200px;">
+                                <i class="fas fas fa-angle-double-right mr-1"></i>
                                 {{ $feature->feature }}
-                              </th>
+                              </td>
                             </tr>
                           @endif
                         @endforeach
@@ -345,32 +366,29 @@
           <div>
 
             @if (count($product->productOptions) > 0)
-              <div class="mb-5-rm">
-                <div class="mt-4 bg-primary text-white p-3">
+              <div class="mb-5-rm" style="background-color: #eee;">
+                <div class="mt-4 bg-light-rm text-dark p-3">
                   <h3 class="h6 font-weight-bold mb-0" style="font-weight: bold;">
-                    OptionS
+                    Options
                   </h3>
                 </div>
 
                 @if (count($product->productOptionHeadings) > 0)
                   @foreach ($product->productOptionHeadings as $productOptionHeading)
-                  <div class="my-4">
-                    <div class="table-responsive">
-                      <table class="table table-bordered mb-0">
-                        <tr class="">
-                          <th class="border-dark bg-primary text-white p-3" style="width: 200px;">
-                            {{ $productOptionHeading->product_option_heading_name }}
-                          </th>
-                        </tr>
+                  <div class="px-3">
+                    <span class="font-weight-bold">
+                      {{ $productOptionHeading->product_option_heading_name }}
+                      :
+                    </span>
                         @foreach ($productOptionHeading->productOptions as $productOption)
-                          <tr class="">
-                            <td class="border-dark font-weight-bold" style="">
-                              {{ $productOption->product_option_name}}
-                            </td>
-                          </tr>
+                          <span class="">
+                            {{ $productOption->product_option_name}}
+                            @if ($loop->last)
+                            @else
+                            ,
+                            @endif
+                          </span>
                         @endforeach
-                      </table>
-                    </div>
                   </div>
                   @endforeach
                 @endif
@@ -384,7 +402,7 @@
 
         @if (true)
         {{-- Youtube video --}}
-        <div class="bg-white p-3-rm border-rm mb-3">
+        <div class="bg-white-rm p-3-rm border-rm mb-3 p-3" style="background-color: #eee;">
           <div>
             <div class="d-flex justify-content-between">
               <div>
@@ -418,7 +436,7 @@
 
 
         {{-- Rating and reviews --}}
-        <div class="bg-white p-3-rm border-rm mb-3">
+        <div class="bg-white-rm p-3-rm border-rm mb-3 p-3" style="background-color: #eee;">
           <div>
             <div class="d-flex justify-content-between">
               <div>
@@ -506,7 +524,7 @@
         <hr />
 
         {{-- Questions and answers --}}
-        <div class="bg-white p-3-rm border-rm mb-3">
+        <div class="bg-white-rm p-3-rm border-rm mb-3 p-3" style="background-color: #eee;">
           <div>
             <div class="d-flex justify-content-between">
               <div>
@@ -534,8 +552,10 @@
             {{-- Show product reviews --}}
             @foreach ($product->productQuestions as $productQuestion)
               <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="{{-- border-top: 2px solid red !important; --}} background-color: #fafafa;">
-                Q:
-                {{ $productQuestion->question_text }}
+                <div class="font-weight-bold">
+                  Q:
+                  {{ $productQuestion->question_text }}
+                </div>
 
                 <div class="text-secondary">
                   {{ count($productQuestion->productAnswers) }} answers
@@ -561,7 +581,7 @@
         <hr />
 
         {{-- Share --}}
-        <div class="mb-4">
+        <div class="mb-4 p-3" style="background-color: #eee;">
           <div class="mb-3">
             <strong>
               Share
