@@ -147,7 +147,7 @@
 
       @if ($product->gallery)
       {{-- Product gallery --}}
-      <div class="bg-white px-3 border-rm mb-3-rm">
+      <div class="bg-white-rm p-3 border-rm mb-3-rm" style="background-color: #eee;">
         <div>
           <div class="mb-3">
             <strong>
@@ -157,7 +157,7 @@
           <div class="px-3" style="">
             <div class="row">
             @foreach ($product->gallery->galleryImages as $galleryImage)
-              <div class="col-md-3 mb-3 p-3 border">
+              <div class="col-md-3 mb-3 p-3 border-rm">
                 <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid">
               </div>
             @endforeach
@@ -577,72 +577,9 @@
 
         </div>
 
-        @if (true)
-        <hr />
-
-        {{-- Share --}}
-        <div class="mb-4 p-3" style="background-color: #eee;">
-          <div class="mb-3">
-            <strong>
-              Share
-            </strong>
-          </div>
-          <div>
-
-            <a href="http://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" class="text-decoration-none text-primary">
-              <i class="fab fa-facebook fa-2x mr-4"></i>
-            </a>
-
-            <a href="https://api.whatsapp.com/send?text={{ url()->current() }}" data-action="share/whatsapp/share">
-              <i class="fab fa-whatsapp fa-2x mr-4 text-success"></i>
-            </a>
-
-            <a href="viber://forward?text={{ url()->current() }}">
-              <i class="fab fa-viber fa-2x mr-4" style="color: purple;"></i>
-            </a>
-
-          </div>
-        </div>
-        @endif
     </div>
 
     <div class="col-md-4">
-
-
-      @if (false)
-      <div class="mb-4">
-        <h2 class="h6 font-weight-bold text-secondary">
-          Stock
-        </h2>
-        <div>
-          <i class="fas fa-check-circle mr-1 text-success"></i>
-          Available
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <h2 class="h6 font-weight-bold text-secondary">
-          Shipping
-        </h2>
-        <div>
-          <i class="fas fa-check-circle mr-1 text-success"></i>
-          Available
-        </div>
-      </div>
-
-      @if (true)
-      <div class="mb-4">
-        <h2 class="h6 font-weight-bold text-secondary">
-          Return
-        </h2>
-        <div>
-          <i class="fas fa-times-circle mr-1 text-danger"></i>
-          No return
-        </div>
-      </div>
-      @endif
-      @endif
-
 
       <div class="border bg-white p-3 mb-3">
         <h2 class="h5 font-weight-bold text-primary">
@@ -677,11 +614,14 @@
         @endif
       </div>
 
-      <div class="border p-3 mb-3">
-        <h2 class="h5 font-weight-bold text-primary">
-          Share this product
-        </h2>
 
+      {{-- Share --}}
+      <div class="mb-4 p-3" style="background-color: #eee;">
+        <div class="mb-3">
+          <strong>
+            Share
+          </strong>
+        </div>
         <div>
 
           <a href="http://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" class="text-decoration-none text-primary">
@@ -698,9 +638,7 @@
 
         </div>
       </div>
-
     </div>
-
 
   </div>
 
