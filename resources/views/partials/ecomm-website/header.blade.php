@@ -178,7 +178,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-danger bg-danger m-0 p-0 d-md-none" style="">
 
-  <div>
   <button class="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
     <i class="fas fa-bars fa-2x border-rm p-2-rm" style="
@@ -209,7 +208,6 @@
     </span>
     @endif
   </a>
-  </div>
 
 
   @if (true)
