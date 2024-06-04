@@ -1,11 +1,5 @@
 <div class="border-top bg-white">
 
-  {{-- Subscribe us --}}
-  <div class="container-fluid py-4-rm bg-white border py-0" style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);">
-    <div class="container py-0">
-      @livewire ('ecomm-website.subscribe-us')
-    </div>
-  </div>
 
   {{-- Brand Info --}}
   @if (false)
@@ -44,7 +38,7 @@
             <div class="">
               <div class="d-flex flex-column mb-3">
                 <div class="" style="">
-                  <h2 class="h5 text-dark font-weight-bold">
+                  <h2 class="h1 text-dark font-weight-bold">
                     {{ $company->name }}
                   </h2>
                 </div>
@@ -174,12 +168,19 @@
 
 
         <div class="col-md-4 py-4">
+          {{-- Subscribe us --}}
+          <div class="container-fluid-rm py-4-rm bg-white border py-0 mb-4" style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);">
+            <div class="container-rm py-0 px-3">
+              @livewire ('ecomm-website.subscribe-us')
+            </div>
+          </div>
+
           @if (true)
-          <h2 class="h5 mb-3 font-weight-bold">
+          <h2 class="h5 mb-2 font-weight-bold">
             Follow us
           </h2>
           @endif
-          <div class="d-flex justify-content-center-rm mt-4">
+          <div class="d-flex justify-content-center-rm mt-0">
             @if ($company->fb_link)
               <div class="mr-3">
                 <a href="{{ $company->fb_link }}" target="_blank">
@@ -219,7 +220,7 @@
 
           <hr />
           <div class="">
-            @if (true)
+            @if (false)
             <img src="{{ asset('storage/' . $company->logo_image_path) }}"
                 class="img-fluid-rm"
                 alt="{{ $company->name }} logo"
@@ -236,7 +237,7 @@
   <div class="container py-3">
     @if (true)
     <h2 class="h5 text-dark font-weight-bold mb-3">
-      Products
+      Product categories
     </h2>
     <div class="d-sm-flex-rm justify-content-center-rm" style="">
       @foreach (\App\ProductCategory::where('does_sell', 'yes')->get() as $productCategory)
