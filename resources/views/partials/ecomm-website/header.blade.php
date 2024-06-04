@@ -1,13 +1,13 @@
-<div class="sticky-top-rm bg-dark text-white border-bottom-rm p-0 px-0">
+<div class="sticky-top-rm bg-danger text-white border-bottom-rm p-0 px-0">
 
   {{-- Show in bigger screens --}}
-  <div class="container-fluid p-0 bg-danger d-none d-md-block">
+  <div class="container-fluid p-0 bg-danger-rm d-none d-md-block">
       <div class="container-fluid" style="background-color: rgba(0, 0, 0, 0.3);">
         <div class="container py-2 pl-4">
           <div class="d-flex justify-content-between">
             {{-- Left side --}}
             <div>
-              24*7 Customer support
+              Customer support
               <i class="fas fa-phone mx-1"></i>
               <strong>
                 {{ $company->phone }}
@@ -84,15 +84,15 @@
         </div>
       </div>
 
-    <div class="container py-3">
-      <div class="d-flex justify-content-between h-100 bg-info-rm pl-2">
+    <div class="container py-0">
+      <div class="d-flex justify-content-between h-100-rm bg-info-rm pl-2 py-0">
 
 
         <a href="{{ route('website-home') }}" class="text-decoration-none">
-        <div class="d-flex">
-          <div class="mr-4 d-flex flex-column justify-content-center">
+        <div class="d-flex bg-danger-rm">
+          <div class="mr-3 d-flex-rm flex-column-rm justify-content-center-rm">
               @if (true)
-              <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid-rm mt-4" style="max-width: 100px; max-height: 100px;">
+              <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid-rm mt-4-rm" style="max-width: 75px; max-height: 75px;">
               @endif
           </div>
           @if (false)
@@ -112,42 +112,47 @@
 
         @if (true)
         <div class="flex-grow-1 d-flex justify-content-center-rm bg-info-rm">
-          <div class="d-flex flex-column justify-content-center flex-grow-1 bg-success-rm px-4">
+          <div class="d-flex flex-column justify-content-center flex-grow-1 bg-success-rm px-4-rm">
 
-            <h1 class="h5 font-weight-bold mb-3" style="font-family: Mono;">
-              {{ $company->name }}
-            </h1>
-            <div class="w-100 bg-warning">
-
-              <div class="input-group mr-sm-2">
-                  <input type="text" class="form-control" id="" placeholder="Search for a product or category">
-                  <div class="input-group-append">
-                    <div class="input-group-text bg-danger" role="button">
-                      <i class="fas fa-search px-2 text-white"></i>
-                    </div>
-                  </div>
+            <div class="d-flex">
+            @if (true)
+            <div class="d-flex flex-column justify-content-center h5-rm font-weight-bold-rm mr-3 m-0 p-0 bg-danger-rm" style="font-family: Mono;">
+              <div class="h4 font-weight-bold mb-0">
+                {{ $company->name }}
               </div>
-
             </div>
+            @endif
+              <div class="w-100 bg-warning-rm">
+
+                <div class="input-group mr-sm-2">
+                    <input type="text" class="form-control" id="" placeholder="Search for a product or category">
+                    <div class="input-group-append">
+                      <div class="input-group-text bg-transparent" role="button">
+                        <i class="fas fa-search px-2 text-white"></i>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
         @endif
   
+        @if (true)
         <div class="px-5 h-100-rm mt-3-rm bg-primary-rm border-rm border-left-primary text-white-rm"
             style="{{--background-color: #004;font-size: 1.2rem; font-weight: bold;--}} ">
 
           {{-- Shopping cart badge (checkout link) --}}
           @if (true)
             <div class="d-flex flex-column justify-content-center h-100 bg-danger-rm text-white-rm p-5-rm o-darker">
-              <div class="mb-2">
-              &nbsp;
-              </div>
               @livewire ('ecomm-website.shopping-cart-badge')
             </div>
           @else
             TEST
           @endif
         </div>
+        @endif
   
   
       </div>
@@ -173,15 +178,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-danger bg-danger m-0 p-0 d-md-none" style="">
 
-  <a class="navbar-brand p-3 text-reset" href="/" style="">
-    <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
-    @if (true)
-    <span class="h6 font-weight-bold ml-2" style="">
-      {{ $company->name }}
-    </span>
-    @endif
-  </a>
-
+  <div>
   <button class="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
     <i class="fas fa-bars fa-2x border-rm p-2-rm" style="
@@ -204,9 +201,30 @@
     "></i>
   </button>
 
-  @if (false)
-  <div class="px-3">
-    @livewire ('ecomm-website.shopping-cart-badge')
+  <a class="navbar-brand p-3 text-reset" href="/" style="">
+    <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
+    @if (true)
+    <span class="h6 font-weight-bold ml-2" style="">
+      {{ $company->name }}
+    </span>
+    @endif
+  </a>
+  </div>
+
+
+  @if (true)
+  <div class="d-flex">
+    <div class="px-3">
+      <a class="text-reset text-decoration-none" href="{{ route('login') }}">
+        <i class="fas fa-user fa-2x mr-3"></i>
+        <span class="font-weight-bold">
+        Sign in 
+        </span>
+      </a>
+    </div>
+    <div class="px-3">
+      @livewire ('ecomm-website.shopping-cart-badge')
+    </div>
   </div>
   @endif
 
