@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 pb-3 pl-3">
+        <div class="col-md-6 py-3 pl-3" style="background-color: #eee;">
           <h1 class="h5 ml-2-rm mb-3 font-weight-bold" style="font-weight: bold;">
             {{ strtoupper($product->name) }}
           </h1>
@@ -118,7 +118,7 @@
 
       @if (true)
       {{-- Stats --}}
-      <div class="bg-white px-3-rm border-rm my-3 border">
+      <div class="bg-white-rm px-3-rm border-rm my-3 border" style="background-color: #eee;">
         <div>
           @if (false)
           <div class="mb-3">
