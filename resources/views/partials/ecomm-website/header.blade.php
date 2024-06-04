@@ -212,15 +212,15 @@
 
   @if (true)
   <div class="d-flex">
-    <div class="px-3">
+    <div class="pl-3">
       <a class="text-reset text-decoration-none" href="{{ route('login') }}">
         <i class="fas fa-user fa-2x mr-3"></i>
         <span class="font-weight-bold">
-        Sign in 
+        Login
         </span>
       </a>
     </div>
-    <div class="px-3">
+    <div class="pl-3">
       @livewire ('ecomm-website.shopping-cart-badge')
     </div>
   </div>
