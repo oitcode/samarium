@@ -203,7 +203,7 @@
 
   <a class="navbar-brand p-3 text-reset" href="/" style="">
     <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
-    @if (true)
+    @if (false)
     <span class="h6 font-weight-bold ml-2" style="">
       {{ $company->name }}
     </span>
