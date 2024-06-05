@@ -48,6 +48,13 @@
   <div class="container my-4">
     @livewire ('cms.website.post-list')
   </div>
+@elseif ($webpage->name == 'Our works') 
+  <div class="container my-4">
+    @if (false)
+    @livewire ('cms.website.post-list', ['category' => 'activities',])
+    @endif
+    @livewire ('cms.website.latest-post-list-grid', ['category' => 'activities',])
+  </div>
 @elseif ($webpage->name == 'Notice')
   <div class="container my-4">
     @livewire ('cms.website.post-list', ['category' => 'notice',])

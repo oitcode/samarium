@@ -29,14 +29,6 @@
                   2081
                 </div>
 
-                @if (false)
-                <div class="my-3">
-                  Lorem ipsum dolor emit enum enit orum vinis omer ipsum lorem dolor. 
-                  Lorem ipsum dolor emit enum enit orum vinis omer ipsum lorem dolor. 
-                  Lorem ipsum dolor emit enum enit orum vinis omer ipsum lorem dolor. 
-                </div>
-                @endif
-
                 <div class="d-flex justify-content-end">
                   <a href="{{ route('website-webpage-' . $webpage->permalink) }}" class="btn btn-danger">
                     Read more 
