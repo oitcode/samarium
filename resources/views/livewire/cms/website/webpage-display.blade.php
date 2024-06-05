@@ -88,6 +88,14 @@
       </div>
     @endforeach
   @endif
+@elseif ($webpage->name == 'Committee')
+  @if (\App\Team::where('name', 'Committee')->first())
+    @foreach (\App\Team::where('name', 'Committee')->get() as $team)
+      <div class="container my-4">
+        @include ('partials.team.team-display-fe', ['team' => $team,])
+      </div>
+    @endforeach
+  @endif
 @elseif ($webpage->name == 'Contact us')
 
   @livewire ('cms.website.contact-component')
