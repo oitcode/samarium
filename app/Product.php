@@ -67,6 +67,15 @@ class Product extends Model
     }
 
     /*
+     * product_enquiry table.
+     *
+     */
+    public function productEnquiries()
+    {
+        return $this->hasMany('App\ProductEnquiry', 'product_id', 'product_id');
+    }
+
+    /*
      * gallery table.
      *
      */

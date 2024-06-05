@@ -581,39 +581,7 @@
 
     <div class="col-md-4">
 
-      <div class="border bg-white-rm p-3 mb-3 sticky-top" style="background-color: #eee;">
-        <h2 class="h5 font-weight-bold text-primary">
-          Any question?
-        </h2>
-
-        @if (false)
-        <p class="text-muted" style="font-size: 0.9rem;">
-          If you have any question related to this product
-          then please feel free to ask your question here.
-        </p>
-        @endif
-
-
-        <div class="form-group">
-          <input class="form-control" type="text" placeholder="Phone">
-        </div>
-        <div class="form-group">
-          <input class="form-control" type="text" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <textarea class="form-control" rows="3" placeholder="Question"></textarea>
-        </div>
-        <button class="btn btn-primary btn-block py-2">
-          Submit
-        </button>
-        <br/>
-        @if (false)
-        <p class="text-muted" style="font-size: 0.7rem;">
-          ** Your contact details wont be published.
-        </p>
-        @endif
-      </div>
-
+      @livewire ('ecomm-website.website.create-product-enquiry', ['product' => $product,])
 
       {{-- Share --}}
       <div class="mb-4 p-3" style="background-color: #eee;">
