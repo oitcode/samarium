@@ -126,7 +126,6 @@
 
 
 
-  <div class="bg-white border">
   @if (!is_null($webpage->webpageContents) && count($webpage->webpageContents) > 0)
   
     @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
@@ -198,7 +197,6 @@
       </div>
     @endif
   @endif
-  </div>
   
   {{-- Previous, next posts section --}} 
   @if ($webpage->is_post == 'yes')
