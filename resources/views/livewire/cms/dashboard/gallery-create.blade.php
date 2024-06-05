@@ -36,6 +36,11 @@
     @if (false)
     <button class="btn btn-sm btn-secondary" wire:click="$emit('exitCreate')">Cancel</button>
     @endif
+
+    <button wire:loading class="btn">
+      <span class="spinner-border text-info mr-3" role="status">
+      </span>
+    </button>
   </div>
 
 </div>
