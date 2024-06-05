@@ -41,6 +41,6 @@ class CreateProductEnquiry extends Component
         $this->writer_name = '';
         $this->writer_email = '';
         $this->writer_phone = '';
-        $this->question_text = '';
+        $this->enquiry_text = '';
     }
 }
