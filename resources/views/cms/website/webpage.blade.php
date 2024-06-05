@@ -49,7 +49,7 @@
 @endif
 
 @section ('content')
-  <div class="container p-0">
+  <div class="container p-0 py-4">
     <div class="row">
       <div class="col-md-12 p-0 px-2">
         @livewire ('cms.website.webpage-display', ['webpage' => $webpage,])
