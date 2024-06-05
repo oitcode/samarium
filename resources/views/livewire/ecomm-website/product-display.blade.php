@@ -581,29 +581,31 @@
 
     <div class="col-md-4">
 
-      @livewire ('ecomm-website.website.create-product-enquiry', ['product' => $product,])
+      <div class="sticky-top">
+        @livewire ('ecomm-website.website.create-product-enquiry', ['product' => $product,])
 
-      {{-- Share --}}
-      <div class="mb-4 p-3" style="background-color: #eee;">
-        <div class="mb-3">
-          <strong>
-            Share
-          </strong>
-        </div>
-        <div>
+        {{-- Share --}}
+        <div class="mb-4 p-3" style="background-color: #eee;">
+          <div class="mb-3">
+            <strong>
+              Share
+            </strong>
+          </div>
+          <div>
 
-          <a href="http://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" class="text-decoration-none text-primary">
-            <i class="fab fa-facebook fa-2x mr-4"></i>
-          </a>
+            <a href="http://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" class="text-decoration-none text-primary">
+              <i class="fab fa-facebook fa-2x mr-4"></i>
+            </a>
 
-          <a href="https://api.whatsapp.com/send?text={{ url()->current() }}" data-action="share/whatsapp/share">
-            <i class="fab fa-whatsapp fa-2x mr-4 text-success"></i>
-          </a>
+            <a href="https://api.whatsapp.com/send?text={{ url()->current() }}" data-action="share/whatsapp/share">
+              <i class="fab fa-whatsapp fa-2x mr-4 text-success"></i>
+            </a>
 
-          <a href="viber://forward?text={{ url()->current() }}">
-            <i class="fab fa-viber fa-2x mr-4" style="color: purple;"></i>
-          </a>
+            <a href="viber://forward?text={{ url()->current() }}">
+              <i class="fab fa-viber fa-2x mr-4" style="color: purple;"></i>
+            </a>
 
+          </div>
         </div>
       </div>
     </div>
