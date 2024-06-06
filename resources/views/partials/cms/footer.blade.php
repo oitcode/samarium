@@ -82,7 +82,7 @@
       <div class="row">
 
         {{-- Company brief description --}}
-        <div class="col-md-3">
+        <div class="col-md-3 mb-4">
           <h2 class="h5 text-dark-rm font-weight-bold mb-3">
             About us
           </h2>
@@ -92,8 +92,8 @@
         </div>
 
         {{-- Quick links --}}
-        <div class="col-md-3">
-          <div class="h5 mb-3">
+        <div class="col-md-3 mb-4">
+          <div class="h5 mb-3 font-weight-bold">
             Quick links
           </div>
           <div class="">
