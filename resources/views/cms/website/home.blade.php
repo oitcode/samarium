@@ -249,16 +249,18 @@
 
 
 
-        @if (true)
-        <div class="mb-4 px-2">
-          @include ('partials.school.school-quick-links-display')
-        </div>
-        @else
-        <div class="p-5">
-          <h2 class="h1 font-weight-bold text-center text-white">
-            {{ $company->name }}
-          </h2>
-        </div>
+        @if (preg_match("/school/i", env('MODULES')))
+          @if (true)
+          <div class="mb-4 px-2">
+            @include ('partials.school.school-quick-links-display')
+          </div>
+          @else
+          <div class="p-5">
+            <h2 class="h1 font-weight-bold text-center text-white-rm">
+              {{ $company->name }}
+            </h2>
+          </div>
+          @endif
         @endif
       </div>
       <div class="col-md-4 px-2">
