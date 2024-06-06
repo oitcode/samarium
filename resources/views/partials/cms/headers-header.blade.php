@@ -1,15 +1,15 @@
-<div class="text-white p-0 px-0" 
+<div class="text-white-rm p-0 px-0" 
   style="
     background-color:
         @if (\App\CmsTheme::first())
-          {{ \App\CmsTheme::first()->footer_bg_color }}
+          {{ \App\CmsTheme::first()->top_header_bg_color }}
         @else
           orange
         @endif
         ;
     color:
         @if (\App\CmsTheme::first())
-          {{ \App\CmsTheme::first()->footer_text_color }}
+          {{ \App\CmsTheme::first()->top_header_text_color }}
         @else
           white
         @endif
@@ -18,7 +18,7 @@
 
   {{-- Show in bigger screens --}}
   <div class="container-fluid p-0 bg-danger-rm d-none d-md-block" style="">
-      <div class="container-fluid" style="background-color: rgba(0, 0, 0, 0.3);">
+      <div class="container-fluid" style="{{-- background-color: rgba(0, 0, 0, 0.3);--}}">
         <div class="container py-2 pl-4">
           <div class="d-flex justify-content-between">
             {{-- Left side --}}
@@ -128,7 +128,7 @@
            --}}
            "
   >
-  <div class="container-fluid py-5 d-none d-md-block o-overlay">
+  <div class="container-fluid py-4 d-none d-md-block o-overlay-rm">
   <div class="container">
     <div class="d-flex justify-content-between h-100 bg-info-rm pl-2">
 
@@ -163,13 +163,13 @@
           <h1 class="h5 font-weight-bold my-3" style="font-family: Mono;">
             {{ $company->name }}
           </h1>
-          <div class="w-100 bg-warning">
+          <div class="w-100 bg-warning-rm">
 
             <div class="input-group mr-sm-2">
                 <input type="text" class="form-control" id="" placeholder="Search in our website">
                 <div class="input-group-append">
-                  <div class="input-group-text bg-danger" role="button">
-                    <i class="fas fa-search px-2 text-white"></i>
+                  <div class="input-group-text bg-transparent" role="button">
+                    <i class="fas fa-search px-2 text-white-rm"></i>
                   </div>
                 </div>
             </div>
