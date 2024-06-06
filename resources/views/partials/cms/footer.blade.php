@@ -93,10 +93,10 @@
 
         {{-- Quick links --}}
         <div class="col-md-3">
-          <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
+          <div class="h5 mb-3">
             Quick links
           </div>
-          <div class="my-4">
+          <div class="">
             <div class="my-2">
               <a href="/contact-us" class="text-reset text-decoration-none text-underline">
                 Contact us
