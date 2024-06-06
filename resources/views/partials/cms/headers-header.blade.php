@@ -80,27 +80,27 @@
                 <div class="px-3" style="">
                   @if ($company->fb_link)
                     <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">
-                      <i class="fab fa-facebook fa-3x-rm mr-3"></i>
+                      <i class="fab fa-facebook fa-2x mr-3"></i>
                     </a>
                   @endif
                   @if ($company->twitter_link)
                     <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
-                      <i class="fab fa-twitter fa-3x-rm mr-3"></i>
+                      <i class="fab fa-twitter fa-2x mr-3"></i>
                     </a>
                   @endif
                   @if ($company->insta_link)
                     <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
-                      <i class="fab fa-instagram fa-3x-rm mr-3"></i>
+                      <i class="fab fa-instagram fa-2x mr-3"></i>
                     </a>
                   @endif
                   @if ($company->youtube_link)
                     <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
-                      <i class="fab fa-youtube fa-3x-rm mr-3"></i>
+                      <i class="fab fa-youtube fa-2x mr-3"></i>
                     </a>
                   @endif
                   @if ($company->tiktok_link)
                     <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
-                      <i class="fab fa-tiktok fa-3x-rm mr-3"></i>
+                      <i class="fab fa-tiktok fa-2x mr-3"></i>
                     </a>
                   @endif
                 </div>
