@@ -35,7 +35,7 @@
 
 @if (preg_match("/hfn/i", env('MODULES')))
 <div class="px-3 font-weight-bold py-1" style="background-color: orange;">
-  UP TO 15% OFF SELECTED DEPARTURES
+  WORKING FOR A BETTER TOMORROW
 </div>
 
 @if (false)
