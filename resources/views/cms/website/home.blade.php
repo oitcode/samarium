@@ -34,7 +34,7 @@
 @endif
 
 @if (preg_match("/hfn/i", env('MODULES')))
-<div class="px-3 font-weight-bold py-1" style="background-color: orange;">
+<div class="px-3 font-weight-bold py-1 text-center" style="background-color: orange;">
   WORKING FOR A BETTER TOMORROW
 </div>
 
