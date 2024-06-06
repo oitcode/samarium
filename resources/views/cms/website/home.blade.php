@@ -24,14 +24,20 @@
 @section ('content')
 
 {{-- Latest notice --}}
+@if (false)
 @if (\App\WebpageCategory::where('name', 'notice')->first())
   @if (count(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->get()) > 0)
     @include ('partials.cms.website.newest-notice-flasher-modal')
     @include ('partials.cms.website.newest-notice-flasher')
   @endif
 @endif
+@endif
 
 @if (preg_match("/hfn/i", env('MODULES')))
+<div class="px-3 font-weight-bold py-1" style="background-color: orange;">
+  UP TO 15% OFF SELECTED DEPARTURES
+</div>
+
 @if (false)
 <div class="container py-3">
   BANNER/CAROUSEL
@@ -41,83 +47,96 @@
   <div class="" style="">
     <div class="row">
       <div class="col-md-6 py-4-rm justify-content-end">
-        <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . $company->logo_image_path) }}"
+        <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
         style="{{--max-height: 200px;width: 1200px;--}}">
       </div>
     </div>
   </div>
 </div>
 <div class="container py-3">
-  <h2 class="h4 font-weight-bold">
-    About us
-  </h2>
-  {{ $company->brief_description }}
-</div>
-<div class="container">
-  <div class="bg-dark text-white p-3">
-  <div class="form-group">
-    <div>
-    NAME
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="h4 font-weight-bold">
+        About us
+      </h2>
+      {{ $company->brief_description }}
     </div>
-    <input class="form-control" type="text" placeholder="Name" wire:model.defer="writer_name">
-    @error('writer_name')
-        <span class="text-danger" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-  </div>
-  <div class="form-group">
-    <div>
-    EMAIL
+    <div class="col-md-4">
+    <div class="my-3">
+      <button class="btn btn-danger">
+        Enquire about donation
+      </button>
     </div>
-    <input class="form-control" type="text" placeholder="Email" wire:model.defer="writer_email">
-    @error('writer_email')
-        <span class="text-danger" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-  </div>
-  <div class="form-group">
-    <div>
-    PHONE
+    @if (false)
+    <div class="sticky-top-rm">
+      <div class="bg-dark-rm text-white-rm p-3 border" style="background-color: #eee;">
+      <div class="form-group">
+        <div>
+        NAME
+        </div>
+        <input class="form-control" type="text" placeholder="Name" wire:model.defer="writer_name">
+        @error('writer_name')
+            <span class="text-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+      </div>
+      <div class="form-group">
+        <div>
+        EMAIL
+        </div>
+        <input class="form-control" type="text" placeholder="Email" wire:model.defer="writer_email">
+        @error('writer_email')
+            <span class="text-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+      </div>
+      <div class="form-group">
+        <div>
+        PHONE
+        </div>
+        <input class="form-control" type="text" placeholder="Phone" wire:model.defer="writer_phone">
+        @error('writer_phone')
+            <span class="text-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+      </div>
+      <div class="form-group">
+        <div>
+        REFERRED BY
+        </div>
+        <input class="form-control" type="text" placeholder="Referred by" wire:model.defer="writer_referred_by">
+        @error('writer_referred_by')
+            <span class="text-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+      </div>
+      <div class="form-group">
+        <div>
+        ENQUIRY
+        </div>
+        <textarea class="form-control" rows="3" placeholder="Question" wire:model.defer="enquiry_text"></textarea>
+        @error('enquiry_text')
+            <span class="text-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+      </div>
+      <button class="btn btn-primary btn-block py-2" wire:click="store">
+        Submit
+      </button>
+      @if (false)
+      <button class="btn btn-danger">
+        About donation
+      </button>
+      @endif
+      </div>
     </div>
-    <input class="form-control" type="text" placeholder="Phone" wire:model.defer="writer_phone">
-    @error('writer_phone')
-        <span class="text-danger" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-  </div>
-  <div class="form-group">
-    <div>
-    REFERRED BY
+    @endif
     </div>
-    <input class="form-control" type="text" placeholder="Referred by" wire:model.defer="writer_referred_by">
-    @error('writer_referred_by')
-        <span class="text-danger" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-  </div>
-  <div class="form-group">
-    <div>
-    ENQUIRY
-    </div>
-    <textarea class="form-control" rows="3" placeholder="Question" wire:model.defer="enquiry_text"></textarea>
-    @error('enquiry_text')
-        <span class="text-danger" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-  </div>
-  <button class="btn btn-primary btn-block py-2" wire:click="store">
-    Submit
-  </button>
-  @if (false)
-  <button class="btn btn-danger">
-    About donation
-  </button>
-  @endif
   </div>
 </div>
 @if (false)
