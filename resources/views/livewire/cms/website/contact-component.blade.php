@@ -1,29 +1,19 @@
 <div>
 
 
-  @if (false)
-  <div class="container-fluid py-4 border">
-    <div class="container">
-      <h2 class="h3 text-secondary-rm">
-        Contact us
-      </h2>
-    </div>
-  </div>
-  @endif
-
   <div class="container-fluid bg-white border-rm">
   <div class="container pt-3 pb-5">
     <div class="row">
       @if (true)
       <div class="col-md-6 p-4 text-secondary-rm" style="">
           <div class="d-flex mb-4">
-            @if (true)
+            @if (false)
             <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
             @endif
             @if (true)
-            <div class="d-flex flex-column justify-content-center ml-3">
-              <div class="mt-3">
-                <h2 class="h4 font-weight-bold">
+            <div class="d-flex flex-column justify-content-center ml-3-rm">
+              <div class="mt-3-rm">
+                <h2 class="h1 font-weight-bold">
                   {{ $company->name }}
                 </h2>
               </div>
@@ -32,33 +22,31 @@
           </div>
   
           <div class="d-flex mb-2">
-            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
-            <div class="d-flex flex-column justify-content-center-rm ml-3">
-              <span class="text-secondary-rm font-weight-bold" style="font-size: 1rem;">
-                {{ $company->address }}
-              </span>
-            </div>
+            <i class="fas fa-map-marker-alt text-primary-rm mr-2"></i>
+            <span class="text-secondary-rm font-weight-bold" style="font-size: 1rem;">
+              {{ $company->address }}
+            </span>
           </div>
   
           <p class="mb-2" style="">
-            <i class="fas fa-phone text-primary mr-2"></i>
+            <i class="fas fa-phone text-primary-rm mr-2"></i>
             <span class="text-secondary-rm font-weight-bold" style="font-size: 1rem;">
               {{ $company->phone }}
             </span>
           </p>
   
           <p class="mb-2" style="">
-            <i class="fas fa-envelope text-primary mr-2"></i>
+            <i class="fas fa-envelope text-primary-rm mr-2"></i>
             <span class="text-secondary-rm font-weight-bold" style="font-size: 1rem;">
               {{ $company->email }}
             </span>
           </p>
   
           @if (true)
-          <div class="mt-5" style="font-size: 1.3rem;">
-            <div class="text-secondary my-3">
+          <div class="my-5" style="font-size: 1.3rem;">
+            <h2 class="h4 my-3">
               Our social media pages
-            </div>
+            </h2>
             <div>
               @if ($company->fb_link)
                 <a href="{{ $company->fb_link }}" target="_blank">
@@ -102,10 +90,10 @@
           @endif
       </div>
       @endif
-      <div class="col-md-6 bg-white border py-4 shadow-lg">
+      <div class="col-md-6 bg-white border py-4 shadow-lg-rm">
         <div style="font-size: 1.3rem;">
-        <h2 class="h3 text-muted text-center">
-          <i class="far fa-check-circle text-muted mr-2"></i>
+        <h2 class="h4 text-muted-rm text-md-center pl-3">
+          <i class="far fa-paper-plane text-muted-rm mr-2"></i>
           Send us a message
           </h2>
         </div>
