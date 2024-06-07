@@ -107,14 +107,14 @@
           @if ($cmsNavMenu)
             @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
               @if ($cmsNavMenuItem->type == 'item')
-                <li class="nav-item px-2 bg-transparent">
+                <li class="nav-item px-3 bg-transparent">
                   <a class="nav-link h4 text-reset font-weight-bold"
                       href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
                     {{ $cmsNavMenuItem->name }}
                   </a>
                 </li>
               @else
-                <li class="nav-item dropdown p-2 border">
+                <li class="nav-item dropdown px-3 border">
                   <a class="nav-link dropdown-toggle h4 text-dark-rm font-weight-bold text-reset" href="#"
                       id="navbarDropdown-{{ $cmsNavMenuItem->name }}"
                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,7 +141,7 @@
           |
           --}}
           @guest
-            <li class="nav-item px-2">
+            <li class="nav-item px-3">
               <a class="nav-link text-reset h4" href="{{ route('login') }}">
                 @if (false)
                 <i class="fas fa-user mr-3"></i>
