@@ -6,7 +6,7 @@
 |
 --}}
 
-<div class="container">
+<div class="">
 @if ($webpage->featured_image_path != null)
   @include ('partials.cms.website.featured-image-page-announcer')
 @else

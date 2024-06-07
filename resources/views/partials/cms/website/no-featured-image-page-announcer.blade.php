@@ -66,7 +66,7 @@
     </div>
   </div>
 @else
-  <div class="container o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm p-0 py-5-rm"
+  <div class="container-fluid mb-0 p-0"
       style= "
       {{--
       background-image: @if (\App\CmsTheme::first())
