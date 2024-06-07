@@ -107,7 +107,7 @@
           @if ($cmsNavMenu)
             @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
               @if ($cmsNavMenuItem->type == 'item')
-                <li class="nav-item p-2 bg-transparent text-white-rm border-bottom-rm text-center-rm">
+                <li class="nav-item px-2 bg-transparent">
                   <a class="nav-link h4 text-reset font-weight-bold"
                       href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
                     {{ $cmsNavMenuItem->name }}
