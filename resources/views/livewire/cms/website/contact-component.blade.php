@@ -23,21 +23,21 @@
   
           <div class="d-flex mb-2">
             <i class="fas fa-map-marker-alt text-primary-rm mr-2"></i>
-            <span class="text-secondary-rm font-weight-bold" style="font-size: 1rem;">
+            <span class="text-secondary-rm font-weight-bold-rm" style="font-size: 1rem;">
               {{ $company->address }}
             </span>
           </div>
   
           <p class="mb-2" style="">
             <i class="fas fa-phone text-primary-rm mr-2"></i>
-            <span class="text-secondary-rm font-weight-bold" style="font-size: 1rem;">
+            <span class="text-secondary-rm font-weight-bold-rm" style="font-size: 1rem;">
               {{ $company->phone }}
             </span>
           </p>
   
           <p class="mb-2" style="">
             <i class="fas fa-envelope text-primary-rm mr-2"></i>
-            <span class="text-secondary-rm font-weight-bold" style="font-size: 1rem;">
+            <span class="text-secondary-rm font-weight-bold-rm" style="font-size: 1rem;">
               {{ $company->email }}
             </span>
           </p>
