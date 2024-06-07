@@ -112,8 +112,8 @@
 
 
         {{-- Social media --}}
-        <div class="col-md-3">
-          <div class="mb-3" style="font-size: 1.3rem; font-weight: bold;">
+        <div class="col-md-3 mb-5">
+          <div class="h5 font-weight-bold mb-3">
             Follow us
           </div>
           <div>
