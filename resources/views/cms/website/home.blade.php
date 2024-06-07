@@ -42,8 +42,9 @@
   BANNER/CAROUSEL
 </div>
 @endif
-<div class="d-md-none">
-  <div class="" style="">
+@if (false)
+<div class="d-md-none-rm">
+  <div class="container" style="">
     <div class="row">
       <div class="col-md-6 py-4-rm justify-content-end">
         <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
@@ -52,9 +53,40 @@
     </div>
   </div>
 </div>
+@endif
+
+<div class="container-fluid py-5" style="
+background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
+color: {{ \App\CmsTheme::first()->ascent_text_color }};
+">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
+      style="{{--max-height: 200px;width: 1200px;--}}">
+    </div>
+    <div class="col-md-6">
+      <div class="d-flex flex-column justify-content-center h-100">
+        <h1 class="h1">
+          {{ $company->name }}
+        </h1>
+        <div class="mb-3">
+          {{ $company->brief_description }}
+        </div>
+        <a href="{{ \App\Webpage::where('name', 'Contact us')->first()->permalink }}" class="btn btn-danger btn-block py-3">
+          Contact us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 <div class="container py-3">
+  @if (false)
   <div class="row">
     <div class="col-md-8">
+      <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
+      style="{{--max-height: 200px;width: 1200px;--}}">
       <h2 class="h4 font-weight-bold">
         About us
       </h2>
@@ -137,12 +169,8 @@
     @endif
     </div>
   </div>
+  @endif
 </div>
-@if (false)
-<div>
-  SOME CALL TO ACTION
-</div>
-@endif
 @else
 @endif
 
@@ -268,6 +296,8 @@
         @endif
       </div>
       <div class="col-md-4 px-2">
+        @livewire ('cms.website.contact-component', ['onlyForm' => 'yes',])
+        @if (false)
         <div class="container mb-4 p-0">
           @livewire ('calendar.website.today-display')
         </div>
@@ -275,6 +305,7 @@
         <div class="my-3">
           @livewire ('cms.website.latest-post-list')
         </div>
+        @endif
 
       </div>
     </div>

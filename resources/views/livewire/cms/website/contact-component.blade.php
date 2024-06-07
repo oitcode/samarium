@@ -4,7 +4,7 @@
   <div class="container-fluid bg-white border-rm">
   <div class="container pt-3 pb-5">
     <div class="row">
-      @if (true)
+      @if ($onlyForm != 'yes')
       <div class="col-md-6 p-4 text-secondary-rm" style="">
           <div class="d-flex mb-4">
             @if (false)
@@ -90,7 +90,7 @@
           @endif
       </div>
       @endif
-      <div class="col-md-6 bg-white border py-4 shadow-lg-rm">
+      <div class="@if ($onlyForm == 'yes') col-md-12 @else col-md-6 @endif bg-white border py-4 shadow-lg-rm">
         <div style="font-size: 1.3rem;">
         <h2 class="h4 text-muted-rm text-md-center pl-3">
           <i class="far fa-paper-plane text-muted-rm mr-2"></i>

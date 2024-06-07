@@ -16,6 +16,8 @@ class ContactComponent extends Component
     public $sender_phone;
     public $message;
 
+    public $onlyForm = 'no';
+
     public function render()
     {
         $this->company = Company::first();
