@@ -156,6 +156,13 @@
 
         {{-- Powered by --}}
         <div class="col-md-3">
+          {{-- Subscribe us --}}
+          <div class="container-fluid-rm py-4-rm bg-white border py-0 mb-4" style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);">
+            <div class="container-rm py-0 px-3">
+              @livewire ('ecomm-website.subscribe-us')
+            </div>
+          </div>
+          @if (false)
           <div class="my-4">
             <div>
               Powered by
@@ -163,6 +170,7 @@
               <i class="fas fa-check-circle ml-2"></i>
             </div>
           </div>
+          @endif
         </div>
 
       </div>
