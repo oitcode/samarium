@@ -58,7 +58,7 @@
     | Left side
     |
     --}}
-    <div class="col-md-4 bg-primary text-white py-2">
+    <div class="col-md-4 bg-primary text-white py-2 d-none d-md-block-rm">
       <div class="d-flex flex-column justify-content-center h-100">
         <div class="px-5 py-3-rm">
           <h2 class="h4 font-weight-bold text-center">
@@ -76,7 +76,7 @@
     | Right side
     |
     --}}
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="d-flex justify-content-center h-100">
         <div class="d-flex flex-column justify-content-center">
             <div class="mb-3 text-center">
@@ -112,7 +112,7 @@
                     --}}
                     <div class="form-group shadow-sm mb-3">
                       <input id="email" type="email"
-                          class="form-control @error('email') is-invalid @enderror"
+                          class="form-control @error('email') is-invalid @enderror badge-pill px-4"
                           style="font-size: 1.2rem;"
                           name="email" value="{{ old('email') }}"
                           required
@@ -135,7 +135,7 @@
                     <div class="form-group shadow-sm mb-2">
 
                         <input id="password" type="password"
-                            class="form-control @error('password') is-invalid @enderror"
+                            class="form-control @error('password') is-invalid @enderror badge-pill px-4"
                             style="font-size: 1.2rem;"
                             name="password"
                             required
@@ -171,7 +171,7 @@
                     | Login button
                     |
                     --}}
-                    <div class="form-group mt-3 mb-1">
+                    <div class="form-group mt-4 mb-1">
                         <button type="submit" class="btn btn-success-rm badge-pill btn-block py-3 text-white shadow"
                             style="background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR') }}, {{ env('OC_SELECT_COLOR') }});">
                             <span class="h5">
@@ -200,7 +200,11 @@
             --}}
             <div class="my-3 text-muted">
               <div class="text-center">
+                @if (false)
                 {{ date('Y M d') }}
+                <br/>
+                @endif
+                OIT Ozone v0.8.4
               </div>
             </div>
 
