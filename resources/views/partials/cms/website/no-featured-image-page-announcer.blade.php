@@ -68,6 +68,7 @@
 @else
   <div class="container o-top-page-banner-rm bg-success-rm mb-0 bg-danger-rm p-0 py-5-rm"
       style= "
+      {{--
       background-image: @if (\App\CmsTheme::first())
         url({{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }})
       @else
@@ -77,11 +78,11 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      {{--
       background-attachment: fixed;
       height: 500px;
       --}}
-  
+      background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};
+      color: {{ \App\CmsTheme::first()->nav_menu_text_color }};
   ;">
     <div class="o-overlay text-white-rm h-100" style="
       padding-top: 50px;
