@@ -130,12 +130,6 @@
           background-color: green;
           --}}
         ">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         </div>
         @if (true)
         <img class="img-fluid" src="{{ asset('storage/' . $webpage->featured_image_path) }}" alt="{{ $webpage->name }}"
