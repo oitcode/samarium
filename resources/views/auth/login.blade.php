@@ -110,7 +110,7 @@
                     | User email
                     |
                     --}}
-                    <div class="form-group shadow-sm mb-3">
+                    <div class="form-group shadow-sm-rm mb-3">
                       <input id="email" type="email"
                           class="form-control @error('email') is-invalid @enderror badge-pill px-4"
                           style="font-size: 1.2rem;"
@@ -132,7 +132,7 @@
                     | Password
                     |
                     --}}
-                    <div class="form-group shadow-sm mb-2">
+                    <div class="form-group shadow-sm-rm mb-2">
 
                         <input id="password" type="password"
                             class="form-control @error('password') is-invalid @enderror badge-pill px-4"
