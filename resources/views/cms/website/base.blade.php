@@ -57,6 +57,10 @@
     <link href="{{ asset('css/custom-style.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/all.css') }}" rel="stylesheet">
 
+    <style> 
+    html, body { overflow-x: hidden; } 
+    </style>
+
 
     <!-- Livewire -->
     @livewireStyles
