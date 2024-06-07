@@ -27,8 +27,8 @@
         </tr>
         @foreach ($webpages as $webpage) 
         <tr>
-          <td class="text-primary font-weight-bold">
-            <a href="{{ route('website-webpage-' . $webpage->permalink) }}">
+          <td class="text-primary-rm font-weight-bold-rm">
+            <a href="{{ route('website-webpage-' . $webpage->permalink) }}" class="text-reset text-decoration-none">
               {{ $webpage->name }}
             </a>
           </td>

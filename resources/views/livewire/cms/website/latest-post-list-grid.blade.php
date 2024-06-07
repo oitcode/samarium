@@ -5,7 +5,7 @@
       @foreach ($webpages as $webpage)
         <div class="col-md-6 p-3 mb-0 pt-0">
 
-          <div class="bg-white border p-3">
+          <div class="bg-white border p-3 h-100">
             <div class="d-flex">
               <div class="mr-3">
         @if ($webpage->featured_image_path != null)
@@ -16,12 +16,14 @@
         @endif
               </div>
               <div>
+                <a href="{{ route('website-webpage-' . $webpage->permalink) }}" class="text-reset text-decoration-none">
                 <h2 class="h4 font-weight-bold mb-1">
                   @if (false)
                   {{ \Illuminate\Support\Str::limit($webpage->name, 25, $end=' ...') }}
                   @endif
                   {{ $webpage->name }}
                 </h2>
+                </a>
 
                 <div class="text-secondary">
                   Published on:
@@ -29,7 +31,7 @@
                   2081
                 </div>
 
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-end-rm">
                   <a href="{{ route('website-webpage-' . $webpage->permalink) }}" class="btn btn-danger">
                     Read more 
                   </a>

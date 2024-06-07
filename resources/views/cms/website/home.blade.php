@@ -5,8 +5,7 @@
 
 @section ('pageTitleTag')
   @if ($company)
-    <title>
-      {{ $company->name }}
+    <title> {{ $company->name }}
     </title>
   @endif
 @endsection
@@ -63,9 +62,9 @@
     </div>
     <div class="col-md-4">
     <div class="my-3">
-      <button class="btn btn-danger">
-        Enquire about donation
-      </button>
+      <a href="{{ \App\Webpage::where('name', 'Contact us')->first()->permalink }}" class="btn btn-danger btn-block py-3">
+        Contact us
+      </a>
     </div>
     @if (false)
     <div class="sticky-top-rm">
@@ -189,6 +188,11 @@
         |
         --}}
         <div>
+          <div>
+            <h2 class="h4 font-weight-bold">
+              Latest posts
+            </h2>
+          </div>
           @livewire ('cms.website.latest-post-list-grid')
         </div>
 
