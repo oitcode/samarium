@@ -112,8 +112,6 @@
     </div>
   @endif
 
-  <hr />
-
   {{-- Show google map share link if needed --}}
   @if (\App\Company::first()->google_map_share_link)
   <div class="container my-5">
