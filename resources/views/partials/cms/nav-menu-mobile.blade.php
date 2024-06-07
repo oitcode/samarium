@@ -143,7 +143,9 @@
           @guest
             <li class="nav-item p-3">
               <a class="nav-link text-reset h4" href="{{ route('login') }}">
+                @if (false)
                 <i class="fas fa-user mr-3"></i>
+                @endif
                 <span class="font-weight-bold">
                 Login
                 </span>
