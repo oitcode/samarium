@@ -51,32 +51,13 @@
 
 <body style="height: 100% !important;">
 
-  <div class="row h-100">
-
-    {{--
-    | 
-    | Left side
-    |
-    --}}
-    <div class="col-md-4 bg-primary text-white py-2 d-none d-md-block-rm">
-      <div class="d-flex flex-column justify-content-center h-100">
-        <div class="px-5 py-3-rm">
-          <h2 class="h4 font-weight-bold text-center">
-            Ozone
-          </h2>
-          <div class="my-4-rm p-3-rm-rm border-rm text-center">
-            Version 0.8.4
-          </div>
-        </div>
-      </div>
-    </div>
 
     {{--
     | 
     | Right side
     |
     --}}
-    <div class="col-md-12">
+    <div class="h-100">
       <div class="d-flex justify-content-center h-100">
         <div class="d-flex flex-column justify-content-center">
             <div class="mb-3 text-center">
@@ -93,103 +74,105 @@
               </div>
             </div>
 
-            <div class="py-4 bg-primary-rm text-primary-rm rounded border shadow-rm" style="background-color: #eee; color: {{ env('OC_SELECT_COLOR') }};">
-              <div class="h4 text-center" style="text-shadow: 1px 0 {{ env('OC_SELECT_COLOR') }};text-shadow: -1px 0 {{ env('OC_SELECT_COLOR') }};">
-                Login
-              </div>
-            </div>
-            <div class="row-rm border shadow-sm bg-white d-flex py-3" style="">
-              <div class="col-md-8-rm px-5 py-3">
-                <div class="text-secondary text-center-rm mb-5-rm">
+            <div class="p-3">
+              <div class="py-4 bg-primary-rm text-primary-rm rounded border shadow-rm" style="background-color: #eee; color: {{ env('OC_SELECT_COLOR') }};">
+                <div class="h4 text-center" style="text-shadow: 1px 0 {{ env('OC_SELECT_COLOR') }};text-shadow: -1px 0 {{ env('OC_SELECT_COLOR') }};">
+                  Login
                 </div>
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
+              </div>
+              <div class="row-rm border shadow-sm bg-white d-flex py-3" style="">
+                <div class="col-md-8-rm px-5 py-3">
+                  <div class="text-secondary text-center-rm mb-5-rm">
+                  </div>
+                  <form method="POST" action="{{ route('login') }}">
+                      @csrf
 
-                    {{--
-                    | 
-                    | User email
-                    |
-                    --}}
-                    <div class="form-group shadow-sm-rm mb-3">
-                      <input id="email" type="email"
-                          class="form-control @error('email') is-invalid @enderror badge-pill px-4"
-                          style="font-size: 1.2rem;"
-                          name="email" value="{{ old('email') }}"
-                          required
-                          autocomplete="email"
-                          placeholder="Email"
-                          autofocus>
-
-                      @error('email')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                    </div>
-
-                    {{--
-                    | 
-                    | Password
-                    |
-                    --}}
-                    <div class="form-group shadow-sm-rm mb-2">
-
-                        <input id="password" type="password"
-                            class="form-control @error('password') is-invalid @enderror badge-pill px-4"
+                      {{--
+                      | 
+                      | User email
+                      |
+                      --}}
+                      <div class="form-group shadow-sm-rm mb-3">
+                        <input id="email" type="email"
+                            class="form-control @error('email') is-invalid @enderror badge-pill px-4"
                             style="font-size: 1.2rem;"
-                            name="password"
+                            name="email" value="{{ old('email') }}"
                             required
-                            placeholder="Password"
-                            autocomplete="current-password">
+                            autocomplete="email"
+                            placeholder="Email"
+                            autofocus>
 
-                        @error('password')
+                        @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    </div>
+                      </div>
 
-                    {{--
-                    | 
-                    | Remember option
-                    |
-                    --}}
-                    @if (false)
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                      {{--
+                      | 
+                      | Password
+                      |
+                      --}}
+                      <div class="form-group shadow-sm-rm mb-2">
 
-                            <label class="form-check-label" for="remember">
-                                {{ __('Remember Me') }}
-                            </label>
-                        </div>
-                    </div>
-                    @endif
+                          <input id="password" type="password"
+                              class="form-control @error('password') is-invalid @enderror badge-pill px-4"
+                              style="font-size: 1.2rem;"
+                              name="password"
+                              required
+                              placeholder="Password"
+                              autocomplete="current-password">
 
-                    {{--
-                    | 
-                    | Login button
-                    |
-                    --}}
-                    <div class="form-group mt-4 mb-1">
-                        <button type="submit" class="btn btn-success-rm badge-pill btn-block py-3 text-white shadow"
-                            style="background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR') }}, {{ env('OC_SELECT_COLOR') }});">
-                            <span class="h5">
-                              {{ __('Login') }}
-                            </span>
-                            <i class="fas fa-chevron-right ml-2"></i>
-                        </button>
+                          @error('password')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
+                      </div>
 
-                        @if (false)
-                        @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
-                            </a>
-                        @endif
-                        @endif
-                    </div>
+                      {{--
+                      | 
+                      | Remember option
+                      |
+                      --}}
+                      @if (false)
+                      <div class="form-group">
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                </form>
+                              <label class="form-check-label" for="remember">
+                                  {{ __('Remember Me') }}
+                              </label>
+                          </div>
+                      </div>
+                      @endif
+
+                      {{--
+                      | 
+                      | Login button
+                      |
+                      --}}
+                      <div class="form-group mt-4 mb-1">
+                          <button type="submit" class="btn btn-success-rm badge-pill btn-block py-3 text-white shadow"
+                              style="background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR') }}, {{ env('OC_SELECT_COLOR') }});">
+                              <span class="h5">
+                                {{ __('Login') }}
+                              </span>
+                              <i class="fas fa-chevron-right ml-2"></i>
+                          </button>
+
+                          @if (false)
+                          @if (Route::has('password.request'))
+                              <a class="btn btn-link" href="{{ route('password.request') }}">
+                                  {{ __('Forgot Your Password?') }}
+                              </a>
+                          @endif
+                          @endif
+                      </div>
+
+                  </form>
+                </div>
               </div>
             </div>
 
@@ -211,7 +194,6 @@
         </div>
       </div>
     </div>
-  </div>
 
 
   <!-- Livewire scripts -->
