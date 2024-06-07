@@ -80,10 +80,8 @@
                   Login
                 </div>
               </div>
-              <div class="row-rm border shadow-sm bg-white d-flex py-3" style="">
-                <div class="col-md-8-rm px-5 py-3">
-                  <div class="text-secondary text-center-rm mb-5-rm">
-                  </div>
+              <div class="bg-light-rm d-flex py-3" style="background-color: #eee;">
+                <div class="px-3 py-3">
                   <form method="POST" action="{{ route('login') }}">
                       @csrf
 
