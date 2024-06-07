@@ -141,7 +141,7 @@
           |
           --}}
           @guest
-            <li class="nav-item p-3">
+            <li class="nav-item px-2">
               <a class="nav-link text-reset h4" href="{{ route('login') }}">
                 @if (false)
                 <i class="fas fa-user mr-3"></i>
