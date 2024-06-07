@@ -48,7 +48,7 @@
   <div class="container my-4">
     @livewire ('cms.website.post-list')
   </div>
-@elseif ($webpage->name == 'Our works') 
+@elseif ($webpage->name == 'What we did') 
   <div class="container my-4">
     @if (false)
     @livewire ('cms.website.post-list', ['category' => 'activities',])
@@ -102,7 +102,7 @@
 
   {{-- Show quick contacts team if needed --}}
   @if (count(\App\Team::where('name', 'Quick Contacts')->first()->teamMembers) > 0)
-    <div class="container-fluid my-4 border-top">
+    <div class="container-fluid my-4 border-top-rm">
       <div class="container">
         @if (\App\Team::where('name', 'Quick Contacts')->first())
           @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Quick Contacts')->first(),])
@@ -143,62 +143,73 @@
 
   @if (!is_null($webpage->webpageContents) && count($webpage->webpageContents) > 0)
   
-    @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
+    <div class="row">
+      <div class="col-md-8">
+        @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
   
-      <div class="container border-rm border-success-rm p-0 px-2 mb-3" 
-          style="
-              font-size: 1.2em;
-              @foreach ($webpageContent->cmsWebpageContentCssOptions as $cssOption)
-                  {{ $cssOption->option_name }}: {{ $cssOption->option_value }};
-              @endforeach
-          ">
+          <div class="container border-rm border-success-rm p-0 px-2 mb-3" 
+              style="
+                  font-size: 1.2em;
+                  @foreach ($webpageContent->cmsWebpageContentCssOptions as $cssOption)
+                      {{ $cssOption->option_name }}: {{ $cssOption->option_value }};
+                  @endforeach
+              ">
   
-            @if (true)
-            <div class="row" style="margin: auto;">
-                
-              @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->body))
-                <div class="col-md-6">
-                  @if ($webpageContent->image_path)
-                    <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
-                  @endif
-                </div>
-              @else
-                <div class="
-                    @if ($webpageContent->video_link || $webpageContent->image_path)
-                        col-md-6
-                    @else
-                        col-md-8
-                    @endif
-                    p-0 m-0
-                    justify-content-center-rm align-self-center-rm p-0" style="font-size: 1.1em !important;{{-- width: 500px !important;--}}">
-                  @if ($webpageContent->title)
-                    <h2 class="h1 mt-3-rm mb-4-rm mb-0" style="color: #000; font-family: Arial; font-weight: bold;">
-                      {{ $webpageContent->title}}
-                    </h2>
-                  @endif
-                  @if ($webpageContent->body)
-                    <div class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif bg-warning-rm px-3">
-                      {!! $webpageContent->body !!}
+                @if (true)
+                <div class="row-rm" style="margin: auto;">
+                    
+                  @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->body))
+                    <div class="col-md-6-rm">
+                      @if ($webpageContent->image_path)
+                        <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
+                      @endif
                     </div>
+                  @else
+                    <div class="
+                        @if ($webpageContent->video_link || $webpageContent->image_path)
+                            col-md-6-rm
+                        @else
+                            col-md-8-rm
+                        @endif
+                        p-0 m-0
+                        justify-content-center-rm align-self-center-rm p-0" style="font-size: 1.1em !important;{{-- width: 500px !important;--}}">
+                      @if ($webpageContent->title)
+                        <h2 class="h1 mt-3-rm mb-4-rm mb-0" style="color: #000; font-family: Arial; font-weight: bold;">
+                          {{ $webpageContent->title}}
+                        </h2>
+                      @endif
+                      @if ($webpageContent->body)
+                        <div class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif bg-warning-rm px-3">
+                          {!! $webpageContent->body !!}
+                        </div>
+                      @endif
+                    </div>
+                    @if ($webpageContent->image_path)
+                      <div class="col-md-6-rm">
+                        <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
+                      </div>
+                    @endif
+                    @if ($webpageContent->video_link)
+                      <div class="col-md-12-rm">
+                         <iframe class="w-100" {{-- width="560" --}} height="315" src="https://www.youtube.com/embed/{{ $webpageContent->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      </div>
+                    @endif
                   @endif
                 </div>
-                @if ($webpageContent->image_path)
-                  <div class="col-md-6">
-                    <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
-                  </div>
                 @endif
-                @if ($webpageContent->video_link)
-                  <div class="col-md-12">
-                     <iframe class="w-100" {{-- width="560" --}} height="315" src="https://www.youtube.com/embed/{{ $webpageContent->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                  </div>
-                @endif
-              @endif
-            </div>
-            @endif
 
-      </div>
+          </div>
   
-    @endforeach
+        @endforeach
+      </div>
+      <div class="col-md-4">
+        @if (false)
+        <div class="sticky-top">
+          @livewire ('ecomm-website.website.create-product-enquiry', ['product' => \App\Product::first(),])
+        </div>
+        @endif
+      </div>
+    </div>
   @else
     @if ($webpage->is_post == 'no')
       <div class="container py-4 d-flex">
