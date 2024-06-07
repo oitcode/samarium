@@ -32,7 +32,7 @@
   --}}
   <div class="container-fluid bg-primary-rm text-white-rm p-0" style="">
 
-    <div class="p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="p-3" style="background-color: rgba(0, 0, 0, 0.1);">
       <div class="container">
         <div class="row">
 
