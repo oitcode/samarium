@@ -15,7 +15,11 @@
 --}}
 <div class="container">
 <div class="d-none d-md-block">
-  <div class="" style="background-image: linear-gradient(to right, white 0%, white 25%, {{ env('OC_SELECT_COLOR') }} 25%, {{ env('OC_SELECT_COLOR') }} 100%);">
+  <div class=""
+      style=" background-image: linear-gradient(
+          to right, white 0%, white 25%,
+          {{ \App\CmsTheme::first()->ascent_bg_color }} 25%, {{ \App\CmsTheme::first()->ascent_bg_color }} 100%
+      );">
     <div class="row">
       <div class="col-md-6 py-4 justify-content-end">
         <div class="" style="
