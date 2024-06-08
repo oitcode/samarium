@@ -8,6 +8,7 @@
 --}}
 
 @if ($webpage->is_post == 'yes')
+  <div class="container">
   <div class="p-3 bg-danger-rm d-flex flex-column justify-content-center bg-primary-rm">
     <div class="mb-4-rm border-rm pt-3 py-1 shadow-rm bg-dark-rm text-white-rm o-overlay-rm">
       <h1 class="h4 font-weight-bold text-white-rm" style="{{--font-family: Mono;--}}">
@@ -64,6 +65,7 @@
       </div>
 
     </div>
+  </div>
   </div>
 @else
   <div class="container-fluid mb-0 p-0"
