@@ -55,11 +55,9 @@
 </div>
 @endif
 
-<div class="container-fluid py-5 px-0 bg-success bg-md-success text-md-white" style="
-{{--
+<div class="container-fluid py-5" style="
 background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
 color: {{ \App\CmsTheme::first()->ascent_text_color }};
---}}
 ">
 <div class="container">
   <div class="row">
