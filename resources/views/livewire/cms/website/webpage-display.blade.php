@@ -38,6 +38,18 @@
       @endif
     @endforeach
   @endif
+@elseif ($webpage->name == 'Our Team')
+  @if (\App\Team::where('name', 'Our Team')->first())
+    @foreach (\App\Team::where('name', 'Our Team')->get() as $team)
+      @if (count($team->teamMembers))
+        <div class="container-fluid mt-4 border-bottom">
+          <div class="container">
+            @include ('partials.team.team-display-fe', ['team' => $team,])
+          </div>
+        </div>
+      @endif
+    @endforeach
+  @endif
 @elseif ($webpage->name == 'Products')
   @livewire ('ecomm-website.home-component')
 @elseif ($webpage->name == 'News')
