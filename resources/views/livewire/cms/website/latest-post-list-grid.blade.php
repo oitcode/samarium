@@ -32,11 +32,13 @@
                     2081
                   </div>
 
-                  <div class="d-flex justify-content-end-rm">
-                    <a href="{{ route('website-webpage-' . $webpage->permalink) }}" class="btn btn-danger">
-                      Read more 
-                    </a>
-                  </div>
+                  @if ($ctaButton == 'yes')
+                    <div class="d-flex justify-content-end-rm">
+                      <a href="{{ route('website-webpage-' . $webpage->permalink) }}" class="btn btn-danger">
+                        Read more 
+                      </a>
+                    </div>
+                  @endif
                 </div>
               </div>
 

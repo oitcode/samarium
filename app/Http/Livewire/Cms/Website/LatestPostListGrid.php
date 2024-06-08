@@ -13,6 +13,8 @@ class LatestPostListGrid extends Component
 
     public $category = null;
 
+    public $ctaButton = 'no';
+
     public function render()
     {
         // $this->webpages = Webpage::where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->limit(4)->get();

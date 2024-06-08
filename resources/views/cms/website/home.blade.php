@@ -55,9 +55,11 @@
 </div>
 @endif
 
-<div class="container-fluid py-5" style="
+<div class="container-fluid py-5 px-0 bg-success bg-md-success text-md-white" style="
+{{--
 background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
 color: {{ \App\CmsTheme::first()->ascent_text_color }};
+--}}
 ">
 <div class="container">
   <div class="row">
@@ -221,7 +223,7 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
               Latest posts
             </h2>
           </div>
-          @livewire ('cms.website.latest-post-list-grid')
+          @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
         </div>
 
         @if (\App\Webpage::whereHas('webpageCategories', function ($query) { $query->where('name', 'featured');})->where('visibility', 'public')->count() > 0)
