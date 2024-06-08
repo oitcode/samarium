@@ -17,8 +17,17 @@
           @endif
                 </div>
                 <div>
+                  <div class="mb-3">
+                    @if (false)
+                    Published on:
+                    @endif
+                    <span class="bg-danger-rm text-dark border-rm p-0 px-1">
+                      {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'english')  }}
+                      2081
+                    </span>
+                  </div>
                   <a href="{{ route('website-webpage-' . $webpage->permalink) }}" class="text-reset text-decoration-none">
-                  <h2 class="h4 font-weight-bold mb-1">
+                  <h2 class="h5 font-weight-bold mb-1">
                     @if (false)
                     {{ \Illuminate\Support\Str::limit($webpage->name, 25, $end=' ...') }}
                     @endif
@@ -26,11 +35,6 @@
                   </h2>
                   </a>
 
-                  <div class="text-secondary">
-                    Published on:
-                    {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'english')  }}
-                    2081
-                  </div>
 
                   @if ($ctaButton == 'yes')
                     <div class="d-flex justify-content-end-rm">
