@@ -13,32 +13,27 @@
 | Bigger screens
 |
 --}}
+<div class="container">
 <div class="d-none d-md-block">
   <div class="" style="background-image: linear-gradient(to right, white 0%, white 25%, {{ env('OC_SELECT_COLOR') }} 25%, {{ env('OC_SELECT_COLOR') }} 100%);">
     <div class="row">
       <div class="col-md-6 py-4 justify-content-end">
         <div class="" style="
-          background-image: url({{ asset('storage/' . $webpage->featured_image_path) }});
           {{--
+          background-image: url({{ asset('storage/' . $webpage->featured_image_path) }});
           background-size: 100% 100%;
-          --}}
           background-size: 100% 100%;
           background-repeat: no-repeat;
           background-position: top left;
           height: 500px;
+          --}}
           {{--
           background-attachment: fixed;
           background-color: green;
           --}}
         ">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         </div>
-        @if (false)
+        @if (true)
         <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . $webpage->featured_image_path) }}" alt="{{ $webpage->name }}"
         style="{{--max-height: 200px;width: 1200px;--}}">
         @endif
@@ -105,6 +100,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 {{--
