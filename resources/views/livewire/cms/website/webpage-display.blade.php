@@ -224,7 +224,7 @@
   
   {{-- Previous, next posts section --}} 
   @if ($webpage->is_post == 'yes')
-    <div class="container-fluid bg-light border-top pt-4">
+    <div class="container-fluid bg-light-rm border pt-4" style="background-color: #eee;">
       <div class="container p-3">
         <h2 class="h4 font-weight-bold">
           Related posts
