@@ -10,6 +10,8 @@ class SubscribeUs extends Component
 {
     public $email;
 
+    public $introMessage = 'Please enter your email address to get regular updates on our products. ';
+
     public function render()
     {
         return view('livewire.ecomm-website.subscribe-us');

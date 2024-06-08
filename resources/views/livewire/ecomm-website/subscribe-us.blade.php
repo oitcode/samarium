@@ -8,7 +8,7 @@
           Subscribe us
         </h2>
         <p class="text-muted-rm text-center-rm">
-          Please enter your email address to get regular updates on our products.
+          {{ $introMessage }}
         </p>
 
         <!-- Flash message div -->

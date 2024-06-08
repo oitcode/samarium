@@ -159,7 +159,7 @@
           {{-- Subscribe us --}}
           <div class="container-fluid-rm py-4-rm bg-white border py-0 mb-4" style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);">
             <div class="container-rm py-0 px-3">
-              @livewire ('ecomm-website.subscribe-us')
+              @livewire ('ecomm-website.subscribe-us', ['introMessage' => 'Please enter your email address to get latest updates on our activities.',])
             </div>
           </div>
           @if (false)
