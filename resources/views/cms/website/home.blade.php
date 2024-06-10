@@ -73,7 +73,7 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
         <div class="mb-3">
           {{ $company->brief_description }}
         </div>
-        <a href="{{ \App\Webpage::where('name', 'Contact us')->first()->permalink }}" class="btn btn-danger btn-block py-3">
+        <a href="{{ \App\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first()->permalink }}" class="btn btn-danger btn-block py-3">
           Contact us
         </a>
       </div>
