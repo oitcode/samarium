@@ -104,7 +104,7 @@
       </div>
     @endforeach
   @endif
-@elseif ($webpage->name == 'Contact us')
+@elseif ($webpage->name == 'Contact us' || $webpage->permalink == '/contact-us')
 
   @livewire ('cms.website.contact-component')
 
