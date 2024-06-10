@@ -67,11 +67,7 @@
     @endif
     @livewire ('cms.website.latest-post-list-grid', ['category' => 'activities',])
   </div>
-@elseif ($webpage->name == 'Notice')
-  <div class="container my-4">
-    @livewire ('cms.website.post-list', ['category' => 'notice',])
-  </div>
-@elseif ($webpage->name == 'Noticeboard')
+@elseif ($webpage->name == 'Notice' || $webpage->name == 'Noticeboard' || $webpage->permalink == '/notice')
   <div class="container my-4">
     @livewire ('cms.website.post-list', ['category' => 'notice',])
   </div>
