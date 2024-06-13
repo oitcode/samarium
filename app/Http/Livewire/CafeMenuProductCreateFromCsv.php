@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+// use App\Traits\ModesTrait;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
@@ -13,6 +14,7 @@ use App\ProductCategory;
 class CafeMenuProductCreateFromCsv extends Component
 {
     use WithFileUploads;
+    // use ModesTrait;
 
     public $product_category_id;
 
@@ -24,6 +26,11 @@ class CafeMenuProductCreateFromCsv extends Component
     public $lines = [];
     public $totLines;
     public $filePath;
+
+    // public $modes = [
+    //     'startMode' => true,
+    //     'previewMode' => false,
+    // ];
 
     public function render()
     {
@@ -126,6 +133,7 @@ class CafeMenuProductCreateFromCsv extends Component
                     $product->product_category_id = $productCategory->product_category_id;
                 }
 
+                $product->featured_product = 'no';
                 $product->save();
 
                 /* Todo: Store product image from excel/csv file. */

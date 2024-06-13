@@ -22,7 +22,7 @@
       @include ('partials.button-general', ['btnText' => 'Upload', 'clickMethod' => 'preview',])
     @elseif ($previewMode)
       <button type="submit" class="btn btn-primary" wire:click="importFromFile">Import</button>
-      @include ('partials.button-general', ['btnText' => 'Import', 'importFromFile' => 'preview',])
+      @include ('partials.button-general', ['btnText' => 'Import', 'clickMethod' => 'preview',])
     @endif
     @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateProductFromCsvMode',])
   
