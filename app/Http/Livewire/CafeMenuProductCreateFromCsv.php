@@ -111,6 +111,7 @@ class CafeMenuProductCreateFromCsv extends Component
                 if (! $line[0]) {
                     /* Skip if blank product name */
                     continue;
+                    // Again
                 }
 
                 if (Product::where('name', $line[0])->first()) {
