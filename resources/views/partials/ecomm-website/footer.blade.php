@@ -172,7 +172,7 @@
           @livewire ('ecomm-website.subscribe-us')
 
           @if (true)
-          <h2 class="h5 mb-2 font-weight-bold">
+          <h2 class="h5 my-3 font-weight-bold">
             Follow us
           </h2>
           @endif
