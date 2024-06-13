@@ -42,9 +42,15 @@
               <i class="fas fa-dice-d6 mr-3"></i>
               Products
             </a>
+
             <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('product-category') }}">
               <i class="fas fa-list mr-3"></i>
               Product category
+            </a>
+
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('product-question') }}">
+              <i class="fas fa-question mr-3"></i>
+              Product question
             </a>
 
             <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-inventory') }}">
