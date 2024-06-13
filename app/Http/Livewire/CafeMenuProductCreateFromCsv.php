@@ -108,6 +108,11 @@ class CafeMenuProductCreateFromCsv extends Component
             //DB::beginTransaction();
 
             //try {
+                if (! $line[0]) {
+                    /* Skip if blank product name */
+                    continue;
+                }
+
                 if (Product::where('name', $line[0])->first()) {
                     /* Skip if product already exists. */
                     continue;
