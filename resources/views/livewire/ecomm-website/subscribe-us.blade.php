@@ -1,13 +1,13 @@
 <div>
 
 
-  <div class="px-3-rm text-white">
+  <div class="text-white-rm border-rm px-3-rm">
     <div class="row">
-      <div class="col-md-12 py-4">
+      <div class="col-md-12 py-4-rm">
         <h2 class="h5 font-weight-bold text-center-rm">
           Subscribe us
         </h2>
-        <p class="text-muted-rm text-center-rm">
+        <p class="">
           {{ $introMessage }}
         </p>
 
@@ -27,22 +27,28 @@
         <div class="form-group">
           <input type="text" class="form-control" wire:model.defer="email" placeholder="Enter a valid email address" />
           @error('email')
-            <div class="my-2 text-white">
+            <div class="my-2 text-white-rm">
               <i class="fas fa-exclamation-circle r-1"></i>
-              <span class="text-white">{{ $message }}</span>
+              <span class="text-white-rm">{{ $message }}</span>
             </div>
           @enderror
         </div>
         <div class="mt-4 d-flex justify-content-center-rm">
-          <button class="btn btn-danger shadow border border-light" wire:click="store">
+          <button class="btn btn-danger-rm shadow border border-light" wire:click="store"
+              style="
+                  background-image:
+                      linear-gradient(
+                          to bottom right,
+                          {{ \App\CmsTheme::first()->ascent_bg_color }},
+                          {{ \App\CmsTheme::first()->ascent_bg_color }}
+                      );
+                      color: {{ \App\CmsTheme::first()->ascent_text_color }};
+                  "
+          >
             Subscribe
           </button>
         </div>
       </div>
-      @if (true)
-      <div class="col-md-6" style="{{--background-image: linear-gradient(to bottom right, #FF512F, #DD2476);--}}">
-      </div>
-      @endif
     </div>
   </div>
 

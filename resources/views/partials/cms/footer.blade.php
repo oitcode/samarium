@@ -154,23 +154,9 @@
           </div>
         </div>
 
-        {{-- Powered by --}}
+        {{-- Subscribe us --}}
         <div class="col-md-3">
-          {{-- Subscribe us --}}
-          <div class="container-fluid-rm py-4-rm bg-white border py-0 mb-4" style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);">
-            <div class="container-rm py-0 px-3">
-              @livewire ('ecomm-website.subscribe-us', ['introMessage' => 'Please enter your email address to get latest updates on our activities.',])
-            </div>
-          </div>
-          @if (false)
-          <div class="my-4">
-            <div>
-              Powered by
-              <a href="https://oit.com.np" class="text-reset" target="_blank"><u>OIT</u></a>
-              <i class="fas fa-check-circle ml-2"></i>
-            </div>
-          </div>
-          @endif
+          @livewire ('ecomm-website.subscribe-us', ['introMessage' => 'Please enter your email address to get latest updates on our activities.',])
         </div>
 
       </div>
