@@ -21,6 +21,10 @@
     <label>Images *</label>
     <input type="file" class="form-control" wire:model="images" multiple>
     @error('images') <span class="text-danger">{{ $message }}</span> @enderror
+    <button wire:loading class="btn">
+      <span class="spinner-border text-info mr-3" role="status">
+      </span>
+    </button>
   </div>
 
   <div class="form-group">

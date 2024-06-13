@@ -258,6 +258,10 @@
         <button class="btn btn-danger" wire:click="exitMode('updateFeaturedImageFromNewUploadMode')">
           Cancel
         </button>
+        <button wire:loading class="btn">
+          <span class="spinner-border text-info mr-3" role="status">
+          </span>
+        </button>
       </div>
     </div>
   @endif
