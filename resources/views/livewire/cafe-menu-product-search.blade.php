@@ -21,6 +21,13 @@
   </div>
 
 
+  @if ($searchDone)
+    {{-- Show result count --}}
+    <div class="my-3 p-3 border bg-white">
+      Total: {{ count($products) }}
+    </div>
+  @endif
+
   {{-- Show search results --}}
   @if ($products != null && count($products) > 0)
     <div class="bg-white border p-3">

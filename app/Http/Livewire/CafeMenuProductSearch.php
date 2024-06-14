@@ -11,6 +11,7 @@ class CafeMenuProductSearch extends Component
     public $product_search_name;
 
     public $products;
+    public $searchDone = false;
 
     public function render()
     {
@@ -26,5 +27,6 @@ class CafeMenuProductSearch extends Component
         $products = Product::where('name', 'like', '%'.$validatedData['product_search_name'].'%')->get();
 
         $this->products = $products;
+        $this->searchDone = true;
     }
 }
