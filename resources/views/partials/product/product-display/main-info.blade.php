@@ -10,12 +10,12 @@
         @else
           <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
             Product Name
-            <a href="" class="text-primary p-0 m-0" wire:click.prevent="enterMode('updateProductNameMode')">
+            <button class="btn btn-light text-primary" wire:click="enterMode('updateProductNameMode')">
               @if (false)
               <i class="fas fa-pencil-alt text-muted"></i>
               @endif
               Edit
-            </a>
+            </button>
           </div>
           <hr class="m-0 p-0" />
           <div class="d-flex justify-content-between my-0">
@@ -65,12 +65,12 @@
         @else
           <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
             Description
-            <a class="text-primary" wire:click="enterMode('updateProductDescriptionMode')">
+            <button class="btn btn-light text-primary" wire:click="enterMode('updateProductDescriptionMode')">
               @if (false)
               <i class="fas fa-pencil-alt text-muted"></i>
               @endif
               Edit
-            </a>
+            </button>
           </div>
           <div class="d-flex justify-content-between font-weight-bold">
             {{ $product->description }}
@@ -87,12 +87,12 @@
         @else
           <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
             Price
-            <a class="text-primary p-0 ml-2" wire:click="enterMode('updateProductPriceMode')">
+            <button class="btn btn-light text-primary ml-2" wire:click="enterMode('updateProductPriceMode')">
               @if (false)
               <i class="fas fa-pencil-alt text-muted"></i>
               @endif
               Edit
-            </a>
+            </button>
           </div>
           <div class="d-flex justify-content-between font-weight-bold">
             Rs
