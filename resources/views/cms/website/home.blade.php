@@ -32,6 +32,12 @@
 @endif
 @endif
 
+@if (preg_match("/school/i", env('MODULES')))
+  <div class="container my-4 px-2">
+    @include ('partials.school.school-quick-links-display')
+  </div>
+@endif
+
 @if (preg_match("/hfn/i", env('MODULES')))
 <div class="px-3 font-weight-bold py-1 text-center" style="background-color: orange;">
   WORKING FOR A BETTER TOMORROW
@@ -224,6 +230,7 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
           @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
         </div>
 
+        @if (true)
         @if (\App\Webpage::whereHas('webpageCategories', function ($query) { $query->where('name', 'featured');})->where('visibility', 'public')->count() > 0)
         <div class="mb-4 px-2">
           <div class="row">
@@ -276,24 +283,12 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
           </div>
         </div>
         @endif
-
-
-
-
-
-        @if (preg_match("/school/i", env('MODULES')))
-          @if (true)
-          <div class="mb-4 px-2">
-            @include ('partials.school.school-quick-links-display')
-          </div>
-          @else
-          <div class="p-5">
-            <h2 class="h1 font-weight-bold text-center text-white-rm">
-              {{ $company->name }}
-            </h2>
-          </div>
-          @endif
         @endif
+
+
+
+
+
       </div>
       <div class="col-md-4 px-2">
         @livewire ('cms.website.contact-component', ['onlyForm' => 'yes',])
