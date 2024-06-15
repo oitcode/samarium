@@ -33,7 +33,7 @@
 @endif
 
 @if (preg_match("/school/i", env('MODULES')))
-  <div class="container my-4 px-3">
+  <div class="container my-0 my-md-4 px-md-3 p-0">
     @include ('partials.school.school-quick-links-display')
   </div>
 @endif
