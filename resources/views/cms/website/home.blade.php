@@ -73,7 +73,7 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
       <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
       style="{{--max-height: 200px;width: 1200px;--}}">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 pt-3">
       <div class="d-flex flex-column justify-content-center h-100">
         <h1 class="h1">
           {{ $company->name }}
