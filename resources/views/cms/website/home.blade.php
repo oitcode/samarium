@@ -39,9 +39,11 @@
 @endif
 
 @if (preg_match("/hfn/i", env('MODULES')))
+@if (false)
 <div class="px-3 font-weight-bold py-1 text-center" style="background-color: orange;">
   WORKING FOR A BETTER TOMORROW
 </div>
+@endif
 
 @if (false)
 <div class="container py-3">
