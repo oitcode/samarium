@@ -172,7 +172,7 @@
   | 
   --}}
   <hr />
-  <div class="text-center pb-2">
+  <div class="text-center pb-2 px-3">
     <div>
       &copy; 2024 | {{ $company->name }} | All rights reserved
     </div>
