@@ -17,14 +17,14 @@
           @endif
                 </div>
                 <div>
-                  <div class="mb-3">
-                    @if (false)
-                    Published on:
-                    @endif
-                    <span class="bg-danger-rm text-dark border-rm p-0 px-1">
+                  <div class="mb-2">
+                    <span class="bg-danger-rm text-dark-rm border-rm p-0 px-1" style="color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
                       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'english')  }}
                       2081
                     </span>
+                    @if (false)
+                    Published on:
+                    @endif
                   </div>
                   <a href="{{ route('website-webpage-' . $webpage->permalink) }}" class="text-reset text-decoration-none">
                   <h2 class="h5 font-weight-bold mb-1">
