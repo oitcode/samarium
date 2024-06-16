@@ -13,7 +13,7 @@
             <div class="d-flex flex-column">
               <div class="mr-5 text-muted">
                 @if (true)
-                <span class="text-muted">
+                <span class="text-muted-rm" style="color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
                   {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($post->created_at->toDateString(), 'english')  }}
                 </span>
                 2081
