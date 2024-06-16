@@ -23,7 +23,7 @@ Quick links to pages that are most relevant to school.
               @endif
           ;
     ">
-      <a href="/calendar" class="p-0 py-2 text-reset text-decoration-none">
+      <a href="/calendar" class="p-0 py-2 text-reset text-decoration-none w-100">
         <div class="text-center">
           <div class="mb-2">
             <i class="fas fa-calendar fa-2x"></i>
@@ -51,13 +51,13 @@ Quick links to pages that are most relevant to school.
               @endif
           ;
     ">
-      <a href="/noticeboard" class="p-0 py-2 text-reset text-decoration-none">
+      <a href="/noticeboard" class="p-0 py-2 text-reset text-decoration-none w-100">
         <div class="text-center">
           <div class="mb-2">
-            <i class="fas fa-edit fa-2x"></i>
+            <i class="fas fa-info-circle fa-2x"></i>
           </div>
           <div class="h6 mb-0">
-            Noticeboard
+            Notice
           </div>
         </div>
       </a>
@@ -80,7 +80,7 @@ Quick links to pages that are most relevant to school.
               @endif
           ;
     ">
-      <a href="/gallery" class="p-0 py-2 text-reset text-decoration-none">
+      <a href="/gallery" class="p-0 py-2 text-reset text-decoration-none w-100">
         <div class="text-center">
           <div class="mb-2">
             <i class="fas fa-images fa-2x"></i>
@@ -109,7 +109,7 @@ Quick links to pages that are most relevant to school.
               @endif
           ;
     ">
-      <a href="/contact-us" class="p-0 py-2 text-reset text-decoration-none">
+      <a href="/contact-us" class="p-0 py-2 text-reset text-decoration-none w-100">
         <div class="text-center">
           <div class="mb-2">
             <i class="fas fa-comment fa-2x"></i>
