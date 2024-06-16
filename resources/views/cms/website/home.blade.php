@@ -224,7 +224,7 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
         |
         --}}
         <div>
-          <div>
+          <div class="px-3">
             <h2 class="h4 font-weight-bold">
               Latest posts
             </h2>
