@@ -4,7 +4,7 @@ Quick links to pages that are most relevant to school.
 
 --}}
 
-<div class="bg-white">
+<div class="bg-white-rm">
   <div class="row p-3-rm" style="margin: auto;">
     <div class="col-4 col-md-3 d-flex justify-content-center bg-danger-rm text-white-rm border p-0"
         style="
@@ -62,8 +62,8 @@ Quick links to pages that are most relevant to school.
         </div>
       </a>
     </div>
-    @if (false)
-    <div class="col-4 col-md-3 d-flex justify-content-center bg-danger-rm text-white-rm border p-0"
+    @if (true)
+    <div class="col-4 col-md-3 d-flex-rm justify-content-center-rm bg-danger-rm-rm text-white-rm border p-0 d-none d-md-block"
         style="
           background-color:
               @if (\App\CmsTheme::first())

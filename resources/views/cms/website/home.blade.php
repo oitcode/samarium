@@ -33,8 +33,10 @@
 @endif
 
 @if (preg_match("/school/i", env('MODULES')))
-  <div class="container my-0 my-md-4 px-md-3 p-0">
-    @include ('partials.school.school-quick-links-display')
+  <div class="container-fluid" style="background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
+    <div class="container my-0 my-md-0 px-md-3 p-0" style="background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
+      @include ('partials.school.school-quick-links-display')
+    </div>
   </div>
 @endif
 
