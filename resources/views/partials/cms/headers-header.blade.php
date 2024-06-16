@@ -31,6 +31,7 @@
                 {{ $company->phone }}
               </strong>
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              @if (false)
               @if (true)
               Address:
               @endif
@@ -38,6 +39,7 @@
               <strong>
                 {{ $company->address }}
               </strong>
+              @endif
             </div>
             {{-- Right side --}}
             <div>
@@ -160,19 +162,25 @@
       <div class="d-flex justify-content-center-rm bg-success-rm flex-grow-1">
 
         <div class="d-flex flex-column justify-content-center flex-grow-1 bg-success-rm px-4">
-          <h1 class="h5 font-weight-bold my-3" style="font-family: Mono;">
+          <h1 class="h5 font-weight-bold my-1" style="font-family: Mono;">
             {{ $company->name }}
           </h1>
           <div class="w-100 bg-warning-rm">
 
-            <div class="input-group mr-sm-2">
-                <input type="text" class="form-control" id="" placeholder="Search in our website">
-                <div class="input-group-append">
-                  <div class="input-group-text bg-transparent" role="button">
-                    <i class="fas fa-search px-2 text-white-rm"></i>
+            @if (false)
+              <div class="input-group mr-sm-2">
+                  <input type="text" class="form-control" id="" placeholder="Search in our website">
+                  <div class="input-group-append">
+                    <div class="input-group-text bg-transparent" role="button">
+                      <i class="fas fa-search px-2 text-white-rm"></i>
+                    </div>
                   </div>
-                </div>
-            </div>
+              </div>
+            @else
+              <div>
+                {{ $company->address }}
+              </div>
+            @endif
 
           </div>
         </div>
