@@ -292,7 +292,7 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
 
 
       </div>
-      <div class="col-md-4 px-2">
+      <div class="col-md-4 px-2-rm">
         @livewire ('cms.website.contact-component', ['onlyForm' => 'yes',])
         @if (false)
         <div class="container mb-4 p-0">
