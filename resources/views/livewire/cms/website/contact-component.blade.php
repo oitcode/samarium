@@ -2,7 +2,7 @@
 
 
   <div class="container-fluid bg-white border-rm">
-  <div class="container pt-3 pb-5">
+  <div class="container pt-3 pb-5-rm">
     <div class="row">
       @if ($onlyForm != 'yes')
       <div class="col-md-6 p-4 text-secondary-rm" style="">
