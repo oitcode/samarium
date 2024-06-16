@@ -13,7 +13,7 @@
       </strong></i>
     </h2>
     <h2 class="h5 text-secondary-rm d-flex justify-content-center">
-        v0.8.4
+        v0.8.5
     </h2>
   </div>
 </div>

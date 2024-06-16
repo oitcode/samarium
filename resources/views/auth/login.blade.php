@@ -185,7 +185,7 @@
                 {{ date('Y M d') }}
                 <br/>
                 @endif
-                OIT Ozone v0.8.4
+                OIT Ozone v0.8.5
               </div>
             </div>
 
