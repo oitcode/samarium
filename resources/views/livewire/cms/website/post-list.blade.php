@@ -15,8 +15,8 @@
                 @if (true)
                 <span class="text-muted-rm" style="color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
                   {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($post->created_at->toDateString(), 'english')  }}
+                  2081
                 </span>
-                2081
                 @endif
                 <br />
                 @if (false)
