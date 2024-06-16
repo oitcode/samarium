@@ -17,6 +17,7 @@
   ">
 
   {{-- Show in bigger screens --}}
+  @if (false)
   <div class="container-fluid p-0 bg-danger-rm d-none d-md-block" style="">
       <div class="container-fluid" style="{{-- background-color: rgba(0, 0, 0, 0.3);--}}">
         <div class="container py-2 pl-4">
@@ -112,27 +113,10 @@
         </div>
       </div>
   </div>
+  @endif
 
-  <div class="container-fluid p-0"
-  style="
-           {{--
-           background-image: @if (\App\CmsTheme::first())
-             url({{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }})
-           @else
-             url({{ asset('img/school-5.jpg') }})
-           @endif
-           ;
-           background-size: cover;
-           background-repeat: no-repeat;
-           background-position: center;
-           height: 500px;
-           background-attachment: fixed;
-           --}}
-           "
-  >
-  <div class="container-fluid py-4 d-none d-md-block o-overlay-rm">
-  <div class="container">
-    <div class="d-flex justify-content-between h-100 bg-info-rm pl-2">
+  <div class="container d-none d-md-block">
+    <div class="d-flex justify-content-center h-100 bg-info-rm pl-2">
 
 
       <a href="{{ route('website-home') }}" class="text-decoration-none">
@@ -190,8 +174,6 @@
 
   
     </div>
-  </div>
-  </div>
   </div>
 
 
