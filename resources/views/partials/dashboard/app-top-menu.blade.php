@@ -1,14 +1,14 @@
-<div class="d-none d-md-block py-2-rm text-right"
-    style="background-color: {{ env('OC_SELECT_COLOR') }}; color: white; {{--  background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR', '#000050') }} , {{
+<div class="d-none d-md-block py-2-rm text-right bg-dark text-white"
+    style="{{-- background-color: {{ env('OC_SELECT_COLOR') }}; color: white;  background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR', '#000050') }} , {{
     env('OC_SELECT_COLOR', '#000050') }}); --}}">
-  <div class="o-darker-rm py-2">
+  <div class="o-darker py-2">
   @guest
   @else
 
     <div class="float-left d-flex">
-      <div class="p-2" style="color: {{ env('OC_SELECT_TXT COLOR') }};">
-        <i class="fas fa-feather-alt fa-2x"></i>
-        @if (true)
+      <div class="p-2 px-3" style="color: {{ env('OC_SELECT_TXT COLOR') }};">
+        <i class="fas fa-check-circle fa-2x-rm"></i>
+        @if (false)
         <span class="h3 ml-3">
           Ozone
         </span>

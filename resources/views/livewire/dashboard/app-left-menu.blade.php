@@ -2,7 +2,7 @@
 @if (true)
 <div class="d-none d-md-block">
 
-  <div class="border-top">
+  <div class="border-top-rm border-secondary-rm">
   @include ('partials.dashboard.app-left-menu-button',
       [
           'btnRoute' => 'dashboard',
@@ -686,6 +686,7 @@
   ])
   @endif
 
+  @if (false)
   <div class="px-3 py-2 border-top">
     @if (false)
     <div class="">
@@ -696,6 +697,7 @@
       Version 0.8.5
     </div>
   </div>
+  @endif
 
 </div>
 @endif

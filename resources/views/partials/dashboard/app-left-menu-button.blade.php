@@ -12,25 +12,28 @@
         @if ($bordered ?? false)
           border-bottom-rm
         @endif
+        text-white
         "
       style="font-size: calc(0.7rem + 0.15vw);
         @if(Route::current()->getName() == $btnRoute)
           {{--
-          --}}
           background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
           color: {{ env('OC_SELECT_TXT_COLOR') }};
+          --}}
         @else
+          {{--
           color: {{ env('OC_UNSELECT_TXT_COLOR') }};
+          --}}
         @endif
       "
       >
 
     <div class="d-flex flex-column-rm">
-      <div class="d-flex justify-content-center mr-4 mt-1">
+      <div class="d-flex justify-content-center mr-2 mt-1">
         <i class="{{ $iconFaClass }}"></i>
       </div>
       <div class="d-flex justify-content-center">
-        <strong style="@if(Route::current()->getName() == $btnRoute) text-shadow: 0.5px 0 {{ env('OC_SELECT_TXT_COLOR') }} @else text-shadow: 0.5px 0 {{ env('OC_UNSELECT_TXT_COLOR') }} @endif ; font-weight:bold;">
+        <strong style="{{-- @if(Route::current()->getName() == $btnRoute) text-shadow: 0.5px 0 {{ env('OC_SELECT_TXT_COLOR') }} @else text-shadow: 0.5px 0 {{ env('OC_UNSELECT_TXT_COLOR') }} @endif ; font-weight:bold; --}}">
         {{ $btnText }}
         </strong>
       </div>
