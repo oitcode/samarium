@@ -120,10 +120,12 @@
                 </td>
                 <td class="d-block d-md-table-cell border-0">
                   @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
+                    @if (false)
                     <span class=" badge badge-pill badge-danger">
                       Holiday
                     </span>
                     <br />
+                    @endif
                   @endif
                   @foreach ($day['events'] as $event)
 
