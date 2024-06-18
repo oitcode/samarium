@@ -112,8 +112,8 @@
                     <span class="text-secondary-rm mr-3">
                       @if (false)
                       {{ $day['day']->format('Y F d') }}
-                      @endif
                       {{ $day['day']->format('F d') }}
+                      @endif
                     </span>
                     @if (true)
                     <span class="text-secondary-rm mr-3" style="font-size: 0.7rem;">
