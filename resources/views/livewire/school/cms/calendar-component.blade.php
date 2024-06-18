@@ -127,11 +127,14 @@
                   @endif
                   @foreach ($day['events'] as $event)
 
-                    <span class="badge badge-pill badge-primary h5 p-2 px-3" style="font-size: 0.9rem;">
-                      @foreach ($event->calendarGroups as $calendarGroup)
-                        {{ $calendarGroup->name }}
-                        :&nbsp;&nbsp;
-                      @endforeach
+                    <span class="badge-rm badge-pill-rm badge-primary-rm h5" style="font-size: 0.9rem;">
+                      @if ($selectedCalendarGroup)
+                      @else
+                        @foreach ($event->calendarGroups as $calendarGroup)
+                          {{ $calendarGroup->name }}
+                          :&nbsp;&nbsp;
+                        @endforeach
+                      @endif
                       {{ $event->title }}
                     </span>
                   @endforeach

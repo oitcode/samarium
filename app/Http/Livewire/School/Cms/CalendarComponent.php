@@ -72,7 +72,7 @@ class CalendarComponent extends Component
     public $displayingCalendarEvent;
 
     public $calendarGroups;
-    public $selectedCalendarGroup;
+    public $selectedCalendarGroup = null;
 
     public $modes = [
         'eventCreate' => false,
