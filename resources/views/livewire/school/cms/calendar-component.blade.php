@@ -1,10 +1,6 @@
-<div class="container py-3">
+<div class="container pb-3">
 
   <div class="d-flex">
-    <div class="border-rm bg-white mb-4-rm">
-      <div class="d-flex">
-      </div>
-    </div>
     @if ($calendarGroups && count($calendarGroups) > 0)
       {{-- Calendar group choose option --}}
       @if (false)

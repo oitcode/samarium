@@ -25,14 +25,19 @@
 
   <div>
   </div>
-  <div class="border bg-dark text-white" style="">
+  <div class="border bg-dark-rm text-white-rm" style="">
     <div class="h6 px-2 mb-0 mt-3 text-muted-rm mb-2">
-      <span class="text-success-rm p-1-rm border-rm border-danger-rm px-2-rm bg-success-rm text-white-rm font-weight-bold text-dark-rm">
+      <span class="text-success-rm p-1-rm border-rm border-danger-rm px-2-rm bg-success-rm text-white-rm font-weight-bold text-dark-rm badge
+      badge-dark">
       Today
-      </span>,
+      </span>
+      </br>
+      </br>
+      <span class="h4 font-weight-bold">
       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($today['day']->toDateString(), 'english')  }}
       2081,
       {{ $today['day']->format('l') }}
+      </span>
     </div>
     <div class="col-md-3-rm bg-info-rm text-white-rm px-3">
       <h2 class="h5 font-weight-bold my-0">
