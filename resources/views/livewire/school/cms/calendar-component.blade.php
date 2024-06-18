@@ -58,7 +58,7 @@
         </h3>
         <div class="d-flex flex-column justify-content-center">
           <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
-            <button class="btn btn-dark dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-light border dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Select Month
             </button>
             <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
