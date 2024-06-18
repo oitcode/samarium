@@ -20,7 +20,7 @@ class TodayDisplay extends Component
     {
         $this->calendarGroups = CalendarGroup::all();
 
-        $this->selectedCalendarGroup = CalendarGroup::first();
+        // $this->selectedCalendarGroup = CalendarGroup::first();
     }
 
     public function render()
