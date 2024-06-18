@@ -60,7 +60,7 @@
 
   <div class="border bg-white p-0">
     @if ($displayMonthName)
-      <h3 class="h3 text-center py-4 mb-0 bg-dark text-white"
+      <h3 class="h3 text-center py-4 mb-0 bg-dark-rm text-dark"
           style="{{--background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;
               color:@if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_text_color }} @else @endif ;--}} 
           ">
@@ -73,9 +73,9 @@
         <table class="table table-sm table-bordered-rm w-auto-rm mb-0">
           <thead>
             <tr class="bg-dark-rm text-white-rm d-none d-md-table-row">
-              <th class="w-25">Date</th>
-              @if (true)
-              <th class="w-25">Day</th>
+              <th class="w-25-rm">Date</th>
+              @if (false)
+              <th class="w-25-rm">Day</th>
               @endif
               <th>Details</th>
             </tr>
@@ -89,36 +89,38 @@
                       @if ($day['is_holiday']) table-danger @endif
                   "
               >
-                <td class="d-block d-md-table-cell border-0">
+                <td class="d-block-rm d-md-table-cell-rm border-0">
                   <div>
-                    <span class="mr-3 font-weight-bold">
+                    <span class="mr-3 font-weight-bold-rm">
                       {{ $displayMonthName }}
                       {{ $loop->iteration }}
                     </span>
-                    <span class="text-secondary mr-3">
+                    <span class="text-secondary-rm mr-3">
                       @if (false)
                       {{ $day['day']->format('Y F d') }}
                       @endif
                       {{ $day['day']->format('F d') }}
-                      @if (\Carbon\Carbon::today() == $day['day'])
-                        <span class="badge badge-pill badge-success ml-3">
-                          TODAY
-                        </span>
-                      @endif
                     </span>
-                    @if (false)
-                    <span class="text-secondary-rm mr-3" style="font-size: 0.5rem;">
-                      {{ $day['day']->format('l') }}
+                    @if (true)
+                    <span class="text-secondary-rm mr-3" style="font-size: 0.7rem;">
+                      {{ $day['day']->isoFormat('ddd') }}
                     </span>
+                    @if (\Carbon\Carbon::today() == $day['day'])
+                      <span class="badge badge-pill badge-success ml-3">
+                        TODAY
+                      </span>
+                    @endif
                     @endif
                   </div>
                   <div>
                   </div>
                 </td>
-                <td class="font-weight-bold d-block d-md-table-cell border-0">
-                  {{ $day['day']->format('l') }}
+                @if (false)
+                <td class="font-weight-bold-rm d-block d-md-table-cell border-0">
+                  {{ $day['day']->isoFormat('ddd') }}
                 </td>
-                <td class="d-block d-md-table-cell border-0">
+                @endif
+                <td class="d-block-rm d-md-table-cell-rm border-0">
                   @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
                     @if (false)
                     <span class=" badge badge-pill badge-danger">
