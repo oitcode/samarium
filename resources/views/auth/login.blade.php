@@ -75,8 +75,8 @@
             </div>
 
             <div class="p-3">
-              <div class="py-4 bg-primary-rm text-primary-rm rounded border shadow-rm" style="background-color: #eee; color: {{ env('OC_SELECT_COLOR') }};">
-                <div class="h4 text-center" style="text-shadow: 1px 0 {{ env('OC_SELECT_COLOR') }};text-shadow: -1px 0 {{ env('OC_SELECT_COLOR') }};">
+              <div class="py-4 bg-primary-rm text-dark rounded border shadow-rm" style="background-color: #eee;">
+                <div class="h4 text-center" style="">
                   Login
                 </div>
               </div>
@@ -152,8 +152,8 @@
                       |
                       --}}
                       <div class="form-group mt-4 mb-1">
-                          <button type="submit" class="btn btn-success-rm badge-pill btn-block py-3 text-white shadow"
-                              style="background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR') }}, {{ env('OC_SELECT_COLOR') }});">
+                          <button type="submit" class="btn btn-dark badge-pill btn-block py-3 text-white shadow"
+                              style="">
                               <span class="h5">
                                 {{ __('Login') }}
                               </span>
