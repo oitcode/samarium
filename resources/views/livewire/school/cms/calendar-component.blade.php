@@ -70,7 +70,7 @@
         {{ $displayMonthName }}
       </h3>
       <div class="table-responsive border">
-        <table class="table table-sm table-bordered-rm w-auto-rm mb-0">
+        <table class="table table-sm table-bordered w-auto-rm mb-0">
           <thead>
             <tr class="bg-dark-rm text-white-rm d-none d-md-table-row">
               <th class="w-25-rm">Date</th>
