@@ -25,9 +25,9 @@
 
   <div>
   </div>
-  <div class="border bg-danger-rm" style="">
-    <div class="h6 px-2 mb-0 mt-3 text-muted mb-2">
-      <span class="text-success-rm p-1-rm border-rm border-danger-rm px-2-rm bg-success-rm text-white-rm font-weight-bold text-dark">
+  <div class="border bg-dark text-white" style="">
+    <div class="h6 px-2 mb-0 mt-3 text-muted-rm mb-2">
+      <span class="text-success-rm p-1-rm border-rm border-danger-rm px-2-rm bg-success-rm text-white-rm font-weight-bold text-dark-rm">
       Today
       </span>,
       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($today['day']->toDateString(), 'english')  }}

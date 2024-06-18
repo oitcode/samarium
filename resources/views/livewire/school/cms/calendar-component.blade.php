@@ -3,29 +3,11 @@
   <div class="d-flex">
     <div class="border-rm bg-white mb-4-rm">
       <div class="d-flex">
-        <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
-          <button class="btn btn-primary dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Month
-          </button>
-          <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Baisakh')">Baisakh</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Jestha')">Jestha</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Asadh')">Asadh</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Shrawan')">Shrawan</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Bhadra')">Bhadra</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Ashwin')">Ashwin</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Kartik')">Kartik</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Mangsir')">Mangsir</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Poush')">Poush</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Magh')">Magh</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Falgun')">Falgun</button>
-            <button class="dropdown-item" type="button" wire:click="selectMonth('Chaitra')">Chaitra</button>
-          </div>
-        </div>
       </div>
     </div>
     @if ($calendarGroups && count($calendarGroups) > 0)
       {{-- Calendar group choose option --}}
+      @if (false)
       <div class="mb-3">
         <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
           <button class="btn btn-primary dropdown-toggle" type="button" id="calendarGroupDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,6 +20,14 @@
           </div>
         </div>
       </div>
+      @else
+        <div class="my-3">
+          @foreach ($calendarGroups as $calendarGroup)
+            <button class="btn @If ($calendarGroup->calendar_group_id == $selectedCalendarGroup->calendar_group_id) btn-dark @else btn-light border @endif p-3"
+                type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
+          @endforeach
+        </div>
+      @endif
     @endif
 
     <div>
@@ -60,15 +50,39 @@
 
   <div class="border bg-white p-0">
     @if ($displayMonthName)
-      <h3 class="h3 text-center py-4 mb-0 bg-dark-rm text-dark"
-          style="{{--background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;
-              color:@if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_text_color }} @else @endif ;--}} 
-          ">
-        <span class="mr-2">
-          2081
-        </span>
-        {{ $displayMonthName }}
-      </h3>
+      <div class="d-flex justify-content-between">
+        <h3 class="h4 text-center py-4 mb-0 bg-dark-rm text-dark pl-1"
+            style="{{--background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;
+                color:@if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_text_color }} @else @endif ;--}} 
+            ">
+          <span class="mr-2">
+            2081
+          </span>
+          {{ $displayMonthName }}
+        </h3>
+        <div class="d-flex flex-column justify-content-center">
+          <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
+            <button class="btn btn-dark dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Month
+            </button>
+            <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Baisakh')">Baisakh</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Jestha')">Jestha</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Asadh')">Asadh</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Shrawan')">Shrawan</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Bhadra')">Bhadra</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Ashwin')">Ashwin</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Kartik')">Kartik</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Mangsir')">Mangsir</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Poush')">Poush</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Magh')">Magh</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Falgun')">Falgun</button>
+              <button class="dropdown-item" type="button" wire:click="selectMonth('Chaitra')">Chaitra</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="table-responsive border">
         <table class="table table-sm table-bordered w-auto-rm mb-0">
           <thead>
