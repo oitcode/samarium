@@ -19,6 +19,7 @@
                 bg-white
               @endif
               --}}
+              bg-white
             @endif
           @else
             bg-white

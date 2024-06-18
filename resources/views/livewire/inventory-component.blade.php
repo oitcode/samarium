@@ -38,7 +38,7 @@
     <div class="table-responsive bg-white border">
       <table class="table table-sm table-hover mb-0">
         <thead>
-          <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }} {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}">
+          <tr class="">
             <th colspan="2">Item</th>
             <th>Inventory Unit</th>
             <th>Inventory low</th>

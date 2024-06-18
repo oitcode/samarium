@@ -12,7 +12,7 @@
       <div class="table-responsive border">
         <table class="table table-hover table-bordered-rm mb-0">
           <thead>
-            <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}">
+            <tr class="bg-white text-dark">
               <th>
                 @if (false)
                   <input type="checkbox" class="mr-3">

@@ -13,9 +13,7 @@
   <div class="table-responsive d-none-rm d-md-block-rm">
     <table class="table table-hover shadow-sm border">
       <thead>
-        <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
-            p-4" style="font-size: 1rem;">
+        <tr class="bg-white text-dark p-4" style="font-size: 1rem;">
           <th>
             Product ID
           </th>

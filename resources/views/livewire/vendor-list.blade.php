@@ -5,10 +5,7 @@
     <div class="table-responsive bg-white border shadow-sm">
       <table class="table table-hover mb-0">
         <thead>
-          <tr class="
-              {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
-              ">
+          <tr class="bg-white text-dark">
             <th>ID</th>
             <th>Name</th>
             <th>Pending</th>

@@ -13,7 +13,7 @@
           <table class="table table-hover mb-0">
             @if (true)
             <thead>
-              <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }} border-top">
+              <tr class="bg-white text-dark">
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>

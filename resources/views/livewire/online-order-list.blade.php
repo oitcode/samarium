@@ -106,7 +106,7 @@
       <div class="table-responsive mb-3 d-none d-md-block">
         <table class="table table-hover border">
           <thead>
-            <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}"  style="font-size: 1.1rem;">
+            <tr class="bg-white text-dark"  style="font-size: 1.1rem;">
               <th style="width: 120px;">
                 Order ID
               </th>

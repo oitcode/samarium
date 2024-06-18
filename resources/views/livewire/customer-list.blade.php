@@ -105,7 +105,7 @@
     <div class="table-responsive border d-none d-md-block">
       <table class="table table-hover mb-0">
         <thead>
-          <tr class="{{ env('OC_ASCENT_BG_COLOR') }} {{ env('OC_ASCENT_TEXT_COLOR') }}" style="font-size: 1rem;">
+          <tr class="bg-white text-dark" style="font-size: 1rem;">
             <th>Name</th>
             <th>Phone</th>
             <th>Balance</th>
