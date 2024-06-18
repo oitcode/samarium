@@ -37,7 +37,7 @@
   {{-- Today --}}
   @if (true)
   <div class="mb-3">
-    @livewire ('calendar.website.today-display', ['selectedCalendarGroup' => $selectedCalendarGroup,])
+  @livewire ('calendar.website.today-display', ['selectedCalendarGroup' => $selectedCalendarGroup,])
   </div>
   @endif
 

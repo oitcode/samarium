@@ -222,5 +222,6 @@ class CalendarComponent extends Component
     public function selectCalendarGroup(CalendarGroup $calendarGroup)
     {
         $this->selectedCalendarGroup = $calendarGroup;
+        $this->emit('calendarGroupSelected');
     }
 }

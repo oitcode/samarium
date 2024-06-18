@@ -16,6 +16,10 @@ class TodayDisplay extends Component
 
     public $calendarGroups;
 
+    protected $listeners = [
+        'calendarGroupSelected' => 'render',
+    ];
+
     public function mount()
     {
         $this->calendarGroups = CalendarGroup::all();
