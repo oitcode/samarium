@@ -93,7 +93,9 @@
         --}}
         <div class="py-3-rm">
           @yield ('content')
+          @if (false)
           @include ('partials.dashboard.pkg-branding')
+          @endif
         </div>
 
       </div>
