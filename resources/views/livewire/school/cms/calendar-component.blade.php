@@ -164,20 +164,12 @@
                       @if ($day['is_holiday']) table-danger @endif
                   "
               >
-                <td class="d-block-rm d-md-table-cell-rm border-0 w-50">
-                  <div>
-                    <span class="mr-3 font-weight-bold-rm">
+                <td class="border-0 w-50">
+                    <span class="mr-3-rm font-weight-bold-rm" style="display: inline-block; min-width: 100px !important;;">
                       {{ $displayMonthName }}
                       {{ $loop->iteration }}
                     </span>
-                    <span class="text-secondary-rm mr-3">
-                      @if (false)
-                      {{ $day['day']->format('Y F d') }}
-                      {{ $day['day']->format('F d') }}
-                      @endif
-                    </span>
-                    @if (true)
-                    <span class="text-secondary-rm mr-3" style="font-size: 0.7rem;">
+                    <span class="text-secondary-rm mr-3-rm" style="font-size: 0.7rem;">
                       {{ $day['day']->isoFormat('ddd') }}
                     </span>
                     @if (\Carbon\Carbon::today() == $day['day'])
@@ -185,10 +177,6 @@
                         TODAY
                       </span>
                     @endif
-                    @endif
-                  </div>
-                  <div>
-                  </div>
                 </td>
                 @if (false)
                 <td class="font-weight-bold-rm d-block d-md-table-cell border-0">
