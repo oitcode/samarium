@@ -260,7 +260,7 @@
   @endif
 
 
-  @if (preg_match("/school/i", env('MODULES')))
+  @if (preg_match("/calendar/i", env('MODULES')))
 
     @if ($modes['school'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
