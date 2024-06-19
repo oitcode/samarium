@@ -165,8 +165,10 @@
                   "
               >
                 <td class="border-0 w-50">
-                    <span class="mr-3-rm font-weight-bold-rm" style="display: inline-block; min-width: 100px !important;;">
+                    <span class="mr-3-rm font-weight-bold-rm" style="display: inline-block; min-width: 50px !important;;">
+                      @if (false)
                       {{ $displayMonthName }}
+                      @endif
                       {{ $loop->iteration }}
                     </span>
                     <span class="text-secondary-rm mr-3-rm" style="font-size: 0.7rem;">
