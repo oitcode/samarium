@@ -69,7 +69,8 @@ class AppLeftMenu extends Component
         ) {
             $this->enterModeSilent('team');
         } else if (
-            $uri == '/dashboard/school/calendar'
+            $uri == '/dashboard/school/calendar' ||
+            $uri == '/dashboard/calendar/calendar-group'
         ) {
             $this->enterModeSilent('school');
         } else if (
