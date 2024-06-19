@@ -30,9 +30,18 @@
       <strong style="{{-- text-shadow: 0.5px 0 {{ env('OC_UNSELECT_TXT_COLOR') }}; font-weight:bold; --}}">
         {{ $btnText }}
       </strong>
-      <span  class="ml-5" wire:loading>
-        ...
-      </span>
+      <div class="ml-5" wire:loading wire:target="{{ $btnClickMethod }}">
+        <span class="spinner-border text-primary" role="status" style="font-size: 0.5rem; !important">
+        </span>
+        @if (false)
+        <span class="spinner-grow text-secondary" role="status" style="font-size: 0.5rem; !important">
+        </span>
+        <span class="spinner-grow text-success" role="status" style="font-size: 0.5rem; !important">
+        </span>
+        <span class="spinner-grow text-danger" role="status" style="font-size: 0.5rem !important;">
+        </span>
+        @endif
+      </div>
     </div>
     <div>
       <i class="fas fa-angle-down mr-3"></i>
