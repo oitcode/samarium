@@ -171,6 +171,9 @@
                       @endif
                       {{ $loop->iteration }}
                     </span>
+                    <span class="text-secondary mr-3-rm" style="display: inline-block; min-width: 50px !important;font-size: 0.6rem;">
+                      {{ $day['day']->format('j') }}
+                    </span>
                     <span class="text-secondary-rm mr-3-rm" style="font-size: 0.7rem;">
                       {{ $day['day']->isoFormat('ddd') }}
                     </span>
