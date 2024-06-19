@@ -1,4 +1,4 @@
-<div class="container pb-3">
+<div class="container">
 
   <div class="d-flex">
     @if ($calendarGroups && count($calendarGroups) > 0)
@@ -36,7 +36,7 @@
 
   {{-- Today --}}
   @if (true)
-  <div class="my-3">
+  <div class="mb-3">
   @if (false)
   @livewire ('calendar.website.today-display', ['selectedCalendarGroup' => $selectedCalendarGroup,])
   @endif
