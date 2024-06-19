@@ -40,7 +40,7 @@
   @if (false)
   @livewire ('calendar.website.today-display', ['selectedCalendarGroup' => $selectedCalendarGroup,])
   @endif
-  <div class="border bg-dark-rm text-white-rm" style="">
+  <div class="border bg-white text-white-rm" style="">
     <div class="h6 px-2 mb-0 mt-3 text-muted-rm mb-2">
       <span class="text-success-rm p-1-rm border-rm border-danger-rm px-2-rm bg-success-rm text-white-rm font-weight-bold text-dark-rm badge
       badge-dark">
@@ -48,7 +48,7 @@
       </span>
       </br>
       </br>
-      <span class="h4 font-weight-bold">
+      <span class="h6 font-weight-bold">
       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($today['day']->toDateString(), 'english')  }}
       2081,
       {{ $today['day']->format('l') }}
@@ -206,16 +206,21 @@
                   @endif
                   @foreach ($day['events'] as $event)
 
-                    <span class="badge-rm badge-pill-rm badge-primary-rm h5" style="font-size: 0.9rem;">
-                      @if ($selectedCalendarGroup)
-                      @else
-                        @foreach ($event->calendarGroups as $calendarGroup)
-                          {{ $calendarGroup->name }}
-                          :&nbsp;&nbsp;
-                        @endforeach
-                      @endif
-                      {{ $event->title }}
-                    </span>
+                    <div class="d-flex">
+                      <div class="mr-2">
+                        <i class="fas fa-calendar text-muted"></i>
+                      </div>
+                      <div>
+                        @if ($selectedCalendarGroup)
+                        @else
+                          @foreach ($event->calendarGroups as $calendarGroup)
+                            {{ $calendarGroup->name }}
+                            :&nbsp;&nbsp;
+                          @endforeach
+                        @endif
+                        {{ $event->title }}
+                      </div>
+                    </div>
                   @endforeach
                 </td>
               </tr>
