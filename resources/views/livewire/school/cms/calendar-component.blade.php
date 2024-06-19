@@ -94,13 +94,13 @@
                   "
               >
                 <td class="border-0 w-50">
-                    <span class="mr-3-rm font-weight-bold-rm" style="display: inline-block; min-width: 50px !important;;">
+                    <span class="mr-3-rm font-weight-bold-rm" style="display: inline-block; min-width: 30px !important;;">
                       @if (false)
                       {{ $displayMonthName }}
                       @endif
                       {{ $loop->iteration }}
                     </span>
-                    <span class="text-secondary mr-3-rm" style="display: inline-block; min-width: 50px !important;font-size: 0.6rem;">
+                    <span class="text-secondary mr-3-rm" style="display: inline-block; min-width: 30px !important;font-size: 0.6rem;">
                       {{ $day['day']->format('j') }}
                     </span>
                     <span class="text-secondary-rm mr-3-rm" style="font-size: 0.7rem;">
