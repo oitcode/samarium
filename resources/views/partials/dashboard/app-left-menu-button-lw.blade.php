@@ -21,7 +21,7 @@
       bg-white
     @endisset
     m-0 py-3 w-100 text-left rounded-0 font-weight-bold text-white"
-    style="font-size: calc(0.7rem + 0.15vw); " wire:click="{{ $btnClickMethod }}">
+    style="font-size: calc(0.7rem + 0.15vw); " wire:click="{{ $btnClickMethod }}" wire:key="{{ rand() + $btnCheckMode }}">
   <div class="d-flex justify-content-between">
     <div>
       <strong>
