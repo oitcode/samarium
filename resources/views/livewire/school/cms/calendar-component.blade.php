@@ -41,14 +41,23 @@
   <div class="border bg-white p-0">
     @if ($displayMonthName)
       <div class="d-flex justify-content-between">
-        <h3 class="h4 text-center py-4 mb-0 bg-dark-rm text-dark pl-1"
+        <h3 class="h5 text-center py-4 mb-0 bg-dark-rm text-dark pl-1"
             style="{{--background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;
                 color:@if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_text_color }} @else @endif ;--}} 
             ">
+          @if (false)
           <span class="mr-2">
             2081
           </span>
-          {{ $displayMonthName }}
+          @endif
+          <span class="mr-2">
+            {{ $displayMonthName }}
+          </span>
+          <span class="text-muted mr-2" style="font-size: 0.8rem;">
+            {{ $monthBook[0]['day']->format('F') }}
+            /
+            {{ \Carbon\Carbon::create($monthBook[0]['day']->copy()->addMonth())->format('F') }}
+          </span>
         </h3>
         <div class="d-flex flex-column justify-content-center">
           <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
