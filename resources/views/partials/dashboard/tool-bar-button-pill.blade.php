@@ -76,10 +76,14 @@
       wire:click="{{ $btnClickMethod }}" role="button">
     <div class="">
       <div class="">
-        <i class="{{ $btnIconFaClass }} mr-2 p-0"></i>
-        <strong>
-          {{ $btnText }}
-        </strong>
+        @if ($btnText != '')
+          <i class="{{ $btnIconFaClass }} @if ($btnText != '') mr-2 @endif p-0"></i>
+          <strong>
+            {{ $btnText }}
+          </strong>
+        @else
+          <i class="{{ $btnIconFaClass }} @if ($btnText != '') mr-2 @endif p-0"></i>
+        @endif
       </div>
     </div>
   </div>

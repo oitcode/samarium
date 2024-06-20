@@ -4,17 +4,9 @@
     Theme settings
   </x-component-header>
 
+  {{-- Flash message div --}}
   @if (session()->has('message'))
-    {{-- Flash message div --}}
-    <div class="p-2">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle mr-3"></i>
-        {{ session('message') }}
-        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-          <span class="text-success" aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
+    @include ('partials.flash-message-modal', ['message' => session('message'),])
   @endif
 
   {{-- Top header color --}}
