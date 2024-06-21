@@ -182,9 +182,9 @@
           | Social media  links
           |
           --}}
-          <li class="nav-item p-0 bg-transparent text-white-rm border-bottom-rm text-center-rm m-0">
-            <div class="nav-link h4 text-reset font-weight-bold">
-              <div class="p-3" style="background-color: rgba(0, 0, 0, 0.5);">
+          <li class="nav-item p-0 bg-transparent text-center-rm m-0">
+            <div class="nav-link text-reset">
+              <div class="p-3" style="background-color: rgba(0, 0, 0, 0.0);">
                 <div class="d-flex">
                   @if ($company->fb_link)
                     <div class="mr-3">
@@ -367,9 +367,9 @@
           | Social media  links
           |
           --}}
-          <li class="nav-item p-0 bg-transparent text-white-rm border-bottom-rm text-center-rm m-0">
-            <div class="nav-link h4 text-reset font-weight-bold">
-              <div class="p-3" style="background-color: rgba(0, 0, 0, 0.5);">
+          <li class="nav-item p-0 bg-transparent text-center-rm m-0">
+            <div class="nav-link text-reset">
+              <div class="p-3" style="background-color: rgba(0, 0, 0, 0.0);">
                 <div class="d-flex">
                   @if ($company->fb_link)
                     <div class="mr-3">
