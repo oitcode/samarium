@@ -146,39 +146,32 @@
                 @if (false)
                 <i class="fas fa-user mr-3"></i>
                 @endif
-                <span class="font-weight-bold">
-                Login
+                <span class="btn btn-success badge-pill px-3"
+                    {{--
+                    style="
+                        background-color: {{ \App\CmsTheme::first()->top_header_text_color }};
+                        color: {{ \App\CmsTheme::first()->top_header_bg_color }};
+                        "
+                    --}}
+                >
+                  Login
                 </span>
               </a>
             </li>
-            @if (false)
-            <li class="nav-item border bg-light-rm text-dark-rm p-3">
-              <a class="nav-link text-dark" href="{{ route('register') }}">
-                <i class="fas fa-lock mr-3"></i>
-                <span class="font-weight-bold">
-                Sign up
-                </span>
-              </a>
-            </li>
-            @endif
           @else
-            @if (false)
-            <li class="nav-item border bg-light text-dark p-3">
-              <a class="nav-link text-dark" href="{{ route('website-user-profile') }}">
-                <i class="fas fa-user mr-3"></i>
-                <span class="font-weight-bold">
-                My profile
-                </span>
-              </a>
-            </li>
-            @endif
             <li class="nav-item border bg-light-rm text-dark-rm px-2 py-1">
               <a class="nav-link text-dark h6" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
               >
-                <i class="fas fa-power-off mr-2 text-danger font-weight-bold"></i>
-                <span class="text-danger font-weight-bold">
+                <span class="btn btn-danger badge-pill px-3"
+                    {{--
+                    style="
+                        background-color: {{ \App\CmsTheme::first()->top_header_text_color }};
+                        color: {{ \App\CmsTheme::first()->top_header_bg_color }};
+                        "
+                    --}}
+                >
                 Logout
               </a>
             </li>
