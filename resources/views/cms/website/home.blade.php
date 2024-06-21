@@ -222,18 +222,7 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
         |
         | Show a cool grid of pages
         |
-        |
-        |
         --}}
-        <div>
-          <div class="px-3">
-            <h2 class="h4 font-weight-bold">
-              Latest posts
-            </h2>
-          </div>
-          @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
-        </div>
-
         @if (true)
         @if (\App\Webpage::whereHas('webpageCategories', function ($query) { $query->where('name', 'featured');})->where('visibility', 'public')->count() > 0)
         <div class="mb-4 px-2">
@@ -275,11 +264,6 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
                       </div>
                     </div>
 
-
-
-
-
-
                   </div>
                 </a>
               </div>
@@ -289,8 +273,19 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
         @endif
         @endif
 
-
-
+        {{--
+        |
+        | Show latest posts.
+        |
+        --}}
+        <div>
+          <div class="px-3">
+            <h2 class="h4 font-weight-bold">
+              Latest posts
+            </h2>
+          </div>
+          @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
+        </div>
 
 
       </div>
