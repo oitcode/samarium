@@ -113,6 +113,21 @@
           <div class="col-md-4">
             @if (true)
             <label style="min-width: 200px;">
+              <i class="fas fa-circle mr-1"></i>
+              Short name
+            </label>
+            @endif
+          </div>
+          <div class="col-md-8">
+            <input type="text" class="form-control" wire:model.defer="short_name" style="{{-- font-size: 1.3rem; --}}">
+            @error('short_name') <span class="text-danger">{{ $message }}</span> @enderror
+          </div>
+        </div>
+
+        <div class="form-row mb-3">
+          <div class="col-md-4">
+            @if (true)
+            <label style="min-width: 200px;">
               <i class="fas fa-info-circle mr-1"></i>
               Tagline
             </label>

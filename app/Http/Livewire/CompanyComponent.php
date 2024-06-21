@@ -18,6 +18,7 @@ class CompanyComponent extends Component
     public $company = null;
 
     public $name;
+    public $short_name;
     public $tagline;
     public $phone;
     public $email;
@@ -74,6 +75,7 @@ class CompanyComponent extends Component
 
         if ($this->company) {
             $this->name = $this->company->name;
+            $this->short_name = $this->company->short_name;
             $this->tagline = $this->company->tagline;
             $this->phone = $this->company->phone;
             $this->email = $this->company->email;
@@ -120,6 +122,7 @@ class CompanyComponent extends Component
     {
         $validatedData = $this->validate([
             'name' => 'required',
+            'short_name' => 'nullable',
             'tagline' => 'required',
             'phone' => 'required',
             'email' => 'required',

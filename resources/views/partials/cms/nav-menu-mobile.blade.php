@@ -263,7 +263,9 @@
       <a class="navbar-brand p-3 text-reset" href="{{ route('website-home') }}" style="{{--color: #000;--}}">
         <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 60px;">
         <span class="h6 font-weight-bold ml-2"  style="width: 200 px !important;">
-          @if (true)
+          @if ($company->short_name)
+            {{ \Illuminate\Support\Str::limit($company->short_name, 25, $end=' ...') }}
+          @else
             {{ \Illuminate\Support\Str::limit($company->name, 25, $end=' ...') }}
           @endif
         </span>
