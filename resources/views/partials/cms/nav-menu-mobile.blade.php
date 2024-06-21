@@ -114,7 +114,7 @@
                   </a>
                 </li>
               @else
-                <li class="nav-item dropdown px-2 py-1 border">
+                <li class="nav-item dropdown px-2 py-1 border-bottom">
                   <a class="nav-link dropdown-toggle h6 mb-0 text-dark-rm font-weight-bold-rm text-reset" href="#"
                       id="navbarDropdown-{{ $cmsNavMenuItem->name }}"
                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -306,7 +306,7 @@
                   </a>
                 </li>
               @else
-                <li class="nav-item dropdown px-2 py-1 border">
+                <li class="nav-item dropdown px-2 py-1 border-bottom">
                   <a class="nav-link dropdown-toggle h6 mb-0 text-dark-rm font-weight-bold-rm text-reset" href="#"
                       id="navbarDropdown-{{ $cmsNavMenuItem->name }}"
                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
