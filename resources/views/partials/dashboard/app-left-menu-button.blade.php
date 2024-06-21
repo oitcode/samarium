@@ -16,8 +16,8 @@
         "
       style="font-size: calc(0.7rem + 0.15vw);
         @if(Route::current()->getName() == $btnRoute)
+          background-color: rgba(0, 0, 0, 0.3);
           {{--
-          background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
           color: {{ env('OC_SELECT_TXT_COLOR') }};
           --}}
         @else
