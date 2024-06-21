@@ -107,7 +107,7 @@
           @if ($cmsNavMenu)
             @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
               @if ($cmsNavMenuItem->type == 'item')
-                <li class="nav-item px-2 py-1 bg-transparent text-white-rm border-bottom text-center-rm">
+                <li class="nav-item px-2 py-1 bg-transparent border-bottom">
                   <a class="nav-link h6 text-reset font-weight-bold-rm mb-0"
                       href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
                     {{ $cmsNavMenuItem->name }}
@@ -115,7 +115,7 @@
                 </li>
               @else
                 <li class="nav-item dropdown px-2 py-1 border-bottom">
-                  <a class="nav-link dropdown-toggle h6 mb-0 text-dark-rm font-weight-bold-rm text-reset" href="#"
+                  <a class="nav-link dropdown-toggle h6 mb-0 text-reset" href="#"
                       id="navbarDropdown-{{ $cmsNavMenuItem->name }}"
                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ $cmsNavMenuItem->name }}
@@ -123,7 +123,7 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{ $cmsNavMenuItem->name }}">
                     @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
                       @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
-                        <a class="dropdown-item" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
+                        <a class="dropdown-item bg-transparent" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
                           {{ $cmsNavMenuDropdownItem->name }}
                         </a>
                       @endforeach
@@ -141,8 +141,8 @@
           |
           --}}
           @guest
-            <li class="nav-item px-2 py-1">
-              <a class="nav-link text-reset h4" href="{{ route('login') }}">
+            <li class="nav-item px-2 py-1 border-bottom">
+              <a class="nav-link text-reset" href="{{ route('login') }}">
                 @if (false)
                 <i class="fas fa-user mr-3"></i>
                 @endif
@@ -159,8 +159,8 @@
               </a>
             </li>
           @else
-            <li class="nav-item border bg-light-rm text-dark-rm px-2 py-1">
-              <a class="nav-link text-dark h6" href="{{ route('logout') }}"
+            <li class="nav-item px-2 py-1 border-bottom">
+              <a class="nav-link text-dark" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
               >
@@ -182,7 +182,7 @@
           | Social media  links
           |
           --}}
-          <li class="nav-item p-2 bg-transparent text-white-rm border-bottom-rm text-center-rm">
+          <li class="nav-item p-0 bg-transparent text-white-rm border-bottom-rm text-center-rm m-0">
             <div class="nav-link h4 text-reset font-weight-bold">
               <div class="p-3" style="background-color: rgba(0, 0, 0, 0.5);">
                 <div class="d-flex">
@@ -292,7 +292,7 @@
           @if ($cmsNavMenu)
             @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
               @if ($cmsNavMenuItem->type == 'item')
-                <li class="nav-item px-2 py-1 bg-transparent text-white-rm border-bottom text-center-rm">
+                <li class="nav-item px-2 py-1 bg-transparent border-bottom">
                   <a class="nav-link h6 text-reset font-weight-bold-rm mb-0"
                       href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
                     {{ $cmsNavMenuItem->name }}
@@ -300,7 +300,7 @@
                 </li>
               @else
                 <li class="nav-item dropdown px-2 py-1 border-bottom">
-                  <a class="nav-link dropdown-toggle h6 mb-0 text-dark-rm font-weight-bold-rm text-reset" href="#"
+                  <a class="nav-link dropdown-toggle h6 mb-0 text-reset" href="#"
                       id="navbarDropdown-{{ $cmsNavMenuItem->name }}"
                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ $cmsNavMenuItem->name }}
@@ -308,7 +308,7 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{ $cmsNavMenuItem->name }}">
                     @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
                       @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
-                        <a class="dropdown-item" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
+                        <a class="dropdown-item bg-transparent" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
                           {{ $cmsNavMenuDropdownItem->name }}
                         </a>
                       @endforeach
@@ -326,41 +326,37 @@
           |
           --}}
           @guest
-            <li class="nav-item p-3">
-              <a class="nav-link text-reset h4" href="{{ route('login') }}">
+            <li class="nav-item px-2 py-1 border-bottom">
+              <a class="nav-link text-reset" href="{{ route('login') }}">
+                @if (false)
                 <i class="fas fa-user mr-3"></i>
-                <span class="font-weight-bold">
-                Login
+                @endif
+                <span class="btn btn-success badge-pill px-3"
+                    {{--
+                    style="
+                        background-color: {{ \App\CmsTheme::first()->top_header_text_color }};
+                        color: {{ \App\CmsTheme::first()->top_header_bg_color }};
+                        "
+                    --}}
+                >
+                  Login
                 </span>
               </a>
             </li>
-            @if (false)
-            <li class="nav-item border bg-light-rm text-dark-rm p-3">
-              <a class="nav-link text-dark" href="{{ route('register') }}">
-                <i class="fas fa-lock mr-3"></i>
-                <span class="font-weight-bold">
-                Sign up
-                </span>
-              </a>
-            </li>
-            @endif
           @else
-            @if (false)
-            <li class="nav-item border bg-light text-dark p-3">
-              <a class="nav-link text-dark" href="{{ route('website-user-profile') }}">
-                <i class="fas fa-user mr-3"></i>
-                <span class="font-weight-bold">
-                My profile
-                </span>
-              </a>
-            </li>
-            @endif
-            <li class="nav-item border bg-light-rm text-dark-rm px-2">
-              <a class="nav-link text-dark h6" href="{{ route('logout') }}"
+            <li class="nav-item px-2 py-1 border-bottom">
+              <a class="nav-link text-dark" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
               >
-                <span class="text-danger font-weight-bold">
+                <span class="btn btn-danger badge-pill px-3"
+                    {{--
+                    style="
+                        background-color: {{ \App\CmsTheme::first()->top_header_text_color }};
+                        color: {{ \App\CmsTheme::first()->top_header_bg_color }};
+                        "
+                    --}}
+                >
                 Logout
               </a>
             </li>
@@ -371,9 +367,9 @@
           | Social media  links
           |
           --}}
-          <li class="nav-item p-2 bg-transparent text-white-rm border-bottom-rm text-center-rm">
+          <li class="nav-item p-0 bg-transparent text-white-rm border-bottom-rm text-center-rm m-0">
             <div class="nav-link h4 text-reset font-weight-bold">
-              <div class="p-3" style="background-color: rgba(0, 0, 0, 0.0);">
+              <div class="p-3" style="background-color: rgba(0, 0, 0, 0.5);">
                 <div class="d-flex">
                   @if ($company->fb_link)
                     <div class="mr-3">
