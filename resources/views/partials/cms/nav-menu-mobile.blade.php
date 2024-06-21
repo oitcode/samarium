@@ -120,10 +120,22 @@
                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ $cmsNavMenuItem->name }}
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{ $cmsNavMenuItem->name }}">
+                  <div class="dropdown-menu p-0 bg-transparent border-0" aria-labelledby="navbarDropdown-{{ $cmsNavMenuItem->name }}">
                     @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
                       @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
-                        <a class="dropdown-item bg-transparent" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
+                        <a class="nav-link-rm dropdown-item bg-success-rm text-white-rm text-decoration-none text-reset-rm py-1"
+
+                            style="
+                                color:
+                                @if (\App\CmsTheme::first())
+                                  {{ \App\CmsTheme::first()->top_header_text_color }}
+                                @else
+                                  white
+                                @endif;
+                            "
+                            href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}"
+                            onMouseOver="this.style.background='{{ \App\CmsTheme::first()->top_header_bg_color }}'; this.style.color='{{ \App\CmsTheme::first()->top_header_text_color }}'"
+                        >
                           {{ $cmsNavMenuDropdownItem->name }}
                         </a>
                       @endforeach
