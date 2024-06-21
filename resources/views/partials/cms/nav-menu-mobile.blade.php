@@ -171,7 +171,7 @@
               </a>
             </li>
           @else
-            <li class="nav-item px-2 py-1 border-bottom">
+            <li class="nav-item px-2 py-0 border-bottom">
               <a class="nav-link text-dark" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
@@ -196,7 +196,7 @@
           --}}
           <li class="nav-item p-0 bg-transparent text-center-rm m-0">
             <div class="nav-link text-reset">
-              <div class="p-3" style="background-color: rgba(0, 0, 0, 0.0);">
+              <div class="px-2 py-1" style="background-color: rgba(0, 0, 0, 0.0);">
                 <div class="d-flex">
                   @if ($company->fb_link)
                     <div class="mr-3">
