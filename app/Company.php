@@ -21,7 +21,7 @@ class Company extends Model
     protected $primaryKey = 'company_id';
 
     protected $fillable = [
-         'name', 'tagline', 'brief_description',
+         'name', 'short_name', 'tagline', 'brief_description',
          'phone', 'email', 'address',
          'pan_number', 'logo_image_path',
 
