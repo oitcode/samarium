@@ -141,7 +141,7 @@
           |
           --}}
           @guest
-            <li class="nav-item px-3">
+            <li class="nav-item px-2 py-1">
               <a class="nav-link text-reset h4" href="{{ route('login') }}">
                 @if (false)
                 <i class="fas fa-user mr-3"></i>
@@ -172,8 +172,8 @@
               </a>
             </li>
             @endif
-            <li class="nav-item border bg-light-rm text-dark-rm p-3">
-              <a class="nav-link text-dark h4" href="{{ route('logout') }}"
+            <li class="nav-item border bg-light-rm text-dark-rm px-2 py-1">
+              <a class="nav-link text-dark h6" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
               >
