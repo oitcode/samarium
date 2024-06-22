@@ -115,27 +115,6 @@
 <div class="d-md-none">
   <div class="" style="">
     <div class="row">
-      <div class="col-md-6 py-4 justify-content-end">
-        <div class="" style="
-          {{--
-          background-image: url({{ asset('storage/' . $webpage->featured_image_path) }});
-          background-size: 100% 100%;
-          background-size: 100% 100%;
-          background-repeat: no-repeat;
-          background-position: top left;
-          height: 500px;
-          --}}
-          {{--
-          background-attachment: fixed;
-          background-color: green;
-          --}}
-        ">
-        </div>
-        @if (true)
-        <img class="img-fluid" src="{{ asset('storage/' . $webpage->featured_image_path) }}" alt="{{ $webpage->name }}"
-        style="{{--max-height: 200px;width: 1200px;--}}">
-        @endif
-      </div>
       <div class="col-md-6 bg-danger-rm d-flex flex-column justify-content-center">
         <div class="mb-4-rm border-rm p-3 py-1 shadow-rm bg-dark-rm text-white-rm o-overlay-rm">
           <h1 class="h2 font-weight-bold text-center-rm text-white-rm" style="{{--font-family: Mono;--}}">
@@ -195,6 +174,27 @@
         </div>
         @endif
   
+      </div>
+      <div class="col-md-6 py-4 justify-content-end">
+        <div class="" style="
+          {{--
+          background-image: url({{ asset('storage/' . $webpage->featured_image_path) }});
+          background-size: 100% 100%;
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          background-position: top left;
+          height: 500px;
+          --}}
+          {{--
+          background-attachment: fixed;
+          background-color: green;
+          --}}
+        ">
+        </div>
+        @if (true)
+        <img class="img-fluid" src="{{ asset('storage/' . $webpage->featured_image_path) }}" alt="{{ $webpage->name }}"
+        style="{{--max-height: 200px;width: 1200px;--}}">
+        @endif
       </div>
     </div>
   </div>
