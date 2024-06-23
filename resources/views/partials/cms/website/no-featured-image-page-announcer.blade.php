@@ -83,10 +83,10 @@
       background-attachment: fixed;
       height: 500px;
       --}}
-      background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};
-      color: {{ \App\CmsTheme::first()->nav_menu_text_color }};
+      background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
+      color: {{ \App\CmsTheme::first()->ascent_text_color }};
   ;">
-    <div class="o-overlay text-white-rm h-100" style="
+    <div class="o-overlay-rm text-white-rm h-100" style="
       padding-top: 50px;
       padding-bottom: 50px;
     ">
