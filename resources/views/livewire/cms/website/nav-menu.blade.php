@@ -23,7 +23,7 @@
             color: {{ \App\CmsTheme::first()->nav_menu_text_color }};
         @endif
         ">
-      <div class="m-0" style="background-color: rgba(0, 0, 0, 0.5);">
+      <div class="m-0" style="background-color: rgba(0, 0, 0, 0.0);">
         <div class="container">
           <div class="d-flex justify-content-between">
             <div class="">
