@@ -49,7 +49,7 @@
     @livewireStyles
 </head>
 
-<body style="height: 100% !important;">
+<body style="height: 100% !important;" style="background-color: #ccc;">
 
 
     {{--
@@ -60,7 +60,7 @@
     <div class="h-100">
       <div class="d-flex justify-content-center h-100">
         <div class="d-flex flex-column justify-content-center">
-            <div class="mb-3 text-center">
+            <div class="text-center">
               <div class="my-3">
                 @if (\App\Company::first())
                   <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
@@ -74,14 +74,14 @@
               </div>
             </div>
 
-            <div class="p-3">
-              <div class="py-4 bg-primary-rm text-dark rounded border shadow-rm" style="background-color: #eee;">
-                <div class="h4 text-center" style="">
+            <div class="px-3">
+              <div class="py-4-rm bg-primary-rm text-dark font-weight-bold rounded border-rm shadow-rm" style="{{-- background-color: #eee; --}}">
+                <div class="h5 font-weight-bold text-center" style="">
                   Login
                 </div>
               </div>
-              <div class="bg-light-rm d-flex py-3" style="background-color: #eee;">
-                <div class="px-3 py-3">
+              <div class="bg-light-rm d-flex pt-5" style="{{--background-color: #eee;--}}">
+                <div class="px-3 py-3 border bg-white">
                   <form method="POST" action="{{ route('login') }}">
                       @csrf
 
@@ -91,13 +91,18 @@
                       |
                       --}}
                       <div class="form-group shadow-sm-rm mb-3">
+                        <label>
+                          Email
+                        </label>
                         <input id="email" type="email"
-                            class="form-control @error('email') is-invalid @enderror badge-pill px-4"
+                            class="form-control @error('email') is-invalid @enderror badge-pill-rm px-4-rm"
                             style="font-size: 1.2rem;"
                             name="email" value="{{ old('email') }}"
                             required
                             autocomplete="email"
+                            {{--
                             placeholder="Email"
+                            --}}
                             autofocus>
 
                         @error('email')
@@ -114,12 +119,17 @@
                       --}}
                       <div class="form-group shadow-sm-rm mb-2">
 
+                          <label>
+                            Password
+                          </label>
                           <input id="password" type="password"
-                              class="form-control @error('password') is-invalid @enderror badge-pill px-4"
+                              class="form-control @error('password') is-invalid @enderror badge-pill-rm px-4-rm"
                               style="font-size: 1.2rem;"
                               name="password"
                               required
+                              {{--
                               placeholder="Password"
+                              --}}
                               autocomplete="current-password">
 
                           @error('password')
@@ -151,13 +161,13 @@
                       | Login button
                       |
                       --}}
-                      <div class="form-group mt-4 mb-1">
-                          <button type="submit" class="btn btn-dark badge-pill btn-block py-3 text-white shadow"
+                      <div class="form-group mt-4 mb-0">
+                          <button type="submit" class="btn btn-dark badge-pill-rm btn-block py-3 text-white shadow-rm"
                               style="">
-                              <span class="h5">
-                                {{ __('Login') }}
-                              </span>
+                              {{ __('Login') }}
+                              @if (false)
                               <i class="fas fa-chevron-right ml-2"></i>
+                              @endif
                           </button>
 
                           @if (false)
@@ -185,7 +195,9 @@
                 {{ date('Y M d') }}
                 <br/>
                 @endif
-                OIT Ozone v0.8.5
+                <small>
+                  OIT Ozone v0.8.5
+                </small>
               </div>
             </div>
 
