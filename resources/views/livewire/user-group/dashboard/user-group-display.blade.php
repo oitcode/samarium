@@ -79,6 +79,16 @@
 
   </div>
 
+  <div class="bg-white border p-3 my-3">
+    <h2 class="h6 font-weight-bold">
+      Users
+    </h2>
+    @foreach ($userGroup->users as $user)
+      <div>
+        {{ $user->name }}
+      </div>
+    @endforeach
+  </div>
 
   <div class="bg-white border p-3 my-3">
     @if (false)

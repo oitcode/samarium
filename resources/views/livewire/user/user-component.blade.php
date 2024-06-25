@@ -10,6 +10,8 @@
   {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Users">
 
+    @include ('partials.dashboard.spinner-button')
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createUserMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -35,12 +37,11 @@
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-refresh',
+        'btnIconFaClass' => 'fas fa-times',
         'btnText' => '',
         'btnCheckMode' => '',
     ])
 
-    @include ('partials.dashboard.spinner-button')
   </x-toolbar-classic>
 
 

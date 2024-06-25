@@ -21,7 +21,7 @@ class UserGroup extends Model
     protected $primaryKey = 'user_group_id';
 
     protected $fillable = [
-         'name','description', 'creator_id',
+         'user_id','user_group_id', 
     ];
 
 
@@ -38,5 +38,14 @@ class UserGroup extends Model
     public function creator()
     {
         return $this->belongsTo('App\User', 'creator_id', 'id');
+    }
+
+    /*
+     * user table.
+     *
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\User', 'user__user_group', 'user_group_id', 'user_id');
     }
 }
