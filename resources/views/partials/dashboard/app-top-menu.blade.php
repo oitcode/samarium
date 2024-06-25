@@ -97,7 +97,7 @@
 
     {{-- Help/Support --}}
     <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
-      <a href="{{ route('dashboard-help') }}">
+      <a href="{{ route('dashboard-help') }}" class="text-reset">
         <i  class="fas fa-question-circle text-dark-rm mr-2" style="color: {{ env('OC_SELECT_TXT_COLOR') }}"></i>
       </a>
     </div>
@@ -109,7 +109,7 @@
 
     {{-- Go to website --}}
     <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
-      <a href="/" target="_blank">
+      <a href="/" target="_blank" class="text-reset">
         <i  class="fas fa-globe text-dark-rm mr-2" style="color: {{ env('OC_SELECT_TXT_COLOR') }}"></i>
       </a>
     </div>

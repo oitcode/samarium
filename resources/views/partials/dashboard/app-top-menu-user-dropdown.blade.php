@@ -1,7 +1,7 @@
 <div class="float-right text-white-rm border-right-rm" style="{{--font-size: 1.3rem;--}}">
   <div class="dropdown">
     <button class="btn btn-light-rm text-white-rm dropdown-toggle-rm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-user-circle mr-2" style="font-size: 1.3rem; color: {{ env('OC_SELECT_TXT_COLOR') }};"></i>
+      <i class="fas fa-user-circle mr-2 text-white" style="font-size: 1.3rem;"></i>
       @if (false)
       {{ Auth::user()->name }}
       @endif
