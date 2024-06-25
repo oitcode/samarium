@@ -1,34 +1,3 @@
-@if ($company->companyInfos()->where('info_key', 'Associated with')->first())
-    <div class="container-fluid mb-5 border-top">
-      <div class="container">
-        <h2 class="h6 font-weight-bold my-4 text-center">
-          {{ $company->companyInfos()->where('info_key', 'Associated with')->first()->info_key }}
-        </h2>
-        <div class="row" style="margin: auto;">
-          @foreach ($company->companyInfos()->where('info_key', 'Associated with')->get() as $companyInfo)
-            <div class="col-6 col-md-3 font-weight-bold border-rm p-3 mb-0" style="font-family: Mono;">
-              <div class="d-flex flex-column justify-content-between">
-                <div class="text-center mb-4">
-                  {{ $companyInfo->info_value }}
-                </div>
-                <div class="flex-grow-1">
-                  <div class="d-flex flex-column justify-content-center h-100">
-                    <div class="d-flex justify-content-center">
-                      @if ($companyInfo->image_path)
-                        <img src="{{ asset('storage/' . $companyInfo->image_path) }}" class="img-fluid" style="max-height: 150px; max-width: 150px;">
-                      @else
-                      @endif
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          @endforeach
-        </div>
-      </div>
-    </div>
-@endif
-
 <div class="border-top bg-white">
 
 
@@ -261,6 +230,39 @@
     </div>
   </div>
 
+@if ($company->companyInfos()->where('info_key', 'Associated with')->first())
+    <div class="container-fluid mb-5 border-top">
+      <div class="container">
+        <h2 class="h6 font-weight-bold my-4 text-center">
+          {{ $company->companyInfos()->where('info_key', 'Associated with')->first()->info_key }}
+        </h2>
+        <div class="row" style="margin: auto;">
+          @foreach ($company->companyInfos()->where('info_key', 'Associated with')->get() as $companyInfo)
+            <div class="col-6 col-md-3 font-weight-bold border-rm p-3 mb-0" style="font-family: Mono;">
+              <div class="d-flex flex-column justify-content-between">
+                @if (false)
+                <div class="text-center mb-4">
+                  {{ $companyInfo->info_value }}
+                </div>
+                @endif
+                <div class="flex-grow-1">
+                  <div class="d-flex flex-column justify-content-center h-100">
+                    <div class="d-flex justify-content-center">
+                      @if ($companyInfo->image_path)
+                        <img src="{{ asset('storage/' . $companyInfo->image_path) }}" class="img-fluid" style="max-height: 150px; max-width: 150px;">
+                      @else
+                      @endif
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @endforeach
+        </div>
+      </div>
+    </div>
+@endif
+
   <div class="container py-3">
     @if (true)
     <h2 class="h5 text-dark font-weight-bold mb-3">
@@ -276,6 +278,7 @@
     </div>
     @endif
   </div>
+
 
   <div class="container-fluid bg-info-rm border py-2 pb-2 text-white-rm" style="{{--background-color: #101530;--}}">
     <div class="container">
