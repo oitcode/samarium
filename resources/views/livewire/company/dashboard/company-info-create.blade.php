@@ -21,6 +21,17 @@
       @error('info_value') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
+    <div class="form-group">
+      <label class="h5">
+        Image
+        <span class="text-muted ml-1" style="font-size: 0.7rem">
+        (Optional)
+        </span>
+      </label>
+      <input type="file" class="form-control border-0 pl-0" wire:model="image">
+      @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+    </div>
+
     <div class="mt-4">
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'companyInfoCreateCanceled',])

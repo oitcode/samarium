@@ -28,6 +28,7 @@ class CompanyInfo extends Model
     protected $fillable = [
          'company_id',
          'info_key', 'info_value',
+         'image_path',
     ];
 
     /**

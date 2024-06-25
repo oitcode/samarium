@@ -7,6 +7,31 @@
 |
 --}}
 
+@if ($company->companyInfos()->where('info_key', 'Associated with')->first())
+    <div class="container-fluid my-5 border-top">
+      <div class="container">
+        <h2 class="h6 font-weight-bold my-4 text-center">
+          {{ $company->companyInfos()->where('info_key', 'Associated with')->first()->info_key }}
+        </h2>
+        <div class="row" style="margin: auto;">
+          @foreach ($company->companyInfos()->where('info_key', 'Associated with')->get() as $companyInfo)
+            <div class="col-6 col-md-3 font-weight-bold border-rm p-3 mb-0" style="font-family: Mono;">
+              <div class="d-flex flex-column justify-content-center h-100">
+                <div class="text-center mb-4">
+                  {{ $companyInfo->info_value }}
+                </div>
+                @if ($companyInfo->image_path)
+                  <img src="{{ asset('storage/' . $companyInfo->image_path) }}" class="img-fluid" style="{{--height: 75px;--}}">
+                @else
+                @endif
+              </div>
+            </div>
+          @endforeach
+        </div>
+      </div>
+    </div>
+@endif
+
 <div class="border-top"
      style="
       background-color:
