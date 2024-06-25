@@ -214,7 +214,6 @@
             @endif
           </div>
 
-          <hr />
           <div class="">
             @if (false)
             <img src="{{ asset('storage/' . $company->logo_image_path) }}"
@@ -231,7 +230,7 @@
   </div>
 
 @if ($company->companyInfos()->where('info_key', 'Associated with')->first())
-    <div class="container-fluid mb-5 border-top">
+    <div class="container-fluid mb-5-rm border-top border-bottom">
       <div class="container">
         <h2 class="h6 font-weight-bold my-4 text-center">
           {{ $company->companyInfos()->where('info_key', 'Associated with')->first()->info_key }}
