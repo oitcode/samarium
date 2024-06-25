@@ -13,10 +13,12 @@
                 </div>
                 <div class="flex-grow-1">
                   <div class="d-flex flex-column justify-content-center h-100">
-                    @if ($companyInfo->image_path)
-                      <img src="{{ asset('storage/' . $companyInfo->image_path) }}" class="img-fluid" style="{{--height: 75px;--}}">
-                    @else
-                    @endif
+                    <div class="d-flex justify-content-center">
+                      @if ($companyInfo->image_path)
+                        <img src="{{ asset('storage/' . $companyInfo->image_path) }}" class="img-fluid" style="max-height: 150px; max-width: 150px;">
+                      @else
+                      @endif
+                    </div>
                   </div>
                 </div>
               </div>
