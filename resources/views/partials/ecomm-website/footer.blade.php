@@ -232,7 +232,7 @@
 @if ($company->companyInfos()->where('info_key', 'Associated with')->first())
     <div class="container-fluid mb-5-rm border-top border-bottom">
       <div class="container">
-        <h2 class="h6 font-weight-bold my-4 text-center">
+        <h2 class="h5 font-weight-bold my-4 text-center-rm">
           {{ $company->companyInfos()->where('info_key', 'Associated with')->first()->info_key }}
         </h2>
         <div class="row" style="margin: auto;">
