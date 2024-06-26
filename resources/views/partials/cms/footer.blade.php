@@ -69,24 +69,24 @@
           </div>
 
           <div class="col-md-3 mb-3">
-            <div class="h5 font-weight-bold">
-              ADDRESS
-            </div>
-            {{ $company->address }}
+              <div class="h5 font-weight-bold">
+                Address
+              </div>
+              {{ $company->address }}
           </div>
 
           <div class="col-md-3 mb-3">
-            <div class="h5 font-weight-bold">
-              PHONE
-            </div>
-            {{ $company->phone }}
+              <div class="h5 font-weight-bold">
+                Phone
+              </div>
+              {{ $company->phone }}
           </div>
 
           <div class="col-md-3 mb-3">
-            <div class="h5 font-weight-bold">
-              EMAIL
-            </div>
-            {{ $company->email }}
+              <div class="h5 font-weight-bold">
+                Email
+              </div>
+              {{ $company->email }}
           </div>
 
         </div>
