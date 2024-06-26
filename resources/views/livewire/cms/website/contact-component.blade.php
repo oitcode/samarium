@@ -91,7 +91,7 @@
   
           @if (true)
           <div class="my-5" style="font-size: 1.3rem;">
-            <h2 class="h4 my-3">
+            <h2 class="h5 font-weight-bold my-3">
               Our social media pages
             </h2>
             <div>

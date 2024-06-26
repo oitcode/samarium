@@ -1,11 +1,11 @@
 <div>
   @if (($displayTeamName ?? true) )
     @if ($team->name == 'Quick contacts')
-      <h2 class="h4 my-4">
+      <h2 class="h5 font-weight-bold my-4">
         Important contacts
       </h2>
     @else
-      <h3 class="my-4">
+      <h2 class="h5 font-weight-bold my-4">
         {{ $team->name }}
       </h3>
     @endif
