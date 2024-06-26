@@ -1,7 +1,7 @@
 <div>
 
 
-    <div class="row">
+    <div class="row" style="margin: auto;">
       @if (count($webpages) > 0)
         @foreach ($webpages as $webpage)
           <div class="col-md-6 p-3 mb-0 pt-0">
