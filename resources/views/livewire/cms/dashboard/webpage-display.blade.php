@@ -24,20 +24,24 @@
       @else
 
         {{-- Toolbar --}}
-        <x-toolbar-classic>
+        <x-toolbar-classic toolbarTitle="" toolbarAlign="left">
           @include ('partials.dashboard.tool-bar-button-pill', [
               'btnClickMethod' => "enterMode('createWebpageContent')",
               'btnIconFaClass' => 'fas fa-plus-circle',
               'btnText' => 'Add content',
               'btnCheckMode' => 'createWebpageContent',
+              'borderLess' => 'yes',
           ])
 
+          @if (true)
           @include ('partials.dashboard.tool-bar-button-pill', [
               'btnClickMethod' => "clearModes",
-              'btnIconFaClass' => 'fas fa-eraser',
-              'btnText' => 'Clear modes',
+              'btnIconFaClass' => 'fas fa-times',
+              'btnText' => '',
               'btnCheckMode' => '',
+              'borderLess' => 'yes',
           ])
+          @endif
 
           @include ('partials.dashboard.spinner-button')
         </x-toolbar-classic>
@@ -45,40 +49,7 @@
 
         <div class="">
           @if ($modes['createWebpageContent'])
-            @if (true)
-              @livewire ('cms.dashboard.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
-            @else
-            <div>
-
-              <div class="d-flex justify-content-between p-3">
-                <div>
-                  Summary
-                </div>
-                <div>
-                  <i class="fas fa-angle-down mr-3"></i>
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-between p-3">
-                <div>
-                  Category
-                </div>
-                <div>
-                  <i class="fas fa-angle-down mr-3"></i>
-                </div>
-              </div>
-
-              <div class="d-flex justify-content-between p-3">
-                <div>
-                  Featured image
-                </div>
-                <div>
-                  <i class="fas fa-angle-down mr-3"></i>
-                </div>
-              </div>
-
-            </div>
-            @endif
+            @livewire ('cms.dashboard.webpage-display-webpage-content-create', [ 'webpage' => $webpage, ])
           @else
             <div class="" style="">
               @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
@@ -89,12 +60,17 @@
         </div>
       @endif
     </div>
-    <div class="col-md-4 border-left">
 
+    {{--
+    |
+    | Sidebar
+    |
+    --}}
+    <div class="col-md-4 border-left">
 
       @if (true)
       {{-- Basic details --}}
-      <div class="border mb-4">
+      <div class="border mb-4-rm">
         <div class="table-responsive">
           <table class="table mb-0">
             <tbody>
@@ -202,7 +178,7 @@
       @if (true)
       {{-- Featured Image --}}
       <div class="border">
-        <h2 class="h4 p-3 bg-light">
+        <h2 class="h6 font-weight-bold py-3 px-2 bg-light">
           Featured image
           @if (! $modes['editFeaturedImageMode'])
             @if ($webpage->featured_image_path)

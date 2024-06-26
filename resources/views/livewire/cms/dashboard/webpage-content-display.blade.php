@@ -58,23 +58,23 @@
   @elseif ($modes['css'])
     @livewire ('cms.dashboard.webpage-content-edit-css', ['webpageContent' => $webpageContent,])
   @else
+
   <div class="container-fluid bg-white p-0 border-rm bg-warning mb-4" 
-      style="font-size: 1.2em;">
+      style="{{--font-size: 1.2em;--}}">
   
-  
-      <div class="container py-3 border">
-        <div class="row d-flex">
-          {{--
-          @if ($i % 2 == 0)
-          --}}
-            <div class="col-md-6 justify-content-center align-self-center" style="font-size: 1.1em !important;">
-              <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
+      <div class="container py-1 border-top bg-danger-rm">
+        <div class="row" style="margin: auto;">
+            <div class="col-md-12 justify-content-center align-self-center" style="{{--font-size: 1.1em !important;--}}">
+              @if (false)
+              <h2 class="h1 mt-1 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
                 {{ $webpageContent->title}}
               </h2>
-              <p class="text-secondary">
+              @endif
+              <div class="bg-success-rm">
                 {!! $webpageContent->body !!}
-              </p>
+              </div>
             </div>
+            @if (false)
             <div class="col-md-6">
               @if ($webpageContent->image_path)
                 <img src="{{ asset('storage/' . $webpageContent->image_path) }}"
@@ -83,28 +83,11 @@
                 >
               @endif
             </div>
-          {{--
-          @else
-          --}}
-            @if (false)
-            <div class="col-md-6">
-              <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
-            </div>
-            <div class="col-md-6 justify-content-center align-self-center" style="font-size: 1.1em !important;">
-              <h2 class="h1 mt-3 mb-4" style="color: #000; font-family: Arial; font-weight: bold;">
-                {{ $webpageContent->title}}
-              </h2>
-              <p class="text-secondary">
-                {{ $webpageContent->body}}
-              </p>
-            </div>
             @endif
-          {{--
-          @endif
-          --}}
         </div>
       </div>
   
   </div>
+
   @endif
 </div>

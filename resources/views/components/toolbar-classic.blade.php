@@ -1,24 +1,29 @@
 <div>
 
   {{-- Show in bigger screens --}}
-  <div class="mb-2 py-3 d-none d-md-block d-md-flex flex-column-rm justify-content-between bg-white-rm border-rm">
-    <div>
-      @if (true)
-      @isset ($toolbarTitle)
-        <div class="h-100 d-flex flex-column justify-content-center bg-warning-rm">
-          <h1 class="h1 font-weight-bold px-3 pt-4-rm mb-0 btn-rm {{  env('OC_ASCENT_BTN_COLOR') }}-rm badge-pill-rm p-3" style="font-size: 1rem;">
-            {{ $toolbarTitle }}
-          </h1>
-        </div>
+  <div class="mb-1 py-1 px-0 d-flex
+      @isset ($toolbarAlign)
+        @if ($toolbarAlign == 'left')
+          justify-content-start
+        @else
+          justify-content-between
+        @endif
       @else
-        <div class="h-100 d-flex flex-column justify-content-center bg-warning-rm">
-          <h1 class="h4 font-weight-bold px-3 pt-4-rm">
-            Component
-          </h1>
-        </div>
+        justify-content-between
       @endisset
-      @endif
-    </div>
+      p-0">
+      @isset ($toolbarTitle)
+        @if ($toolbarTitle != '')
+          <div>
+              <div class="h-100 d-flex flex-column justify-content-center bg-warning-rm">
+                <h1 class="h1 font-weight-bold px-3 pt-4-rm mb-0 btn-rm {{  env('OC_ASCENT_BTN_COLOR') }}-rm badge-pill-rm p-3" style="font-size: 1rem;">
+                  {{ $toolbarTitle }}
+                </h1>
+              </div>
+          </div>
+        @endif
+      @else
+      @endisset
     <div class="d-flex">
       {{ $slot }}
     </div>

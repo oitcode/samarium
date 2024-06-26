@@ -31,6 +31,13 @@
         bg-white
       @endisset
       @endif
+
+      @isset ($borderLess)
+        @if ($borderLess == 'yes')
+          border-0
+        @endif
+      @endisset
+
       m-0 mr-3 px-4 h-100 o-flipper py-3 d-flex flex-column justify-content-center badge-pill
       @if (false)
       {{--
