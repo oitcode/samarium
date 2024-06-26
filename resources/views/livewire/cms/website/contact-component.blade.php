@@ -20,26 +20,74 @@
             @endif
           </div>
   
+          <div class="table-resposive">
+            <table class="table table-sm table-borderless">
+              <tbody>
+                <tr>
+                  <th>
+                    Address
+                  </th>
+                  <td>
+                    {{ $company->address }}
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Phone
+                  </th>
+                  <td>
+                    {{ $company->phone }}
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    Email
+                  </th>
+                  <td>
+                    {{ $company->email }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          @if (false)
           <div class="d-flex mb-2">
+            @if (false)
             <i class="fas fa-map-marker-alt text-primary-rm mr-2"></i>
+            @endif
+            <span class="font-weight-bold mr-2" style="font-size: 1rem; min-width: 100px;">
+              Address:
+            </span>
             <span class="text-secondary-rm font-weight-bold-rm" style="font-size: 1rem;">
               {{ $company->address }}
             </span>
           </div>
   
           <p class="mb-2" style="">
+            @if (false)
             <i class="fas fa-phone text-primary-rm mr-2"></i>
+            @endif
+            <span class="font-weight-bold mr-2" style="font-size: 1rem; min-width: 100px;">
+              Phone:
+            </span>
             <span class="text-secondary-rm font-weight-bold-rm" style="font-size: 1rem;">
               {{ $company->phone }}
             </span>
           </p>
   
           <p class="mb-2" style="">
+            @if (false)
             <i class="fas fa-envelope text-primary-rm mr-2"></i>
+            @endif
+            <span class="font-weight-bold mr-2" style="font-size: 1rem; min-width: 100px;">
+              Email:
+            </span>
             <span class="text-secondary-rm font-weight-bold-rm" style="font-size: 1rem;">
               {{ $company->email }}
             </span>
           </p>
+          @endif
   
           @if (true)
           <div class="my-5" style="font-size: 1.3rem;">
