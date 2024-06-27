@@ -39,4 +39,13 @@ class WebpageCategory extends Model
     {
         return $this->belongsToMany('App\Webpage', 'webpage__webpage_category', 'webpage_category_id', 'webpage_id');
     }
+
+    /*
+     * webpage table.
+     *
+     */
+    public function webPagesPostpage()
+    {
+        return $this->belongsToMany('App\Webpage', 'webpage__webpage_category___postpage', 'webpage_category_id', 'webpage_id');
+    }
 }

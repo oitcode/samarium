@@ -50,6 +50,15 @@ class Webpage extends Model
     }
 
     /*
+     * webpage_category table. (postpage)
+     *
+     */
+    public function webpageCategoriesPostpage()
+    {
+        return $this->belongsToMany('App\WebpageCategory', 'webpage__webpage_category___postpage', 'webpage_id', 'webpage_category_id');
+    }
+
+    /*
      * nav_menu_item table.
      *
      */

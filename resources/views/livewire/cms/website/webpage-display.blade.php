@@ -1,5 +1,11 @@
 <div>
-@if ($webpage->name == 'Gallery')
+@if ($webpage->webpageCategoriesPostpage) 
+  <div class="container my-4">
+    @foreach ($webpage->webpageCategoriesPostpage as $category)
+      @livewire ('cms.website.post-list', ['category' => $category->name,])
+    @endforeach
+  </div>
+@elseif ($webpage->name == 'Gallery')
   <div class="container-fluid">
     <div class="container py-4">
       @if (\App\Gallery::where('show_in_gallery_page', 'yes')->get() != null && count(\App\Gallery::where('show_in_gallery_page', 'yes')->get()) > 0)

@@ -23,6 +23,8 @@ class WebpageDisplay extends Component
         'editVisibilityMode' => false,
         'editWebpageCategoryMode' => false,
         'editFeaturedImageMode' => false,
+
+        'editWebpageCategoryPostpageMode' => false,
     ];
 
     protected $listeners = [
@@ -42,6 +44,9 @@ class WebpageDisplay extends Component
 
         'webpageEditFeaturedImageCancel',
         'webpageEditFeaturedImageCompleted',
+
+        'webpageEditWebpageCategoryPostpageCompleted',
+        'webpageEditWebpageCategoryPostpageCancel',
     ];
 
     public function render()
@@ -119,5 +124,15 @@ class WebpageDisplay extends Component
         $this->webpage->update();
 
         $this->render();
+    }
+
+    public function webpageEditWebpageCategoryPostpageCompleted()
+    {
+        $this->exitMode('editWebpageCategoryPostpageMode');
+    }
+
+    public function webpageEditWebpageCategoryPostpageCancel()
+    {
+        $this->exitMode('editWebpageCategoryPostpageMode');
     }
 }
