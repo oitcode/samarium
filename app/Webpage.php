@@ -59,6 +59,15 @@ class Webpage extends Model
     }
 
     /*
+     * team table. (teampage)
+     *
+     */
+    public function webpageTeams()
+    {
+        return $this->belongsToMany('App\Team', 'webpage__team', 'webpage_id', 'team_id');
+    }
+
+    /*
      * nav_menu_item table.
      *
      */

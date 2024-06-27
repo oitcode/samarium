@@ -252,6 +252,34 @@
             @endif
           </div>
         </div>
+
+        {{-- Team page part --}}
+        <div class="p-2">
+          Team page
+          <div>
+            @if ($modes['editTeamTeampageMode'])
+              @livewire ('cms.dashboard.webpage-edit-team-teampage', ['webpage' => $webpage,])
+            @else
+              <div class="d-flex justify-content-between">
+                <div>
+                  @if (count($webpage->webpageTeams) > 0)
+                    @foreach ($webpage->webpageTeams as $team)
+                      <span class="badge badge-primary mr-3">
+                        {{ $team->name }}
+                      </span>
+                    @endforeach
+                  @else
+                    None
+                  @endif
+                </div>
+
+                <button class="btn btn-light border-rm mx-3" wire:click="enterModeSilent('editTeamTeampageMode')">
+                  <i class="fas fa-plus-circle"></i>
+                </button>
+              </div>
+            @endif
+          </div>
+        </div>
         @endif
 
       </div>

@@ -40,6 +40,15 @@ class Team extends Model
         return $this->hasMany('App\TeamMember', 'team_id', 'team_id');
     }
 
+    /*
+     * webpage table.
+     *
+     */
+    public function webPages()
+    {
+        return $this->belongsToMany('App\Webpage', 'webpage__team', 'team_id', 'webpage_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Other methods

@@ -1,8 +1,20 @@
 <div>
-@if ($webpage->webpageCategoriesPostpage) 
+@if ($webpage->webpageCategoriesPostpage()->count() > 0) 
   <div class="container my-4">
     @foreach ($webpage->webpageCategoriesPostpage as $category)
       @livewire ('cms.website.post-list', ['category' => $category->name,])
+    @endforeach
+  </div>
+@elseif ($webpage->webpageTeams()->count() > 0) 
+  <div class="my-4">
+    @foreach ($webpage->webpageTeams as $team)
+      @if (count($team->teamMembers))
+        <div class="container-fluid mt-4 border-bottom">
+          <div class="container">
+            @include ('partials.team.team-display-fe', ['team' => $team,])
+          </div>
+        </div>
+      @endif
     @endforeach
   </div>
 @elseif ($webpage->name == 'Gallery')
