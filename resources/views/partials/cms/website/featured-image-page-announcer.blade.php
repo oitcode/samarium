@@ -21,8 +21,8 @@
           {{ \App\CmsTheme::first()->ascent_bg_color }} 25%, {{ \App\CmsTheme::first()->ascent_bg_color }} 100%
           --}}
       );">
-    <div class="row-rm">
-      <div class="col-md-6-rm bg-danger-rm d-flex flex-column justify-content-center text-white-rm">
+    <div class="row">
+      <div class="col-md-6 bg-danger-rm d-flex flex-column justify-content-center text-white-rm">
         <div class="mb-4-rm border-rm p-3 py-1 shadow-rm bg-dark-rm text-white-rm o-overlay-rm">
           <h1 class="h2 font-weight-bold text-center-rm text-white-rm" style="{{--font-family: Mono;--}}">
             {{ strtoupper($webpage->name) }}
@@ -82,7 +82,7 @@
         @endif
   
       </div>
-      <div class="col-md-6-rm py-4 justify-content-end">
+      <div class="col-md-6 py-4 justify-content-end">
         <div class="" style="
           {{--
           background-image: url({{ asset('storage/' . $webpage->featured_image_path) }});
