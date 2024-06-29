@@ -11,24 +11,11 @@
 
   {{-- Filter div --}}
   @if (true)
-  <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
+  <div class="mb-3 py-3 px-2 bg-white border d-flex justify-content-between-rm">
     <div class="font-weight-bold h6 d-flex">
-      @if (false)
-      <div class="mr-4">
-        Filter
-      </div>
-      @endif
       <div class="d-flex">
         @if (true)
-        <div class="mr-4 font-weight-bold pt-2">
-          @if (false)
-          Status
-          @endif
-          <i class="fas fa-filter mr-2"></i>
-        </div>
-        @endif
-        @if (true)
-        <div class="dropdown">
+        <div class="dropdown p-0 px-2">
           <button class="btn
               @if ($modes['showOnlyPendingMode'])
                 btn-danger
@@ -41,9 +28,10 @@
               @elseif ($modes['showOnlyCancelledMode'])
                 btn-dark
               @elseif ($modes['showAllMode'])
-                btn-light border
+                btn-dark border
               @endif
               dropdown-toggle"
+              style="min-width: 100px;"
               type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             @if ($modes['showOnlyPendingMode'])
               Pending
