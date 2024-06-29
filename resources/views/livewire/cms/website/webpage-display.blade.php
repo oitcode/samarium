@@ -227,9 +227,9 @@
         @endforeach
       </div>
       <div class="col-md-4">
-        @if (false)
+        @if (true)
         <div class="sticky-top">
-          @livewire ('ecomm-website.website.create-product-enquiry', ['product' => \App\Product::first(),])
+          @livewire ('cms.website.create-webpage-question', ['webpage' => $webpage,])
         </div>
         @endif
       </div>

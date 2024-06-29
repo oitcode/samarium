@@ -94,6 +94,15 @@ class Webpage extends Model
         return $this->hasMany('App\WebpageContent', 'webpage_id', 'webpage_id');
     }
 
+    /*
+     * webpage_question table.
+     *
+     */
+    public function webpageQuestions()
+    {
+        return $this->hasMany('App\WebpageQuestion', 'webpage_id', 'webpage_id');
+    }
+
 
     /*-------------------------------------------------------------------------
      * Other methods

@@ -35,10 +35,12 @@
 
   {{-- Notice badge --}}
   @if ($webpage->hasCategory('notice'))
-    <div class="py-3 bg-danger text-white font-weight-bold">
-      <div class="container h4 mb-0 font-weight-bold">
-        <i class="fas fa-exclamation-circle mr-2"></i>
-        Notice
+    <div class="container mb-0 font-weight-bold px-3">
+      <div class="d-flex px-3">
+        <div class="p-3 bg-danger text-white mt-3">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          Notice
+        </div>
       </div>
     </div>
   @endif
