@@ -4,7 +4,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-Admin panel built on laravel with livewire.
+CMS and other features. Created with laravel and livewire. 
 
 ![screenshot](dashboard-screenshot-1.png)
 
