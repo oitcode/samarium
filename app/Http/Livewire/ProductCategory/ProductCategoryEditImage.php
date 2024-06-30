@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\CafeMenu\ProductCategory;
+namespace App\Http\Livewire\ProductCategory;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -15,7 +15,7 @@ class ProductCategoryEditImage extends Component
 
     public function render()
     {
-        return view('livewire.cafe-menu.product-category.product-category-edit-image');
+        return view('livewire.product-category.product-category-edit-image');
     }
 
     public function update()

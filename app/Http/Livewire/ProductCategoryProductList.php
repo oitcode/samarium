@@ -9,7 +9,7 @@ use App\Traits\ModesTrait;
 use App\Product;
 use App\ProductCategory;
 
-class CafeMenuProductCategoryProductList extends Component
+class ProductCategoryProductList extends Component
 {
     use ModesTrait;
 
@@ -31,7 +31,7 @@ class CafeMenuProductCategoryProductList extends Component
 
     public function render()
     {
-        return view('livewire.cafe-menu-product-category-product-list');
+        return view('livewire.product-category-product-list');
     }
 
     public function deleteProduct(Product $product)

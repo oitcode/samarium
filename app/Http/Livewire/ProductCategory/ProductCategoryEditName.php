@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\CafeMenu\ProductCategory;
+namespace App\Http\Livewire\ProductCategory;
 
 use Livewire\Component;
 
@@ -17,7 +17,7 @@ class ProductCategoryEditName extends Component
 
     public function render()
     {
-        return view('livewire.cafe-menu.product-category.product-category-edit-name');
+        return view('livewire.product-category.product-category-edit-name');
     }
 
     public function update()

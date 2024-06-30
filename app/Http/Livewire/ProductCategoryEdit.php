@@ -8,7 +8,7 @@ use Livewire\WithFileUploads;
 use App\Product;
 use App\ProductCategory;
 
-class CafeMenuProductCategoryEdit extends Component
+class ProductCategoryEdit extends Component
 {
     use WithFileUploads;
 
@@ -26,7 +26,7 @@ class CafeMenuProductCategoryEdit extends Component
 
     public function render()
     {
-        return view('livewire.cafe-menu-product-category-edit');
+        return view('livewire.product-category-edit');
     }
 
     public function update()

@@ -58,7 +58,7 @@
       </div>
       @if ($modes['updateProductCategoryNameMode'])
         <div>
-          @livewire ('cafe-menu.product-category.product-category-edit-name', ['productCategory' => $productCategory,])
+          @livewire ('product-category.product-category-edit-name', ['productCategory' => $productCategory,])
         </div>
       @else
         <div class="d-flex justify-content-between">
@@ -93,7 +93,7 @@
     </div>
     @if ($modes['updateProductCategoryImageMode'])
       <div>
-        @livewire ('cafe-menu.product-category.product-category-edit-image', ['productCategory' => $productCategory,])
+        @livewire ('product-category.product-category-edit-image', ['productCategory' => $productCategory,])
       </div>
     @else
       <div class="d-flex justify-content-between bg-white">
