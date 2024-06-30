@@ -4,7 +4,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-Open source ERP software created using Laravel, Livewire and Bootstrap.
+Wordpress like in laravel.
 
 ![screenshot](dashboard-screenshot-1.png)
 
@@ -16,10 +16,8 @@ Please checkout this application demo in below url:
 
 ## Features
 
-- Admin dashboard
-- CMS
-- CRM
-- Invoicing
+- Similar to wordpress
+- Built with laravel
 
 ## Installation
 
