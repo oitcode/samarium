@@ -68,6 +68,8 @@
       @endif
     @endforeach
   @endif
+@elseif ($webpage->name == 'Downloads')
+  @livewire ('document-file.website.document-file-list')
 @elseif ($webpage->name == 'Products')
   @livewire ('ecomm-website.home-component')
 @elseif ($webpage->name == 'News')
