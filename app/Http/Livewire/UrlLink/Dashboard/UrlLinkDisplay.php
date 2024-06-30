@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\UrlLink\Dashboard;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use App\Traits\ModesTrait;
@@ -26,14 +27,13 @@ class UrlLinkDisplay extends Component
         'urlLinkEditUserGroupCompleted',
     ];
 
-    public function mount()
-    {
-        $this->authorize('view-url-link', $this->urlLink);
-    }
-
     public function render()
     {
-        return view('livewire.url-link.dashboard.url-link-display');
+        if (Gate::allows('view-url-link', $this->urlLink)) {
+            return view('livewire.url-link.dashboard.url-link-display');
+        } else {
+            return '<div>You are not allowed to view this resource.</div>';
+        }
     }
 
     public function urlLinkEditUserGroupCancel()

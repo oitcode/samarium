@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\DocumentFile\Dashboard;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use App\Traits\ModesTrait;
@@ -27,14 +28,13 @@ class DocumentFileDisplay extends Component
         'documentFileEditUserGroupCompleted',
     ];
 
-    public function mount()
-    {
-        $this->authorize('view-document-file', $this->documentFile);
-    }
-
     public function render()
     {
-        return view('livewire.document-file.dashboard.document-file-display');
+        if (Gate::allows('view-document-file', $this->documentFile)) {
+            return view('livewire.document-file.dashboard.document-file-display');
+        } else {
+            return '<div>You are not allowed to view this resource.</div>';
+        }
     }
 
     public function documentFileEditUserGroupCancel()
