@@ -1,7 +1,7 @@
 <div>
 
 
-  <div class="bg-white border p-3">
+  <div class="bg-white p-3">
     <div class="mt-3-rm mb-3 h5 font-weight-bold border-rm bg-light-rm py-3" {{-- style="border-left: 5px solid #05a;" --}}>
       <i class="fas fa-cogs mr-3 text-secondary"></i>
       @if (true)
@@ -103,6 +103,40 @@
       <a href=" {{ route('dashboard-document-file-pdf-display', $documentFile->document_file_id) }}" target="_blank" class="btn btn-primary badge-pill">
         View file
       </a>
+    </div>
+  </div>
+
+  <div class="bg-white border p-3 my-3">
+    <div class="mb-3">
+      <h2 class="h5 font-weight-bold">
+        User group
+      </h2>
+    </div>
+
+    <div class="col-md-6 p-0 rounded">
+
+      @if ($modes['editUserGroupMode'])
+        @livewire ('document-file.dashboard.document-file-edit-user-group', ['documentFile' => $documentFile,])
+      @else
+        <div class="d-flex justify-content-between">
+          <div>
+            @if (count($documentFile->userGroups) > 0)
+              @foreach ($documentFile->userGroups as $userGroup)
+                <span class="badge badge-primary mr-3">
+                  {{ $userGroup->name }}
+                </span>
+              @endforeach
+            @else
+              None
+            @endif
+          </div>
+
+          <button class="btn btn-light border-rm mx-3" wire:click="enterModeSilent('editUserGroupMode')">
+            <i class="fas fa-plus-circle"></i>
+          </button>
+        </div>
+      @endif
+
     </div>
   </div>
 

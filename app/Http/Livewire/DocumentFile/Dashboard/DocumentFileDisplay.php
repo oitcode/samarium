@@ -12,13 +12,31 @@ class DocumentFileDisplay extends Component
 
     public $documentFile;
 
+
     public $modes = [
         'updateNameMode' => false,
         'updateDescriptionMode' => false,
+
+        'editUserGroupMode' => false,
+    ];
+
+    protected $listeners = [
+        'documentFileEditUserGroupCancel',
+        'documentFileEditUserGroupCompleted',
     ];
 
     public function render()
     {
         return view('livewire.document-file.dashboard.document-file-display');
+    }
+
+    public function documentFileEditUserGroupCancel()
+    {
+        $this->exitMode('editUserGroupMode');
+    }
+
+    public function documentFileEditUserGroupCompleted()
+    {
+        $this->exitMode('editUserGroupMode');
     }
 }

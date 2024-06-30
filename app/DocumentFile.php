@@ -39,4 +39,13 @@ class DocumentFile extends Model
     {
         return $this->belongsTo('App\User', 'creator_id', 'id');
     }
+
+    /*
+     * user_group table.
+     *
+     */
+    public function userGroups()
+    {
+        return $this->belongsToMany('App\UserGroup', 'document_file__user_group', 'document_file_id', 'user_group_id');
+    }
 }

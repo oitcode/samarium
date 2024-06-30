@@ -48,4 +48,13 @@ class UserGroup extends Model
     {
         return $this->belongsToMany('App\User', 'user__user_group', 'user_group_id', 'user_id');
     }
+
+    /*
+     * webpage table.
+     *
+     */
+    public function documentFiles()
+    {
+        return $this->belongsToMany('App\DocumentFile', 'document_file__user_group', 'user_group_id', 'document_file_id');
+    }
 }
