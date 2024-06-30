@@ -4,18 +4,27 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
+use App\Traits\ModesTrait;
+
+use App\ProductCategory;
+
 class ProductCategoryComponent extends Component
 {
+    use ModesTrait;
+
     public $modes = [
         'create' => false,
         'list' => true,
         'display' => false,
-        'update' => false,
         'delete' => false,
+        'search' => false,
     ];
 
     protected $listeners = [
-        'clearModes',
+        'productCategoryCreateCompleted',
+        'productCategoryCreateCancelled',
+        'displayProductCategory',
+        'productCategoryDisplayCancelled',
     ];
 
     public function render()
@@ -23,24 +32,28 @@ class ProductCategoryComponent extends Component
         return view('livewire.product-category-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
+    public function productCategoryCreateCancelled()
     {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
+        $this->exitMode('create');
     }
 
-    /* Enter and exit mode */
-    public function enterMode($modeName)
+    public function productCategoryCreateCompleted()
     {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
+        session()->flash('message', 'Product category created.');
+        $this->exitMode('create');
     }
 
-    public function exitMode($modeName)
+    public function displayProductCategory(ProductCategory $productCategory)
     {
-        $this->modes[$modeName] = false;
+        $this->displayingProductCategory = $productCategory;
+
+        $this->enterMode('display');
+    }
+
+    public function productCategoryDisplayCancelled()
+    {
+        $this->displayingProductCategory = null;
+
+        $this->exitMode('display');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\CafeMenu;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 
@@ -27,7 +27,7 @@ class ProductCategoryDisplay extends Component
 
     public function render()
     {
-        return view('livewire.cafe-menu.product-category-display');
+        return view('livewire.product-category-display');
     }
 
     public function productCategoryUpdateNameCompleted()

@@ -68,7 +68,7 @@ Route::get('/dashboard/expense', 'ExpenseController@index')->name('dashboard-exp
 Route::get('/dashboard/purchase', 'PurchaseController@index')->name('dashboard-purchase');
 
 /* Menu */
-Route::get('/dashboard/menu', 'MenuController@index')->name('menu');
+Route::get('/dashboard/product', 'MenuController@index')->name('product');
 
 /* Product question */
 Route::get('/dashboard/product-question', 'ProductQuestionController@index')->name('product-question');

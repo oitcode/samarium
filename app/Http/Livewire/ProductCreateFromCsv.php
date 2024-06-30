@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Product;
 use App\ProductCategory;
 
-class CafeMenuProductCreateFromCsv extends Component
+class ProductCreateFromCsv extends Component
 {
     use WithFileUploads;
     // use ModesTrait;
@@ -34,7 +34,7 @@ class CafeMenuProductCreateFromCsv extends Component
 
     public function render()
     {
-        return view('livewire.cafe-menu-product-create-from-csv');
+        return view('livewire.product-create-from-csv');
     }
 
     public function preview()

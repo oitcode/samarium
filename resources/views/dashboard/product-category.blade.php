@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-  @livewire('cafe-menu.product-category-component')
+  @livewire('product-category-component')
 @stop

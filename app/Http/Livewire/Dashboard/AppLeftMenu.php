@@ -31,7 +31,7 @@ class AppLeftMenu extends Component
         $uri = Request::getPathInfo();
 
         if (
-            $uri == '/dashboard/menu' ||
+            $uri == '/dashboard/product' ||
             $uri == '/dashboard/product-category' ||
             $uri == '/dashboard/product-question' ||
             $uri == '/dashboard/inventory'

@@ -1,42 +1,40 @@
-<x-box-list title="Product category list">
-  @if ($productCategories != null && count($productCategories) > 0)
-    <div class="table-responsive">
-      <table class="table table-sm table-hover">
-        <thead>
-          <tr class="text-secondary">
-            <th>ID</th>
-            <th>Name</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($productCategories as $productCategory)
-            <tr>
-              <td>
-                {{ $productCategory->product_category_id }}
-              </td>
-              <td>
-                <a href="" wire:click.prevent="">
-                {{ $productCategory->name }}
-                </a>
-              </td>
-              <td>
-                <span class="btn btn-tool btn-sm" wire:click="">
-                  <i class="fas fa-pencil-alt text-info"></i>
-                </span>
+<div>
 
-                <span class="btn btn-tool btn-sm" wire:click="">
-                  <i class="fas fa-trash text-danger"></i>
-                </span>
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
+
+  @if ($modes['productCategoryProductList'])
+    @livewire ('cafe-menu-product-category-product-list', ['productCategory' => $selectedProductCategory,])
   @else
-    <div class="text-secondary py-3 px-3">
-      No product categories.
+    <div class="">
+
+      @if ($products == null || count($products) == 0)
+
+        <div class="table-responsive bg-white">
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Products</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($productCategories as $productCategory)
+                <tr>
+                  <td wire:click="$emit('displayProductCategory', {{ $productCategory }} )" role="button">
+                    <strong>
+                      {{ $productCategory->name }}
+                    </strong>
+                  </td>
+                  <td>
+                    {{ count($productCategory->products) }}
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      @endif
     </div>
   @endif
-</x-box-list>
+
+
+</div>

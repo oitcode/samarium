@@ -11,7 +11,7 @@ use App\ProductAnswer;
 use App\ProductSpecification;
 use App\ProductFeature;
 
-class CafeMenuProductDisplay extends Component
+class ProductDisplay extends Component
 {
     use ModesTrait;
 
@@ -109,7 +109,7 @@ class CafeMenuProductDisplay extends Component
 
     public function render()
     {
-        return view('livewire.cafe-menu-product-display');
+        return view('livewire.product-display');
     }
 
     public function productUpdateNameCancelled()

@@ -38,7 +38,7 @@
           </a>
           <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuProductDropdown">
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('menu') }}">
+            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('product') }}">
               <i class="fas fa-dice-d6 mr-3"></i>
               Products
             </a>

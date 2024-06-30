@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('cafe-menu-component')
+  @livewire('product-component')
 @endsection

@@ -12,10 +12,6 @@
       ])
   </div>
 
-
-
-
-
   @if (preg_match("/product/i", env('MODULES')))
     @if ($modes['product'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -45,7 +41,7 @@
       <div class="o-animated-rm mb-3 border-bottom">
         @include ('partials.dashboard.app-left-menu-button',
             [
-                'btnRoute' => 'menu',
+                'btnRoute' => 'product',
                 'iconFaClass' => 'fas fa-list',
                 'btnText' => 'Products',
             ])

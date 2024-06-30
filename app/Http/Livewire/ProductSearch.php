@@ -6,7 +6,7 @@ use Livewire\Component;
 
 use App\Product;
 
-class CafeMenuProductSearch extends Component
+class ProductSearch extends Component
 {
     public $product_search_name;
 
@@ -15,7 +15,7 @@ class CafeMenuProductSearch extends Component
 
     public function render()
     {
-        return view('livewire.cafe-menu-product-search');
+        return view('livewire.product-search');
     }
 
     public function search()
