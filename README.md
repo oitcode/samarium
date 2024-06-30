@@ -1,10 +1,10 @@
-# Khajanchi
+# Cbswei
 
 <p align="center">
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-Wordpress like in laravel.
+Admin panel built on laravel with livewire.
 
 ![screenshot](dashboard-screenshot-1.png)
 
@@ -16,10 +16,13 @@ Please checkout this application demo in below url:
 
 ## Features
 
-- Similar to wordpress
-- Built with laravel
+- Admin panel
+- Many pre-built modules
 
 ## Installation
+
+Note: It is just another laravel application. So do as you would do while setting
+up a typical laravel application. If you are not sure, please follow below instructions.
 
 First make sure below packages are installed in your system.
 
@@ -35,14 +38,11 @@ First make sure below packages are installed in your system.
 - npm
 - mysql-server
 
-Then run the below script for Ubuntu 20 or later.
+If not already then, create a user in mysql. Remember this username and password. 
+
+If you are running Ubuntu 20 or later, then just run the below bash script.
 
 `bash app-install.sh`
-
-Note: Above script works for Ubuntu 20 or later. If you use other OS, then please
-modify the bash script accordingly. Or you an install it manually as well. It is
-just another laravel application. So do as you would do while setting up a 
-typical laravel application.
 
 ## Running the app
 
@@ -54,9 +54,7 @@ Now open your web browser and visit
 
 ## Contributing
 
-__Please contribute to this project.__ If you are interested in developing
-web application using laravel, livewire and bootstrap then please fork, edit and
-send pull request.
+__Please contribute to this project.__ Contributions are welcome.
 
 ## Issues
 
