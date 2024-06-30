@@ -21,12 +21,28 @@ Please checkout this application demo in below url:
 
 ## Installation
 
-In Ubuntu 20 or later, please run below installation script in bash shell.
+First make sure below packages are installed in your system.
+
+- php
+- php-bcmath
+- php-json
+- php-mbstring
+- php-tokenizer
+- php-xml
+- php-common
+
+- composer
+- npm
+- mysql-server
+
+Then run the below script for Ubuntu 20 or later.
 
 `bash app-install.sh`
 
-If you want to see detailed information on installation process please
-visit our installation documentation.
+Note: Above script works for Ubuntu 20 or later. If you use other OS, then please
+modify the bash script accordingly. Or you an install it manually as well. It is
+just another laravel application. So do as you would do while setting up a 
+typical laravel application.
 
 ## Running the app
 
