@@ -15,10 +15,27 @@ class UrlLinkDisplay extends Component
     public $modes = [
         'updateUrlMode' => false,
         'updateDescriptionMode' => false,
+
+        'editUserGroupMode' => false,
+    ];
+
+    protected $listeners = [
+        'urlLinkEditUserGroupCancel',
+        'urlLinkEditUserGroupCompleted',
     ];
 
     public function render()
     {
         return view('livewire.url-link.dashboard.url-link-display');
+    }
+
+    public function urlLinkEditUserGroupCancel()
+    {
+        $this->exitMode('editUserGroupMode');
+    }
+
+    public function urlLinkEditUserGroupCompleted()
+    {
+        $this->exitMode('editUserGroupMode');
     }
 }

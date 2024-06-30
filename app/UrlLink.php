@@ -39,4 +39,13 @@ class UrlLink extends Model
     {
         return $this->belongsTo('App\User', 'creator_id', 'id');
     }
+
+    /*
+     * user_group table.
+     *
+     */
+    public function userGroups()
+    {
+        return $this->belongsToMany('App\UserGroup', 'url_link__user_group', 'url_link_id', 'user_group_id');
+    }
 }

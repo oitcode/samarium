@@ -94,6 +94,40 @@
 
   </div>
 
+  <div class="bg-white border p-3 my-3">
+    <div class="mb-3">
+      <h2 class="h5 font-weight-bold">
+        User group
+      </h2>
+    </div>
+
+    <div class="col-md-6 p-0 rounded">
+
+      @if ($modes['editUserGroupMode'])
+        @livewire ('url-link.dashboard.url-link-edit-user-group', ['urlLink' => $urlLink,])
+      @else
+        <div class="d-flex justify-content-between">
+          <div>
+            @if (count($urlLink->userGroups) > 0)
+              @foreach ($urlLink->userGroups as $userGroup)
+                <span class="badge badge-primary mr-3">
+                  {{ $userGroup->name }}
+                </span>
+              @endforeach
+            @else
+              None
+            @endif
+          </div>
+
+          <button class="btn btn-light border-rm mx-3" wire:click="enterModeSilent('editUserGroupMode')">
+            <i class="fas fa-plus-circle"></i>
+          </button>
+        </div>
+      @endif
+
+    </div>
+  </div>
+
 
   <div class="bg-white border p-3 my-3">
     @if (false)
