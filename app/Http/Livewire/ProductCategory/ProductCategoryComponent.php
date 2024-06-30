@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\ProductCategory;
 
 use Livewire\Component;
 
@@ -29,7 +29,7 @@ class ProductCategoryComponent extends Component
 
     public function render()
     {
-        return view('livewire.product-category-component');
+        return view('livewire.product-category.product-category-component');
     }
 
     public function productCategoryCreateCancelled()

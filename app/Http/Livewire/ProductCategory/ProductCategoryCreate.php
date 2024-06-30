@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\ProductCategory;
 
 use Livewire\Component;
 
@@ -22,7 +22,7 @@ class ProductCategoryCreate extends Component
     {
         $this->productCategories = ProductCategory::all();
 
-        return view('livewire.product-category-create');
+        return view('livewire.product-category.product-category-create');
     }
 
     public function store()

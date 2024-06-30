@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\CafeMenu;
+namespace App\Http\Livewire\ProductCategory;
 
 use Livewire\Component;
 
@@ -16,6 +16,6 @@ class ProductCategoryProductListL1 extends Component
 
     public function render()
     {
-        return view('livewire.cafe-menu.product-category-product-list-l1');
+        return view('livewire.product-category.product-category-product-list-l1');
     }
 }

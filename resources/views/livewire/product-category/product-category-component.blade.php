@@ -51,11 +51,11 @@
   --}}
 
   @if ($modes['create'])
-    @livewire ('product-category-create')
+    @livewire ('product-category.product-category-create')
   @elseif ($modes['list'])
-    @livewire ('product-category-list')
+    @livewire ('product-category.product-category-list')
   @elseif ($modes['display'])
-    @livewire ('product-category-display', ['productCategory' => $displayingProductCategory,])
+    @livewire ('product-category.product-category-display', ['productCategory' => $displayingProductCategory,])
   @endif
 
 
