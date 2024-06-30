@@ -31,6 +31,10 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('view-document-file', function ($user, $documentFile) {
+            if ($documentFile->userGroups->isEmpty()) {
+                return true;
+            }
+
             $userUserGroups = $user->userGroups;
             $dfUserGroups = $documentFile->userGroups;
 
@@ -46,6 +50,10 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('view-url-link', function ($user, $urlLink) {
+            if ($urlLink->userGroups->isEmpty()) {
+                return true;
+            }
+
             $userUserGroups = $user->userGroups;
             $ulUserGroups = $urlLink->userGroups;
 
