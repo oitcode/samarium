@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\DocumentFile\Dashboard;
 
 use Livewire\Component;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use App\Traits\ModesTrait;
 
 class DocumentFileDisplay extends Component
 {
     use ModesTrait;
+    use AuthorizesRequests;
 
     public $documentFile;
 
@@ -24,6 +26,11 @@ class DocumentFileDisplay extends Component
         'documentFileEditUserGroupCancel',
         'documentFileEditUserGroupCompleted',
     ];
+
+    public function mount()
+    {
+        $this->authorize('view-document-file', $this->documentFile);
+    }
 
     public function render()
     {

@@ -47,6 +47,9 @@
               Description
             </th>
             <th>
+              Groups
+            </th>
+            <th>
               Action
             </th>
           </tr>
@@ -66,6 +69,13 @@
                 </td>
                 <td>
                 {{ $documentFile->description }}
+                </td>
+                <td>
+                  @foreach ($documentFile->userGroups as $userGroup)
+                    <span class="badge badge-primary mr-2">
+                      {{ $userGroup->name }}
+                    </span>
+                  @endforeach
                 </td>
                 <td>
                   @if (false)

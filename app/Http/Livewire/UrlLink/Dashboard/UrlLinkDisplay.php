@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\UrlLink\Dashboard;
 
 use Livewire\Component;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use App\Traits\ModesTrait;
 
 class UrlLinkDisplay extends Component
 {
     use ModesTrait;
+    use AuthorizesRequests;
 
     public $urlLink;
 
@@ -23,6 +25,11 @@ class UrlLinkDisplay extends Component
         'urlLinkEditUserGroupCancel',
         'urlLinkEditUserGroupCompleted',
     ];
+
+    public function mount()
+    {
+        $this->authorize('view-url-link', $this->urlLink);
+    }
 
     public function render()
     {

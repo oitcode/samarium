@@ -44,6 +44,9 @@
               Description
             </th>
             <th>
+              Groups
+            </th>
+            <th>
               Action
             </th>
           </tr>
@@ -60,6 +63,13 @@
                 </td>
                 <td wire:click="$emit('displayUrlLink', {{ $urlLink }})" role="button">
                 {{ $urlLink->description }}
+                </td>
+                <td>
+                  @foreach ($urlLink->userGroups as $userGroup)
+                    <span class="badge badge-primary mr-2">
+                      {{ $userGroup->name }}
+                    </span>
+                  @endforeach
                 </td>
                 <td>
                   <i class="fas fa-ellipsis-h text-secondary"></i>
