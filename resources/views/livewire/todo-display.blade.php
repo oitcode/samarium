@@ -3,16 +3,15 @@
 
   <div class="bg-white border p-3">
     <div class="mt-3-rm mb-3 h5 font-weight-bold border-rm bg-light-rm py-3" {{-- style="border-left: 5px solid #05a;" --}}>
-      <i class="fas fa-cogs mr-3 text-secondary"></i>
       {{ $todo->title }}
     </div>
 
     <div class="">
       <div class="row" style="margin: auto;">
-        <div class="col-md-3 border p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border-rm p-3 bg-light font-weight-bold">
           Title
         </div>
-        <div class="col-md-9 border p-3">
+        <div class="col-md-10 border-rm p-3">
           @if ($modes['updateTitleMode'])
             @livewire ('todo.dashboard.todo-edit-title', ['todo' => $todo,])
           @else
@@ -33,10 +32,10 @@
 
     <div class="">
       <div class="row" style="margin: auto;">
-        <div class="col-md-3 border p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border-rm p-3 bg-light font-weight-bold">
           Task ID
         </div>
-        <div class="col-md-9 border p-3">
+        <div class="col-md-10 border-rm p-3">
           {{ $todo->todo_id }}
         </div>
       </div>
@@ -44,10 +43,10 @@
 
     <div class="">
       <div class="row" style="margin: auto;">
-        <div class="col-md-3 border p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border-rm p-3 bg-light font-weight-bold">
           Posted Date
         </div>
-        <div class="col-md-9 border p-3">
+        <div class="col-md-10 border-rm p-3">
           {{ $todo->created_at->toDateString() }}
         </div>
       </div>
@@ -55,10 +54,10 @@
 
     <div class="">
       <div class="row" style="margin: auto;">
-        <div class="col-md-3 border p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border-rm p-3 bg-light font-weight-bold">
           Description
         </div>
-        <div class="col-md-9 border p-3 flex-grow-1-rm">
+        <div class="col-md-10 border-rm p-3 flex-grow-1-rm">
           @if ($modes['updateDescriptionMode'])
             @livewire ('todo.dashboard.todo-edit-description', ['todo' => $todo,])
           @else
@@ -118,7 +117,7 @@
             @endif
           </div>
 
-          <div>
+          <div class="mr-3">
             <button class="btn btn-light" wire:click="enterMode('updateStatusMode')">
             Edit
             </button>
