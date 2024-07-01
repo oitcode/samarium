@@ -68,7 +68,7 @@
   @elseif ($modes['list'])
     @livewire ('sale.sale-invoice-list')
   @elseif ($modes['search'])
-    @livewire ('sale.takeaway-search')
+    @livewire ('sale.sale-invoice-search')
   @else
   @endif
 
