@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\AppInfo;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class LvCompanyInfo extends Component
     {
         $this->company = Company::first();
 
-        return view('livewire.lv-company-info');
+        return view('livewire.app-info.lv-company-info');
     }
 }

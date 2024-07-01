@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\AppInfo;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class LvPackageInfo extends Component
 {
     public function render()
     {
-        return view('livewire.lv-package-info');
+        return view('livewire.app-info.lv-package-info');
     }
 }
