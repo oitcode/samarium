@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Inventory;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
@@ -56,7 +56,7 @@ class InventoryProductDetail extends Component
 
         $this->startingBalance = $this->getStartingBalance($this->startDate);
 
-        return view('livewire.inventory-product-detail');
+        return view('livewire.inventory.inventory-product-detail');
     }
 
     public function getTransactionsForDateRange()

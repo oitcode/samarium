@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Inventory;
 
 use Livewire\Component;
 
@@ -25,7 +25,7 @@ class InventoryComponent extends Component
     {
         $this->products = Product::where('base_product_id', null)->get();
 
-        return view('livewire.inventory-component');
+        return view('livewire.inventory.inventory-component');
     }
 
     public function displayProductDetail(Product $product)
