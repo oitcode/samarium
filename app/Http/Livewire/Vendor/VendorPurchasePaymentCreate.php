@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Vendor;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +24,7 @@ class VendorPurchasePaymentCreate extends Component
         $this->payment_date = date('Y-m-d');
         $this->purchasePaymentTypes = PurchasePaymentType::all();
 
-        return view('livewire.vendor-purchase-payment-create');
+        return view('livewire.vendor.vendor-purchase-payment-create');
     }
 
     public function store()

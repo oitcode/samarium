@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Vendor;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class VendorList extends Component
     {
         $this->vendors = Vendor::all();
 
-        return view('livewire.vendor-list');
+        return view('livewire.vendor.vendor-list');
     }
 }

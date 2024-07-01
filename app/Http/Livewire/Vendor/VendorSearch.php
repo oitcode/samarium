@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Vendor;
 
 use Livewire\Component;
 
@@ -14,7 +14,7 @@ class VendorSearch extends Component
 
     public function render()
     {
-        return view('livewire.vendor-search');
+        return view('livewire.vendor.vendor-search');
     }
 
     public function search()
