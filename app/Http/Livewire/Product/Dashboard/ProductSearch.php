@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Product\Dashboard;
 
 use Livewire\Component;
 
@@ -15,7 +15,7 @@ class ProductSearch extends Component
 
     public function render()
     {
-        return view('livewire.product-search');
+        return view('livewire.product.dashboard.product-search');
     }
 
     public function search()

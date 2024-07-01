@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Product\Dashboard;
 
 use Livewire\Component;
 
@@ -109,7 +109,7 @@ class ProductDisplay extends Component
 
     public function render()
     {
-        return view('livewire.product-display');
+        return view('livewire.product.dashboard.product-display');
     }
 
     public function productUpdateNameCancelled()

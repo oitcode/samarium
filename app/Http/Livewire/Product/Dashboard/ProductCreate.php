@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Product\Dashboard;
 
 use Livewire\Component;
 use Carbon\Carbon;
@@ -51,7 +51,7 @@ class ProductCreate extends Component
         $this->productCategories = ProductCategory::all();
         $this->baseProducts = Product::where('is_base_product', true)->get();
 
-        return view('livewire.product-create');
+        return view('livewire.product.dashboard.product-create');
     }
 
     /* Clear modes */

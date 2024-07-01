@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Product\Dashboard;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class ProductList extends Component
     {
         $this->products = Product::orderBy('product_id', 'desc')->limit(5)->get();
 
-        return view('livewire.product-list');
+        return view('livewire.product.dashboard.product-list');
     }
 }

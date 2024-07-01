@@ -88,15 +88,15 @@
     --}}
 
     @if ($modes['createProduct'])
-      @livewire ('product-create')
+      @livewire ('product.dashboard.product-create')
     @elseif ($modes['createProductFromCsvMode'])
-      @livewire ('product-create-from-csv')
+      @livewire ('product.dashboard.product-create-from-csv')
     @elseif ($modes['list'])
-      @livewire ('product-list')
+      @livewire ('product.dashboard.product-list')
     @elseif ($modes['search'])
-      @livewire ('product-search')
+      @livewire ('product.dashboard.product-search')
     @elseif ($modes['displayProduct'])
-      @livewire ('product-display', ['product' => $displayingProduct,])
+      @livewire ('product.dashboard.product-display', ['product' => $displayingProduct,])
     @endif
 
   </div>

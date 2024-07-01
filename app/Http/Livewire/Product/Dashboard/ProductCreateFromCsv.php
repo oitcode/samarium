@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Product\Dashboard;
 
 // use App\Traits\ModesTrait;
 use Livewire\Component;
@@ -34,7 +34,7 @@ class ProductCreateFromCsv extends Component
 
     public function render()
     {
-        return view('livewire.product-create-from-csv');
+        return view('livewire.product.dashboard.product-create-from-csv');
     }
 
     public function preview()
