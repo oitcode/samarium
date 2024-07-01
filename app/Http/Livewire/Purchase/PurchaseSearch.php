@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Purchase;
 
 use Livewire\Component;
 
@@ -14,7 +14,7 @@ class PurchaseSearch extends Component
 
     public function render()
     {
-        return view('livewire.purchase-search');
+        return view('livewire.purchase.purchase-search');
     }
 
     public function search()

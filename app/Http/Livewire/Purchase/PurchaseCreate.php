@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Purchase;
 
 use App\Traits\MiscTrait;
 
@@ -69,7 +69,7 @@ class PurchaseCreate extends Component
         $this->purchasePaymentTypes = PurchasePaymentType::all();
         $this->vendors = Vendor::all();
 
-        return view('livewire.purchase-create');
+        return view('livewire.purchase.purchase-create');
     }
 
     /* Clear modes */

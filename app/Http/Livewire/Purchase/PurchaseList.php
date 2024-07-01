@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Purchase;
 
 use Livewire\Component;
 use Carbon\Carbon;
@@ -36,7 +36,7 @@ class PurchaseList extends Component
     {
         $this->getPurchasesForDateRange();
         $this->calculateTotal();
-        return view('livewire.purchase-list');
+        return view('livewire.purchase.purchase-list');
     }
 
     /* Clear modes */

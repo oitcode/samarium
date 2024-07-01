@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Purchase;
 
 use Livewire\Component;
+
+use App\Traits\ModesTrait;
 
 use App\Product;
 use App\ProductCategory;
@@ -44,7 +46,7 @@ class PurchaseAddItem extends Component
     {
         $this->productCategories = ProductCategory::all();
 
-        return view('livewire.purchase-add-item');
+        return view('livewire.purchase.purchase-add-item');
     }
 
     /* Clear modes */

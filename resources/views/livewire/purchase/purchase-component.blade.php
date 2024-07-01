@@ -52,12 +52,12 @@
   --}}
 
   @if ($modes['create'])
-    @livewire ('purchase-create')
+    @livewire ('purchase.purchase-create')
   @elseif ($modes['list'])
-    @livewire ('purchase-list')
+    @livewire ('purchase.purchase-list')
   @elseif ($modes['display'])
     @if ($displayingPurchase->creation_status == 'progress')
-      @livewire ('purchase-create', [
+      @livewire ('purchase.purchase-create', [
           'createNew' => false,
           'purchase' => $displayingPurchase,
       ])
@@ -65,7 +65,7 @@
       @livewire ('core-purchase-display', ['purchase' => $displayingPurchase,])
     @endif
   @elseif ($modes['search'])
-    @livewire ('purchase-search')
+    @livewire ('purchase.purchase-search')
   @endif
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Purchase;
 
 use Livewire\Component;
 
@@ -28,7 +28,7 @@ class PurchaseComponent extends Component
 
     public function render()
     {
-        return view('livewire.purchase-component');
+        return view('livewire.purchase.purchase-component');
     }
 
     /* Clear modes */

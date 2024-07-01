@@ -7,7 +7,7 @@
 
       @if (! $modes['paid'])
         @if (true || $modes['addItem'])
-          @livewire ('purchase-add-item', ['purchase' => $purchase,])
+          @livewire ('purchase.purchase-add-item', ['purchase' => $purchase,])
         @endif
       @endif
 
@@ -282,7 +282,7 @@
     <div class="col-md-4">
       <div>
         @if (! $modes['paid'])
-          @livewire ('purchase-make-payment', ['purchase' => $purchase,])
+          @livewire ('purchase.purchase-make-payment', ['purchase' => $purchase,])
         @endif
       </div>
     </div>
