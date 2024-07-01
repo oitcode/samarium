@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
 
@@ -10,6 +10,6 @@ class TodoListConfirmDelete extends Component
 
     public function render()
     {
-        return view('livewire.todo-list-confirm-delete');
+        return view('livewire.todo.dashboard.todo-list-confirm-delete');
     }
 }

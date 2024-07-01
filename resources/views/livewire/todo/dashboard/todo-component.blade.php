@@ -60,17 +60,17 @@
   --}}
 
   @if ($modes['createMode'])
-    @livewire ('todo-create')
+    @livewire ('todo.dashboard.todo-create')
   @elseif ($modes['listMode'])
-    @livewire ('todo-list')
+    @livewire ('todo.dashboard.todo-list')
   @elseif ($modes['displayMode'])
-    @livewire ('todo-display', ['todo' => $displayingTodo,])
+    @livewire ('todo.dashboard.todo-display', ['todo' => $displayingTodo,])
   @elseif ($modes['updateMode'])
-    @livewire ('todo-update', ['todo' => $updatingTodo,])
+    @livewire ('todo.dashboard.todo-update', ['todo' => $updatingTodo,])
   @endif
 
   @if ($modes['deleteMode'])
-    @livewire ('todo-delete-confirm', ['deletingTodo' => $deletingTodo,])
+    @livewire ('todo.dashboard.todo-delete-confirm', ['deletingTodo' => $deletingTodo,])
   @endif
 
 

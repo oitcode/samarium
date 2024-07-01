@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Todo\Dashboard;
 
 use App\Traits\ModesTrait;
 
@@ -78,7 +78,7 @@ class TodoList extends Component
         $this->todoCount = $this->todos->count();
 
 
-        return view('livewire.todo-list');
+        return view('livewire.todo.dashboard.todo-list');
     }
 
     public function toggleSearchToolBox()

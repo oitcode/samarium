@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('todo-component')
+  @livewire('todo.dashboard.todo-component')
 @endsection

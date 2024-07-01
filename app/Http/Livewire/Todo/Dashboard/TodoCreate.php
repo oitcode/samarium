@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +14,7 @@ class TodoCreate extends Component
 
     public function render()
     {
-        return view('livewire.todo-create');
+        return view('livewire.todo.dashboard.todo-create');
     }
 
     public function store()

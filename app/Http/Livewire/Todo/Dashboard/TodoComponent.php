@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Todo\Dashboard;
 
 use App\Traits\ModesTrait;
 
@@ -38,7 +38,7 @@ class TodoComponent extends Component
 
     public function render()
     {
-        return view('livewire.todo-component');
+        return view('livewire.todo.dashboard.todo-component');
     }
 
     public function updateTodo(Todo $todo)

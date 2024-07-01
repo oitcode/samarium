@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
 
@@ -40,7 +40,7 @@ class TodoDisplay extends Component
 
     public function render()
     {
-        return view('livewire.todo-display');
+        return view('livewire.todo.dashboard.todo-display');
     }
 
     public function changeStatus()
