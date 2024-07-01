@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Accounting;
 
 use Livewire\Component;
 
@@ -34,7 +34,7 @@ class AccountingIncomeStatement extends Component
         $this->calculateGrossProfit();
         $this->calculateNetProfit();
 
-        return view('livewire.accounting-income-statement');
+        return view('livewire.accounting.accounting-income-statement');
     }
 
     public function populateRevenue()

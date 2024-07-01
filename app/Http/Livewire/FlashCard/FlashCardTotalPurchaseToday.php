@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\FlashCard;
 
-use Livewire\Component\FlashCard;
+use Livewire\Component;
 
 use App\Purchase;
 

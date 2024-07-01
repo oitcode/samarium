@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Accounting;
 
 use Livewire\Component;
 
@@ -17,6 +17,6 @@ class AccountingTrialBalanceComponent extends Component
         $this->abAccounts = AbAccount::all();
         $this->company = Company::first();
 
-        return view('livewire.accounting-trial-balance-component');
+        return view('livewire.accounting.accounting-trial-balance-component');
     }
 }

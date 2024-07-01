@@ -1,14 +1,18 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Accounting;
 
 use Livewire\Component;
 
 use App\AbAccountType;
 use App\AbAccount;
 
-class AccountingCashFlow extends Component
+class AccountingBalanceSheet extends Component
 {
+    public $assetTotal;
+    public $liabilityTotal;
+    public $equityTotal;
+
     /* This taken from income statement to calculate retained earnings. */
     public $revenueItems = array();
     public $cogsItems = array();
@@ -20,10 +24,64 @@ class AccountingCashFlow extends Component
 
     public $grossProfit;
     public $netProfit;
-    /* ./This taken from income statement to calculate retained earnings. */
+    /* This taken from income statement to calculate retained earnings. */
 
     public function render()
     {
+        $this->calculateAssetTotal();
+        $this->calculateLiabilitiesTotal();
+        $this->calculateEquityTotal();
+
+        return view('livewire.accounting.accounting-balance-sheet');
+    }
+
+    public function calculateAssetTotal()
+    {
+        $total = 0;
+
+        $assetAccountType = AbAccountType::where('name', 'Asset')->first();
+
+        foreach ($assetAccountType->abAccounts as $abAccount) {
+            $total += $abAccount->getLedgerBalance();
+        }
+
+        $this->assetTotal = $total;
+    }
+
+    public function calculateLiabilitiesTotal()
+    {
+        $total = 0;
+
+        $liabilitiesAccountType = AbAccountType::where('name', 'Liabilities')->first();
+
+        foreach ($liabilitiesAccountType->abAccounts as $abAccount) {
+            $total += $abAccount->getLedgerBalance();
+        }
+
+        $this->liabilityTotal = $total;
+    }
+
+    public function calculateEquityTotal()
+    {
+        /* TODO: 
+         *
+         * Here, in balance sheet, we again do whatever we did in the
+         * income statement generation, because we need the retained
+         * earnings total to add to get equity total. 
+         *
+         * Any way not to repeat whatever has been done while generating
+         * income statement?
+         *
+         */
+
+        $total = 0;
+
+        $liabilitiesAccountType = AbAccountType::where('name', 'Equity')->first();
+
+        foreach ($liabilitiesAccountType->abAccounts as $abAccount) {
+            $total += $abAccount->getLedgerBalance();
+        }
+
         /* Calculate net income/profit */
         $this->populateRevenue();
         $this->populateCogs();
@@ -31,9 +89,10 @@ class AccountingCashFlow extends Component
 
         $this->calculateGrossProfit();
         $this->calculateNetProfit();
-        /* ./Calculate net income/profit */
 
-        return view('livewire.accounting-cash-flow');
+        $total += $this->netProfit;
+
+        $this->equityTotal = $total;
     }
 
     /* This taken from income statement to calculate retained earnings. */
@@ -84,5 +143,5 @@ class AccountingCashFlow extends Component
     {
         $this->netProfit = $this->grossProfit - $this->expenseTotal;
     }
-    /* ./This taken from income statement to calculate retained earnings. */
+    /* This taken from income statement to calculate retained earnings. */
 }

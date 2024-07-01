@@ -45,6 +45,7 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/vendor' ||
             $uri == '/dashboard/expense' ||
             $uri == '/dashboard/onlineorder' ||
+            $uri == '/dashboard/accounting' ||
             $uri == '/dashboard/sale-quotation'
         ) {
             $this->enterModeSilent('shop');

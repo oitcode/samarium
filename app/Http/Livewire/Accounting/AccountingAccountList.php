@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Accounting;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class AccountingAccountList extends Component
     {
         $this->abAccounts = AbAccount::all();
 
-        return view('livewire.accounting-account-list');
+        return view('livewire.accounting.accounting-account-list');
     }
 }
