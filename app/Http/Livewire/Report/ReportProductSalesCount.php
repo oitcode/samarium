@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Report;
 
 use Livewire\Component;
 use Carbon\Carbon;
@@ -34,7 +34,7 @@ class ReportProductSalesCount extends Component
 
     public function render()
     {
-        return view('livewire.report-product-sales-count');
+        return view('livewire.report.report-product-sales-count');
     }
 
     public function getSaleItemQuantity($saleInvoices)

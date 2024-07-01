@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Report;
 
 use Livewire\Component;
 use Carbon\Carbon;
@@ -27,7 +27,7 @@ class ReportProductPurchaseCount extends Component
 
         $this->getPurchaseItemQuantity($purchases);
 
-        return view('livewire.report-product-purchase-count');
+        return view('livewire.report.report-product-purchase-count');
     }
 
     public function getPurchaseItemQuantity($purchases)

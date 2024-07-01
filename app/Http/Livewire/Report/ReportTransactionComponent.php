@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Report;
 
 use Livewire\Component;
 
@@ -39,7 +39,7 @@ class ReportTransactionComponent extends Component
         $this->calculateExpenseTotal();
         $this->calculateNetTotal();
 
-        return view('livewire.report-transaction-component');
+        return view('livewire.report.report-transaction-component');
     }
 
     public function calculateSaleInvoiceTotal()
