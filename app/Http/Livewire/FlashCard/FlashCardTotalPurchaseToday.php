@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
+use Livewire\Component\FlashCard;
 
 use App\Purchase;
 
@@ -30,7 +30,7 @@ class FlashCardTotalPurchaseToday extends Component
 
         $this->calculateTodayPurchaseTotalAmount();
 
-        return view('livewire.flash-card-total-purchase-today');
+        return view('livewire.flash-card.flash-card-total-purchase-today');
     }
 
     public function calculateTodayPurchaseTotalAmount()

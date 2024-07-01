@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\FlashCard;
 
 use Livewire\Component;
 
@@ -30,7 +30,7 @@ class FlashCardTotalExpenseToday extends Component
 
         $this->calculateTodayExpenseTotalAmount();
 
-        return view('livewire.flash-card-total-expense-today');
+        return view('livewire.flash-card.flash-card-total-expense-today');
     }
 
     public function calculateTodayExpenseTotalAmount()

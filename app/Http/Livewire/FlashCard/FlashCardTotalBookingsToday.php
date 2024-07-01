@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\FlashCard;
 
 use Livewire\Component;
 
@@ -17,7 +17,7 @@ class FlashCardTotalBookingsToday extends Component
 
         $this->calculateTodayBookingsTotalAmount();
 
-        return view('livewire.flash-card-total-bookings-today');
+        return view('livewire.flash-card.flash-card-total-bookings-today');
     }
 
     public function calculateTodayBookingsTotalAmount()

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\FlashCard;
 
 use Livewire\Component;
 use App\Takeaway;
@@ -16,7 +16,7 @@ class FlashCardTotalTakeawaysToday extends Component
 
         $this->calculateTodayTakeawaysTotalAmount();
 
-        return view('livewire.flash-card-total-takeaways-today');
+        return view('livewire.flash-card.flash-card-total-takeaways-today');
     }
 
     public function calculateTodayTakeawaysTotalAmount()

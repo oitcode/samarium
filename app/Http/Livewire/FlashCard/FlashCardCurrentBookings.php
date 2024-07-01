@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\FlashCard;
 
 use Livewire\Component;
 
@@ -16,7 +16,7 @@ class FlashCardCurrentBookings extends Component
         $this->currentBookingsCount = SeatTableBooking::where('status', 'open')->count();
         $this->calculateCurrentBookingsTotalAmount();
 
-        return view('livewire.flash-card-current-bookings');
+        return view('livewire.flash-card.flash-card-current-bookings');
     }
 
     public function calculateCurrentBookingsTotalAmount()
