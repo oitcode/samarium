@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Accounting;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class JournalEntryList extends Component
     {
         $this->journalEntries = JournalEntry::all();
 
-        return view('livewire.journal-entry-list');
+        return view('livewire.accounting.journal-entry-list');
     }
 }

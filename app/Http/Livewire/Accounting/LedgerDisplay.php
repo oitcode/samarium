@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Accounting;
 
 use Livewire\Component;
 
@@ -16,6 +16,6 @@ class LedgerDisplay extends Component
     {
         $this->ledgerEntries = $this->abAccount->ledgerEntries;
 
-        return view('livewire.ledger-display');
+        return view('livewire.accounting.ledger-display');
     }
 }
