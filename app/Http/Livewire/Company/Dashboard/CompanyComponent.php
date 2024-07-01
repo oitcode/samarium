@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Company\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -89,7 +89,7 @@ class CompanyComponent extends Component
             $this->tiktok_link = $this->company->tiktok_link;
         }
 
-        return view('livewire.company-component');
+        return view('livewire.company.dashboard.company-component');
     }
 
     public function store()

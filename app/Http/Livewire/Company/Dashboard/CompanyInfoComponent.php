@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Company\Dashboard;
 
 use Livewire\Component;
 
