@@ -15,14 +15,6 @@
       @endif
       <div class="d-flex">
         @if (true)
-        <div class="mr-4 font-weight-bold pt-2">
-          @if (false)
-          Status
-          @endif
-          <i class="fas fa-filter mr-2"></i>
-        </div>
-        @endif
-        @if (true)
         <div class="dropdown">
           <button class="btn
               @if ($modes['showOnlyPendingMode'])
@@ -32,7 +24,7 @@
               @elseif ($modes['showOnlyPartiallyPaidMode'])
                 btn-warning
               @elseif ($modes['showAllMode'])
-                btn-light border
+                btn-dark border
               @endif
               dropdown-toggle"
               type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
