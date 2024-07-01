@@ -106,22 +106,12 @@
       |
       --}}
       <div class="o-animated-rm mb-3 border-bottom">
-        @if (env('CMP_TYPE') == 'shop')
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'sale',
-                  'iconFaClass' => 'fas fa-dice-d6',
-                  'btnText' => 'Sales',
-              ])
-        @else
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'sale',
-                  'iconFaClass' => 'fas fa-skating',
-                  'btnText' => 'Takeaway',
-                  'btnType' => 'btn-primary',
-              ])
-        @endif
+        @include ('partials.dashboard.app-left-menu-button',
+            [
+                'btnRoute' => 'sale',
+                'iconFaClass' => 'fas fa-dice-d6',
+                'btnText' => 'Sales',
+            ])
 
         @if (env('CMP_TYPE') == 'cafe')
           @include ('partials.dashboard.app-left-menu-button',
