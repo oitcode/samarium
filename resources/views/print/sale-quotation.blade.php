@@ -37,7 +37,7 @@
 <body style="background-color: #ddd;">
 
   <div class="container">
-    @livewire ('core-sale-quotation-display', ['saleQuotation' => $saleQuotation, 'display_toolbar' => false,])
+    @livewire ('core.core-sale-quotation-display', ['saleQuotation' => $saleQuotation, 'display_toolbar' => false,])
   </div>
 
   <!-- Livewire scripts -->

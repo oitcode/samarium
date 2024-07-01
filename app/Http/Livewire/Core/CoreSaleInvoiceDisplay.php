@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Core;
 
 use Livewire\Component;
 use App\Company;
@@ -25,7 +25,7 @@ class CoreSaleInvoiceDisplay extends Component
 
         $this->has_vat = $this->hasVat();
 
-        return view('livewire.core-sale-invoice-display');
+        return view('livewire.core.core-sale-invoice-display');
     }
 
     /* Clear modes */

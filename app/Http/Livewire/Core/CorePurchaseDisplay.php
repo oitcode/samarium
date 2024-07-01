@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Core;
 
 use Livewire\Component;
 
-class CoreExpenseDisplay extends Component
+class CorePurchaseDisplay extends Component
 {
-    public $expense;
+    public $purchase;
 
     public $modes = [
         'showPayments' => false,
@@ -14,7 +14,7 @@ class CoreExpenseDisplay extends Component
 
     public function render()
     {
-        return view('livewire.core-expense-display');
+        return view('livewire.core.core-purchase-display');
     }
 
     /* Clear modes */

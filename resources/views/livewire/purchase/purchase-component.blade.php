@@ -62,7 +62,7 @@
           'purchase' => $displayingPurchase,
       ])
     @else
-      @livewire ('core-purchase-display', ['purchase' => $displayingPurchase,])
+      @livewire ('core.core-purchase-display', ['purchase' => $displayingPurchase,])
     @endif
   @elseif ($modes['search'])
     @livewire ('purchase.purchase-search')

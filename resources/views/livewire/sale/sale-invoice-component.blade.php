@@ -61,7 +61,7 @@
     @livewire ('sale.sale-invoice-create')
   @elseif ($modes['display'])
     @if ($displayingSaleInvoice->payment_status == 'paid')
-      @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
+      @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
     @else
       @livewire ('sale.sale-invoice-work', ['saleInvoice' => $displayingSaleInvoice,])
     @endif

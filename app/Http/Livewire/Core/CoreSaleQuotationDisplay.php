@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Core;
 
 use Livewire\Component;
 
@@ -30,7 +30,7 @@ class CoreSaleQuotationDisplay extends Component
 
         $this->has_vat = $this->hasVat();
 
-        return view('livewire.core-sale-quotation-display');
+        return view('livewire.core.core-sale-quotation-display');
     }
 
     public function hasVat()

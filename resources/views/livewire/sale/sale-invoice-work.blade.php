@@ -2,7 +2,7 @@
 
 
   @if ($saleInvoice->takeaway && $saleInvoice->takeaway->status == 'closed')
-    @livewire ('core-sale-invoice-display', ['saleInvoice' => $saleInvoice,])
+    @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $saleInvoice,])
   @else
     <div>
     
