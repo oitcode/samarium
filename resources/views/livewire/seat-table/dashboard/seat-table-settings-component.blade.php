@@ -53,7 +53,7 @@
   --}}
 
   @if ($modes['createSeatTableMode'])
-    @livewire ('seat-table-create')
+    @livewire ('cafe-sale.seat-table-create')
   @endif
 
 

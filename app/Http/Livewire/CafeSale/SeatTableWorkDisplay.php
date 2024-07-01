@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\CafeSale;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +32,7 @@ class SeatTableWorkDisplay extends Component
 
     public function render()
     {
-        return view('livewire.seat-table-work-display');
+        return view('livewire.cafe-sale.seat-table-work-display');
     }
 
     /* Clear modes */

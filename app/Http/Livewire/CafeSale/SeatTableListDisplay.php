@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\CafeSale;
 
 use Livewire\Component;
 
@@ -12,7 +12,7 @@ class SeatTableListDisplay extends Component
 
     public function render()
     {
-        return view('livewire.seat-table-list-display');
+        return view('livewire.cafe-sale.seat-table-list-display');
     }
 
     public function displayWorkingSeatTable($seatTableId)
