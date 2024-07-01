@@ -9,10 +9,10 @@
       @livewire ('report.report-transaction-component')
     </div>
     <div class="col-md-3 mb-3">
-      @livewire ('chart-week-sales', key(rand()))
+      @livewire ('chart.chart-week-sales', key(rand()))
     </div>
     <div class="col-md-6 mb-3">
-      @livewire ('chart-sale-by-category', key(rand()))
+      @livewire ('chart.chart-sale-by-category', key(rand()))
     </div>
   </div>
 

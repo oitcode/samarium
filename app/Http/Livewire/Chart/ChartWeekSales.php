@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Chart;
 
 use Livewire\Component;
 use Carbon\Carbon;
@@ -15,7 +15,7 @@ class ChartWeekSales extends Component
     {
         $this->populateWeekSales();
 
-        return view('livewire.chart-week-sales');
+        return view('livewire.chart.chart-week-sales');
     }
 
     public function populateWeekSales()

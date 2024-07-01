@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Chart;
 
 use Livewire\Component;
 use Carbon\Carbon;
@@ -24,7 +24,7 @@ class ChartSaleByCategory extends Component
     {
         $this->populateSaleByCategory();
 
-        return view('livewire.chart-sale-by-category');
+        return view('livewire.chart.chart-sale-by-category');
     }
 
     public function populateSaleByCategory()
