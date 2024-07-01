@@ -90,7 +90,7 @@
       {{-- Online order counter component --}}
       <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
         <a href="{{ route('online-order') }}" class="text-reset">
-          @livewire ('online-order-counter')
+          @livewire ('online-order.dashboard.online-order-counter')
         </a>
       </div>
     @endif

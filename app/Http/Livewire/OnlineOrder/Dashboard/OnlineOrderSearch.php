@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
 
@@ -12,7 +12,7 @@ class OnlineOrderSearch extends Component
 
     public function render()
     {
-        return view('livewire.online-order-search');
+        return view('livewire.online-order.dashboard.online-order-search');
     }
 
     public function search()

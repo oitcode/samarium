@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
 
@@ -16,6 +16,6 @@ class OnlineOrderCounter extends Component
 
         $this->newOrderCount = count($newOrders);
 
-        return view('livewire.online-order-counter');
+        return view('livewire.online-order.dashboard.online-order-counter');
     }
 }

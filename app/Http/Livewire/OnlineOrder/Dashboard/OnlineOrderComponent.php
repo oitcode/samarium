@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
 
@@ -26,7 +26,7 @@ class OnlineOrderComponent extends Component
 
     public function render()
     {
-        return view('livewire.online-order-component');
+        return view('livewire.online-order.dashboard.online-order-component');
     }
 
     /* Clear modes */

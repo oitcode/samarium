@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -50,7 +50,7 @@ class OnlineOrderList extends Component
             dd ('Whoops');
         }
 
-        return view('livewire.online-order-list')
+        return view('livewire.online-order.dashboard.online-order-list')
             ->with('websiteOrders', $websiteOrders);
     }
 

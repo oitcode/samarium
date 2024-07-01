@@ -46,11 +46,11 @@
   --}}
 
   @if ($modes['onlineOrderDisplay'])
-    @livewire ('online-order-display', ['websiteOrder' => $displayingOnlineOrder,])
+    @livewire ('online-order.dashboard.online-order-display', ['websiteOrder' => $displayingOnlineOrder,])
   @elseif ($modes['listMode'])
-    @livewire ('online-order-list')
+    @livewire ('online-order.dashboard.online-order-list')
   @elseif ($modes['searchMode'])
-    @livewire ('online-order-search')
+    @livewire ('online-order.dashboard.online-order-search')
   @endif
 
 

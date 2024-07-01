@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
 
@@ -10,7 +10,7 @@ class OnlineOrderDisplay extends Component
 
     public function render()
     {
-        return view('livewire.online-order-display');
+        return view('livewire.online-order.dashboard.online-order-display');
     }
 
     public function acceptOrder()
