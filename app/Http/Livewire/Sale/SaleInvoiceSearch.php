@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Sale;
 
 use Livewire\Component;
 
@@ -14,7 +14,7 @@ class SaleInvoiceSearch extends Component
 
     public function render()
     {
-        return view('livewire.sale-invoice-search');
+        return view('livewire.sale.sale-invoice-search');
     }
 
     public function search()

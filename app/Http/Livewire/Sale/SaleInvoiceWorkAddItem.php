@@ -1,6 +1,9 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Sale;
+
+use App\Traits\ModesTrait;
+use App\Traits\InventoryTrait;
 
 use Livewire\Component;
 
@@ -9,9 +12,12 @@ use App\ProductCategory;
 use App\SaleInvoiceItem;
 use App\Takeaway;
 
-class TakeawayWorkAddItem extends Component
+class SaleInvoiceWorkAddItem extends Component
 {
-    public $takeaway;
+    use ModesTrait;
+    use InventoryTrait;
+
+    public $saleInvoice;
 
     /* Search options */
     public $add_item_name;
@@ -37,38 +43,20 @@ class TakeawayWorkAddItem extends Component
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
             ->where('is_base_product', false)
+            ->orderBy('name', 'ASC')
             ->get();
     }
 
     public function render()
     {
-        $this->productCategories = ProductCategory::where('does_sell', 'yes')->get();
+        $this->productCategories = ProductCategory::where('does_sell', 'yes')
+            ->orderBy('name', 'ASC')
+            ->get();
 
-        return view('livewire.takeaway-work-add-item');
+        return view('livewire.sale.sale-invoice-work-add-item');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function addItemToTakeaway()
+    public function addItemToSaleInvoice()
     {
         if (! $this->selectedProduct) {
             return;
@@ -87,19 +75,19 @@ class TakeawayWorkAddItem extends Component
          *
          */
 
-        $saleInvoiceItem = $this->checkExistingItemsForProduct($this->takeaway->saleInvoice, $this->product_id);
+        $saleInvoiceItem = $this->checkExistingItemsForProduct($this->saleInvoice, $this->product_id);
 
         if ($saleInvoiceItem) {
             /* Update existing sale invoice item. */
             $saleInvoiceItem->quantity += $this->quantity;
             $saleInvoiceItem->save();
 
-            $this->updateSaleInvoiceTotalAmount($this->takeaway->saleInvoice, $saleInvoiceItem, $this->quantity);
+            $this->updateSaleInvoiceTotalAmount($this->saleInvoice, $saleInvoiceItem, $this->quantity);
         } else {
             /* Add sale_invoice_item to sale_invoice */
             $saleInvoiceItem = new SaleInvoiceItem;
 
-            $saleInvoiceItem->sale_invoice_id = $this->takeaway->saleInvoice->sale_invoice_id;
+            $saleInvoiceItem->sale_invoice_id = $this->saleInvoice->sale_invoice_id;
             $saleInvoiceItem->product_id = $this->product_id;
             $saleInvoiceItem->quantity = $this->quantity;
             $saleInvoiceItem->price_per_unit = Product::find($this->product_id)->selling_price;
@@ -107,7 +95,7 @@ class TakeawayWorkAddItem extends Component
             $saleInvoiceItem->save();
 
             /* Update sale_invoice total amount. */
-            $saleInvoice = $this->takeaway->saleInvoice;
+            $saleInvoice = $this->saleInvoice;
             $saleInvoice->total_amount += $saleInvoiceItem->getTotalAmount();
             $saleInvoice->save();
         }
@@ -115,15 +103,10 @@ class TakeawayWorkAddItem extends Component
         /* Do inventory management */
         $product = Product::find($this->product_id);
 
-        // if (! is_null($product->stock_count)) {
-        //   $product->stock_count -=  $this->quantity;
-        //   $product->save();
-        // }
-
         $this->doInventoryUpdate($product, $this->quantity, 'out');
 
         $this->resetInputFields();
-        $this->emit('itemAddedToTakeaway');
+        $this->emit('itemAddedToSaleInvoice');
 
         if ($this->modes['showMobForm']) {
             $this->exitMode('showMobForm');
@@ -134,6 +117,7 @@ class TakeawayWorkAddItem extends Component
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
             ->where('is_base_product', false)
+            ->orderBy('name', 'ASC')
             ->get();
     }
 
@@ -176,7 +160,11 @@ class TakeawayWorkAddItem extends Component
         $this->selectedProduct = null;
         $this->quantity = '';
 
-        $this->products = ProductCategory::find($validatedData['search_product_category_id'])->products()->where('is_base_product', false)->get();
+        $this->products =
+            ProductCategory::find($validatedData['search_product_category_id'])
+                ->products()->where('is_base_product', false)
+                ->orderBy('name', 'ASC')
+                ->get();
     }
 
     public function checkExistingItemsForProduct($saleInvoice, $productId)
@@ -206,47 +194,5 @@ class TakeawayWorkAddItem extends Component
     public function hideAddItemFormMob()
     {
         $this->exitMode('showMobForm');
-    }
-
-    public function stockAvailable($product, $quantity)
-    {
-        if ($product->baseProduct) {
-            if ($product->baseProduct->stock_count >= $quantity * $product->inventory_unit_consumption ) {
-                return true;
-            } else {
-                session()->flash('errorMessage', 'Sorry! Stock not available.');
-                return false;
-            }
-        } else {
-            if ($product->stock_count >= $quantity ) {
-                return true;
-            } else {
-                session()->flash('errorMessage', 'Sorry! Stock not available.');
-                return false;
-            }
-        }
-    }
-
-    public function doInventoryUpdate($product, $quantity, $direction)
-    {
-        if ($product->baseProduct) {
-            $baseProduct = $product->baseProduct;
-
-            if ($direction == 'out') {
-                $baseProduct->stock_count -= $quantity * $product->inventory_unit_consumption;
-            } else {
-                $baseProduct->stock_count += $quantity * $product->inventory_unit_consumption;
-            }
-            $baseProduct->save();
-        } else {
-            if (! is_null($product->stock_count)) {
-                if ($direction == 'out') {
-                    $product->stock_count -=  $quantity;
-                } else {
-                    $product->stock_count +=  $quantity;
-                }
-                $product->save();
-            }
-        }
     }
 }

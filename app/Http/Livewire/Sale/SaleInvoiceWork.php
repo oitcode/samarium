@@ -1,91 +1,53 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Sale;
+
+use App\Traits\ModesTrait;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
 use App\SaleInvoice;
-use App\SeatTableBooking;
 use App\SaleInvoiceItem;
-use App\Takeaway;
-
 use App\SaleInvoiceAdditionHeading;
+use App\Customer;
 
-class TakeawayWork extends Component
+class SaleInvoiceWork extends Component
 {
-    public $takeaway;
+    use ModesTrait;
+
+    public $saleInvoice;
 
     public $deletingSaleInvoiceItem = null; 
-
     public $has_vat;
-
     public $sale_invoice_date;
 
+    public $customers;
+    public $customer_id;
+
     public $modes = [
-        'addItem' => true,
+        'addItem' => false,
         'makePayment' => true,
         'confirmRemoveSaleInvoiceItem' => false,
         'backDate' => false,
+        'customerSelected' => false,
     ];
 
     protected $listeners = [
         'exitAddItemMode',
         'exitMakePaymentMode',
-        'itemAddedToTakeaway',
-        'removeItemFromCurrentBooking',
+        'itemAddedToSaleInvoice',
+        'removeItemFromSaleInvoice',
         'exitDeleteSaleInvoiceItem',
     ];
 
     public function render()
     {
         $this->has_vat = $this->hasVat();
-        $this->sale_invoice_date = $this->takeaway->saleInvoice->sale_invoice_date;
+        $this->sale_invoice_date = $this->saleInvoice->sale_invoice_date;
+        $this->customers = Customer::all();
 
-        return view('livewire.takeaway-work');
-    }
-
-    public function startTakeaway()
-    {
-        $takeaway = new Takeaway;
-        $takeaway->status = 'open';
-        $takeaway->save();
-
-        $saleInvoice = new SaleInvoice;
-
-        $saleInvoice->sale_invoice_date = date('Y-m-d');
-        $saleInvoice->takeaway_id = $takeaway->takeaway_id;
-        $saleInvoice->payment_status = 'pending';
-
-        $saleInvoice->save();
-
-        $this->render();
-    }
-
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function enterModeSilent($modeName)
-    {
-        $this->modes[$modeName] = true;
+        return view('livewire.sale.sale-invoice-work');
     }
 
     public function exitMakePaymentMode()
@@ -93,16 +55,15 @@ class TakeawayWork extends Component
         $this->exitMode('makePayment');
     }
 
-    public function confirmRemoveItemFromTakeaway($saleInvoiceItemId)
+    public function confirmRemoveItemFromSaleInvoice($saleInvoiceItemId)
     {
         $saleInvoiceItem = SaleInvoiceItem::find($saleInvoiceItemId);
 
         $this->deletingSaleInvoiceItem = $saleInvoiceItem;
-        // $this->enterMode('confirmRemoveSaleInvoiceItem');
         $this->modes['confirmRemoveSaleInvoiceItem'] = true;
     }
 
-    public function removeItemFromCurrentBooking($saleInvoiceItemId)
+    public function removeItemFromSaleInvoice($saleInvoiceItemId)
     {
         $saleInvoiceItem = SaleInvoiceItem::find($saleInvoiceItemId);
 
@@ -116,17 +77,8 @@ class TakeawayWork extends Component
             $saleInvoiceItem->save();
             $saleInvoiceItem->delete();
 
-            /* Reverse stock count */
             $this->updateInventory($product, $quantity, 'in');
-
-            // $product->stock_count += $quantity;
-            // $product->save();
-
-            /*
-             * This needed for bugfix #11. If this is not added
-             * then the takeaway item list does not update in the UI.
-             */
-            $this->takeaway = $this->takeaway->fresh();
+            $this->saleInvoice= $this->saleInvoice->fresh();
 
             DB::commit();
         } catch (\Exception $e) {
@@ -137,6 +89,7 @@ class TakeawayWork extends Component
 
         $this->deletingSaleInvoiceItem = null;
         $this->exitMode('confirmRemoveSaleInvoiceItem');
+        $this->emit('makePaymentPleaseUpdate');
         $this->render();
     }
 
@@ -146,7 +99,7 @@ class TakeawayWork extends Component
         $this->exitMode('confirmRemoveSaleInvoiceItem');
     }
 
-    public function itemAddedToTakeaway()
+    public function itemAddedToSaleInvoice()
     {
         $this->emit('makePaymentPleaseUpdate');
         $this->render();
@@ -195,12 +148,25 @@ class TakeawayWork extends Component
             'sale_invoice_date' => 'required|date',
         ]);
 
-        $saleInvoice = $this->takeaway->saleInvoice;
+        $saleInvoice = $this->saleInvoice;
         $saleInvoice->sale_invoice_date = $validatedData['sale_invoice_date'];
         $saleInvoice->save();
 
-        $this->takeaway = $this->takeaway->fresh();
+        $this->saleInvoice = $this->saleInvoice->fresh();
         $this->modes['backDate'] = false;
         $this->render();
+    }
+
+    public function linkCustomerToSaleInvoice()
+    {
+        $validatedData = $this->validate([
+            'customer_id' => 'required|integer',
+        ]);
+
+        $this->saleInvoice->customer_id = $validatedData['customer_id'];
+        $this->saleInvoice->save();
+        $this->saleInvoice = $this->saleInvoice->fresh();
+
+        $this->modes['customerSelected'] = true;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Sale;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -74,7 +74,7 @@ class TakeawayList extends Component
 
         $this->todayTakeawayCount = Takeaway::whereDate('created_at', date('Y-m-d'))->count();
 
-        return view('livewire.takeaway-list')
+        return view('livewire.sale.takeaway-list')
             ->with('takeaways', $takeaways);
     }
 

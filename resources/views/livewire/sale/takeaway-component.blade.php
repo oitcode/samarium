@@ -58,17 +58,17 @@
   --}}
 
   @if ($modes['create'])
-    @livewire ('takeaway-create')
+    @livewire ('sale.takeaway-create')
   @elseif ($modes['display'])
     @if ($displayingTakeaway && $displayingTakeaway->status == 'closed')
       @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingTakeaway->saleInvoice,])
     @else
-      @livewire ('sale-invoice-work', ['saleInvoice' => $displayingTakeaway->saleInvoice,])
+      @livewire ('sale.sale-invoice-work', ['saleInvoice' => $displayingTakeaway->saleInvoice,])
     @endif
   @elseif ($modes['list'])
-    @livewire ('takeaway-list')
+    @livewire ('sale.takeaway-list')
   @elseif ($modes['search'])
-    @livewire ('takeaway-search')
+    @livewire ('sale.takeaway-search')
   @else
   @endif
 

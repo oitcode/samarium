@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Sale;
 
 use Livewire\Component;
 
@@ -10,6 +10,6 @@ class SaleInvoiceWorkConfirmSaleInvoiceItemDelete extends Component
 
     public function render()
     {
-        return view('livewire.sale-invoice-work-confirm-sale-invoice-item-delete');
+        return view('livewire.sale.sale-invoice-work-confirm-sale-invoice-item-delete');
     }
 }

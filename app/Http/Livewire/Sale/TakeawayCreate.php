@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Sale;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +14,7 @@ class TakeawayCreate extends Component
     {
         $takeaway = $this->startTakeaway();
 
-        return view('livewire.takeaway-create')
+        return view('livewire.sale.takeaway-create')
             ->with('takeaway', $takeaway);
     }
 

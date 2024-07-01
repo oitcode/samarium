@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Sale;
 
 use Livewire\Component;
 
@@ -10,6 +10,6 @@ class SaleInvoiceDetail extends Component
 
     public function render()
     {
-        return view('livewire.sale-invoice-detail');
+        return view('livewire.sale.sale-invoice-detail');
     }
 }

@@ -14,7 +14,7 @@
           @if ($saleInvoice)
             {{-- Todo: Why true? Why only takeaway? --}} 
             @if ($modes['addItem'])
-              @livewire ('sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
+              @livewire ('sale.sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
             @endif
           @endif
     
@@ -469,7 +469,7 @@
     
         <div class="col-md-4">
           @if ($saleInvoice->status != 'closed' && $saleInvoice->payment_status != 'paid' && $modes['makePayment'])
-            @livewire ('sale-invoice-work-make-payment', ['saleInvoice' => $saleInvoice,])
+            @livewire ('sale.sale-invoice-work-make-payment', ['saleInvoice' => $saleInvoice,])
           @endif
         </div>
     
@@ -481,7 +481,7 @@
       </div>
     
       @if ($modes['confirmRemoveSaleInvoiceItem'])
-        @livewire ('sale-invoice-work-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
+        @livewire ('sale.sale-invoice-work-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
       @endif
     
     </div>

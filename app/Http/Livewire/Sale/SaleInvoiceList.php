@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Sale;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class SaleInvoiceList extends Component
     {
         $this->saleInvoices = SaleInvoice::all();
 
-        return view('livewire.sale-invoice-list');
+        return view('livewire.sale.sale-invoice-list');
     }
 }

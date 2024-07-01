@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Sale;
 
 use Livewire\Component;
 
@@ -24,7 +24,7 @@ class TakeawayComponent extends Component
 
     public function render()
     {
-        return view('livewire.takeaway-component');
+        return view('livewire.sale.takeaway-component');
     }
 
     /* Clear modes */

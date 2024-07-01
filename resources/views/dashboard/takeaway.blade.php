@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('takeaway-component')
+  @livewire('sale.takeaway-component')
 @endsection

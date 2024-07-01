@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Sale;
 
 use App\Traits\MiscTrait;
 
@@ -105,7 +105,7 @@ class SaleInvoiceWorkMakePayment extends Component
 
     public function render()
     {
-        return view('livewire.sale-invoice-work-make-payment');
+        return view('livewire.sale.sale-invoice-work-make-payment');
     }
 
     public function updatedSaleInvoiceAdditions()
