@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Customer;
 
 use Livewire\Component;
 
@@ -10,6 +10,6 @@ class CustomerLedger extends Component
 
     public function render()
     {
-        return view('livewire.customer-ledger');
+        return view('livewire.customer.customer-ledger');
     }
 }

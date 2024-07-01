@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Customer;
 
 use Livewire\Component;
 
@@ -41,7 +41,7 @@ class CustomerComponent extends Component
             }
         }
 
-        return view('livewire.customer-component');
+        return view('livewire.customer.customer-component');
     }
 
     /* Clear modes */

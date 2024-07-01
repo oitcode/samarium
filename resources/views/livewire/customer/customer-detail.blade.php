@@ -26,7 +26,6 @@
             <th>Phone</th>
             <td>
               @if ($customer->phone)
-                <i class="fas fa-phone text-secondary mr-3"></i>
                 {{ $customer->phone}}
               @else
                 <i class="fas fa-exclamation-circle text-warning mr-1"></i>
@@ -103,15 +102,15 @@
   --}}
 
   @if ($modes['salesHistory'])
-    @livewire ('customer-sale-list', ['customer' => $customer,])
+    @livewire ('customer.customer-sale-list', ['customer' => $customer,])
   @endif
 
   @if ($modes['customerPaymentCreate'])
-    @livewire ('customer-payment-create', ['customer' => $customer,])
+    @livewire ('customer.customer-payment-create', ['customer' => $customer,])
   @endif
 
   @if ($modes['saleInvoicePaymentCreate'])
-    @livewire ('customer-invoice-payment-create', ['saleInvoice' => $paymentReceivingSaleInvoice,])
+    @livewire ('customer.customer-invoice-payment-create', ['saleInvoice' => $paymentReceivingSaleInvoice,])
   @endif
 
   @if ($modes['saleInvoiceDisplay'])

@@ -66,13 +66,13 @@
   --}}
 
   @if ($modes['create'])
-    @livewire ('customer-create')
+    @livewire ('customer.customer-create')
   @elseif ($modes['list'])
-    @livewire ('customer-list')
+    @livewire ('customer.customer-list')
   @elseif ($modes['search'])
-    @livewire ('customer-search')
+    @livewire ('customer.customer-search')
   @elseif ($modes['display'])
-    @livewire ('customer-detail', ['customer' => $displayingCustomer,])
+    @livewire ('customer.customer-detail', ['customer' => $displayingCustomer,])
   @endif
 
 

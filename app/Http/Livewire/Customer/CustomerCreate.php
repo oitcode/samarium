@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Customer;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +19,7 @@ class CustomerCreate extends Component
 
     public function render()
     {
-        return view('livewire.customer-create');
+        return view('livewire.customer.customer-create');
     }
 
     public function store()
