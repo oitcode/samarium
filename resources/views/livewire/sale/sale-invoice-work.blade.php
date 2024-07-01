@@ -204,6 +204,11 @@
                                     $saleInvoice->seatTableBooking &&
                                     $saleInvoice->seatTableBooking->status != 'closed'
                                   ) 
+                                  ||
+                                  (
+                                    !$saleInvoice->seatTableBooking && !$saleInvoice->takeaway &&
+                                    $saleInvoice->payment_status != 'paid'
+                                  ) 
                                 )
                               <td>
                                 <a href="" wire:click.prevent="confirmRemoveItemFromSaleInvoice({{ $item->sale_invoice_item_id }})">

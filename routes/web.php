@@ -51,7 +51,10 @@ Route::get('/dashboard/product-category', 'ProductCategoryController@index')->na
 Route::get('/dashboard/customer', 'CustomerController@index')->name('customer');
 
 /* Sale */
-Route::get('/dashboard/sale', 'SaleController@takeaway')->name('sale');
+Route::get('/dashboard/sale', 'SaleController@saleInvoice')->name('sale');
+
+/* Takeaway */
+Route::get('/dashboard/takeaway', 'SaleController@takeaway')->name('takeaway');
 
 /* Sale quotation */
 Route::get('/dashboard/sale-quotation', 'SaleQuotationController@index')->name('dashboard-sale-quotation');

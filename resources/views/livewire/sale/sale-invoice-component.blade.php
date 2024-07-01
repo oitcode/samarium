@@ -33,7 +33,7 @@
           @include ('partials.dashboard.tool-bar-button-pill', [
               'btnClickMethod' => "enterMode('display')",
               'btnIconFaClass' => 'fas fa-circle',
-              'btnText' => 'Takeaway display',
+              'btnText' => 'Sale invoice display',
               'btnCheckMode' => 'display',
           ])
         @endif
@@ -60,10 +60,10 @@
   @if ($modes['create'])
     @livewire ('sale.sale-invoice-create')
   @elseif ($modes['display'])
-    @if ($displayingTakeaway && $displayingTakeaway->status == 'closed')
-      @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingTakeaway->saleInvoice,])
+    @if ($displayingSaleInvoice->payment_status == 'paid')
+      @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
     @else
-      @livewire ('sale.sale-invoice-work', ['saleInvoice' => $displayingTakeaway->saleInvoice,])
+      @livewire ('sale.sale-invoice-work', ['saleInvoice' => $displayingSaleInvoice,])
     @endif
   @elseif ($modes['list'])
     @livewire ('sale.sale-invoice-list')

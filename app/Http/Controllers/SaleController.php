@@ -36,4 +36,9 @@ class SaleController extends Controller
     {
         return view('dashboard.takeaway');
     }
+
+    public function saleInvoice()
+    {
+        return view('dashboard.sale-invoice');
+    }
 }
