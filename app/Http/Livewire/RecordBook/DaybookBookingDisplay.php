@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\RecordBook;
 
 use Livewire\Component;
 
@@ -14,7 +14,7 @@ class DaybookBookingDisplay extends Component
 
     public function render()
     {
-        return view('livewire.daybook-booking-display');
+        return view('livewire.record-book.daybook-booking-display');
     }
 
     public function displayingBookingChanged($seatTableBooking)

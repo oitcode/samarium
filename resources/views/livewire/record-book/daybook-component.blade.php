@@ -160,7 +160,7 @@
         </div>
       </div>
       @endif
-      @livewire ('daybook-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
+      @livewire ('record-book.daybook-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
     @else
       @livewire ('core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
     @endif

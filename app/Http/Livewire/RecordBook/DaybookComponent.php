@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\RecordBook;
 
 use Livewire\Component;
 use Carbon\Carbon;
@@ -154,7 +154,7 @@ class DaybookComponent extends Component
          * Return the view with required info.
          *
          */
-        return view('livewire.daybook-component')
+        return view('livewire.record-book.daybook-component')
             ->with('saleInvoices', $saleInvoices)
             ->with('purchases', $purchases)
             ->with('expenses', $expenses);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\RecordBook;
 
 use Livewire\Component;
 use Carbon\Carbon;
@@ -31,7 +31,7 @@ class ViewbookComponent extends Component
             $this->populateBook();
         }
 
-        return view('livewire.viewbook-component');
+        return view('livewire.record-book.viewbook-component');
     }
 
     /* Clear modes */

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\RecordBook;
 
 use Livewire\Component;
 use Carbon\Carbon;
@@ -39,7 +39,7 @@ class WeekbookComponent extends Component
         $this->populateWeekBookExpense();
         $this->totalAmountExpense = $this->getTotalAmountExpense();
 
-        return view('livewire.weekbook-component');
+        return view('livewire.record-book.weekbook-component');
     }
 
     public function goToPreviousWeek()

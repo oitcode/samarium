@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\RecordBook;
 
 use Livewire\Component;
 
@@ -27,7 +27,7 @@ class DaybookSaleInvoiceDisplay extends Component
 
     public function render()
     {
-        return view('livewire.daybook-sale-invoice-display');
+        return view('livewire.record-book.daybook-sale-invoice-display');
     }
 
     public function hasVat()
