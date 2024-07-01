@@ -2,7 +2,7 @@
 
 
   @if ($seatTable->isBooked())
-    @livewire ('sale-invoice-work', ['saleInvoice' => $seatTable->getCurrentBooking()->saleInvoice,])
+    @livewire ('sale.sale-invoice-work', ['saleInvoice' => $seatTable->getCurrentBooking()->saleInvoice,])
   @else
     <div class="col-md-8">
       <div class="card">

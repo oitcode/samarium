@@ -1,11 +1,6 @@
 <div class="p-3 p-md-0">
 
 
-  <div wire:offline class="border p-2 mb-3 text-secondary">
-    YOU ARE OFFLINE
-  </div>
-
-
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Tables">
     @if (false)
@@ -28,7 +23,7 @@
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-refresh',
+        'btnIconFaClass' => 'fas fa-times',
         'btnText' => '',
         'btnCheckMode' => '',
     ])
