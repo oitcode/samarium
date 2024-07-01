@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Expense;
 
 use App\Traits\MiscTrait;
 
@@ -106,7 +106,7 @@ class ExpenseWorkMakePayment extends Component
 
     public function render()
     {
-        return view('livewire.expense-work-make-payment');
+        return view('livewire.expense.expense-work-make-payment');
     }
 
     public function calculateTaxableAmount()

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Expense;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
@@ -39,7 +39,7 @@ class ExpenseList extends Component
         $this->getExpensesForDateRange();
         $this->calculateTotal();
 
-        return view('livewire.expense-list');
+        return view('livewire.expense.expense-list');
     }
 
     /* Clear modes */

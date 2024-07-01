@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('expense-component')
+  @livewire('expense.expense-component')
 @endsection

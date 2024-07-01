@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Expense;
 
 use Livewire\Component;
 
@@ -31,7 +31,7 @@ class ExpenseComponent extends Component
 
     public function render()
     {
-        return view('livewire.expense-component');
+        return view('livewire.expense.expense-component');
     }
 
     /* Clear modes */

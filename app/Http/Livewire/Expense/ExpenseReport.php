@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Expense;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
@@ -33,7 +33,7 @@ class ExpenseReport extends Component
         $this->getExpenseByCategory();
         $this->calculateTotal();
 
-        return view('livewire.expense-report');
+        return view('livewire.expense.expense-report');
     }
 
     /* Clear modes */

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Expense;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
@@ -123,7 +123,7 @@ class ExpenseCreate extends Component
         /* Make payment related */
         $this->expensePaymentTypes = ExpensePaymentType::all();
 
-        return view('livewire.expense-create');
+        return view('livewire.expense.expense-create');
     }
 
     /* Clear modes */

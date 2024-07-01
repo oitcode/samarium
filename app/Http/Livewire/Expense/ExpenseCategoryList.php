@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Expense;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class ExpenseCategoryList extends Component
     {
         $this->expenseCategories = ExpenseCategory::all();
 
-        return view('livewire.expense-category-list');
+        return view('livewire.expense.expense-category-list');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Expense;
 
 use Livewire\Component;
 
@@ -12,7 +12,7 @@ class ExpenseCategoryCreate extends Component
 
     public function render()
     {
-        return view('livewire.expense-category-create');
+        return view('livewire.expense.expense-category-create');
     }
 
     public function store()

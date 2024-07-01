@@ -73,22 +73,22 @@
   --}}
 
   @if ($modes['create'])
-    @livewire ('expense-create')
+    @livewire ('expense.expense-create')
   @elseif ($modes['list'])
-    @livewire ('expense-list')
+    @livewire ('expense.expense-list')
   @elseif ($modes['display'])
     @if ($displayingExpense->creation_status == 'progress')
-      @livewire ('expense-create', [
+      @livewire ('expense.expense-create', [
           'createNew' => false,
           'expense' => $displayingExpense,
       ])
     @else
-      @livewire ('expense-display', ['expense' => $displayingExpense,])
+      @livewire ('expense.expense-display', ['expense' => $displayingExpense,])
     @endif
   @elseif ($modes['report'])
-    @livewire ('expense-report')
+    @livewire ('expense.expense-report')
   @elseif ($modes['createCategory'])
-    @livewire ('expense-category-create')
+    @livewire ('expense.expense-category-create')
   @endif
 
 
