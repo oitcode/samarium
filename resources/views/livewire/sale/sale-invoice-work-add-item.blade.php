@@ -16,7 +16,7 @@
 
 
   {{-- Show in bigger screen --}}
-  <div class="mb-3 border shadow-sm d-none d-md-block" style="">
+  <div class="mb-1 border shadow-sm d-none d-md-block" style="">
 
     @if (true)
     <div class="table-responsive m-0">
@@ -42,7 +42,7 @@
             </td>
             @if (true)
             <td class="p-0 h-100">
-              <select class="w-100 h-100 custom-control border-0" wire:model.defer="search_product_category_id" wire:change="selectProductCategory">
+              <select class="w-100 h-100 custom-control border-0 bg-white" wire:model.defer="search_product_category_id" wire:change="selectProductCategory">
                 <option>---</option>
   
                 @foreach ($productCategories as $productCategory)
@@ -53,7 +53,7 @@
               </select>
             </td>
             <td class="p-0 h-100">
-              <select class="w-100 h-100 custom-control border-0" wire:model.defer="product_id" wire:change="selectItem">
+              <select class="w-100 h-100 custom-control border-0 bg-white" wire:model.defer="product_id" wire:change="selectItem">
                 <option>---</option>
   
                 @foreach ($products as $product)

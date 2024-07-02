@@ -9,11 +9,17 @@
       {{-- Show in bigger screens --}}
       <div class="row">
     
-        <div class="col-md-6">
+        <div class="col-md-8">
+
+          @if (false)
+          <div>
+            @include ('partials.dashboard.sale-invoice-work-options')
+          </div>
+          @endif
     
           @if ($saleInvoice)
             {{-- Todo: Why true? Why only takeaway? --}} 
-            @if ($modes['addItem'])
+            @if (true || $modes['addItem'])
               @livewire ('sale.sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
             @endif
           @endif
@@ -27,7 +33,7 @@
             </div>
           </div>
     
-          <div class="card mb-0 shadow-sm">
+          <div class="card mb-0">
             <div class="card-body p-0">
     
     
@@ -136,18 +142,15 @@
                 </div>
 
                 <div class="col-md-2">
+                  @if (false)
                   <div class="d-none d-md-block">
-                    <div class="d-flex h-100 h1 font-weight-bold">
-                        <span> @if ($saleInvoice->takeaway)
-                            Sales
-                          @elseif ($saleInvoice->seatTableBooking)
-                            {{ $saleInvoice->seatTableBooking->seatTable->name }}
-                          @else
-                            Sales
-                          @endif
+                    <div class="d-flex h-100 h6 font-weight-bold">
+                        <span>
+                          Sales
                         </span>
                     </div>
                   </div>
+                  @endif
                 </div>
     
               </div>
@@ -170,18 +173,7 @@
                     <thead>
                       <tr>
                         <th>--</th>
-    
-                        {{-- Todo: Good way to deal with takeaway and seat table booking? --}} 
-                        @if ($saleInvoice->takeaway)
-                          @if ($saleInvoice->takeaway->status != 'closed')
-                            <th>#</th>
-                          @endif
-                        @endif
-                        @if ($saleInvoice->seatTableBooking)
-                          @if ($saleInvoice->seatTableBooking->status != 'closed')
-                            <th>#</th>
-                          @endif
-                        @endif
+                        <th>#</th>
                         <th>Item</th>
                         <th>Price</th>
                         <th>Qty</th>
@@ -194,28 +186,11 @@
                         @if (count($saleInvoice->saleInvoiceItems) > 0)
                           @foreach ($saleInvoice->saleInvoiceItems as $item)
                           <tr class="font-weight-bold">
-                            @if (
-                                  (
-                                    $saleInvoice->takeaway &&
-                                    $saleInvoice->takeaway->status != 'closed'
-                                  ) 
-                                  ||
-                                  (
-                                    $saleInvoice->seatTableBooking &&
-                                    $saleInvoice->seatTableBooking->status != 'closed'
-                                  ) 
-                                  ||
-                                  (
-                                    !$saleInvoice->seatTableBooking && !$saleInvoice->takeaway &&
-                                    $saleInvoice->payment_status != 'paid'
-                                  ) 
-                                )
-                              <td>
-                                <a href="" wire:click.prevent="confirmRemoveItemFromSaleInvoice({{ $item->sale_invoice_item_id }})">
-                                <i class="fas fa-trash text-danger"></i>
-                                </a>
-                              </td>
-                            @endif
+                            <td>
+                              <a href="" wire:click.prevent="confirmRemoveItemFromSaleInvoice({{ $item->sale_invoice_item_id }})">
+                              <i class="fas fa-times-circle text-danger"></i>
+                              </a>
+                            </td>
                             <td class="text-secondary"> {{ $loop->iteration }} </td>
                             <td>
                               <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
@@ -240,24 +215,7 @@
       
                     <tfoot>
                       <tr class="py-0">
-                        <td colspan="
-                            @if (
-                              (
-                                $saleInvoice->takeaway &&
-                                $saleInvoice->takeaway->status != 'closed'
-                              ) 
-                              ||
-                              (
-                                $saleInvoice->seatTableBooking &&
-                                $saleInvoice->seatTableBooking->status != 'closed'
-                              ) 
-                            )
-                              5
-                            @else
-                              4
-                            @endif
-                            "
-                            class="font-weight-bold text-right pr-4 py-1">
+                        <td colspan="5" class="font-weight-bold text-right pr-4 py-1">
                           <strong>
                           Subtotal
                           </strong>
@@ -286,25 +244,7 @@
                         @endif
     
                         <tr class="border-0 p-0">
-                          <td colspan="
-                              @if (
-                                (
-                                  $saleInvoice->takeaway &&
-                                  $saleInvoice->takeaway->status == 'closed'
-                                ) 
-                                ||
-                                (
-                                  $saleInvoice->seatTableBooking &&
-                                  $saleInvoice->seatTableBooking->status == 'closed'
-                                ) 
-                              )
-                                5
-                              @else
-                                4
-                              @endif"
-                              class="
-                                font-weight-bold text-right border-0 pr-4 py-1
-                              ">
+                          <td colspan="5" class="font-weight-bold text-right border-0 pr-4 py-1">
                             {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                           </td>
                           <td
@@ -322,25 +262,7 @@
                       {{-- Todo: Only vat? --}}
                       @if ($has_vat)
                         <tr class="border-0 p-0">
-                          <td colspan="
-                              @if (
-                                (
-                                  $saleInvoice->takeaway &&
-                                  $saleInvoice->takeaway->status == 'closed'
-                                ) 
-                                ||
-                                (
-                                  $saleInvoice->seatTableBooking &&
-                                  $saleInvoice->seatTableBooking->status == 'closed'
-                                ) 
-                              )
-                                5
-                              @else
-                                4
-                              @endif"
-                              class="
-                                font-weight-bold text-right border-0 pr-4 py-1
-                              ">
+                          <td colspan="5" class="font-weight-bold text-right border-0 pr-4 py-1">
                             Taxable amount
                           </td>
                           <td
@@ -358,22 +280,7 @@
                         @endif
     
                         <tr class="border-0 p-0">
-                          <td colspan="
-                              @if (
-                                (
-                                  $saleInvoice->takeaway &&
-                                  $saleInvoice->takeaway->status == 'closed'
-                                ) 
-                                ||
-                                (
-                                  $saleInvoice->seatTableBooking &&
-                                  $saleInvoice->seatTableBooking->status == 'closed'
-                                ) 
-                              )
-                                5
-                              @else
-                                4
-                              @endif"
+                          <td colspan="5"
                               class="
                                 font-weight-bold text-right border-0 pr-4 py-1
                               ">
@@ -391,22 +298,7 @@
                       @endforeach
     
                       <tr class="border-0 bg-success text-white p-0">
-                        <td colspan="
-                            @if (
-                              (
-                                $saleInvoice->takeaway &&
-                                $saleInvoice->takeaway->status != 'closed'
-                              ) 
-                              ||
-                              (
-                                $saleInvoice->seatTableBooking &&
-                                $saleInvoice->seatTableBooking->status != 'closed'
-                              ) 
-                            )
-                              5
-                            @else
-                              4
-                            @endif"
+                        <td colspan="5"
                             class="font-weight-bold text-right border-0 pr-4 py-2">
                           <strong>
                           Total
@@ -479,9 +371,6 @@
         </div>
     
         <div class="col-md-2">
-          <div>
-            @include ('partials.dashboard.sale-invoice-work-options')
-          </div>
         </div>
       </div>
     

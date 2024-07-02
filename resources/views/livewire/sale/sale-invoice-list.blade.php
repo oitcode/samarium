@@ -1,8 +1,5 @@
 <div>
 
-
-
-
   
   {{-- Filter div --}}
   @if (true)
@@ -74,8 +71,6 @@
   @endif
 
 
-
-
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
     <table class="table table-hover shadow-sm border">
@@ -90,17 +85,17 @@
           <th class="d-none d-md-table-cell">
             Time
           </th>
-          <th>
-            <span class="d-none d-md-inline">
-              Payment
-            </span>
-            Status
-          </th>
           <th class="d-none d-md-table-cell">
             Pending
           </th>
           <th>
             Amount
+          </th>
+          <th>
+            <span class="d-none d-md-inline">
+              Payment
+            </span>
+            Status
           </th>
         </tr>
       </thead>
@@ -122,23 +117,6 @@
             <td class="d-none d-md-table-cell">
               {{ $saleInvoice->created_at->format('H:i A') }}
             </td>
-            <td>
-              @if ($saleInvoice->payment_status == 'pending')
-                <span class="badge badge-pill badge-danger">
-                  Pending
-                </span>
-              @elseif ($saleInvoice->payment_status == 'partially_paid')
-                <span class="badge badge-pill badge-warning">
-                  Partial
-                </span>
-              @elseif ($saleInvoice->payment_status == 'paid')
-                <span class="badge badge-pill badge-success">
-                  Paid
-                </span>
-              @else
-                {{ $saleInvoice->payment_status }}
-              @endif
-            </td>
             <td class="d-none d-md-table-cell">
               @if ($saleInvoice->creation_status == 'progress')
                 @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
@@ -159,6 +137,23 @@
                 @endif
               @else
                 @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
+              @endif
+            </td>
+            <td>
+              @if ($saleInvoice->payment_status == 'pending')
+                <span class="badge badge-pill badge-danger">
+                  Pending
+                </span>
+              @elseif ($saleInvoice->payment_status == 'partially_paid')
+                <span class="badge badge-pill badge-warning">
+                  Partial
+                </span>
+              @elseif ($saleInvoice->payment_status == 'paid')
+                <span class="badge badge-pill badge-success">
+                  Paid
+                </span>
+              @else
+                {{ $saleInvoice->payment_status }}
               @endif
             </td>
           </tr>
