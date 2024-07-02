@@ -2,19 +2,19 @@
 
 
   <div class="card bg-light">
-    <div class="card-body p-0 py-3">
+    <div class="card-body p-0 py-3-rm">
   
       <div class="table-responsive mb-0 bg-white">
         <table class="table mb-0">
           <tbody>
   
-            <tr style="height: 50px;">
-              <td class="w-50 p-0 h-100 font-weight-bold border-0 pt-2" style="{{-- font-size: calc(0.8rem + 0.2vw); --}}">
+            <tr class="p-0" style="{{-- height: 50px; --}}">
+              <td class="w-50 p-0 h-100 font-weight-bold border-0 py-2" style="{{-- font-size: calc(0.8rem + 0.2vw); --}}">
                 <span class="ml-4">
                   Subtotal
                 </span>
               </td>
-              <td class="p-0 h-100 font-weight-bold pl-3 pt-2 border-0" style="{{-- font-size: calc(1rem + 0.2vw); --}}">
+              <td class="p-0 h-100 font-weight-bold pl-3 border-0 py-2" style="{{-- font-size: calc(1rem + 0.2vw); --}}">
                 @php echo number_format( $this->total ); @endphp
               </td>
             </tr>
@@ -26,7 +26,7 @@
               @continue
             @else
             <tr style="{{-- height: 40px; --}}" class="border-0">
-              <td class="w-50 pl-0 pt-2 font-weight-bold border-0" style="{{-- font-size: calc(0.8rem + 0.2vw); --}}">
+              <td class="w-50 pl-0 font-weight-bold border-0" style="{{-- font-size: calc(0.8rem + 0.2vw); --}}">
                 {{-- Hard code for discount . Temp. Todo permanent design/fix --}} 
                 @if (strtolower($key) == 'discount')
                   <div class="ml-4">
