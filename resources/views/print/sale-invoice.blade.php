@@ -36,7 +36,7 @@
 <body>
 
   <div class="container">
-    @livewire ('core-sale-invoice-display', ['saleInvoice' => $saleInvoice, 'display_toolbar' => false,])
+    @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $saleInvoice, 'display_toolbar' => false,])
   </div>
 
   <!-- Livewire scripts -->
