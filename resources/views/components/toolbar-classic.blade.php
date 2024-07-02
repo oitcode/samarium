@@ -1,7 +1,8 @@
 <div>
 
+
   {{-- Show in bigger screens --}}
-  <div class="mb-1 py-1 px-0 d-flex
+  <div class="mb-1 py-3 px-0 d-flex
       @isset ($toolbarAlign)
         @if ($toolbarAlign == 'left')
           justify-content-start
@@ -64,5 +65,6 @@
       </div>
     </div>
   </div>
+
 
 </div>
