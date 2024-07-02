@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Misc;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class CounterDashComponent extends Component
 {
     public function render()
     {
-        return view('livewire.counter-dash-component');
+        return view('livewire.misc.counter-dash-component');
     }
 }

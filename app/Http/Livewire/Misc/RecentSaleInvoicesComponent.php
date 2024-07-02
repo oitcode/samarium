@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Misc;
 
 use Livewire\Component;
 
@@ -14,6 +14,6 @@ class RecentSaleInvoicesComponent extends Component
     {
         $this->saleInvoices = SaleInvoice::orderBy('sale_invoice_id', 'desc')->limit(5)->get();
 
-        return view('livewire.recent-sale-invoices-component');
+        return view('livewire.misc.recent-sale-invoices-component');
     }
 }

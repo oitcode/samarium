@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Misc;
 
 use Livewire\Component;
 
@@ -58,7 +58,7 @@ class SettingsComponent extends Component
         $this->purchaseAdditionHeadings = PurchaseAdditionHeading::all();
         $this->expenseAdditionHeadings = ExpenseAdditionHeading::all();
 
-        return view('livewire.settings-component');
+        return view('livewire.misc.settings-component');
     }
 
     /* Clear modes */

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Misc;
 
 use Livewire\Component;
 
@@ -18,6 +18,6 @@ class SupportComponent extends Component
 
     public function render()
     {
-        return view('livewire.support-component');
+        return view('livewire.misc.support-component');
     }
 }

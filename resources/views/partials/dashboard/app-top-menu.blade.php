@@ -72,7 +72,7 @@
 
     @if (true)
     <div class="float-left mr-5 px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
-      @livewire ('clock-display-component')
+      @livewire ('misc.clock-display-component')
     </div>
     @endif
 

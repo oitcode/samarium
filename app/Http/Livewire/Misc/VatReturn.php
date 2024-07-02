@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Misc;
 
 use Livewire\Component;
 
@@ -48,7 +48,7 @@ class VatReturn extends Component
         $this->purchaseVat = $this->calculatePurchaseVat();
         $this->expenseVat = $this->calculateExpenseVat();
 
-        return view('livewire.vat-return');
+        return view('livewire.misc.vat-return');
     }
 
     public function getPurchasesForDateRange()

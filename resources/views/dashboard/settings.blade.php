@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('settings-component')
+  @livewire('misc.settings-component')
 @endsection

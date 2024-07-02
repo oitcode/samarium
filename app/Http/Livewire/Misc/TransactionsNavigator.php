@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Misc;
 
 use Livewire\Component;
 use Carbon\Carbon;
@@ -16,7 +16,7 @@ class TransactionsNavigator extends Component
 
     public function render()
     {
-        return view('livewire.transactions-navigator');
+        return view('livewire.misc.transactions-navigator');
     }
 
     public function setPreviousDay()
