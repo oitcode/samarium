@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('change-password-component')
+  @livewire('user-profile.change-password-component')
 @endsection
