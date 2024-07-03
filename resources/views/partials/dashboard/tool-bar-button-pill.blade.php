@@ -38,7 +38,7 @@
         @endif
       @endisset
 
-      m-0 mr-3 px-4 h-100 o-flipper py-3 d-flex flex-column justify-content-center badge-pill-rm rounded
+      m-0 mr-3 px-4 h-100 o-flipper py-1 d-flex flex-column justify-content-center badge-pill-rm rounded
       @if (false)
       {{--
       @if ($btnText == 'New' || $btnText == 'Create')

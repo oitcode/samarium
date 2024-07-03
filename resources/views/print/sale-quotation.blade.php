@@ -25,7 +25,9 @@
     <style>
       html, body {
         overflow-x: hidden;
+        {{--
         font-size: calc(1rem + 0.2vw);
+        --}}
       }
     </style>
 
