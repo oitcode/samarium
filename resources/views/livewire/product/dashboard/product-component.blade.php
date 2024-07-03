@@ -12,14 +12,13 @@
         'btnCheckMode' => 'createProduct',
     ])
 
-    @if (true)
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('list')",
         'btnIconFaClass' => 'fas fa-list',
         'btnText' => 'List',
         'btnCheckMode' => 'list',
     ])
-    @endif
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createProductFromCsvMode')",
@@ -27,6 +26,7 @@
         'btnText' => 'Upload from spreadsheet',
         'btnCheckMode' => 'createProductFromCsvMode',
     ])
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('search')",
         'btnIconFaClass' => 'fas fa-search',
@@ -42,6 +42,7 @@
           'btnCheckMode' => 'displayProduct',
       ])
     @endif
+    @endif
 
     @if ($modes['updateProduct'])
       @include ('partials.dashboard.tool-bar-button-pill', [
@@ -52,12 +53,14 @@
       ])
     @endif
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
         'btnIconFaClass' => 'fas fa-times',
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+    @endif
 
   </x-toolbar-classic>
 
@@ -97,6 +100,8 @@
       @livewire ('product.dashboard.product-search')
     @elseif ($modes['displayProduct'])
       @livewire ('product.dashboard.product-display', ['product' => $displayingProduct,])
+    @else
+      @livewire ('product.dashboard.product-list')
     @endif
 
   </div>

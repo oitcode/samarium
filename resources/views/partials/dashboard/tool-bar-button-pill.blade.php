@@ -19,16 +19,16 @@
                 bg-white
               @endif
               --}}
-              bg-white
+              bg-success
             @endif
           @else
-            bg-white
+            bg-success
           @endisset
         @else
-          bg-white
+          bg-success
         @endisset
       @else
-        bg-white
+        bg-success
       @endisset
       @endif
 
@@ -38,7 +38,7 @@
         @endif
       @endisset
 
-      m-0 mr-3 px-4 h-100 o-flipper py-1 d-flex flex-column justify-content-center badge-pill-rm rounded
+      m-0 mr-3 px-4 h-100 o-flipper py-1 d-flex flex-column justify-content-center badge-pill-rm rounded text-white
       @if (false)
       {{--
       @if ($btnText == 'New' || $btnText == 'Create')
