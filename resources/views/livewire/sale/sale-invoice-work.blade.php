@@ -40,7 +40,7 @@
               <div class="row p-0 mt-2 pb-5-rm" style="margin: auto;">
 
 
-                <div class="col-md-2 d-flex-rm">
+                <div class="col-md-3 d-flex">
                   <div class="mb-4">
                     <div class="mb-1 h6 font-weight-bold">
                       Invoice ID
@@ -49,6 +49,9 @@
                       {{ $saleInvoice->sale_invoice_id }}
                     </div>
                   </div>
+                </div>
+
+                <div class="col-md-3 d-flex">
 
                   <div class="">
                     <div class="mb-1 h6 font-weight-bold">
@@ -78,7 +81,7 @@
                 </div>
     
     
-                <div class="col-md-5 mb-3 border-left border-right">
+                <div class="col-md-3 mb-3 border-left border-right">
                   <div class="mb-1 h6 font-weight-bold">
                     Customer
                   </div>
@@ -116,7 +119,7 @@
                   </div>
                 </div>
     
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <div class="font-weight-bold">
                     Payment Status
                   </div>
@@ -173,7 +176,9 @@
                     <thead>
                       <tr>
                         <th>--</th>
+                        @if (false)
                         <th>#</th>
+                        @endif
                         <th>Item</th>
                         <th>Price</th>
                         <th>Qty</th>
@@ -191,7 +196,9 @@
                               <i class="fas fa-times-circle text-danger"></i>
                               </a>
                             </td>
+                            @if (false)
                             <td class="text-secondary"> {{ $loop->iteration }} </td>
+                            @endif
                             <td>
                               <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
                               {{ $item->product->name }}
@@ -215,12 +222,12 @@
       
                     <tfoot>
                       <tr class="py-0">
-                        <td colspan="5" class="font-weight-bold text-right pr-4 py-1">
+                        <td colspan="4" class="font-weight-bold text-right pr-4 py-3">
                           <strong>
                           Subtotal
                           </strong>
                         </td>
-                        <td class="font-weight-bold py-1">
+                        <td class="font-weight-bold py-3">
                           @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
                         </td>
                       </tr>
@@ -350,9 +357,9 @@
                 </div>
                 @else
                   <div class="p-4 bg-white border text-muted">
-                    <p>
-                      <i class="fas fa-exclamation-circle mr-3"></i>
-                      No items
+                    <p class="font-weight-bold text-muted-rm h4 py-4 text-center" style="color: #fe8d01;">
+                      <i class="fas fa-exclamation-circle mr-2"></i>
+                      No items in the list
                     <p>
                   </div>
                 @endif

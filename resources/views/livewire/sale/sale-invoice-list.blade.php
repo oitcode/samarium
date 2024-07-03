@@ -76,8 +76,8 @@
     <table class="table table-hover shadow-sm border">
       <thead>
         <tr class="p-4 bg-white text-dark" style="font-size: 1rem;">
-          <th>
-            ID
+          <th style="">
+            Sale invoice ID
           </th>
           <th class="d-none d-md-table-cell">
             Date
@@ -86,8 +86,13 @@
             Time
           </th>
           <th class="d-none d-md-table-cell">
+            Customer
+          </th>
+          @if (false)
+          <th class="d-none d-md-table-cell">
             Pending
           </th>
+          @endif
           <th>
             Amount
           </th>
@@ -118,6 +123,18 @@
               {{ $saleInvoice->created_at->format('H:i A') }}
             </td>
             <td class="d-none d-md-table-cell">
+              @if ($saleInvoice->customer)
+                <span class="font-weight-bold" style="color: #fe8d01;">
+                  {{ $saleInvoice->customer->name }}
+                </span>
+              @else
+                <span class="font-weight-bold" style="color: #fe8d01;">
+                  None 
+                </span>
+              @endif
+            </td>
+            @if (false)
+            <td class="d-none d-md-table-cell">
               @if ($saleInvoice->creation_status == 'progress')
                 @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
                   @php echo number_format( $saleInvoice->getPendingAmount() * 1.13); @endphp
@@ -128,6 +145,7 @@
                 @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
               @endif
             </td>
+            @endif
             <td class="font-weight-bold">
               @if ($saleInvoice->creation_status == 'progress')
                 @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())

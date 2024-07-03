@@ -4,7 +4,7 @@
     @if ($display_toolbar)
       {{-- Tool bar --}}
 
-      @if (true)
+      @if (false)
       <x-toolbar-classic toolbarTitle="Sale invoice">
 
         @if (false)
@@ -396,7 +396,7 @@
     @if ($display_toolbar)
       {{-- Tool bar --}}
 
-      @if (true)
+      @if (false)
       <x-toolbar-classic toolbarTitle="Sale invoice">
 
         @include ('partials.dashboard.spinner-button')
@@ -509,7 +509,6 @@
                         None
                       </span>
                     @else
-                      --
                     @endif
                   @endif
                 </h2>
@@ -528,11 +527,9 @@
                         @if ($saleInvoice->customer->address)
                           {{ $saleInvoice->customer->address }}
                         @else
-                          --
                         @endif
                       @else
                         <span class="text-muted" style="">
-                          --
                         </span>
                       @endif
                     </td>
@@ -549,11 +546,9 @@
                         @if ($saleInvoice->customer->pan_num)
                           {{ $saleInvoice->customer->pan_num }}
                         @else
-                          --
                         @endif
                       @else
                         <span class="text-muted" style="">
-                          --
                         </span>
                       @endif
                     </td>
@@ -564,9 +559,11 @@
 
             <div class="px-4">
 
+              @if (false)
               <div class="font-weight-bold bg-warning-rm mb-2" style="font-family: Times;">
                 INVOICE
               </div>
+              @endif
               <div class="mb-1">
                 <div class="font-weight-bold">
                   Invoice no:
@@ -836,6 +833,7 @@
     </div>
   </div>
 
+  @if (false)
   <div class="bg-white-rm border-top p-3 col-md-8-rm my-5-rm" style="font-size: 0.8rem;">
     {{ $company->name }}
     <br />
@@ -846,6 +844,7 @@
     Email: &nbsp;&nbsp;{{ $company->email }}
     <br />
   </div>
+  @endif
 
 </div>
 @endif

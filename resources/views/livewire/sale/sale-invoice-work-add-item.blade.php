@@ -24,7 +24,7 @@
         <thead>
           <tr class="bg-white" style="font-size: calc(0.6rem + 0.2vw);">
             <th class="py-2 border-0-rm pl-2" style="width: 200px;">Search Item</th>
-            @if (true)
+            @if (false)
             <th class="py-2">Category</th>
             <th class="py-2">Item</th>
             <th class="py-2" style="width: 100px;">Price</th>
@@ -40,7 +40,7 @@
               <input class="m-0 w-100 h-100 border-0 shadow-lg-rm py-2 shadow-lg-rm" type="text"
                   wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
-            @if (true)
+            @if (false)
             <td class="p-0 h-100">
               <select class="w-100 h-100 custom-control border-0 bg-white" wire:model.defer="search_product_category_id" wire:change="selectProductCategory">
                 <option>---</option>
@@ -95,12 +95,12 @@
             Add
           </button>
   
-          <button class="btn btn-lg btn-danger" wire:click="resetInputFields" style="font-size: calc(0.7rem + 0.2vw);">
+          <button class="btn btn-lg btn-light" wire:click="resetInputFields" style="font-size: calc(0.7rem + 0.2vw);">
             Reset
           </button>
   
           <button wire:loading class="btn">
-            <span class="spinner-border text-info mr-3" role="status">
+            <span class="spinner-border spinner-border-sm text-info mr-3" role="status">
             </span>
           </button>
   
