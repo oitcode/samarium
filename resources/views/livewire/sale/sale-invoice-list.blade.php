@@ -59,10 +59,10 @@
 
     <div class="pt-2">
       <div class="d-flex" style="font-size: 1rem;">
-        <div class="mr-4 font-weight-bold">
+        <div class="mr-4 px-2 py-1 border font-weight-bold" style="background-color: #eef; color: #77f;">
           Today : {{ $todaySaleInvoiceCount }}
         </div>
-        <div class="mr-4 font-weight-bold">
+        <div class="mr-4 px-2 py-1 border font-weight-bold" style="background-color: #efe; color: #7a7;">
           Total : {{ $totalSaleInvoiceCount }}
         </div>
       </div>

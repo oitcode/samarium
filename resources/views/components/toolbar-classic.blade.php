@@ -15,9 +15,9 @@
       p-0">
       @isset ($toolbarTitle)
         @if ($toolbarTitle != '')
-          <div>
+          <div class="p-2 bg-light border-rm" style="border-left: 3px solid #7a7;">
               <div class="h-100 d-flex flex-column justify-content-center bg-warning-rm">
-                <h1 class="h1 font-weight-bold px-3 pt-4-rm mb-0 btn-rm {{  env('OC_ASCENT_BTN_COLOR') }}-rm badge-pill-rm p-3" style="font-size: 1rem;">
+                <h1 class="h1 font-weight-bold px-3 pt-4-rm mb-0 btn-rm {{  env('OC_ASCENT_BTN_COLOR') }}-rm badge-pill-rm p-3" style="font-size: 1.2rem;">
                   {{ $toolbarTitle }}
                 </h1>
               </div>

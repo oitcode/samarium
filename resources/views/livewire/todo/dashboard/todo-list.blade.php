@@ -11,9 +11,9 @@
 
   {{-- Filter div --}}
   @if (true)
-  <div class="mb-3 py-3 px-2 bg-white border d-flex justify-content-between-rm">
+  <div class="mb-3 py-3 px-2 bg-white border d-flex justify-content-between">
     <div class="font-weight-bold h6 d-flex">
-      <div class="d-flex">
+      <div class="d-flex justify-content-between">
         @if (true)
         <div class="dropdown p-0 px-2">
           <button class="btn
@@ -75,7 +75,7 @@
     </div>
 
 
-    <div class="pt-2 font-weight-bold">
+    <div class="pt-2 px-2 font-weight-bold border" style="background-color: #eef; color: #aaf;">
       Total : {{ $todoCount }}
     </div>
   </div>
