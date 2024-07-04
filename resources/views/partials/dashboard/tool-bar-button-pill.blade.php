@@ -9,7 +9,7 @@
           @isset ($modes[$btnCheckMode])
             @if ($modes[$btnCheckMode])
               border-bottom-rm border-danger-rm
-              bg-success
+              bg-primary
               text-white
             @else
               {{--
@@ -19,16 +19,16 @@
                 bg-white
               @endif
               --}}
-              bg-success
+              bg-primary
             @endif
           @else
-            bg-success
+            bg-primary
           @endisset
         @else
-          bg-success
+          bg-primary
         @endisset
       @else
-        bg-success
+        bg-primary
       @endisset
       @endif
 
