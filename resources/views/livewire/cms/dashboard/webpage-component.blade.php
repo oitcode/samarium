@@ -5,6 +5,7 @@
   </x-component-header>
   @endif
 
+  @if ($modes['list'] || !array_search(true, $modes))
   <x-toolbar-classic toolbarTitle="Pages">
 
     @include ('partials.dashboard.spinner-button')
@@ -16,6 +17,7 @@
         'btnCheckMode' => 'create',
     ])
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('list')",
         'btnIconFaClass' => 'fas fa-list',
@@ -38,8 +40,10 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+    @endif
 
   </x-toolbar-classic>
+  @endif
 
 
   <!-- Flash message div -->
@@ -60,6 +64,8 @@
   @elseif ($modes['display'])
     @livewire ('cms.dashboard.webpage-display', ['webpage' => $displayingWebpage,])
   @elseif ($modes['list'])
+    @livewire ('cms.dashboard.webpage-list')
+  @else
     @livewire ('cms.dashboard.webpage-list')
   @endif
 </div>

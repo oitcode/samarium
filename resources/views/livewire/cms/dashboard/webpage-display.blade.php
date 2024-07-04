@@ -110,6 +110,7 @@
           <div class="table-responsive">
             <table class="table mb-0">
               <tbody>
+                @if (false)
                 <tr class="border-0">
                   <th class="border-0"> Created at </th>
                   <th class="border-0"> {{ $webpage->created_at }} </th>
@@ -118,6 +119,7 @@
                   <th class="border-0"> Updated at </th>
                   <th class="border-0"> {{ $webpage->updated_at }} </th>
                 </tr>
+                @endif
                 <tr>
                   <th class="border-0"> Permalink </th>
                   <th class="border-0"> {{ $webpage->permalink }} </th>
@@ -216,16 +218,21 @@
         @if (true)
         {{-- Featured Image --}}
         <div class="border">
-          <h2 class="h6 font-weight-bold py-3 px-2 bg-light">
-            Featured image
+          <div class="d-flex justify-content-between">
+            <h2 class="h6 font-weight-bold py-3 px-3 bg-light">
+              Featured image
+            </h2>
             @if (! $modes['editFeaturedImageMode'])
               @if ($webpage->featured_image_path)
-                <button class="btn btn-light" wire:click="removeFeaturedImage">
+                <button class="btn btn-light mr-4" wire:click="removeFeaturedImage">
+                  @if (false)
                   Remove
+                  @endif
+                  <i class="fas fa-times-circle text-danger"></i>
                 </button>
               @endif
             @endif
-          </h2>
+          </div>
 
           @if ($modes['editFeaturedImageMode'])
             <div class="p-2">
@@ -240,13 +247,13 @@
                 >
               </div>
             @else
-              <div class="p-2 form-group">
+              <div class="p-3 form-group mb-0">
                   <label for="">Featured Image</label>
                   <input type="file" class="form-control" wire:model="featured_image">
                   @error('featured_image') <span class="text-danger">{{ $message }}</span> @enderror
               </div>
 
-              <div class="p-2 my-2">
+              <div class="p-3">
                 <button class="btn btn-success" wire:click="addFeaturedImage">
                   Save
                 </button>
