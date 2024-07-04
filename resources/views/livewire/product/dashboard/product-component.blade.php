@@ -1,6 +1,7 @@
 <div class="p-3 p-md-0">
 
 
+  @if ($modes['list'])
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Product">
     @include ('partials.dashboard.spinner-button')
@@ -63,6 +64,7 @@
     @endif
 
   </x-toolbar-classic>
+  @endif
 
 
   <!-- Flash message div -->

@@ -1,4 +1,4 @@
-<div>
+<div class="p-3">
   <div class="form-group">
     <input type="file" class="form-control" wire:model="image">
     @error('image') <span class="text-danger">{{ $message }}</span> @enderror

@@ -1,18 +1,6 @@
 <div>
 
 
-  {{-- Breadcrumb --}}
-  <h1 class="h5 my-2 py-2">
-    Products
-
-    <i class="fas fa-angle-right mx-2"></i>
-    {{ $product->productCategory->name }}
-
-    <i class="fas fa-angle-right mx-2"></i>
-    {{ $product->name }}
-  </h1>
-
-
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -27,27 +15,33 @@
   @endif
 
 
-  {{-- Toolbar --}}
-  <div>
+  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-1 border-rm">
+    {{-- Breadcrumb --}}
+    <div class="my-2 py-2">
+      Products
+
+      <i class="fas fa-angle-right mx-2"></i>
+      {{ $product->name }}
+    </div>
+
+    {{-- Top tool bar --}}
     <div>
-      <div class="mt-0 p-2 d-flex justify-content-end border" style="background-color: #dadada;">
+      <div>
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
+            style="{{-- background-color: #dadada; --}}">
 
-        <div>
-          <button class="btn btn-light" wire:click="$refresh">
-            <i class="fas fa-refresh"></i>
-            @if (false)
-            Refresh
-            @endif
-          </button>
+          <div>
+            <button class="btn btn-light" wire:click="$refresh">
+              <i class="fas fa-refresh"></i>
+            </button>
 
-          <button class="btn btn-light" wire:click="$emit('exitProductDisplayMode')">
-            <i class="fas fa-times"></i>
-            @if (false)
-            Close
-            @endif
-          </button>
+            <button class="btn btn-outline-danger" wire:click="$emit('exitProductDisplayMode')">
+              <i class="fas fa-times"></i>
+              Close
+            </button>
+          </div>
+
         </div>
-
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 <div>
 
 
+  @if ($modes['list'] || !array_search(true, $modes))
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Product category">
     @include ('partials.dashboard.spinner-button')
@@ -28,14 +29,17 @@
       ])
     @endif
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
         'btnIconFaClass' => 'fas fa-times',
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+    @endif
 
   </x-toolbar-classic>
+  @endif
 
 
   <!-- Flash message div -->

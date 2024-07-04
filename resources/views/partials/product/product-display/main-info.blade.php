@@ -1,15 +1,15 @@
-<div class="row border bg-white" style="margin: auto;">
+<div class="row border-rm bg-white-rm" style="margin: auto;">
 
 
   {{-- Product info --}}
-  <div class="col-md-9">
-    <div class="py-3">
-      <div class="mb-4">
-        @if ($modes['updateProductNameMode'])
-          @livewire ('product.dashboard.product-edit-name', ['product' => $product,])
-        @else
-          <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
+  <div class="col-md-9 p-0 pr-2">
+
+      <div class="mb-2 bg-white border p-3">
+        <div class="d-flex justify-content-between">
+          <div>
             Product Name
+          </div>
+          <div>
             <button class="btn btn-light text-primary" wire:click="enterMode('updateProductNameMode')">
               @if (false)
               <i class="fas fa-pencil-alt text-muted"></i>
@@ -17,7 +17,10 @@
               Edit
             </button>
           </div>
-          <hr class="m-0 p-0" />
+        </div>
+        @if ($modes['updateProductNameMode'])
+          @livewire ('product.dashboard.product-edit-name', ['product' => $product,])
+        @else
           <div class="d-flex justify-content-between my-0">
             {{-- Product name --}}
             <div class="d-flex">
@@ -35,19 +38,20 @@
           </div>
         @endif
       </div>
-      @if (false)
-      <hr class="m-0 p-0"/>
-      @endif
 
-      <div class="mb-4">
-        <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
-          Category
-          <a class="text-primary">
+      <div class="mb-2 bg-white border p-3">
+        <div class="d-flex justify-content-between">
+          <div>
+            Category
+          </div>
+          <div>
+            <button class="btn btn-light text-primary" wire:click="">
               @if (false)
               <i class="fas fa-pencil-alt text-muted"></i>
               @endif
               Edit
-          </a>
+            </button>
+          </div>
         </div>
         <div class="d-flex justify-content-between" style="">
           <span>
@@ -55,16 +59,13 @@
           </span>
         </div>
       </div>
-      @if (false)
-      <hr class="m-0 p-0"/>
-      @endif
 
-      <div class="mb-4">
-        @if ($modes['updateProductDescriptionMode'])
-          @livewire ('product.dashboard.product-edit-description', ['product' => $product,])
-        @else
-          <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
+      <div class="mb-2 bg-white border p-3">
+        <div class="d-flex justify-content-between">
+          <div>
             Description
+          </div>
+          <div>
             <button class="btn btn-light text-primary" wire:click="enterMode('updateProductDescriptionMode')">
               @if (false)
               <i class="fas fa-pencil-alt text-muted"></i>
@@ -72,38 +73,38 @@
               Edit
             </button>
           </div>
+        </div>
+        @if ($modes['updateProductDescriptionMode'])
+          @livewire ('product.dashboard.product-edit-description', ['product' => $product,])
+        @else
           <div class="d-flex justify-content-between font-weight-bold">
             {{ $product->description }}
           </div>
         @endif
       </div>
-      @if (false)
-      <hr class="m-0 p-0"/>
-      @endif
 
-      <div class="mb-3">
-        @if ($modes['updateProductPriceMode'])
-          @livewire ('product.dashboard.product-edit-price', ['product' => $product,])
-        @else
-          <div class="bg-white text-secondary font-weight-bold mr-5 pt-3 pb-1-rm">
+      <div class="mb-2 bg-white border p-3">
+        <div class="d-flex justify-content-between">
+          <div>
             Price
-            <button class="btn btn-light text-primary ml-2" wire:click="enterMode('updateProductPriceMode')">
+          </div>
+          <div>
+            <button class="btn btn-light text-primary" wire:click="enterMode('updateProductPriceMode')">
               @if (false)
               <i class="fas fa-pencil-alt text-muted"></i>
               @endif
               Edit
             </button>
           </div>
+        </div>
+        @if ($modes['updateProductPriceMode'])
+          @livewire ('product.dashboard.product-edit-price', ['product' => $product,])
+        @else
           <div class="d-flex justify-content-between font-weight-bold">
-            Rs
-            @php echo number_format( $product->selling_price ); @endphp
+            {{ $product->selling_price }}
           </div>
         @endif
       </div>
-      @if (false)
-      <hr class="m-0 p-0"/>
-      @endif
-
 
       @if ($product->baseProduct)
         <div class="mb-3">
@@ -126,7 +127,6 @@
         </div>
       @endif
 
-    </div>
   </div>
 
   {{-- Product image --}}
