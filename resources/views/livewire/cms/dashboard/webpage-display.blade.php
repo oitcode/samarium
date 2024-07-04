@@ -1,9 +1,44 @@
-<div class="p-0 pl-3 bg-white border shadow-sm">
+<div class="p-0 pl-3 bg-white-rm border-rm shadow-sm">
+
+  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-1 border-rm">
+    {{-- Breadcrumb --}}
+    <div class="my-2 py-2">
+      @if ($webpage->is_post == 'yes')
+        Post
+      @else
+        Webpage
+      @endif
+
+      <i class="fas fa-angle-right mx-2"></i>
+      {{ $webpage->name }}
+    </div>
+
+    {{-- Top tool bar --}}
+    <div>
+      <div>
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
+            style="{{-- background-color: #dadada; --}}">
+
+          <div>
+            <button class="btn btn-light" wire:click="$refresh">
+              <i class="fas fa-refresh"></i>
+            </button>
+
+            <button class="btn btn-outline-danger" wire:click="$emit('exitWebpageDisplayMode')">
+              <i class="fas fa-times"></i>
+              Close
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 bg-white border">
       {{-- Webpage name --}}
-      <div class="mt-3 mb-4">
+      <div class="mt-3 mb-4-rm">
         <h2>
           {{ $webpage->name }}
         </h2>
@@ -68,7 +103,7 @@
     --}}
     <div class="col-md-4 border-left">
 
-      <div class="border">
+      <div class="border bg-white">
         @if (true)
         {{-- Basic details --}}
         <div class="border mb-4-rm">
@@ -144,6 +179,7 @@
                     @endif
                   </th>
                 </tr>
+                @if (false)
                 <tr>
                   <th class="border-0"> Featured </th>
                   <th class="border-0">
@@ -169,6 +205,7 @@
                     </div>
                   </th>
                 </tr>
+                @endif
               </tbody>
             </table>
           </div>

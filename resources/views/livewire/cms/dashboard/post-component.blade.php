@@ -1,10 +1,6 @@
 <div>
-  @if (false)
-  <x-component-header>
-    Posts
-  </x-component-header>
-  @endif
 
+  @if ($modes['listPostMode'] || !array_search(true, $modes))
   {{-- Bigger screen menu --}}
   <x-toolbar-classic toolbarTitle="Posts">
 
@@ -17,6 +13,7 @@
         'btnCheckMode' => 'createPostMode',
     ])
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listPostMode')",
         'btnIconFaClass' => 'fas fa-list',
@@ -46,8 +43,10 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+    @endif
 
   </x-toolbar-classic>
+  @endif
 
   <!-- Flash message div -->
   @if (session()->has('message'))
@@ -70,5 +69,7 @@
     @livewire ('cms.dashboard.webpage-display', ['webpage' => $displayingPost,])
   @elseif ($modes['createPostCategoryMode'])
     @livewire ('cms.dashboard.post-category-create')
+  @else
+    @livewire ('cms.dashboard.post-list')
   @endif
 </div>

@@ -228,15 +228,15 @@
         ])
 
         @include ('partials.dashboard.app-left-menu-button', [
-          'btnRoute' => 'dashboard-cms-theme',
-          'iconFaClass' => 'fas fa-star',
-          'btnText' => 'Theme',
-        ])
-
-        @include ('partials.dashboard.app-left-menu-button', [
           'btnRoute' => 'dashboard-cms-gallery',
           'iconFaClass' => 'fas fa-image',
           'btnText' => 'Gallery',
+        ])
+
+        @include ('partials.dashboard.app-left-menu-button', [
+          'btnRoute' => 'dashboard-cms-theme',
+          'iconFaClass' => 'fas fa-sliders',
+          'btnText' => 'Appearence',
         ])
       </div>
     @endif

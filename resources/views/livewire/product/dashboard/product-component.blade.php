@@ -1,7 +1,7 @@
 <div class="p-3 p-md-0">
 
 
-  @if ($modes['list'])
+  @if ($modes['list'] || !array_search(true, $modes))
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Product">
     @include ('partials.dashboard.spinner-button')

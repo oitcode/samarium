@@ -27,6 +27,8 @@ class PostComponent extends Component
         'displayPost',
         'createPostCategoryCompleted',
         'createPostCategoryCanceled',
+
+        'exitWebpageDisplayMode',
     ];
 
     public function render()
@@ -61,5 +63,10 @@ class PostComponent extends Component
     {
         $this->exitMode('createPostCategoryMode');
         session()->flash('message', 'Post category created');
+    }
+
+    public function exitWebpageDisplayMode()
+    {
+        $this->clearModes();
     }
 }
