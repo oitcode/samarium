@@ -35,9 +35,10 @@ class WebpageCreate extends Component
         }
 
         $validatedData['creator_id'] = Auth::id();
+        $validatedData['visibility'] = 'public';
 
-        Webpage::create($validatedData);
+        $webpage = Webpage::create($validatedData);
 
-        $this->emit('webpageAdded');
+        $this->emit('webpageAdded', $webpage->webpage_id);
     }
 }

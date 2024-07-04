@@ -29,18 +29,12 @@ class PostComponent extends Component
         'createPostCategoryCanceled',
 
         'exitWebpageDisplayMode',
+        'webpageAdded',
     ];
 
     public function render()
     {
         return view('livewire.cms.dashboard.post-component');
-    }
-
-    public function webpageAdded()
-    {
-        session()->flash('message', 'Post created');
-        $this->exitMode('createPostMode');
-        $this->enterMode('listPostMode');
     }
 
     public function exitCreatePostMode()
@@ -68,5 +62,12 @@ class PostComponent extends Component
     public function exitWebpageDisplayMode()
     {
         $this->clearModes();
+    }
+
+    public function webpageAdded($webpageId)
+    {
+        $webpage = Webpage::find($webpageId);
+
+        $this->displayPost($webpage);
     }
 }
