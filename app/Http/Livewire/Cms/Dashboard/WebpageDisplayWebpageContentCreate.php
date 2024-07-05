@@ -5,9 +5,7 @@ namespace App\Http\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
-
-use App\Traits\ModesTrait;
-
+use App\Traits\ModesTrait; 
 use App\WebpageContent;
 
 class WebpageDisplayWebpageContentCreate extends Component
@@ -49,6 +47,8 @@ class WebpageDisplayWebpageContentCreate extends Component
         'webpageContentCreateRowCompleted' => 'webpageContentCreateCompleted',
         'webpageContentCreateYoutubeVideoCompleted' => 'webpageContentCreateCompleted',
         'webpageContentCreateYoutubeVideoCancelled' => 'webpageContentCreateCancelled',
+
+        'webpageContentCreateCancelled',
     ];
 
     public function render()

@@ -84,6 +84,12 @@
         </div>
       </div>
 
+      <div class="col-md-2 mr-2-rm border p-3" wire:click="$emit('exitCreateWebpageContent')" role="button">
+        <button class="btn btn-light">
+          Cancel
+        </button>
+      </div>
+
       @if (false)
       <div class="col-md-2 mr-2-rm border p-3" wire:click="enterMode('rowMode')" role="button">
         <div class="d-flex justify-content-center mb-3">

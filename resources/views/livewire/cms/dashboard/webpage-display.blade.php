@@ -20,13 +20,17 @@
             style="{{-- background-color: #dadada; --}}">
 
           <div>
+            @if (false)
             <button class="btn btn-light" wire:click="$refresh">
               <i class="fas fa-refresh"></i>
             </button>
+            @endif
 
             <button class="btn btn-outline-danger" wire:click="$emit('exitWebpageDisplayMode')">
               <i class="fas fa-times"></i>
-              Close
+              <span class="d-none d-md-inline">
+                Close
+              </span>
             </button>
           </div>
 
@@ -68,7 +72,7 @@
               'borderLess' => 'yes',
           ])
 
-          @if (true)
+          @if (false)
           @include ('partials.dashboard.tool-bar-button-pill', [
               'btnClickMethod' => "clearModes",
               'btnIconFaClass' => 'fas fa-times',
@@ -101,7 +105,7 @@
     | Sidebar
     |
     --}}
-    <div class="col-md-4 border-left">
+    <div class="col-md-4 border-left p-0 pt-3 pt-md-0">
 
       <div class="border bg-white">
         @if (true)
