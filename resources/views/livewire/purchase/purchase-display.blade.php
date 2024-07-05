@@ -22,6 +22,7 @@
               <div class="col-md-3 mb-3">
                 <div class="text-muted-rm mb-1">
                   Vendor
+                  OLA
                 </div>
                 <div class="h5">
                   @if ($purchase->vendor)

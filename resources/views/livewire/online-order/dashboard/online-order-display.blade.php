@@ -1,12 +1,38 @@
 <div>
 
-  
-  <h2 class="h5 font-weight-bold my-3">
-    Online order details
-  </h2>
+  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-0 border-rm">
+    {{-- Breadcrumb --}}
+    <div class="my-2 py-2">
+      Online order
+
+      <i class="fas fa-angle-right mx-2"></i>
+      {{ $websiteOrder->website_order_id }}
+    </div>
+
+    {{-- Top tool bar --}}
+    <div>
+      <div>
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
+            style="{{-- background-color: #dadada; --}}">
+
+          <div>
+            <button class="btn btn-light" wire:click="$refresh">
+              <i class="fas fa-refresh"></i>
+            </button>
+
+            <button class="btn btn-outline-danger" wire:click="$emit('exitOnlineOrderDisplayMode')">
+              <i class="fas fa-times"></i>
+              Close
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
 
       <div class="mb-4">
 

@@ -1,6 +1,5 @@
 <div class="p-3-rm p-md-0">
 
-
   {{-- Toolbar --}}
   @if ($modes['list'] || !array_search(true, $modes))
   <x-toolbar-classic toolbarTitle="Purchase">

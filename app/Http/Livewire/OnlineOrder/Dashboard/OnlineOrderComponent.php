@@ -20,6 +20,7 @@ class OnlineOrderComponent extends Component
 
     protected $listeners = [
         'displayOnlineOrder',
+        'exitOnlineOrderDisplayMode',
     ];
 
     public $displayingOnlineOrder = null;
@@ -56,5 +57,11 @@ class OnlineOrderComponent extends Component
 
         $this->displayingOnlineOrder = $onlineOrder;
         $this->enterMode('onlineOrderDisplay');
+    }
+
+    public function exitOnlineOrderDisplayMode()
+    {
+        $this->displayingSaleQuotation = null;
+        $this->clearModes();
     }
 }

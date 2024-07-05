@@ -1,8 +1,6 @@
 <div class="p-3-rm p-md-0">
 
 
-  <div class="mb-3">
-
     <div>
       @if ($modes['list'] || !array_search(true, $modes))
       {{-- Toolbar --}}
@@ -52,7 +50,6 @@
       @endif
 
     </div>
-  </div>
 
 
   {{--
@@ -74,6 +71,7 @@
   @elseif ($modes['search'])
     @livewire ('sale.sale-invoice-search')
   @else
+    @livewire ('sale.sale-invoice-list')
   @endif
 
 

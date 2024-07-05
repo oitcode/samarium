@@ -1,5 +1,35 @@
 <div>
 
+  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-0 border-rm">
+    {{-- Breadcrumb --}}
+    <div class="my-2 py-2">
+      Customer
+
+      <i class="fas fa-angle-right mx-2"></i>
+      {{ $customer->name }}
+    </div>
+
+    {{-- Top tool bar --}}
+    <div>
+      <div>
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
+            style="{{-- background-color: #dadada; --}}">
+
+          <div>
+            <button class="btn btn-light" wire:click="$refresh">
+              <i class="fas fa-refresh"></i>
+            </button>
+
+            <button class="btn btn-outline-danger" wire:click="$emit('exitCustomerDisplayMode')">
+              <i class="fas fa-times"></i>
+              Close
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="bg-white border">
     <div class="table-responsive">

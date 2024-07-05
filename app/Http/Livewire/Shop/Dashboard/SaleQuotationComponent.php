@@ -24,6 +24,7 @@ class SaleQuotationComponent extends Component
     protected $listeners = [
         'displaySaleQuotation',
         'exitSaleQuotationWork',
+        'exitSaleQuotationDisplayMode',
     ];
 
     public function render()
@@ -45,5 +46,11 @@ class SaleQuotationComponent extends Component
 
         $this->exitMode('createSaleQuotationMode');
         $this->exitMode('displaySaleQuotationMode');
+    }
+
+    public function exitSaleQuotationDisplayMode()
+    {
+        $this->displayingOnlineOrder = null;
+        $this->clearModes();
     }
 }

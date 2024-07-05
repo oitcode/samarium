@@ -27,6 +27,7 @@ class ExpenseComponent extends Component
         'displayExpense',
 
         'exitDisplayExpenseMode',
+        'exitExpenseDisplayMode',
     ];
 
     public function render()
@@ -87,6 +88,13 @@ class ExpenseComponent extends Component
     }
 
     public function exitDisplayExpenseMode()
+    {
+        $this->displayingExpense = null;
+        $this->exitMode('display');
+        $this->enterMode('list');
+    }
+
+    public function exitExpenseDisplayMode()
     {
         $this->displayingExpense = null;
         $this->exitMode('display');

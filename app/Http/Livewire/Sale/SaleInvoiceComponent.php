@@ -23,6 +23,8 @@ class SaleInvoiceComponent extends Component
     protected $listeners = [
         'displaySaleInvoice',
         'exitSaleInvoiceWork',
+
+        'exitSaleInvoiceWorkMode',
     ];
 
     public function render()
@@ -44,5 +46,11 @@ class SaleInvoiceComponent extends Component
 
         $this->exitMode('create');
         $this->exitMode('display');
+    }
+
+    public function exitSaleInvoiceWorkMode()
+    {
+        $this->displayingSaleInvoice = null;
+        $this->clearModes();
     }
 }

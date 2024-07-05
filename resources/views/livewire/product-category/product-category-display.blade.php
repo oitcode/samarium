@@ -13,7 +13,7 @@
     </div>
   @endif
 
-  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-1 border-rm">
+  <div class="d-flex justify-content-between">
     {{-- Breadcrumb --}}
     <div class="my-2 py-2">
       Product category

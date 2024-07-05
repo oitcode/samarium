@@ -24,6 +24,7 @@ class PurchaseComponent extends Component
         'displayPurchase',
         'exitPurchaseDisplay',
         'exitPurchaseCreate',
+        'exitPurchaseDisplayMode',
     ];
 
     public function render()
@@ -70,5 +71,10 @@ class PurchaseComponent extends Component
     public function exitPurchaseCreate()
     {
         $this->exitMode('create');
+    }
+
+    public function exitPurchaseDisplayMode()
+    {
+        $this->exitPurchaseDisplay();
     }
 }

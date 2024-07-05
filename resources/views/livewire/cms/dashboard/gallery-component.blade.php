@@ -62,7 +62,7 @@
     </div>
   @endif
 
-  <div class="">
+  <div class="p-0">
 
     @if ($modes['createMode'])
       @livewire('cms.dashboard.gallery-create')

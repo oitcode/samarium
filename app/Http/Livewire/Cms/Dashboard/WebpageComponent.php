@@ -20,6 +20,7 @@ class WebpageComponent extends Component
         'webpageAdded',
         'exitCreateMode',
         'displayWebpage',
+        'exitWebpageDisplayMode',
     ];
 
     public function render()
@@ -65,5 +66,11 @@ class WebpageComponent extends Component
         $this->displayingWebpage = $webpage;
 
         $this->enterMode('display');
+    }
+
+    public function exitWebpageDisplayMode()
+    {
+        $this->displayingWebpage = null;
+        $this->clearModes();
     }
 }
