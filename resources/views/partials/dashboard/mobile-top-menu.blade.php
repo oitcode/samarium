@@ -1,17 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0" style="{{-- background-color: {{ env('OC_SELECT_COLOR') }}; --}}">
-  <a class="navbar-brand p-3 text-reset" href="{{ route('dashboard') }}" style="color: {{ env('OC_SELECT_TXT_COLOR') }};">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0">
+  <a class="navbar-brand p-3 text-reset" href="{{ route('dashboard') }}" style="">
     @if (false)
-    <i class="fas fa-check-circle fa-2x-rm mr-3 text-info-rm" style="color: {{ env('OC_SELECT_TXT_COLOR') }};"></i>
+    <i class="far fa-square fa-2x mr-3 text-white" style=""></i>
     @endif
     <span class="h4 font-weight-bold text-white" style="">
       Ozone
     </span>
   </a>
-  <button class="navbar-toggler p-3 m-3" style="border: 1px solid {{ env('OC_SELECT_TXT_COLOR') }};" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler p-3 m-3 border-0 text-white" style="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     @if (false)
     <span class="navbar-toggler-icon"></span>
     @endif
-    <i class="fas fa-list fa-2x-rm" style="color: {{ env('OC_SELECT_TXT_COLOR') }};"></i>
+    <i class="fas fa-list fa-2x" style="{{-- color: {{ env('OC_SELECT_TXT_COLOR') }}; --}}"></i>
   </button>
 
   <div class="collapse navbar-collapse m-0 p-0 mt-4" id="navbarSupportedContent" style="margin-left: 0;">
@@ -40,22 +40,22 @@
           </a>
           <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuProductDropdown">
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('product') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('product') }}" style="background-color: #ddd;">
               <i class="fas fa-dice-d6 mr-3"></i>
               Products
             </a>
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('product-category') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('product-category') }}" style="background-color: #ddd;">
               <i class="fas fa-list mr-3"></i>
               Product category
             </a>
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('product-question') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('product-question') }}" style="background-color: #ddd;">
               <i class="fas fa-question mr-3"></i>
               Product question
             </a>
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-inventory') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-inventory') }}" style="background-color: #ddd;">
               <i class="fas fa-dolly mr-3"></i>
               Inventory
             </a>
@@ -75,7 +75,7 @@
             </span>
           </a>
           <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuShopDropdown">
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('sale') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('sale') }}">
               @if (env('CMP_TYPE') == 'cafe')
                 <i class="fas fa-skating mr-3"></i>
                 Takeaway
@@ -86,17 +86,17 @@
             </a>
 
             @if (env('CMP_TYPE') == 'cafe')
-              <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('cafesale') }}">
+              <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('cafesale') }}">
                 <i class="fas fa-table mr-3"></i>
                 Tables
               </a>
             @endif
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-purchase') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-purchase') }}">
               <i class="fas fa-shopping-cart mr-3"></i>
               Purchase
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-expense') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-expense') }}">
               <i class="fas fa-wrench mr-3"></i>
               Expense
             </a>
@@ -105,11 +105,11 @@
             <div class="dropdown-divider"></div>
             @endif
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('customer') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('customer') }}">
               <i class="fas fa-users mr-3"></i>
               Customers
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-vendor') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-vendor') }}">
               <i class="fas fa-users mr-3"></i>
               Vendors
             </a>
@@ -117,11 +117,11 @@
             @if (true)
             <div class="dropdown-divider"></div>
             @endif
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('online-order') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('online-order') }}">
               <i class="fas fa-cloud-download-alt mr-3"></i>
               Weborder
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-sale-quotation') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-sale-quotation') }}">
               <i class="fas fa-edit mr-3"></i>
               Quotation
             </a>
@@ -142,23 +142,23 @@
           </a>
           <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCmsDropdown">
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-post') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-cms-post') }}">
               <i class="fas fa-edit mr-3"></i>
               Post
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-webpage') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-cms-webpage') }}">
               <i class="fas fa-file mr-3"></i>
               Page
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-gallery') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-cms-gallery') }}">
               <i class="fas fa-images mr-3"></i>
               Gallery
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-nav-menu') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-cms-nav-menu') }}">
               <i class="fas fa-list mr-3"></i>
               Nav menu
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-cms-theme') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-cms-theme') }}">
               <i class="fas fa-palette mr-3"></i>
               Theme
             </a>
@@ -179,7 +179,7 @@
           </a>
           <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCalendarDropdown">
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-school-calendar') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-school-calendar') }}">
               <i class="fas fa-calendar mr-3"></i>
               Calendar
             </a>
@@ -200,12 +200,12 @@
           </a>
           <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuTeamDropdown">
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-team') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-team') }}">
               <i class="fas fa-calendar mr-3"></i>
               Team
             </a>
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-quick-contacts') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-quick-contacts') }}">
               <i class="fas fa-calendar mr-3"></i>
               Quick contacts
             </a>
@@ -226,15 +226,15 @@
           </a>
           <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuReportDropdown">
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('daybook') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('daybook') }}">
               <i class="fas fa-book mr-3"></i>
               Daybook
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('weekbook') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('weekbook') }}">
               <i class="fas fa-book mr-3"></i>
               Weekbook
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-report') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-report') }}">
               <i class="fas fa-chart-line text-secondary mr-3"></i>
               Report
             </a>
@@ -255,19 +255,19 @@
           </a>
           <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCrmDropdown">
 
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-contact-form') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-contact-form') }}">
               <i class="fas fa-comment mr-3"></i>
               Contact message
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-appointment') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-appointment') }}">
               <i class="fas fa-paste mr-3"></i>
               Appointment
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-newsletter-subscription') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-newsletter-subscription') }}">
               <i class="fas fa-envelope mr-3"></i>
               Newsletter subscription
             </a>
-            <a class="dropdown-item py-3 pl-5 font-weight-bold" href="{{ route('dashboard-testimonial') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-testimonial') }}">
               <i class="fas fa-comment mr-3"></i>
               Testimonial
             </a>
