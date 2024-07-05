@@ -1,6 +1,7 @@
 <div>
 
 
+  @if ($modes['listSaleQuotationMode'] || !array_search(true, $modes))
   {{-- Top tool bar --}}
   <x-toolbar-classic toolbarTitle="Sale quotation">
 
@@ -13,6 +14,7 @@
         'btnCheckMode' => 'createSaleQuotationMode',
     ])
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listSaleQuotationMode')",
         'btnIconFaClass' => 'fas fa-list',
@@ -42,8 +44,10 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+    @endif
 
   </x-toolbar-classic>
+  @endif
 
 
   <!-- Flash message div -->
@@ -74,6 +78,8 @@
     @livewire ('sale-quotation.dashboard.sale-quotation-search')
   @elseif ($modes['displaySaleQuotationMode'])
     @livewire ('sale-quotation.dashboard.sale-quotation-work', ['saleQuotation' => $displayingSaleQuotation,])
+  @else
+    @livewire ('sale-quotation.dashboard.sale-quotation-list')
   @endif
 
 

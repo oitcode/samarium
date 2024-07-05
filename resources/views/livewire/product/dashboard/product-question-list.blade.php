@@ -23,7 +23,7 @@
           <th class="d-none d-md-table-cell">
             Question
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="">
             Status
           </th>
           <th>

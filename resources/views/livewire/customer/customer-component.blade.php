@@ -1,6 +1,7 @@
 <div class="p-3 p-md-0">
 
 
+  @if ($modes['list'] || !array_search(true, $modes))
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Customer">
 
@@ -13,6 +14,7 @@
         'btnCheckMode' => 'create',
     ])
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('list')",
         'btnIconFaClass' => 'fas fa-list',
@@ -42,7 +44,9 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+    @endif
   </x-toolbar-classic>
+  @endif
 
 
   <!-- Flash message div -->
@@ -73,6 +77,8 @@
     @livewire ('customer.customer-search')
   @elseif ($modes['display'])
     @livewire ('customer.customer-detail', ['customer' => $displayingCustomer,])
+  @else
+    @livewire ('customer.customer-list')
   @endif
 
 

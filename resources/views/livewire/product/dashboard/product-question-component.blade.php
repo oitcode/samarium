@@ -1,10 +1,12 @@
 <div>
 
 
+  @if ($modes['list'] || !array_search(true, $modes))
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Product question">
     @include ('partials.dashboard.spinner-button')
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('list')",
         'btnIconFaClass' => 'fas fa-list',
@@ -27,8 +29,10 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+    @endif
 
   </x-toolbar-classic>
+  @endif
 
 
   <!-- Flash message div -->
@@ -55,6 +59,8 @@
     @livewire ('product.dashboard.product-question-list')
   @elseif ($modes['display'])
     @livewire ('product.dashboard.product-question-display', ['productQuestion' => $displayingProductQuestion,])
+  @else
+    @livewire ('product.dashboard.product-question-list')
   @endif
 
 

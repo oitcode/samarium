@@ -4,6 +4,7 @@
   <div class="mb-3">
 
     <div>
+      @if ($modes['list'] || !array_search(true, $modes))
       {{-- Toolbar --}}
       <x-toolbar-classic toolbarTitle="Sales">
         @include ('partials.dashboard.spinner-button')
@@ -15,6 +16,7 @@
             'btnCheckMode' => 'create',
         ])
 
+        @if (false)
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('list')",
             'btnIconFaClass' => 'fas fa-list',
@@ -44,8 +46,10 @@
             'btnText' => '',
             'btnCheckMode' => '',
         ])
+        @endif
 
       </x-toolbar-classic>
+      @endif
 
     </div>
   </div>

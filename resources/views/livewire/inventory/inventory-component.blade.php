@@ -1,10 +1,12 @@
 <div>
 
 
+  @if ($modes['productList'] || !array_search(true, $modes))
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Inventory">
     @include ('partials.dashboard.spinner-button')
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('productList')",
         'btnIconFaClass' => 'fas fa-list',
@@ -27,13 +29,15 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+    @endif
 
   </x-toolbar-classic>
+  @endif
 
 
   @if ($modes['productDetail'])
     @livewire ('inventory-product-detail', ['product' => $displayingProduct,])
-  @elseif ($modes['productList'])
+  @elseif (true || $modes['productList'])
     {{-- Simple list --}}
     <div class="table-responsive bg-white border">
       <table class="table table-sm table-hover mb-0">
