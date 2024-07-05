@@ -41,7 +41,6 @@
     <div class="clearfix">
     </div>
   </div>
-  @endif
 
 
   {{-- Show in smaller screens --}}
@@ -86,8 +85,10 @@
 
     </div>
   </div>
+  @endif
 
 
+  @if (false)
   {{-- List info --}}
   <div class="my-3 text-secondary">
     Displaying
@@ -96,6 +97,7 @@
     {{ count($customers) }}
     customers
   </div>
+  @endif
 
 
   {{-- Customer table --}}
@@ -113,31 +115,42 @@
         </thead>
 
         <tbody class="bg-white">
-          @foreach ($customers as $customer)
-            <tr class="border" wire:click="$emit('displayCustomer', {{ $customer->customer_id }})" role="button">
-              <td>
-                <span style="font-size: calc(1rem + 0.1vw);">
-                  {{ ucwords($customer->name) }}
-                </span>
-              </td>
-              <td style="font-size: 1rem;">
-                {{ $customer->phone }}
-              </td>
-              <td>
-                @if ($customer->getBalance() > 0)
-                  <span class="text-muted mr-1" style="font-size: 0.9rem;">
+          @if (count($customers) > 0)
+            @foreach ($customers as $customer)
+              <tr class="border" wire:click="$emit('displayCustomer', {{ $customer->customer_id }})" role="button">
+                <td>
+                  <span style="font-size: calc(1rem + 0.1vw);">
+                    {{ ucwords($customer->name) }}
+                  </span>
+                </td>
+                <td style="font-size: 1rem;">
+                  {{ $customer->phone }}
+                </td>
+                <td>
+                  @if ($customer->getBalance() > 0)
+                    <span class="text-muted mr-1" style="font-size: 0.9rem;">
+                      Rs
+                    </span>
+                    <span class="font-weight-bold">
+                      @php echo number_format( $customer->getBalance() ); @endphp
+                    </span>
+                  @else
                     Rs
-                  </span>
-                  <span class="font-weight-bold">
                     @php echo number_format( $customer->getBalance() ); @endphp
-                  </span>
-                @else
-                  Rs
-                  @php echo number_format( $customer->getBalance() ); @endphp
-                @endif
+                  @endif
+                </td>
+              </tr>
+            @endforeach
+          @else
+            <tr>
+              <td colspan="3">
+                <p class="font-weight-bold text-muted-rm h5 py-4 text-center" style="color: #fe8d01;">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  No customers yet
+                <p>
               </td>
             </tr>
-          @endforeach
+          @endif
         </tbody>
       </table>
     </div>
@@ -147,7 +160,7 @@
     <div class="table-responsive border d-md-none">
       <table class="table table-hover mb-0">
         <thead>
-          <tr class="bg-success text-white" style="font-size: 1rem;">
+          <tr class="bg-white" style="font-size: 1rem;">
             <th></th>
             <th>Customer</th>
             <th>Balance</th>
@@ -155,45 +168,56 @@
         </thead>
 
         <tbody class="bg-white">
-          @foreach ($customers as $customer)
-            <tr class="border">
-              <td style="width: 5vw;">
+          @if (count($customers) > 0)
+            @foreach ($customers as $customer)
+              <tr class="border">
+                <td style="width: 5vw;">
 
-                <div class="dropdown">
-                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-cog text-secondary"></i>
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button class="dropdown-item" wire:click="$emit('displayCustomer', {{ $customer->customer_id }})">
-                      <i class="fas fa-file text-primary mr-2"></i>
-                      View
+                  <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-cog text-secondary"></i>
                     </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <button class="dropdown-item" wire:click="$emit('displayCustomer', {{ $customer->customer_id }})">
+                        <i class="fas fa-file text-primary mr-2"></i>
+                        View
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td>
-                <span style="font-size: calc(1rem + 0.1vw);">
-                  {{ ucwords($customer->name) }}
-                </span>
-                <div class="text-secondary" style="0.9rem;">
-                  {{ $customer->phone }}
-                </div>
-              </td>
-              <td>
-                @if ($customer->getBalance() > 0)
-                  <span class="text-muted mr-1" style="font-size: 0.9rem;">
+                </td>
+                <td>
+                  <span style="font-size: calc(1rem + 0.1vw);">
+                    {{ ucwords($customer->name) }}
+                  </span>
+                  <div class="text-secondary" style="0.9rem;">
+                    {{ $customer->phone }}
+                  </div>
+                </td>
+                <td>
+                  @if ($customer->getBalance() > 0)
+                    <span class="text-muted mr-1" style="font-size: 0.9rem;">
+                      Rs
+                    </span>
+                    <span class="font-weight-bold">
+                      @php echo number_format( $customer->getBalance() ); @endphp
+                    </span>
+                  @else
                     Rs
-                  </span>
-                  <span class="font-weight-bold">
                     @php echo number_format( $customer->getBalance() ); @endphp
-                  </span>
-                @else
-                  Rs
-                  @php echo number_format( $customer->getBalance() ); @endphp
-                @endif
+                  @endif
+                </td>
+              </tr>
+            @endforeach
+          @else
+            <tr>
+              <td colspan="3">
+                <p class="font-weight-bold text-muted-rm h5 py-4 text-center" style="color: #fe8d01;">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  No customers yet
+                <p>
               </td>
             </tr>
-          @endforeach
+          @endif
         </tbody>
       </table>
     </div>

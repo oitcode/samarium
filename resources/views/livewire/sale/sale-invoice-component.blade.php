@@ -1,4 +1,4 @@
-<div class="p-3 p-md-0">
+<div class="p-3-rm p-md-0">
 
 
   <div class="mb-3">

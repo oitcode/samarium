@@ -6,9 +6,6 @@
   <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
     <div class="font-weight-bold h6 d-flex">
       <div class="d-flex">
-        <div class="mr-4 font-weight-bold pt-2">
-          <i class="fas fa-filter mr-2"></i>
-        </div>
         @if (true)
         <div class="dropdown">
           <button class="btn
@@ -21,7 +18,7 @@
               @elseif ($modes['showOnlyDeliveredMode'])
                 btn-success
               @elseif ($modes['showAllMode'])
-                btn-light border
+                btn-dark border
               @endif
               dropdown-toggle"
               type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

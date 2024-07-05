@@ -1,7 +1,7 @@
 <div>
 
   
-  <h2 class="text-secondary">
+  <h2 class="h5 font-weight-bold my-3">
     Online order details
   </h2>
 
@@ -11,7 +11,7 @@
       <div class="mb-4">
 
         <div class="table-responsive bg-white">
-          <table class="table border" style="font-size: 1.1rem;">
+          <table class="table border mb-0" style="font-size: 1.1rem;">
             <tbody>
 
               <tr>
@@ -108,9 +108,9 @@
       </div>
 
       <div class="table-responsive bg-white">
-        <table class="table table-hover table-bordered" style="font-size: 1.1rem;">
+        <table class="table table-hover table-bordered mb-0" style="font-size: 1.1rem;">
           <thead>
-            <tr class="bg-success text-white">
+            <tr class="bg-primary text-white">
               <th>Item</th>
               <th>Quantity</th>
               <th>Rate</th>
