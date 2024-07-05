@@ -43,7 +43,7 @@
     <div class="col-md-8 bg-white border">
       {{-- Webpage name --}}
       <div class="mt-3 mb-4-rm">
-        <h2>
+        <h2 class="h5 font-weight-bold">
           {{ $webpage->name }}
         </h2>
       </div>
