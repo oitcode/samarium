@@ -39,7 +39,7 @@
 
       {{-- Shop glance --}}
       @if (preg_match("/shop/i", env('MODULES')))
-        <div class="col-md-3">
+        <div class="col-6 col-md-3">
           <div class="mb-4">
             @livewire ('shop.dashboard.shop-glance')
           </div>
@@ -48,7 +48,7 @@
 
       {{-- Online order glance --}}
       @if (preg_match("/shop/i", env('MODULES')))
-        <div class="col-md-3">
+        <div class="col-6 col-md-3">
           <div class="mb-4">
             @livewire ('online-order.dashboard.online-order-glance')
           </div>
@@ -57,7 +57,7 @@
 
       {{-- Notice glance --}}
       @if (preg_match("/crm/i", env('MODULES')))
-        <div class="col-md-3">
+        <div class="col-6 col-md-3">
           <div class="mb-4">
             @livewire ('cms.dashboard.notice-glance-component')
           </div>
@@ -66,7 +66,7 @@
 
       {{-- Contact form glance --}}
       @if (preg_match("/crm/i", env('MODULES')))
-        <div class="col-md-3">
+        <div class="col-6 col-md-3">
           <div class="mb-4">
             @livewire ('contact-form.dashboard.contact-message-glance-component')
           </div>
