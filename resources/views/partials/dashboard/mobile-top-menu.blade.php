@@ -1,7 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-dark-rm bg-dark-rm m-0 p-0" style="background-color: {{ env('OC_SELECT_COLOR') }};">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0 border border-bottom" style="{{-- background-color: {{ env('OC_SELECT_COLOR') }}; --}}">
   <a class="navbar-brand p-3 text-reset" href="{{ route('dashboard') }}" style="color: {{ env('OC_SELECT_TXT_COLOR') }};">
+    @if (false)
     <i class="fas fa-check-circle fa-2x-rm mr-3 text-info-rm" style="color: {{ env('OC_SELECT_TXT_COLOR') }};"></i>
-    <span class="h4 font-weight-bold" style="color: {{ env('OC_SELECT_TXT_COLOR') }};">
+    @endif
+    <span class="h4 font-weight-bold text-white" style="">
       Ozone
     </span>
   </a>

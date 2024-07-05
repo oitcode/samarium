@@ -1,4 +1,4 @@
-<div>
+<div class="">
 
 
   {{-- Flash message div --}}

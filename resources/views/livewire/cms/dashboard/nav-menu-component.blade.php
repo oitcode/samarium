@@ -8,6 +8,7 @@
   @if (true)
 
   <div class="mb-3">
+      @if ($modes['list'] || !array_search(true, $modes))
       {{-- Show in bigger screens --}}
       <x-toolbar-classic toolbarTitle="Nav menu">
 
@@ -23,6 +24,7 @@
           ])
         @endif
 
+        @if (false)
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('list')",
             'btnIconFaClass' => 'fas fa-list',
@@ -45,8 +47,10 @@
             'btnText' => '',
             'btnCheckMode' => '',
         ])
+        @endif
 
       </x-toolbar-classic>
+      @endif
 
   </div>
   @endif

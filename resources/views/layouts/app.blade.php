@@ -91,7 +91,7 @@
         | Content
         |
         --}}
-        <div class="py-3-rm">
+        <div class="">
           @yield ('content')
           @if (false)
           @include ('partials.dashboard.pkg-branding')

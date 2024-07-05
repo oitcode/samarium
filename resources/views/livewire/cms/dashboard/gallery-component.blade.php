@@ -8,6 +8,7 @@
 
   {{-- Top tool bar --}}
 
+  @if ($modes['listMode'] || !array_search(true, $modes))
   {{-- Show in bigger screen --}}
   <x-toolbar-classic toolbarTitle="Gallery">
 
@@ -20,6 +21,7 @@
         'btnCheckMode' => 'createMode',
     ])
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listMode')",
         'btnIconFaClass' => 'fas fa-list',
@@ -42,8 +44,10 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+    @endif
 
   </x-toolbar-classic>
+  @endif
 
   <!-- Flash message div -->
   @if (session()->has('message'))
@@ -68,6 +72,8 @@
       @livewire('cms.dashboard.gallery-list')
     @elseif ($modes['updateMode'])
       @livewire('cms.dashboard.gallery-update', ['gallery' => $updatingGallery,])
+    @else
+      @livewire('cms.dashboard.gallery-list')
     @endif
 
     @if ($deleteMode)

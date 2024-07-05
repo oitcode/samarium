@@ -13,6 +13,7 @@
         'btnCheckMode' => 'create',
     ])
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('list')",
         'btnIconFaClass' => 'fas fa-list',
@@ -29,7 +30,6 @@
       ])
     @endif
 
-    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
         'btnIconFaClass' => 'fas fa-times',
@@ -60,6 +60,8 @@
     @livewire ('product-category.product-category-list')
   @elseif ($modes['display'])
     @livewire ('product-category.product-category-display', ['productCategory' => $displayingProductCategory,])
+  @else
+    @livewire ('product-category.product-category-list')
   @endif
 
 

@@ -17,7 +17,7 @@
         @if ($toolbarTitle != '')
           <div class="p-2-rm bg-light-rm border-rm" style="">
               <div class="h-100 d-flex flex-column justify-content-center bg-warning-rm">
-                <h1 class="h1 font-weight-bold px-3 pt-4-rm mb-0 btn-rm {{  env('OC_ASCENT_BTN_COLOR') }}-rm badge-pill-rm p-3" style="font-size: 1.2rem;">
+                <h1 class="h1 font-weight-bold px-3-rm py-3 mb-0 btn-rm {{  env('OC_ASCENT_BTN_COLOR') }}-rm badge-pill-rm p-3-rm" style="font-size: 1.2rem;">
                   {{ $toolbarTitle }}
                 </h1>
               </div>
@@ -31,6 +31,7 @@
   </div>
 
   {{-- Show in smaller screens --}}
+  @if (false)
   <div class="d-md-none d-flex justify-content-between mb-4">
     <div>
       <div class="dropdown">
@@ -65,6 +66,7 @@
       </div>
     </div>
   </div>
+  @endif
 
 
 </div>
