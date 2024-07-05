@@ -99,31 +99,31 @@
   {{-- For smaller screens --}}
   <div class="d-md-none">
   <div
-      class="btn-rm d-md-none
+      class="btn btn-primary d-md-none
       @if (false)
       @isset($btnCheckMode)
         @isset ($modes)
           @isset ($modes[$btnCheckMode])
             @if ($modes[$btnCheckMode])
-              border-bottom-rm border-danger-rm
+              bg-primary
             @else
-              bg-white
+              bg-primary
             @endif
           @else
-            bg-white
+            bg-primary
           @endisset
         @else
-          bg-white
+          bg-primary
         @endisset
       @else
-        bg-white
+        bg-primary
       @endisset
       @endif
-      border-rm shadow-rm m-0 badge-pill-rm mr-4-rm px-4 h-100 border-none shadow-none o-flipper py-3 d-flex flex-column justify-content-center rounded"
+      m-0 px-4 h-100 border-none shadow-none o-flipper-rm py-3 d-flex flex-column justify-content-center rounded"
   
   
       style="font-size: 1.1rem;
-      @if (true)
+      @if (false)
       @isset($btnCheckMode)
         @isset ($modes)
           @isset ($modes[$btnCheckMode])
@@ -133,9 +133,9 @@
               padding-bottom: 10px;
               background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
               color: white;
-              --}}
               color: {{ env('OC_SELECT_COLOR', '#000050') }};
               border-left: 10px solid {{ env('OC_SELECT_COLOR', '#000050') }};
+              --}}
             @endif
           @endisset
         @endisset
