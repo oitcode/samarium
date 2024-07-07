@@ -1,17 +1,19 @@
 <div>
 
-  @if ($modes['listPostMode'] || !array_search(true, $modes))
+  @if (true || $modes['listPostMode'] || !array_search(true, $modes))
   {{-- Bigger screen menu --}}
   <x-toolbar-classic toolbarTitle="Posts">
 
     @include ('partials.dashboard.spinner-button')
 
+    @if ($modes['listPostMode'] || !array_search(true, $modes))
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createPostMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
         'btnText' => 'Create',
         'btnCheckMode' => 'createPostMode',
     ])
+    @endif
 
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
