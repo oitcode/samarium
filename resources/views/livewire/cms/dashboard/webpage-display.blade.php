@@ -27,6 +27,8 @@
             </button>
             @endif
 
+            @include ('partials.dashboard.spinner-button')
+
             {{--
             <button class="btn btn-outline-danger" wire:click="$emit('exitWebpageDisplayMode')">
             --}}
