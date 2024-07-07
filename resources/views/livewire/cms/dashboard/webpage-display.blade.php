@@ -27,7 +27,10 @@
             </button>
             @endif
 
+            {{--
             <button class="btn btn-outline-danger" wire:click="$emit('exitWebpageDisplayMode')">
+            --}}
+            <button class="btn btn-outline-danger" wire:click="closeThisComponent">
               <i class="fas fa-times"></i>
               <span class="d-none d-md-inline">
                 Close

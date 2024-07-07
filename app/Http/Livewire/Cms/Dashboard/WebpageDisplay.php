@@ -164,4 +164,9 @@ class WebpageDisplay extends Component
         $this->webpage = $this->webpage->fresh();
         $this->render();
     }
+
+    public function closeThisComponent()
+    {
+        $this->emit('exitWebpageDisplayMode');
+    }
 }
