@@ -7,6 +7,10 @@ use Livewire\WithFileUploads;
 
 use App\Traits\ModesTrait;
 
+use App\Webpage;
+use App\WebpageCategory;
+use App\WebpageWebpageCategory;
+
 class WebpageDisplay extends Component
 {
     use ModesTrait;
@@ -148,5 +152,16 @@ class WebpageDisplay extends Component
     public function webpageEditTeamTeampageCancel()
     {
         $this->exitMode('editTeamTeampageMode');
+    }
+
+    public function removePostCategory(WebpageCategory $webpageCategory, Webpage $webpage)
+    {
+        $webpageWebpageCategory = WebpageWebpageCategory::where('webpage_id', $webpage->webpage_id)
+                                  ->where('webpage_category_id', $webpageCategory->webpage_category_id)
+                                  ->first();
+        
+        $webpageWebpageCategory->delete();
+        $this->webpage = $this->webpage->fresh();
+        $this->render();
     }
 }

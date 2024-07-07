@@ -1,5 +1,6 @@
 <div class="p-0 pl-3 bg-white-rm border-rm shadow-sm">
 
+
   <div class="d-flex justify-content-between">
     {{-- Breadcrumb --}}
     <div class="my-2 py-2">
@@ -169,9 +170,11 @@
                         <div>
                           @if (count($webpage->webpageCategories) > 0)
                             @foreach ($webpage->webpageCategories as $category)
-                              <span class="badge badge-primary mr-3">
+                              <span class="badge badge-primary">
                                 {{ $category->name }}
                               </span>
+                              <i class="fas fa-times-circle text-danger mr-3" wire:click="removePostCategory({{ $category }}, {{ $webpage}})"
+                              role="button"></i>
                             @endforeach
                           @else
                             None
@@ -334,5 +337,6 @@
 
     </div>
   </div>
+
 
 </div>
