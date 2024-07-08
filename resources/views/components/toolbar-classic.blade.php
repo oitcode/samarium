@@ -13,7 +13,7 @@
         justify-content-between
       @endisset
       p-0">
-      @isset ($toolbarTitle)
+      @if (isset($toolbarTitle) && (isset($titleNone) && $titleNone != 'yes'))
         @if ($toolbarTitle != '')
           <div class="p-2-rm bg-light-rm border-rm" style="">
               <div class="h-100 d-flex flex-column justify-content-center bg-warning-rm">

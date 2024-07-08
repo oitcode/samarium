@@ -2,7 +2,7 @@
 
   @if (true || $modes['listPostMode'] || !array_search(true, $modes))
   {{-- Bigger screen menu --}}
-  <x-toolbar-classic toolbarTitle="Posts">
+  <x-toolbar-classic toolbarTitle="Posts" titleNone="yes">
 
     @include ('partials.dashboard.spinner-button')
 
