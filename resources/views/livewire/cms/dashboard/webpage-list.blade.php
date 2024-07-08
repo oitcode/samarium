@@ -146,7 +146,7 @@
     {{-- Show in smaller screens --}}
     <div class="d-md-none">
 
-      @if (false && !is_null($webpages) && count($webpages) > 0)
+      @if (!is_null($webpages) && count($webpages) > 0)
         @foreach ($webpages as $webpage)
           <div class="bg-white border px-3">
             <div class="h4-rm py-4">
