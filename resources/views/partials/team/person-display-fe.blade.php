@@ -6,8 +6,8 @@
       <div class="d-flex-rm flex-column-rm justify-content-center-rm h-100-rm" style="border-radius: 50% !important; width: 150px !important; height: 150px !important;">
         @if ($person->image_path)
           <div>
-            <img class="img-fluid-rm shadow-lg h-25-rm w-100-rm rounded-circle-rm" src="{{ asset('storage/' . $person->image_path) }}" alt="{{ $person->name }}"
-                style="border: 1px solid white; border-radius: 50%; width: 150px; height: 150px;">
+            <img class="img-fluid shadow-lg h-25-rm w-100-rm rounded-circle-rm" src="{{ asset('storage/' . $person->image_path) }}" alt="{{ $person->name }}"
+                style="{{-- border: 1px solid white; border-radius: 50%; min-width: 150px; min-height: 150px; --}}">
           </div>
         @else
           <div class="py-5">
