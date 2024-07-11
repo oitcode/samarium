@@ -1,9 +1,9 @@
-<div class="p-0 pl-3 bg-white-rm border-rm shadow-sm">
+<div class="p-0 pl-3-rm bg-white-rm border-rm shadow-sm-rm">
 
 
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between p-0 bg-info-rm bg-dark text-white">
     {{-- Breadcrumb --}}
-    <div class="my-2 py-2">
+    <div class="my-2 py-2 px-2 bg-warning-rm">
       @if ($webpage->is_post == 'yes')
         Post
       @else
@@ -32,7 +32,7 @@
             {{--
             <button class="btn btn-outline-danger" wire:click="$emit('exitWebpageDisplayMode')">
             --}}
-            <button class="btn btn-outline-danger" wire:click="closeThisComponent">
+            <button class="btn btn-danger" wire:click="closeThisComponent">
               <i class="fas fa-times"></i>
               <span class="d-none d-md-inline">
                 Close
@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" style="margin: auto;">
     <div class="col-md-8 bg-white border">
       {{-- Webpage name --}}
       <div class="mt-3 mb-4-rm">

@@ -7,16 +7,16 @@
         @if ($toolbarAlign == 'left')
           justify-content-start
         @else
-          justify-content-between
+          justify-content-start
         @endif
       @else
-        justify-content-between
+        justify-content-start
       @endisset
       p-0">
-      @if (isset($toolbarTitle) && (isset($titleNone) && $titleNone != 'yes'))
+      @if (true || isset($toolbarTitle) && (isset($titleNone) && $titleNone != 'yes'))
         @if ($toolbarTitle != '')
-          <div class="p-2-rm bg-light-rm border-rm" style="">
-              <div class="h-100 d-flex flex-column justify-content-center bg-warning-rm">
+          <div class="p-2-rm bg-light-rm border-rm mr-4" style="">
+              <div class="h-100 d-flex flex-column justify-content-center bg-dark text-white px-3" style="{{-- background-color: #aaa; --}}">
                 <h1 class="h1 font-weight-bold px-3-rm py-3 mb-0 btn-rm {{  env('OC_ASCENT_BTN_COLOR') }}-rm badge-pill-rm p-3-rm" style="font-size: 1.2rem;">
                   {{ $toolbarTitle }}
                 </h1>

@@ -5,10 +5,9 @@
   </x-component-header>
   @endif
 
-  @if ($modes['list'] || !array_search(true, $modes))
+  @if (true || $modes['list'] || !array_search(true, $modes))
   <x-toolbar-classic toolbarTitle="Pages">
 
-    @include ('partials.dashboard.spinner-button')
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('create')",
@@ -41,6 +40,8 @@
         'btnCheckMode' => '',
     ])
     @endif
+
+    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
   @endif

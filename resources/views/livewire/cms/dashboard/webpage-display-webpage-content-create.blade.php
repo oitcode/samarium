@@ -84,10 +84,12 @@
         </div>
       </div>
 
-      <div class="col-md-2 mr-2-rm border p-3" wire:click="$emit('exitCreateWebpageContent')" role="button">
-        <button class="btn btn-light">
-          Cancel
-        </button>
+      <div class="col-md-2 mr-2-rm border p-0" wire:click="$emit('exitCreateWebpageContent')" role="button">
+        <div class="d-flex justify-content-center h-100">
+          <button class="btn btn-danger h-100 w-100">
+            Cancel
+          </button>
+        </div>
       </div>
 
       @if (false)
