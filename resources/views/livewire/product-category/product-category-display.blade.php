@@ -13,9 +13,9 @@
     </div>
   @endif
 
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between bg-dark text-white">
     {{-- Breadcrumb --}}
-    <div class="my-2 py-2">
+    <div class="my-2 py-2 px-2">
       Product category
 
       <i class="fas fa-angle-right mx-2"></i>
@@ -33,7 +33,7 @@
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$emit('productCategoryDisplayCancelled')">
+            <button class="btn btn-danger" wire:click="$emit('productCategoryDisplayCancelled')">
               <i class="fas fa-times"></i>
               Close
             </button>

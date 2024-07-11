@@ -15,7 +15,7 @@
   @endif
 
 
-  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-1 border-rm">
+  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-1 border-rm bg-dark text-white">
     {{-- Breadcrumb --}}
     <div class="my-2 py-2">
       Products
@@ -35,7 +35,7 @@
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$emit('exitProductDisplayMode')">
+            <button class="btn btn-danger" wire:click="$emit('exitProductDisplayMode')">
               <i class="fas fa-times"></i>
               Close
             </button>

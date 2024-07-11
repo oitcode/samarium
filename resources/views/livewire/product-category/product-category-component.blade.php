@@ -1,7 +1,6 @@
 <div>
 
 
-  @if ($modes['list'] || !array_search(true, $modes))
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Product category">
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -39,7 +38,6 @@
     @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
-  @endif
 
 
   <!-- Flash message div -->

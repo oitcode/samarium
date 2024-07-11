@@ -8,7 +8,6 @@
 
   {{-- Top tool bar --}}
 
-  @if ($modes['listMode'] || !array_search(true, $modes))
   {{-- Show in bigger screen --}}
   <x-toolbar-classic toolbarTitle="Gallery">
 
@@ -47,7 +46,6 @@
     @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
-  @endif
 
   <!-- Flash message div -->
   @if (session()->has('message'))
