@@ -35,11 +35,7 @@
 
   <div class="py-3">
     @include ('partials.button-store')
-    @include ('partials.button-cancel', ['clickEmitEventName' => '',])
-
-    @if (false)
-    <button class="btn btn-sm btn-secondary" wire:click="$emit('exitCreate')">Cancel</button>
-    @endif
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'exitGalleryCreateMode',])
 
     <button wire:loading class="btn">
       <span class="spinner-border text-info mr-3" role="status">

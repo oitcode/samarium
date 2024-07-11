@@ -30,6 +30,7 @@ class GalleryComponent extends Component
         'exitUpdate' => 'exitUpdateMode',
         'displayGallery',
         'exitGalleryDisplayMode',
+        'exitGalleryCreateMode',
     ];
 
     public $modes = [
@@ -120,6 +121,11 @@ class GalleryComponent extends Component
     public function exitGalleryDisplayMode()
     {
         $this->displayingGallery = null;
+        $this->clearModes();
+    }
+
+    public function exitGalleryCreateMode()
+    {
         $this->clearModes();
     }
 }

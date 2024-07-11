@@ -1,11 +1,5 @@
 <div class="">
 
-  @if (false)
-  <x-component-header>
-    Gallery
-  </x-component-header>
-  @endif
-
   {{-- Top tool bar --}}
 
   {{-- Show in bigger screen --}}
