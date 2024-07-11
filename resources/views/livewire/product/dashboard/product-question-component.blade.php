@@ -4,8 +4,6 @@
   @if ($modes['list'] || !array_search(true, $modes))
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Product question">
-    @include ('partials.dashboard.spinner-button')
-
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('list')",
@@ -30,6 +28,8 @@
         'btnCheckMode' => '',
     ])
     @endif
+
+    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
   @endif

@@ -4,8 +4,6 @@
   {{-- Bigger screen menu --}}
   <x-toolbar-classic toolbarTitle="Posts" titleNone="yes">
 
-    @include ('partials.dashboard.spinner-button')
-
     @if ($modes['listPostMode'] || !array_search(true, $modes))
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createPostMode')",
@@ -46,6 +44,8 @@
         'btnCheckMode' => '',
     ])
     @endif
+
+    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
   @endif

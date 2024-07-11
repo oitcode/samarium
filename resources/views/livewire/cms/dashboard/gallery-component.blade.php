@@ -12,8 +12,6 @@
   {{-- Show in bigger screen --}}
   <x-toolbar-classic toolbarTitle="Gallery">
 
-    @include ('partials.dashboard.spinner-button')
-
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -45,6 +43,8 @@
         'btnCheckMode' => '',
     ])
     @endif
+
+    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
   @endif
