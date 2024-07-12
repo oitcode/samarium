@@ -85,17 +85,19 @@
         </tbody>
       </table>
     </div>
-  
+
     @if (true)
     <div class="p-2 m-0 bg-white">
       <div class="row">
         <div class="col-md-8">
-          <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSaleInvoice" style="font-size: calc(0.7rem + 0.2vw);">
+          @if (false)
+          <button class="btn-rm btn-lg-rm btn-success-rm mr-3" wire:click="addItemToSaleInvoice" style="font-size: calc(0.7rem + 0.2vw);">
             <i class="fas fa-plus mr-2"></i>
             Add
           </button>
+          @endif
   
-          <button class="btn btn-lg btn-light" wire:click="resetInputFields" style="font-size: calc(0.7rem + 0.2vw);">
+          <button class="btn-rm btn-lg-rm btn-light-rm bg-white border-0 text-primary font-weight-bold" wire:click="resetInputFields" style="font-size: calc(0.7rem + 0.2vw);">
             Reset
           </button>
   
@@ -124,6 +126,22 @@
     @endif
   
   </div>
+  
+    @if ($products != null && count($products) > 0)
+      @foreach ($products as $product)
+        <div class="d-flex justify-content-between bg-white-rm border p-3 bg-dark text-white" wire:key="{{ rand() }}">
+          <div>
+            {{ $product->name }}
+          </div>
+          <div class="px-3">
+            <button class="btn btn-primary" wire:click="selectItemNew({{ $product }})">
+              Select
+            </button>
+          </div>
+        </div>
+      @endforeach
+    @endif
+
 
 
   {{-- Show in smaller screen --}}

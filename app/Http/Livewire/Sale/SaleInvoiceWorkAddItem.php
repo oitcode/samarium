@@ -41,10 +41,10 @@ class SaleInvoiceWorkAddItem extends Component
 
     public function mount()
     {
-        $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
-            ->where('is_base_product', false)
-            ->orderBy('name', 'ASC')
-            ->get();
+        // $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
+        //     ->where('is_base_product', false)
+        //     ->orderBy('name', 'ASC')
+        //     ->get();
     }
 
     public function render()
@@ -140,10 +140,11 @@ class SaleInvoiceWorkAddItem extends Component
         $this->price = '';
         $this->total = null;
 
+        $this->products = null;
         $this->selectedProduct = null;
         $this->search_product_category_id = null;
 
-        $this->products = Product::all();
+        // $this->products = Product::all();
     }
 
     public function updateTotal()
@@ -194,5 +195,15 @@ class SaleInvoiceWorkAddItem extends Component
     public function hideAddItemFormMob()
     {
         $this->exitMode('showMobForm');
+    }
+
+    public function selectItemNew(Product $product)
+    {
+        $this->product_id = $product->product_id;
+        $this->selectedProduct = $product;
+        $this->quantity = 1;
+        $this->price_per_unit = $this->selectedProduct->selling_price;;
+
+        $this->addItemToSaleInvoice();
     }
 }
