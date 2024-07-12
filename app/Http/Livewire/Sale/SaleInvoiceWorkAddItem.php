@@ -36,6 +36,7 @@ class SaleInvoiceWorkAddItem extends Component
 
     public $modes = [
         'showMobForm' => false,
+        'productSelected' => false,
     ];
 
 
@@ -144,12 +145,14 @@ class SaleInvoiceWorkAddItem extends Component
         $this->selectedProduct = null;
         $this->search_product_category_id = null;
 
+        $this->exitMode('productSelected');
+
         // $this->products = Product::all();
     }
 
     public function updateTotal()
     {
-        $this->total = $this->price * $this->quantity;
+        $this->total = $this->selectedProduct->selling_price * $this->quantity;
     }
 
     public function selectProductCategory()
@@ -201,9 +204,10 @@ class SaleInvoiceWorkAddItem extends Component
     {
         $this->product_id = $product->product_id;
         $this->selectedProduct = $product;
-        $this->quantity = 1;
-        $this->price_per_unit = $this->selectedProduct->selling_price;;
+        $this->enterMode('productSelected');
+        // $this->quantity = 1;
+        // $this->price_per_unit = $this->selectedProduct->selling_price;;
 
-        $this->addItemToSaleInvoice();
+        // $this->addItemToSaleInvoice();
     }
 }

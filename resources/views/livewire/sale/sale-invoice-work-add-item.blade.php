@@ -148,31 +148,69 @@
   
   </div>
   
-    @if ($products != null && count($products) > 0)
-      @foreach ($products as $product)
+      @if ($modes['productSelected'])
         <div class="d-flex justify-content-between bg-white-rm border p-3 bg-dark text-white" wire:key="{{ rand() }}">
           <div>
-            {{ $product->name }}
+            Product:
+            <br />
+            {{ $selectedProduct->name }}
           </div>
           <div class="d-flex">
-            <div>
+            <div class="mr-4">
               Qty
               <br />
-              <input type="text" />
+              <input class="font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal" wire:change="updateTotal" />
             </div>
-            <div>
+            <div class="mr-4">
               Price per unit
               <br />
-              <input type="text" />
+              {{ $selectedProduct->selling_price }}
+            </div>
+            <div class="mr-4">
+              Total
+              <br />
+              @if ($selectedProduct)
+                @php echo number_format( $total ); @endphp
+              @endif
             </div>
             <div class="px-3">
-              <button class="btn btn-primary" wire:click="selectItemNew({{ $product }})">
-                Select
+              Action
+              <br />
+              <button class="btn btn-primary" wire:click="addItemToSaleInvoice">
+                Add
               </button>
             </div>
           </div>
         </div>
-      @endforeach
+      @else
+        @if ($products != null && count($products) > 0)
+        @foreach ($products as $product)
+          <div class="d-flex justify-content-between bg-white-rm border p-3 bg-dark text-white" wire:key="{{ rand() }}">
+            <div>
+              {{ $product->name }}
+            </div>
+            <div class="d-flex">
+              @if ($modes['productSelected'])
+              <div>
+                Qty
+                <br />
+                <input type="text" />
+              </div>
+              <div>
+                Price per unit
+                <br />
+                {{ $selectedProduct->selling_price }}
+              </div>
+              @endif
+              <div class="px-3">
+                <button class="btn btn-primary" wire:click="selectItemNew({{ $product }})">
+                  Select
+                </button>
+              </div>
+            </div>
+          </div>
+        @endforeach
+      @endif
     @endif
 
 
