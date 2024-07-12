@@ -23,7 +23,25 @@
       <table class="table table-sm table-bordered m-0">
         <thead>
           <tr class="bg-white" style="font-size: calc(0.6rem + 0.2vw);">
-            <th class="py-2 border-0-rm pl-2" style="width: 200px;">Search Item</th>
+            <th class="py-2 border-0-rm pl-2" style="width: 200px;">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex flex-column justify-content-center">
+                  Search Item
+                </div>
+                <div>
+                  <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="searchTypeDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Select search type
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="searchTypeDropdownMenu">
+                      <button class="dropdown-item" type="button" wire:click="">Name</button>
+                      <button class="dropdown-item" type="button" wire:click="">Barcode</button>
+                      <button class="dropdown-item" type="button" wire:click="">Category</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </th>
             @if (false)
             <th class="py-2">Category</th>
             <th class="py-2">Item</th>
@@ -136,10 +154,22 @@
           <div>
             {{ $product->name }}
           </div>
-          <div class="px-3">
-            <button class="btn btn-primary" wire:click="selectItemNew({{ $product }})">
-              Select
-            </button>
+          <div class="d-flex">
+            <div>
+              Qty
+              <br />
+              <input type="text" />
+            </div>
+            <div>
+              Price per unit
+              <br />
+              <input type="text" />
+            </div>
+            <div class="px-3">
+              <button class="btn btn-primary" wire:click="selectItemNew({{ $product }})">
+                Select
+              </button>
+            </div>
           </div>
         </div>
       @endforeach
