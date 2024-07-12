@@ -98,7 +98,10 @@
           @endif
   
           <button class="btn-rm btn-lg-rm btn-light-rm bg-white border-0 text-primary font-weight-bold" wire:click="resetInputFields" style="font-size: calc(0.7rem + 0.2vw);">
+            <i class="fas fa-refresh"></i>
+            @if (false)
             Reset
+            @endif
           </button>
   
           <button wire:loading class="btn">
