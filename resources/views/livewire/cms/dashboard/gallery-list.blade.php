@@ -6,7 +6,6 @@
     </div>
 
 
-    @if (!is_null($galleries) && count($galleries) > 0)
       {{-- Show in bigger screen --}}
       <div class="d-none d-md-block">
         <div class="table-responsive">
@@ -27,45 +26,56 @@
             @endif
 
             <tbody>
-              @foreach($galleries as $gallery)
-              <tr>
-                <td class="text-muted-rm">
-                  {{ $gallery->gallery_id }}
-                </td>
+              @if (!is_null($galleries) && count($galleries) > 0)
+                @foreach ($galleries as $gallery)
+                <tr>
+                  <td class="text-muted-rm">
+                    {{ $gallery->gallery_id }}
+                  </td>
 
-                <td class="h6 font-weight-bold">
-                  <strong wire:click="$emit('displayGallery', {{ $gallery }})" role="button">
-                  {{ $gallery->name }}
-                  </strong>
-                </td>
+                  <td class="h6 font-weight-bold">
+                    <strong wire:click="$emit('displayGallery', {{ $gallery }})" role="button">
+                    {{ $gallery->name }}
+                    </strong>
+                  </td>
 
-                <td class="text-secondary-rm">
-                  {{ $gallery->description }}
-                </td>
+                  <td class="text-secondary-rm">
+                    {{ $gallery->description }}
+                  </td>
 
-                <td class="text-secondary-rm">
-                  {{ count($gallery->galleryImages) }}
-                </td>
+                  <td class="text-secondary-rm">
+                    {{ count($gallery->galleryImages) }}
+                  </td>
 
-                <td class="text-secondary-rm">
-                  {{ $gallery->totalDiskSpaceOccupied() }}
-                </td>
+                  <td class="text-secondary-rm">
+                    {{ $gallery->totalDiskSpaceOccupied() }}
+                  </td>
 
-                @if (true)
-                <td>
-                  @if (false)
-                  <span class="btn btn-tool btn-sm border rounded-circle mr-3" wire:click="$emit('updateGallery', {{ $gallery }})">
-                    <i class="fas fa-pencil-alt text-primary"></i>
-                  </span>
+                  @if (true)
+                  <td>
+                    @if (false)
+                    <span class="btn btn-tool btn-sm border rounded-circle mr-3" wire:click="$emit('updateGallery', {{ $gallery }})">
+                      <i class="fas fa-pencil-alt text-primary"></i>
+                    </span>
+                    @endif
+                    <span class="btn btn-tool btn-sm-rm text-danger" wire:click="$emit('confirmDeleteGallery', {{ $gallery }})">
+                      <i class="fas fa-trash mr-1"></i>
+                      Delete
+                    </span>
+                  </td>
                   @endif
-                  <span class="btn btn-tool btn-sm-rm text-danger" wire:click="$emit('confirmDeleteGallery', {{ $gallery }})">
-                    <i class="fas fa-trash mr-1"></i>
-                    Delete
-                  </span>
-                </td>
-                @endif
-              </tr>
-              @endforeach
+                </tr>
+                @endforeach
+              @else
+                <tr>
+                  <td colspan="6">
+                    <p class="font-weight-bold text-muted-rm h4 py-4 text-center" style="color: #fe8d01;">
+                      <i class="fas fa-exclamation-circle mr-2"></i>
+                      No galleries
+                    <p>
+                  </td>
+                </tr>
+              @endif
             </tbody>
           </table>
         </div>
@@ -95,12 +105,5 @@
           </div>
         @endforeach
       </div>
-    @else
-      <div class="px-3 mt-2 text-muted">
-        <small>
-          No records to display.
-        </small>
-      </div>
-    @endif
   </div>
 </div>
