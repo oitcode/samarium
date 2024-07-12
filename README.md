@@ -8,12 +8,6 @@ CMS and other features. Created with laravel and livewire.
 
 ![screenshot](dashboard-screenshot-1.png)
 
-## Demo
-
-Please checkout this application demo in below url:
-
-[example.com](https://example.com)
-
 ## Features
 
 - Admin panel
