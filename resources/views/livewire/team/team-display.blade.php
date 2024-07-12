@@ -40,8 +40,6 @@
     {{-- Tool bar --}}
     <x-toolbar-classic toolbarTitle="{{ $team->name }}">
 
-      @include ('partials.dashboard.spinner-button')
-
       @if (! $modes['updateTeamMemberMode'])
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('createTeamMemberMode')",
@@ -79,6 +77,8 @@
           'btnText' => '',
           'btnCheckMode' => '',
       ])
+
+      @include ('partials.dashboard.spinner-button')
 
     </x-toolbar-classic>
 

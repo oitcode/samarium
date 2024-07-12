@@ -5,8 +5,6 @@
   {{-- Top tool bar --}}
   <x-toolbar-classic toolbarTitle="Sale quotation">
 
-    @include ('partials.dashboard.spinner-button')
-
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createSaleQuotationMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -45,6 +43,8 @@
         'btnCheckMode' => '',
     ])
     @endif
+
+    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
   @endif

@@ -12,8 +12,6 @@
     ])
     @endif
 
-    @include ('partials.dashboard.spinner-button')
-
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('editSettingsMode')",
         'btnIconFaClass' => 'fas fa-cogs',
@@ -27,6 +25,9 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+
+    @include ('partials.dashboard.spinner-button')
+
   </x-toolbar-classic>
 
 

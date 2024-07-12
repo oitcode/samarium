@@ -4,8 +4,6 @@
   {{-- Top toolbar --}}
   <x-toolbar-classic toolbarTitle="Testimonial">
 
-    @include ('partials.dashboard.spinner-button')
-
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listTestimonialMode')",
         'btnIconFaClass' => 'fas fa-list',
@@ -28,6 +26,8 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+
+    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
 
