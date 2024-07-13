@@ -48,7 +48,7 @@
         <br />
 
         <div class="bg-dark text-white p-3">
-          CMS | Ecommerce | Web
+          <i class="fas fa-tv"></i>
         </div>
       </div>
 
