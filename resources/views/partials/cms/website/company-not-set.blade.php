@@ -6,12 +6,13 @@
           <strong>OIT CMS</strong>
         </h1>
         <p class="text-muted">
-          CMS | Ecommerce | Web
+          Manage website easily
         </p>
       </div>
     </div>
     <div class="my-3">
       <div class="p-5-rm text-center border shadow" style="background-color: #eaeaea;">
+        @if (false)
         <div class="p-3">
           <h2>
             Welcome
@@ -29,6 +30,7 @@
         </div>
 
         <hr />
+        @endif
 
         <h2 class="text-danger">
           Company not set
