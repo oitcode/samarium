@@ -2,11 +2,11 @@
   <div class="d-flex flex-column justify-content-center h-100">
     <div class="mt-3 d-flex justify-content-center">
       <div>
-        <h1>
+        <h1 class="h1">
           <strong>OIT CMS</strong>
         </h1>
         <p class="text-muted">
-          Manage website easily
+          Manage data easily
         </p>
       </div>
     </div>
@@ -32,30 +32,23 @@
         <hr />
         @endif
 
-        <h2 class="text-danger">
-          Company not set
-        </h2>
-        <p class="text-secondary">
-          Please start by creating your company in dashboard.
-        </p>
-        <h3 class="h5 font-weight-bold">
-          <a href="./dashboard" class="btn btn-success">
-            Visit dashboard
-          </a>
-        </h3>
-
-        <br />
-        <br />
-
-        <div class="bg-dark text-white p-3">
-          <i class="fas fa-tv"></i>
+        <div class="p-0">
+          <div class="bg-danger text-white p-3">
+            Company not set
+          </div>
+          <p class="text-secondary p-3">
+            Please start by creating your company in dashboard.
+          </p>
+          <div class="pb-3 font-weight-bold">
+            <a href="./dashboard" class="btn btn-success">
+              Visit dashboard
+            </a>
+          </div>
         </div>
       </div>
 
       <div class="my-4 text-center text-secondary">
-        <h3 class="h6 font-weight-bold">
-          &copy; 2024 OIT | oit.com.np
-        </h3>
+        <i class="fas fa-star"></i>
       </div>
 
     </div>
