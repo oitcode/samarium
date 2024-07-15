@@ -24,7 +24,7 @@ script if you want to perform all the steps manually.)
 
 `bash app-install.sh`
 
-## Createing first user
+## Creating first user
 
 To use the dashboard, you need a username and password.
 Use below seeder file to create first user. This will create
