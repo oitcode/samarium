@@ -16,27 +16,23 @@ CMS and other features. Created with laravel and livewire.
 ## Installation
 
 Note: It is just another laravel application. So do as you would do while setting
-up a typical laravel application. If you are not sure, please follow below instructions.
+up a typical laravel application. Please ensure that all the dependencies for
+a laravel application is met.
 
-First make sure below packages are installed in your system.
-
-- php
-- php-bcmath
-- php-json
-- php-mbstring
-- php-tokenizer
-- php-xml
-- php-common
-
-- composer
-- npm
-- mysql-server
-
-If not already then, create a user in mysql. Remember this username and password. 
-
-If you are running Ubuntu 20 or later, then just run the below bash script.
+After that run below bash script. (Please check the
+script if you want to perform all the steps manually.)
 
 `bash app-install.sh`
+
+## Createing first user
+
+To use the dashboard, you need a username and password.
+Use below seeder file to create first user. This will create
+an admin user. After that you can create other users from
+dashboard.
+
+`php artisan db:seed --class=UserSeeder`
+ 
 
 ## Running the app
 
