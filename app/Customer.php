@@ -61,6 +61,15 @@ class Customer extends Model
     }
 
     /*
+     * customer_comment table.
+     *
+     */
+    public function customerComments()
+    {
+        return $this->hasMany('App\CustomerComment', 'customer_id', 'customer_id');
+    }
+
+    /*
      * ab_account table.
      *
      */

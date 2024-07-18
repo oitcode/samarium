@@ -20,6 +20,8 @@ class CustomerDetail extends Component
         'saleInvoicePaymentCreate' => false,
         'ledger' => false,
         'saleInvoiceDisplay' => false,
+
+        'customerCommentCreateMode' => false,
     ];
 
     protected $listeners = [
@@ -30,6 +32,9 @@ class CustomerDetail extends Component
         'customerSiPaymentMade',
         'displaySaleInvoice',
         'exitSaleInvoiceDisplayMode',
+
+        'customerCommentCreateCompleted',
+        'customerCommentCreateCancelled',
     ];
 
 
@@ -100,5 +105,15 @@ class CustomerDetail extends Component
     {
         $this->exitMode('saleInvoiceDisplay');
         $this->enterMode('salesHistory');
+    }
+
+    public function customerCommentCreateCancelled()
+    {
+        $this->exitMode('customerCommentCreateMode');
+    }
+
+    public function customerCommentCreateCompleted()
+    {
+        $this->exitMode('customerCommentCreateMode');
     }
 }

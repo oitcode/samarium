@@ -109,6 +109,15 @@ class User extends Authenticatable
     }
 
     /*
+     * customer_comment table.
+     *
+     */
+    public function customerComments()
+    {
+        return $this->hasMany('App\CustomerComment', 'creator_id', 'id');
+    }
+
+    /*
      * user_group table.
      *
      */
