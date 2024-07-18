@@ -1,5 +1,4 @@
 <div>
-  @if (!is_null($cmsNavMenus) && count($cmsNavMenus) > 0)
     <div class="table-responsive">
       <table class="table table-hover table-bordered">
         <thead>
@@ -14,20 +13,28 @@
         </thead>
 
         <tbody class="bg-white">
-          @foreach ($cmsNavMenus as $cmsNavMenu)
-            <tr wire:click="$emit('displayCmsNavMenu', {{ $cmsNavMenu->cms_nav_menu_id }})" role="button">
-              <td>
-                {{ $cmsNavMenu->name }}
-              </td>
-              <td>
-                <i class="fas fa-pencil-alt"></i>
+          @if (!is_null($cmsNavMenus) && count($cmsNavMenus) > 0)
+            @foreach ($cmsNavMenus as $cmsNavMenu)
+              <tr wire:click="$emit('displayCmsNavMenu', {{ $cmsNavMenu->cms_nav_menu_id }})" role="button">
+                <td>
+                  {{ $cmsNavMenu->name }}
+                </td>
+                <td>
+                  <i class="fas fa-pencil-alt"></i>
+                </td>
+              </tr>
+            @endforeach
+          @else
+            <tr>
+              <td colspan="2">
+                <p class="font-weight-bold text-muted-rm h4 py-4 text-center" style="color: #fe8d01;">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  No nav menu
+                <p>
               </td>
             </tr>
-          @endforeach
+          @endif
         </tbody>
       </table>
     </div>
-  @else
-    No nav menus
-  @endif
 </div>
