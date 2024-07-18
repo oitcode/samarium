@@ -196,7 +196,7 @@
                 <br/>
                 @endif
                 <small>
-                  OIT Ozone v0.8.5
+                  v0.8.5
                 </small>
               </div>
             </div>
