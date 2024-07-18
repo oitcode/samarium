@@ -118,6 +118,15 @@ class User extends Authenticatable
     }
 
     /*
+     * customer_document_file table.
+     *
+     */
+    public function customerDocumentFiles()
+    {
+        return $this->hasMany('App\CustomerDocumentFile', 'creator_id', 'id');
+    }
+
+    /*
      * user_group table.
      *
      */

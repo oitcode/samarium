@@ -22,6 +22,7 @@ class CustomerDetail extends Component
         'saleInvoiceDisplay' => false,
 
         'customerCommentCreateMode' => false,
+        'customerDocumentFileCreateMode' => false,
     ];
 
     protected $listeners = [
@@ -35,6 +36,9 @@ class CustomerDetail extends Component
 
         'customerCommentCreateCompleted',
         'customerCommentCreateCancelled',
+
+        'customerDocumentFileCreateCompleted',
+        'customerDocumentFileCreateCancelled',
     ];
 
 
@@ -115,5 +119,15 @@ class CustomerDetail extends Component
     public function customerCommentCreateCompleted()
     {
         $this->exitMode('customerCommentCreateMode');
+    }
+
+    public function customerDocumentFileCreateCancelled()
+    {
+        $this->exitMode('customerDocumentFileCreateMode');
+    }
+
+    public function customerDocumentFileCreateCompleted()
+    {
+        $this->exitMode('customerDocumentFileCreateMode');
     }
 }

@@ -70,6 +70,15 @@ class Customer extends Model
     }
 
     /*
+     * customer_document_file table.
+     *
+     */
+    public function customerDocumentFiles()
+    {
+        return $this->hasMany('App\CustomerDocumentFile', 'customer_id', 'customer_id');
+    }
+
+    /*
      * ab_account table.
      *
      */
