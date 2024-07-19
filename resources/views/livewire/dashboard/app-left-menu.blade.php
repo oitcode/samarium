@@ -600,7 +600,7 @@
       {{--
       |
       |
-      | Team route buttons
+      | Report route buttons
       |
       |
       --}}
@@ -625,6 +625,59 @@
           'iconFaClass' => 'fas fa-chart-line',
           'btnText' => 'Report',
         ])
+      </div>
+
+    @endif
+
+    @if (false)
+    <hr class="m-0 p-0"/>
+    @endif
+  @endif
+
+
+  @if (preg_match("/educ/i", env('MODULES')))
+
+    @if ($modes['educ'])
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "exitMode('educ')",
+          'btnIconFaClass' => 'fas fa-book',
+          'btnText' => 'Education Consultancy',
+          'btnCheckMode' => 'educ',
+      ])
+    @else
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "enterModeSilent('educ')",
+          'btnIconFaClass' => 'fas fa-book',
+          'btnText' => 'Education Consultancy',
+          'btnCheckMode' => 'educ',
+      ])
+    @endif
+
+    @if ($modes['educ'])
+
+      {{--
+      |
+      |
+      | Educ route buttons
+      |
+      |
+      --}}
+
+      <div class="o-animated-rm mb-3 border-bottom">
+        @include ('partials.dashboard.app-left-menu-button',
+            [
+                'btnRoute' => 'dashboard-educ-institution',
+                'iconFaClass' => 'fas fa-building',
+                'btnText' => 'Institution',
+            ])
+
+        @include ('partials.dashboard.app-left-menu-button',
+            [
+                'btnRoute' => 'weekbook',
+                'iconFaClass' => 'fas fa-book',
+                'btnText' => 'Program',
+            ])
+
       </div>
 
     @endif

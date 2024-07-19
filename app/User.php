@@ -127,6 +127,15 @@ class User extends Authenticatable
     }
 
     /*
+     * educ_institution table.
+     *
+     */
+    public function educInstitutions()
+    {
+        return $this->hasMany('App\EducInstitution', 'creator_id', 'id');
+    }
+
+    /*
      * user_group table.
      *
      */

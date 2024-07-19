@@ -24,6 +24,7 @@ class AppLeftMenu extends Component
         'hr' => false,
         'project' => false,
         'document' => false,
+        'educ' => false,
     ];
 
     public function mount()

@@ -140,6 +140,9 @@ Route::get('/dashboard/document/url-link', 'UrlLinkController@index')->name('das
 Route::get('/dashboard/document/file', 'DocumentFileController@index')->name('dashboard-document-file');
 Route::get('/dashboard/document/file/display/{id}', 'DocumentFileController@pdfDisplayFile')->name('dashboard-document-file-pdf-display');
 
+/* Educ institution  */
+Route::get('/dashboard/educ/institution', 'EducInstitutionController@index')->name('dashboard-educ-institution');
+
 /*
  *-----------------------------------------------------------------------------
  * Website routes
