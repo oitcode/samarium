@@ -23,6 +23,8 @@ class CustomerDetail extends Component
 
         'customerCommentCreateMode' => false,
         'customerDocumentFileCreateMode' => false,
+
+        'educApplicationCreateMode' => false,
     ];
 
     protected $listeners = [
@@ -39,6 +41,9 @@ class CustomerDetail extends Component
 
         'customerDocumentFileCreateCompleted',
         'customerDocumentFileCreateCancelled',
+
+        'educApplicationCreateCancelled',
+        'educApplicationCreateCompleted',
     ];
 
 
@@ -129,5 +134,15 @@ class CustomerDetail extends Component
     public function customerDocumentFileCreateCompleted()
     {
         $this->exitMode('customerDocumentFileCreateMode');
+    }
+
+    public function educApplicationCreateCancelled()
+    {
+        $this->exitMode('educApplicationCreateMode');
+    }
+
+    public function educApplicationCreateCompleted()
+    {
+        $this->exitMode('educApplicationCreateMode');
     }
 }

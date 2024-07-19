@@ -70,6 +70,15 @@ class Customer extends Model
     }
 
     /*
+     * educ_application table.
+     *
+     */
+    public function educApplications()
+    {
+        return $this->hasMany('App\EducApplication', 'customer_id', 'customer_id');
+    }
+
+    /*
      * customer_document_file table.
      *
      */
