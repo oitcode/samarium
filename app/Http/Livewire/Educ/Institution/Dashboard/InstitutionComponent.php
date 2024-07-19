@@ -6,6 +6,8 @@ use Livewire\Component;
 
 use App\Traits\ModesTrait;
 
+use App\EducInstitution;
+
 class InstitutionComponent extends Component
 {
     use ModesTrait;
@@ -21,7 +23,12 @@ class InstitutionComponent extends Component
     protected $listeners = [
         'educInstitutionCreateCancelled',
         'educInstitutionCreateCompleted',
+
+        'displayEducInstitution',
     ];
+
+    public $displayingEducInstitution;
+
 
     public function render()
     {
@@ -36,5 +43,11 @@ class InstitutionComponent extends Component
     public function educInstitutionCreateCompleted()
     {
         $this->exitMode('create');
+    }
+
+    public function displayEducInstitution(EducInstitution $educInstitution)
+    {
+        $this->displayingEducInstitution = $educInstitution;
+        $this->enterMode('display');
     }
 }

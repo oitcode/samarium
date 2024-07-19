@@ -32,7 +32,7 @@
       <tbody class="bg-white">
         @if ($educInstitutions != null && count($educInstitutions) > 0)
           @foreach ($educInstitutions as $educInstitution)
-            <tr>
+            <tr wire:click="$emit('displayEducInstitution',{{ $educInstitution }})">
               <td>
               {{ $educInstitution->name }}
               </td>
