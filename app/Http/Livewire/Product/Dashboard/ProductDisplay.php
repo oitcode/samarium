@@ -27,6 +27,7 @@ class ProductDisplay extends Component
 
     public $modes = [
         'updateProductNameMode' => false,
+        'updateProductCategoryMode' => false,
         'updateProductDescriptionMode' => false,
         'updateProductPriceMode' => false,
         'updateProductImageMode' => false,
@@ -60,6 +61,9 @@ class ProductDisplay extends Component
     protected $listeners = [
         'productUpdateNameCancelled',
         'productUpdateNameCompleted',
+
+        'productUpdateCategoryCancelled',
+        'productUpdateCategoryCompleted',
 
         'productUpdateDescriptionCancelled',
         'productUpdateDescriptionCompleted',
@@ -396,5 +400,16 @@ class ProductDisplay extends Component
     {
         $this->exitMode('updateProductAddProductOptionMode');
         session()->flash('addProductOptionMessage', 'Product option dded');
+    }
+
+    public function productUpdateCategoryCompleted()
+    {
+        $this->exitMode('updateProductCategoryMode');
+        session()->flash('editProductCategoryMessage', 'Product category updated');
+    }
+
+    public function productUpdateCategoryCancelled()
+    {
+        $this->exitMode('updateProductCategoryMode');
     }
 }

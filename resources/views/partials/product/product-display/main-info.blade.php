@@ -45,7 +45,7 @@
             Category
           </div>
           <div>
-            <button class="btn btn-light text-primary" wire:click="">
+            <button class="btn btn-light text-primary" wire:click="enterMode('updateProductCategoryMode')">
               @if (false)
               <i class="fas fa-pencil-alt text-muted"></i>
               @endif
@@ -53,11 +53,15 @@
             </button>
           </div>
         </div>
+        @if ($modes['updateProductCategoryMode'])
+          @livewire ('product.dashboard.product-edit-category', ['product' => $product,])
+        @else
         <div class="d-flex justify-content-between" style="">
           <span>
             {{ $product->productCategory->name }}
           </span>
         </div>
+        @endif
       </div>
 
       <div class="mb-2 bg-white border p-3">
