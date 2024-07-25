@@ -3,9 +3,9 @@
 namespace App\Traits;
 
 /**
- * Ozone - A Laravel Livewire Application For Users
+ * Cbswei - A Laravel Livewire Application For Users
  *
- * @package  Ozone
+ * @package  Cbswei
  * @author   _____
  */
 
@@ -37,7 +37,7 @@ trait ModesTrait
     /*
     | Enter mode
     |
-    | Enter a particulare mode. Before doing so quit
+    | Enter a particular mode. Before doing so quit
     | all other modes.
     |
     */
@@ -51,7 +51,7 @@ trait ModesTrait
     /*
     | Exit mode
     |
-    | Exit a particulare mode.
+    | Exit a particular mode.
     |
     */
     public function exitMode($modeName)
