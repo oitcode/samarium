@@ -35,7 +35,7 @@
       </thead>
 
       <tbody class="bg-white">
-        @if (false && count($productQuestions) > 0)
+        @if (count($productQuestions) > 0)
         @foreach ($productQuestions as $productQuestion)
           <tr>
             @if (false)
