@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\DB;
@@ -31,9 +33,8 @@ class ProductSeeder extends Seeder
 
         $productCategoryId = $this->createProductCategory('Nepal');
         $this->createProductsForACategory($productCategoryId);
+
         /* Create products */
-
-
     }
 
     public function createProductCategory($name)

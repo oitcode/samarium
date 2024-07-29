@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Database\Seeder;
+namespace Database\Seeders;
 
+use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
 class CompanySeeder extends Seeder
@@ -14,12 +15,12 @@ class CompanySeeder extends Seeder
     public function run()
     {
         DB::table('company')->insert([
-            'name' => 'Sports Nep',
-            'tagline' => 'Shop by your team',
-            'phone' => '4410000 | 9851010000',
-            'email' => 'info@abc.inc',
-            'address' => 'Baluwatar, Kathmandu, Nepal',
-            'pan_number' => '605946000',
+            'name' => 'Demo Company',
+            'tagline' => 'Demo Company',
+            'phone' => '0000000 | 0000000000',
+            'email' => 'info@example.com',
+            'address' => '---------, ---------, -----',
+            'pan_number' => '000000000',
 
             'fb_link' => 'https://facebook.com',
             'insta_link' => 'https://instagram.com',
