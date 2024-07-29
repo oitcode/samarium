@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Sale;
+namespace App\Http\Livewire\Takeaway;
 
 use Livewire\Component;
 
