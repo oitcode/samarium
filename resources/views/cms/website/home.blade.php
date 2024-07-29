@@ -41,147 +41,32 @@
 @endif
 
 @if (preg_match("/hfn/i", env('MODULES')))
-@if (false)
-<div class="px-3 font-weight-bold py-1 text-center" style="background-color: orange;">
-  WORKING FOR A BETTER TOMORROW
-</div>
-@endif
-
-@if (false)
-<div class="container py-3">
-  BANNER/CAROUSEL
-</div>
-@endif
-@if (false)
-<div class="d-md-none-rm">
-  <div class="container" style="">
-    <div class="row">
-      <div class="col-md-6 py-4-rm justify-content-end">
-        <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
-        style="{{--max-height: 200px;width: 1200px;--}}">
+  <div class="container-fluid py-5" style="
+  background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
+  color: {{ \App\CmsTheme::first()->ascent_text_color }};
+  ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
+          style="{{--max-height: 200px;width: 1200px;--}}">
+        </div>
+        <div class="col-md-6 pt-3">
+          <div class="d-flex flex-column justify-content-center h-100">
+            <h1 class="h1">
+              {{ $company->name }}
+            </h1>
+            <div class="mb-3">
+              {{ $company->brief_description }}
+            </div>
+            <a href="{{ \App\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first()->permalink }}" class="btn btn-danger btn-block py-3">
+              Contact us
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-@endif
-
-<div class="container-fluid py-5" style="
-background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
-color: {{ \App\CmsTheme::first()->ascent_text_color }};
-">
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
-      style="{{--max-height: 200px;width: 1200px;--}}">
-    </div>
-    <div class="col-md-6 pt-3">
-      <div class="d-flex flex-column justify-content-center h-100">
-        <h1 class="h1">
-          {{ $company->name }}
-        </h1>
-        <div class="mb-3">
-          {{ $company->brief_description }}
-        </div>
-        <a href="{{ \App\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first()->permalink }}" class="btn btn-danger btn-block py-3">
-          Contact us
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<div class="container py-3">
-  @if (false)
-  <div class="row">
-    <div class="col-md-8">
-      <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
-      style="{{--max-height: 200px;width: 1200px;--}}">
-      <h2 class="h4 font-weight-bold">
-        About us
-      </h2>
-      {{ $company->brief_description }}
-    </div>
-    <div class="col-md-4">
-    <div class="my-3">
-      <a href="{{ \App\Webpage::where('name', 'Contact us')->first()->permalink }}" class="btn btn-danger btn-block py-3">
-        Contact us
-      </a>
-    </div>
-    @if (false)
-    <div class="sticky-top-rm">
-      <div class="bg-dark-rm text-white-rm p-3 border" style="background-color: #eee;">
-      <div class="form-group">
-        <div>
-        NAME
-        </div>
-        <input class="form-control" type="text" placeholder="Name" wire:model.defer="writer_name">
-        @error('writer_name')
-            <span class="text-danger" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-      </div>
-      <div class="form-group">
-        <div>
-        EMAIL
-        </div>
-        <input class="form-control" type="text" placeholder="Email" wire:model.defer="writer_email">
-        @error('writer_email')
-            <span class="text-danger" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-      </div>
-      <div class="form-group">
-        <div>
-        PHONE
-        </div>
-        <input class="form-control" type="text" placeholder="Phone" wire:model.defer="writer_phone">
-        @error('writer_phone')
-            <span class="text-danger" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-      </div>
-      <div class="form-group">
-        <div>
-        REFERRED BY
-        </div>
-        <input class="form-control" type="text" placeholder="Referred by" wire:model.defer="writer_referred_by">
-        @error('writer_referred_by')
-            <span class="text-danger" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-      </div>
-      <div class="form-group">
-        <div>
-        ENQUIRY
-        </div>
-        <textarea class="form-control" rows="3" placeholder="Question" wire:model.defer="enquiry_text"></textarea>
-        @error('enquiry_text')
-            <span class="text-danger" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-      </div>
-      <button class="btn btn-primary btn-block py-2" wire:click="store">
-        Submit
-      </button>
-      @if (false)
-      <button class="btn btn-danger">
-        About donation
-      </button>
-      @endif
-      </div>
-    </div>
-    @endif
-    </div>
-  </div>
-  @endif
-</div>
-@else
 @endif
 
 {{-- Hero/Featured Div --}}
@@ -204,19 +89,8 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
 >
   <div class="container">
 
-
-
-
-
-
-
-
     <div class="row">
       <div class="col-md-8">
-
-
-
-
 
         {{--
         |
@@ -246,16 +120,6 @@ color: {{ \App\CmsTheme::first()->ascent_text_color }};
                     background-attachment: fixed;
                     --}}
                   ">
-                    @if (false)
-                    <img src="{{ asset('storage/' . $webpage->featured_image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
-
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    @endif
-
                     <div class="o-overlay p-3-rm h-100 d-flex flex-column justify-content-end">
                       <div class="p-3" style="background-color: rgba(0, 0, 0, 0.5);">
                         <h2 class="text-white h4 font-weight-bold">
