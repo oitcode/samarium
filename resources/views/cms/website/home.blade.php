@@ -41,13 +41,13 @@
 @endif
 
 @if (preg_match("/hfn/i", env('MODULES')))
-  <div class="container-fluid py-5" style="
+  <div class="container-fluid pb-5 p-0" style="
   background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
   color: {{ \App\CmsTheme::first()->ascent_text_color }};
   ">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
+    <div class="container bg-info-rm p-0">
+      <div class="row p-0" style="margin: auto;">
+        <div class="col-md-6 p-0">
           <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
           style="{{--max-height: 200px;width: 1200px;--}}">
         </div>
