@@ -51,7 +51,7 @@
           <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
           style="{{--max-height: 200px;width: 1200px;--}}">
         </div>
-        <div class="col-md-6 pt-3">
+        <div class="col-md-6 pt-5 px-md-5">
           <div class="d-flex flex-column justify-content-center h-100">
             <h1 class="h1">
               {{ $company->name }}
@@ -69,8 +69,55 @@
   </div>
 @endif
 
+<div class="container-fluid bg-white border pt-4 pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="font-weight-bold mb-4">
+          Upcoming events
+        </h2>
+
+        <div class="d-flex mb-3">
+          <div class="border-right mr-4 pr-4">
+            <div class="h2 font-weight-bold text-success">
+              30
+            </div>
+            Aug
+          </div>
+          <div class="">
+            Last friday
+          </div>
+        </div>
+        <div class="d-flex mb-3">
+          <div class="border-right mr-4 pr-4">
+            <div class="h2 font-weight-bold text-success">
+              31
+            </div>
+            Dec
+          </div>
+          <div class="">
+            Last day of the year
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 pt-4 pt-md-0">
+        <h2 class="font-weight-bold mb-4">
+          Latest notices
+        </h2>
+        @livewire ('notice.dashboard.latest-notice-list')
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 {{-- Hero/Featured Div --}}
-<div class="container-fluid bg-white-rm p-0 py-5" 
+<div class="container-fluid bg-white-rm p-0 pt-5" 
   style="
            {{--
            background-image: @if (\App\CmsTheme::first())
@@ -170,6 +217,11 @@
   </div>
 
 </div>
+
+
+
+
+
 
 
 {{--
