@@ -76,29 +76,7 @@
         <h2 class="font-weight-bold mb-4">
           Upcoming events
         </h2>
-
-        <div class="d-flex mb-3">
-          <div class="border-right mr-4 pr-4">
-            <div class="h2 font-weight-bold text-success">
-              30
-            </div>
-            Aug
-          </div>
-          <div class="">
-            Last friday
-          </div>
-        </div>
-        <div class="d-flex mb-3">
-          <div class="border-right mr-4 pr-4">
-            <div class="h2 font-weight-bold text-success">
-              31
-            </div>
-            Dec
-          </div>
-          <div class="">
-            Last day of the year
-          </div>
-        </div>
+        @livewire ('calendar.website.upcoming-events-list')
       </div>
       <div class="col-md-4 pt-4 pt-md-0">
         <h2 class="font-weight-bold mb-4">
@@ -109,12 +87,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
 
 {{-- Hero/Featured Div --}}
 <div class="container-fluid bg-white-rm p-0 pt-5" 
