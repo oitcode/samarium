@@ -24,12 +24,12 @@
           </div>
           <div class="">
             @foreach (\App\SchoolCalendarEvent::whereDate('start_date', $loopDate->format('Y-m-d'))->get() as $calendarEvent)
-              <div>
+              <div class="mb-2">
                 {{ $calendarEvent->title }}
 
                 @if ($calendarEvent->calendarGroups != null && count($calendarEvent->calendarGroups) > 0)
                   @foreach ($calendarEvent->calendarGroups as $calendarGroup)
-                    <span class="badge badge-primary p-2">
+                    <span class="badge badge-pill badge-primary p-2">
                     {{ $calendarGroup->name }}
                   @endforeach
                 @endif
