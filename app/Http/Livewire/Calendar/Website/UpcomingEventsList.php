@@ -12,7 +12,7 @@ class UpcomingEventsList extends Component
 
     public function render()
     {
-        $this->calendarEvents = SchoolCalendarEvent::whereDate('start_date', '>=', \Carbon\Carbon::today())->get();
+        $this->calendarEvents = SchoolCalendarEvent::whereDate('start_date', '>=', \Carbon\Carbon::today())->orderBy('start_date', 'asc')->get();
 
         return view('livewire.calendar.website.upcoming-events-list');
     }
