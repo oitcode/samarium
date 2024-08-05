@@ -13,6 +13,13 @@
       </div>
       <div class="">
         {{ $calendarEvent->title }}
+
+        @if ($calendarEvent->calendarGroups != null && count($calendarEvent->calendarGroups) > 0)
+          @foreach ($calendarEvent->calendarGroups as $calendarGroup)
+            <span class="badge badge-primary p-2">
+            {{ $calendarGroup->name }}
+          @endforeach
+        @endif
       </div>
     </div>
   @endforeach
