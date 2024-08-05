@@ -3,10 +3,15 @@
 
     @php
       $loopDate = \Carbon\Carbon::today();
+      $noEvent = true;
     @endphp
     @for ($i=0; $i<30; $i++)
 
       @if (\App\SchoolCalendarEvent::whereDate('start_date', $loopDate->format('Y-m-d'))->get()->count())
+        @php
+          $noEvent = false;
+        @endphp
+
         @if (false)
         <div class="mt-3">
           {{ $loopDate->format('Y-m-d') }}
@@ -43,6 +48,13 @@
         $loopDate = $loopDate->addDay();
       @endphp
     @endfor
+
+    @if ($noEvent)
+      <div class="h4 font-weight-bold" style="color: orange;">
+        <i class="fas fa-exclamation-circle mr-1"></i>
+        No upcoming events.
+      </div>
+    @endif
 
   {{--
   @foreach ($calendarEvents as $calendarEvent)

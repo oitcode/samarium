@@ -19,7 +19,7 @@
                       {{ $notice->name }}
                     </div>
                     <div>
-                      {{ $notice->created_at->toDateString() }}
+                      {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($notice->created_at->toDateString(), 'english')  }}
                     </div>
                   </div>
                 </a>
