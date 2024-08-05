@@ -16,7 +16,7 @@
         <div class="d-flex mb-3">
           <div class="border-right mr-4 pr-4">
             <div class="h2 font-weight-bold text-success">
-            {{ $loopDate->format('F j') }}
+            {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($loopDate->toDateString(), 'english')  }}
             </div>
             <div>
             {{ $loopDate->format('l') }}
