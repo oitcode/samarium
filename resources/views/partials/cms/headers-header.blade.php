@@ -148,9 +148,9 @@
         <div class="d-flex flex-column justify-content-center flex-grow-1 bg-success-rm px-4">
           <h1 class="h5 font-weight-bold my-1" style="font-family: Mono;">
             @if ($company->short_name)
-              {{ \Illuminate\Support\Str::limit($company->short_name, 25, $end=' ...') }}
+              {{ \Illuminate\Support\Str::limit($company->short_name, 100, $end=' ...') }}
             @else
-              {{ \Illuminate\Support\Str::limit($company->name, 25, $end=' ...') }}
+              {{ \Illuminate\Support\Str::limit($company->name, 100, $end=' ...') }}
             @endif
           </h1>
           <div class="w-100 bg-warning-rm">
