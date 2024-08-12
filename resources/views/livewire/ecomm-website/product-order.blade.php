@@ -30,7 +30,7 @@
             </span>
           @enderror
         </label>
-        <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; font-size: 1.5rem; color: #555;" wire:model.defer="phone">
+        <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; font-size: 1.5rem; color: #555;" wire:model="phone">
       </div>
 
       <div class="mb-3">
@@ -38,7 +38,7 @@
           <i class="fas fa-map-marker-alt mr-2"></i>
           Address
         </label>
-        <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; font-size: 1.5rem; color: #555;" wire:model.defer="address">
+        <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; font-size: 1.5rem; color: #555;" wire:model="address">
       </div>
 
       <div class="row">

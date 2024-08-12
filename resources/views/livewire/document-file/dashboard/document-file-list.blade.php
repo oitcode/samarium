@@ -62,7 +62,7 @@
                 <td>
                 {{ $documentFile->name }}
                 </td>
-                <td class="h6 font-weight-bold" wire:click="$emit('displayDocumentFile', {{ $documentFile }})" role="button">
+                <td class="h6 font-weight-bold" wire:click="$dispatch('displayDocumentFile', { documentFile: {{ $documentFile }} })" role="button">
                   <span>
                     {{ $documentFile->file_path }}
                   </span>
@@ -79,7 +79,7 @@
                 </td>
                 <td>
                   @if (false)
-                  <button class="btn btn-primary badge-pill" wire:click="$emit('pdfDisplayDocumentFile', {{ $documentFile }})">
+                  <button class="btn btn-primary badge-pill" wire:click="$dispatch('pdfDisplayDocumentFile', {{ $documentFile }})">
                     View file
                   </button>
                   @endif

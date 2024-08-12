@@ -3,8 +3,8 @@
   {{-- Date picker --}}
   <div class="my-3 px-3 text-secondary" style="font-size: 1.3rem;">
 
-    <input type="date" wire:model.defer="startDate" class="mr-3" />
-    <input type="date" wire:model.defer="endDate" class="mr-3" />
+    <input type="date" wire:model="startDate" class="mr-3" />
+    <input type="date" wire:model="endDate" class="mr-3" />
 
   </div>
 

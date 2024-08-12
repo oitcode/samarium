@@ -21,16 +21,16 @@
 
           <div class="form-group">
             <label>Image</label>
-            <input type="file" class="form-control" wire:model.defer="contents.{{ $i }}.image">
+            <input type="file" class="form-control" wire:model="contents.{{ $i }}.image">
             @error('image') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control" wire:model.defer="contents.{{ $i }}.heading" />
+            <input type="text" class="form-control" wire:model="contents.{{ $i }}.heading" />
           </div>
 
           <div class="form-group">
-            <textarea rows="5" class="form-control" wire:model.defer="contents.{{ $i }}.paragraph" />
+            <textarea rows="5" class="form-control" wire:model="contents.{{ $i }}.paragraph" />
             </textarea>
           </div>
         </div>

@@ -12,7 +12,7 @@
           Name
         </label>
       </div>
-      <input type="text" wire:model.defer="customerSearch.name" style="font-size: 1.1rem;" wire:keydown.enter="search" />
+      <input type="text" wire:model="customerSearch.name" style="font-size: 1.1rem;" wire:keydown.enter="search" />
     </div>
 
     <div class="float-left mr-3">
@@ -22,7 +22,7 @@
           Phone
         </label>
       </div>
-      <input type="text" wire:model.defer="customerSearch.phone" style="font-size: 1.1rem;" wire:keydown.enter="search" />
+      <input type="text" wire:model="customerSearch.phone" style="font-size: 1.1rem;" wire:keydown.enter="search" />
     </div>
 
     <div class="float-left mr-3">
@@ -61,7 +61,7 @@
             Name
           </label>
         </div>
-        <input type="text" wire:model.defer="customerSearch.name" style="font-size: 1.1rem;" wire:keydown.enter="search" />
+        <input type="text" wire:model="customerSearch.name" style="font-size: 1.1rem;" wire:keydown.enter="search" />
       </div>
 
       <div>
@@ -71,7 +71,7 @@
             Phone
           </label>
         </div>
-        <input type="text" wire:model.defer="customerSearch.phone" style="font-size: 1.1rem;" wire:keydown.enter="search" />
+        <input type="text" wire:model="customerSearch.phone" style="font-size: 1.1rem;" wire:keydown.enter="search" />
       </div>
 
       <div class="mr-3">
@@ -117,7 +117,7 @@
         <tbody class="bg-white">
           @if (count($customers) > 0)
             @foreach ($customers as $customer)
-              <tr class="border" wire:click="$emit('displayCustomer', {{ $customer->customer_id }})" role="button">
+              <tr class="border" wire:click="$dispatch('displayCustomer', { customerId: {{ $customer->customer_id }} })" role="button">
                 <td>
                   <span style="font-size: calc(1rem + 0.1vw);">
                     {{ ucwords($customer->name) }}
@@ -178,7 +178,7 @@
                       <i class="fas fa-cog text-secondary"></i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <button class="dropdown-item" wire:click="$emit('displayCustomer', {{ $customer->customer_id }})">
+                      <button class="dropdown-item" wire:click="$dispatch('displayCustomer', { customerId: {{ $customer->customer_id }} })">
                         <i class="fas fa-file text-primary mr-2"></i>
                         View
                       </button>

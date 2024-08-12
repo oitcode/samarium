@@ -53,7 +53,7 @@
               <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
                   style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
-                  wire:model="sub_total"
+                  wire:model.live="sub_total"
                   wire:change="updateNumbers" />
             </td>
           </tr>
@@ -72,7 +72,7 @@
                   {{ $key }}
                   <select
                       class="bg-white border border-secondary badge-pill"
-                      wire:model="discount_percentage"
+                      wire:model.live="discount_percentage"
                       wire:change="calculateDiscount">
                     <option value="--">--</option>
                     <option value="5">5 %</option>
@@ -98,7 +98,7 @@
                 {{ $val }}
               @else
                 <input class="w-100 h-100 font-weight-bold pl-3 border-0"
-                    type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                    type="text" wire:model.live.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
                     style="font-size: calc(1rem + 0.2vw);"
                     wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
               @endif
@@ -150,7 +150,7 @@
                     type="text"
                     style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
                     wire:keydown.enter="updateNumbers"
-                    wire:model.debounce.500ms="expenseAdditions.{{ $key }}" />
+                    wire:model.live.debounce.500ms="expenseAdditions.{{ $key }}" />
               </td>
             </tr>
             @endif

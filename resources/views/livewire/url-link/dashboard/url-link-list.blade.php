@@ -56,12 +56,12 @@
           @if ($urlLinks != null && count($urlLinks) > 0)
             @foreach ($urlLinks as $urlLink)
               <tr>
-                <td class="h6 font-weight-bold" wire:click="$emit('displayUrlLink', {{ $urlLink }})" role="button">
+                <td class="h6 font-weight-bold" wire:click="$dispatch('displayUrlLink', {urlLink: {{ $urlLink }} })" role="button">
                   <span>
                     {{ $urlLink->url }}
                   </span>
                 </td>
-                <td wire:click="$emit('displayUrlLink', {{ $urlLink }})" role="button">
+                <td wire:click="$dispatch('displayUrlLink', {urlLink: {{ $urlLink }} })" role="button">
                 {{ $urlLink->description }}
                 </td>
                 <td>

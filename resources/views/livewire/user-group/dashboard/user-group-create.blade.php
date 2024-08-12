@@ -6,13 +6,13 @@
 
   <div class="form-group">
     <label for="">Name</label>
-    <input type="text" class="form-control" wire:model.defer="name">
+    <input type="text" class="form-control" wire:model="name">
     @error('name') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
     <label for="">Description</label>
-    <input type="text" class="form-control" wire:model.defer="description">
+    <input type="text" class="form-control" wire:model="description">
     @error('description') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 

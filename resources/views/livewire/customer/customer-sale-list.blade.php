@@ -62,11 +62,11 @@
                     <i class="fas fa-cog text-secondary"></i>
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button class="dropdown-item" wire:click="$emit('displaySaleInvoice', {{ $saleInvoice }})">
+                    <button class="dropdown-item" wire:click="$dispatch('displaySaleInvoice', {saleInvoice: {{ $saleInvoice }} })">
                       <i class="fas fa-folder text-primary mr-2"></i>
                       View bill
                     </button>
-                    <button class="dropdown-item" wire:click="$emit('receiveSaleInvoicePayment', {{ $saleInvoice->sale_invoice_id }})">
+                    <button class="dropdown-item" wire:click="$dispatch('receiveSaleInvoicePayment', {saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
                       <i class="fas fa-money-check-alt text-primary mr-2"></i>
                       Receive payment
                     </button>
@@ -122,11 +122,11 @@
                     <i class="fas fa-cog text-secondary"></i>
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button class="dropdown-item" wire:click="$emit('displaySaleInvoice', {{ $saleInvoice }})">
+                    <button class="dropdown-item" wire:click="$dispatch('receiveSaleInvoicePayment', {saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
                       <i class="fas fa-folder text-primary mr-2"></i>
                       View bill
                     </button>
-                    <button class="dropdown-item" wire:click="$emit('receiveSaleInvoicePayment', {{ $saleInvoice->sale_invoice_id }})">
+                    <button class="dropdown-item" wire:click="$dispatch('receiveSaleInvoicePayment', {saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
                       <i class="fas fa-money-check-alt text-primary mr-2"></i>
                       Receive payment
                     </button>

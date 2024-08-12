@@ -17,7 +17,7 @@
       <div class="col-md-4">
         <input type="text"
             class="form-control"
-            wire:model.defer="name"
+            wire:model="name"
             style="">
         @error('name')
           <span class="text-danger">{{ $message }}</span>
@@ -39,7 +39,7 @@
       <div class="col-md-8">
         <input type="text"
             class="form-control"
-            wire:model.defer="top_header_bg_color"
+            wire:model="top_header_bg_color"
             style="">
         @error('top_header_bg_color')
           <span class="text-danger">{{ $message }}</span>
@@ -56,7 +56,7 @@
       <div class="col-md-8">
         <input type="text"
             class="form-control"
-            wire:model.defer="top_header_text_color"
+            wire:model="top_header_text_color"
             style="">
         @error('top_header_text_color')
           <span class="text-danger">{{ $message }}</span>
@@ -75,7 +75,7 @@
     <div class="col-md-8">
       <input type="text"
           class="form-control"
-          wire:model.defer="nav_menu_bg_color"
+          wire:model="nav_menu_bg_color"
           style="">
       @error('nav_menu_bg_color')
         <span class="text-danger">{{ $message }}</span>
@@ -91,7 +91,7 @@
     <div class="col-md-8">
       <input type="text"
           class="form-control"
-          wire:model.defer="nav_menu_text_color"
+          wire:model="nav_menu_text_color"
           style="">
       @error('nav_menu_text_color')
         <span class="text-danger">{{ $message }}</span>
@@ -111,7 +111,7 @@
     <div class="col-md-8">
       <input type="text"
           class="form-control"
-          wire:model.defer="ascent_bg_color"
+          wire:model="ascent_bg_color"
           style="">
       @error('ascent_bg_color')
         <span class="text-danger">{{ $message }}</span>
@@ -127,7 +127,7 @@
     <div class="col-md-8">
       <input type="text"
           class="form-control"
-          wire:model.defer="ascent_text_color"
+          wire:model="ascent_text_color"
           style="">
       @error('ascent_text_color')
         <span class="text-danger">{{ $message }}</span>
@@ -147,7 +147,7 @@
     <div class="col-md-8">
       <input type="text"
           class="form-control"
-          wire:model.defer="footer_bg_color"
+          wire:model="footer_bg_color"
           style="">
       @error('footer_bg_color')
         <span class="text-danger">{{ $message }}</span>
@@ -163,7 +163,7 @@
     <div class="col-md-8">
       <input type="text"
           class="form-control"
-          wire:model.defer="footer_text_color"
+          wire:model="footer_text_color"
           style="">
       @error('footer_text_color')
         <span class="text-danger">{{ $message }}</span>
@@ -181,7 +181,7 @@
     <div class="col-md-8">
       <input type="text"
           class="form-control"
-          wire:model.defer="heading_color"
+          wire:model="heading_color"
           style="">
       @error('heading_color')
         <span class="text-danger">{{ $message }}</span>
@@ -210,7 +210,7 @@
     @endif
 
     @if (false)
-    <input type="file" class="form-control-rm" wire:model="hero_image">
+    <input type="file" class="form-control-rm" wire:model.live="hero_image">
     @error('hero_image')
       <span class="text-danger">{{ $message }}</span>
     @enderror
@@ -243,7 +243,7 @@
     <div class="my-4 p-3 bg-white border">
       Upload new image
       <div>
-        <input type="file" class="form-control" wire:model="hero_image">
+        <input type="file" class="form-control" wire:model.live="hero_image">
         @error('hero_image') <span class="text-danger">{{ $message }}</span> @enderror
       </div>
       <div>

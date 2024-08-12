@@ -9,19 +9,19 @@
 
     <div class="form-group">
       <label>Name *</label>
-      <input type="text" class="form-control" wire:model.defer="name">
+      <input type="text" class="form-control" wire:model="name">
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Country *</label>
-      <input type="text" class="form-control" wire:model.defer="country">
+      <input type="text" class="form-control" wire:model="country">
       @error ('country') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Insitution type *</label>
-      <input type="text" class="form-control" wire:model.defer="institution_type">
+      <input type="text" class="form-control" wire:model="institution_type">
       @error ('institution_type') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

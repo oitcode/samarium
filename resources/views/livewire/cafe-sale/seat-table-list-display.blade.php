@@ -127,7 +127,7 @@
       @if ($seatTable->isBooked()) bg-danger text-white  @else bg-success text-white @endif
       h-100
       d-md-none"
-      wire:click="$emit('displayWorkingSeatTable', {{ $seatTable->seat_table_id }})"
+      wire:click="$dispatch('displayWorkingSeatTable', {seatTableId: {{ $seatTable->seat_table_id }} })"
       role="button"
   >
     <div class="card-header @if ($seatTable->isBooked()) bg-danger-rm @else bg-success text-white @endif">

@@ -38,11 +38,11 @@
           <tr class="p-0 font-weight-bold" style="height: 50px; font-size: calc(0.8rem + 0.2vw);">
             <td class="p-2-rm pb-4-rm h-100 bg-white border-0-rm">
               <input class="m-0 w-100 h-100 border-0 shadow-lg-rm py-2 shadow-lg-rm" type="text"
-                  wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
+                  wire:model="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
             @if (true)
             <td class="p-0 h-100">
-              <select class="w-100 h-100 custom-control border-0" wire:model.defer="search_product_category_id" wire:change="selectProductCategory">
+              <select class="w-100 h-100 custom-control border-0" wire:model="search_product_category_id" wire:change="selectProductCategory">
                 <option>---</option>
   
                 @foreach ($productCategories as $productCategory)
@@ -53,7 +53,7 @@
               </select>
             </td>
             <td class="p-0 h-100">
-              <select class="w-100 h-100 custom-control border-0" wire:model.defer="product_id" wire:change="selectItem">
+              <select class="w-100 h-100 custom-control border-0" wire:model="product_id" wire:change="selectItem">
                 <option>---</option>
   
                 @foreach ($products as $product)
@@ -71,7 +71,7 @@
               </div>
             </td>
             <td class="p-0 h-100">
-              <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
+              <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model="quantity" wire:keydown.enter="updateTotal"/>
             </td>
             <td class="p-0">
               <div class="d-flex flex-column justify-content-center h-100 bg-white">

@@ -11,12 +11,12 @@
 
       <div>
         <i class="fas fa-calendar mr-2"></i>
-        <input type="date" wire:model.defer="startDate" class="mr-3" />
+        <input type="date" wire:model="startDate" class="mr-3" />
       </div>
 
       <div>
         <i class="fas fa-calendar mr-2"></i>
-        <input type="date" wire:model.defer="endDate" class="mr-3" />
+        <input type="date" wire:model="endDate" class="mr-3" />
       </div>
 
       <div class="my-2">

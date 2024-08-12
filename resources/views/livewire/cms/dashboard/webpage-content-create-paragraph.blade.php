@@ -1,7 +1,7 @@
 <div>
   <div class="form-group">
     <label>Paragraph</label>
-    <textarea rows="5" class="form-control" wire:model="paragraph">
+    <textarea rows="5" class="form-control" wire:model.live="paragraph">
     </textarea>
   </div>
 
@@ -9,7 +9,7 @@
     <button class="btn btn-success" wire:click="store">
       Save
     </button>
-    <button class="btn btn-danger" wire:click="$emit('webpageContentCreateParagraphCancelled')">
+    <button class="btn btn-danger" wire:click="$dispatch('webpageContentCreateParagraphCancelled')">
       Cancel
     </button>
   </div>

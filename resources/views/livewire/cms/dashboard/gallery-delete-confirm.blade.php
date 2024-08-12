@@ -33,8 +33,8 @@
               </div>
 
               <div class="mx-2 mb-3">
-                <button wire:click="$emit('deleteGallery', {{ $deletingGallery }})" class="btn btn-sm btn-danger mr-3" data-dismiss="modal">Delete</button>
-                <button wire:click="$emit('exitDelete')" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
+                <button wire:click="$dispatch('deleteGallery', {{ $deletingGallery }})" class="btn btn-sm btn-danger mr-3" data-dismiss="modal">Delete</button>
+                <button wire:click="$dispatch('exitDelete')" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
               </div>
       
             </div>

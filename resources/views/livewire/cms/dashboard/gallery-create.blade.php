@@ -6,20 +6,20 @@
 
   <div class="form-group">
     <label>Name *</label>
-    <input type="text" class="form-control" id="" wire:model.defer="name" placeholder="Name">
+    <input type="text" class="form-control" id="" wire:model="name" placeholder="Name">
     @error('name') <span class="text-danger">{{ $message }}</span>@enderror
   </div>
 
   <div class="form-group">
     <label>Description</label>
-    <textarea rows="3" class="form-control" wire:model.defer="description" placeholder="Description">
+    <textarea rows="3" class="form-control" wire:model="description" placeholder="Description">
     </textarea>
     @error('description') <span class="text-danger">{{ $message }}</span>@enderror
   </div>
 
   <div class="form-group">
     <label>Images *</label>
-    <input type="file" class="form-control" wire:model="images" multiple>
+    <input type="file" class="form-control" wire:model.live="images" multiple>
     @error('images') <span class="text-danger">{{ $message }}</span> @enderror
     <button wire:loading class="btn">
       <span class="spinner-border text-info mr-3" role="status">
@@ -29,7 +29,7 @@
 
   <div class="form-group">
     <label>Comment</label>
-    <input type="text" class="form-control" wire:model.defer="comment" placeholder="Comment">
+    <input type="text" class="form-control" wire:model="comment" placeholder="Comment">
     @error('comment') <span class="text-danger">{{ $message }}</span>@enderror
   </div>
 

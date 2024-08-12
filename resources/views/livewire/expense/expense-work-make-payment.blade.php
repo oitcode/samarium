@@ -43,7 +43,7 @@
               <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
                   style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
-                  wire:model.defer="total" />
+                  wire:model="total" />
             </td>
           </tr>
 
@@ -61,7 +61,7 @@
                   {{ $key }}
                   <select
                       class="bg-white border border-secondary badge-pill"
-                      wire:model="discount_percentage"
+                      wire:model.live="discount_percentage"
                       wire:change="calculateDiscount">
                     <option value="--">--</option>
                     <option value="5">5 %</option>
@@ -87,7 +87,7 @@
                 {{ $val }}
               @else
                 <input class="w-100 h-100 font-weight-bold pl-3 border-0"
-                    type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                    type="text" wire:model.live.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
                     style="font-size: calc(1rem + 0.2vw);"
                     wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
               @endif
@@ -138,7 +138,7 @@
                 <input class="w-100 h-100 font-weight-bold border-0 pl-4"
                     type="text"
                     style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
-                    wire:model.defer="" />
+                    wire:model="" />
               </td>
             </tr>
             @endif
@@ -183,7 +183,7 @@
               <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
                   style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
-                  wire:model.defer="tender_amount" />
+                  wire:model="tender_amount" />
             </td>
           </tr>
 
@@ -196,7 +196,7 @@
             <td class="p-0 h-100 w-50 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <select class="w-100 h-100 custom-control border-0"
                   style="outline: none;"
-                  wire:model.defer="expense_payment_type_id">
+                  wire:model="expense_payment_type_id">
                 <option>---</option>
 
                 @foreach ($expensePaymentTypes as $expensePaymentType)
@@ -226,7 +226,7 @@
               <td class="p-0 h-100 w-50 bg-warning font-weight-bold" style="font-size: calc(0.6rem + 0.2vw);">
                 <input type="text"
                     class="w-100 h-100 font-weight-bold" 
-                    wire:model="multiPayments.{{ $key }}"
+                    wire:model.live="multiPayments.{{ $key }}"
                     wire:keydown.enter="calculateTenderAmount"
                     wire:change="calculateTenderAmount"
                 >

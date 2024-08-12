@@ -14,7 +14,7 @@
         "laravel/framework": "^10.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^4.0",
-        "livewire/livewire": "^2.10",
+        "livewire/livewire": "^3.0",
         "neitanod/forceutf8": "^2.0"
     },
     "require-dev": {

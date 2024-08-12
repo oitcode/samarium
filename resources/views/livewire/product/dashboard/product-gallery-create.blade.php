@@ -7,7 +7,7 @@
 
     <div class="form-group">
       <label>Images *</label>
-      <input type="file" class="form-control" wire:model="images" multiple>
+      <input type="file" class="form-control" wire:model.live="images" multiple>
       @error('images') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

@@ -107,7 +107,7 @@
 
       <tbody class="bg-white">
         @foreach ($takeaways as $takeaway)
-          <tr wire:click="$emit('displayTakeaway', {{ $takeaway->takeaway_id }})" role="button">
+          <tr wire:click="$dispatch('displayTakeaway', {takeawayId: {{ $takeaway->takeaway_id }} })" role="button">
             <td>
               {{ $takeaway->takeaway_id }}
             </td>
@@ -229,7 +229,7 @@
                 <i class="fas fa-cog text-secondary"></i>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <button class="dropdown-item" wire:click="$emit('displayTakeaway', {{ $takeaway->takeaway_id }})">
+                <button class="dropdown-item" wire:click="$dispatch('displayTakeaway', {takeawayId: {{ $takeaway->takeaway_id }} })">
                   <i class="fas fa-file text-primary mr-2"></i>
                   View
                 </button>

@@ -11,7 +11,7 @@
       <input type="text"
           class="mr-5 h-100 form-control"
           style="font-size: 1.5rem;"
-          wire:model.defer="product_search_name"
+          wire:model="product_search_name"
           wire:keydown.enter="search"
           autofocus>
     </div>
@@ -41,7 +41,7 @@
               <i class="fas fa-dice-d6 fa-2x text-secondary" style="width: 35px; height: 35px;"></i>
             @endif
           </div>
-          <div class="col-md-4" wire:click="$emit('displayProduct', {{ $product->product_id }})" role="button">
+          <div class="col-md-4" wire:click="$dispatch('displayProduct', {productId: {{ $product->product_id }} })" role="button">
             <strong>
               {{ $product->name }}
             </strong>

@@ -16,12 +16,12 @@
     @elseif ($previewMode)
       <button type="submit" class="btn btn-primary" wire:click="importFromFile">Import</button>
     @endif
-    <button type="submit" class="btn btn-danger" wire:click="$emit('exitAddNewStudentsFromFileMode')">Cancel</button>
+    <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitAddNewStudentsFromFileMode')">Cancel</button>
   
   
     <div class="form-group">
       <label for="">File</label>
-      <input type="file" class="form-control" wire:model="members_file">
+      <input type="file" class="form-control" wire:model.live="members_file">
       @error('members_file') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
   

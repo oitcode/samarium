@@ -63,7 +63,7 @@
                     type="text"
                     style="font-size: calc(1rem + 0.2vw); outline: none;"
                     wire:keydown.enter="updateNumbers"
-                    wire:model.debounce.500ms="expenseAdditions.{{ $key }}" />
+                    wire:model.live.debounce.500ms="expenseAdditions.{{ $key }}" />
               </td>
             </tr>
             @endif
@@ -98,7 +98,7 @@
               <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
                   style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
-                  wire:model.defer="tender_amount" />
+                  wire:model="tender_amount" />
             </td>
           </tr>
 
@@ -111,7 +111,7 @@
             <td class="p-0 h-100 w-50 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <select class="w-100 h-100 custom-control border-0"
                   style="outline: none;"
-                  wire:model.defer="expense_payment_type_id">
+                  wire:model="expense_payment_type_id">
                 <option>---</option>
 
                 @foreach ($expensePaymentTypes as $expensePaymentType)
@@ -141,7 +141,7 @@
               <td class="p-0 h-100 w-50 bg-warning font-weight-bold" style="font-size: calc(0.6rem + 0.2vw);">
                 <input type="text"
                     class="w-100 h-100 font-weight-bold" 
-                    wire:model="multiPayments.{{ $key }}"
+                    wire:model.live="multiPayments.{{ $key }}"
                     wire:keydown.enter="calculateTenderAmount"
                     wire:change="calculateTenderAmount"
                 >

@@ -5,13 +5,13 @@
 
   <div class="form-group">
     <label>Image</label>
-    <input type="file" class="form-control" wire:model.defer="image">
+    <input type="file" class="form-control" wire:model="image">
     @error('image') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
     <label>Image alignment</label>
-    <select class="form-control" wire:model.defer="image_position">
+    <select class="form-control" wire:model="image_position">
       <option value="left">Left</option>
       <option value="right">Right</option>
     </select>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="form-group">
-    <textarea rows="5" class="form-control" wire:model.defer="paragraph">
+    <textarea rows="5" class="form-control" wire:model="paragraph">
     </textarea>
     @error('paragraph') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
@@ -28,7 +28,7 @@
     <button class="btn btn-success" wire:click="store">
       Save
     </button>
-    <button class="btn btn-danger" wire:click="$emit('webpageContentCreateMediaAndTextCancelled')">
+    <button class="btn btn-danger" wire:click="$dispatch('webpageContentCreateMediaAndTextCancelled')">
       Cancel
     </button>
   </div>

@@ -6,8 +6,8 @@
   {{-- Date bar --}}
   <div class="my-3 text-secondary" style="font-size: 1.3rem;">
 
-    <input type="date" wire:model.defer="startDate" class="mr-3" />
-    <input type="date" wire:model.defer="endDate" class="mr-3" />
+    <input type="date" wire:model="startDate" class="mr-3" />
+    <input type="date" wire:model="endDate" class="mr-3" />
 
   </div>
 
@@ -16,7 +16,7 @@
 
       <div class="mr-3">
         <label>Category</label>
-        <select class="custom-control" wire:model.defer="search_product_category_id" wire:change="updateProducts">
+        <select class="custom-control" wire:model="search_product_category_id" wire:change="updateProducts">
           <option>---</option>
           @foreach ($productCategories as $productCategory)
             <option value="{{ $productCategory->product_category_id }}">
@@ -29,7 +29,7 @@
       <div class="mr-3">
         <label>Product</label>
         <select class="custom-control"
-            wire:model.defer="search_product_id"
+            wire:model="search_product_id"
             >
           <option>---</option>
           @foreach ($products as $product)

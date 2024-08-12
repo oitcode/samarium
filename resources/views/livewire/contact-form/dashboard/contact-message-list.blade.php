@@ -112,20 +112,14 @@
 
         <tbody class="bg-white">
           @foreach ($contactMessages as $contactMessage)
-            <tr>
-              <td
-                  wire:click="$emit('displayContactMessage', {{ $contactMessage }})"
-                  role="button">
+            <tr wire:click="$dispatch('displayContactMessage', { contactMessage: {{ $contactMessage }} })" role="button">
+              <td>
                 {{ $contactMessage->contact_message_id }}
               </td>
-              <td class="h6 font-weight-bold"
-                  wire:click="$emit('displayContactMessage', {{ $contactMessage }})"
-                  role="button">
+              <td class="h6 font-weight-bold">
                 {{ $contactMessage->sender_name }}
               </td>
-              <td class="" style="font-size: 1rem;"
-                  wire:click="$emit('displayContactMessage', {{ $contactMessage }})"
-                  role="button">
+              <td class="" style="font-size: 1rem;">
                 {{ \Illuminate\Support\Str::limit($contactMessage->message, 100, $end=' ...') }}
               </td>
               <td class="" style="font-size: 1rem;">

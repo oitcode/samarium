@@ -29,7 +29,7 @@
   @endif
 
   <div class="form-group">
-    <input class="form-control" type="text" placeholder="Name" wire:model.defer="writer_name">
+    <input class="form-control" type="text" placeholder="Name" wire:model="writer_name">
     @error('writer_name')
         <span class="text-danger" role="alert">
             <strong>{{ $message }}</strong>
@@ -37,7 +37,7 @@
     @enderror
   </div>
   <div class="form-group">
-    <input class="form-control" type="text" placeholder="Email" wire:model.defer="writer_email">
+    <input class="form-control" type="text" placeholder="Email" wire:model="writer_email">
     @error('writer_email')
         <span class="text-danger" role="alert">
             <strong>{{ $message }}</strong>
@@ -45,7 +45,7 @@
     @enderror
   </div>
   <div class="form-group">
-    <input class="form-control" type="text" placeholder="Phone" wire:model.defer="writer_phone">
+    <input class="form-control" type="text" placeholder="Phone" wire:model="writer_phone">
     @error('writer_phone')
         <span class="text-danger" role="alert">
             <strong>{{ $message }}</strong>
@@ -53,7 +53,7 @@
     @enderror
   </div>
   <div class="form-group">
-    <textarea class="form-control" rows="3" placeholder="Question" wire:model.defer="question_text"></textarea>
+    <textarea class="form-control" rows="3" placeholder="Question" wire:model="question_text"></textarea>
     @error('question_text')
         <span class="text-danger" role="alert">
             <strong>{{ $message }}</strong>

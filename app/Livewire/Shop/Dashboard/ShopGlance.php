@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Livewire\Shop\Dashboard;
+
+use Livewire\Component;
+
+use App\SaleInvoice;
+use App\Purchase;
+use App\Expense;
+
+class ShopGlance extends Component
+{
+    public $saleInvoiceCount;
+    public $purchaseCount;
+    public $expenseCount;
+
+    public function render()
+    {
+        $this->saleInvoiceCount = SaleInvoice::all()->count();
+        $this->purchaseCount = Purchase::all()->count();
+        $this->expenseCount = Expense::all()->count();
+
+        return view('livewire.shop.dashboard.shop-glance');
+    }
+}

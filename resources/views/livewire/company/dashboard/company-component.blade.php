@@ -75,7 +75,7 @@
           <div class="my-4 p-3 bg-white border">
             Upload new image
             <div>
-              <input type="file" class="form-control" wire:model="logo_image">
+              <input type="file" class="form-control" wire:model.live="logo_image">
               @error('logo_image') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             <div>
@@ -104,7 +104,7 @@
             @endif
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="name" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="name" style="{{-- font-size: 1.3rem; --}}">
             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -119,7 +119,7 @@
             @endif
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="short_name" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="short_name" style="{{-- font-size: 1.3rem; --}}">
             @error('short_name') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -134,7 +134,7 @@
             @endif
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="tagline" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="tagline" style="{{-- font-size: 1.3rem; --}}">
             @error('tagline') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -149,7 +149,7 @@
             @endif
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="phone" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="phone" style="{{-- font-size: 1.3rem; --}}">
             @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -164,7 +164,7 @@
             @endif
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="email" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="email" style="{{-- font-size: 1.3rem; --}}">
             @error('email') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -179,7 +179,7 @@
             @endif
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="address" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="address" style="{{-- font-size: 1.3rem; --}}">
             @error('address') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -194,7 +194,7 @@
             @endif
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="pan_number" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="pan_number" style="{{-- font-size: 1.3rem; --}}">
             @error('pan_number') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -213,7 +213,7 @@
             </label>
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="fb_link" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="fb_link" style="{{-- font-size: 1.3rem; --}}">
             @error('fb_link') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -225,7 +225,7 @@
             </label>
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="twitter_link" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="twitter_link" style="{{-- font-size: 1.3rem; --}}">
             @error('twitter_link') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -237,7 +237,7 @@
             </label>
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="insta_link" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="insta_link" style="{{-- font-size: 1.3rem; --}}">
             @error('insta_link') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -249,7 +249,7 @@
             </label>
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="youtube_link" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="youtube_link" style="{{-- font-size: 1.3rem; --}}">
             @error('youtube_link') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
@@ -261,7 +261,7 @@
             </label>
           </div>
           <div class="col-md-8">
-            <input type="text" class="form-control" wire:model.defer="tiktok_link" style="{{-- font-size: 1.3rem; --}}">
+            <input type="text" class="form-control" wire:model="tiktok_link" style="{{-- font-size: 1.3rem; --}}">
             @error('tiktok_link') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>

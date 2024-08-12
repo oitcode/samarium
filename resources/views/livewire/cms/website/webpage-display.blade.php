@@ -137,7 +137,6 @@
         @endif
       </div>
     </div>
-    </div>
   @endif
 
   {{-- Show google map share link if needed --}}

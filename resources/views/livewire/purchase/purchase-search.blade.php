@@ -11,7 +11,7 @@
       <input type="text"
           class="mr-5 h-100 form-control"
           style="font-size: 1.5rem;"
-          wire:model.defer="vendor_search_name"
+          wire:model="vendor_search_name"
           wire:keydown.enter="search"
           autofocus>
     </div>
@@ -50,7 +50,7 @@
       <tbody>
         @if (!is_null($purchases) && count($purchases) > 0)
           @foreach ($purchases as $purchase)
-            <tr wire:key="{{ rand() }}" wire:click="$emit('displayPurchase', {{ $purchase->purchase_id }})" style="font-size: 0.8rem;" role="button">
+            <tr wire:key="{{ rand() }}" wire:click="$dispatch('displayPurchase', {purchaseId: {{ $purchase->purchase_id }} })" style="font-size: 0.8rem;" role="button">
               <td>
                 {{ $purchase->purchase_id }}
               </td>

@@ -11,7 +11,7 @@
       <label class="h5">Name *</label>
       <input type="text"
           class="form-control shadow-sm"
-          wire:model.defer="name"
+          wire:model="name"
           style="font-size: 1.3rem;">
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>

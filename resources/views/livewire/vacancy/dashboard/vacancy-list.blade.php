@@ -62,7 +62,7 @@
         <tbody class="bg-white">
           @foreach ($vacancies as $vacancy)
             <tr>
-              <td class="h6 font-weight-bold" wire:click="$emit('displayVacancy', {{ $vacancy }})" role="button">
+              <td class="h6 font-weight-bold" wire:click="$dispatch('displayVacancy', { vacancy: {{ $vacancy }} })" role="button">
                 <span>
                   {{ $vacancy->title }}
                 </span>

@@ -15,7 +15,7 @@
         <tbody class="bg-white">
           @if (!is_null($cmsNavMenus) && count($cmsNavMenus) > 0)
             @foreach ($cmsNavMenus as $cmsNavMenu)
-              <tr wire:click="$emit('displayCmsNavMenu', {{ $cmsNavMenu->cms_nav_menu_id }})" role="button">
+              <tr wire:click="$dispatch('displayCmsNavMenu', {cmsNavMenuId: {{ $cmsNavMenu->cms_nav_menu_id }} })" role="button">
                 <td>
                   {{ $cmsNavMenu->name }}
                 </td>

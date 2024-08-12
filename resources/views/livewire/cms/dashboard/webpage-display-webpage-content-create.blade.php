@@ -84,7 +84,7 @@
         </div>
       </div>
 
-      <div class="col-md-2 mr-2-rm border p-0" wire:click="$emit('exitCreateWebpageContent')" role="button">
+      <div class="col-md-2 mr-2-rm border p-0" wire:click="$dispatch('exitCreateWebpageContent')" role="button">
         <div class="d-flex justify-content-center h-100">
           <button class="btn btn-danger h-100 w-100">
             Cancel
@@ -148,14 +148,14 @@
   @if (false)
   <div class="form-group">
     <label for="">Title</label>
-    <input type="text" class="form-control" wire:model.defer="title">
+    <input type="text" class="form-control" wire:model="title">
     @error('title') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   @if (false)
   <div class="form-group">
     <label for="">Body</label>
-    <textarea rows="5" class="form-control" wire:model.defer="body">
+    <textarea rows="5" class="form-control" wire:model="body">
     </textarea>
     @error('body') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
@@ -174,7 +174,7 @@
 
   @if (true)
   <div wire:ignore>
-    <input id="wcb1" value="{{ $body }}" wire:model="body" type="hidden" name="content" wire:key="{{ rand() }}">
+    <input id="wcb1" value="{{ $body }}" wire:model.live="body" type="hidden" name="content" wire:key="{{ rand() }}">
     <div class="form-group">
       <trix-editor wire:ignore input="wcb1" wire:key="andthisBayern"></trix-editor>
       @error('body') <span class="text-danger">{{ $message }}</span> @enderror
@@ -193,17 +193,17 @@
 
   <div class="form-group">
       <label for="">Image</label>
-      <input type="file" class="form-control" wire:model="image">
+      <input type="file" class="form-control" wire:model.live="image">
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
       <label for="">Video</label>
-      <input type="text" class="form-control" wire:model="video_link">
+      <input type="text" class="form-control" wire:model.live="video_link">
       @error('video_link') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <button type="submit" class="btn btn-primary" wire:click="store">Submit</button>
-  <button type="submit" class="btn btn-danger" wire:click="$emit('exitCreateWebpageContent')">Cancel</button>
+  <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitCreateWebpageContent')">Cancel</button>
   @endif
 </div>

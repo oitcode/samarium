@@ -13,7 +13,7 @@
   
     <div class="form-group my-4">
       <label class="h5 mb-2" for="">File *</label>
-      <input type="file" class="form-control pl-0 border-0" wire:model="products_file">
+      <input type="file" class="form-control pl-0 border-0" wire:model.live="products_file">
       @error('products_file') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

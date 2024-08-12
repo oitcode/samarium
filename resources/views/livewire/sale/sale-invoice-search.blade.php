@@ -1,6 +1,6 @@
 <div>
   <div class="my-3">
-    <input type="text" wire:model.defer="search_sale_invoice_id">
+    <input type="text" wire:model="search_sale_invoice_id">
     <button class="btn btn-success" wire:click="search">
       Find
     </button>

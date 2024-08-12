@@ -23,7 +23,7 @@
         </button>
       </div>
       <div class="">
-        <button class="btn text-dark" wire:click="$emit('exitDisplayExpenseMode')">
+        <button class="btn text-dark" wire:click="$dispatch('exitDisplayExpenseMode')">
           <i class="fas fa-times-circle fa-2x"></i>
           <br />
           Close

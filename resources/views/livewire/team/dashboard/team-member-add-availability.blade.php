@@ -4,7 +4,7 @@
     <label>
       Day
     </label>
-    <select class="form-control" wire:model.defer="available_day">
+    <select class="form-control" wire:model="available_day">
       <option value='---'>---</option>
       <option value="sunday">Sunday</option>
       <option value="monday">Monday</option>
@@ -27,7 +27,7 @@
         <label>
           Start time
         </label>
-        <select class="form-control" wire:model.defer="start_time">
+        <select class="form-control" wire:model="start_time">
           <option value='---'>---</option>
           <option value="0">0</option>
           <option value="1">1</option>
@@ -60,7 +60,7 @@
         <label>
           End time
         </label>
-        <select class="form-control" wire:model.defer="end_time">
+        <select class="form-control" wire:model="end_time">
           <option value='---'>---</option>
           <option value="0">0</option>
           <option value="1">1</option>
@@ -107,7 +107,7 @@
     <button class="btn btn-success mr-2" wire:click="store">
       Save
     </button>
-    <button class="btn btn-danger mr-2" wire:click="$emit('addAvailabilityCancelled')">
+    <button class="btn btn-danger mr-2" wire:click="$dispatch('addAvailabilityCancelled')">
       Cancel
     </button>
   </div>

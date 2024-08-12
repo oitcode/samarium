@@ -14,7 +14,7 @@
 
   <div class="form-group">
     <label>Name *</label>
-    <input type="text" class="form-control" wire:model.defer="name">
+    <input type="text" class="form-control" wire:model="name">
     @error('name') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
@@ -27,25 +27,25 @@
       </small>
       @endif
     </label>
-    <input type="text" class="form-control" wire:model.defer="phone">
+    <input type="text" class="form-control" wire:model="phone">
     @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
     <label>Email</label>
-    <input type="text" class="form-control" wire:model.defer="email">
+    <input type="text" class="form-control" wire:model="email">
     @error('email') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
     <label>Address</label>
-    <input type="text" class="form-control" wire:model.defer="address">
+    <input type="text" class="form-control" wire:model="address">
     @error('email') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
     <label>PAN Number</label>
-    <input type="text" class="form-control" wire:model.defer="pan_num">
+    <input type="text" class="form-control" wire:model="pan_num">
     @error('pan_num') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 

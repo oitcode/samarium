@@ -64,13 +64,13 @@
         <tbody class="bg-white">
           @foreach ($testimonials as $testimonial)
             <tr>
-              <td class="h6 font-weight-bold" wire:click="$emit('displayTestimonial', {{ $testimonial }})" role="button">
+              <td class="h6 font-weight-bold" wire:click="$dispatch('displayTestimonial', { testimonial: {{ $testimonial }} })" role="button">
                 {{ $testimonial->writer_name }}
               </td>
-              <td wire:click="$emit('displayTestimonial', {{ $testimonial }})" role="button">
+              <td wire:click="$dispatch('displayTestimonial', {testimonial: {{ $testimonial }} })" role="button">
                 {{ $testimonial->writer_info }}
               </td>
-              <td wire:click="$emit('displayTestimonial', {{ $testimonial }})" role="button">
+              <td wire:click="$dispatch('displayTestimonial', {testimonial: {{ $testimonial }} })" role="button">
                 {{ \Illuminate\Support\Str::limit($testimonial->body, 100, $end=' ...') }}
               </td>
               <td>

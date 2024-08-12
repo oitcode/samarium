@@ -37,7 +37,7 @@
                     style="font-size: 1.2rem;">
                   Remove
                 </button>
-                <button wire:click="$emit('exitConfirmExpenseDelete')"
+                <button wire:click="$dispatch('exitConfirmExpenseDelete')"
                     class="btn btn-sm btn-secondary mr-3 p-2"
                     data-dismiss="modal"
                     style="font-size: 1.2rem;">

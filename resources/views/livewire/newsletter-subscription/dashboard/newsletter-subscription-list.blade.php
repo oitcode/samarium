@@ -61,7 +61,7 @@
         <tbody class="bg-white">
           @foreach ($newsletterSubscriptions as $newsletterSubscription)
             <tr>
-              <td class="h6 font-weight-bold" wire:click="$emit('displayNewsletterSubscription', {{ $newsletterSubscription }})" role="button">
+              <td class="h6 font-weight-bold" wire:click="$dispatch('displayNewsletterSubscription', { newsletterSubscription: {{ $newsletterSubscription }} })" role="button">
                 <span>
                   {{ $newsletterSubscription->email }}
                 </span>

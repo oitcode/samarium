@@ -11,7 +11,7 @@
       <input type="text"
           class="mr-5 h-100 form-control"
           style="font-size: 1.5rem;"
-          wire:model.defer="customer_search_name"
+          wire:model="customer_search_name"
           wire:keydown.enter="search"
           autofocus>
     </div>
@@ -55,7 +55,7 @@
       <tbody class="bg-white">
         @if ($saleQuotations != null && count($saleQuotations) > 0)
           @foreach ($saleQuotations as $saleQuotation)
-            <tr wire:click="$emit('displaySaleQuotation', {{ $saleQuotation->sale_quotation_id }})" role="button">
+            <tr wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })" role="button">
               <td>
                 {{ $saleQuotation->sale_quotation_id }}
               </td>

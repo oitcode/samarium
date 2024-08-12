@@ -16,11 +16,11 @@
           </div>
           <div class="d-flex" style="font-size: 1rem;">
             <div>
-              <input type="date" wire:model.defer="startDate" class="mr-3" />
+              <input type="date" wire:model="startDate" class="mr-3" />
             </div>
 
             <div>
-              <input type="date" wire:model.defer="endDate" class="mr-3" />
+              <input type="date" wire:model="endDate" class="mr-3" />
             </div>
 
             <div class="my-2-rm">

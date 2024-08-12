@@ -20,7 +20,7 @@
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$emit('exitExpenseDisplayMode')">
+            <button class="btn btn-outline-danger" wire:click="$dispatch('exitExpenseDisplayMode')">
               <i class="fas fa-times"></i>
               Close
             </button>

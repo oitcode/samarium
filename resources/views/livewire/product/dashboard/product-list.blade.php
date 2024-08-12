@@ -3,7 +3,7 @@
 
   {{-- Flash message div --}}
   @if (session()->has('message'))
-    @include ('partials.flash-message', [
+    @include ('partials.unused.flash-message', [
         'flashMessage' => session('message'),
     ])
   @endif
@@ -35,7 +35,7 @@
             <td>
               {{ $product->product_id }}
             </td>
-            <td class="h6 font-weight-bold" wire:click="$emit('displayProduct', {{ $product->product_id }})" role="button">
+            <td class="h6 font-weight-bold" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })" role="button">
               {{ \Illuminate\Support\Str::limit($product->name, 60, $end=' ...') }}
             </td>
             <td class="h6 font-weight-bold">

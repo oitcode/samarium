@@ -12,7 +12,7 @@
       <textarea
           rows="5"
           class="form-control"
-          wire:model.defer="brief_description"
+          wire:model="brief_description"
           style="font-size: 1.3rem;">
       </textarea>
       @error ('brief_description') <span class="text-danger">{{ $message }}</span> @enderror

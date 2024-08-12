@@ -6,8 +6,8 @@
   {{-- Date bar --}}
   <div class="mt-3 text-secondary py-3" style="font-size: 1.3rem;">
 
-    <input type="date" wire:model.defer="startDate" class="mr-3" />
-    <input type="date" wire:model.defer="endDate" class="mr-3" />
+    <input type="date" wire:model="startDate" class="mr-3" />
+    <input type="date" wire:model="endDate" class="mr-3" />
 
     <button class="btn btn-success" wire:click="getPurchasesForDateRange">
       Go

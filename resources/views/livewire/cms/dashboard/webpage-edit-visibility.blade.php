@@ -1,7 +1,7 @@
 <div>
 
     <div class="form-group">
-      <select class="form-control" wire:model.defer="visibility">
+      <select class="form-control" wire:model="visibility">
         <option value="---">---</option>
         <option value="private">Private</option>
         <option value="public">Public</option>
@@ -17,7 +17,7 @@
       <button class="btn btn-sm btn-success" wire:click="update">
         Save
       </button>
-      <button class="btn btn-sm btn-danger" wire:click="$emit('webpageEditVisibilityCancel')">
+      <button class="btn btn-sm btn-danger" wire:click="$dispatch('webpageEditVisibilityCancel')">
         Cancel
       </button>
     </div>

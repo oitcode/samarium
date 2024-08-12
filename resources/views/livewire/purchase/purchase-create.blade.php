@@ -20,7 +20,7 @@
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$emit('exitPurchaseDisplayMode')">
+            <button class="btn btn-outline-danger" wire:click="$dispatch('exitPurchaseDisplayMode')">
               <i class="fas fa-times"></i>
               Close
             </button>
@@ -67,7 +67,7 @@
                   {{ $purchase->vendor->name }}
                 @else
                   @if ($purchase->creation_status == 'progress')
-                    <select class="custom-control w-75" wire:model.defer="vendor_id">
+                    <select class="custom-control w-75" wire:model="vendor_id">
                       <option>---</option>
 
                       @foreach ($vendors as $vendor)
@@ -104,7 +104,7 @@
               @if ($modes['backDate'])
                 <div>
                   <div>
-                    <input type="date" wire:model.defer="purchase_date">
+                    <input type="date" wire:model="purchase_date">
                     <div class="mt-2">
                       <button class="btn btn-light" wire:click="changePurchaseDate">
                         <i class="fas fa-check-circle text-success"></i>

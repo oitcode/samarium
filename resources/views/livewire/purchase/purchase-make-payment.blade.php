@@ -89,7 +89,7 @@
                     type="text"
                     style="font-size: calc(1rem + 0.2vw); outline: none;"
                     wire:keydown.enter="updateNumbers"
-                    wire:model.debounce.500ms="purchaseAdditions.{{ $key }}" />
+                    wire:model.live.debounce.500ms="purchaseAdditions.{{ $key }}" />
               </td>
             </tr>
             @endif
@@ -137,7 +137,7 @@
               <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
                   style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
-                  wire:model.defer="paid_amount" />
+                  wire:model="paid_amount" />
             </td>
           </tr>
 
@@ -150,7 +150,7 @@
             <td class="p-0 h-100 w-50 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
               <select class="w-100 h-100 custom-control border-0"
                   style="outline: none;"
-                  wire:model.defer="purchase_payment_type_id">
+                  wire:model="purchase_payment_type_id">
                 <option>---</option>
 
                 @foreach ($purchasePaymentTypes as $purchasePaymentType)
@@ -180,7 +180,7 @@
               <td class="p-0 h-100 w-50 bg-warning font-weight-bold">
                 <input type="text"
                     class="w-100 h-100 font-weight-bold" 
-                    wire:model="multiPayments.{{ $key }}"
+                    wire:model.live="multiPayments.{{ $key }}"
                     wire:keydown.enter="calculateTenderAmount"
                     wire:change="calculateTenderAmount"
                 >

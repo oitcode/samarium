@@ -35,7 +35,7 @@
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-danger" wire:click="$emit('exitProductDisplayMode')">
+            <button class="btn btn-danger" wire:click="$dispatch('exitProductDisplayMode')">
               <i class="fas fa-times"></i>
               Close
             </button>

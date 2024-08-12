@@ -9,14 +9,14 @@
       <label for="">Name</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="name"
+          wire:model="name"
           style="font-size: 1.3rem;">
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label for="">Team type</label>
-      <select class="form-control" wire:model.defer="team_type">
+      <select class="form-control" wire:model="team_type">
         <option>---</option>
         <option value="playing_team">Playing Team</option>
         <option value="organizing_team">Organizing Team</option>
@@ -28,7 +28,7 @@
       <label for="">Comment</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="comment"
+          wire:model="comment"
           style="font-size: 1.3rem;">
       @error ('comment') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
@@ -42,7 +42,7 @@
         </div>
       @endif
       @endif
-      <input type="file" class="form-control" wire:model="image">
+      <input type="file" class="form-control" wire:model.live="image">
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
@@ -51,7 +51,7 @@
         Update
       </button>
 
-      <button class="btn btn-lg btn-danger badge-pill mr-3" wire:click="$emit('exitUpdateTeamMode')">
+      <button class="btn btn-lg btn-danger badge-pill mr-3" wire:click="$dispatch('exitUpdateTeamMode')">
         Cancel
       </button>
 

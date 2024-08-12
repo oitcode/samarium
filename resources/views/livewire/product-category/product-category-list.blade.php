@@ -19,7 +19,7 @@
             <tbody>
               @foreach ($productCategories as $productCategory)
                 <tr>
-                  <td wire:click="$emit('displayProductCategory', {{ $productCategory }} )" role="button">
+                  <td wire:click="$dispatch('displayProductCategory', { productCategory: {{ $productCategory }} } )" role="button">
                     <strong>
                       {{ $productCategory->name }}
                     </strong>

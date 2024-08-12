@@ -34,7 +34,7 @@
                   </td>
 
                   <td class="h6 font-weight-bold">
-                    <strong wire:click="$emit('displayGallery', {{ $gallery }})" role="button">
+                    <strong wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })" role="button">
                     {{ $gallery->name }}
                     </strong>
                   </td>
@@ -54,11 +54,11 @@
                   @if (true)
                   <td>
                     @if (false)
-                    <span class="btn btn-tool btn-sm border rounded-circle mr-3" wire:click="$emit('updateGallery', {{ $gallery }})">
+                    <span class="btn btn-tool btn-sm border rounded-circle mr-3" wire:click="$dispatch('updateGallery', {{ $gallery }})">
                       <i class="fas fa-pencil-alt text-primary"></i>
                     </span>
                     @endif
-                    <span class="btn btn-tool btn-sm-rm text-danger" wire:click="$emit('confirmDeleteGallery', {{ $gallery }})">
+                    <span class="btn btn-tool btn-sm-rm text-danger" wire:click="$dispatch('confirmDeleteGallery', {{ $gallery }})">
                       <i class="fas fa-trash mr-1"></i>
                       Delete
                     </span>
@@ -86,7 +86,7 @@
         @foreach ($galleries as $gallery)
           <div class="bg-white border px-3">
             <div class="h4-rm py-4">
-              <span  wire:click="$emit('displayGallery', {{ $gallery }})" class="h5 text-dark font-weight-bold" role="button">
+              <span  wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })" class="h5 text-dark font-weight-bold" role="button">
                 {{ \Illuminate\Support\Str::limit($gallery->name, 60, $end=' ...') }}
               </span>
 
@@ -97,7 +97,7 @@
               <br/>
             </div>
             <div>
-              <span class="btn btn-light mr-3 mb-3" wire:click="$emit('confirmDeleteGallery', {{ $gallery }})">
+              <span class="btn btn-light mr-3 mb-3" wire:click="$dispatch('confirmDeleteGallery', {{ $gallery }})">
                 <i class="fas fa-trash mr-1"></i>
                 Delete gallery
               </span>

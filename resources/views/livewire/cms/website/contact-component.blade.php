@@ -155,22 +155,22 @@
           @endif
         
           <div class="form-group">
-            <input type="text" class="form-control" wire:model.defer="sender_name" placeholder="Name">
+            <input type="text" class="form-control" wire:model="sender_name" placeholder="Name">
             @error('sender_name') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         
           <div class="form-group">
-            <input type="email" class="form-control" wire:model.defer="sender_email" placeholder="Email">
+            <input type="email" class="form-control" wire:model="sender_email" placeholder="Email">
             @error('sender_email') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         
           <div class="form-group">
-            <input type="text" class="form-control" wire:model.defer="sender_phone" placeholder="Phone">
+            <input type="text" class="form-control" wire:model="sender_phone" placeholder="Phone">
             @error('sender_phone') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         
           <div class="form-group">
-            <textarea class="form-control" rows="3" wire:model.defer="message" placeholder="Message"></textarea>
+            <textarea class="form-control" rows="3" wire:model="message" placeholder="Message"></textarea>
             @error('message') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         

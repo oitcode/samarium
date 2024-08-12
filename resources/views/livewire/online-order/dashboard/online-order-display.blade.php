@@ -20,7 +20,7 @@
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$emit('exitOnlineOrderDisplayMode')">
+            <button class="btn btn-outline-danger" wire:click="$dispatch('exitOnlineOrderDisplayMode')">
               <i class="fas fa-times"></i>
               Close
             </button>

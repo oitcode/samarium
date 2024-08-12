@@ -10,25 +10,25 @@
 
   <div class="form-group">
     <label for="">Name</label>
-    <input type="text" class="form-control" wire:model.defer="name">
+    <input type="text" class="form-control" wire:model="name">
     @error('name') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
     <label for="">Email</label>
-    <input type="email" class="form-control" wire:model.defer="email">
+    <input type="email" class="form-control" wire:model="email">
     @error('email') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
     <label for="">Password</label>
-    <input type="password" class="form-control" wire:model.defer="password">
+    <input type="password" class="form-control" wire:model="password">
     @error('password') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
     <label for="">Confirm Password</label>
-    <input type="password" class="form-control" wire:model.defer="password_confirm">
+    <input type="password" class="form-control" wire:model="password_confirm">
     @error('password') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
   

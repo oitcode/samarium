@@ -7,14 +7,14 @@
       <label for="">Name</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="name"
+          wire:model="name"
           style="font-size: 1.3rem;">
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Webpage</label>
-      <select class="custom-select" wire:model.defer="webpage_id" style="font-size: 1.3rem;">
+      <select class="custom-select" wire:model="webpage_id" style="font-size: 1.3rem;">
         <option>---</option>
         @foreach($webpages as $webpage)
           <option value="{{ $webpage->webpage_id }}">{{ $webpage->name }}</option>
@@ -30,7 +30,7 @@
         Submit
       </button>
       <button type="submit"
-          class="btn btn-danger" wire:click="$emit('exitCreateCmsNavMenuDropdownItemMode')"
+          class="btn btn-danger" wire:click="$dispatch('exitCreateCmsNavMenuDropdownItemMode')"
           style="font-size: 1.3rem;">
         Cancel
       </button>

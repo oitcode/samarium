@@ -6,7 +6,7 @@
   </div>
   <div class="form-group">
     <label>Feature Heading</label>
-    <input type="text" class="form-control" wire:model.defer="feature_heading">
+    <input type="text" class="form-control" wire:model="feature_heading">
     @error ('feature_heading')
       <div class="text-danger">
         <i class="fas fa-exclamation-circle mr-1"></i>

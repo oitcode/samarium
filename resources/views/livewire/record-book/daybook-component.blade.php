@@ -21,7 +21,7 @@
           &nbsp;&nbsp;
           {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
 
-          <input type="date" wire:model.defer="daybookDate" class="ml-5">
+          <input type="date" wire:model="daybookDate" class="ml-5">
           <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="render">
             Go
           </button>
@@ -74,7 +74,7 @@
         <i class="fas fa-arrow-right mr-3"></i>
       </button>
 
-      <input type="date" wire:model.defer="daybookDate" class="ml-3">
+      <input type="date" wire:model="daybookDate" class="ml-3">
       <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mx-3" wire:click="render">
         Go
       </button>

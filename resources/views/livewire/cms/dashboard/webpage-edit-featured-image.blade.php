@@ -1,7 +1,7 @@
 <div>
   <div class="form-group">
       <label for="">Featured Image</label>
-      <input type="file" class="form-control" wire:model="new_featured_image">
+      <input type="file" class="form-control" wire:model.live="new_featured_image">
       @error('featured_image') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
@@ -10,7 +10,7 @@
       Save
     </button>
 
-    <button class="btn btn-danger" wire:click="$emit('webpageEditFeaturedImageCancel')">
+    <button class="btn btn-danger" wire:click="$dispatch('webpageEditFeaturedImageCancel')">
       Cancel
     </button>
   </div>

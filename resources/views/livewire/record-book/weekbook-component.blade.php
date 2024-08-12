@@ -44,7 +44,7 @@
       </div>
 
       <div class="">
-        <input type="date" wire:model.defer="weekStartDate" class="ml-5">
+        <input type="date" wire:model="weekStartDate" class="ml-5">
         <button class="btn
             {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
             "
@@ -76,7 +76,7 @@
       <i class="fas fa-arrow-right mr-3"></i>
     </button>
 
-    <input type="date" wire:model.defer="weekStartDate" class="ml-3">
+    <input type="date" wire:model="weekStartDate" class="ml-3">
     <button class="btn mx-3
         {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
         "

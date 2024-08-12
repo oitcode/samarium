@@ -29,7 +29,7 @@
         Margin top:
       </div>
       <div>
-        <input type="text" wire:model="margin_top">
+        <input type="text" wire:model.live="margin_top">
       </div>
     </div>
 
@@ -39,7 +39,7 @@
         Margin bottom:
       </div>
       <div>
-        <input type="text" wire:model="margin_bottom">
+        <input type="text" wire:model.live="margin_bottom">
       </div>
     </div>
 
@@ -49,7 +49,7 @@
         Margin left:
       </div>
       <div>
-        <input type="text" wire:model="margin_left">
+        <input type="text" wire:model.live="margin_left">
       </div>
     </div>
 
@@ -59,7 +59,7 @@
         Margin right:
       </div>
       <div>
-        <input type="text" wire:model="margin_right">
+        <input type="text" wire:model.live="margin_right">
       </div>
     </div>
 
@@ -74,7 +74,7 @@
         Padding top:
       </div>
       <div>
-        <input type="text" wire:model="padding_top">
+        <input type="text" wire:model.live="padding_top">
       </div>
     </div>
 
@@ -84,7 +84,7 @@
         Padding bottom:
       </div>
       <div>
-        <input type="text" wire:model="padding_bottom">
+        <input type="text" wire:model.live="padding_bottom">
       </div>
     </div>
 
@@ -94,7 +94,7 @@
         Padding left:
       </div>
       <div>
-        <input type="text" wire:model="padding_left">
+        <input type="text" wire:model.live="padding_left">
       </div>
     </div>
 
@@ -104,7 +104,7 @@
         Padding right:
       </div>
       <div>
-        <input type="text" wire:model="padding_right">
+        <input type="text" wire:model.live="padding_right">
       </div>
     </div>
 
@@ -120,7 +120,7 @@
         Background color:
       </div>
       <div>
-        <input type="text" wire:model="bg_color">
+        <input type="text" wire:model.live="bg_color">
       </div>
     </div>
 
@@ -130,7 +130,7 @@
         Text color:
       </div>
       <div>
-        <input type="text" wire:model="text_color">
+        <input type="text" wire:model.live="text_color">
       </div>
     </div>
     <hr />
@@ -145,7 +145,7 @@
         Animation:
       </div>
       <div>
-        <select wire:model.defer="animation">
+        <select wire:model="animation">
           <option value="fade-in 2s">Fade in</option>
           <option value="fade-in 2s infinite">Fade in continuous</option>
           <option value="fade-out 2s">Fade out</option>
@@ -167,7 +167,7 @@
         Animation duration:
       </div>
       <div>
-        <input type="text" wire:model="animation_duration">
+        <input type="text" wire:model.live="animation_duration">
       </div>
     </div>
 
@@ -177,7 +177,7 @@
         Animation repeat:
       </div>
       <div>
-        <input type="text" wire:model="animation_repeat">
+        <input type="text" wire:model.live="animation_repeat">
       </div>
     </div>
     @endif
@@ -188,7 +188,7 @@
     <button class="btn btn-success mr-3" wire:click="store">
       Save
     </button>
-    <button class="btn btn-danger mr-3" wire:click="$emit('webpageContentEditCssCancel')">
+    <button class="btn btn-danger mr-3" wire:click="$dispatch('webpageContentEditCssCancel')">
       Cancel
     </button>
   </div>

@@ -9,13 +9,13 @@
 
     <div class="form-group">
       <label>Comment *</label>
-      <input type="text" class="form-control" wire:model.defer="comment_text">
+      <input type="text" class="form-control" wire:model="comment_text">
       @error ('comment_text') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>File *</label>
-      <input type="file" class="form-control" wire:model="document_file">
+      <input type="file" class="form-control" wire:model.live="document_file">
       @error ('document_file') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

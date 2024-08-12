@@ -30,7 +30,7 @@
             @include ('partials.dashboard.spinner-button')
 
             {{--
-            <button class="btn btn-outline-danger" wire:click="$emit('exitWebpageDisplayMode')">
+            <button class="btn btn-outline-danger" wire:click="$dispatch('exitWebpageDisplayMode')">
             --}}
             <button class="btn btn-danger" wire:click="closeThisComponent">
               <i class="fas fa-times"></i>
@@ -261,7 +261,7 @@
             @else
               <div class="p-3 form-group mb-0">
                   <label for="">Featured Image</label>
-                  <input type="file" class="form-control" wire:model="featured_image">
+                  <input type="file" class="form-control" wire:model.live="featured_image">
                   @error('featured_image') <span class="text-danger">{{ $message }}</span> @enderror
               </div>
 

@@ -20,7 +20,7 @@
                   <i class="fas fa-cog text-secondary"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item" wire:click="$emit('displayAbAccountLedger', {{ $abAccount->ab_account_id }})">
+                  <button class="dropdown-item" wire:click="$dispatch('displayAbAccountLedger', {abAccountId: {{ $abAccount->ab_account_id }} })">
                     <i class="fas fa-folder text-primary mr-2"></i>
                     Ledger
                   </button>

@@ -122,7 +122,7 @@
                 <input class="form-control p-3 w-100" type="text"
                     style="height: 50px; width: 100%; font-size: 1rem; color: #555;"
                     placeholder="Phone"
-                    wire:model.defer="phone">
+                    wire:model="phone">
                 @error ('phone') <div class="text-danger"> {{ $message }} </div> @enderror
               </div>
   
@@ -130,7 +130,7 @@
                 <input class="form-control p-3 w-100" type="text"
                     style="height: 50px; width: 100%; font-size: 1rem; color: #555;"
                     placeholder="Address"
-                    wire:model.defer="address">
+                    wire:model="address">
                 @error ('address') <div class="text-danger"> {{ $message }} </div> @enderror
               </div>
             </div>

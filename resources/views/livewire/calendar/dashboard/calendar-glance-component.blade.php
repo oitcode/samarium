@@ -21,7 +21,7 @@
 
           <div class="d-none d-md-block ml-3" style="font-size: 1rem;">
 
-            <input type="date" wire:model.defer="calendarDate" class="">
+            <input type="date" wire:model="calendarDate" class="">
             <button class="btn btn-light" wire:click="setCalendarDate">
               Go
             </button>

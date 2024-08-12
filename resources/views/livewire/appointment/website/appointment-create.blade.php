@@ -80,7 +80,7 @@
               Date
             </h2>
             <div>
-              <input type="date" class="form-control" wire:model="appointment_date" />
+              <input type="date" class="form-control" wire:model.live="appointment_date" />
               @error('appointment_date') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
           </div>
@@ -92,7 +92,7 @@
             </h2>
             <div>
               @if ($availableTimes)
-                <select class="form-control" wire:model.defer="appointment_time">
+                <select class="form-control" wire:model="appointment_time">
                   <option value="---">---</option>
                   @foreach ($availableTimes as $availableTime)
                     <option value="{{ $availableTime }}">{{ $availableTime }}</option>
@@ -118,7 +118,7 @@
               @if (false)
               <label>Name</label>
               @endif
-              <input type="text" class="form-control" id="" wire:model.defer="applicant_name" placeholder="Name">
+              <input type="text" class="form-control" id="" wire:model="applicant_name" placeholder="Name">
               @error('applicant_name') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
 
@@ -126,7 +126,7 @@
               @if (false)
               <label>Phone</label>
               @endif
-              <input type="text" class="form-control" id="" wire:model.defer="applicant_phone" placeholder="Phone">
+              <input type="text" class="form-control" id="" wire:model="applicant_phone" placeholder="Phone">
               @error('applicant_phone') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
     
@@ -134,7 +134,7 @@
               @if (false)
               <label>Description</label>
               @endif
-              <textarea rows="3" class="form-control" wire:model.defer="applicant_description" placeholder="Description"></textarea>
+              <textarea rows="3" class="form-control" wire:model="applicant_description" placeholder="Description"></textarea>
               @error('applicant_description') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
     

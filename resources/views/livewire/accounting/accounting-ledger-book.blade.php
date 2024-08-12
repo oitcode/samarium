@@ -9,7 +9,7 @@
   <div class="p-3">
     <div class="form-group">
       <label>Account</label>
-      <select class="custom-select" wire:model.defer="selected_account_id">
+      <select class="custom-select" wire:model="selected_account_id">
         <option>---</option>
         @foreach ($abAccounts as $abAccount)
           <option value="{{ $abAccount->ab_account_id }}">

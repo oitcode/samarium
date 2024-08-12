@@ -22,7 +22,7 @@
       </button>
     </div>
     <div class="">
-      <button class="btn text-dark" wire:click="$emit('exitPurchaseDisplay')">
+      <button class="btn text-dark" wire:click="$dispatch('exitPurchaseDisplay')">
         <i class="fas fa-times-circle fa-2x"></i>
         <br />
         Close

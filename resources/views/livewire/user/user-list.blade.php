@@ -55,7 +55,7 @@
                 {{ $user->id }}
               </td>
 
-              <td class="font-weight-bold" wire:click="$emit('displayUser', {{ $user }})" role="button">
+              <td class="font-weight-bold" wire:click="$dispatch('displayUser', {user: {{ $user }} })" role="button">
                 {{ $user->name }}
               </td>
 
@@ -106,7 +106,7 @@
       @foreach ($users as $user)
         <div class="bg-white border px-3">
           <div class="h4-rm py-4">
-            <span  wire:click="$emit('displayUser', {{ $user }})" class="h5 text-dark font-weight-bold" role="button">
+            <span  wire:click="$dispatch('displayUser', {user: {{ $user }} })" class="h5 text-dark font-weight-bold" role="button">
               {{ \Illuminate\Support\Str::limit($user->name, 60, $end=' ...') }}
             </span>
 

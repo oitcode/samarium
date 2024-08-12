@@ -31,11 +31,11 @@
         <tbody>
           <tr class="p-0 font-weight-bold" style="height: 50px; font-size: calc(0.8rem + 0.2vw);">
             <td class="p-0 h-100">
-              <input class="m-0 w-100 h-100 border-0" type="text" wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
+              <input class="m-0 w-100 h-100 border-0" type="text" wire:model="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
             <td class="p-0 h-100">
               @if (true)
-              <select class="w-100 h-100 custom-control border-0" wire:model.defer="search_product_category_id" wire:change="selectProductCategory">
+              <select class="w-100 h-100 custom-control border-0" wire:model="search_product_category_id" wire:change="selectProductCategory">
                 <option>---</option>
   
                 @foreach ($productCategories as $productCategory)
@@ -48,7 +48,7 @@
             </td>
             <td class="p-0 h-100">
               @if (true)
-              <select class="w-100 h-100 custom-control border-0" wire:model.defer="product_id" wire:change="selectItem">
+              <select class="w-100 h-100 custom-control border-0" wire:model="product_id" wire:change="selectItem">
                 <option>---</option>
   
                 @foreach ($products as $product)
@@ -60,10 +60,10 @@
               @endif
             </td>
             <td class="p-0 h-100">
-              <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
+              <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model="quantity" wire:keydown.enter="updateTotal"/>
             </td>
             <td class="p-0">
-              <select class="w-100 h-100 custom-control border-0 p-0" wire:model.defer="unit" wire:change="">
+              <select class="w-100 h-100 custom-control border-0 p-0" wire:model="unit" wire:change="">
                 <option>---</option>
                 <option value="pcs">PCS</option>
                 <option value="kg">KG</option>
@@ -71,7 +71,7 @@
               </select>
             </td>
             <td class="p-0 h-100">
-              <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model.defer="purchase_price_per_unit" wire:change="updateTotal"/>
+              <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model="purchase_price_per_unit" wire:change="updateTotal"/>
             </td>
             <td>
               @if ($selectedProduct)

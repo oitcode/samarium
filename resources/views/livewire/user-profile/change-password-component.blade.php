@@ -28,7 +28,7 @@
                 <i class="fas fa-lock"></i>
               </div>
             </div>
-            <input type="password" class="form-control" placeholder="Current Password" wire:model.defer="currentPassword">
+            <input type="password" class="form-control" placeholder="Current Password" wire:model="currentPassword">
           </div>
         </div>
 
@@ -46,7 +46,7 @@
                 <i class="fas fa-lock"></i>
               </div>
             </div>
-            <input type="password" class="form-control" placeholder="New Password" wire:model.defer="newPassword">
+            <input type="password" class="form-control" placeholder="New Password" wire:model="newPassword">
           </div>
         </div>
   
@@ -64,7 +64,7 @@
                 <i class="fas fa-lock"></i>
               </div>
             </div>
-            <input type="password" class="form-control" placeholder="New Password Confirm" wire:model.defer="newPasswordConfirm">
+            <input type="password" class="form-control" placeholder="New Password Confirm" wire:model="newPasswordConfirm">
           </div>
         </div>
   

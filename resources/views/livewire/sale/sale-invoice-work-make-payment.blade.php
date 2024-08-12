@@ -34,7 +34,7 @@
                     @if (! $modes['paid'])
                     <select
                         class="bg-white border border-secondary badge-pill"
-                        wire:model="discount_percentage"
+                        wire:model.live="discount_percentage"
                         wire:change="calculateDiscount">
                       <option value="--">--</option>
                       <option value="5">5 %</option>
@@ -67,7 +67,7 @@
                     @if ($modes['manualDiscount'])
                       @if (! $modes['paid'])
                         <input class="w-100 h-100 font-weight-bold pl-3 border-0"
-                            type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                            type="text" wire:model.live.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
                             style="{{-- font-size: calc(1rem + 0.2vw); --}}"
                             wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
                       @else
@@ -83,7 +83,7 @@
                   @else
                     @if (! $modes['paid'])
                     <input class="w-100 h-100 font-weight-bold pl-3 border-0"
-                        type="text" wire:model.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                        type="text" wire:model.live.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
                         style="{{-- font-size: calc(1rem + 0.2vw); --}}"
                         wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
                     @else
@@ -213,7 +213,7 @@
             <input class="w-100 h-100 font-weight-bold border-0-rm pl-3"
                 type="text"
                 style="{{-- font-size: calc(1.2rem + 0.2vw); {{-- background-color: #afa; outline: none; --}} --}}"
-                wire:model.defer="tender_amount" />
+                wire:model="tender_amount" />
             @else
               <div class="w-100 h-100 font-weight-bold border-0 pl-3"
                   style="{{-- font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none; --}}">
@@ -233,7 +233,7 @@
             @if (! $modes['paid'])
             <select class="w-100 h-100 custom-control border-0 bg-light"
                 style="outline: none;"
-                wire:model.defer="sale_invoice_payment_type_id">
+                wire:model="sale_invoice_payment_type_id">
               <option>---</option>
   
               @foreach ($saleInvoicePaymentTypes as $saleInvoicePaymentType)
@@ -266,7 +266,7 @@
             <td class="p-0 h-100 w-50 bg-warning font-weight-bold" style="{{-- font-size: calc(0.6rem + 0.2vw); --}}">
               <input type="text"
                   class="w-100 h-100 font-weight-bold" 
-                  wire:model="multiPayments.{{ $key }}"
+                  wire:model.live="multiPayments.{{ $key }}"
                   wire:keydown.enter="calculateTenderAmount"
                   wire:change="calculateTenderAmount"
               >

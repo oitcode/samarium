@@ -7,7 +7,7 @@
       Create application
     </h1>
 
-    <select class="w-100 h-100 custom-control border-0 bg-white" wire:model.defer="educ_institution_id" wire:change="selectEducInstitution">
+    <select class="w-100 h-100 custom-control border-0 bg-white" wire:model="educ_institution_id" wire:change="selectEducInstitution">
       <option>---</option>
   
       @foreach ($educInstitutions as $educInstitution)
@@ -18,7 +18,7 @@
     </select>
 
     @if ($selectedEducInstitution)
-    <select class="w-100 h-100 custom-control border-0 bg-white" wire:model.defer="educ_institution_program_id">
+    <select class="w-100 h-100 custom-control border-0 bg-white" wire:model="educ_institution_program_id">
       <option>---</option>
   
       @foreach ($selectedEducInstitution->educInstitutionPrograms as $educInstitutionProgram)

@@ -130,7 +130,7 @@
 
           <tbody class="bg-white">
             @foreach ($websiteOrders as $order)
-              <tr style="" role="button" wire:click="$emit('displayOnlineOrder', {{ $order->website_order_id }})">
+              <tr style="" role="button" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
                 <td>
                   {{ $order->website_order_id }}
                 </td>
@@ -191,7 +191,7 @@
         <table class="table table-hover border">
           <tbody class="bg-white">
             @foreach ($websiteOrders as $order)
-              <tr role="button" wire:click="$emit('displayOnlineOrder', {{ $order->website_order_id }})">
+              <tr role="button" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
                 <td>
                   {{ $order->website_order_id }}
                   <div>

@@ -43,7 +43,7 @@
               {{ $productQuestion->product_question_id }}
             </td>
             @endif
-            <td class="h6 font-weight-bold" wire:click="$emit('displayProductQuestion', {{ $productQuestion }})" role="button">
+            <td class="h6 font-weight-bold" wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })" role="button">
               {{ \Illuminate\Support\Str::limit($productQuestion->product->name, 60, $end=' ...') }}
             </td>
             <td class="font-weight-bold" style="font-size: 1rem;">

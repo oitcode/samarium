@@ -6,7 +6,7 @@
       <label>
         Category
       </label>
-      <select class="w-100 h-100 custom-control" wire:model.defer="search_product_category_id" wire:change="selectProductCategory">
+      <select class="w-100 h-100 custom-control" wire:model="search_product_category_id" wire:change="selectProductCategory">
         <option>---</option>
   
         @foreach ($productCategories as $productCategory)
@@ -22,7 +22,7 @@
       <label>
         Product
       </label>
-      <select class="w-100 h-100 custom-control border-0-rm" wire:model.defer="product_id" wire:change="selectItem">
+      <select class="w-100 h-100 custom-control border-0-rm" wire:model="product_id" wire:change="selectItem">
         <option>---</option>
   
         @foreach ($products as $product)
@@ -54,7 +54,7 @@
       <label>
         Quantity
       </label>
-      <input class="w-100 h-100 font-weight-bold border-0-rm" type="text" wire:model.defer="quantity" wire:keydown.enter="updateTotal"/>
+      <input class="w-100 h-100 font-weight-bold border-0-rm" type="text" wire:model="quantity" wire:keydown.enter="updateTotal"/>
     </div>
     @endif
 

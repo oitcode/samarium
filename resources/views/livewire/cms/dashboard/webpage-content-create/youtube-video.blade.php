@@ -5,7 +5,7 @@
 
   <div class="form-group">
     <label>Youtube video ID</label>
-    <input type="text" class="form-control" wire:model.defer="youtube_video_id">
+    <input type="text" class="form-control" wire:model="youtube_video_id">
     @error('youtube_video_id') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
@@ -13,7 +13,7 @@
     <button class="btn btn-success" wire:click="store">
       Save
     </button>
-    <button class="btn btn-danger" wire:click="$emit('webpageContentCreateYoutubeVideoCancelled')">
+    <button class="btn btn-danger" wire:click="$dispatch('webpageContentCreateYoutubeVideoCancelled')">
       Cancel
     </button>
   </div>

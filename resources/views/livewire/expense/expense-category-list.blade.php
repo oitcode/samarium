@@ -14,16 +14,16 @@
           @foreach($expenseCategories as $expenseCategory)
           <tr>
             <td>
-              <a class="text-dark" href="" wire:click.prevent="$emit('displayExpenseCategory', {{ $expenseCategory }})">
+              <a class="text-dark" href="" wire:click.prevent="$dispatch('displayExpenseCategory', {expenseCategory: {{ $expenseCategory }} })">
                 {{ $expenseCategory->name }}
               </a>
             </td>
   
             <td>
-              <span class="btn btn-tool btn-sm mr-2" wire:click="$emit('updateExpenseCategory', {{ $expenseCategory }})">
+              <span class="btn btn-tool btn-sm mr-2" wire:click="$dispatch('displayExpenseCategory', {expenseCategory: {{ $expenseCategory }} })">
                 <i class="fas fa-pencil-alt text-primary"></i>
               </span>
-              <span class="btn btn-tool btn-sm" wire:click="$emit('confirmDeleteExpenseCategory', {{ $expenseCategory }})">
+              <span class="btn btn-tool btn-sm" wire:click="$dispatch('displayExpenseCategory', {expenseCategory: {{ $expenseCategory }} })">
                 <i class="fas fa-trash text-danger"></i>
               </span>
             </td>

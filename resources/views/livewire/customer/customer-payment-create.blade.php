@@ -13,20 +13,20 @@
 
     <div class="form-group">
       <label>Deposited by</label>
-      <input type="text" class="form-control" wire:model.defer="deposited_by" style="font-size: 1.3rem;">
+      <input type="text" class="form-control" wire:model="deposited_by" style="font-size: 1.3rem;">
       @error('deposited_by') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Amount *</label>
-      <input type="text" class="form-control" wire:model.defer="pay_amount" style="font-size: 1.3rem;">
+      <input type="text" class="form-control" wire:model="pay_amount" style="font-size: 1.3rem;">
       @error('pay_amount') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Payment type</label>
       <select class="w-100 h-100 custom-control"
-          wire:model.defer="sale_invoice_payment_type_id" style="font-size: 1.3rem;">
+          wire:model="sale_invoice_payment_type_id" style="font-size: 1.3rem;">
         <option>---</option>
 
         @foreach ($saleInvoicePaymentTypes as $saleInvoicePaymentType)

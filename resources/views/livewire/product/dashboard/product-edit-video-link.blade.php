@@ -6,7 +6,7 @@
     </h1>
 
     <div class="form-group">
-      <input type="text" class="form-control" wire:model.defer="video_link">
+      <input type="text" class="form-control" wire:model="video_link">
     </div>
 
     <div>

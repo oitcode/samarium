@@ -16,11 +16,11 @@
         <tbody>
           <tr class="p-0 font-weight-bold" style="height: 50px; font-size: calc(0.8rem + 0.2vw);">
             <td class="p-0 h-100">
-              <input class="m-0 w-100 h-100 border-0" type="text" wire:model.defer="add_item_name" wire:keydown.enter="updateProductList"/>
+              <input class="m-0 w-100 h-100 border-0" type="text" wire:model="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
             <td class="p-0 h-100">
               @if (true)
-              <select class="w-100 h-100 custom-control border-0" wire:model.defer="add_item_expense_category_id">
+              <select class="w-100 h-100 custom-control border-0" wire:model="add_item_expense_category_id">
                 <option>---</option>
   
                 @foreach ($expenseCategories as $expenseCategory)
@@ -32,7 +32,7 @@
               @endif
             </td>
             <td>
-              <input class="m-0 w-100 h-100 border-0" type="text" wire:model.defer="add_item_amount"/>
+              <input class="m-0 w-100 h-100 border-0" type="text" wire:model="add_item_amount"/>
             </td>
           </tr>
         </tbody>

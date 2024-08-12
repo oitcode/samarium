@@ -9,7 +9,7 @@
       <label for="">Key</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="info_key">
+          wire:model="info_key">
       @error('info_key') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
@@ -17,7 +17,7 @@
       <label for="">Value</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="info_value">
+          wire:model="info_value">
       @error('info_value') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
@@ -28,7 +28,7 @@
         (Optional)
         </span>
       </label>
-      <input type="file" class="form-control border-0 pl-0" wire:model="image">
+      <input type="file" class="form-control border-0 pl-0" wire:model.live="image">
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

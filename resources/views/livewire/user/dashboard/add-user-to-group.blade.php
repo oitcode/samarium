@@ -21,7 +21,7 @@
     <label>
       Group
     </label>
-    <select class="form-control" wire:model.defer="user_group_id">
+    <select class="form-control" wire:model="user_group_id">
       @foreach ($userGroups as $userGroup)
         <option value="{{ $userGroup->user_group_id }}">{{ $userGroup->name }}</option>
       @endforeach
@@ -35,7 +35,7 @@
   <button class="btn btn-primary py-2" wire:click="store">
     Submit
   </button>
-  <button class="btn btn-light py-2" wire:click="$emit('addUserToGroupCancelled')">
+  <button class="btn btn-light py-2" wire:click="$dispatch('addUserToGroupCancelled')">
     Cancel
   </button>
   <br/>

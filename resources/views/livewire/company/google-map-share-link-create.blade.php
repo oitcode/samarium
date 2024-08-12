@@ -10,7 +10,7 @@
     <div class="form-group">
       <label for="">Google map share link</label>
       <input type="text" class="form-control"
-          wire:model.defer="google_map_share_link"
+          wire:model="google_map_share_link"
           style="font-size: 1.3rem;" />
       @error ('google_map_share_link') <span class="text-danger">{{ $message }}</span> @enderror
     </div>

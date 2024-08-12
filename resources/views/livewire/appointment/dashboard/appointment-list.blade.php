@@ -95,7 +95,7 @@
                 {{ $appointment->applicant_description }}
               </td>
               @endif
-              <td class="h6 font-weight-bold" role="button" wire:click="$emit('displayAppointment', {{ $appointment }})">
+              <td class="h6 font-weight-bold" role="button" wire:click="$dispatch('displayAppointment', { appointment: {{ $appointment }} })">
                 {{ $appointment->teamMember->name }}
               </td>
               <td>

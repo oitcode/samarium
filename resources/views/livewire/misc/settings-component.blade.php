@@ -52,7 +52,7 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model.defer="new_sale_invoice_payment_type_name"
+                      wire:model="new_sale_invoice_payment_type_name"
                       style="font-size: 1.3rem; max-width: 500px;">
                   @error('new_sale_invoice_payment_type_name')
                     <span class="text-danger">{{ $message }}</span>
@@ -103,7 +103,7 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model.defer="new_sale_invoice_addition_heading_name"
+                      wire:model="new_sale_invoice_addition_heading_name"
                       style="font-size: 1.3rem;">
                   @error('new_sale_invoice_addition_heading_name')
                     <span class="text-danger">{{ $message }}</span>
@@ -112,7 +112,7 @@
 
                 <div class="form-group">
                   <label>Effect</label>
-                  <select class="custom-select" wire:model.defer="new_sale_invoice_addition_heading_effect" style="font-size: 1.3rem;">
+                  <select class="custom-select" wire:model="new_sale_invoice_addition_heading_effect" style="font-size: 1.3rem;">
                     <option>---</option>
                       <option value="plus">Plus</option>
                       <option value="minus">Minus</option>
@@ -169,7 +169,7 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model.defer="new_purchase_payment_type_name"
+                      wire:model="new_purchase_payment_type_name"
                       style="font-size: 1.3rem;">
                   @error ('new_purchase_payment_type_name')
                     <span class="text-danger">{{ $message }}</span>
@@ -219,7 +219,7 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model.defer="new_purchase_addition_heading_name"
+                      wire:model="new_purchase_addition_heading_name"
                       style="font-size: 1.3rem;">
                   @error('new_purchase_addition_heading_name')
                     <span class="text-danger">{{ $message }}</span>
@@ -228,7 +228,7 @@
 
                 <div class="form-group">
                   <label>Effect</label>
-                  <select class="custom-select" wire:model.defer="new_purchase_addition_heading_effect" style="font-size: 1.3rem;">
+                  <select class="custom-select" wire:model="new_purchase_addition_heading_effect" style="font-size: 1.3rem;">
                     <option>---</option>
                       <option value="plus">Plus</option>
                       <option value="minus">Minus</option>
@@ -285,7 +285,7 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model.defer="new_expense_payment_type_name"
+                      wire:model="new_expense_payment_type_name"
                       style="font-size: 1.3rem;">
                   @error('new_expense_payment_type_name')
                     <span class="text-danger">{{ $message }}</span>
@@ -336,7 +336,7 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model.defer="new_expense_addition_heading_name"
+                      wire:model="new_expense_addition_heading_name"
                       style="font-size: 1.3rem;">
                   @error('new_expense_addition_heading_name')
                     <span class="text-danger">{{ $message }}</span>
@@ -345,7 +345,7 @@
 
                 <div class="form-group">
                   <label>Effect</label>
-                  <select class="custom-select" wire:model.defer="new_expense_addition_heading_effect" style="font-size: 1.3rem;">
+                  <select class="custom-select" wire:model="new_expense_addition_heading_effect" style="font-size: 1.3rem;">
                     <option>---</option>
                       <option value="plus">Plus</option>
                       <option value="minus">Minus</option>

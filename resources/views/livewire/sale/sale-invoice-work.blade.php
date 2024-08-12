@@ -21,7 +21,7 @@
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$emit('exitSaleInvoiceWorkMode')">
+            <button class="btn btn-outline-danger" wire:click="$dispatch('exitSaleInvoiceWorkMode')">
               <i class="fas fa-times"></i>
               Close
             </button>
@@ -91,7 +91,7 @@
                     @if ($modes['backDate'])
                       <div>
                         <div>
-                          <input type="date" wire:model.defer="sale_invoice_date">
+                          <input type="date" wire:model="sale_invoice_date">
                           <div class="mt-2">
                             <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
                               <i class="fas fa-check-circle text-success"></i>
@@ -131,7 +131,7 @@
                               $saleInvoice->seatTableBooking->status == 'open'
                             )
                       )
-                        <select class="custom-control w-75" wire:model.defer="customer_id">
+                        <select class="custom-control w-75" wire:model="customer_id">
                           <option>---</option>
     
                           @foreach ($customers as $customer)

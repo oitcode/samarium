@@ -5,7 +5,7 @@
 
   <div class="form-group">
     <label>Select Gallery</label>
-    <select class="form-control" wire:model.defer="gallery_id">
+    <select class="form-control" wire:model="gallery_id">
       @foreach (\App\Gallery::all() as $gallery)
         <option value="{{ $gallery->gallery_id }}">{{ $gallery->name }}</option>
       @endforeach
@@ -17,7 +17,7 @@
     <button class="btn btn-success" wire:click="store">
       Save
     </button>
-    <button class="btn btn-danger" wire:click="$emit('webpageContentCreateGalleryCancelled')">
+    <button class="btn btn-danger" wire:click="$dispatch('webpageContentCreateGalleryCancelled')">
       Cancel
     </button>
   </div>

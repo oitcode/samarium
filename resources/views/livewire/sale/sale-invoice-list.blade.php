@@ -107,7 +107,7 @@
 
       <tbody class="bg-white">
         @foreach ($saleInvoices as $saleInvoice)
-          <tr wire:click="$emit('displaySaleInvoice', {{ $saleInvoice->sale_invoice_id }})" role="button">
+          <tr wire:click="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })" role="button">
             <td>
               {{ $saleInvoice->sale_invoice_id }}
             </td>
@@ -242,7 +242,7 @@
                 <i class="fas fa-cog text-secondary"></i>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <button class="dropdown-item" wire:click="$emit('displaySaleInvoice', {{ $saleInvoice->sale_invoice_id }})">
+                <button class="dropdown-item" wire:click="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
                   <i class="fas fa-file text-primary mr-2"></i>
                   View
                 </button>

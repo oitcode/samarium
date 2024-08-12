@@ -33,7 +33,7 @@
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-danger" wire:click="$emit('productCategoryDisplayCancelled')">
+            <button class="btn btn-danger" wire:click="$dispatch('productCategoryDisplayCancelled')">
               <i class="fas fa-times"></i>
               Close
             </button>

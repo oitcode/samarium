@@ -1,6 +1,6 @@
 <div>
     <div class="form-group">
-      <select class="form-control" wire:model.defer="team_id">
+      <select class="form-control" wire:model="team_id">
         <option value="---">---</option>
         @foreach ($teams as $team)
           <option value="{{ $team->team_id }}">{{ $team->name }}</option>
@@ -17,7 +17,7 @@
       <button class="btn btn-sm btn-success" wire:click="store">
         Save
       </button>
-      <button class="btn btn-sm btn-danger" wire:click="$emit('webpageEditTeamTeampageCancel')">
+      <button class="btn btn-sm btn-danger" wire:click="$dispatch('webpageEditTeamTeampageCancel')">
         Cancel
       </button>
     </div>

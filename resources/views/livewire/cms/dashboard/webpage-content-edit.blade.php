@@ -4,13 +4,13 @@
   @if (false)
   <div class="form-group">
     <label for="">Title</label>
-    <input type="text" class="form-control" wire:model.defer="title">
+    <input type="text" class="form-control" wire:model="title">
     @error('title') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
     <label for="">Body</label>
-    <textarea rows="5" class="form-control" wire:model.defer="body">
+    <textarea rows="5" class="form-control" wire:model="body">
     </textarea>
     @error('body') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
@@ -31,7 +31,7 @@
   @if (true)
   <div wire:ignore>
 
-    <input id="wcb2" value="{{ $body }}" wire:model="body" type="hidden" name="content" wire:key="{{ rand() }}">
+    <input id="wcb2" value="{{ $body }}" wire:model.live="body" type="hidden" name="content" wire:key="{{ rand() }}">
     <div class="form-group">
       <trix-editor wire:ignore input="wcb2" wire:key="andthisBayern-{{ rand() }}"></trix-editor>
       @error('body') <span class="text-danger">{{ $message }}</span> @enderror
@@ -51,11 +51,11 @@
 
   <div class="form-group">
       <label for="">Image</label>
-      <input type="file" class="form-control" wire:model="image">
+      <input type="file" class="form-control" wire:model.live="image">
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <button type="submit" class="btn btn-primary" wire:click="update">Submit</button>
-  <button type="submit" class="btn btn-danger" wire:click="$emit('exitWebpageContentEditMode')">Cancel</button>
+  <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitWebpageContentEditMode')">Cancel</button>
   @endif
 </div>

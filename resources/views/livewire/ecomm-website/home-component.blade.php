@@ -154,7 +154,7 @@
         Enter search name
       </div>
     @enderror
-    <input type="text" class="mr-3" wire:model.defer="search_name" placeholder="Search product"/>
+    <input type="text" class="mr-3" wire:model="search_name" placeholder="Search product"/>
     <button class="btn btn-success shadow-sm" style="font-size: 1.3rem;" wire:click="search">
       Go
     </button>

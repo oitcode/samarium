@@ -40,7 +40,7 @@
             @if ($modes['backDate'])
               <div class="">
                 <div class="d-flex-rm">
-                  <input type="date" wire:model.defer="expense_date">
+                  <input type="date" wire:model="expense_date">
                   <div class="mt-2">
                     <button class="btn btn-light" wire:click="changeExpenseDate">
                       <i class="fas fa-check-circle text-success"></i>
@@ -67,7 +67,7 @@
               {{ $expense->vendor->name }}
             @else
               @if ($expense->creation_status == 'progress')
-              <select class="w-75" wire:model.defer="vendor_id">
+              <select class="w-75" wire:model="vendor_id">
                 <option>---</option>
 
                 @foreach ($vendors as $vendor)

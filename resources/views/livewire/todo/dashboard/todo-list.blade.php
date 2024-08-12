@@ -120,7 +120,7 @@
             <td>
               {{ $todo->todo_id }}
             </td>
-            <td class="h6 font-weight-bold" wire:click="$emit('displayTodo', {{ $todo }})" role="button">
+            <td class="h6 font-weight-bold" wire:click="$dispatch('displayTodo', { todo: {{ $todo }} })" role="button">
               {{ \Illuminate\Support\Str::limit($todo->title, 60, $end=' ...') }}
             </td>
             <td class="d-none d-md-table-cell" style="font-size: 1rem;">

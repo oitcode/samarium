@@ -6,13 +6,13 @@
     <label class="font-weight-bold">
       Key
     </label>
-    <input type="text" class="form-control" wire:model.defer="info_key">
+    <input type="text" class="form-control" wire:model="info_key">
   </div>
   <div class="form-group">
     <label class="font-weight-bold">
       Value
     </label>
-    <input type="text" class="form-control" wire:model.defer="info_value">
+    <input type="text" class="form-control" wire:model="info_value">
   </div>
 
   <div class="p-3-rm">

@@ -40,7 +40,7 @@
             @if (!is_null($webpages) && count($webpages) > 0)
               @foreach ($webpages as $webpage)
                 <tr>
-                  <td class="h5 font-weight-bold py-4"  wire:click="$emit('displayWebpage', {{ $webpage }})" class="text-dark" role="button">
+                  <td class="h5 font-weight-bold py-4"  wire:click="$dispatch('displayWebpage', { webpage: {{ $webpage }} })" class="text-dark" role="button">
                     @if (false)
                     <input type="checkbox" class="mr-3">
                     @endif
@@ -150,7 +150,7 @@
         @foreach ($webpages as $webpage)
           <div class="bg-white border px-3">
             <div class="h4-rm py-4">
-              <span  wire:click="$emit('displayWebpage', {{ $webpage }})" class="h5 text-dark font-weight-bold" role="button">
+              <span  wire:click="$dispatch('displayWebpage', { webpage: {{ $webpage }} })" class="h5 text-dark font-weight-bold" role="button">
                 {{ \Illuminate\Support\Str::limit($webpage->name, 60, $end=' ...') }}
               </span>
 

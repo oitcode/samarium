@@ -54,7 +54,7 @@
                 @if ($team->image_path)
                   <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
                 @endif
-                <span wire:click="$emit('displayTeam', {{ $team }})" role="button">
+                <span wire:click="$dispatch('displayTeam', { team: {{ $team }} })" role="button">
                   {{ $team->name }}
                 </span>
               </td>
@@ -94,7 +94,7 @@
                 @if ($team->image_path)
                   <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
                 @endif
-                <span wire:click="$emit('displayTeam', {{ $team }})" role="button">
+                <span wire:click="$dispatch('displayTeam', { team: {{ $team }} })" role="button">
                   {{ $team->name }}
                 </span>
               </td>

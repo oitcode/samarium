@@ -9,13 +9,13 @@
 
     <div class="form-group">
       <label>Name *</label>
-      <input type="text" class="form-control" wire:model.defer="name">
+      <input type="text" class="form-control" wire:model="name">
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>File *</label>
-      <input type="file" class="form-control" wire:model="document_file">
+      <input type="file" class="form-control" wire:model.live="document_file">
       @error ('document_file') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
@@ -23,7 +23,7 @@
       <label>Description</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="description"
+          wire:model="description"
           style="font-size: 1.3rem;">
       @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
     </div>

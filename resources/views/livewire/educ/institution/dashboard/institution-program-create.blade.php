@@ -9,13 +9,13 @@
 
     <div class="form-group">
       <label>Name *</label>
-      <input type="text" class="form-control" wire:model.defer="name">
+      <input type="text" class="form-control" wire:model="name">
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Program type *</label>
-      <input type="text" class="form-control" wire:model.defer="program_type">
+      <input type="text" class="form-control" wire:model="program_type">
       @error ('program_type') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

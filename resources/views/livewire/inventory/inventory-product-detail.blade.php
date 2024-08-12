@@ -13,8 +13,8 @@
   <div class="mt-2-rm mb-3 text-secondary py-3-rm d-flex bg-warning-rm" style="font-size: 1rem;">
 
     <div>
-      <input type="date" wire:model.defer="startDate" class="mr-3" />
-      <input type="date" wire:model.defer="endDate" class="mr-3" />
+      <input type="date" wire:model="startDate" class="mr-3" />
+      <input type="date" wire:model="endDate" class="mr-3" />
 
       <button class="btn btn-success mr-3" wire:click="getTransactionsForDateRange">
         Go

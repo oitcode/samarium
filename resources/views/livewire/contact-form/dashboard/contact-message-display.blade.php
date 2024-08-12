@@ -74,7 +74,7 @@
                 <td>
                   <div>
                     @if ($modes['updateStatus'])
-                      <select class="custom-control w-75" wire:model.defer="contact_message_status">
+                      <select class="custom-control w-75" wire:model="contact_message_status">
                         <option value="new">New</option>
                         <option value="progress">Progress</option>
                         <option value="done">Done</option>

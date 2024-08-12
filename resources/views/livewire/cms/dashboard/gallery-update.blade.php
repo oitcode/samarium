@@ -28,7 +28,7 @@
   <div class="mb-3">
     <div class="form-group">
       <label>Gallery Name</label>
-      <input type="text" class="form-control" id="" wire:model.defer="name" placeholder="Name">
+      <input type="text" class="form-control" id="" wire:model="name" placeholder="Name">
       @error('name') <span class="text-danger">{{ $message }}</span>@enderror
     </div>
 
@@ -53,14 +53,14 @@
 
     <strong>Add Images</strong>
     <div class="form-group">
-        <input type="file" class="form-control" wire:model="new_images" multiple>
+        <input type="file" class="form-control" wire:model.live="new_images" multiple>
         @error('new_images') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
     <br />
 
     <div class="p-2">
       <button type="submit" class="btn btn-primary" wire:click="update">Update</button>
-      <button type="submit" class="btn btn-danger" wire:click="$emit('exitUpdate')">Cancel</button>
+      <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitUpdate')">Cancel</button>
     </div>
   </div>
 </div>

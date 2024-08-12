@@ -25,7 +25,7 @@
         @endif
 
         <div class="form-group">
-          <input type="text" class="form-control" wire:model.defer="email" placeholder="Enter a valid email address" />
+          <input type="text" class="form-control" wire:model="email" placeholder="Enter a valid email address" />
           @error('email')
             <div class="my-2 text-white-rm">
               <i class="fas fa-exclamation-circle r-1"></i>

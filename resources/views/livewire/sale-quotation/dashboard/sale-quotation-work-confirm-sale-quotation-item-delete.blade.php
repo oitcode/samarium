@@ -42,13 +42,13 @@
               </div>
 
               <div class="mx-2 ml-3 mt-3 mb-3">
-                <button wire:click="$emit('removeItemFromSaleQuotation', {{ $deletingSaleQuotationItem->sale_quotation_item_id }})"
+                <button wire:click="$dispatch('removeItemFromSaleQuotation', {{ $deletingSaleQuotationItem->sale_quotation_item_id }})"
                     class="btn btn-sm btn-danger mr-3 p-2"
                     data-dismiss="modal"
                     style="font-size: 1.2rem;">
                   Remove
                 </button>
-                <button wire:click="$emit('exitDeleteSaleQuotationItem')"
+                <button wire:click="$dispatch('exitDeleteSaleQuotationItem')"
                     class="btn btn-sm btn-secondary mr-3 p-2"
                     data-dismiss="modal"
                     style="font-size: 1.2rem;">

@@ -6,7 +6,7 @@
   </div>
   <div class="form-group">
     <label>Keyword</label>
-    <input type="text" class="form-control" wire:model.defer="keyword">
+    <input type="text" class="form-control" wire:model="keyword">
     @error ('keyword')
       <div class="text-danger">
         <i class="fas fa-exclamation-circle mr-1"></i>
@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
     <label>Value</label>
-    <input type="text" class="form-control" wire:model.defer="value">
+    <input type="text" class="form-control" wire:model="value">
     @error ('value')
       <div class="text-danger">
         <i class="fas fa-exclamation-circle mr-1"></i>
@@ -27,7 +27,7 @@
 
   <div class="form-group">
     <label class="h5">Specification heading</label>
-    <select class="custom-select shadow-sm" wire:model.defer="product_specification_heading_id" style="font-size: 1.3rem;">
+    <select class="custom-select shadow-sm" wire:model="product_specification_heading_id" style="font-size: 1.3rem;">
       <option>---</option>
       @foreach ($productSpecificationHeadings as $productSpecificationHeading)
         <option value="{{ $productSpecificationHeading->product_specification_heading_id }}">

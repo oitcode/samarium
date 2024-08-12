@@ -13,8 +13,8 @@
         </button>
       </div>
       <div>
-        <input type="date" wire:model.defer="startDate" class="mr-3" />
-        <input type="date" wire:model.defer="endDate" class="mr-3" />
+        <input type="date" wire:model="startDate" class="mr-3" />
+        <input type="date" wire:model="endDate" class="mr-3" />
 
         <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="getPurchasesForDateRange">
           Go
@@ -52,8 +52,8 @@
       </button>
     </div>
     <div>
-      <input type="date" wire:model.defer="startDate" class="mr-3" />
-      <input type="date" wire:model.defer="endDate" class="mr-3" />
+      <input type="date" wire:model="startDate" class="mr-3" />
+      <input type="date" wire:model="endDate" class="mr-3" />
 
       <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="getPurchasesForDateRange">
         Go
@@ -101,7 +101,7 @@
 
       <tbody>
         @foreach ($purchases as $purchase)
-          <tr wire:key="{{ rand() }}" wire:click="$emit('displayPurchase', {{ $purchase->purchase_id }})" style="font-size: 0.8rem;" role="button">
+          <tr wire:key="{{ rand() }}" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })" style="font-size: 0.8rem;" role="button">
             <td>
               {{ $purchase->purchase_id }}
             </td>
@@ -238,7 +238,7 @@
                   <i class="fas fa-cog text-secondary"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item" wire:click="$emit('displayPurchase', {{ $purchase->purchase_id }})">
+                  <button class="dropdown-item" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
                     <i class="fas fa-file text-primary mr-2"></i>
                     View
                   </button>

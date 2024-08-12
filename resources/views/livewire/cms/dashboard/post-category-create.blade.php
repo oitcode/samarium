@@ -9,7 +9,7 @@
       <label for="">Name</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="name"
+          wire:model="name"
           style="font-size: 1.3rem;">
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
@@ -21,7 +21,7 @@
         Submit
       </button>
       <button type="submit" class="btn btn-danger"
-          wire:click="$emit('createPostCategoryCanceled')"
+          wire:click="$dispatch('createPostCategoryCanceled')"
           style="font-size: 1.3rem;">
         Cancel
       </button>

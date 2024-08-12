@@ -2,7 +2,7 @@
   @if (false)
   <div class="form-group">
     <label for="">Allows appointments</label>
-    <select class="form-control" wire:model.defer="allows_appointments">
+    <select class="form-control" wire:model="allows_appointments">
       <option value="---">---</option>
       <option value="yes">Yes</option>
       <option value="no">No</option>

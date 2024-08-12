@@ -1,6 +1,6 @@
 <div class="p-3 bg-white">
   <div class="form-group">
-    <input type="text" class="form-control" wire:model.defer="name">
+    <input type="text" class="form-control" wire:model="name">
   </div>
 
   <div>

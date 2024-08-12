@@ -20,14 +20,14 @@
             <label class="h5" for="">Name *</label>
             <input type="text"
                 class="form-control shadow-sm"
-                wire:model.defer="name"
+                wire:model="name"
                 style="font-size: 1.3rem;">
             @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
       
           <div class="form-group">
             <label class="h5">Category *</label>
-            <select class="custom-select shadow-sm" wire:model.defer="product_category_id" style="font-size: 1.3rem;">
+            <select class="custom-select shadow-sm" wire:model="product_category_id" style="font-size: 1.3rem;">
               <option>---</option>
               @foreach ($productCategories as $productCategory)
                 <option value="{{ $productCategory->product_category_id }}">
@@ -43,7 +43,7 @@
             <label class="h5" for="">Selling price *</label>
             <input type="text"
                 class="form-control shadow-sm"
-                wire:model.defer="selling_price"
+                wire:model="selling_price"
                 style="font-size: 1.3rem;">
             @error('selling_price') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
@@ -60,7 +60,7 @@
               <textarea type="text"
                   class="form-control mb-0"
                   rows="5"
-                  wire:model.defer="description"
+                  wire:model="description"
                   style="font-size: 1.3rem;">
               </textarea>
               @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
@@ -90,7 +90,7 @@
           Enter product image here
         </h3>
         <div class="form-group">
-          <input type="file" class="form-control" wire:model="image">
+          <input type="file" class="form-control" wire:model.live="image">
           @error('image') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
 
@@ -134,7 +134,7 @@
             @if (false)
             <div class="form-group">
               <label for="">Stock applicable</label>
-              <select class="custom-select" wire:model.defer="stock_applicable" style="font-size: 1.3rem;">
+              <select class="custom-select" wire:model="stock_applicable" style="font-size: 1.3rem;">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -144,7 +144,7 @@
 
             <div class="form-group">
               <label>Product type</label>
-              <select class="custom-select" wire:model="product_type" style="font-size: 1.3rem;">
+              <select class="custom-select" wire:model.live="product_type" style="font-size: 1.3rem;">
                   <option value="normal">Normal</option>
                   <option value="base">Base</option>
                   <option value="sub">Sub</option>
@@ -157,7 +157,7 @@
               <label for="">Inventory unit</label>
               <input type="text"
                   class="form-control"
-                  wire:model.defer="inventory_unit"
+                  wire:model="inventory_unit"
                   style="font-size: 1.3rem;">
               @error ('inventory_unit') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
@@ -166,7 +166,7 @@
               <label for="">Opening stock count</label>
               <input type="text"
                   class="form-control"
-                  wire:model.defer="opening_stock_count"
+                  wire:model="opening_stock_count"
                   style="font-size: 1.3rem;">
               @error('opening_stock_count') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
@@ -175,7 +175,7 @@
               <label for="">Low stock notification count</label>
               <input type="text"
                   class="form-control"
-                  wire:model.defer="stock_notification_count"
+                  wire:model="stock_notification_count"
                   style="font-size: 1.3rem;">
               @error('stock_notification_count') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
@@ -184,7 +184,7 @@
             @if (false)
             <div class="form-group">
               <label>Is base product</label>
-              <select class="custom-select" wire:model.defer="is_base_product" style="font-size: 1.3rem;">
+              <select class="custom-select" wire:model="is_base_product" style="font-size: 1.3rem;">
                 <option>---</option>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
@@ -196,7 +196,7 @@
             @if ($modes['subProduct'])
             <div class="form-group">
               <label>Base product</label>
-              <select class="custom-select" wire:model.defer="base_product_id" style="font-size: 1.3rem;">
+              <select class="custom-select" wire:model="base_product_id" style="font-size: 1.3rem;">
                 <option>---</option>
                 @if (true)
                 @foreach ($baseProducts as $baseProduct)
@@ -216,7 +216,7 @@
               <label for="">Inventory Unit Consumption</label>
               <input type="text"
                   class="form-control"
-                  wire:model.defer="inventory_unit_consumption"
+                  wire:model="inventory_unit_consumption"
                   style="font-size: 1.3rem;">
               @error ('inventory_unit_consumption') <span class="text-danger">{{ $message }}</span> @enderror
             </div>

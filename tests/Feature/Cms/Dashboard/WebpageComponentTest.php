@@ -33,7 +33,7 @@ class WebpageComponentTest extends TestCase
     {
         $response = $this->actingAs(User::where('role', 'admin')->first())
             ->get('/cms/webpage')
-            ->assertSeeLivewire(\App\Http\Livewire\Cms\Dashboard\WebpageComponent::class);
+            ->assertSeeLivewire(\App\Livewire\Cms\Dashboard\WebpageComponent::class);
     }
 
     /**
@@ -43,7 +43,7 @@ class WebpageComponentTest extends TestCase
      */
     public function testDashboardCmsWebpageComponentHasAllModesFalse()
     {
-        Livewire::test(\App\Http\Livewire\Cms\Dashboard\WebpageComponent::class)
+        Livewire::test(\App\Livewire\Cms\Dashboard\WebpageComponent::class)
             ->assertSet('modes.create', false)
             ->assertSet('modes.list', false)
             ->assertSet('modes.display', false);
@@ -74,9 +74,9 @@ class WebpageComponentTest extends TestCase
      */
     public function testWebpageCreateLoadedWhenCreateMode()
     {
-        Livewire::test(\App\Http\Livewire\Cms\Dashboard\WebpageComponent::class) 
+        Livewire::test(\App\Livewire\Cms\Dashboard\WebpageComponent::class) 
             ->set('modes.create', true)
-            ->assertSeeLivewire(\App\Http\Livewire\Cms\Dashboard\WebpageCreate::class);
+            ->assertSeeLivewire(\App\Livewire\Cms\Dashboard\WebpageCreate::class);
     }
 
     /**
@@ -86,10 +86,10 @@ class WebpageComponentTest extends TestCase
      */
     public function testWebpageListLoadedWhenListMode()
     {
-        Livewire::test(\App\Http\Livewire\Cms\Dashboard\WebpageComponent::class) 
+        Livewire::test(\App\Livewire\Cms\Dashboard\WebpageComponent::class) 
             /* ->set('modes.list', true) */
             ->call('enterMode', 'list')
-            ->assertSeeLivewire(\App\Http\Livewire\Cms\Dashboard\WebpageList::class);
+            ->assertSeeLivewire(\App\Livewire\Cms\Dashboard\WebpageList::class);
     }
 
     /**
@@ -99,7 +99,7 @@ class WebpageComponentTest extends TestCase
      */
     public function testClearModes()
     {
-        Livewire::test(\App\Http\Livewire\Cms\Dashboard\WebpageComponent::class) 
+        Livewire::test(\App\Livewire\Cms\Dashboard\WebpageComponent::class) 
             ->call('clearModes')
             ->assertSet('modes.create', false)
             ->assertSet('modes.list', false)

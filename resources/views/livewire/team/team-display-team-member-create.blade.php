@@ -11,7 +11,7 @@
       <label for="">Name</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="name"
+          wire:model="name"
           style="font-size: 1.3rem;">
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
@@ -38,7 +38,7 @@
     @if ($modes['selectImageFromNewUploadMode'])
       <div class="form-group">
         <label for="">Image</label>
-        <input type="file" class="form-control" wire:model="image">
+        <input type="file" class="form-control" wire:model.live="image">
         @error('image') <span class="text-danger">{{ $message }}</span> @enderror
       </div>
     @elseif ($modes['selectImageFromLibraryMode'])
@@ -49,7 +49,7 @@
       <label for="">Post</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="comment"
+          wire:model="comment"
           style="font-size: 1.3rem;">
       @error ('comment') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
@@ -58,7 +58,7 @@
       <label for="">Phone</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="phone"
+          wire:model="phone"
           style="font-size: 1.3rem;">
       @error ('phone') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
@@ -67,7 +67,7 @@
       <label for="">Email</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="email"
+          wire:model="email"
           style="font-size: 1.3rem;">
       @error ('email') <span class="text-danger">{{ $message }}</span> @enderror
     </div>

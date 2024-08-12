@@ -25,7 +25,7 @@
                 <i class="fas fa-refresh"></i>
               </button>
 
-              <button class="btn btn-outline-danger" wire:click="$emit('exitSaleQuotationDisplayMode')">
+              <button class="btn btn-outline-danger" wire:click="$dispatch('exitSaleQuotationDisplayMode')">
                 <i class="fas fa-times"></i>
                 Close
               </button>
@@ -82,7 +82,7 @@
                     @if ($modes['backDate'])
                       <div>
                         <div>
-                          <input type="date" wire:model.defer="sale_quotation_date">
+                          <input type="date" wire:model="sale_quotation_date">
                           <div class="mt-2">
                             <button class="btn btn-light" wire:click="changeSaleQuotationDate">
                               <i class="fas fa-check-circle text-success"></i>
@@ -110,7 +110,7 @@
                       {{ $saleQuotation->customer->name }}
                     @else
                       @if ($saleQuotation->creation_status == 'progress')
-                        <select class="custom-control w-75" wire:model.defer="customer_id">
+                        <select class="custom-control w-75" wire:model="customer_id">
                           <option>---</option>
     
                           @foreach ($customers as $customer)

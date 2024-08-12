@@ -52,7 +52,7 @@
               @endif
               <td>
                 @if (false)
-                <button class="btn btn-primary badge-pill" wire:click="$emit('pdfDisplayDocumentFile', {{ $documentFile }})">
+                <button class="btn btn-primary badge-pill" wire:click="$dispatch('pdfDisplayDocumentFile', {{ $documentFile }})">
                   View file
                 </button>
                 @endif

@@ -42,13 +42,13 @@
               </div>
 
               <div class="mx-2 ml-3 mt-3 mb-3">
-                <button wire:click="$emit('removeItemFromSaleInvoice', {{ $deletingSaleInvoiceItem->sale_invoice_item_id }})"
+                <button wire:click="$dispatch('removeItemFromSaleInvoice', {{ $deletingSaleInvoiceItem->sale_invoice_item_id }})"
                     class="btn btn-sm btn-danger mr-3 p-2"
                     data-dismiss="modal"
                     style="font-size: 1.2rem;">
                   Remove
                 </button>
-                <button wire:click="$emit('exitDeleteSaleInvoiceItem')"
+                <button wire:click="$dispatch('exitDeleteSaleInvoiceItem')"
                     class="btn btn-sm btn-secondary mr-3 p-2"
                     data-dismiss="modal"
                     style="font-size: 1.2rem;">

@@ -25,7 +25,7 @@
     <button class="btn btn-success mr-2" wire:click="update">
       Save
     </button>
-    <button class="btn btn-danger mr-2" wire:click="$emit('calendarEventUpdateDateCancelled')">
+    <button class="btn btn-danger mr-2" wire:click="$dispatch('calendarEventUpdateDateCancelled')">
       Cancel
     </button>
   </div>

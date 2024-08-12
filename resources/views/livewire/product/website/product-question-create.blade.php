@@ -8,19 +8,19 @@
 
     <div class="form-group">
       <label class="m-0">Your name (optional)</label>
-      <input type="text" class="form-control" wire:model.defer="writer_name" />
+      <input type="text" class="form-control" wire:model="writer_name" />
       @error('writer_name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label class="m-0">Your info (optional)</label>
-      <input type="text" class="form-control" wire:model.defer="writer_info" />
+      <input type="text" class="form-control" wire:model="writer_info" />
       @error('writer_info') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label class="m-0">Question *</label>
-      <textarea rows="5" class="form-control" wire:model.defer="question_text" ></textarea>
+      <textarea rows="5" class="form-control" wire:model="question_text" ></textarea>
       @error('review_text') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

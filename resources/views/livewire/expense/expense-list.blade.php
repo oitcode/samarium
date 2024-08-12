@@ -12,8 +12,8 @@
         </button>
       </div>
       <div>
-        <input type="date" wire:model.defer="startDate" class="mr-3" />
-        <input type="date" wire:model.defer="endDate" class="mr-3" />
+        <input type="date" wire:model="startDate" class="mr-3" />
+        <input type="date" wire:model="endDate" class="mr-3" />
 
         <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="getExpensesForDateRange">
           Go
@@ -47,8 +47,8 @@
       </button>
     </div>
     <div>
-      <input type="date" wire:model.defer="startDate" class="mr-3" />
-      <input type="date" wire:model.defer="endDate" class="mr-3" />
+      <input type="date" wire:model="startDate" class="mr-3" />
+      <input type="date" wire:model="endDate" class="mr-3" />
 
       <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="getExpensesForDateRange">
         Go
@@ -92,7 +92,7 @@
   
         <tbody>
           @foreach($expenses as $expense)
-          <tr wire:key="{{ rand() * $expense->expense_id }}" wire:click="$emit('displayExpense', {{ $expense }})"
+          <tr wire:key="{{ rand() * $expense->expense_id }}" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })"
               style="font-size: 0.8rem;" role="button">
             <td>
               {{ $expense->expense_id }}
@@ -119,7 +119,7 @@
                   <i class="fas fa-cog text-secondary"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item" wire:click="$emit('displayExpense', {{ $expense }})">
+                  <button class="dropdown-item" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">
                     <i class="fas fa-file text-primary mr-2"></i>
                     View
                   </button>

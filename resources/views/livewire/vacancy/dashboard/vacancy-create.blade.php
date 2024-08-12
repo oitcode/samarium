@@ -11,7 +11,7 @@
       <label>Title *</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="title"
+          wire:model="title"
           style="font-size: 1.3rem;">
       @error ('title') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
@@ -20,7 +20,7 @@
       <label>Job location *</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="job_location"
+          wire:model="job_location"
           style="font-size: 1.3rem;">
       @error ('job_location') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
@@ -29,7 +29,7 @@
       <label>Description *</label>
       <input type="text"
           class="form-control"
-          wire:model.defer="description"
+          wire:model="description"
           style="font-size: 1.3rem;">
       @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
     </div>

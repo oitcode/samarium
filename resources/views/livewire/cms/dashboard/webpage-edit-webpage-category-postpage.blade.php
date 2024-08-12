@@ -1,6 +1,6 @@
 <div>
     <div class="form-group">
-      <select class="form-control" wire:model.defer="webpage_category_id">
+      <select class="form-control" wire:model="webpage_category_id">
         <option value="---">---</option>
         @foreach ($webpageCategories as $category)
           <option value="{{ $category->webpage_category_id }}">{{ $category->name }}</option>
@@ -17,7 +17,7 @@
       <button class="btn btn-sm btn-success" wire:click="store">
         Save
       </button>
-      <button class="btn btn-sm btn-danger" wire:click="$emit('webpageEditWebpageCategoryPostpageCancel')">
+      <button class="btn btn-sm btn-danger" wire:click="$dispatch('webpageEditWebpageCategoryPostpageCancel')">
         Cancel
       </button>
     </div>

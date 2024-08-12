@@ -13,7 +13,7 @@
     <label class="h5 font-weight-bold">Title *</label>
     <input type="text"
         class="form-control bg-light rounded-lg"
-        wire:model.defer="title"
+        wire:model="title"
         style="font-size: 1.3rem;">
     @error ('title') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
@@ -22,7 +22,7 @@
   <div class="form-group mb-4">
     <label class="h5 font-weight-bold">Single or Multiple day *</label>
     @if (false)
-    <select class="form-control" wire:model.defer="single_multiple">
+    <select class="form-control" wire:model="single_multiple">
       <option class="single">Single day</option>
       <option class="multiple">Multiple days</option>
     </select>
@@ -116,7 +116,7 @@
   {{-- Is holiday --}}
   <div class="form-group mb-4">
     <label class="h5 font-weight-bold">Is holiday *</label>
-    <select class="form-control" wire:model.defer="is_holiday">
+    <select class="form-control" wire:model="is_holiday">
       <option>---</option>
       <option value="no">No</option>
       <option value="yes">Yes</option>
@@ -157,7 +157,7 @@
       {{-- Calendar group --}}
       <div class="form-group mb-4">
         <label class="h5 font-weight-bold">Calendar group *</label>
-        <select class="form-control" wire:model.defer="calendar_group_id">
+        <select class="form-control" wire:model="calendar_group_id">
           <option>---</option>
           @foreach ($calendarGroups as $calendarGroup)
             <option value="{{ $calendarGroup->calendar_group_id }}">{{ $calendarGroup->name }}</option>

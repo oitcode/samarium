@@ -7,7 +7,7 @@
 
   <div class="form-group">
     <label>Feature</label>
-    <input type="text" class="form-control" wire:model.defer="feature">
+    <input type="text" class="form-control" wire:model="feature">
     @error ('feature')
       <div class="text-danger">
         <i class="fas fa-exclamation-circle mr-1"></i>
@@ -18,7 +18,7 @@
 
   <div class="form-group">
     <label class="h5">Feature heading</label>
-    <select class="custom-select shadow-sm" wire:model.defer="product_feature_heading_id" style="font-size: 1.3rem;">
+    <select class="custom-select shadow-sm" wire:model="product_feature_heading_id" style="font-size: 1.3rem;">
       <option>---</option>
       @foreach ($productFeatureHeadings as $productFeatureHeading)
         <option value="{{ $productFeatureHeading->product_feature_heading_id }}">

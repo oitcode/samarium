@@ -6,13 +6,13 @@
 
   <div class="form-group">
     <label for="">Name</label>
-    <input type="text" class="form-control" wire:model.defer="name">
+    <input type="text" class="form-control" wire:model="name">
     @error('name') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
     <label>Parent account type</label>
-    <select class="custom-select" wire:model.defer="parent_ab_account_type_id">
+    <select class="custom-select" wire:model="parent_ab_account_type_id">
       <option>---</option>
       @foreach ($abAccountTypes as $abAccountType)
         <option value="{{ $abAccountType->ab_account_type_id }}">
@@ -27,7 +27,7 @@
     <button type="submit" class="btn btn-success" style="font-size: 1rem;" wire:click="store">
       Submit
     </button>
-    <button type="submit" class="btn btn-danger" wire:click="$emit('exitAccountTypeCreateMode')" style="font-size: 1rem;">
+    <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitAccountTypeCreateMode')" style="font-size: 1rem;">
       Cancel
     </button>
   </div>

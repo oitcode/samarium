@@ -5,7 +5,7 @@
   
     <div class="form-group">
       <label for="">Category name</label>
-      <input type="text" class="form-control" wire:model.defer="name">
+      <input type="text" class="form-control" wire:model="name">
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
   

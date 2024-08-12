@@ -23,7 +23,7 @@
                 {{ $userGroup->user_group_id }}
               </td>
 
-              <td class="font-weight-bold" wire:click="$emit('displayUserGroup', {{ $userGroup }})" role="button">
+              <td class="font-weight-bold" wire:click="$dispatch('displayUserGroup', {userGroup: {{ $userGroup }} })" role="button">
                 {{ $userGroup->name }}
               </td>
 
@@ -44,7 +44,7 @@
       @foreach ($userGroups as $userGroup)
         <div class="bg-white border px-3">
           <div class="h4-rm py-4">
-            <span  wire:click="$emit('displayUserGroup', {{ $userGroup }})" class="h5 text-dark font-weight-bold" role="button">
+            <span  wire:click="$dispatch('displayUserGroup', {userGroup: {{ $userGroup }} })" class="h5 text-dark font-weight-bold" role="button">
               {{ \Illuminate\Support\Str::limit($userGroup->name, 60, $end=' ...') }}
             </span>
           </div>
