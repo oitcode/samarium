@@ -4,7 +4,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-CMS and other features. Created with laravel and livewire. 
+Simple content management system (CMS). You can create webpages and
+blog posts easily from a GUI admin panel. Created with laravel and livewire.
 
 ![screenshot](dashboard-screenshot-1.png)
 
