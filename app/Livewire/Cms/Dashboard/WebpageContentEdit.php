@@ -36,8 +36,6 @@ class WebpageContentEdit extends Component
             'image' => 'nullable|image'
         ]);
 
-        /* dd ($validatedData['body']); */
-
         if ($this->image) {
             $image_path = $this->image->store('webpage-content', 'public');
             $validatedData['image_path'] = $image_path;
@@ -46,10 +44,5 @@ class WebpageContentEdit extends Component
         $this->webpageContent->update($validatedData);
 
         $this->dispatch('webpageContentUpdated');
-    }
-
-    public function updatedValue($value)
-    {
-      /* dd ($value); */
     }
 }

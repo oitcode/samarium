@@ -31,19 +31,19 @@
   @if (true)
   <div wire:ignore>
 
-    <input id="wcb2" value="{{ $body }}" wire:model.live="body" type="hidden" name="content" wire:key="{{ rand() }}">
-    <div class="form-group">
-      <trix-editor wire:ignore input="wcb2" wire:key="andthisBayern-{{ rand() }}"></trix-editor>
-      @error('body') <span class="text-danger">{{ $message }}</span> @enderror
-    </div>
+    <input id="wcb2" value="{{ $this->body }}" wire:model.live="body" type="hidden">
+    <trix-editor wire:ignore input="wcb2"></trix-editor>
+    @error('body') <span class="text-danger">{{ $message }}</span> @enderror
 
+    @script
     <script>
-        var trixEditor = document.getElementById("wcb2")
+        let trixEditor = document.getElementById("wcb2")
     
         addEventListener("trix-blur", function(event) {
             @this.set('body', trixEditor.getAttribute('value'))
         })
     </script>
+    @endscript
   </div>
   @endif
 
