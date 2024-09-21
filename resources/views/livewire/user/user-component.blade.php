@@ -19,6 +19,7 @@
         'btnCheckMode' => 'createUserMode',
     ])
 
+    @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listUserMode')",
         'btnIconFaClass' => 'fas fa-list',
@@ -41,6 +42,7 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
+    @endif
 
   </x-toolbar-classic>
 

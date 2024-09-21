@@ -79,9 +79,11 @@
         @livewire ('calendar.website.upcoming-events-list')
       </div>
       <div class="col-md-4 pt-5 pt-md-0">
+        @if (false)
         <h2 class="font-weight-bold mb-2">
           Latest notices
         </h2>
+        @endif
         @livewire ('notice.dashboard.latest-notice-list')
       </div>
     </div>

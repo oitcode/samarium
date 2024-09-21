@@ -1,11 +1,11 @@
 <div class="border-rm bg-white">
 
-      <div class="table-responsive">
-        <table class="table table-borderless">
-          @if (false)
+      <div class="table-responsive border">
+        <table class="table table-borderless-rm mb-0">
+          @if (true)
           <tr>
-            <th class="bg-light text-dark">
-              Notice
+            <th class="bg-danger text-white">
+              Latest Notice
             </th>
           </tr>
           @endif
@@ -15,7 +15,7 @@
               <td class="text-primary-rm font-weight-bold-rm">
                 <a href="{{ route('website-webpage-' . $notice->permalink) }}" class="text-decoration-none text-reset">
                   <div>
-                    <div>
+                    <div class="h5 font-weight-bold">
                       {{ $notice->name }}
                     </div>
                     <div>
