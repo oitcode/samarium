@@ -72,13 +72,15 @@
 <div class="container-fluid bg-white border pt-4 pb-4">
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-8 border p-0">
+        @if (false)
         <h2 class="font-weight-bold mb-4">
           Upcoming events
         </h2>
+        @endif
         @livewire ('calendar.website.upcoming-events-list')
       </div>
-      <div class="col-md-4 pt-5 pt-md-0">
+      <div class="col-md-4 pt-5 pt-md-0 px-0 px-md-3">
         @if (false)
         <h2 class="font-weight-bold mb-2">
           Latest notices
@@ -91,7 +93,7 @@
 </div>
 
 {{-- Hero/Featured Div --}}
-<div class="container-fluid bg-white-rm p-0 pt-5" 
+<div class="container-fluid bg-white-rm p-0 pt-3" 
   style="
            {{--
            background-image: @if (\App\CmsTheme::first())
@@ -108,10 +110,10 @@
            --}}
            "
 >
-  <div class="container">
+  <div class="container bg-dark-rm">
 
-    <div class="row">
-      <div class="col-md-8">
+    <div class="row bg-warning-rm" style="margin: auto;">
+      <div class="col-md-8 p-0 border">
 
         {{--
         |
@@ -124,8 +126,7 @@
           <div class="row">
             @foreach (\App\Webpage::whereHas('webpageCategories', function ($query) { $query->where('name', 'featured');})->where('visibility', 'public')->orderBy('webpage_id', 'desc')->limit('4')->get() as $webpage)
 
-              <div class="col-6 mb-1 p-0 pr-1">
-                <a href="{{ route('website-webpage-' . $webpage->permalink) }}">
+              <div class="col-6 mb-1 p-0 pr-1"> <a href="{{ route('website-webpage-' . $webpage->permalink) }}">
                   <div style="
                     background-image: @if (\App\CmsTheme::first())
                       url({{ asset('storage/' . $webpage->featured_image_path) }})
@@ -164,8 +165,8 @@
         |
         --}}
         <div>
-          <div class="px-3">
-            <h2 class="h4 font-weight-bold">
+          <div class="px-0 px-md-0">
+            <h2 class="h4 font-weight-bold bg-primary text-white p-3">
               Latest posts
             </h2>
           </div>
