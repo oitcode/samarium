@@ -139,7 +139,7 @@
       @endif
       <div class="@if ($onlyForm == 'yes') col-md-12 @else col-md-6 @endif bg-white border py-4-rm shadow-lg-rm p-0">
         <div style="font-size: 1.3rem;">
-        <h2 class="h4 font-weight-bold text-muted-rm text-md-center pl-3 bg-danger text-white py-3">
+        <h2 class="h5 font-weight-bold text-muted-rm text-md-center pl-3 bg-danger text-white py-3">
           @if (false)
           <i class="far fa-paper-plane text-muted-rm mr-2"></i>
           @endif

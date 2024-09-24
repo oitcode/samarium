@@ -166,7 +166,7 @@
         --}}
         <div class="bg-warning-rm px-3-rm px-md-0">
           <div class="">
-            <h2 class="h4 font-weight-bold bg-primary text-white p-3">
+            <h2 class="h5 font-weight-bold bg-primary text-white p-3">
               Latest posts
             </h2>
           </div>
