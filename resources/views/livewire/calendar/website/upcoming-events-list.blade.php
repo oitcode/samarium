@@ -70,7 +70,7 @@
         @endif
 
         <div class="d-flex mb-3">
-          <div class="border-right mr-4 pr-4">
+          <div class="border-right mr-4 pr-4 pl-3">
             <div class="h2 font-weight-bold text-success">
             {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($loopDate->toDateString(), 'english')  }}
             </div>
@@ -78,7 +78,7 @@
             {{ $loopDate->format('l') }}
             </div>
           </div>
-          <div class="">
+          <div class="px-3">
             @foreach (\App\SchoolCalendarEvent::whereDate('start_date', $loopDate->format('Y-m-d'))->get() as $calendarEvent)
               <div class="mb-2">
                 {{ $calendarEvent->title }}
