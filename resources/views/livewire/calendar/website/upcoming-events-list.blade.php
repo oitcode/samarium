@@ -101,7 +101,7 @@
     @endfor
 
     @if ($noEvent)
-      <div class="h4 font-weight-bold px-3" style="color: orange;">
+      <div class="h5 font-weight-bold px-3" style="color: orange;">
         <i class="fas fa-exclamation-circle mr-1"></i>
         No upcoming events.
       </div>

@@ -71,7 +71,7 @@
 
 <div class="container-fluid bg-white border pt-4 pb-4">
   <div class="container">
-    <div class="row">
+    <div class="row" style="margin: auto;">
       <div class="col-md-8 border p-0">
         @if (false)
         <h2 class="font-weight-bold mb-4">
@@ -112,8 +112,8 @@
 >
   <div class="container bg-dark-rm">
 
-    <div class="row bg-warning-rm" style="margin: auto;">
-      <div class="col-md-8 p-0 border">
+    <div class="row bg-danger-rm" style="margin: auto;">
+      <div class="col-md-8 mb-4 p-0">
 
         {{--
         |
@@ -164,8 +164,8 @@
         | Show latest posts.
         |
         --}}
-        <div>
-          <div class="px-0 px-md-0">
+        <div class="bg-warning-rm px-3 px-md-0">
+          <div class="">
             <h2 class="h4 font-weight-bold bg-primary text-white p-3">
               Latest posts
             </h2>
