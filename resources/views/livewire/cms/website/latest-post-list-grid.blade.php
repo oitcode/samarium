@@ -2,7 +2,7 @@
 
 
     <div class="row" style="margin: auto;">
-      @if (count($webpages) > 0)
+      @if (false && count($webpages) > 0)
         @foreach ($webpages as $webpage)
           <div class="col-md-6 px-0 px-md-3 pb-3 mb-0 pt-0">
 
@@ -54,7 +54,10 @@
         @endforeach
       @else
         <div class="container p-3 text-muted">
-          No posts to show 
+          <div class="h5 font-weight-bold" style="color: orange;">
+            <i class="fas fa-exclamation-circle mr-1"></i>
+            No posts.
+          </div>
         </div>
       @endif
     </div>
