@@ -19,10 +19,20 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        /* Ask for name, email and password from terminal. */
+        $userName = (string) readline('Name: ');
+        $userEmail = (string) readline('Email: ');
+
+        echo 'Password: ';
+        system('stty -echo');
+        $userPw = trim(fgets(STDIN));
+        system('stty echo');
+        echo "\n";
+
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
+            'name' => $userName,
+            'email' => $userEmail,
+            'password' => Hash::make($userPw),
             'role' => 'admin',
 
             'created_at' => Carbon::now(),
