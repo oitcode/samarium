@@ -9,7 +9,7 @@
             </th>
           </tr>
           @endif
-          @if (false && count($notices) > 0)
+          @if (count($notices) > 0)
             @foreach ($notices as $notice) 
             <tr class="border-bottom">
               <td class="text-primary-rm font-weight-bold-rm">
@@ -29,7 +29,7 @@
           @else
             <tr>
               <td class="text-muted">
-                 <div class="h5 font-weight-bold px-3" style="color: orange;">
+                 <div class="h5 font-weight-bold" style="color: orange;">
                    <i class="fas fa-exclamation-circle mr-1"></i>
                    No notice.
                  </div>
