@@ -168,7 +168,7 @@
 
   @if (!is_null($webpage->webpageContents) && count($webpage->webpageContents) > 0)
   
-    <div class="row">
+    <div class="row" style="margin: auto;">
       <div class="col-md-8">
         @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
   
@@ -227,9 +227,9 @@
   
         @endforeach
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 p-4 bg-warning-rm">
         @if (true)
-        <div class="sticky-top">
+        <div class="sticky-top-rm">
           @livewire ('cms.website.create-webpage-question', ['webpage' => $webpage,])
         </div>
         @endif

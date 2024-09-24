@@ -1,4 +1,4 @@
-<div class="border bg-white-rm p-3 mb-3" style="background-color: #eee;">
+<div class="border bg-info-rm p-3 mb-3" style="{{-- background-color: #eee; --}}">
   <h2 class="h5 font-weight-bold text-primary">
     Any question?
   </h2>
