@@ -113,7 +113,7 @@
   <div class="container bg-dark-rm">
 
     <div class="row bg-danger-rm" style="margin: auto;">
-      <div class="col-md-8 mb-4 p-0">
+      <div class="col-md-8 mb-4 p-0 border">
 
         {{--
         |
@@ -164,7 +164,7 @@
         | Show latest posts.
         |
         --}}
-        <div class="bg-warning-rm px-3 px-md-0">
+        <div class="bg-warning-rm px-3-rm px-md-0">
           <div class="">
             <h2 class="h4 font-weight-bold bg-primary text-white p-3">
               Latest posts
@@ -175,7 +175,7 @@
 
 
       </div>
-      <div class="col-md-4 px-2-rm">
+      <div class="col-md-4 px-2-rm mb-4">
         @livewire ('cms.website.contact-component', ['onlyForm' => 'yes',])
         @if (false)
         <div class="container mb-4 p-0">
