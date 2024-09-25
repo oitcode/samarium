@@ -19,6 +19,8 @@ Created with laravel and livewire.
 
 <img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat&logo=laravel&logoColor=white" alt="Laravel">
 <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white" alt="Bootstrap">
+<img src="https://img.shields.io/badge/Livewire-8A2BE2" alt="Livewire">
+
 
 
 ## Features
