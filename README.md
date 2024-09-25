@@ -26,16 +26,23 @@ Created with laravel and livewire.
 
 ## Installation
 
-Note: It is just another laravel application. So do as you would do while setting
-up a typical laravel application. Please ensure that all the dependencies for
-a laravel application is met.
+### Pre requisites
 
-After that run below bash script. (Please check the
-script if you want to perform all the steps manually.)
-
-`bash app-install.sh`
+Below applications must be installed in the system. 
 
 ```
+php >= 8.2
+mysql >= 8.0
+```
+
+### Manual installation
+
+It is just another laravel application. So we do all the steps required to get a
+laravel application working. 
+
+```
+$ git clone https://github.com/oitcode/samarium.git
+$ mv samarium
 $ composer install
 $ npm install
 $ npm run dev
@@ -43,6 +50,16 @@ $ php artisan migrate
 $ php artisan key:generate
 $ php artisan storage:link
 ```
+
+### Script installation
+
+If you do not want to perform all the installation steps manually,
+then there is a bash script provided that will run all the 
+required steps.
+
+Please run below bash script.
+
+`bash app-install.sh`
 
 ## Creating first user
 
