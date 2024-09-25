@@ -18,8 +18,13 @@ sharing etc.
 
 ## Features
 
-- Admin panel
-- Many pre-built modules
+- Content Management System (CMS)
+- Product Catalogue
+- Invoice Generation
+- Calendar Events
+- Team Catalogue
+- Contact Message
+- Appointment Scheduler
 
 ## Installation
 
