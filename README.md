@@ -26,6 +26,9 @@ sharing etc.
 
 ## Installation
 
+It is just another laravel application. So we do all the steps required to get a
+laravel application working. 
+
 ### Pre requisites
 
 Below applications must be installed in the system. 
@@ -37,12 +40,16 @@ mysql >= 8.0
 
 ### Manual installation
 
-It is just another laravel application. So we do all the steps required to get a
-laravel application working. 
+Perform the below steps.
 
 ```
+First create a mysql database 
+
 $ git clone https://github.com/oitcode/samarium.git
 $ mv samarium
+
+Enter database name, mysql username and mysql password in the .env file
+
 $ composer install
 $ npm install
 $ npm run dev
