@@ -1,7 +1,7 @@
 # Samarium
 
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 <img src="https://img.shields.io/badge/Version-0.8.2-blue" alt="Version">
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 
 Simple content management system (CMS). You can create webpages and
 blog posts easily from a GUI admin panel. Apart from CMS, there
