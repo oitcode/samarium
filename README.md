@@ -40,16 +40,19 @@ mysql >= 8.0
 
 ### Manual installation
 
-Perform the below steps.
+First create a mysql database. Then run below command to clone this repo and change
+the working directory.
 
 ```
-First create a mysql database 
-
 $ git clone https://github.com/oitcode/samarium.git
-$ mv samarium
+$ cd samarium
+$ mv env.example .env
+```
 
-Enter database name, mysql username and mysql password in the .env file
+Now, enter database name, mysql username and mysql password in the .env file. Next
+perform below steps.
 
+```
 $ composer install
 $ npm install
 $ npm run dev
