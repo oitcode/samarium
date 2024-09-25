@@ -17,7 +17,7 @@ Created with laravel and livewire.
 
 ## Built with
 
-* [![Laravel][Laravel]][https://img.shields.io/badge/Laravel-FF2D20?style=flat&logo=laravel&logoColor=white]
+[![Laravel][Laravel]][https://img.shields.io/badge/Laravel-FF2D20?style=flat&logo=laravel&logoColor=white]
 
 ## Features
 
