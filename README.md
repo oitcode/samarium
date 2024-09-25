@@ -35,6 +35,15 @@ script if you want to perform all the steps manually.)
 
 `bash app-install.sh`
 
+```
+$ composer install
+$ npm install
+$ npm run dev
+$ php artisan migrate
+$ php artisan key:generate
+$ php artisan storage:link
+```
+
 ## Creating first user
 
 To use the dashboard, you need a username and password.
