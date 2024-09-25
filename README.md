@@ -5,13 +5,10 @@
 </p>
 
 Simple content management system (CMS). You can create webpages and
-blog posts easily from a GUI admin panel.
-
-Apart from CMS, there are also other features like product display,
-invoice creation, calendar events, contact message,
-task manager, document sharing etc.
-
-Created with laravel and livewire.
+blog posts easily from a GUI admin panel. Apart from CMS, there
+are also other features like product display, invoice creation,
+calendar events, contact message, task manager, document
+sharing etc.
 
 ![screenshot](dashboard-screenshot-1.png)
 
