@@ -71,7 +71,7 @@
 
         <div class="d-flex mb-3">
           <div class="border-right mr-4 pr-4 pl-3">
-            <div class="h2 font-weight-bold text-success">
+            <div class="h5 font-weight-bold text-success">
             {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($loopDate->toDateString(), 'english')  }}
             </div>
             <div>
@@ -82,6 +82,13 @@
             @foreach (\App\SchoolCalendarEvent::whereDate('start_date', $loopDate->format('Y-m-d'))->get() as $calendarEvent)
               <div class="mb-2">
                 {{ $calendarEvent->title }}
+
+                @if ($calendarEvent->is_holiday == 'yes')
+                  <span class="text-danger mx-3">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    Holiday
+                  </span>
+                @endif
 
                 @if ($calendarEvent->calendarGroups != null && count($calendarEvent->calendarGroups) > 0)
                   @foreach ($calendarEvent->calendarGroups as $calendarGroup)
