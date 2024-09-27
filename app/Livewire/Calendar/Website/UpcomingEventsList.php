@@ -130,7 +130,7 @@ class UpcomingEventsList extends Component
                     }
                 }
             } else {
-                // $calendarGroupEvent->push($event);
+                $calendarGroupEvent->push($event);
             }
         }
 
