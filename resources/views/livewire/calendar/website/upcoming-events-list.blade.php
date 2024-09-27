@@ -8,33 +8,35 @@
     </div>
   </div>
 
-  <div class="row" style="margin: auto;">
-    <div class="col-md-4 p-0 bg-warning">
-      <div class="d-flex flex-column justify-content-center h-100" style="background-color: rgba(255, 255, 255, 0.5)">
-        <div class="h5 text-dark font-weight-bold p-3">
-          {{ $selectedCalendarGroup->name }}
-        </div>
-      </div>
-    </div>
-    <div class="col-md-8">
-      <div class="d-flex justify-content-between-rm p-3-rm py-3">
-        <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
-          <button class="btn btn-success border dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Calendar Group
-          </button>
-          <div class="dropdown-menu" aria-labelledby="calendarGroupDropdownMenu">
-            @foreach ($calendarGroups as $calendarGroup)
-              <button class="dropdown-item" type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
-            @endforeach
+  @if ($selectedCalendarGroup)
+    <div class="row" style="margin: auto;">
+      <div class="col-md-4 p-0 bg-warning">
+        <div class="d-flex flex-column justify-content-center h-100" style="background-color: rgba(255, 255, 255, 0.5)">
+          <div class="h5 text-dark font-weight-bold p-3">
+            {{ $selectedCalendarGroup->name }}
           </div>
         </div>
+      </div>
+      <div class="col-md-8">
+        <div class="d-flex justify-content-between-rm p-3-rm py-3">
+          <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
+            <button class="btn btn-success border dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Calendar Group
+            </button>
+            <div class="dropdown-menu" aria-labelledby="calendarGroupDropdownMenu">
+              @foreach ($calendarGroups as $calendarGroup)
+                <button class="dropdown-item" type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
+              @endforeach
+            </div>
+          </div>
 
-        <div>
-          @include ('partials.dashboard.spinner-button')
+          <div>
+            @include ('partials.dashboard.spinner-button')
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  @endif
 
 
 
