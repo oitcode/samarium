@@ -47,12 +47,15 @@
 
 
    <div class="d-flex justify-content-between col-md-4-rm bg-success text-white p-3">
-     <h2 class="h6 mb-0">
-       Upcoming events
-     </h2>
+     <div class="d-flex flex-column justify-content-center">
+       <h2 class="h6 mb-0 font-weight-bold">
+         Upcoming events
+       </h2>
+     </div>
      <div class="my-3">
        @foreach ($calendarGroups as $calendarGroup)
-         <button class="btn @If ($calendarGroup->calendar_group_id == $selectedCalendarGroup->calendar_group_id) btn-dark @else btn-light border @endif p-3"
+         <button class="btn @if ($calendarGroup->calendar_group_id == $selectedCalendarGroup->calendar_group_id) btn-dark @else btn-light border
+         @endif p-3-rm"
              type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
        @endforeach
      </div>
@@ -62,18 +65,19 @@
             @foreach ($monthBook as $day)
               @if (count($day['events']) > 0)
               <div
-                  class=" d-flex p-3 border " >
-                <div class="border-0 w-50">
-
+                  class="row border" style="margin: auto;">
+                <div class="col-4 border-0 w-50 bg-danger-rm bg-success text-white-rm p-0">
+                  <div class="h-100 p-3" style="background-color: rgba(255, 255, 255, 0.8)">
                     <div class="h5 font-weight-bold text-success mb-1">
                     {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($day['day']->toDateString(), 'english')  }}
                     </div>
                     <div>
                     {{ $day['day']->format('l') }}
                     </div>
-
+                  </div>
                 </div>
-                <div class="d-block-rm d-md-table-cell-rm border-0">
+
+                <div class="col-8 border-0 py-3">
                   @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
                     @if (false)
                     <span class=" badge badge-pill badge-danger">
