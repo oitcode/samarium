@@ -30,7 +30,7 @@ class UpcomingEventsList extends Component
 
         $this->populateMonthBook();
 
-        if (count($calendarGroups) > 0) {
+        if (count($this->calendarGroups) > 0) {
             $this->calendarEvents = SchoolCalendarEvent::whereHas('calendarGroups', function ($query) { $query->where('name', $this->selectedCalendarGroup->name);})
                 ->whereDate('start_date', '>=', \Carbon\Carbon::today())
                 ->orderBy('start_date', 'asc')
