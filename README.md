@@ -1,6 +1,6 @@
 # Samarium
 
-<img src="https://img.shields.io/badge/Version-0.8.2-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005500" alt="Version">
+<img src="https://img.shields.io/badge/Version-0.8.5-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005530" alt="Version">
 
 Simple content management system (CMS). You can create webpages and
 blog posts easily from a GUI admin panel. Apart from CMS, there
