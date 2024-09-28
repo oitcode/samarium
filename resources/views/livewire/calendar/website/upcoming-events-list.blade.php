@@ -55,73 +55,80 @@
 
 
 
-  @foreach ($monthBook as $day)
-    @if (count($day['events']) > 0)
-    <div
-        class="row border" style="margin: auto;">
-      <div class="col-4 border-0 w-50 bg-danger-rm bg-success-rm text-white-rm p-0" style="
-                background-color:
-                  @if (\App\CmsTheme::first())
-                    {{ \App\CmsTheme::first()->ascent_bg_color }}
-                  @else
-                    orange
-                  @endif
-                  ;
-      ">
-        <div class="h-100 p-3" style="background-color: rgba(255, 255, 255, 0.5)">
-          <div class="h5 font-weight-bold text-success-rm mb-1" style="
-                  color:
-                  @if (\App\CmsTheme::first())
-                    {{ \App\CmsTheme::first()->ascent_bg_color }}
-                  @else
-                    black
-                  @endif
-                  ;
-          ">
-          {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($day['day']->toDateString(), 'english')  }}
-          </div>
-          <div>
-          {{ $day['day']->format('l') }}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-8 border-0 py-3">
-        @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
-          @if (false)
-          <span class=" badge badge-pill badge-danger">
-            Holiday
-          </span>
-          <br />
-          @endif
-        @endif
-        @foreach ($day['events'] as $event)
-
-          <div class="d-flex">
-            <div class="mr-2">
-              <i class="fas fa-calendar text-muted"></i>
+  @if ($hasEvents)
+    @foreach ($monthBook as $day)
+      @if (count($day['events']) > 0)
+      <div
+          class="row border" style="margin: auto;">
+        <div class="col-4 border-0 w-50 bg-danger-rm bg-success-rm text-white-rm p-0" style="
+                  background-color:
+                    @if (\App\CmsTheme::first())
+                      {{ \App\CmsTheme::first()->ascent_bg_color }}
+                    @else
+                      orange
+                    @endif
+                    ;
+        ">
+          <div class="h-100 p-3" style="background-color: rgba(255, 255, 255, 0.5)">
+            <div class="h5 font-weight-bold text-success-rm mb-1" style="
+                    color:
+                    @if (\App\CmsTheme::first())
+                      {{ \App\CmsTheme::first()->ascent_bg_color }}
+                    @else
+                      black
+                    @endif
+                    ;
+            ">
+            {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($day['day']->toDateString(), 'english')  }}
             </div>
             <div>
-              @if ($selectedCalendarGroup)
-              @else
-                @foreach ($event->calendarGroups as $calendarGroup)
-                  {{ $calendarGroup->name }}
-                  :&nbsp;&nbsp;
-                @endforeach
-              @endif
-              {{ $event->title }}
-              @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
-                <span class="mx-4 text-danger">
-                  <i class="fas fa-exclamation-circle"></i>
-                  Holiday
-                </span>
-              @endif
+            {{ $day['day']->format('l') }}
             </div>
           </div>
-        @endforeach
+        </div>
+
+        <div class="col-8 border-0 py-3">
+          @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
+            @if (false)
+            <span class=" badge badge-pill badge-danger">
+              Holiday
+            </span>
+            <br />
+            @endif
+          @endif
+          @foreach ($day['events'] as $event)
+
+            <div class="d-flex">
+              <div class="mr-2">
+                <i class="fas fa-calendar text-muted"></i>
+              </div>
+              <div>
+                @if ($selectedCalendarGroup)
+                @else
+                  @foreach ($event->calendarGroups as $calendarGroup)
+                    {{ $calendarGroup->name }}
+                    :&nbsp;&nbsp;
+                  @endforeach
+                @endif
+                {{ $event->title }}
+                @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
+                  <span class="mx-4 text-danger">
+                    <i class="fas fa-exclamation-circle"></i>
+                    Holiday
+                  </span>
+                @endif
+              </div>
+            </div>
+          @endforeach
+        </div>
       </div>
+      @endif
+    @endforeach
+  @else
+    <div class="h5 font-weight-bold p-3" style="color: orange;">
+      <i class="fas fa-exclamation-circle mr-1"></i>
+      No upcoming events.
     </div>
-    @endif
-  @endforeach
+  @endif
 
 </div>

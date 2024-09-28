@@ -12,6 +12,7 @@ class UpcomingEventsList extends Component
     public $calendarEvents;
 
     public $monthBook = array();
+    public $hasEvents;
 
     public $displayMonthName;
     public $startDay;
@@ -84,6 +85,8 @@ class UpcomingEventsList extends Component
                 break;
             }
         }
+
+        $this->hasEvents = $this->checkIfAnyEvents();
     }
 
     public function checkIfDayIsHoliday($day)
@@ -135,5 +138,16 @@ class UpcomingEventsList extends Component
         }
 
         return $calendarGroupEvent;
+    }
+
+    public function checkIfAnyEvents()
+    {
+        foreach ($this->monthBook as $day) {
+            if ($day['events']) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
