@@ -1,6 +1,21 @@
 <div class="">
 
-  <div class="d-flex justify-content-between-rm col-md-4-rm bg-success text-white p-3">
+  <div class="d-flex justify-content-between-rm col-md-4-rm bg-success-rm text-white-rm p-3" style="
+                background-color:
+                  @if (\App\CmsTheme::first())
+                    {{ \App\CmsTheme::first()->ascent_bg_color }}
+                  @else
+                    orange
+                  @endif
+                  ;
+                color:
+                  @if (\App\CmsTheme::first())
+                    {{ \App\CmsTheme::first()->ascent_text_color }}
+                  @else
+                    white
+                  @endif
+                  ;
+  ">
     <div class="d-flex flex-column justify-content-center">
       <h2 class="h6 mb-0 font-weight-bold">
         Upcoming events
@@ -44,9 +59,25 @@
     @if (count($day['events']) > 0)
     <div
         class="row border" style="margin: auto;">
-      <div class="col-4 border-0 w-50 bg-danger-rm bg-success text-white-rm p-0">
-        <div class="h-100 p-3" style="background-color: rgba(255, 255, 255, 0.8)">
-          <div class="h5 font-weight-bold text-success mb-1">
+      <div class="col-4 border-0 w-50 bg-danger-rm bg-success-rm text-white-rm p-0" style="
+                background-color:
+                  @if (\App\CmsTheme::first())
+                    {{ \App\CmsTheme::first()->ascent_bg_color }}
+                  @else
+                    orange
+                  @endif
+                  ;
+      ">
+        <div class="h-100 p-3" style="background-color: rgba(255, 255, 255, 0.5)">
+          <div class="h5 font-weight-bold text-success-rm mb-1" style="
+                  color:
+                  @if (\App\CmsTheme::first())
+                    {{ \App\CmsTheme::first()->ascent_bg_color }}
+                  @else
+                    black
+                  @endif
+                  ;
+          ">
           {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($day['day']->toDateString(), 'english')  }}
           </div>
           <div>

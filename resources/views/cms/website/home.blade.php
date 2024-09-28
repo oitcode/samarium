@@ -166,7 +166,22 @@
         --}}
         <div class="bg-warning-rm px-3-rm px-md-0">
           <div class="mb-0">
-            <h2 class="h5 font-weight-bold bg-primary text-white p-3 mb-0">
+            <h2 class="h5 font-weight-bold bg-primary-rm text-white-rm p-3 mb-0" style="
+                background-color:
+                  @if (\App\CmsTheme::first())
+                    {{ \App\CmsTheme::first()->ascent_bg_color }}
+                  @else
+                    orange
+                  @endif
+                  ;
+                color:
+                  @if (\App\CmsTheme::first())
+                    {{ \App\CmsTheme::first()->ascent_text_color }}
+                  @else
+                    white
+                  @endif
+                  ;
+            ">
               Latest posts
             </h2>
           </div>
