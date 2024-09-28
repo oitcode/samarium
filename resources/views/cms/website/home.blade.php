@@ -113,7 +113,7 @@
   <div class="container bg-dark-rm">
 
     <div class="row bg-danger-rm" style="margin: auto;">
-      <div class="col-md-8 mb-4 p-0 border">
+      <div class="col-md-8 mb-4 p-0 border-rm">
 
         {{--
         |
@@ -165,8 +165,8 @@
         |
         --}}
         <div class="bg-warning-rm px-3-rm px-md-0">
-          <div class="">
-            <h2 class="h5 font-weight-bold bg-primary text-white p-3">
+          <div class="mb-0">
+            <h2 class="h5 font-weight-bold bg-primary text-white p-3 mb-0">
               Latest posts
             </h2>
           </div>
