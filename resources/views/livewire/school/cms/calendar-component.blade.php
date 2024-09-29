@@ -1,6 +1,6 @@
 <div class="container">
 
-  @if (false)
+  @if (true)
   <div>
     @if ($calendarGroups && count($calendarGroups) > 0)
       {{-- Calendar group choose option --}}
