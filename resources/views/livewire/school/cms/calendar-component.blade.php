@@ -1,6 +1,7 @@
 <div class="container">
 
-  <div class="d-flex">
+  @if (false)
+  <div>
     @if ($calendarGroups && count($calendarGroups) > 0)
       {{-- Calendar group choose option --}}
       @if (false)
@@ -17,10 +18,13 @@
         </div>
       </div>
       @else
-        <div class="my-3">
+        <div class="row" style="margin: auto;">
           @foreach ($calendarGroups as $calendarGroup)
-            <button class="btn @If ($calendarGroup->calendar_group_id == $selectedCalendarGroup->calendar_group_id) btn-dark @else btn-light border @endif p-3"
-                type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
+            <div class="col-6 p-0">
+              <button class="btn @If ($calendarGroup->calendar_group_id == $selectedCalendarGroup->calendar_group_id) btn-dark @else btn-light border
+              @endif p-3 w-100"
+                  type="button" wire:click="selectCalendarGroup({{ $calendarGroup }})">{{ $calendarGroup->name }}</button>
+            </div>
           @endforeach
         </div>
       @endif
@@ -33,18 +37,103 @@
       </button>
     </div>
   </div>
+  @endif
 
   {{-- Today --}}
   @if (true)
-  <div class="mb-3">
+  <div class="mb-3-rm">
   @if (false)
   @livewire ('calendar.website.today-display', ['selectedCalendarGroup' => $selectedCalendarGroup,])
   @endif
   <div class="border bg-white text-white-rm" style="">
-    <div class="h6 px-2 mb-0 mt-3 text-muted-rm mb-2">
-      <span class="font-weight-bold text-dark-rm badge badge-dark mr-2">
-      Today
-      </span>
+
+
+      <div
+          class="row border" style="margin: auto;">
+        <div class="col-6 border-0 w-50 bg-danger-rm bg-success-rm text-white-rm p-0" style="
+                  background-color:
+                    @if (\App\CmsTheme::first())
+                      {{ \App\CmsTheme::first()->ascent_bg_color }}
+                    @else
+                      orange
+                    @endif
+                    ;
+        ">
+          <div class="h-100 p-3" style="background-color: rgba(0, 0, 0, 0.5)">
+            <div class="h5 font-weight-bold text-success-rm mb-1" style="
+                    color:
+                    @if (\App\CmsTheme::first())
+                      {{ \App\CmsTheme::first()->ascent_text_color }}
+                    @else
+                      black
+                    @endif
+                    ;
+            ">
+              Today
+              </br>
+              </br>
+              {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($today['day']->toDateString(), 'english')  }}
+              2081,
+              {{ $today['day']->format('l') }}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 border-0 py-3"   style="
+                  background-color:
+                    @if (\App\CmsTheme::first())
+                      {{ \App\CmsTheme::first()->ascent_bg_color }}
+                    @else
+                      orange
+                    @endif
+                    ;
+                    color:
+                    @if (\App\CmsTheme::first())
+                      {{ \App\CmsTheme::first()->ascent_text_color }}
+                    @else
+                      black
+                    @endif
+                    ;
+                    ">
+          @if (count($today['events']) > 0)
+            @foreach ($today['events'] as $event)
+              <i class="fas fa-calendar mr-1"></i>
+              <span class="">
+                {{ $event->title }}
+              </span>
+              <br />
+            @endforeach
+          @else
+            <div class="p-0">
+              No calendar events
+            </div>
+          @endif
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @if (false)
+    <div class="font-weight-bold bg-success text-white p-3">
+    Today
+    </div>
+    <div class="h6 px-2 mb-0 mt-3 text-muted-rm mb-4">
       <span class="h6 font-weight-bold">
       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($today['day']->toDateString(), 'english')  }}
       2081,
@@ -99,6 +188,7 @@
         </div>
       @endif
     </div>
+    @endif
   </div>
   </div>
   @endif
@@ -106,13 +196,15 @@
 
   @if (false)
   @else
-
   <div class="border bg-white p-0">
     @if ($displayMonthName)
-      <div class="d-flex justify-content-between">
-        <h3 class="h5 text-center py-4 mb-0 bg-dark-rm text-dark pl-1"
-            style="{{--background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;
-                color:@if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_text_color }} @else @endif ;--}} 
+      <div class="d-flex justify-content-between"
+            style="background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;
+                color:@if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_text_color }} @else @endif ; "
+      >
+        <h3 class="h3 font-weight-bold text-center py-4 mb-0 bg-dark-rm text-dark-rm pl-2"
+            style="background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;
+                color:@if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_text_color }} @else @endif ; 
             ">
           @if (false)
           <span class="mr-2">
@@ -122,7 +214,7 @@
           <span class="mr-2">
             {{ $displayMonthName }}
           </span>
-          <span class="text-muted mr-2" style="font-size: 0.8rem;">
+          <span class="text-muted-rm mr-2" style="font-size: 0.8rem;">
             {{ $monthBook[0]['day']->format('F') }}
             /
             {{ \Carbon\Carbon::create($monthBook[0]['day']->copy()->addMonth())->format('F') }}
@@ -130,7 +222,7 @@
         </h3>
         <div class="d-flex flex-column justify-content-center">
           <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
-            <button class="btn btn-light border dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-success border dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Select Month
             </button>
             <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
