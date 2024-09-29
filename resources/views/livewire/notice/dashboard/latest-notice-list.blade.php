@@ -40,6 +40,10 @@
       </div>
 
       <div class="my-0-rm p-3 border">
-        <a href="./notice">See all notice</a>
+        @if (Route::has('website-webpage-/notice'))
+          <a href="{{ route('website-webpage-/notice') }}">See all notice</a>
+        @elseif (Route::has('website-webpage-/noticeboard'))
+          <a href="{{ route('website-webpage-/noticeboard') }}">See all notice</a>
+        @endif
       </div>
 </div>
