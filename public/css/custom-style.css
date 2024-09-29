@@ -40,31 +40,47 @@
     }
 }
 
-.o-ltr {  
-    animation:move 20s linear infinite;
+.o-fade-in {
+    animation-name: fadeIn;
+    animation-duration: 1000ms;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        /*
+        transform: scale(0.5, 0.5);
+        */
+    }
+
+    100% {
+        opacity: 1;
+        /*
+        transform: scale(1, 1);
+        */
+    }
 }
 
 .o-ltr {  
-    animation:move 20s linear infinite;
+    animation:moveRight 1s linear;
 }
+
+.o-rtl {  
+    animation:moveLeft 1s linear;
+}
+
 .o-ltr:hover {
 animation-play-state:paused;
 -webkit-animation-play-state:paused;
 }
 
-@keyframes move{
+@keyframes moveLeft{
     0% {
         /*
         color: white;
         font-size: 1rem;
         */
-        margin-left:0%;
-    }
-    50% {
-        /*
-        color: green;
-        font-size: 2rem;
-        */
+        margin-right:-100%;
     }
     100% {
         /*
@@ -72,7 +88,25 @@ animation-play-state:paused;
         margin-left:100%;
         font-size: 2rem;
         */
+        margin-right:0%;
+    }
+}
+
+@keyframes moveRight{
+    0% {
+        /*
+        color: white;
+        font-size: 1rem;
+        */
+        margin-left:-100%;
+    }
+    100% {
+        /*
+        color: white;
         margin-left:100%;
+        font-size: 2rem;
+        */
+        margin-left:0%;
     }
 }
 

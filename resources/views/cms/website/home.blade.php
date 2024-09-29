@@ -33,7 +33,7 @@
 @endif
 
 @if (preg_match("/school/i", env('MODULES')))
-  <div class="container-fluid" style="background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
+  <div class="container-fluid o-fade-in" style="background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
     <div class="container my-0 my-md-0 px-md-3 py-4 p-0" style="background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
       @include ('partials.school.school-quick-links-display')
     </div>
@@ -41,7 +41,7 @@
 @endif
 
 @if (preg_match("/hfn/i", env('MODULES')))
-  <div class="container-fluid pb-5 p-0" style="
+  <div class="container-fluid pb-5 p-0 o-fade-in" style="
   background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
   color: {{ \App\CmsTheme::first()->ascent_text_color }};
   ">
@@ -93,7 +93,7 @@
 </div>
 
 {{-- Hero/Featured Div --}}
-<div class="container-fluid bg-white-rm p-0 pt-3" 
+<div class="container-fluid bg-white-rm p-0 pt-3 o-ltr" 
   style="
            {{--
            background-image: @if (\App\CmsTheme::first())

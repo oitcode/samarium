@@ -89,6 +89,19 @@ Now open your web browser and visit
 - 127.0.0.1 to see the website
 - 127.0.0.1/dashboard to see the dashboard
 
+## Usage
+
+Below are screenshots of most used functionalities. 
+
+### Create a webpage
+### Create a post
+
+`php artisan serve`
+
+Now open your web browser and visit 
+- 127.0.0.1 to see the website
+- 127.0.0.1/dashboard to see the dashboard
+
 ## Contributing
 
 __Please contribute to this project.__ Contributions are welcome.

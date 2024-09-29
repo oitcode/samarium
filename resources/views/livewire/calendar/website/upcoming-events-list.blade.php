@@ -131,4 +131,8 @@
     </div>
   @endif
 
+  <div class="my-3 p-3">
+    <a href="./calendar">Visit calendar</a>
+  </div>
+
 </div>

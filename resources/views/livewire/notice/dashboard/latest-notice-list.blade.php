@@ -38,4 +38,8 @@
           @endif
         </table>
       </div>
+
+      <div class="my-0-rm p-3 border">
+        <a href="./notice">See all notice</a>
+      </div>
 </div>
