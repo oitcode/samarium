@@ -93,7 +93,7 @@
 </div>
 
 {{-- Hero/Featured Div --}}
-<div class="container-fluid bg-white-rm p-0 pt-3 o-ltr" 
+<div class="container-fluid bg-white-rm p-0 pt-3" 
   style="
            {{--
            background-image: @if (\App\CmsTheme::first())
