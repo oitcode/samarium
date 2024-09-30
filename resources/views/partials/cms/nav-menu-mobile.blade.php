@@ -175,6 +175,7 @@
               <a class="nav-link text-dark" href="{{ route('dashboard') }}">
                 <span class="btn btn-success badge-pill px-3">
                 Dashboard
+                </span>
               </a>
             </li>
             <li class="nav-item px-2 py-0 border-bottom">
@@ -182,15 +183,9 @@
                   onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
               >
-                <span class="btn btn-danger badge-pill px-3"
-                    {{--
-                    style="
-                        background-color: {{ \App\CmsTheme::first()->top_header_text_color }};
-                        color: {{ \App\CmsTheme::first()->top_header_bg_color }};
-                        "
-                    --}}
-                >
+                <span class="btn btn-danger badge-pill px-3">
                 Logout
+                </span>
               </a>
             </li>
           @endguest
