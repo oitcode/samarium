@@ -331,6 +331,13 @@
       {{-- Logout and other user related options --}}
       @guest
       @else
+        <li class="nav-item border bg-light text-dark p-3">
+          <a class="nav-link text-dark" href="./">
+            <span class="btn btn-success badge-pill">
+            Website
+            </span>
+          </a>
+        </li>
         <li class="nav-item dropdown bg-light text-dark p-3 border">
           <a class="nav-link dropdown-toggle text-dark" href="#" id="mobTopMenuDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-cog text-secondry mr-2"></i>
