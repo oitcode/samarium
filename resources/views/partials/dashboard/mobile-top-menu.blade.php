@@ -332,7 +332,7 @@
       @guest
       @else
         <li class="nav-item border bg-light text-dark p-3">
-          <a class="nav-link text-dark" href="./">
+          <a class="nav-link text-dark" href="/">
             <span class="btn btn-success badge-pill">
             Website
             </span>
