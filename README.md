@@ -94,7 +94,12 @@ Now open your web browser and visit
 Below are screenshots of most used functionalities. 
 
 ### Create a webpage
+
+![screenshot](screenshots/create-webpage-1.gif)
+
 ### Create a post
+
+![screenshot](screenshots/create-post-1.gif)
 
 `php artisan serve`
 
