@@ -80,7 +80,6 @@ dashboard.
 
 `php artisan db:seed --class=UserSeeder`
  
-
 ## Running the app
 
 `php artisan serve`
@@ -100,12 +99,6 @@ Below are screenshots of most used functionalities.
 ### Create a post
 
 ![screenshot](screenshots/create-post-1.gif)
-
-`php artisan serve`
-
-Now open your web browser and visit 
-- 127.0.0.1 to see the website
-- 127.0.0.1/dashboard to see the dashboard
 
 ## Contributing
 
