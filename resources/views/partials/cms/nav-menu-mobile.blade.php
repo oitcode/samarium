@@ -172,6 +172,12 @@
             </li>
           @else
             <li class="nav-item px-2 py-0 border-bottom">
+              <a class="nav-link text-dark" href="{{ route('dashboard') }}">
+                <span class="btn btn-success badge-pill px-3">
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item px-2 py-0 border-bottom">
               <a class="nav-link text-dark" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
