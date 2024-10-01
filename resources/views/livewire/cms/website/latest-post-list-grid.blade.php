@@ -1,7 +1,7 @@
 <div class="bg-danger-rm">
 
 
-    <div class="row bg-info-rm" style="margin: auto;">
+    <div class="row bg-white" style="margin: auto;">
       @if (count($webpages) > 0)
         @foreach ($webpages as $webpage)
           <div class="col-md-6 px-0 px-md-0 pb-3 pb-md-0 mb-0 pt-0">

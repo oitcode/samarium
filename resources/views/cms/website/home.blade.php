@@ -76,7 +76,7 @@
                       @endif
                       ;
             ">
-              <div style="background-color: rgba(0, 0, 0, 0.5)">
+              <div class="border" style="background-color: rgba(0, 0, 0, 0.5)">
                 <a href="{{ \App\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first()->permalink }}"
                     class="btn btn-danger-rm btn-block py-3"
                     style="
@@ -111,7 +111,7 @@
         @endif
         @livewire ('calendar.website.upcoming-events-list')
       </div>
-      <div class="col-md-4 pt-5-rm pt-md-0-rm px-0-rm px-md-3-rm">
+      <div class="col-md-4 pt-5 pt-md-0 px-0 px-md-3">
         @if (false)
         <h2 class="font-weight-bold mb-2">
           Latest notices
