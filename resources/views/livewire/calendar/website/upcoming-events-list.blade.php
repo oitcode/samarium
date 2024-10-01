@@ -40,9 +40,24 @@
 
   @if ($selectedCalendarGroup)
     <div class="row" style="margin: auto;">
-      <div class="col-md-4 p-0 bg-warning">
-        <div class="d-flex flex-column justify-content-center h-100" style="background-color: rgba(255, 255, 255, 0.5)">
-          <div class="h5 text-dark font-weight-bold p-3">
+      <div class="col-md-4 p-0 bg-warning-rm" style="
+          background-color:
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->ascent_bg_color }}
+            @else
+              orange
+            @endif
+            ;
+          color:
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->ascent_text_color }}
+            @else
+              white
+            @endif
+            ;
+      ">
+        <div class="d-flex flex-column justify-content-center h-100" style="background-color: rgba(0, 0, 0, 0.5)">
+          <div class="h5 text-dark-rm font-weight-bold p-3 mb-0">
             {{ $selectedCalendarGroup->name }}
           </div>
         </div>
