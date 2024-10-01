@@ -59,9 +59,40 @@
             <div class="mb-3">
               {{ $company->brief_description }}
             </div>
-            <a href="{{ \App\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first()->permalink }}" class="btn btn-danger btn-block py-3">
-              Contact us
-            </a>
+
+            <div style="
+                    background-color:
+                      @if (\App\CmsTheme::first())
+                        {{ \App\CmsTheme::first()->ascent_bg_color }}
+                      @else
+                        orange
+                      @endif
+                      ;
+                    color:
+                      @if (\App\CmsTheme::first())
+                        {{ \App\CmsTheme::first()->ascent_text_color }}
+                      @else
+                        white
+                      @endif
+                      ;
+            ">
+              <div style="background-color: rgba(0, 0, 0, 0.5)">
+                <a href="{{ \App\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first()->permalink }}"
+                    class="btn btn-danger-rm btn-block py-3"
+                    style="
+                    color:
+                      @if (\App\CmsTheme::first())
+                        {{ \App\CmsTheme::first()->ascent_text_color }}
+                      @else
+                        white
+                      @endif
+                      ;
+                    ">
+                  Contact us
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -80,7 +111,7 @@
         @endif
         @livewire ('calendar.website.upcoming-events-list')
       </div>
-      <div class="col-md-4 pt-5 pt-md-0 px-0 px-md-3">
+      <div class="col-md-4 pt-5-rm pt-md-0-rm px-0-rm px-md-3-rm">
         @if (false)
         <h2 class="font-weight-bold mb-2">
           Latest notices

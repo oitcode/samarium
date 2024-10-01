@@ -17,7 +17,22 @@
                   ;
   ">
     <div class="d-flex flex-column justify-content-center">
-      <h2 class="h6 mb-0 font-weight-bold">
+      <h2 class="h5 font-weight-bold bg-primary-rm text-white-rm py-3 mb-0" style="
+          background-color:
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->ascent_bg_color }}
+            @else
+              orange
+            @endif
+            ;
+          color:
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->ascent_text_color }}
+            @else
+              white
+            @endif
+            ;
+      ">
         Upcoming events
       </h2>
     </div>
