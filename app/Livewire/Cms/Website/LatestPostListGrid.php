@@ -28,6 +28,9 @@ class LatestPostListGrid extends Component
                                   ->whereDoesntHave('webpageCategories', function ($query) {
                                       $query->where('name', 'activities');
                                   })
+                                  ->whereDoesntHave('webpageCategories', function ($query) {
+                                      $query->where('name', 'notice');
+                                  })
                                   ->orderBy('webpage_id', 'desc')
                                   ->limit(4)
                                   ->get();
