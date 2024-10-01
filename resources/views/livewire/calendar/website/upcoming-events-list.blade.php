@@ -111,6 +111,16 @@
             <br />
             @endif
           @endif
+          @if (\Carbon\Carbon::today() == $day['day'])
+            <div class="d-flex">
+              <div class="mr-2">
+                <i class="fas fa-circle text-success"></i>
+              </div>
+              <div class="text-success">
+                Today
+              </div>
+            </div>
+          @endif
           @foreach ($day['events'] as $event)
 
             <div class="d-flex">
