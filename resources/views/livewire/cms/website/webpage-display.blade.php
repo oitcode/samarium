@@ -154,7 +154,7 @@
   </div>
   @endif
 
-@elseif ($webpage->name == 'Calendar')
+@elseif ($webpage->name == 'Calendar' || $webpage->permalink == '/calendar')
   @livewire ('school.cms.calendar-component')
 @elseif ($webpage->name == 'Careers')
   @livewire ('vacancy.website.vacancy-list')
