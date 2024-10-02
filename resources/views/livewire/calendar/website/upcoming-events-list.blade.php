@@ -88,9 +88,8 @@
   @if ($hasEvents)
     @foreach ($monthBook as $day)
       @if (count($day['events']) > 0)
-      <div
-          class="row border" style="margin: auto;">
-        <div class="col-4 border-0 w-50 bg-danger-rm bg-success-rm text-white-rm p-0" style="
+      <div class="row border" style="margin: auto; " wire:key="{{ rand() }}">
+        <div class="col-4 border-0 w-50 bg-danger-rm bg-success-rm text-white-rm p-0 " style="
                   background-color:
                     @if (\App\CmsTheme::first())
                       {{ \App\CmsTheme::first()->ascent_bg_color }}
@@ -99,20 +98,29 @@
                     @endif
                     ;
         ">
-          <div class="h-100 p-3" style="background-color: rgba(255, 255, 255, 0.5)">
-            <div class="h5 font-weight-bold text-success-rm mb-1" style="
-                    color:
-                    @if (\App\CmsTheme::first())
-                      {{ \App\CmsTheme::first()->ascent_bg_color }}
-                    @else
-                      black
-                    @endif
-                    ;
-            ">
-            {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($day['day']->toDateString(), 'english')  }}
-            </div>
-            <div>
-            {{ $day['day']->format('l') }}
+          <div class="h-100 p-3-rm" style="background-color: rgba(255, 255, 255, 0.5)">
+            <div class="
+                  @if (false)
+                  @if (\Carbon\Carbon::today() == $day['day'])
+                    o-blink-dark
+                  @endif
+                  @endif
+                  h-100 p-3
+                  ">
+              <div class="h5 font-weight-bold text-success-rm mb-1" style="
+                      color:
+                      @if (\App\CmsTheme::first())
+                        {{ \App\CmsTheme::first()->ascent_bg_color }}
+                      @else
+                        black
+                      @endif
+                      ;
+              ">
+              {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($day['day']->toDateString(), 'english')  }}
+              </div>
+              <div>
+              {{ $day['day']->format('l') }}
+              </div>
             </div>
           </div>
         </div>
@@ -127,7 +135,7 @@
             @endif
           @endif
           @if (\Carbon\Carbon::today() == $day['day'])
-            <div class="d-flex">
+            <div class="d-flex o-toggle-oo">
               <div class="mr-2">
                 <i class="fas fa-circle text-success"></i>
               </div>

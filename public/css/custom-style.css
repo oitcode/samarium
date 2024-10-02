@@ -40,24 +40,61 @@
     }
 }
 
+.o-toggle-oo {
+    animation-name: oToggleOo;
+    animation-duration: 2000ms;
+    animation-iteration-count: 20;
+}
+
+@keyframes oToggleOo {
+    0% {
+        margin-left: 0;
+    }
+
+    50% {
+        margin-left: 25px;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
+
+.o-blink-dark {
+    animation-name: blinkDark;
+    animation-duration: 250ms;
+    animation-iteration-count: 20;
+}
+
+@keyframes blinkDark {
+    0% {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    50% {
+        background: rgba(255, 0, 0, 0.8);
+    }
+
+    100% {
+        background: rgba(0, 0, 0, 0.0);
+    }
+}
+
 .o-fade-in {
     animation-name: fadeIn;
-    animation-duration: 1000ms;
+    animation-duration: 3s;
 }
 
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        /*
-        transform: scale(0.5, 0.5);
-        */
+    }
+
+    50% {
     }
 
     100% {
         opacity: 1;
-        /*
-        transform: scale(1, 1);
-        */
     }
 }
 

@@ -1,6 +1,6 @@
 <div class="border-rm bg-white">
 
-  <div class="d-flex justify-content-between-rm col-md-4-rm bg-success-rm text-white-rm p-3" style="
+  <div class="d-flex-rm justify-content-between-rm col-md-4-rm bg-success-rm text-white-rm p-3-rm" style="
                 background-color:
                   @if (\App\CmsTheme::first())
                     {{ \App\CmsTheme::first()->ascent_bg_color }}
@@ -16,25 +16,27 @@
                   @endif
                   ;
   ">
-    <div class="d-flex flex-column justify-content-center">
-      <h2 class="h5 font-weight-bold bg-primary-rm text-white-rm py-3 mb-0" style="
-          background-color:
-            @if (\App\CmsTheme::first())
-              {{ \App\CmsTheme::first()->ascent_bg_color }}
-            @else
-              orange
-            @endif
-            ;
-          color:
-            @if (\App\CmsTheme::first())
-              {{ \App\CmsTheme::first()->ascent_text_color }}
-            @else
-              white
-            @endif
-            ;
-      ">
-        Latest Notice
-      </h2>
+    <div class="d-flex-rm flex-column-rm justify-content-center-rm" style="
+            background-color:
+              @if (\App\CmsTheme::first())
+                {{ \App\CmsTheme::first()->ascent_bg_color }}
+              @else
+                orange
+              @endif
+              ;
+            color:
+              @if (\App\CmsTheme::first())
+                {{ \App\CmsTheme::first()->ascent_text_color }}
+              @else
+                white
+              @endif
+              ;
+    ">
+      <div class="o-blink-dark-rm h-100 w-100 p-3">
+        <h2 class="h5 font-weight-bold bg-primary-rm text-white-rm py-3 mb-0 h-100 w-100">
+          Latest Notice
+        </h2>
+      </div>
     </div>
   </div>
       <div class="table-responsive border">

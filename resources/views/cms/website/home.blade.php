@@ -47,9 +47,39 @@
   ">
     <div class="container bg-info-rm p-0">
       <div class="row p-0" style="margin: auto;">
-        <div class="col-md-6 p-0">
+        <div class="col-md-6 p-0" style="
+           {{-- 
+           background-color: red;
+           background-image: url("{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}");
+           .o-crsl-imgs {  
+               animation:changeCarousalBg 5s linear;
+           }
+           
+           @keyframes changeCarousalBg{
+               0% {
+                   /*
+                   color: white;
+                   font-size: 1rem;
+                   */
+                   margin-right:-100%;
+                   bakground-image: url("{{ asset(\App\CmsTheme::first()->hero_image_path) }}");
+               }
+               100% {
+                   /*
+                   color: white;
+                   margin-left:100%;
+                   font-size: 2rem;
+                   */
+                   bakground-image: url("{{ asset(\App\CmsTheme::first()->hero_image_path) }}");
+               }
+           }
+           --}}
+        ">
+
+          @if (true)
           <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
           style="{{--max-height: 200px;width: 1200px;--}}">
+          @endif
         </div>
         <div class="col-md-6 pt-5 px-md-5">
           <div class="d-flex flex-column justify-content-center h-100">
