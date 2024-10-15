@@ -1,22 +1,5 @@
 <div class="m-3">
 
-  @if (true)
-  @if (false)
-  <div class="form-group">
-    <label for="">Title</label>
-    <input type="text" class="form-control" wire:model="title">
-    @error('title') <span class="text-danger">{{ $message }}</span> @enderror
-  </div>
-
-  <div class="form-group">
-    <label for="">Body</label>
-    <textarea rows="5" class="form-control" wire:model="body">
-    </textarea>
-    @error('body') <span class="text-danger">{{ $message }}</span> @enderror
-  </div>
-  @endif
-
-
   {{--
   |
   |
@@ -28,7 +11,6 @@
   |
   --}}
 
-  @if (true)
   <div wire:ignore>
 
     <input id="wcb2" value="{{ $this->body }}" wire:model.live="body" type="hidden">
@@ -45,17 +27,10 @@
     </script>
     @endscript
   </div>
-  @endif
 
-
-
-  <div class="form-group">
-      <label for="">Image</label>
-      <input type="file" class="form-control" wire:model.live="image">
-      @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+  <div class="my-3">
+    <button type="submit" class="btn btn-primary" wire:click="update">Save</button>
+    <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitWebpageContentEditMode')">Cancel</button>
   </div>
 
-  <button type="submit" class="btn btn-primary" wire:click="update">Submit</button>
-  <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitWebpageContentEditMode')">Cancel</button>
-  @endif
 </div>

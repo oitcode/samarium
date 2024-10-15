@@ -1,8 +1,21 @@
 <div>
-  <div class="form-group">
-    <label>Paragraph</label>
-    <textarea rows="5" class="form-control" wire:model.live="paragraph">
-    </textarea>
+
+
+  <div wire:ignore>
+
+    <input id="wcb2" value="{{ $this->paragraph }}" wire:model.live="paragraph" type="hidden">
+    <trix-editor wire:ignore input="wcb2"></trix-editor>
+    @error('paragraph') <span class="text-danger">{{ $message }}</span> @enderror
+
+    @script
+    <script>
+        let trixEditor = document.getElementById("wcb2")
+    
+        addEventListener("trix-blur", function(event) {
+            @this.set('paragraph', trixEditor.getAttribute('value'))
+        })
+    </script>
+    @endscript
   </div>
 
   <div class="">
@@ -13,4 +26,6 @@
       Cancel
     </button>
   </div>
+
+
 </div>
