@@ -3,22 +3,26 @@
 @section ('googleAnalyticsTag')
 @endsection
 
+
 @section ('pageTitleTag')
   @if ($company)
-    <title> {{ $company->name }}
+    <title>
+      {{ $company->name }}
     </title>
   @endif
 @endsection
 
+
 @section ('fbOgMetaTags')
-@if ($company)
-  <meta property="og:url"                content="{{ Request::url() }}" />
-  <meta property="og:type"               content="article" />
-  <meta property="og:title"              content="Home page of {{ $company->name }}" />
-  <meta property="og:description"        content="All details of {{ $company->name }}" />
-  <meta property="og:image"              content="{{ asset('storage/' . $company->logo_image_path) }}"/>
-@endif
+  @if ($company)
+    <meta property="og:url"                content="{{ Request::url() }}" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Home page of {{ $company->name }}" />
+    <meta property="og:description"        content="All details of {{ $company->name }}" />
+    <meta property="og:image"              content="{{ asset('storage/' . $company->logo_image_path) }}"/>
+  @endif
 @endsection
+
 
 @section ('content')
 
@@ -134,19 +138,9 @@
   <div class="container">
     <div class="row" style="margin: auto;">
       <div class="col-md-8 border p-0">
-        @if (false)
-        <h2 class="font-weight-bold mb-4">
-          Upcoming events
-        </h2>
-        @endif
         @livewire ('calendar.website.upcoming-events-list')
       </div>
       <div class="col-md-4 pt-5 pt-md-0 px-0 px-md-3">
-        @if (false)
-        <h2 class="font-weight-bold mb-2">
-          Latest notices
-        </h2>
-        @endif
         @livewire ('notice.dashboard.latest-notice-list')
       </div>
     </div>
@@ -249,20 +243,10 @@
           @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
         </div>
 
-
       </div>
+
       <div class="col-md-4 px-2-rm mb-4">
         @livewire ('cms.website.contact-component', ['onlyForm' => 'yes',])
-        @if (false)
-        <div class="container mb-4 p-0">
-          @livewire ('calendar.website.today-display')
-        </div>
-        @livewire ('notice.dashboard.latest-notice-list')
-        <div class="my-3">
-          @livewire ('cms.website.latest-post-list')
-        </div>
-        @endif
-
       </div>
     </div>
   </div>
@@ -270,38 +254,16 @@
 </div>
 
 
-
-
-
-
-
 {{--
 |
-|
-|
-| Display the home webpage.
-|
-|
+| Temporary workaround for BGC.
 |
 --}}
 @if (preg_match("/bgc/i", env('MODULES')))
-  {{-- This is temporary workaround for BGC --}} 
-  {{-- If BGC --}}
   @if (\App\Team::where('team_type', 'playing_team')->first())
     <div class="container my-4">
       @include ('partials.team.team-block-display')
     </div>
-  @endif
-@else
-  @if (false)
-  {{-- All other cases --}}
-  @if (\App\Webpage::where('name', 'Home')->where('visibility', 'public')->first())
-    @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Home')->where('visibility', 'public')->first(),])
-  @elseif (\App\Webpage::where('name', 'Post')->where('visibility', 'public')->first())
-    @livewire ('cms.website.webpage-display', ['webpage' => \App\Webpage::where('name', 'Post')->where('visibility', 'public')->first(),])
-  @else
-    @include ('partials.cms.website.home-page-not-set-yet')
-  @endif
   @endif
 @endif
 

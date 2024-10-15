@@ -1,7 +1,3 @@
-@if (false)
-@include ('collection.login.login-1' {{-- . \App\CmsTheme::first()->login_page --}} )
-@endif
-
 <!doctype html>
 
 
@@ -165,9 +161,6 @@
                           <button type="submit" class="btn btn-dark badge-pill-rm btn-block py-3 text-white shadow-rm"
                               style="">
                               {{ __('Login') }}
-                              @if (false)
-                              <i class="fas fa-chevron-right ml-2"></i>
-                              @endif
                           </button>
 
                           @if (false)
@@ -186,15 +179,11 @@
 
             {{--
             | 
-            | Display date at bottom
+            | Display version at bottom
             |
             --}}
             <div class="my-3 text-muted">
               <div class="text-center">
-                @if (false)
-                {{ date('Y M d') }}
-                <br/>
-                @endif
                 <small>
                   v0.8.5
                 </small>
