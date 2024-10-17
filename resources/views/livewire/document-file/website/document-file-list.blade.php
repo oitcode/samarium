@@ -56,7 +56,7 @@
                   View file
                 </button>
                 @endif
-                <a href=" {{ route('dashboard-document-file-pdf-display', $documentFile->document_file_id) }}" target="_blank" class="mr-3">
+                <a href=" {{ route('website-document-file-pdf-display', $documentFile->document_file_id) }}" target="_blank" class="mr-3">
                   View file
                 </a>
                 <a href=" {{ asset('storage/' . $documentFile->file_path) }}" class="mr-3" download="{{ $documentFile->name }}">

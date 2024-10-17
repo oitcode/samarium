@@ -11,6 +11,7 @@ use App\Webpage;
 use App\SeatTable;
 use App\TeamMember;
 use App\Vacancy;
+use App\DocumentFile;
 
 class WebsiteController extends Controller
 {
@@ -251,5 +252,11 @@ class WebsiteController extends Controller
 
         return view('testimonial.website.testimonial-create')
             ->with('company', $company);
+    }
+
+    public function pdfDisplayFile($documentFileId)
+    {
+        $documentFile = DocumentFile::find($documentFileId);
+        return response()->file('storage/' . $documentFile->file_path);
     }
 }

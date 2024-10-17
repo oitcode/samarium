@@ -39,6 +39,5 @@ class DocumentFileController extends Controller
         } else {
             return 'No way';
         }
-
     }
 }
