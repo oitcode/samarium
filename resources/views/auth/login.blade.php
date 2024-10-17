@@ -185,7 +185,7 @@
             <div class="my-3 text-muted">
               <div class="text-center">
                 <small>
-                  v0.8.5
+                  v0.8.6
                 </small>
               </div>
             </div>
