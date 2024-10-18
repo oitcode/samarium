@@ -1,10 +1,10 @@
 {
-    "name": "laravel/laravel",
+    "name": "Samarium ERP",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The easy to use ERP.",
     "keywords": [
-        "framework",
-        "laravel"
+        "ERP",
+        "CMS"
     ],
     "license": "MIT",
     "require": {
