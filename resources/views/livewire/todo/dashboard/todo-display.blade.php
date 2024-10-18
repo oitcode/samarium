@@ -146,7 +146,7 @@
           <div>
             <div class="">
               <strong>
-                Delete this vacancy
+                Delete this task
               </strong>
             </div>
             <div>
