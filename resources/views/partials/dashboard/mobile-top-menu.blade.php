@@ -160,7 +160,7 @@
             </a>
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-cms-theme') }}">
               <i class="fas fa-palette mr-3"></i>
-              Theme
+              Appearence
             </a>
 
           </div>
