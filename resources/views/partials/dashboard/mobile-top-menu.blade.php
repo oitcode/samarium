@@ -4,7 +4,7 @@
     <i class="far fa-square fa-2x mr-3 text-white" style=""></i>
     @endif
     <span class="h4 font-weight-bold text-white" style="">
-      Ozone
+      Menu
     </span>
   </a>
   <button class="navbar-toggler p-3 m-3 border-0 text-white" style="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -216,7 +216,7 @@
 
 
       {{-- Report options --}}
-      @if (true)
+      @if (preg_match("/report/i", env('MODULES')))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuReportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-dice-d6 text-secondry mr-3"></i>
@@ -276,55 +276,59 @@
         </li>
       @endif
 
+      {{-- Project options --}}
+      @if (preg_match("/project/i", env('MODULES')))
+        <li class="nav-item border bg-light text-dark p-3">
+          <a class="nav-link text-dark" href="{{ route('dashboard-todo') }}">
+            <i class="fas fa-list mr-3"></i>
+            <span class="font-weight-bold">
+            Tasks
+            </span>
+          </a>
+        </li>
+      @endif
+
+      {{-- HR options --}}
+      @if (preg_match("/hr/i", env('MODULES')))
+        <li class="nav-item border bg-light text-dark p-3">
+          <a class="nav-link text-dark" href="{{ route('dashboard-vacancy') }}">
+            <i class="fas fa-users mr-3"></i>
+            <span class="font-weight-bold">
+            Vacancy
+            </span>
+          </a>
+        </li>
+      @endif
 
       {{-- Common things --}}
-      <li class="nav-item border bg-light text-dark p-3">
-        <a class="nav-link text-dark" href="{{ route('dashboard-vacancy') }}">
-          <i class="fas fa-users mr-3"></i>
+      <li class="nav-item dropdown bg-light text-dark p-3 border">
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="mobTopMenuMoreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-cog text-secondry mr-2"></i>
           <span class="font-weight-bold">
-          Vacancy
+          More
           </span>
         </a>
-      </li>
-      <li class="nav-item border bg-light text-dark p-3">
-        <a class="nav-link text-dark" href="{{ route('dashboard-todo') }}">
-          <i class="fas fa-list mr-3"></i>
-          <span class="font-weight-bold">
-          Tasks
-          </span>
-        </a>
-      </li>
-      <li class="nav-item border bg-light text-dark p-3">
-        <a class="nav-link text-dark" href="{{ route('company') }}">
-          <i class="fas fa-home mr-3"></i>
-          <span class="font-weight-bold">
-          Company
-          </span>
-        </a>
-      </li>
-      <li class="nav-item border bg-light text-dark p-3">
-        <a class="nav-link text-dark" href="{{ route('dashboard-settings') }}">
-          <i class="fas fa-cog mr-3"></i>
-          <span class="font-weight-bold">
-          Settings
-          </span>
-        </a>
-      </li>
-      <li class="nav-item border bg-light text-dark p-3">
-        <a class="nav-link text-dark" href="{{ route('dashboard-users') }}">
-          <i class="fas fa-users mr-3"></i>
-          <span class="font-weight-bold">
-          Users
-          </span>
-        </a>
-      </li>
-      <li class="nav-item border bg-light text-dark p-3">
-        <a class="nav-link text-dark" href="{{ route('dashboard-help') }}">
-          <i class="fas fa-question-circle mr-3"></i>
-          <span class="font-weight-bold">
-          Help
-          </span>
-        </a>
+        <div class="dropdown-menu" aria-labelledby="mobTopMenuMoreDropdown">
+          <a class="dropdown-item py-3" href="{{ route('company') }}">
+            <i class="fas fa-home text-secondary mr-2"></i>
+            Company
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item py-3" href="{{ route('dashboard-settings') }}">
+            <i class="fas fa-cog text-secondary mr-2"></i>
+            Settings
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item py-3" href="{{ route('dashboard-users') }}">
+            <i class="fas fa-users text-secondary mr-2"></i>
+            Users
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item py-3" href="{{ route('dashboard-help') }}">
+            <i class="fas fa-question-circle text-secondary mr-2"></i>
+            Help
+          </a>
+        </div>
       </li>
 
 
