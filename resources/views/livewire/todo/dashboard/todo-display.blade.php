@@ -1,11 +1,12 @@
 <div>
 
 
-  <div class="bg-white border p-3">
+  <div class="bg-white-rm border-rm p-3-rm">
     <div class="mt-3-rm mb-3 h5 font-weight-bold border-rm bg-light-rm py-3" {{-- style="border-left: 5px solid #05a;" --}}>
       {{ $todo->title }}
     </div>
 
+    @if (false)
     <div class="">
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border-rm p-3 bg-light font-weight-bold">
@@ -29,13 +30,14 @@
         </div>
       </div>
     </div>
+    @endif
 
     <div class="">
       <div class="row" style="margin: auto;">
-        <div class="col-md-2 border-rm p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border p-3 bg-white font-weight-bold">
           Task ID
         </div>
-        <div class="col-md-10 border-rm p-3">
+        <div class="col-md-10 border bg-white p-3">
           {{ $todo->todo_id }}
         </div>
       </div>
@@ -43,10 +45,10 @@
 
     <div class="">
       <div class="row" style="margin: auto;">
-        <div class="col-md-2 border-rm p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border p-3 bg-light font-weight-bold">
           Posted Date
         </div>
-        <div class="col-md-10 border-rm p-3">
+        <div class="col-md-10 border bg-white p-3">
           {{ $todo->created_at->toDateString() }}
         </div>
       </div>
@@ -54,10 +56,10 @@
 
     <div class="">
       <div class="row" style="margin: auto;">
-        <div class="col-md-2 border-rm p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border p-3 bg-light font-weight-bold">
           Description
         </div>
-        <div class="col-md-10 border-rm p-3 flex-grow-1-rm">
+        <div class="col-md-10 border bg-white p-3 flex-grow-1-rm">
           @if ($modes['updateDescriptionMode'])
             @livewire ('todo.dashboard.todo-edit-description', ['todo' => $todo,])
           @else
