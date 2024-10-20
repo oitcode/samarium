@@ -62,7 +62,7 @@
                   Last login
                 </th>
                 <td class="border-0 p-0">
-                  ---
+                  {{ $user->last_login_at }}
                 </td>
               </tr>
             </tbody>
