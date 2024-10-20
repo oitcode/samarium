@@ -57,6 +57,14 @@
                   @endif
                 </td>
               </tr>
+              <tr>
+                <th class="border-0 p-0">
+                  Last login
+                </th>
+                <td class="border-0 p-0">
+                  ---
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
