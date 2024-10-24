@@ -22,7 +22,7 @@ class Product extends Model
     protected $primaryKey = 'product_id';
 
     protected $fillable = [
-         'name', 'product_category_id', 'base_product_id',
+         'name', 'product_category_id', 'product_vendor_id', 'base_product_id',
          'description', 'selling_price', 'stock_count',
          'image_path', 'stock_applicable',
          'inventory_unit', 'inventory_unit_consumption',
@@ -41,7 +41,6 @@ class Product extends Model
 
     /*
      * product_category table.
-     *
      */
     public function productCategory()
     {
@@ -49,8 +48,15 @@ class Product extends Model
     }
 
     /*
+     * product_vendor table.
+     */
+    public function productVendor()
+    {
+        return $this->belongsTo('App\ProductVendor', 'product_vendor_id', 'product_vendor_id');
+    }
+
+    /*
      * product_review table.
-     *
      */
     public function productReviews()
     {
@@ -59,7 +65,6 @@ class Product extends Model
 
     /*
      * product_question table.
-     *
      */
     public function productQuestions()
     {
@@ -68,7 +73,6 @@ class Product extends Model
 
     /*
      * product_enquiry table.
-     *
      */
     public function productEnquiries()
     {
@@ -77,7 +81,6 @@ class Product extends Model
 
     /*
      * gallery table.
-     *
      */
     public function gallery()
     {
@@ -110,7 +113,6 @@ class Product extends Model
 
     /*
      * sale_invoice_item table.
-     *
      */
     public function saleInvoiceItems()
     {
@@ -119,7 +121,6 @@ class Product extends Model
 
     /*
      * seat_table_booking_item table.
-     *
      */
     public function seatTableBookingItems()
     {
@@ -128,7 +129,6 @@ class Product extends Model
 
     /*
      * website_order table.
-     *
      */
     /*
     public function websiteOrders()
@@ -139,7 +139,6 @@ class Product extends Model
 
     /*
      * website_order table.
-     *
      */
     public function websiteOrderItems()
     {
@@ -148,7 +147,6 @@ class Product extends Model
 
     /*
      * purchase_item table.
-     *
      */
     public function purchaseItems()
     {
@@ -157,7 +155,6 @@ class Product extends Model
 
     /*
      * product_specification_heading table.
-     *
      */
     public function productSpecificationHeadings()
     {
@@ -166,7 +163,6 @@ class Product extends Model
 
     /*
      * product_specification table.
-     *
      */
     public function productSpecifications()
     {
@@ -175,7 +171,6 @@ class Product extends Model
 
     /*
      * product_feature_heading table.
-     *
      */
     public function productFeatureHeadings()
     {
@@ -184,7 +179,6 @@ class Product extends Model
 
     /*
      * product_feature table.
-     *
      */
     public function productFeatures()
     {
@@ -193,7 +187,6 @@ class Product extends Model
 
     /*
      * product_option_heading table.
-     *
      */
     public function productOptionHeadings()
     {
@@ -202,7 +195,6 @@ class Product extends Model
 
     /*
      * product_option table.
-     *
      */
     public function productOptions()
     {

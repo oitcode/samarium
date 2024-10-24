@@ -56,6 +56,8 @@ class ProductDisplay extends Component
 
         'updateProductUpdateProductOption' => false,
         'deleteProductOptionMode' => false,
+
+        'linkProductVendorMode' => false,
     ];
 
     protected $listeners = [
@@ -109,6 +111,9 @@ class ProductDisplay extends Component
 
         'productEditAddProductOptionModeCancelled',
         'productEditAddProductOptionModeCompleted',
+
+        'productVendorLinkCompleted',
+        'productVendorLinkCancelled',
     ];
 
     public function render()
@@ -411,5 +416,15 @@ class ProductDisplay extends Component
     public function productUpdateCategoryCancelled()
     {
         $this->exitMode('updateProductCategoryMode');
+    }
+
+    public function productVendorLinkCompleted()
+    {
+        $this->exitMode('linkProductVendorMode');
+    }
+
+    public function productVendorLinkCancelled()
+    {
+        $this->exitMode('linkProductVendorMode');
     }
 }

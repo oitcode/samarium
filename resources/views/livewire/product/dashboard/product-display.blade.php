@@ -50,6 +50,9 @@
   {{-- Main info --}}
   @include ('partials.product.product-display.main-info')
 
+  {{-- Product vendor --}}
+  @include ('partials.product.product-display.product-vendor')
+
   {{-- Social count --}}
   @include ('partials.product.product-display.social-count')
 

@@ -116,7 +116,18 @@
         </div>
       </div>
 
-      @if (true)
+      {{-- Product vendor --}}
+      @if ($product->productVendor)
+      <div class="bg-white-rm px-3-rm border-rm my-3 border" style="background-color: #eee;">
+        <div class="p-3" style="">
+          <h2 class="h6 font-weight-bold">
+            Product Vendor
+          </h2>
+          {{ $product->productVendor->name }}
+        </div>
+      </div>
+      @endif
+
       {{-- Stats --}}
       <div class="bg-white-rm px-3-rm border-rm my-3 border" style="background-color: #eee;">
         <div>
@@ -129,21 +140,9 @@
           @endif
           <div class="p-3" style="">
             {{ $product->website_views }} views
-            &nbsp;&nbsp;
-            @if (false)
-            13 likes
-            &nbsp;&nbsp;
-            2 shares
-            &nbsp;&nbsp;
-            7 reviews
-            &nbsp;&nbsp;
-            4 questions
-            &nbsp;&nbsp;
-            @endif
           </div>
         </div>
       </div>
-      @endif
 
       @if ($product->gallery)
       {{-- Product gallery --}}
