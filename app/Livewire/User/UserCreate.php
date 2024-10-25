@@ -5,6 +5,7 @@ namespace App\Livewire\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 use App\User;
 
@@ -38,7 +39,7 @@ class UserCreate extends Component
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
-        $validatedData['last_login_at'] = '0000-00-00 00:00:00';
+        $validatedData['last_login_at'] = Carbon::now();
 
         User::create($validatedData);
 
