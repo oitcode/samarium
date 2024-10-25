@@ -132,6 +132,11 @@
                 Posts
               </a>
             </div>
+            <div class="">
+              <a href="/dashboard" class="text-reset text-decoration-none text-underline">
+                Dashboard
+              </a>
+            </div>
           </div>
         </div>
 
