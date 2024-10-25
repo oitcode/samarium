@@ -38,6 +38,7 @@ class UserCreate extends Component
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['last_login_at'] = '0000-00-00 00:00:00';
 
         User::create($validatedData);
 
