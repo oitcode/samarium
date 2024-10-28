@@ -338,6 +338,18 @@
         </div>
         @endif
 
+        {{-- Webpage question --}}
+        <div class="p-2">
+          Webpage questions
+
+          @foreach ($webpage->webpageQuestions as $webpageQuestion)
+            <div class="mb-3 border-bottom">
+              {{ $webpageQuestion->question_text }}
+            </div>
+          @endforeach
+
+        </div>
+
       </div>
 
     </div>
