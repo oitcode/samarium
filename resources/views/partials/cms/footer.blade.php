@@ -1,12 +1,21 @@
 {{--
-|
-| CMS footer blade file.
-|
-| Footer of CMS website. It is a simple footer. If you want to change
-| the footer, then you need to edit this file. 
-|
+*
+* CMS footer blade file.
+*
+* Footer of CMS website. It is a simple footer. If you want to change
+* the footer, then you need to edit this file. 
+*
 --}}
 
+
+{{--
+|
+| Row which shows associated with info.
+|
+| If there is `associated with` info for the company, then this row
+| will show all those association info.
+|
+--}}
 @if ($company->companyInfos()->where('info_key', 'Associated with')->first())
     <div class="container-fluid my-5 border-top">
       <div class="container">
@@ -32,6 +41,7 @@
     </div>
 @endif
 
+
 <div class="border-top"
      style="
       background-color:
@@ -52,7 +62,9 @@
 
   {{--
   |
-  | First row
+  | Logo and contact details row.
+  |
+  | This row will have company logo and contact details info.
   |
   --}}
   <div class="container-fluid bg-primary-rm text-white-rm p-0" style="">
@@ -98,7 +110,12 @@
 
   {{--
   |
-  | Second row
+  | This row has following columns.
+  |
+  | 1. About us
+  | 2. Quick links
+  | 3. Follow us (Social media links)
+  | 4. Subscribe us
   |
   --}}
   <div class="container-fluid border-rm pt-4 pb-3" style="">
@@ -196,9 +213,7 @@
 
   {{--
   | 
-  | Third row
-  |
-  | Package developer branding.
+  | Copyright notice and package developer branding.
   | 
   --}}
   <hr />
