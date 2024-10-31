@@ -3,9 +3,9 @@
 namespace App\Traits;
 
 /**
- * Cbswei - A Laravel Livewire Application For Users
+ * Samarium - A Laravel Livewire Application For Users
  *
- * @package  Cbswei
+ * @package  Samarium
  * @author   _____
  */
 

@@ -47,8 +47,8 @@ Route::get('/dashboard', 'DashboardController@index')
 /* Product category */
 Route::get('/dashboard/product-category', 'ProductCategoryController@index')->name('product-category');
 
-/* Customer */
-Route::get('/dashboard/customer', 'CustomerController@index')->name('customer');
+/* Product */
+Route::get('/dashboard/product', 'MenuController@index')->name('product');
 
 /* Sale */
 Route::get('/dashboard/sale', 'SaleController@saleInvoice')->name('sale');
@@ -59,19 +59,23 @@ Route::get('/dashboard/takeaway', 'SaleController@takeaway')->name('takeaway');
 /* Sale quotation */
 Route::get('/dashboard/sale-quotation', 'SaleQuotationController@index')->name('dashboard-sale-quotation');
 
-/* Daybook */
-Route::get('/dashboard/daybook', 'DaybookController@index')->name('daybook');
-/* Weekbook */
-Route::get('/dashboard/weekbook', 'WeekbookController@index')->name('weekbook');
-
 /* Expense */
 Route::get('/dashboard/expense', 'ExpenseController@index')->name('dashboard-expense');
 
 /* Purchase */
 Route::get('/dashboard/purchase', 'PurchaseController@index')->name('dashboard-purchase');
 
-/* Product */
-Route::get('/dashboard/product', 'MenuController@index')->name('product');
+/* Customer */
+Route::get('/dashboard/customer', 'CustomerController@index')->name('customer');
+
+/* Vendor */
+Route::get('/dashboard/vendor', 'VendorController@index')->name('dashboard-vendor');
+
+/* Daybook */
+Route::get('/dashboard/daybook', 'DaybookController@index')->name('daybook');
+
+/* Weekbook */
+Route::get('/dashboard/weekbook', 'WeekbookController@index')->name('weekbook');
 
 /* Product vendor */
 Route::get('/dashboard/product-vendor', 'ProductVendorController@index')->name('product-vendor');
@@ -94,13 +98,10 @@ Route::get('/dashboard/settings', 'SettingsController@index')->name('dashboard-s
 /* Company */
 Route::get('/dashboard/company', 'CompanyController@index')->name('company');
 
-/* Vendor */
-Route::get('/dashboard/vendor', 'VendorController@index')->name('dashboard-vendor');
-
 /* Report */
 Route::get('/dashboard/report', 'ReportController@index')->name('dashboard-report');
 
-/* Report */
+/* Change password */
 Route::get('/dashboard/changePassword', 'ChangePasswordController@index')->name('dashboard-change-password');
 
 /* Stock */
@@ -133,7 +134,7 @@ Route::get('/dashboard/vacancy', 'VacancyController@index')->name('dashboard-vac
 /* Newsletter subscription  */
 Route::get('/dashboard/newsletter-subscription', 'NewsletterSubscriptionController@index')->name('dashboard-newsletter-subscription');
 
-/* Newsletter subscription  */
+/* Testimonial  */
 Route::get('/dashboard/testimonial', 'TestimonialController@index')->name('dashboard-testimonial');
 
 /* Url link  */
@@ -145,6 +146,7 @@ Route::get('/dashboard/document/file/display/{id}', 'DocumentFileController@pdfD
 
 /* Educ institution  */
 Route::get('/dashboard/educ/institution', 'EducInstitutionController@index')->name('dashboard-educ-institution');
+
 
 /*
  *-----------------------------------------------------------------------------
@@ -158,7 +160,6 @@ Route::get('/dashboard/educ/institution', 'EducInstitutionController@index')->na
 
 
 /* Website home page */
-
 if (env('SITE_TYPE') == 'erp') {
     Route::get('/', 'WebsiteController@homePage')->name('website-home');
 } else {
@@ -183,8 +184,6 @@ Route::get('/write-testimonial', 'WebsiteController@writeTestimonial')->name('we
  * Restaurant / Cafe
  *-----------------------------------------------------------------------------
  *
- *
- *
  */
 Route::get('/o/table/{id}/{name}', 'WebsiteController@seatTableView')->name('website-seat-table-view');
 
@@ -193,8 +192,6 @@ Route::get('/o/table/{id}/{name}', 'WebsiteController@seatTableView')->name('web
  *-----------------------------------------------------------------------------
  * Ecommerce/shop collection
  *-----------------------------------------------------------------------------
- *
- *
  *
  */
 if (true || preg_match("/shop/i", env('MODULES'))) {
@@ -227,8 +224,6 @@ if (true || preg_match("/shop/i", env('MODULES'))) {
  * CMS
  *-----------------------------------------------------------------------------
  *
- *
- *
  */
 
 /* CMS Dashboard routes */
@@ -254,8 +249,6 @@ if (Schema::hasTable('webpage')) {
  * School
  *-----------------------------------------------------------------------------
  *
- *
- *
  */
 
 Route::get('/dashboard/school/calendar', 'SchoolCalendarController@index')->name('dashboard-school-calendar');
@@ -265,8 +258,6 @@ Route::get('/dashboard/school/calendar', 'SchoolCalendarController@index')->name
  *-----------------------------------------------------------------------------
  * Calendar
  *-----------------------------------------------------------------------------
- *
- *
  *
  */
 
@@ -278,8 +269,6 @@ Route::get('/dashboard/calendar/calendar-group', 'CalendarGroupController@index'
  * Print
  *-----------------------------------------------------------------------------
  *
- *
- *
  */
 Route::get('/dashboard/print/saleInvoice/{id}', 'PrintController@printSaleInvoice')->name('dashboard-print-sale-invoice');
 Route::get('/dashboard/print/saleQuotation/{id}', 'PrintController@printSaleQuotation')->name('dashboard-print-sale-quotation');
@@ -290,8 +279,6 @@ Route::get('/dashboard/print/saleQuotation/{id}', 'PrintController@printSaleQuot
  * VAT
  *-----------------------------------------------------------------------------
  *
- *
- *
  */
 Route::get('/dashboard/vat', 'VatController@index')->name('dashboard-vat');
 
@@ -300,8 +287,6 @@ Route::get('/dashboard/vat', 'VatController@index')->name('dashboard-vat');
  *-----------------------------------------------------------------------------
  * BGC
  *-----------------------------------------------------------------------------
- *
- *
  *
  */
 Route::get('/dashboard/quick-contacts', 'BgcController@quickContacts')->name('dashboard-quick-contacts');
@@ -314,8 +299,6 @@ Route::get('/dashboard/sponsors', 'BgcController@sponsors')->name('dashboard-spo
  * Appointment
  *-----------------------------------------------------------------------------
  *
- *
- *
  */
 Route::get('/book-appointment/{id}', 'WebsiteController@bookAppointment')->name('website-book-appointment');
 
@@ -323,8 +306,6 @@ Route::get('/book-appointment/{id}', 'WebsiteController@bookAppointment')->name(
  *-----------------------------------------------------------------------------
  * Vacancy
  *-----------------------------------------------------------------------------
- *
- *
  *
  */
 Route::get('/vacancy/{id}/{name}', 'WebsiteController@vacancyView')->name('website-vacancy-view');
@@ -334,8 +315,6 @@ Route::get('/vacancy/{id}/{name}', 'WebsiteController@vacancyView')->name('websi
  * User related
  *-----------------------------------------------------------------------------
  *
- *
- *
  */
 Route::get('/user/signup', 'WebsiteController@userSignup')->name('website-user-signup');
 Route::get('/user/profile', 'WebsiteController@userProfile')->name('website-user-profile');
@@ -344,8 +323,6 @@ Route::get('/user/profile', 'WebsiteController@userProfile')->name('website-user
  *-----------------------------------------------------------------------------
  * Document file
  *-----------------------------------------------------------------------------
- *
- *
  *
  */
 Route::get('/document/file/display/{id}', 'WebsiteController@pdfDisplayFile')->name('website-document-file-pdf-display');
