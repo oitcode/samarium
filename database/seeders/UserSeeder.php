@@ -34,6 +34,7 @@ class UserSeeder extends Seeder
             'email' => $userEmail,
             'password' => Hash::make($userPw),
             'role' => 'admin',
+            'last_login_at' => Carbon::now(),
 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
