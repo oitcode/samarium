@@ -36,6 +36,7 @@
         <div class="mt-4 d-flex justify-content-center-rm">
           <button class="btn btn-danger-rm shadow border border-light" wire:click="store"
               style="
+                  @if (\App\CmsTheme::first())
                   background-image:
                       linear-gradient(
                           to bottom right,
@@ -43,6 +44,7 @@
                           {{ \App\CmsTheme::first()->ascent_bg_color }}
                       );
                       color: {{ \App\CmsTheme::first()->ascent_text_color }};
+                  @endif
                   "
           >
             Subscribe

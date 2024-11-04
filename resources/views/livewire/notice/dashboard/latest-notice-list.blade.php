@@ -65,6 +65,7 @@
             </th>
           </tr>
           @endif
+
           @if ($notices != null && count($notices) > 0)
             @foreach ($notices as $notice) 
             <tr class="border-bottom">
