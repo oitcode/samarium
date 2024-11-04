@@ -38,8 +38,8 @@
 @endif
 
 @if (preg_match("/school/i", env('MODULES')))
-  <div class="container-fluid o-fade-in" style="background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
-    <div class="container my-0 my-md-0 px-md-3 py-4 p-0" style="background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
+  <div class="container-fluid o-fade-in" style="@if (\App\CmsTheme::first()) background-color: {{ \App\CmsTheme::first()->ascent_bg_color }}; @endif">
+    <div class="container my-0 my-md-0 px-md-3 py-4 p-0" style="@if(\App\CmsTheme::first()) background-color: {{ \App\CmsTheme::first()->ascent_bg_color }}; @endif">
       @include ('partials.school.school-quick-links-display')
     </div>
   </div>
@@ -47,8 +47,10 @@
 
 @if (preg_match("/hfn/i", env('MODULES')))
   <div class="container-fluid pb-5 p-0 o-fade-in" style="
+  @if(\App\CmsTheme::first())
   background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
   color: {{ \App\CmsTheme::first()->ascent_text_color }};
+  @endif
   ">
     <div class="container bg-info-rm p-0">
       <div class="row p-0" style="margin: auto;">
@@ -67,7 +69,7 @@
                    font-size: 1rem;
                    */
                    margin-right:-100%;
-                   bakground-image: url("{{ asset(\App\CmsTheme::first()->hero_image_path) }}");
+                   background-image: url("{{ asset(\App\CmsTheme::first()->hero_image_path) }}");
                }
                100% {
                    /*
@@ -75,7 +77,7 @@
                    margin-left:100%;
                    font-size: 2rem;
                    */
-                   bakground-image: url("{{ asset(\App\CmsTheme::first()->hero_image_path) }}");
+                   background-image: url("{{ asset(\App\CmsTheme::first()->hero_image_path) }}");
                }
            }
            --}}
