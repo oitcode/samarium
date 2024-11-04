@@ -73,6 +73,8 @@ DB_DATABASE=demo_database
 DB_USERNAME=demo_user
 DB_PASSWORD='demo_password'
 ```
+Please replace `demo_database`, `demo_user` and `demo_password` with real
+database name, username and password.
 
 Install composer dependencies.
 ```
