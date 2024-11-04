@@ -24,6 +24,7 @@
 @endsection
 
 
+@if ($company)
 @section ('content')
 
 {{-- Latest notice --}}
@@ -268,3 +269,4 @@
 @endif
 
 @endsection
+@endif
