@@ -2,11 +2,10 @@
 
 <img src="https://img.shields.io/badge/Version-0.8.6-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005530" alt="Version">
 
-Simple content management system (CMS). You can create webpages and
-blog posts easily from a GUI admin panel. Apart from CMS, there
-are also other features like product display, invoice creation,
-calendar events, contact message, task manager, document
-sharing etc.
+Open source ERP plus Content Management System (CMS) built with Laravel and Livewire.
+You can create webpages and blog posts easily from easy to use admin panel. Apart from CMS,
+there are also other features like product display, invoice creation,
+calendar events, contact message, task manager, document sharing etc.
 
 ![screenshot](dashboard-screenshot-1.png)
 
@@ -17,6 +16,7 @@ sharing etc.
 ## Features
 
 - Content Management System (CMS)
+- Ecommerce support
 - Product Catalogue
 - Invoice Generation
 - Calendar Events
@@ -34,30 +34,73 @@ laravel application working.
 Below applications must be installed in the system. 
 
 ```
-php >= 8.2
+php >= 8.1
 mysql >= 8.0
+composer
+npm
 ```
 
-### Manual installation
+### Step by step instructions
 
-First create a mysql database. Then run below command to clone this repo and change
-the working directory.
+Perform below steps to get the application running.
+
+First create a mysql database. Then grant access to the mysql user. 
+Lets assume you created database named `demo_database` and you granted
+access to mysql user `demo_user`. You will need this info to enter
+in the .env file later.
+
+Clone the repository.
 
 ```
 $ git clone https://github.com/oitcode/samarium.git
+```
+
+Go to the directory.
+```
 $ cd samarium
+```
+
+Copy env.example file to .env file
+```
 $ mv env.example .env
 ```
 
-Now, enter database name, mysql username and mysql password in the .env file. Next
-perform below steps.
+Now, enter database name, mysql username and mysql password in the .env file.
+Your .env file's database part should be like this.
 
 ```
+DB_DATABASE=demo_database
+DB_USERNAME=demo_user
+DB_PASSWORD='demo_password'
+```
+
+Install composer dependencies.
+```
 $ composer install
+```
+
+Install npm dependencies.
+```
 $ npm install
+```
+
+Compile front end assets.
+```
 $ npm run dev
+```
+
+Run database migrations.
+```
 $ php artisan migrate
+```
+
+Generate key.
+```
 $ php artisan key:generate
+```
+
+Create storage links.
+```
 $ php artisan storage:link
 ```
 
