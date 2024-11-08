@@ -9,12 +9,14 @@
   <x-toolbar-classic toolbarTitle="Pages">
 
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('create')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'Create',
-        'btnCheckMode' => 'create',
-    ])
+    @if (! $modes['display'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('create')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'Create',
+          'btnCheckMode' => 'create',
+      ])
+    @endif
 
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
