@@ -1,7 +1,7 @@
 <div>
 
 
-  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-0 border-rm">
+  <div class="d-flex justify-content-between py-0">
     {{-- Breadcrumb --}}
     <div class="my-2 py-2">
       Sale
@@ -13,7 +13,7 @@
     {{-- Top tool bar --}}
     <div>
       <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
+        <div class="mt-0 p-2 d-flex justify-content-between"
             style="{{-- background-color: #dadada; --}}">
 
           <div>
@@ -68,7 +68,7 @@
             <div class="card-body p-0">
     
     
-              <div class="row p-0 mt-2 pb-5-rm" style="margin: auto;">
+              <div class="row p-0 mt-2" style="margin: auto;">
 
 
                 <div class="col-md-3 d-flex">
@@ -388,7 +388,7 @@
                 </div>
                 @else
                   <div class="p-4 bg-white border text-muted">
-                    <p class="font-weight-bold text-muted-rm h4 py-4 text-center" style="color: #fe8d01;">
+                    <p class="font-weight-bold h4 py-4 text-center" style="color: #fe8d01;">
                       <i class="fas fa-exclamation-circle mr-2"></i>
                       No items in the list
                     <p>
