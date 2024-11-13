@@ -22,12 +22,11 @@ use App\Webpage;
  * Authorization routes
  *-----------------------------------------------------------------------------
  *
- * Default authorization routes provide by laravel.
+ * Default authorization routes provide by laravel/ui package.
  *
  *
  */
-//Auth::routes(['register' => false,]);
-Auth::routes();
+Auth::routes(['verify' => true,]);
 
 /*
  *-----------------------------------------------------------------------------
@@ -317,7 +316,7 @@ Route::get('/vacancy/{id}/{name}', 'WebsiteController@vacancyView')->name('websi
  *
  */
 Route::get('/user/signup', 'WebsiteController@userSignup')->name('website-user-signup');
-Route::get('/user/profile', 'WebsiteController@userProfile')->name('website-user-profile');
+Route::get('/user/profile', 'WebsiteController@userProfile')->middleware(['auth', 'verified',])->name('website-user-profile');
 
 /*
  *-----------------------------------------------------------------------------
