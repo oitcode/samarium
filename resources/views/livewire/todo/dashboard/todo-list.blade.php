@@ -100,10 +100,13 @@
             Title
           </th>
           <th class="d-none d-md-table-cell">
-            Date
+            Priority
           </th>
           <th class="d-none d-md-table-cell">
-            Time
+            Due date
+          </th>
+          <th class="d-none d-md-table-cell">
+            Assigned to
           </th>
           <th>
             Status
@@ -124,10 +127,14 @@
               {{ \Illuminate\Support\Str::limit($todo->title, 60, $end=' ...') }}
             </td>
             <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+              <i class="fas fa-circle text-primary mr-1"></i>
+              High
+            </td>
+            <td class="d-none d-md-table-cell" style="font-size: 1rem;">
               {{ $todo->created_at->toDateString() }}
             </td>
             <td class="d-none d-md-table-cell">
-              {{ $todo->created_at->format('g:i A') }}
+              {{ fake()->unique()->name() }}
             </td>
             <td>
               @if ($todo->status == 'pending')

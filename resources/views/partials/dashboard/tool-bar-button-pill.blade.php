@@ -52,6 +52,9 @@
       @endif
       --}}
       @endif
+      @isset($btnBsColor)
+        {{ $btnBsColor }}
+      @endisset
       "
 
   
