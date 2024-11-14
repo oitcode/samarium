@@ -45,7 +45,7 @@
     @livewireStyles
 </head>
 
-<body style="height: 100% !important;" style="background-color: #ccc;">
+<body style="height: 100% !important; background-color: #ddd;">
 
 
     {{--
@@ -56,8 +56,9 @@
     <div class="h-100">
       <div class="d-flex justify-content-center h-100">
         <div class="d-flex flex-column justify-content-center">
-            <div class="text-center">
-              <div class="my-3">
+            @if (false)
+            <div class="text-center px-3">
+              <div class="py-3 bg-white">
                 @if (\App\Company::first())
                   <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
                       class="img-fluid-rm"
@@ -69,15 +70,30 @@
                 @endif
               </div>
             </div>
+            @endif
 
             <div class="px-3">
-              <div class="py-4-rm bg-primary-rm text-dark font-weight-bold rounded border-rm shadow-rm" style="{{-- background-color: #eee; --}}">
-                <div class="h5 font-weight-bold text-center" style="">
-                  Login
+              <div class="bg-white text-dark py-3 font-weight-bold rounded-rm border-rm shadow-rm" style="{{-- background-color: #eee; --}}">
+                <div class="h5 font-weight-bold text-center mb-0" style="">
+                  @if (false)
+                  <i class="far fa-circle fa-2x-rm"></i>
+                  @endif
+                  @if (\App\Company::first())
+                    <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
+                        class="img-fluid-rm"
+                        alt="{{ \App\Company::first()->name }} logo"
+                        style="height: 40px !important;">
+
+                  @else
+                    <i class="fas fa-check-circle mr-1"></i>
+                  @endif
+                  <div>
+                    Login
+                  </div>
                 </div>
               </div>
-              <div class="bg-light-rm d-flex pt-5" style="{{--background-color: #eee;--}}">
-                <div class="px-3 py-3 border bg-white">
+              <div class="bg-light-rm d-flex pt-5-rm" style="{{--background-color: #eee;--}}">
+                <div class="px-3 py-3 border-rm bg-white">
                   <form method="POST" action="{{ route('login') }}">
                       @csrf
 
@@ -182,13 +198,15 @@
             | Display version at bottom
             |
             --}}
-            <div class="my-3 text-muted">
-              <div class="text-center">
+            @if (false)
+            <div class="pb-3-rm px-3">
+              <div class="text-center bg-white text-muted pb-3">
                 <small>
                   v0.8.6
                 </small>
               </div>
             </div>
+            @endif
 
         </div>
       </div>
