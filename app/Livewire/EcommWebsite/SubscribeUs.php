@@ -6,6 +6,8 @@ use Livewire\Component;
 
 use App\NewsletterSubscription;
 
+use App\Events\NewsletterSubscriptionCreated;
+
 class SubscribeUs extends Component
 {
     public $email;
@@ -25,8 +27,12 @@ class SubscribeUs extends Component
 
         $validatedData['status'] = 'active';
 
-        NewsletterSubscription::create($validatedData);
+        $newsletterSubscription = NewsletterSubscription::create($validatedData);
+
         $this->resetInputFields();
+
+        NewsletterSubscriptionCreated::dispatch($newsletterSubscription);
+
         session()->flash('subscriptionMessage', 'Congratulations! Your subscription is added.');
     }
 
