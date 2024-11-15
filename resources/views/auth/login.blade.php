@@ -198,11 +198,11 @@
             | Display version at bottom
             |
             --}}
-            @if (false)
+            @if (true)
             <div class="pb-3-rm px-3">
               <div class="text-center bg-white text-muted pb-3">
                 <small>
-                  v0.8.6
+                  v0.8.7
                 </small>
               </div>
             </div>
