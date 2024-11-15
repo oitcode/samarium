@@ -15,7 +15,7 @@
   @endif
 
 
-  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-1 border-rm bg-dark text-white">
+  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-1 border-rm bg-dark-rm text-white-rm">
     {{-- Breadcrumb --}}
     <div class="my-2 py-2">
       Products
@@ -82,6 +82,9 @@
 
   {{-- Creation and Update info --}}
   @include ('partials.product.product-display.creation-update-info')
+
+  {{-- Delete product --}} 
+  @include ('partials.product.product-display.delete-product')
 
 
 </div>

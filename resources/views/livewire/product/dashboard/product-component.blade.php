@@ -3,12 +3,14 @@
 
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Product">
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('createProduct')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'New',
-        'btnCheckMode' => 'createProduct',
-    ])
+    @if (! $modes['displayProduct'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('createProduct')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'New',
+          'btnCheckMode' => 'createProduct',
+      ])
+    @endif
 
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [

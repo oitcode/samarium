@@ -26,6 +26,10 @@ class ProductDisplay extends Component
     public $deletingProductFeature;
 
     public $modes = [
+        'delete' => false,
+        'canDelete' => false,
+        'cannotDelete' => false,
+
         'updateProductNameMode' => false,
         'updateProductCategoryMode' => false,
         'updateProductDescriptionMode' => false,
@@ -426,5 +430,32 @@ class ProductDisplay extends Component
     public function productVendorLinkCancelled()
     {
         $this->exitMode('linkProductVendorMode');
+    }
+
+    public function deleteProduct()
+    {
+        $this->enterMode('delete');
+
+        if ($this->product->saleInvoiceItems && count($this->product->saleInvoiceItems) > 0) {
+            $this->enterModeSilent('cannotDelete');
+        } else {
+            $this->enterModeSilent('canDelete');
+        }
+
+    }
+
+    public function deleteProductConfirm()
+    {
+        $this->product->delete();
+
+        session()->flash('message', 'Product deleted.');
+
+        /*
+         * Is this a good approach? Instead of redirecting cant we just emit some event 
+         * and do something better?
+         *
+         */
+        return redirect()->to('/dashboard/product');
+
     }
 }
