@@ -66,9 +66,15 @@
     @livewireStyles
 </head>
 
-<body style="">
-  @if (! $company)
-    @include ('partials.cms.website.company-not-set')
+<body style="height: 100% !important;">
+  @if (true || ! $company)
+    <div class="h-100">
+      @if (false)
+        @include ('partials.cms.website.company-not-set')
+      @else
+        @include ('partials.cms.website.coming-soon-page')
+      @endif
+    </div>
   @else
   <div class="p-0">
 
