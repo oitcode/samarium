@@ -1,7 +1,11 @@
 <div>
 
 
-  <!-- Flash message div -->
+  {{--
+     |
+     | Flash message div
+     |
+  --}}
   @if (session()->has('message'))
     @include ('partials.flash-message', [
         'flashMessage' => session('message'),
@@ -9,26 +13,17 @@
   @endif
 
 
-
-  {{-- Filter div --}}
-  @if (true)
+  {{--
+     |
+     | Filter div
+     |
+  --}}
   <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
     <div class="font-weight-bold h6 d-flex">
-      @if (false)
-      <div class="mr-4">
-        Filter
-      </div>
-      @endif
       <div class="d-flex">
-        @if (true)
         <div class="mr-4 font-weight-bold pt-2">
-          @if (false)
-          Status
-          @endif
           <i class="fas fa-filter mr-2"></i>
         </div>
-        @endif
-        @if (true)
         <div class="dropdown">
           <button class="btn
               @if ($modes['showOnlyNewMode'])
@@ -69,19 +64,21 @@
             </button>
           </div>
         </div>
-        @endif
       </div>
     </div>
-
 
     <div class="pt-2 font-weight-bold">
       Total : {{ $contactMessageCount }}
     </div>
   </div>
-  @endif
 
 
-  {{-- Show in bigger and smaller screens --}}
+  {{--
+     |
+     | Contact message list
+     |
+  --}}
+
   <div class="table-responsive">
     @if ($contactMessages && count($contactMessages) > 0)
       <table class="table table-hover shadow-sm border">
@@ -103,9 +100,9 @@
               Status
             </th>
             @if (false)
-            <th>
-              Action
-            </th>
+              <th>
+                Action
+              </th>
             @endif
           </tr>
         </thead>
