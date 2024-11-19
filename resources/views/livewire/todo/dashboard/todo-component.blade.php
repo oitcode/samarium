@@ -1,7 +1,12 @@
 <div class="p-3 p-md-0">
 
 
-  {{-- Top tool bar --}}
+  {{--
+     |
+     | Top tool bar
+     |
+  --}}
+
   <x-toolbar-classic toolbarTitle="Tasks">
 
     @if (! $modes['displayMode'])
