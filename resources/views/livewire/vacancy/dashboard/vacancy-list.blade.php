@@ -1,14 +1,16 @@
 <div>
 
 
-  <!-- Flash message div -->
+  {{--
+     |
+     | Flash message div
+     |
+  --}}
   @if (session()->has('message'))
     @include ('partials.flash-message', [
         'flashMessage' => session('message'),
     ])
   @endif
-
-
 
 
   <div wire:loading>
@@ -17,31 +19,25 @@
     </div>
   </div>
 
-  {{-- Filter div --}}
-  @if (true)
+
+  {{--
+     |
+     | Filter div
+     |
+  --}}
   <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
-    <div class="font-weight-bold h6 d-flex">
-      <div class="d-flex">
-        @if (true)
-        <div class="mr-4 font-weight-bold pt-2">
-          @if (false)
-          <i class="fas fa-filter mr-2"></i>
-          @endif
-        </div>
-        @endif
-      </div>
-    </div>
-
-
     <div class="pt-2 font-weight-bold">
       Total : {{ $vacanciesCount }}
     </div>
   </div>
-  @endif
 
 
+  {{--
+     |
+     | Vacancy list
+     |
+  --}}
   @if ($vacancies != null && count($vacancies) > 0)
-    @if (true)
     {{-- Show in bigger screens --}}
     <div class="table-responsive d-none d-md-block">
       <table class="table table-hover shadow-sm border">
@@ -84,7 +80,6 @@
       </table>
 
     </div>
-    @endif
 
     {{-- Pagination links --}}
     {{ $vacancies->links() }}

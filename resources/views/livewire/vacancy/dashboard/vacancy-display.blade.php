@@ -2,7 +2,7 @@
 
 
   <div class="bg-white border p-3">
-    <div class="mt-3-rm mb-3 h5 font-weight-bold border-rm bg-light-rm py-3" {{-- style="border-left: 5px solid #05a;" --}}>
+    <div class="mb-3 h5 font-weight-bold py-3">
       <i class="fas fa-cogs mr-3 text-secondary"></i>
       {{ $vacancy->title }}
     </div>
@@ -69,7 +69,7 @@
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Description
         </div>
-        <div class="col-md-9 border p-3 flex-grow-1-rm">
+        <div class="col-md-9 border p-3">
           @if ($modes['updateDescriptionMode'])
             @livewire ('vacancy.dashboard.vacancy-edit-description', ['vacancy' => $vacancy,])
           @else
@@ -93,7 +93,7 @@
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Status
         </div>
-        <div class="col-md-9 border p-3 flex-grow-1-rm">
+        <div class="col-md-9 border p-3">
           Active
         </div>
       </div>
@@ -102,20 +102,14 @@
   </div>
 
 
+  {{--
+     |
+     | Delete vacancy
+     |
+  --}}
   <div class="bg-white border p-3 my-3">
-    @if (false)
-    {{-- Danger zone --}}
-    <div class="mb-3">
-      <strong>
-        Danger zone
-      </strong>
-    </div>
-    @endif
-
-    <div class="col-md-6 p-0 border border-secondary-rm rounded">
-
-      {{-- Delete event --}}
-      <div class="">
+    <div class="col-md-6 p-0 border rounded">
+      <div>
         <div class="d-flex justify-content-between p-3">
           <div>
             <div class="">
@@ -129,8 +123,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 

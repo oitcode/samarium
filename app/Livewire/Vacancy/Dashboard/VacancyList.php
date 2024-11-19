@@ -28,7 +28,7 @@ class VacancyList extends Component
     {
         $this->vacanciesCount = Vacancy::count();
 
-        $vacancies = Vacancy::paginate(5);
+        $vacancies = Vacancy::orderBy('vacancy_id', 'desc')->paginate(5);
 
         return view('livewire.vacancy.dashboard.vacancy-list')
             ->with('vacancies', $vacancies);
