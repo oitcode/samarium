@@ -1,7 +1,12 @@
 <div>
 
 
-  {{-- Top tool bar --}}
+  {{--
+     |
+     | Top tool bar
+     |
+  --}}
+
   <x-toolbar-classic toolbarTitle="Newsletter subscription">
 
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -32,17 +37,16 @@
   </x-toolbar-classic>
 
 
-  <!-- Flash message div -->
+  {{--
+     |
+     | Flash message div
+     |
+  --}}
+
   @if (session()->has('message'))
-    <div class="p-2">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle mr-3"></i>
-        {{ session('message') }}
-        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-          <span class="text-danger" aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
+    @include ('partials.flash-message', [
+        'flashMessage' => session('message'),
+    ])
   @endif
 
 
@@ -58,8 +62,6 @@
     @livewire ('newsletter-subscription.dashboard.newsletter-subscription-list')
   @elseif ($modes['displayMode'])
     @livewire ('newsletter-subscription.dashboard.newsletter-subscription-display', ['newsletterSubscription' => $displayingNewsletterSubscription,])
-  @elseif ($modes['updateMode'])
-    @livewire ('vacancy-update', ['vacancy' => $updatingVacancy,])
   @endif
 
 

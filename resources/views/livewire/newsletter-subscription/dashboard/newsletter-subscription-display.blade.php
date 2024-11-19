@@ -3,7 +3,7 @@
 
   <div class="bg-white border p-3">
 
-    <div class="mt-3-rm mb-3 h5 font-weight-bold border-rm bg-light-rm py-3" {{-- style="border-left: 5px solid #05a;" --}}>
+    <div class="mb-3 h5 font-weight-bold py-3">
       <i class="fas fa-cogs mr-3 text-secondary"></i>
       {{ $newsletterSubscription->email }}
     </div>
@@ -55,19 +55,9 @@
   </div>
 
 
+  {{-- Delete newsletter subscription --}}
   <div class="bg-white border p-3 my-3">
-    @if (false)
-    {{-- Danger zone --}}
-    <div class="mb-3">
-      <strong>
-        Danger zone
-      </strong>
-    </div>
-    @endif
-
-    <div class="col-md-6 p-0 border border-secondary-rm rounded">
-
-      {{-- Delete event --}}
+    <div class="col-md-6 p-0 border rounded">
       <div class="">
         <div class="d-flex justify-content-between p-3">
           <div>
@@ -82,8 +72,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 
