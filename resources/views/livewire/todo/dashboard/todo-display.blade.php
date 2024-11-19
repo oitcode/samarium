@@ -1,8 +1,13 @@
 <div>
 
 
-  <div class="bg-white-rm border-rm p-3-rm">
-    <div class="mt-3-rm mb-3 h5 font-weight-bold border bg-white p-3" {{-- style="border-left: 5px solid #05a;" --}}>
+  {{--
+     |
+     | Task general information
+     |
+  --}}
+  <div>
+    <div class="mb-3 h5 font-weight-bold border bg-white p-3">
       @if ($modes['updateTitleMode'])
         @livewire ('todo.dashboard.todo-edit-title', ['todo' => $todo,])
       @else
@@ -63,7 +68,7 @@
         <div class="col-md-2 border p-3 bg-light font-weight-bold">
           Description
         </div>
-        <div class="col-md-10 border bg-white p-3 flex-grow-1-rm">
+        <div class="col-md-10 border bg-white p-3">
           @if ($modes['updateDescriptionMode'])
             @livewire ('todo.dashboard.todo-edit-description', ['todo' => $todo,])
           @else
@@ -91,6 +96,11 @@
   </div>
 
 
+  {{--
+     |
+     | Assigned to
+     |
+  --}}
   <div class="bg-white border p-3 my-3">
 
     <div class="font-weight-bold mb-3">
@@ -98,46 +108,16 @@
     </div>
 
     <div>
-      @if ($modes['updateStatusMode'])
-        @livewire ('todo.dashboard.todo-edit-status', ['todo' => $todo,])
-
-      @else
-        <div class="d-flex justify-content-between">
-          <div>
-            @if ($todo->status == 'pending')
-              <span class="badge badge-danger badge-pill">
-                Pending
-              </span>
-            @elseif ($todo->status == 'progress')
-              <span class="badge badge-warning badge-pill">
-                Progress
-              </span>
-            @elseif ($todo->status == 'deferred')
-              <span class="badge badge-light badge-pill">
-                Deferred
-              </span>
-            @elseif ($todo->status == 'cancelled')
-              <span class="badge badge-light badge-pill">
-                Cancelled
-              </span>
-            @elseif ($todo->status == 'done')
-              <span class="badge badge-success badge-pill">
-                Done
-              </span>
-            @else
-              {{ $todo->status }}
-            @endif
-          </div>
-
-          <div class="mr-3">
-            <button class="btn btn-light" wire:click="enterMode('updateStatusMode')">
-            Edit
-            </button>
-          </div>
-        </div>
-      @endif
+      Todo
     </div>
   </div>
+
+
+  {{--
+     |
+     | Status
+     |
+  --}}
   <div class="bg-white border p-3 my-3">
 
     <div class="font-weight-bold mb-3">
@@ -178,7 +158,7 @@
 
           <div class="mr-3">
             <button class="btn btn-light" wire:click="enterMode('updateStatusMode')">
-            Edit
+              Edit
             </button>
           </div>
         </div>
@@ -187,19 +167,13 @@
   </div>
 
 
+  {{--
+     |
+     | Delete task
+     |
+  --}}
   <div class="bg-white border p-3 my-3">
-    @if (false)
-    {{-- Danger zone --}}
-    <div class="mb-3">
-      <strong>
-        Danger zone
-      </strong>
-    </div>
-    @endif
-
-    <div class="col-md-6 p-0 border border-secondary-rm rounded">
-
-      {{-- Delete event --}}
+    <div class="col-md-6 p-0 border rounded">
       <div class="">
         <div class="d-flex justify-content-between p-3">
           <div>
@@ -214,8 +188,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 

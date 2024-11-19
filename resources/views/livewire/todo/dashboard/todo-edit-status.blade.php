@@ -8,13 +8,10 @@
     <option value="cancelled">Cancelled</option>
     <option value="done">Done</option>
   </select>
+
   <div class="my-3">
-    <button class="btn btn-sm btn-success ml-2" wire:click="update">
-      Save
-    </button>
-    <button class="btn btn-sm btn-danger ml-2" wire:click="$dispatch('todoUpdateStatusCancelled')">
-      Cancel
-    </button>
+    @include ('partials.button-update')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'todoUpdateStatusCancelled',])
   </div>
 
 

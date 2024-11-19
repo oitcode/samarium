@@ -1,22 +1,14 @@
-<div class="bg-white-rm p-3-rm border-rm">
+<div>
 
 
   <div class="d-flex justify-content-between">
     <div>
       <h2 class="h5 font-weight-bold">
         Tasks
-        @if (false)
-        <span class="badge badge-pill badge-primary mx-3">
-          {{ $totalTodo }}
-        </span>
-        @endif
       </h2>
     </div>
     <div class="px-3">
       <a href="{{ route('dashboard-todo') }}" class="btn btn-primary px-3">
-        @if (false)
-        <i class="fas fa-plus-circle mr-2"></i>
-        @endif
         <span class="font-weight-bold">
           Open Tasks
         </span>
@@ -29,7 +21,7 @@
   </div>
 
   @foreach ($todos as $todo)
-    <div class="py-3 border rounded-rm my-3 bg-white" style="border-radius: 25px;">
+    <div class="py-3 border my-3 bg-white" style="border-radius: 25px;">
       <div class="px-3 mb-1">
         <span class="font-weight-bold">
         {{ $todo->title }}

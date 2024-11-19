@@ -25,7 +25,7 @@
       @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="py-3 m-0" {{--style="background-image: linear-gradient(to right, white, #abc);"--}}>
+    <div class="py-3 m-0">
 
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])

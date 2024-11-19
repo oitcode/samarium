@@ -1,12 +1,14 @@
 <div>
 
 
-  {{-- Filter div --}}
-  @if (true)
+  {{--
+     |
+     | Filter div
+     |
+  --}}
   <div class="mb-3 py-3 px-2 bg-white border d-flex justify-content-between">
     <div class="font-weight-bold h6 d-flex">
       <div class="d-flex justify-content-between">
-        @if (true)
         <div class="dropdown p-0 px-2">
           <button class="btn
               @if ($modes['showOnlyPendingMode'])
@@ -62,29 +64,24 @@
             </button>
           </div>
         </div>
-        @endif
       </div>
     </div>
-
 
     <div class="pt-2 px-2 font-weight-bold border" style="background-color: #eef; color: #aaf;">
       Total : {{ $todoCount }}
     </div>
   </div>
-  @endif
 
 
-
-  {{-- Show in bigger screens --}}
-  <div class="table-responsive d-none-rm d-md-block-rm">
+  {{--
+     |
+     | Todo list table
+     |
+  --}}
+  <div class="table-responsive">
     <table class="table table-hover shadow-sm border">
       <thead>
-        <tr class="bg-white text-dark
-            {{--
-            {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
-            --}}
-            p-4" style="font-size: 1rem;">
+        <tr class="bg-white text-dark p-4" style="font-size: 1rem;">
           <th>
             ID
           </th>
@@ -148,22 +145,20 @@
             <td>
               <i class="fas fa-ellipsis-h text-secondary"></i>
               @if (false)
-              <button class="dropdown-item" wire:click="deleteTodo({{ $todo }})">
-                <i class="fas fa-trash text-danger mr-2"></i>
-                Delete
-              </button>
-              @if ($modes['delete'])
-                @if ($deletingTodo->todo_id == $todo->todo_id)
-
-                  <span class="btn btn-danger mr-3" wire:click="confirmDeleteTodo">
-                    Confirm delete
-                  </span>
-                  <span class="btn btn-light mr-3" wire:click="deleteTodoCancel">
-                    Cancel
-                  </span>
-
+                <button class="dropdown-item" wire:click="deleteTodo({{ $todo }})">
+                  <i class="fas fa-trash text-danger mr-2"></i>
+                  Delete
+                </button>
+                @if ($modes['delete'])
+                  @if ($deletingTodo->todo_id == $todo->todo_id)
+                    <span class="btn btn-danger mr-3" wire:click="confirmDeleteTodo">
+                      Confirm delete
+                    </span>
+                    <span class="btn btn-light mr-3" wire:click="deleteTodoCancel">
+                      Cancel
+                    </span>
+                  @endif
                 @endif
-              @endif
               @endif
             </td>
           </tr>
@@ -173,10 +168,11 @@
 
   </div>
 
+
   @if (false)
-  @if ($modes['confirmDeleteMode'])
-    @livewire ('todo-list-confirm-delete', ['todo' => $deletingTodo,])
-  @endif
+    @if ($modes['confirmDeleteMode'])
+      @livewire ('todo-list-confirm-delete', ['todo' => $deletingTodo,])
+    @endif
   @endif
 
 
