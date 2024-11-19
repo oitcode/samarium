@@ -1,14 +1,6 @@
 <div>
 
 
-  {{-- Flash message div --}}
-  @if (session()->has('message'))
-    @include ('partials.flash-message', [
-        'flashMessage' => session('message'),
-    ])
-  @endif
-
-
   {{-- Filter div --}}
   @if (true)
   <div class="mb-3 py-3 px-2 bg-white border d-flex justify-content-between">
