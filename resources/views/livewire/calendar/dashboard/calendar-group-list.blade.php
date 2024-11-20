@@ -3,7 +3,9 @@
 
   @if (!is_null($calendarGroups) && count($calendarGroups) > 0)
 
-    {{-- Show in bigger screens --}}
+    {{--
+       | Show in bigger screens
+    --}}
     <div class="d-none d-md-block bg-white border">
       <div class="table-responsive">
         <table class="table table-hover table-valign-middle">
@@ -36,12 +38,14 @@
     </div>
 
 
-    {{-- Show in smaller screens --}}
+    {{--
+       | Show in smaller screens
+    --}}
     <div class="d-md-none">
 
       @foreach ($calendarGroups as $calendarGroup)
         <div class="bg-white border px-3">
-          <div class="h4-rm py-4">
+          <div class="py-4">
             <span  wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })" class="h5 text-dark font-weight-bold" role="button">
               {{ $calendarGroup->name }}
             </span>

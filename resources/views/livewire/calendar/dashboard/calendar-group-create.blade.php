@@ -16,16 +16,10 @@
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-
     <div class="py-3 m-0">
-
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'calendarGroupCreateCancelled',])
-
-      <button wire:loading class="btn">
-        <span class="spinner-border text-info mr-3" role="status">
-        </span>
-      </button>
+      @include ('partials.spinner-border')
     </div>
   </div>
 

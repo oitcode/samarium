@@ -6,12 +6,9 @@
   </div>
 
   <div>
-    <button class="btn btn-success mr-2" wire:click="update">
-      Save
-    </button>
-    <button class="btn btn-danger mr-2" wire:click="$dispatch('calendarEventUpdateNameCancelled')">
-      Cancel
-    </button>
+    @include ('partials.button-update')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'calendarEventUpdateNameCancelled',])
+    @include ('partials.spinner-border')
   </div>
 
 

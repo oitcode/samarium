@@ -1,21 +1,20 @@
 <div>
 
 
-  <div class="bg-white-rm border-rm pt-3 pl-3">
+  <div class="pt-3 pl-3">
     <div class="d-flex justify-content-between">
 
-      @if (true)
       <div class="mb-4 d-none d-md-block p-0">
 
         {{-- Date selector --}}
-        <div class="float-left d-flex bg-warning-rm">
+        <div class="float-left d-flex">
 
 
-          <button class="btn btn-light mr-3 p-0 bg-white-rm badge-pill-rm" wire:click="setPreviousDay">
+          <button class="btn btn-light mr-3 p-0" wire:click="setPreviousDay">
             <i class="far fa-arrow-alt-circle-left fa-2x text-secondary"></i>
           </button>
 
-          <button class="btn btn-light m-0 p-0 bg-white-rm badge-pill-rm" wire:click="setNextDay">
+          <button class="btn btn-light m-0 p-0" wire:click="setNextDay">
             <i class="far fa-arrow-alt-circle-right fa-2x text-secondary"></i>
           </button>
 
@@ -27,7 +26,7 @@
             </button>
           </div>
 
-          <span class="btn-rm {{ env('OC_ASCENT_BTN_COLOR', 'btn-dark') }}-rm mr-3 px-2 font-weight-bold rounded-lg ml-5 pt-2" style="min-width: 300px;">
+          <span class=" mr-3 px-2 font-weight-bold rounded-lg ml-5 pt-2" style="min-width: 300px;">
             @if (\Carbon\Carbon::today() == \Carbon\Carbon::create($calendarDate))
               <span class="">
                 TODAY
@@ -60,19 +59,18 @@
         </div>
 
       </div>
-      @endif
     </div>
 
 
     <div class="row" style="margin: auto;">
-      <div class="col-md-6 p-0 bg-danger-rm text-white-rm border-rm bg-warning-rm border-rm">
+      <div class="col-md-6 p-0">
         {{-- Show calendar events for the selected date --}}
         <h2 class="h5 font-weight-bold mb-3">
           Events
         </h2>
         @if (count($today['events']) > 0)
           @foreach ($today['events'] as $event)
-            <div class="mb-3 p-2 border rounded-lg shadow-rm bg-dark-rm text-white-rm py-3">
+            <div class="mb-3 p-2 border rounded-lg py-3">
               <i class="fas fa-calendar mr-1 @if ($event->is_holiday == 'yes') text-danger @else text-primary @endif"></i>
 
               @foreach ($event->calendarGroups as $calendarGroup )
@@ -98,22 +96,7 @@
           </div>
         @endif
       </div>
-      @if (false)
-      <div class="col-md-6">
-        @if ($today['is_holiday'])
-          <div class="font-weight-bold border shadow-rm p-2 py-3 rounded-lg">
-            <i class="fas fa-flag text-danger"></i>
-            HOLIDAY
-          </div>
-        @else
-          <div class="bg-light text-dark font-weight-bold border shadow-rm p-2 py-3 rounded-lg">
-            NOT A HOLIDAY
-          </div>
-        @endif
-      </div>
-      @endif
     </div>
-
   </div>
 
 
