@@ -1,7 +1,12 @@
 <div>
 
 
-  <!-- Flash message div -->
+  {{--
+     |
+     | Flash message div
+     |
+  --}}
+
   @if (session()->has('message'))
     @include ('partials.flash-message', [
         'flashMessage' => session('message'),
@@ -9,31 +14,26 @@
   @endif
 
 
-  {{-- Filter div --}}
-  @if (true)
+  {{--
+     |
+     | Filter div
+     |
+  --}}
+
   <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
-    <div class="font-weight-bold h6 d-flex">
-      <div class="d-flex">
-        @if (true)
-        <div class="mr-4 font-weight-bold pt-2">
-          @if (false)
-          <i class="fas fa-filter mr-2"></i>
-          @endif
-        </div>
-        @endif
-      </div>
-    </div>
-
-
     <div class="pt-2 font-weight-bold">
       Total : {{ $teamsCount }}
     </div>
   </div>
-  @endif
 
+
+  {{--
+     |
+     | Team list table (Search)
+     |
+  --}}
 
   @if ($searchResultTeams != null && count($searchResultTeams))
-    {{-- Show in bigger and smaller screens --}}
     <div class="table-responsive">
       <table class="table table-hover shadow-sm border">
         <thead>
@@ -71,9 +71,14 @@
     </div>
   @endif
 
+
+  {{--
+     |
+     | Team list table
+     |
+  --}}
+
   @if ($teams != null && count($teams) > 0)
-    @if (true)
-    {{-- Show in bigger and smaller screens --}}
     <div class="table-responsive">
       <table class="table table-hover shadow-sm border">
         <thead>
@@ -130,7 +135,6 @@
       </table>
 
     </div>
-    @endif
 
     {{-- Pagination links --}}
     {{ $teams->links() }}

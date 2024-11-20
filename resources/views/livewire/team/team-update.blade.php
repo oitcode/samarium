@@ -1,7 +1,9 @@
 <div class="card shadow-sm">
+
+
   <div class="card-body p-3">
 
-    <h1 class="text-white-rm" style="font-size: 1.3rem;">
+    <h1 style="font-size: 1.3rem;">
       Update team
     </h1>
 
@@ -35,30 +37,21 @@
 
     <div class="form-group">
       <label for="">Logo</label>
-      @if (true)
       @if ($team->image_path)
         <div class="d-flex justify-content-start mb-3">
           <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
         </div>
-      @endif
       @endif
       <input type="file" class="form-control" wire:model.live="image">
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="p-3 m-0">
-      <button class="btn btn-lg badge-pill btn-success mr-3" wire:click="update">
-        Update
-      </button>
-
-      <button class="btn btn-lg btn-danger badge-pill mr-3" wire:click="$dispatch('exitUpdateTeamMode')">
-        Cancel
-      </button>
-
-      <button wire:loading class="btn">
-        <span class="spinner-border text-info mr-3" role="status">
-        </span>
-      </button>
+      @include ('partials.button-update')
+      @include ('partials.button-cancel', ['clickEmitEventName' => 'exitUpdateTeamMode',])
+      @include ('partials.spinner-border')
     </div>
   </div>
+
+
 </div>
