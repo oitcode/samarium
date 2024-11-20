@@ -67,7 +67,7 @@
 </head>
 
 <body style="height: 100% !important;">
-  @if (true || ! $company)
+  @if (! $company)
     <div class="h-100">
       @if (false)
         @include ('partials.cms.website.company-not-set')
