@@ -7,14 +7,22 @@
      |
   --}}
   <div>
-    <div class="mb-3 h5 font-weight-bold border bg-white p-3">
+    <div class="mb-3 h5 font-weight-bold border bg-white">
       @if ($modes['updateTitleMode'])
-        @livewire ('todo.dashboard.todo-edit-title', ['todo' => $todo,])
+        <div class="p-3">
+          @livewire ('todo.dashboard.todo-edit-title', ['todo' => $todo,])
+        </div>
       @else
-        {{ $todo->title }}
-        <button class="btn btn-success mx-3" wire:click="enterMode('updateTitleMode')">
-          Edit
-        </button>
+        <div class="d-flex justify-content-between py-3">
+          <div class="pl-3 d-flex flex-column justify-content-center">
+            {{ $todo->title }}
+          </div>
+          <div>
+            <button class="btn btn-outline-primary mx-3" wire:click="enterMode('updateTitleMode')">
+              Edit
+            </button>
+          </div>
+        </div>
       @endif
     </div>
 
@@ -83,7 +91,7 @@
                 @endif
               </div>
               <div>
-                <button class="btn btn-light" wire:click="enterMode('updateDescriptionMode')">
+                <button class="btn btn-outline-primary" wire:click="enterMode('updateDescriptionMode')">
                   Edit
                 </button>
               </div>
@@ -108,7 +116,7 @@
     </div>
 
     <div>
-      Todo
+      {{ fake()->unique()->name() }}
     </div>
   </div>
 
@@ -156,8 +164,8 @@
             @endif
           </div>
 
-          <div class="mr-3">
-            <button class="btn btn-light" wire:click="enterMode('updateStatusMode')">
+          <div class="">
+            <button class="btn btn-outline-primary" wire:click="enterMode('updateStatusMode')">
               Edit
             </button>
           </div>
@@ -172,20 +180,32 @@
      | Delete task
      |
   --}}
-  <div class="bg-white border p-3 my-3">
-    <div class="col-md-6 p-0 border rounded">
-      <div class="">
-        <div class="d-flex justify-content-between p-3">
-          <div>
-            <div class="">
-              <strong>
-                Delete this task
-              </strong>
-            </div>
-            <div>
-              Once you delete, it cannot be undone. Please be sure.
-            </div>
+  <div class="bg-white border p-3-rm my-3">
+    <div class="">
+      <div class="d-flex justify-content-between p-3">
+        <div>
+          <div class="">
+            <strong>
+              Delete this task
+            </strong>
           </div>
+          <div>
+            Once you delete, it cannot be undone. Please be sure.
+          </div>
+        </div>
+        <div>
+          @if ($modes['deleteMode'])
+            <button class="btn btn-danger" wire:click="deleteTodo">
+              Confirm delete
+            </button>
+            <button class="btn btn-light" wire:click="exitMode('deleteMode')">
+              Cancel
+            </button>
+          @else
+            <button class="btn btn-outline-danger" wire:click="enterMode('deleteMode')">
+              Delete
+            </button>
+          @endif
         </div>
       </div>
     </div>

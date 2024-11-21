@@ -19,6 +19,7 @@ class TodoDisplay extends Component
         'updateTitleMode' => false,
         'updateDescriptionMode' => false,
         'updateStatusMode' => false,
+        'deleteMode' => false,
     ];
 
     protected $listeners = [
@@ -95,5 +96,19 @@ class TodoDisplay extends Component
     public function todoUpdateStatusCompleted()
     {
         $this->exitMode('updateStatusMode');
+    }
+
+    public function deleteTodo()
+    {
+        $this->todo->delete();
+
+        session()->flash('message', 'Task deleted.');
+
+        /*
+         * Is this a good approach? Instead of redirecting cant we just emit some event 
+         * and do something better?
+         *
+         */
+        return redirect()->to('/dashboard/todo');
     }
 }
