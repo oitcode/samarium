@@ -2,40 +2,25 @@
   {{-- Top Heading Main Info --}}
   <div class="card mb-0 shadow-sm">
     <div class="card-body p-0 bg-primary-rm text-white-rm">
-  
-  
-      <div class="row p-0 mt-2-rm" style="margin: auto;">
-  
 
-        <div class="col-md-2 py-2
-            {{ env('OC_ASCENT_BG_COLOR', 'bg-light') }}
-            {{ env('OC_ASCENT_TEXT_COLOR', 'text-secondary') }}
-            ">
-          <div class="d-flex-rm justify-content-end-rm h-100">
-            <i class="fas fa-tools
-                {{ env('OC_ASCENT_HL_COLOR', 'text-secondary') }}
-                "></i>
-            <br/>
-            <span style="font-size: 1.1rem;">
-              Expense
-            </span>
-          </div>
-        </div>
-        <div class="col-md-4 d-flex bg-danger-rm text-white-rm">
-          <div class="mb-3 d-flex py-2 mr-3">
-            <div>
-              <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
-                ID
-              </div>
-              <div class="h6">
-                {{ $expense->expense_id }}
-              </div>
+      <div class="row p-0 mt-2" style="margin: auto;">
+
+        <div class="col-md-3 d-flex">
+          <div class="mb-4">
+            <div class="mb-1 h6 font-weight-bold">
+              Expense ID
+            </div>
+            <div class="h6">
+              {{ $expense->expense_id }}
             </div>
           </div>
-  
-          <div class="mb-3 py-2">
-            <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
-              Date
+        </div>
+
+        <div class="col-md-3 d-flex">
+
+          <div class="">
+            <div class="mb-1 h6 font-weight-bold">
+              Expense Date
             </div>
             @if ($modes['backDate'])
               <div class="">
@@ -57,9 +42,12 @@
               </div>
             @endif
           </div>
+
         </div>
-        <div class="col-md-4 mb-3-rm bg-light text-dark py-2 border-left border-right">
-          <div class="text-muted-rm mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+    
+    
+        <div class="col-md-3 mb-3 border-left border-right">
+          <div class="mb-1 h6 font-weight-bold">
             Vendor
           </div>
           <div class="d-flex">
@@ -85,36 +73,45 @@
             @endif
           </div>
         </div>
-  
-  
-        <div class="col-md-2 py-2" style="font-size: calc(0.6rem + 0.2vw);">
-          <div class="text-muted-rm" style="font-size: calc(0.6rem + 0.2vw);">
+    
+        <div class="col-md-3">
+          <div class="font-weight-bold">
             Payment Status
           </div>
           <div>
-              @if ( $expense->payment_status == 'paid')
-              <span class="badge badge-pill badge-success">
-              Paid
-              </span>
-              @elseif ( $expense->payment_status == 'partially_paid')
-              <span class="badge badge-pill badge-warning">
-              Partial
-              </span>
-              @elseif ( $expense->payment_status == 'pending')
-              <span class="badge badge-pill badge-danger">
-              Pending
-              </span>
-              @else
-              <span class="badge badge-pill badge-secondary">
-                {{ $expense->payment_status }}
-              </span>
-              @endif
+            @if ( $expense->payment_status == 'paid')
+            <span class="badge badge-pill badge-success">
+            Paid
+            </span>
+            @elseif ( $expense->payment_status == 'partially_paid')
+            <span class="badge badge-pill badge-warning">
+            Partial
+            </span>
+            @elseif ( $expense->payment_status == 'pending')
+            <span class="badge badge-pill badge-danger">
+            Pending
+            </span>
+            @else
+            <span class="badge badge-pill badge-secondary">
+              {{ $expense->payment_status }}
+            </span>
+            @endif
           </div>
         </div>
-  
-  
+
+        <div class="col-md-2">
+          @if (false)
+          <div class="d-none d-md-block">
+            <div class="d-flex h-100 h6 font-weight-bold">
+                <span>
+                  Sales
+                </span>
+            </div>
+          </div>
+          @endif
+        </div>
+    
       </div>
-  
     </div>
   </div>
 
@@ -137,6 +134,7 @@
             </tr>
           </thead>
   
+          @if ($expense->expenseItems && count($expense->expenseItems) > 0)
           <tbody style="font-size: 1.3rem;">
             @foreach ($expense->expenseItems as $expenseItem)
               <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm">
@@ -160,6 +158,18 @@
               </tr>
             @endforeach
           </tbody>
+          @else
+            <tr>
+              <td colspan="5" class="p-0">
+                <div class="p-0 bg-white border text-muted">
+                  <p class="font-weight-bold h4 py-4 text-center" style="color: #fe8d01;">
+                    <i class="fas fa-exclamation-circle mr-2"></i>
+                    No items in the list
+                  <p>
+                </div>
+              </td>
+            </tr>
+          @endif
   
         </table>
       </div>

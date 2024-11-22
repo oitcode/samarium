@@ -6,7 +6,7 @@
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
-          <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+          <tr class="bg-white text-dark" style="font-size: calc(0.6rem + 0.2vw);">
             <th class="py-2" style="width: 200px;">Item</th>
             <th class="py-2">Category</th>
             <th class="py-2" style="width: 100px;">Amount</th>
@@ -20,7 +20,7 @@
             </td>
             <td class="p-0 h-100">
               @if (true)
-              <select class="w-100 h-100 custom-control border-0" wire:model="add_item_expense_category_id">
+              <select class="w-100 h-100 custom-control border-0 bg-white" wire:model="add_item_expense_category_id">
                 <option>---</option>
   
                 @foreach ($expenseCategories as $expenseCategory)
@@ -31,7 +31,7 @@
               </select>
               @endif
             </td>
-            <td>
+            <td class="p-0 h-100">
               <input class="m-0 w-100 h-100 border-0" type="text" wire:model="add_item_amount"/>
             </td>
           </tr>
@@ -39,8 +39,8 @@
       </table>
     </div>
   
-    <div class="p-2 m-0">
-      <div class="row">
+    <div class="p-2 m-0 bg-white">
+      <div class="row" style="margin: auto;">
         <div class="col-md-8">
           <button class="btn btn-lg btn-success mr-3" wire:click="addItemToExpense" style="font-size: calc(0.7rem + 0.2vw);">
             <i class="fas fa-plus mr-2"></i>
