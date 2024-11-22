@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card bg-transparent border-0">
   <div class="card-header
-      {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-      {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+      {{ env('OC_ASCENT_BG_COLOR', 'bg-light') }}
+      {{ env('OC_ASCENT_TEXT_COLOR', 'text-dark') }}
       p-0">
     <div class="d-flex justify-content-between py-1-rm my-2">
       <div class="d-flex flex-column justify-content-center">
@@ -32,7 +32,7 @@
       @endif
     </div>
   </div>
-  <div class="card-body p-0">
+  <div class="card-body p-0 border-0">
 
     <div class="table-responsive mb-0">
       <table class="table table-bordered-rm mb-0">
@@ -120,7 +120,7 @@
         <tbody>
 
           <tr style="height: 50px;" class="bg-light-rm border-bottom">
-            <td class="w-50 p-0 pt-2 bg-success-rm text-white-rm p-0 font-weight-bold border-0" style="font-size: calc(0.9rem + 0.2vw);">
+            <td class="w-50 p-0 pt-2 bg-white text-white-rm p-0 font-weight-bold border-0" style="font-size: calc(0.9rem + 0.2vw);">
               <span class="ml-4 d-inline-block mt-2 mb-3" style="font-size: 1rem;">
                 @if (true)
                 Paid Amount
@@ -148,7 +148,7 @@
               </span>
             </td>
             <td class="p-0 h-100 w-50 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
-              <select class="w-100 h-100 custom-control border-0"
+              <select class="w-100 h-100 custom-control border-0 bg-white"
                   style="outline: none;"
                   wire:model="purchase_payment_type_id">
                 <option>---</option>
@@ -210,7 +210,7 @@
     @endif
     </div>
 
-    <div class="p-0 m-0">
+    <div class="p-0 m-0 mt-2">
       @if (! $modes['paid'])
       <button
           onclick="this.disabled=true;"

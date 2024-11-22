@@ -55,11 +55,51 @@
         <div class="card-body p-0">
 
           {{-- Top info --}}
-
           <div class="row p-0 mt-2" style="margin: auto;">
 
-            <div class="col-md-3 bg-light text-dark py-2 border-left border-right">
-              <div class="mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
+            <div class="col-md-3 d-flex">
+              <div class="mb-4">
+                <div class="mb-1 h6 font-weight-bold">
+                  Purchase ID
+                </div>
+                <div class="h6">
+                  {{ $purchase->purchase_id }}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 d-flex">
+
+              <div class="">
+                <div class="mb-1 h6 font-weight-bold">
+                  Purchase Date
+                </div>
+                @if ($modes['backDate'])
+                  <div>
+                    <div>
+                      <input type="date" wire:model="sale_invoice_date">
+                      <div class="mt-2">
+                        <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
+                          <i class="fas fa-check-circle text-success"></i>
+                        </button>
+                        <button class="btn btn-light" wire:click="exitMode('backDate')">
+                          <i class="fas fa-times-circle text-danger"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                @else
+                  <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
+                    {{ $purchase->purchase_date }}
+                  </div>
+                @endif
+              </div>
+
+            </div>
+    
+    
+            <div class="col-md-3 mb-3 border-left border-right">
+              <div class="mb-1 h6 font-weight-bold">
                 Vendor
               </div>
               <div class="d-flex">
@@ -85,45 +125,9 @@
                 @endif
               </div>
             </div>
-
-            <div class="col-md-2 mb-3 d-flex">
-              <div>
-                <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
-                  Purchase ID
-                </div>
-                <div class="h6">
-                  {{ $purchase->purchase_id }}
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-2 mb-3">
-              <div class="text-muted mb-1 h6" style="font-size: calc(0.6rem + 0.2vw);">
-                Purchase Date
-              </div>
-              @if ($modes['backDate'])
-                <div>
-                  <div>
-                    <input type="date" wire:model="purchase_date">
-                    <div class="mt-2">
-                      <button class="btn btn-light" wire:click="changePurchaseDate">
-                        <i class="fas fa-check-circle text-success"></i>
-                      </button>
-                      <button class="btn btn-light" wire:click="exitMode('backDate')">
-                        <i class="fas fa-times-circle text-danger"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              @else
-                  <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
-                    {{ $purchase->purchase_date }}
-                  </div>
-              @endif
-            </div>
-
-            <div class="col-md-3" style="font-size: calc(0.6rem + 0.2vw);">
-              <div class="text-muted" style="font-size: calc(0.6rem + 0.2vw);">
+    
+            <div class="col-md-3">
+              <div class="font-weight-bold">
                 Payment Status
               </div>
               <div>
@@ -146,18 +150,10 @@
                 @endif
               </div>
             </div>
-            <div class="col-md-2">
-              <div class="d-flex justify-content-end h-100">
-                <button class="btn btn-light h-100" style="color: green;">
-                  <i class="fas fa-shopping-cart"></i>
-                  <br/>
-                  <span style="font-size: 1.1rem;">
-                    Purchase
-                  </span>
-                </button>
-              </div>
-            </div>
 
+            <div class="col-md-2">
+            </div>
+    
           </div>
 
           @if (count($purchase->purchaseItems) > 0)
@@ -300,9 +296,9 @@
             </div>
           @else
             <div class="p-4 bg-white border text-muted">
-              <p>
-                <i class="fas fa-exclamation-circle mr-3"></i>
-                No items
+              <p class="font-weight-bold h4 py-4 text-center" style="color: #fe8d01;">
+                <i class="fas fa-exclamation-circle mr-2"></i>
+                No items in the list
               <p>
             </div>
           @endif
