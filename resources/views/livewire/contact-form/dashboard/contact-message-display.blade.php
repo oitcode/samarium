@@ -2,7 +2,7 @@
 
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="bg-white p-3 border">
 
         <div class="row">
@@ -52,17 +52,6 @@
 
       </div>
 
-      <div class="my-3 p-3 bg-white border">
-        <h2 class="h5 font-weight-bold mb-3">
-          Message
-        </h2>
-        <p class="h5">
-          {{ $contactMessage->message }}
-        </p>
-      </div>
-    </div>
-
-    <div class="col-md-4 px-3">
       <div class="bg-white border">
         <div class="table-responsive">
           <table class="table border-bottom mb-0">
@@ -113,6 +102,18 @@
           </table>
         </div>
       </div>
+
+      <div class="my-3 p-3 bg-white border">
+        <h2 class="h5 font-weight-bold mb-3">
+          Message
+        </h2>
+        <p class="h5">
+          {{ $contactMessage->message }}
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4 px-3">
     </div>
   </div>
 

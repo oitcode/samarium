@@ -3,6 +3,8 @@
 
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Tables">
+    @include ('partials.dashboard.spinner-button')
+
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createSeatTableMode')",
@@ -25,8 +27,6 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
-
-    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
 

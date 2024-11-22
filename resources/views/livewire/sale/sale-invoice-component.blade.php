@@ -2,53 +2,56 @@
 
 
     <div>
-      @if ($modes['list'] || !array_search(true, $modes))
       {{-- Toolbar --}}
       <x-toolbar-classic toolbarTitle="Sales">
 
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "enterMode('create')",
-            'btnIconFaClass' => 'fas fa-plus-circle',
-            'btnText' => 'New',
-            'btnCheckMode' => 'create',
-        ])
+        @include ('partials.dashboard.spinner-button')
 
-        @if (false)
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "enterMode('list')",
-            'btnIconFaClass' => 'fas fa-list',
-            'btnText' => 'List',
-            'btnCheckMode' => 'list',
-        ])
-
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "enterMode('search')",
-            'btnIconFaClass' => 'fas fa-search',
-            'btnText' => 'Search',
-            'btnCheckMode' => 'search',
-        ])
-
-        @if ($modes['display'])
+        @if ($modes['list'] || ! array_search(true, $modes))
           @include ('partials.dashboard.tool-bar-button-pill', [
-              'btnClickMethod' => "enterMode('display')",
-              'btnIconFaClass' => 'fas fa-circle',
-              'btnText' => 'Sale invoice display',
-              'btnCheckMode' => 'display',
+              'btnClickMethod' => "enterMode('create')",
+              'btnIconFaClass' => 'fas fa-plus-circle',
+              'btnText' => 'New',
+              'btnCheckMode' => 'create',
           ])
         @endif
 
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "clearModes",
-            'btnIconFaClass' => 'fas fa-times',
-            'btnText' => '',
-            'btnCheckMode' => '',
-        ])
+        @if ($modes['display'] || $modes['create'])
+          @include ('partials.dashboard.tool-bar-button-pill', [
+              'btnClickMethod' => "clearModes",
+              'btnIconFaClass' => 'fas fa-times',
+              'btnText' => '',
+              'btnCheckMode' => '',
+              'btnBsColor' => 'bg-danger text-white',
+          ])
         @endif
 
-        @include ('partials.dashboard.spinner-button')
+          @if (false)
+          @include ('partials.dashboard.tool-bar-button-pill', [
+              'btnClickMethod' => "enterMode('list')",
+              'btnIconFaClass' => 'fas fa-list',
+              'btnText' => 'List',
+              'btnCheckMode' => 'list',
+          ])
+
+          @include ('partials.dashboard.tool-bar-button-pill', [
+              'btnClickMethod' => "enterMode('search')",
+              'btnIconFaClass' => 'fas fa-search',
+              'btnText' => 'Search',
+              'btnCheckMode' => 'search',
+          ])
+
+          @if ($modes['display'])
+            @include ('partials.dashboard.tool-bar-button-pill', [
+                'btnClickMethod' => "enterMode('display')",
+                'btnIconFaClass' => 'fas fa-circle',
+                'btnText' => 'Sale invoice display',
+                'btnCheckMode' => 'display',
+            ])
+          @endif
+          @endif
 
       </x-toolbar-classic>
-      @endif
 
     </div>
 

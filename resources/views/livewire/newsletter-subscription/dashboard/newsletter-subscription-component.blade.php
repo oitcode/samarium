@@ -9,6 +9,8 @@
 
   <x-toolbar-classic toolbarTitle="Newsletter subscription">
 
+    @include ('partials.dashboard.spinner-button')
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('listMode')",
         'btnIconFaClass' => 'fas fa-list',
@@ -31,8 +33,6 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
-
-    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
 

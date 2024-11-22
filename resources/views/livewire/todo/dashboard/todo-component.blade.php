@@ -9,6 +9,8 @@
 
   <x-toolbar-classic toolbarTitle="Tasks">
 
+    @include ('partials.dashboard.spinner-button')
+
     @if (! $modes['displayMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('createMode')",
@@ -45,8 +47,6 @@
         'btnBsColor' => 'bg-danger text-white',
     ])
     @endif
-
-    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
 

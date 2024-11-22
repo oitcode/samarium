@@ -3,6 +3,8 @@
 
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Product">
+    @include ('partials.dashboard.spinner-button')
+
     @if (! $modes['displayProduct'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('createProduct')",
@@ -11,6 +13,17 @@
           'btnCheckMode' => 'createProduct',
       ])
     @endif
+
+    @if ($modes['displayProduct'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "clearModes",
+          'btnIconFaClass' => 'fas fa-times',
+          'btnText' => '',
+          'btnCheckMode' => '',
+          'btnBsColor' => 'bg-danger text-white',
+      ])
+    @endif
+
 
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -52,17 +65,6 @@
           'btnCheckMode' => 'updateProduct',
       ])
     @endif
-
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
-    @endif
-
-    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
 

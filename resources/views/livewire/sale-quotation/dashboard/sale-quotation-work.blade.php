@@ -5,9 +5,9 @@
     To be removed
   @else
 
-    <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-0 border-rm">
+    <div class="d-flex justify-content-between bg-white py-0 mb-2">
       {{-- Breadcrumb --}}
-      <div class="my-2 py-2">
+      <div class="my-2 p-2">
         Sale quotation
 
         <i class="fas fa-angle-right mx-2"></i>

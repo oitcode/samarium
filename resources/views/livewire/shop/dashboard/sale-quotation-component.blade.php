@@ -1,16 +1,19 @@
 <div>
 
 
-  @if ($modes['listSaleQuotationMode'] || !array_search(true, $modes))
   {{-- Top tool bar --}}
   <x-toolbar-classic toolbarTitle="Sale quotation">
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('createSaleQuotationMode')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'New',
-        'btnCheckMode' => 'createSaleQuotationMode',
-    ])
+    @include ('partials.dashboard.spinner-button')
+
+    @if ($modes['listSaleQuotationMode'] || !array_search(true, $modes))
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('createSaleQuotationMode')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'New',
+          'btnCheckMode' => 'createSaleQuotationMode',
+      ])
+    @endif
 
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -44,10 +47,7 @@
     ])
     @endif
 
-    @include ('partials.dashboard.spinner-button')
-
   </x-toolbar-classic>
-  @endif
 
 
   <!-- Flash message div -->

@@ -9,13 +9,18 @@
 
   <x-toolbar-classic toolbarTitle="Appointment">
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('listAppointmentMode')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'listAppointmentMode',
-    ])
+    @include ('partials.dashboard.spinner-button')
 
+    @if ($modes['listAppointmentMode'] || ! array_search(true, $modes))
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('listAppointmentMode')",
+          'btnIconFaClass' => 'fas fa-list',
+          'btnText' => 'List',
+          'btnCheckMode' => 'listAppointmentMode',
+      ])
+    @endif
+
+    @if (false)
     @if ($modes['displayAppointmentMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "",
@@ -24,15 +29,17 @@
           'btnCheckMode' => 'displayAppointmentMode',
       ])
     @endif
+    @endif
 
+    @if ($modes['displayAppointmentMode'])
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
         'btnIconFaClass' => 'fas fa-times',
         'btnText' => '',
         'btnCheckMode' => '',
+        'btnBsColor' => 'bg-danger text-white',
     ])
-
-    @include ('partials.dashboard.spinner-button')
+    @endif
 
   </x-toolbar-classic>
 

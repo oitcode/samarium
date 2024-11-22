@@ -2,7 +2,7 @@
 
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="bg-white p-3 border">
 
         <div class="row">

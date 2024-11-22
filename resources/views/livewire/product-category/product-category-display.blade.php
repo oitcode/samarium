@@ -13,7 +13,7 @@
     </div>
   @endif
 
-  <div class="d-flex justify-content-between bg-dark text-white">
+  <div class="d-flex justify-content-between bg-white mb-2">
     {{-- Breadcrumb --}}
     <div class="my-2 py-2 px-2">
       Product category
@@ -23,6 +23,7 @@
     </div>
 
     {{-- Top tool bar --}}
+    @if (false)
     <div>
       <div>
         <div class="mt-0 p-2 d-flex justify-content-between border-rm"
@@ -42,6 +43,7 @@
         </div>
       </div>
     </div>
+    @endif
   </div>
 
 

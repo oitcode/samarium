@@ -1,9 +1,10 @@
 <div>
 
 
-  <div class="d-flex justify-content-between py-0">
+  @if (true)
+  <div class="d-flex justify-content-between py-0 bg-white mb-2">
     {{-- Breadcrumb --}}
-    <div class="my-2 py-2">
+    <div class="my-2 p-2">
       Sale
 
       <i class="fas fa-angle-right mx-2"></i>
@@ -11,6 +12,7 @@
     </div>
 
     {{-- Top tool bar --}}
+    @if (false)
     <div>
       <div>
         <div class="mt-0 p-2 d-flex justify-content-between"
@@ -30,7 +32,9 @@
         </div>
       </div>
     </div>
+    @endif
   </div>
+  @endif
 
   @if ($saleInvoice->takeaway && $saleInvoice->takeaway->status == 'closed')
     @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $saleInvoice,])

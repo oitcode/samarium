@@ -1,19 +1,19 @@
 <div class="p-3-rm p-md-0">
 
 
-  @if ($modes['listMode'] || !array_search(true, $modes))
   {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Weborder">
 
     @include ('partials.dashboard.spinner-button')
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('listMode')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'listMode',
-    ])
+    @if ($modes['listMode'] || !array_search(true, $modes))
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('listMode')",
+          'btnIconFaClass' => 'fas fa-list',
+          'btnText' => 'List',
+          'btnCheckMode' => 'listMode',
+      ])
+    @endif
 
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('searchMode')",
@@ -37,10 +37,8 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
-    @endif
 
   </x-toolbar-classic>
-  @endif
 
 
   {{--

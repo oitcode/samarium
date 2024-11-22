@@ -7,11 +7,12 @@
         @if ($toolbarAlign == 'left')
           justify-content-start
         @else
-          justify-content-start
+          justify-content-between
         @endif
       @else
-        justify-content-start
+        justify-content-between
       @endisset
+      bg-white pl-3
       p-0">
       @if (true || isset($toolbarTitle) && (isset($titleNone) && $titleNone != 'yes'))
         @if ($toolbarTitle != '')

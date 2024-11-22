@@ -10,12 +10,12 @@
 --}}
 
 
-  <div class="d-flex justify-content-between p-0 bg-dark-rm text-white-rm">
+  <div class="d-flex justify-content-between p-0 bg-white mb-2">
 
     {{--
     | Breadcrumb
     --}}
-    <div class="my-2 py-2 px-2">
+    <div class="my-2 py-2 p-2">
       @if ($webpage->is_post == 'yes')
         Post
       @else
@@ -49,7 +49,7 @@
   </div>
 
   <div class="row" style="margin: auto;">
-    <div class="col-md-8">
+    <div class="col-md-8 p-0">
       <div class="bg-white border mb-4 p-2">
         {{--
         | Webpage name
@@ -166,7 +166,7 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4 pr-0">
       {{--
       |
       | Webpage informations

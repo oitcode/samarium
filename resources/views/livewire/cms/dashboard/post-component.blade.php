@@ -1,8 +1,9 @@
 <div>
 
-  @if (true || $modes['listPostMode'] || !array_search(true, $modes))
   {{-- Bigger screen menu --}}
   <x-toolbar-classic toolbarTitle="Posts" titleNone="yes">
+
+    @include ('partials.dashboard.spinner-button')
 
     @if ($modes['listPostMode'] || !array_search(true, $modes))
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -45,10 +46,7 @@
     ])
     @endif
 
-    @include ('partials.dashboard.spinner-button')
-
   </x-toolbar-classic>
-  @endif
 
   <!-- Flash message div -->
   @if (session()->has('message'))

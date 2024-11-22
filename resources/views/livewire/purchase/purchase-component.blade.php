@@ -1,15 +1,18 @@
 <div class="p-3-rm p-md-0">
 
   {{-- Toolbar --}}
-  @if ($modes['list'] || !array_search(true, $modes))
   <x-toolbar-classic toolbarTitle="Purchase">
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('create')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'New',
-        'btnCheckMode' => 'create',
-    ])
+    @include ('partials.dashboard.spinner-button')
+
+    @if ($modes['list'] || !array_search(true, $modes))
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('create')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'New',
+          'btnCheckMode' => 'create',
+      ])
+    @endif
 
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -43,10 +46,7 @@
     ])
     @endif
 
-    @include ('partials.dashboard.spinner-button')
-
   </x-toolbar-classic>
-  @endif
 
 
   {{--

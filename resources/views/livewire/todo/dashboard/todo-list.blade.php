@@ -67,7 +67,7 @@
       </div>
     </div>
 
-    <div class="pt-2 px-2 font-weight-bold border" style="background-color: #eef; color: #aaf;">
+    <div class="pt-2 px-2 font-weight-bold border mr-2" style="background-color: #eef; color: #aaf;">
       Total : {{ $todoCount }}
     </div>
   </div>

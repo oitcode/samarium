@@ -15,9 +15,9 @@
   @endif
 
 
-  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-1 border-rm bg-dark-rm text-white-rm">
+  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-1 border-rm bg-white mb-2">
     {{-- Breadcrumb --}}
-    <div class="my-2 py-2">
+    <div class="my-2 py-2 px-2">
       Products
 
       <i class="fas fa-angle-right mx-2"></i>
@@ -25,25 +25,27 @@
     </div>
 
     {{-- Top tool bar --}}
-    <div>
+    @if (false)
       <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
-            style="{{-- background-color: #dadada; --}}">
+        <div>
+          <div class="mt-0 p-2 d-flex justify-content-between border-rm"
+              style="{{-- background-color: #dadada; --}}">
 
-          <div>
-            <button class="btn btn-light" wire:click="$refresh">
-              <i class="fas fa-refresh"></i>
-            </button>
+            <div>
+              <button class="btn btn-light" wire:click="$refresh">
+                <i class="fas fa-refresh"></i>
+              </button>
 
-            <button class="btn btn-danger" wire:click="$dispatch('exitProductDisplayMode')">
-              <i class="fas fa-times"></i>
-              Close
-            </button>
+              <button class="btn btn-danger" wire:click="$dispatch('exitProductDisplayMode')">
+                <i class="fas fa-times"></i>
+                Close
+              </button>
+            </div>
+
           </div>
-
         </div>
       </div>
-    </div>
+    @endif
   </div>
 
 

@@ -5,12 +5,16 @@
   {{-- Show in bigger screen --}}
   <x-toolbar-classic toolbarTitle="Gallery">
 
+    @include ('partials.dashboard.spinner-button')
+
+    @if (! $modes['displayMode'] || ! array_search(true, $modes))
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
         'btnText' => 'Create',
         'btnCheckMode' => 'createMode',
     ])
+    @endif
 
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -36,8 +40,6 @@
         'btnCheckMode' => '',
     ])
     @endif
-
-    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
 

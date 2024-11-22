@@ -1,16 +1,28 @@
 <div class="p-3-rm p-md-0">
 
 
-  @if ($modes['list'] || !array_search(true, $modes))
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Expense">
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('create')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'New',
-        'btnCheckMode' => 'create',
-    ])
+    @include ('partials.dashboard.spinner-button')
+
+    @if ($modes['list'] || !array_search(true, $modes))
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('create')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'New',
+          'btnCheckMode' => 'create',
+      ])
+    @endif
+
+    @if ($modes['display'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "clearModes",
+          'btnIconFaClass' => 'fas fa-times',
+          'btnText' => '',
+          'btnCheckMode' => '',
+      ])
+    @endif
 
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -42,19 +54,9 @@
           'btnCheckMode' => 'displaye',
       ])
     @endif
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
     @endif
 
-    @include ('partials.dashboard.spinner-button')
-
   </x-toolbar-classic>
-  @endif
 
 
   {{-- Flash message div --}}
