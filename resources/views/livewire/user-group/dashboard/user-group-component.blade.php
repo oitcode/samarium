@@ -4,6 +4,8 @@
   {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="User group">
 
+    @include ('partials.dashboard.spinner-button')
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createUserGroupMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -33,8 +35,6 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
-
-    @include ('partials.dashboard.spinner-button')
   </x-toolbar-classic>
 
 
