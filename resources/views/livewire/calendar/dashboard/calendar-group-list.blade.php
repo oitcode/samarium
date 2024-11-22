@@ -10,8 +10,8 @@
       <div class="table-responsive">
         <table class="table table-hover table-valign-middle">
           <thead>
-            <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-                {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+            <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-light') }}
+                {{ env('OC_ASCENT_TEXT_COLOR', 'text-dark') }}
                 p-4" style="font-size: 1rem;">
               <th class="w-25">Calendar group ID</th>
               <th>Name</th>

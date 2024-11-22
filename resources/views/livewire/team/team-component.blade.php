@@ -9,6 +9,8 @@
 
   <x-toolbar-classic toolbarTitle="Team">
 
+    @include ('partials.dashboard.spinner-button')
+
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
@@ -38,8 +40,6 @@
         'btnText' => '',
         'btnCheckMode' => '',
     ])
-
-    @include ('partials.dashboard.spinner-button')
 
   </x-toolbar-classic>
 

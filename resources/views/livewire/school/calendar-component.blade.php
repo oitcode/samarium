@@ -4,30 +4,37 @@
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Calendar">
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('eventCreate')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'Create event',
-        'btnCheckMode' => 'eventCreate',
-    ])
+    @include ('partials.dashboard.spinner-button')
 
-    @if ($modes['displayCalendarEventMode'])
+    @if (! array_search(true, $modes))
       @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Event display',
-          'btnCheckMode' => 'displayCalendarEventMode',
+          'btnClickMethod' => "enterMode('eventCreate')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'Create event',
+          'btnCheckMode' => 'eventCreate',
       ])
     @endif
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
+    @if (false)
+      @if ($modes['displayCalendarEventMode'])
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "",
+            'btnIconFaClass' => 'fas fa-circle',
+            'btnText' => 'Event display',
+            'btnCheckMode' => 'displayCalendarEventMode',
+        ])
+      @endif
+    @endif
 
-    @include ('partials.dashboard.spinner-button')
+    @if ($modes['displayCalendarEventMode'] || $modes['eventCreate'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "clearModes",
+          'btnIconFaClass' => 'fas fa-times',
+          'btnText' => '',
+          'btnCheckMode' => '',
+          'btnBsColor' =>'bg-danger text-white',
+      ])
+    @endif
 
   </x-toolbar-classic>
 
