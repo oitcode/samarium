@@ -21,11 +21,13 @@
               style="{{-- background-color: #dadada; --}}">
 
             <div>
-              <button class="btn btn-light" wire:click="$refresh">
+              <button class="btn btn-info p-3" wire:click="$refresh">
                 <i class="fas fa-refresh"></i>
               </button>
 
-              <button class="btn btn-outline-danger" wire:click="$dispatch('exitSaleQuotationDisplayMode')">
+              @include ('partials.dashboard.sale-quotation-work-options')
+
+              <button class="btn btn-outline-danger p-3" wire:click="$dispatch('exitSaleQuotationDisplayMode')">
                 <i class="fas fa-times"></i>
                 Close
               </button>
@@ -41,7 +43,7 @@
       {{-- Show in bigger screens --}}
       <div class="row">
     
-        <div class="col-md-6">
+        <div class="col-md-12">
     
           @if ($saleQuotation)
             @if ($modes['addItem'])
@@ -60,12 +62,10 @@
     
           <div class="card mb-0 shadow-sm">
             <div class="card-body p-0">
-    
-    
+
               <div class="row p-0 mt-2" style="margin: auto;">
-    
-    
-                <div class="col-md-2 mb-3">
+
+                <div class="col-md-4 d-flex">
                   <div class="mb-4">
                     <div class="mb-1 h6 font-weight-bold">
                       Quotation ID
@@ -74,8 +74,11 @@
                       {{ $saleQuotation->sale_quotation_id }}
                     </div>
                   </div>
+                </div>
 
-                  <div>
+                <div class="col-md-4 d-flex">
+
+                  <div class="">
                     <div class="mb-1 h6 font-weight-bold">
                       Quotation Date
                     </div>
@@ -99,9 +102,11 @@
                       </div>
                     @endif
                   </div>
+
                 </div>
     
-                <div class="col-md-3 mb-3 border-left border-right">
+    
+                <div class="col-md-4 mb-3 border-left border-right">
                   <div class="mb-1 h6 font-weight-bold">
                     Customer
                   </div>
@@ -129,43 +134,8 @@
                   </div>
                 </div>
     
-                @if (false)
-                <div class="col-md-2">
-                  <div>
-                    Payment Status
-                  </div>
-                  <div>
-                    @if ( $saleInvoice->payment_status == 'paid')
-                    <span class="badge badge-pill badge-success">
-                    Paid
-                    </span>
-                    @elseif ( $saleInvoice->payment_status == 'partially_paid')
-                    <span class="badge badge-pill badge-warning">
-                    Partial
-                    </span>
-                    @elseif ( $saleInvoice->payment_status == 'pending')
-                    <span class="badge badge-pill badge-danger">
-                    Pending
-                    </span>
-                    @else
-                    <span class="badge badge-pill badge-secondary">
-                      {{ $saleInvoice->payment_status }}
-                    </span>
-                    @endif
-                  </div>
-                </div>
-                @endif
-
-                <div class="col-md-2">
-                  <div class="d-none d-md-block">
-                    <div class="d-flex h-100 h1 font-weight-bold">
-                        Sale quotation
-                    </div>
-                  </div>
-                </div>
-    
               </div>
-    
+
             </div>
           </div>
           @endif
@@ -440,13 +410,13 @@
         @if (false)
         <div class="col-md-4">
         </div>
-        @endif
     
         <div class="col-md-2">
           <div>
             @include ('partials.dashboard.sale-quotation-work-options')
           </div>
         </div>
+        @endif
       </div>
     
       @if ($modes['confirmRemoveSaleQuotationItem'])
