@@ -293,8 +293,8 @@
           </div>
           <div class="d-flex justify-content-center">
             Powered by
-            <a href="https://oit.com.np" class="ml-1">
-              OIT
+            <a href="https://github.com/oitcode/samarium" class="ml-1">
+              Samarium
             </a>
             <i class="fas fa-check-circle ml-2"></i> 
           </div>

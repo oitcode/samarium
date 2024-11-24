@@ -223,7 +223,7 @@
     </div>
     <div>
       Powered by
-      <a href="https://oit.com.np" class="text-reset" target="_blank"><u>OIT</u></a>
+      <a href="https://github.com/oitcode/samarium" class="text-reset" target="_blank"><u>Samarium</u></a>
       <i class="fas fa-check-circle ml-2"></i>
     </div>
   </div>
