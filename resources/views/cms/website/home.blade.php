@@ -37,7 +37,7 @@
 @endif
 @endif
 
-@if (preg_match("/school/i", env('MODULES')))
+@if (module_is('school'))
   <div class="container-fluid o-fade-in" style="@if (\App\CmsTheme::first()) background-color: {{ \App\CmsTheme::first()->ascent_bg_color }}; @endif">
     <div class="container my-0 my-md-0 px-md-3 py-4 p-0" style="@if(\App\CmsTheme::first()) background-color: {{ \App\CmsTheme::first()->ascent_bg_color }}; @endif">
       @include ('partials.school.school-quick-links-display')
@@ -45,7 +45,7 @@
   </div>
 @endif
 
-@if (preg_match("/hfn/i", env('MODULES')))
+@if (module_is('hfn'))
   <div class="container-fluid pb-5 p-0 o-fade-in" style="
   @if(\App\CmsTheme::first())
   background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
@@ -262,7 +262,7 @@
 | Temporary workaround for BGC.
 |
 --}}
-@if (preg_match("/bgc/i", env('MODULES')))
+@if (module_is('bgc'))
   @if (\App\Team::where('team_type', 'playing_team')->first())
     <div class="container my-4">
       @include ('partials.team.team-block-display')

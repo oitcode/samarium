@@ -29,7 +29,7 @@
 
 
       {{-- Product options --}}
-      @if (preg_match("/product/i", env('MODULES')))
+      @if (module_is('product'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuProductDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,7 +66,7 @@
 
 
       {{-- Shop options --}}
-      @if (preg_match("/shop/i", env('MODULES')))
+      @if (module_is('shop'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuShopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-shopping-cart text-secondry mr-3"></i>
@@ -132,7 +132,7 @@
 
 
       {{-- CMS options --}}
-      @if (preg_match("/cms/i", env('MODULES')))
+      @if (module_is('cms'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCmsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-edit text-secondry mr-3"></i>
@@ -169,7 +169,7 @@
 
 
       {{-- Calendar options --}}
-      @if (preg_match("/school/i", env('MODULES')))
+      @if (module_is('school'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCalendarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-calendar text-secondry mr-3"></i>
@@ -190,7 +190,7 @@
 
 
       {{-- Team options --}}
-      @if (preg_match("/team/i", env('MODULES')))
+      @if (module_is('team'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuTeamDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-calendar text-secondry mr-3"></i>
@@ -216,7 +216,7 @@
 
 
       {{-- Report options --}}
-      @if (preg_match("/report/i", env('MODULES')))
+      @if (module_is('report'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuReportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-dice-d6 text-secondry mr-3"></i>
@@ -245,7 +245,7 @@
 
 
       {{-- CRM options --}}
-      @if (preg_match("/crm/i", env('MODULES')))
+      @if (module_is('crm'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCrmDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-users text-secondry mr-3"></i>
@@ -277,7 +277,7 @@
       @endif
 
       {{-- Project options --}}
-      @if (preg_match("/project/i", env('MODULES')))
+      @if (module_is('project'))
         <li class="nav-item border bg-light text-dark p-3">
           <a class="nav-link text-dark" href="{{ route('dashboard-todo') }}">
             <i class="fas fa-list mr-3"></i>
@@ -289,7 +289,7 @@
       @endif
 
       {{-- HR options --}}
-      @if (preg_match("/hr/i", env('MODULES')))
+      @if (module_is('hr'))
         <li class="nav-item border bg-light text-dark p-3">
           <a class="nav-link text-dark" href="{{ route('dashboard-vacancy') }}">
             <i class="fas fa-users mr-3"></i>

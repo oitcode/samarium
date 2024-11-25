@@ -12,7 +12,7 @@
       ])
   </div>
 
-  @if (preg_match("/product/i", env('MODULES')))
+  @if (module_is('product'))
     @if ($modes['product'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('product')",
@@ -87,7 +87,7 @@
 
 
 
-  @if (preg_match("/shop/i", env('MODULES')))
+  @if (module_is('shop'))
     @if ($modes['shop'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('shop')",
@@ -190,7 +190,7 @@
   @endif
 
 
-  @if (preg_match("/cms/i", env('MODULES')))
+  @if (module_is('cms'))
     @if ($modes['cms'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('cms')",
@@ -253,7 +253,7 @@
   @endif
 
 
-  @if (preg_match("/calendar/i", env('MODULES')))
+  @if (module_is('calendar'))
 
     @if ($modes['school'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -311,7 +311,7 @@
   @endif
 
 
-  @if (preg_match("/team/i", env('MODULES')))
+  @if (module_is('team'))
 
     @if ($modes['team'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -363,7 +363,7 @@
 
 
 
-  @if (preg_match("/crm/i", env('MODULES')))
+  @if (module_is('crm'))
 
     @if ($modes['crm'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -423,7 +423,7 @@
     @endif
   @endif
 
-  @if (preg_match("/hr/i", env('MODULES')))
+  @if (module_is('hr'))
 
     @if ($modes['hr'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -467,7 +467,7 @@
   @endif
 
 
-  @if (preg_match("/project/i", env('MODULES')))
+  @if (module_is('project'))
 
     @if ($modes['project'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -510,7 +510,7 @@
     @endif
   @endif
 
-  @if (preg_match("/document/i", env('MODULES')))
+  @if (module_is('document'))
 
     @if ($modes['document'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -584,7 +584,7 @@
   @endif
 
 
-  @if (preg_match("/report/i", env('MODULES')))
+  @if (module_is('report'))
 
     @if ($modes['report'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -642,7 +642,7 @@
   @endif
 
 
-  @if (preg_match("/educ/i", env('MODULES')))
+  @if (module_is('educ'))
 
     @if ($modes['educ'])
       @include ('partials.dashboard.app-left-menu-button-lw', [

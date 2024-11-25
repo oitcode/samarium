@@ -6,7 +6,7 @@
 |
 --}}
 
-@if (preg_match("/hfn/i", env('MODULES')))
+@if (module_is('hfn'))
   <div>
   
     <nav class="navbar navbar-expand-lg navbar-light-rm bg-light-rm border-bottom bg-warning-rm p-0"
