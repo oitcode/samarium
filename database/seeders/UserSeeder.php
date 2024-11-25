@@ -2,13 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\User;
 use Illuminate\Database\Seeder;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
-
-use Carbon\Carbon;
+use function Laravel\Prompts\text;
 
 class UserSeeder extends Seeder
 {
@@ -20,24 +17,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         /* Ask for name, email and password from terminal. */
-        $userName = (string) readline('Name: ');
-        $userEmail = (string) readline('Email: ');
+        $name = text('Name:', required: true);
+        $email = text('Email:', required: true);
+        $password = text('Password:', required: true);
 
-        echo 'Password: ';
-        system('stty -echo');
-        $userPw = trim(fgets(STDIN));
-        system('stty echo');
-        echo "\n";
-
-        DB::table('users')->insert([
-            'name' => $userName,
-            'email' => $userEmail,
-            'password' => Hash::make($userPw),
-            'role' => 'admin',
-            'last_login_at' => Carbon::now(),
-
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+        User::factory()->create(compact('name', 'email', 'password'));
     }
 }
