@@ -15,6 +15,10 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'site_type' => env('SITE_TYPE', ''),
+    'cmp_type' => env('CMP_TYPE', ''),
+    'modules' => env('MODULES', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
