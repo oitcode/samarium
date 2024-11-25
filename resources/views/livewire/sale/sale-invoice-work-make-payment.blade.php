@@ -180,7 +180,7 @@
           </button>
         @else
           <button class="btn btn-sm mr-3
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}"
+              {{ config('app.oc_ascent_text_color', 'text-white') }}"
               wire:click="enterMultiplePaymentsMode" style="{{-- font-size: calc(1rem + 0.2vw); --}}">
             <i class="fas fa-ellipsis-h"></i>
           </button>
@@ -323,8 +323,8 @@
     <button
         onclick="this.disabled=true;"
         class="btn
-            {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+            {{ config('app.oc_ascent_bg_color', 'bg-success') }}
+            {{ config('app.oc_ascent_text_color', 'text-white') }}
             w-100 py-3"
         wire:click="store"
         style="{{-- font-size: calc(1rem + 0.2vw); --}}">

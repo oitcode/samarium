@@ -34,8 +34,8 @@
     <table class="table border mb-0" style="font-size: 1rem;">
       <thead>
         <tr class="
-            {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+            {{ config('app.oc_ascent_bg_color', 'bg-success') }}
+            {{ config('app.oc_ascent_text_color', 'text-white') }}
         ">
           <th>ID</th>
           <th style="width: 100px;">Date</th>

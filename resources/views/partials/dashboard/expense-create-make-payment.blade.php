@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header
-      {{ env('OC_ASCENT_BG_COLOR', 'bg-light') }}
-      {{ env('OC_ASCENT_TEXT_COLOR', 'text-secondary') }}
+      {{ config('app.oc_ascent_bg_color', 'bg-light') }}
+      {{ config('app.oc_ascent_text_color', 'text-secondary') }}
       text-white
   " style="">
     <div class="d-flex justify-content-between py-1-rm">
@@ -177,7 +177,7 @@
       <button
           onclick="this.disabled=true;"
           class="btn
-              {{ env('OC_ASCENT_BTN_COLOR', 'btn-light') }}
+              {{ config('app.oc_ascent_btn_color', 'btn-light') }}
               mr-3-rm w-100 py-3"
           wire:click="store"
           style="font-size: calc(1rem + 0.2vw);">

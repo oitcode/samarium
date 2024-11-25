@@ -1,12 +1,12 @@
 <div class="d-none d-md-block py-2-rm text-right bg-dark text-white"
-    style="{{-- background-color: {{ env('OC_SELECT_COLOR') }}; color: white;  background-image: linear-gradient(to right, {{ env('OC_SELECT_COLOR', '#000050') }} , {{
-    env('OC_SELECT_COLOR', '#000050') }}); --}}">
+    style="{{-- background-color: {{ config('app.oc_select_color') }}; color: white;  background-image: linear-gradient(to right, {{ config('app.oc_select_color', '#000050') }} , {{
+    config('app.oc_select_color', '#000050') }}); --}}">
   <div class="o-darker py-2">
   @guest
   @else
 
     <div class="float-left d-flex">
-      <div class="p-2 px-3" style="color: {{ env('OC_SELECT_TXT COLOR') }};">
+      <div class="p-2 px-3" style="color: {{ config('app.oc_select_txt_color') }};">
         <i class="fas fa-check-circle fa-2x-rm"></i>
         @if (false)
         <span class="h3 ml-3">
@@ -58,7 +58,7 @@
       'iconFaClass' => 'fas fa-dolly',
       'btnText' => 'Inventory',
     ])
-    @if (env('HAS_VAT') == true)
+    @if (config('app.has_vat') == true)
       @include ('partials.dashboard.app-top-menu-button', [
         'btnRoute' => 'dashboard-vat',
         'iconFaClass' => 'fas fa-solar-panel',
@@ -98,7 +98,7 @@
     {{-- Help/Support --}}
     <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
       <a href="{{ route('dashboard-help') }}" class="text-reset">
-        <i  class="fas fa-question-circle text-dark-rm mr-2" style="color: {{ env('OC_SELECT_TXT_COLOR') }}"></i>
+        <i  class="fas fa-question-circle text-dark-rm mr-2" style="color: {{ config('app.oc_select_txt_color') }}"></i>
       </a>
     </div>
 
@@ -110,7 +110,7 @@
     {{-- Go to website --}}
     <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
       <a href="/" target="_blank" class="text-reset">
-        <i  class="fas fa-globe text-dark-rm mr-2" style="color: {{ env('OC_SELECT_TXT_COLOR') }}"></i>
+        <i  class="fas fa-globe text-dark-rm mr-2" style="color: {{ config('app.oc_select_txt_color') }}"></i>
       </a>
     </div>
 

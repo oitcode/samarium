@@ -1,6 +1,6 @@
-@extends (env('SITE_TYPE') == 'erp' ? 'ecomm-website.base' : 'cms.website.base' )
+@extends (config('app.site_type') === 'erp' ? 'ecomm-website.base' : 'cms.website.base' )
 
-@if (env('SITE_TYPE') != 'erp')
+@if (config('app.site_type') !== 'erp')
 @section ('googleAnalyticsTag')
 @endsection
 

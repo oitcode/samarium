@@ -3,9 +3,9 @@
       class="btn
         {{--
         @if(Route::current()->getName() != $btnRoute)
-          {{ env('OC_ASCENT_BTN_COLOR', 'btn-primary') }}
+          {{ config('app.oc_ascent_btn_color', 'btn-primary') }}
         @else
-          {{ env('OC_ASCENT_HL_TXT_COLOR', 'text-white') }}
+          {{ config('app.oc_ascent_hl_txt_color', 'text-white') }}
         @endif
         --}}
         w-100 h-100 py-3 font-weight-bold text-left border-0-rm rounded-0
@@ -18,11 +18,11 @@
         @if(Route::current()->getName() == $btnRoute)
           background-color: rgba(0, 0, 0, 0.3);
           {{--
-          color: {{ env('OC_SELECT_TXT_COLOR') }};
+          color: {{ config('app.oc_select_txt_color') }};
           --}}
         @else
           {{--
-          color: {{ env('OC_UNSELECT_TXT_COLOR') }};
+          color: {{ config('app.oc_unselect_txt_color') }};
           --}}
         @endif
       "
@@ -33,7 +33,7 @@
         <i class="{{ $iconFaClass }}"></i>
       </div>
       <div class="d-flex justify-content-center">
-        <strong style="{{-- @if(Route::current()->getName() == $btnRoute) text-shadow: 0.5px 0 {{ env('OC_SELECT_TXT_COLOR') }} @else text-shadow: 0.5px 0 {{ env('OC_UNSELECT_TXT_COLOR') }} @endif ; font-weight:bold; --}}">
+        <strong style="{{-- @if(Route::current()->getName() == $btnRoute) text-shadow: 0.5px 0 {{ config('app.oc_select_txt_color') }} @else text-shadow: 0.5px 0 {{ config('app.oc_unselect_txt_color') }} @endif ; font-weight:bold; --}}">
         {{ $btnText }}
         </strong>
       </div>

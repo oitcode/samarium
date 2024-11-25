@@ -1,7 +1,7 @@
 <div>
 
   @if (false)
-  <div class="{{ env('SITE_ECS_THEME_BS_CLASS') }}" style="height:3px;">
+  <div class="{{ config('app.site_ecs_theme_bs_class') }}" style="height:3px;">
   </div>
 
   {{-- Show in bigger screens --}}

@@ -1,9 +1,9 @@
 <div class="card shadow-sm h-100">
   <div class="card-body ">
     <h2 class="h4">
-      @if (env('SITE_TYPE') == 'erp')
+      @if (config('app.site_type') === 'erp')
         Sale by category
-      @elseif (env('SITE_TYPE') == 'ecs')
+      @elseif (config('app.site_type') === 'ecs')
         Revenue by category
       @endif
     </h2>

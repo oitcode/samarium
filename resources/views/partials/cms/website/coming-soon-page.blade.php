@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center h-100 p-3">
       <h1 class="h2 font-weight-bold mb-5">
-        {{ env('CMP_NAME') }}
+        {{ config('app.cmp_name') }}
       </h1>
       <h2 class="h4 mb-5">
         <i class="fas fa-circle mr-1"></i>
@@ -14,9 +14,9 @@
         <i class="fas fa-circle mr-1"></i>
         Thanks.
       </h2>
-      @if (env('CMP_URL'))
+      @if (config('app.cmp_url'))
         <h5>
-          {{ env('CMP_URL') }}
+          {{ config('app.cmp_url') }}
         </h5>
       @endif
     </div>

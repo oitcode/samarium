@@ -1,7 +1,7 @@
 <div class="card bg-transparent border-0">
   <div class="card-header
-      {{ env('OC_ASCENT_BG_COLOR', 'bg-light') }}
-      {{ env('OC_ASCENT_TEXT_COLOR', 'text-dark') }}
+      {{ config('app.oc_ascent_bg_color', 'bg-light') }}
+      {{ config('app.oc_ascent_text_color', 'text-dark') }}
       p-0">
     <div class="d-flex justify-content-between py-1-rm my-2">
       <div class="d-flex flex-column justify-content-center">
@@ -23,7 +23,7 @@
           </button>
         @else
           <button class="btn btn-sm mr-3
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}"
+              {{ config('app.oc_ascent_text_color', 'text-white') }}"
               wire:click="enterMultiplePaymentsMode" style="font-size: calc(1rem + 0.2vw);">
             <i class="fas fa-ellipsis-h"></i>
           </button>
@@ -215,8 +215,8 @@
       <button
           onclick="this.disabled=true;"
           class="btn
-              {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+              {{ config('app.oc_ascent_bg_color', 'bg-success') }}
+              {{ config('app.oc_ascent_text_color', 'text-white') }}
           mr-3-rm w-100 py-3"
           wire:click="store"
           style="font-size: calc(1rem + 0.2vw);">

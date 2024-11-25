@@ -11,7 +11,7 @@
     @if (false)
     <span class="navbar-toggler-icon"></span>
     @endif
-    <i class="fas fa-list fa-2x" style="{{-- color: {{ env('OC_SELECT_TXT_COLOR') }}; --}}"></i>
+    <i class="fas fa-list fa-2x" style="{{-- color: {{ config('app.oc_select_txt_color') }}; --}}"></i>
   </button>
 
   <div class="collapse navbar-collapse m-0 p-0 mt-4" id="navbarSupportedContent" style="margin-left: 0;">
@@ -76,7 +76,7 @@
           </a>
           <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuShopDropdown">
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('sale') }}">
-              @if (env('CMP_TYPE') == 'cafe')
+              @if (config('app.cmp_type') === 'cafe')
                 <i class="fas fa-skating mr-3"></i>
                 Takeaway
               @else
@@ -85,7 +85,7 @@
               @endif
             </a>
 
-            @if (env('CMP_TYPE') == 'cafe')
+            @if (config('app.cmp_type') === 'cafe')
               <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('cafesale') }}">
                 <i class="fas fa-table mr-3"></i>
                 Tables

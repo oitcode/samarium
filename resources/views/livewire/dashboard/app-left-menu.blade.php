@@ -120,7 +120,7 @@
                 'btnText' => 'Sales',
             ])
 
-        @if (env('CMP_TYPE') == 'cafe')
+        @if (config('app.cmp_type') === 'cafe')
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'cafesale',
@@ -163,7 +163,7 @@
                 'btnText' => 'Weborder',
             ])
 
-        @if (env('HAS_VAT') == true)
+        @if (config('app.has_vat') == true)
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-vat',
             'iconFaClass' => 'fas fa-solar-panel',
@@ -739,7 +739,7 @@
       Logout
     </div>
     @endif
-    <div class="my-2 text-muted-rm" style="color: {{ env('OC_UNSELECT_TXT_COLOR') }};">
+    <div class="my-2 text-muted-rm" style="color: {{ config('app.oc_unselect_txt_color') }};">
       Version 0.8.5
     </div>
   </div>

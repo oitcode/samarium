@@ -4,11 +4,11 @@
         @isset ($modes[$btnCheckMode])
           @if ($modes[$btnCheckMode])
             @if (false)
-            {{ env('OC_ASCENT_BTN_COLOR') }}
+            {{ config('app.oc_ascent_btn_color') }}
             @endif
           @else
             @if (false)
-            {{ env('OC_ASCENT_BTN_COLOR') }}
+            {{ config('app.oc_ascent_btn_color') }}
             @endif
           @endif
         @else
@@ -27,7 +27,7 @@
       <strong>
         <i class="{{ $btnIconFaClass }} text-muted-rm mr-2"></i>
       </strong>
-      <strong style="{{-- text-shadow: 0.5px 0 {{ env('OC_UNSELECT_TXT_COLOR') }}; font-weight:bold; --}}">
+      <strong style="{{-- text-shadow: 0.5px 0 {{ config('app.oc_unselect_txt_color') }}; font-weight:bold; --}}">
         {{ $btnText }}
       </strong>
       <div class="ml-5 p-0" wire:loading wire:target="{{ $btnClickMethod }}">

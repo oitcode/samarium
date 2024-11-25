@@ -25,7 +25,7 @@
 
   @if (module_is('shop'))
     @can ('is-admin')
-      @if (env('CMP_TYPE') == 'shop')
+      @if (config('app.cmp_type') === 'shop')
         @include ('partials.dashboard.app-left-menu-button',
             [
                 'btnRoute' => 'sale',
@@ -42,7 +42,7 @@
       @endif
     @endcan
 
-    @if (env('CMP_TYPE') == 'cafe')
+    @if (config('app.cmp_type') === 'cafe')
       @include ('partials.dashboard.app-left-menu-button',
           [
               'btnRoute' => 'cafesale',
@@ -79,7 +79,7 @@
 
   @if (module_is('shop'))
     @can ('is-admin')
-      @if (env('CMP_TYPE') == 'cafe')
+      @if (config('app.cmp_type') === 'cafe')
         @include ('partials.dashboard.app-left-menu-button',
             [
                 'btnRoute' => 'menu',
@@ -134,7 +134,7 @@
       'iconFaClass' => 'fas fa-dolly',
       'btnText' => 'Inventory',
     ])
-    @if (env('HAS_VAT') == true)
+    @if (config('app.has_vat') == true)
       @include ('partials.dashboard.app-left-menu-button', [
         'btnRoute' => 'dashboard-vat',
         'iconFaClass' => 'fas fa-solar-panel',

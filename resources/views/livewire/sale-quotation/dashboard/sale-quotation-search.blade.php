@@ -31,8 +31,8 @@
   <div class="table-responsive">
     <table class="table table-hover shadow-sm border">
       <thead>
-        <tr class="{{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+        <tr class="{{ config('app.oc_ascent_bg_color', 'bg-success') }}
+            {{ config('app.oc_ascent_text_color', 'text-white') }}
             p-4" style="font-size: 1rem;">
           <th>
             ID

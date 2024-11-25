@@ -1,6 +1,6 @@
 <div class="h-100 border-left border-light bg-primary-rm
     d-flex flex-column justify-content-center
-    text-white-rm px-3 shadow-sm {{ env('OC_ASCENT_BG_COLOR') }}-rm {{ env('OC_ASCENT_TEXT_COLOR') }}-rm bg-white"
+    text-white-rm px-3 shadow-sm {{ config('app.oc_ascent_bg_color') }}-rm {{ config('app.oc_ascent_text_color') }}-rm bg-white"
     style="color: black; text-shadow: 0.5px 0 black; font-weight:bold;">
     <div>
       @if (true)

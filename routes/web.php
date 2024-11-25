@@ -159,7 +159,7 @@ Route::get('/dashboard/educ/institution', 'EducInstitutionController@index')->na
 
 
 /* Website home page */
-if (env('SITE_TYPE') == 'erp') {
+if (config('app.site_type') === 'erp') {
     Route::get('/', 'WebsiteController@homePage')->name('website-home');
 } else {
     Route::get('/', 'WebsiteController@cmsHome')->name('website-home');
