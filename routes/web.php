@@ -1,9 +1,10 @@
 <?php
 
+use App\Webpage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
-
-use App\Webpage;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -235,9 +236,9 @@ Route::get('/cms/gallery', 'CmsGalleryController@index')->name('dashboard-cms-ga
 /* CMS website/front-page/customer routes */
 if (Schema::hasTable('webpage')) {
     $webpages = Webpage::where('visibility', 'public')->get();
-    
+
     foreach ($webpages as $webpage) {
-        Route::get('/'. $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-'. $webpage->permalink);
+        Route::get('/' . $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-' . $webpage->permalink);
     }
 }
 
