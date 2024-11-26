@@ -18,11 +18,11 @@
      | Filter div
      |
   --}}
-  <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
+  <div class="mb-1 p-3 bg-white border d-flex justify-content-between">
     <div class="font-weight-bold h6 d-flex">
       <div class="d-flex">
-        <div class="mr-4 font-weight-bold pt-2">
-          <i class="fas fa-filter mr-2"></i>
+        <div class="mr-1 font-weight-bold pt-2">
+          <i class="fas fa-filter"></i>
         </div>
         <div class="dropdown">
           <button class="btn
@@ -184,8 +184,11 @@
         </tbody>
       </table>
     @else
-      <div class="p-3 text-secondary">
-        No contact messages.
+      <div class="p-4 bg-white border text-muted">
+        <p class="font-weight-bold h4-rm py-4 text-center-rm" style="color: #fe8d01;">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          No contact messages
+        <p>
       </div>
     @endif
 
