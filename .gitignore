@@ -1,5 +1,5 @@
 /node_modules
-/vendor
+/vendor/
 .env
 .env.backup
 .env.production
