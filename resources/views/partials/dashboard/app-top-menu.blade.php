@@ -31,7 +31,7 @@
     </div>
     {{-- Top menu buttons. --}}
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @if (false)
     @include ('partials.dashboard.app-top-menu-button', [
       'btnRoute' => 'dashboard-purchase',
@@ -80,13 +80,13 @@
     @include ('partials.dashboard.app-top-menu-user-dropdown')
 
     @if (false)
-      @if (module_is('cms'))
+      @if (has_module('cms'))
         {{-- Todo: This could be moved somewhere else --}}
         @include ('partials.dashboard.app-top-menu-ecs-dropdown')
       @endif
     @endif
 
-    @if (module_is('shop'))
+    @if (has_module('shop'))
       {{-- Online order counter component --}}
       <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
         <a href="{{ route('online-order') }}" class="text-reset">

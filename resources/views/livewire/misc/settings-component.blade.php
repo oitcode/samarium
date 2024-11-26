@@ -24,7 +24,7 @@
       <div class="col-md-12 p-0">
 
         {{-- Sales settings --}}
-        @if (module_is('shop'))
+        @if (has_module('shop'))
         <div class="bg-white p-2 mb-3 shadow-sm border rounded-lg">
           <h2 class="h5 font-weight-bold mt-2">Sale invoice</h2>
           <hr />

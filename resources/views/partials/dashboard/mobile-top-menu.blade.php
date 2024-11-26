@@ -29,7 +29,7 @@
 
 
       {{-- Product options --}}
-      @if (module_is('product'))
+      @if (has_module('product'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuProductDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,7 +66,7 @@
 
 
       {{-- Shop options --}}
-      @if (module_is('shop'))
+      @if (has_module('shop'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuShopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-shopping-cart text-secondry mr-3"></i>
@@ -132,7 +132,7 @@
 
 
       {{-- CMS options --}}
-      @if (module_is('cms'))
+      @if (has_module('cms'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCmsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-edit text-secondry mr-3"></i>
@@ -169,7 +169,7 @@
 
 
       {{-- Calendar options --}}
-      @if (module_is('school'))
+      @if (has_module('school'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCalendarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-calendar text-secondry mr-3"></i>
@@ -190,7 +190,7 @@
 
 
       {{-- Team options --}}
-      @if (module_is('team'))
+      @if (has_module('team'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuTeamDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-calendar text-secondry mr-3"></i>
@@ -216,7 +216,7 @@
 
 
       {{-- Report options --}}
-      @if (module_is('report'))
+      @if (has_module('report'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuReportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-dice-d6 text-secondry mr-3"></i>
@@ -245,7 +245,7 @@
 
 
       {{-- CRM options --}}
-      @if (module_is('crm'))
+      @if (has_module('crm'))
         <li class="nav-item dropdown bg-light text-dark p-3-rm border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCrmDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-users text-secondry mr-3"></i>
@@ -277,7 +277,7 @@
       @endif
 
       {{-- Project options --}}
-      @if (module_is('project'))
+      @if (has_module('project'))
         <li class="nav-item border bg-light text-dark p-3">
           <a class="nav-link text-dark" href="{{ route('dashboard-todo') }}">
             <i class="fas fa-list mr-3"></i>
@@ -289,7 +289,7 @@
       @endif
 
       {{-- HR options --}}
-      @if (module_is('hr'))
+      @if (has_module('hr'))
         <li class="nav-item border bg-light text-dark p-3">
           <a class="nav-link text-dark" href="{{ route('dashboard-vacancy') }}">
             <i class="fas fa-users mr-3"></i>

@@ -1,8 +1,8 @@
 <?php
 
-if (! function_exists('module_is')) {
-    function module_is(string $module): bool
+if (! function_exists('has_module')) {
+    function has_module(string $module): bool
     {
-        return false !== stripos(config('app.modules'), $module);
+        return stripos(config('app.modules'), $module) !== false;
     }
 }

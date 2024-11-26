@@ -12,7 +12,7 @@
       ])
   </div>
 
-  @if (module_is('product'))
+  @if (has_module('product'))
     @if ($modes['product'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('product')",
@@ -87,7 +87,7 @@
 
 
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @if ($modes['shop'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('shop')",
@@ -190,7 +190,7 @@
   @endif
 
 
-  @if (module_is('cms'))
+  @if (has_module('cms'))
     @if ($modes['cms'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('cms')",
@@ -253,7 +253,7 @@
   @endif
 
 
-  @if (module_is('calendar'))
+  @if (has_module('calendar'))
 
     @if ($modes['school'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -311,7 +311,7 @@
   @endif
 
 
-  @if (module_is('team'))
+  @if (has_module('team'))
 
     @if ($modes['team'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -363,7 +363,7 @@
 
 
 
-  @if (module_is('crm'))
+  @if (has_module('crm'))
 
     @if ($modes['crm'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -423,7 +423,7 @@
     @endif
   @endif
 
-  @if (module_is('hr'))
+  @if (has_module('hr'))
 
     @if ($modes['hr'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -467,7 +467,7 @@
   @endif
 
 
-  @if (module_is('project'))
+  @if (has_module('project'))
 
     @if ($modes['project'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -510,7 +510,7 @@
     @endif
   @endif
 
-  @if (module_is('document'))
+  @if (has_module('document'))
 
     @if ($modes['document'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -584,7 +584,7 @@
   @endif
 
 
-  @if (module_is('report'))
+  @if (has_module('report'))
 
     @if ($modes['report'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -642,7 +642,7 @@
   @endif
 
 
-  @if (module_is('educ'))
+  @if (has_module('educ'))
 
     @if ($modes['educ'])
       @include ('partials.dashboard.app-left-menu-button-lw', [

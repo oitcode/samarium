@@ -194,7 +194,7 @@ Route::get('/o/table/{id}/{name}', 'WebsiteController@seatTableView')->name('web
  *-----------------------------------------------------------------------------
  *
  */
-if (module_is('shop')) {
+if (has_module('shop')) {
     $ecommCollectionWebpages = [
         'about-us',
         'contact-us',

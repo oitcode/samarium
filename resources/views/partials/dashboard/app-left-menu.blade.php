@@ -14,7 +14,7 @@
   </div>
   @endif
 
-  @if (module_is('dashboard'))
+  @if (has_module('dashboard'))
     @include ('partials.dashboard.app-left-menu-button',
         [
             'btnRoute' => 'dashboard',
@@ -23,7 +23,7 @@
         ])
   @endif
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @can ('is-admin')
       @if (config('app.cmp_type') === 'shop')
         @include ('partials.dashboard.app-left-menu-button',
@@ -77,7 +77,7 @@
         ])
   @endif
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @can ('is-admin')
       @if (config('app.cmp_type') === 'cafe')
         @include ('partials.dashboard.app-left-menu-button',
@@ -123,7 +123,7 @@
     @endcan
   @endif
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-report',
       'iconFaClass' => 'fas fa-chart-line',
@@ -152,7 +152,7 @@
   |
   --}}
 
-  @if (module_is('cms'))
+  @if (has_module('cms'))
     @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-cms-webpage',
       'iconFaClass' => 'fas fa-globe',
@@ -198,7 +198,7 @@
   |
   --}}
 
-  @if (module_is('bgc'))
+  @if (has_module('bgc'))
     @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-organizing-committee',
       'iconFaClass' => 'fas fa-users',
@@ -246,7 +246,7 @@
     ])
   @endcan
 
-  @if (module_is('todo'))
+  @if (has_module('todo'))
     @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-todo',
       'iconFaClass' => 'fas fa-tasks',
@@ -254,7 +254,7 @@
     ])
   @endif
 
-  @if (module_is('accounting'))
+  @if (has_module('accounting'))
     @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-accounting',
       'iconFaClass' => 'fas fa-book',

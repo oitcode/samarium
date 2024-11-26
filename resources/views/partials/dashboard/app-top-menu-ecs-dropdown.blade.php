@@ -29,7 +29,7 @@
         <i class="fas fa-users text-secondary mr-2"></i>
         Quick Contacts
       </a>
-      @if (module_is('bgc'))
+      @if (has_module('bgc'))
         <a class="dropdown-item" href="{{ route('dashboard-organizing-committee') }}">
           <i class="fas fa-users text-secondary mr-2"></i>
           Organizing Committee

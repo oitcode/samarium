@@ -2,7 +2,7 @@
 {{-- Show on all screens --update -- --}}
 <div class="row p-3-rm justify-content-between-rm bg-light-rm mb-3" style="margin: auto;">
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
   <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
     <a href="{{ route('sale') }}" class="btn btn-light p-3 w-100">
       @if (config('app.cmp_type') === 'cafe')
@@ -18,7 +18,7 @@
   </div>
   @endif
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @if (config('app.cmp_type') === 'cafe')
     <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
       <a href="{{ route('cafesale') }}" class="btn btn-light p-3 w-100">
@@ -30,7 +30,7 @@
     @endif
   @endif
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @can ('is-admin')
     <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
       <a href="{{ route('daybook') }}" class="btn btn-light p-3 w-100">
@@ -42,7 +42,7 @@
     @endcan
   @endif
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @can ('is-admin')
     <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
       <a href="{{ route('weekbook') }}" class="btn btn-light p-3 w-100">
@@ -54,7 +54,7 @@
     @endcan
   @endif
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @can ('is-admin')
     <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
       <a href="{{ route('menu') }}" class="btn btn-light p-3 w-100">
@@ -72,7 +72,7 @@
     @endcan
   @endif
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @can ('is-admin')
     <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
       <a href="{{ route('customer') }}" class="btn btn-light p-3 w-100">
@@ -84,7 +84,7 @@
     @endcan
   @endif
 
-  @if (module_is('shop'))
+  @if (has_module('shop'))
     @can ('is-admin')
     <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
       <a href="{{ route('online-order') }}" class="btn btn-light p-3 w-100">
@@ -96,7 +96,7 @@
     @endcan
   @endif
 
-  @if (module_is('cms'))
+  @if (has_module('cms'))
     @can ('is-admin')
     <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
       <a href="{{ route('dashboard-cms-post') }}" class="btn btn-light p-3 w-100">
@@ -108,7 +108,7 @@
     @endcan
   @endif
 
-  @if (module_is('school'))
+  @if (has_module('school'))
     @can ('is-admin')
     <div class="col-6 col-md-3-rm mr-3-rm mb-3 p-0 pr-3">
       <a href="{{ route('dashboard-school-calendar') }}" class="btn btn-light p-3 w-100">
