@@ -5,10 +5,10 @@
 
     <div class="d-flex">
       <div class="mt-0 text-secondary mr-3" style="font-size: 1.3rem;">
-        <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setPreviousDay">
+        <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
           <i class="fas fa-arrow-left"></i>
         </button>
-        <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setNextDay">
+        <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setNextDay">
           <i class="fas fa-arrow-right"></i>
         </button>
       </div>
@@ -16,7 +16,7 @@
         <input type="date" wire:model="startDate" class="mr-3" />
         <input type="date" wire:model="endDate" class="mr-3" />
 
-        <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="getPurchasesForDateRange">
+        <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getPurchasesForDateRange">
           Go
         </button>
       </div>
@@ -44,10 +44,10 @@
   <div class="mt-2 mb-3 text-secondary d-md-none" style="font-size: 1rem;">
 
     <div class="mt-0 text-secondary mr-3" style="font-size: 1.3rem;">
-      <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setPreviousDay">
+      <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left"></i>
       </button>
-      <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setNextDay">
+      <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setNextDay">
         <i class="fas fa-arrow-right"></i>
       </button>
     </div>
@@ -55,7 +55,7 @@
       <input type="date" wire:model="startDate" class="mr-3" />
       <input type="date" wire:model="endDate" class="mr-3" />
 
-      <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="getPurchasesForDateRange">
+      <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getPurchasesForDateRange">
         Go
       </button>
     </div>
@@ -86,8 +86,8 @@
     <table class="table border mb-0" style="font-size: 1rem;">
       <thead>
         <tr class="
-            {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-            {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+            {{ config('app.oc_ascent_bg_color', 'bg-success') }}
+            {{ config('app.oc_ascent_text_color', 'text-white') }}
         ">
           <th>ID</th>
           <th style="width: 100px;">Date</th>

@@ -4,10 +4,10 @@
   <div class="mt-2-rm mb-3 text-secondary py-3-rm d-flex-rm bg-warning-rm d-none d-md-block" style="font-size: 1rem;">
     <div class="d-flex">
       <div class="mt-0 text-secondary py-3-rm mr-3" style="font-size: 1.3rem;">
-        <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setPreviousDay">
+        <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
           <i class="fas fa-arrow-left"></i>
         </button>
-        <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setNextDay">
+        <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setNextDay">
           <i class="fas fa-arrow-right"></i>
         </button>
       </div>
@@ -15,7 +15,7 @@
         <input type="date" wire:model="startDate" class="mr-3" />
         <input type="date" wire:model="endDate" class="mr-3" />
 
-        <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="getExpensesForDateRange">
+        <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getExpensesForDateRange">
           Go
         </button>
       </div>
@@ -39,10 +39,10 @@
   {{-- Show in smaller screens --}}
   <div class="mt-2-rm mb-3 text-secondary py-3-rm  bg-warning-rm d-md-none" style="font-size: 1rem;">
     <div class="mt-0 text-secondary py-3-rm mr-3" style="font-size: 1.3rem;">
-      <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setPreviousDay">
+      <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left"></i>
       </button>
-      <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }}" wire:click="setNextDay">
+      <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setNextDay">
         <i class="fas fa-arrow-right"></i>
       </button>
     </div>
@@ -50,7 +50,7 @@
       <input type="date" wire:model="startDate" class="mr-3" />
       <input type="date" wire:model="endDate" class="mr-3" />
 
-      <button class="btn {{ env('OC_ASCENT_BTN_COLOR') }} mr-3" wire:click="getExpensesForDateRange">
+      <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getExpensesForDateRange">
         Go
       </button>
     </div>
@@ -76,8 +76,8 @@
       <table class="table border mb-0" style="font-size: 1.1rem;">
         <thead>
           <tr class="
-              {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
-              {{ env('OC_ASCENT_TEXT_COLOR', 'text-white') }}
+              {{ config('app.oc_ascent_bg_color', 'bg-success') }}
+              {{ config('app.oc_ascent_text_color', 'text-white') }}
               "
               style="font-size: 0.9rem;">
             <th>ID</th>

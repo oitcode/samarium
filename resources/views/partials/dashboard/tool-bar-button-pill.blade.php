@@ -14,7 +14,7 @@
             @else
               {{--
               @if ($btnText == 'New' || $btnText == 'Create')
-                {{ env('OC_ASCENT_BG_COLOR') }} text-white
+                {{ config('app.oc_ascent_bg_color') }} text-white
               @else
                 bg-white
               @endif
@@ -42,8 +42,8 @@
       @if (false)
       {{--
       @if ($btnText == 'New' || $btnText == 'Create')
-        {{ env('OC_ASCENT_BG_COLOR') }}
-        {{ env('OC_ASCENT_TEXT_COLOR') }}
+        {{ config('app.oc_ascent_bg_color') }}
+        {{ config('app.oc_ascent_text_color') }}
         shadow-lg
         badge-pill
       @else
@@ -68,13 +68,13 @@
               {{--
               border-bottom: 5px solid #55a;
               padding-bottom: 10px;
-              background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
+              background-color: {{ config('app.oc_select_color', '#000050') }};
               color: white;
               color: white;
               background-color: green !important;
               --}}
               {{--
-              border: 1px solid {{ env('OC_SELECT_COLOR', '#000050') }} !important;
+              border: 1px solid {{ config('app.oc_select_color', '#000050') }} !important;
               --}}
             @endif
           @endisset
@@ -82,7 +82,7 @@
       @endisset
       @endif
       "
-  
+
       wire:click="{{ $btnClickMethod }}" role="button">
     <div class="">
       <div class="">
@@ -134,10 +134,10 @@
               {{--
               border-bottom: 5px solid #55a;
               padding-bottom: 10px;
-              background-color: {{ env('OC_SELECT_COLOR', '#000050') }};
+              background-color: {{ config('app.oc_select_color', '#000050') }};
               color: white;
-              color: {{ env('OC_SELECT_COLOR', '#000050') }};
-              border-left: 10px solid {{ env('OC_SELECT_COLOR', '#000050') }};
+              color: {{ config('app.oc_select_color', '#000050') }};
+              border-left: 10px solid {{ config('app.oc_select_color', '#000050') }};
               --}}
             @endif
           @endisset
@@ -145,7 +145,7 @@
       @endisset
       @endif
       "
-  
+
       wire:click="{{ $btnClickMethod }}" role="button">
     <div class="">
         <i class="{{ $btnIconFaClass }} mr-2"></i>

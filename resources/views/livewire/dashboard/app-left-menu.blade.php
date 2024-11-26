@@ -12,7 +12,7 @@
       ])
   </div>
 
-  @if (preg_match("/product/i", env('MODULES')))
+  @if (has_module('product'))
     @if ($modes['product'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('product')",
@@ -87,7 +87,7 @@
 
 
 
-  @if (preg_match("/shop/i", env('MODULES')))
+  @if (has_module('shop'))
     @if ($modes['shop'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('shop')",
@@ -120,7 +120,7 @@
                 'btnText' => 'Sales',
             ])
 
-        @if (env('CMP_TYPE') == 'cafe')
+        @if (config('app.cmp_type') === 'cafe')
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'cafesale',
@@ -163,7 +163,7 @@
                 'btnText' => 'Weborder',
             ])
 
-        @if (env('HAS_VAT') == true)
+        @if (config('app.has_vat') == true)
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-vat',
             'iconFaClass' => 'fas fa-solar-panel',
@@ -190,7 +190,7 @@
   @endif
 
 
-  @if (preg_match("/cms/i", env('MODULES')))
+  @if (has_module('cms'))
     @if ($modes['cms'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('cms')",
@@ -253,7 +253,7 @@
   @endif
 
 
-  @if (preg_match("/calendar/i", env('MODULES')))
+  @if (has_module('calendar'))
 
     @if ($modes['school'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -311,7 +311,7 @@
   @endif
 
 
-  @if (preg_match("/team/i", env('MODULES')))
+  @if (has_module('team'))
 
     @if ($modes['team'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -363,7 +363,7 @@
 
 
 
-  @if (preg_match("/crm/i", env('MODULES')))
+  @if (has_module('crm'))
 
     @if ($modes['crm'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -423,7 +423,7 @@
     @endif
   @endif
 
-  @if (preg_match("/hr/i", env('MODULES')))
+  @if (has_module('hr'))
 
     @if ($modes['hr'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -467,7 +467,7 @@
   @endif
 
 
-  @if (preg_match("/project/i", env('MODULES')))
+  @if (has_module('project'))
 
     @if ($modes['project'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -510,7 +510,7 @@
     @endif
   @endif
 
-  @if (preg_match("/document/i", env('MODULES')))
+  @if (has_module('document'))
 
     @if ($modes['document'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -584,7 +584,7 @@
   @endif
 
 
-  @if (preg_match("/report/i", env('MODULES')))
+  @if (has_module('report'))
 
     @if ($modes['report'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -642,7 +642,7 @@
   @endif
 
 
-  @if (preg_match("/educ/i", env('MODULES')))
+  @if (has_module('educ'))
 
     @if ($modes['educ'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
@@ -739,7 +739,7 @@
       Logout
     </div>
     @endif
-    <div class="my-2 text-muted-rm" style="color: {{ env('OC_UNSELECT_TXT_COLOR') }};">
+    <div class="my-2 text-muted-rm" style="color: {{ config('app.oc_unselect_txt_color') }};">
       Version 0.8.5
     </div>
   </div>

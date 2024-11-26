@@ -50,7 +50,7 @@
             <button
                 onclick="this.disabled=true;"
                 class="btn
-                    {{ env('OC_ASCENT_BTN_COLOR', 'btn-light') }}
+                    {{ config('app.oc_ascent_btn_color', 'btn-light') }}
                     w-100 py-3"
                 wire:click="finishCreation"
                 style="font-size: calc(1rem + 0.2vw);">

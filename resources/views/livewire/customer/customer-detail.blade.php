@@ -140,7 +140,7 @@
         <div class="mb-3">
           <button class="btn
               @if ($modes['salesHistory'])
-                {{ env('OC_ASCENT_BTN_COLOR') }}
+                {{ config('app.oc_ascent_btn_color') }}
               @endif
               m-0 border shadow-sm badge-pill mr-3"
               style="font-size: 1.3rem;" wire:click="enterMode('salesHistory')">
@@ -150,7 +150,7 @@
 
           <button class="btn
               @if ($modes['customerPaymentCreate'])
-                {{ env('OC_ASCENT_BTN_COLOR') }}
+                {{ config('app.oc_ascent_btn_color') }}
               @endif
               m-0 border shadow-sm badge-pill mr-3"
               style="font-size: 1.3rem;" wire:click="enterMode('customerPaymentCreate')">

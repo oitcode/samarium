@@ -46,7 +46,7 @@
       <div class="">
         <input type="date" wire:model="weekStartDate" class="ml-5">
         <button class="btn
-            {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+            {{ config('app.oc_ascent_bg_color', 'bg-success') }}
             "
             wire:click="setStartOfWeek">
           Go
@@ -78,7 +78,7 @@
 
     <input type="date" wire:model="weekStartDate" class="ml-3">
     <button class="btn mx-3
-        {{ env('OC_ASCENT_BG_COLOR', 'bg-success') }}
+        {{ config('app.oc_ascent_bg_color', 'bg-success') }}
         "
         wire:click="setStartOfWeek">
       Go

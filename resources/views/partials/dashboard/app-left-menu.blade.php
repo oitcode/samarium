@@ -14,7 +14,7 @@
   </div>
   @endif
 
-  @if (preg_match("/dashboard/i", env('MODULES')))
+  @if (has_module('dashboard'))
     @include ('partials.dashboard.app-left-menu-button',
         [
             'btnRoute' => 'dashboard',
@@ -23,9 +23,9 @@
         ])
   @endif
 
-  @if (preg_match("/shop/i", env('MODULES')))
+  @if (has_module('shop'))
     @can ('is-admin')
-      @if (env('CMP_TYPE') == 'shop')
+      @if (config('app.cmp_type') === 'shop')
         @include ('partials.dashboard.app-left-menu-button',
             [
                 'btnRoute' => 'sale',
@@ -42,7 +42,7 @@
       @endif
     @endcan
 
-    @if (env('CMP_TYPE') == 'cafe')
+    @if (config('app.cmp_type') === 'cafe')
       @include ('partials.dashboard.app-left-menu-button',
           [
               'btnRoute' => 'cafesale',
@@ -77,9 +77,9 @@
         ])
   @endif
 
-  @if (preg_match("/shop/i", env('MODULES')))
+  @if (has_module('shop'))
     @can ('is-admin')
-      @if (env('CMP_TYPE') == 'cafe')
+      @if (config('app.cmp_type') === 'cafe')
         @include ('partials.dashboard.app-left-menu-button',
             [
                 'btnRoute' => 'menu',
@@ -123,7 +123,7 @@
     @endcan
   @endif
 
-  @if (preg_match("/shop/i", env('MODULES')))
+  @if (has_module('shop'))
     @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-report',
       'iconFaClass' => 'fas fa-chart-line',
@@ -134,7 +134,7 @@
       'iconFaClass' => 'fas fa-dolly',
       'btnText' => 'Inventory',
     ])
-    @if (env('HAS_VAT') == true)
+    @if (config('app.has_vat') == true)
       @include ('partials.dashboard.app-left-menu-button', [
         'btnRoute' => 'dashboard-vat',
         'iconFaClass' => 'fas fa-solar-panel',
@@ -152,7 +152,7 @@
   |
   --}}
 
-  @if (preg_match("/cms/i", env('MODULES')))
+  @if (has_module('cms'))
     @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-cms-webpage',
       'iconFaClass' => 'fas fa-globe',
@@ -198,7 +198,7 @@
   |
   --}}
 
-  @if (preg_match("/bgc/i", env('MODULES')))
+  @if (has_module('bgc'))
     @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-organizing-committee',
       'iconFaClass' => 'fas fa-users',
@@ -246,7 +246,7 @@
     ])
   @endcan
 
-  @if (preg_match("/todo/i", env('MODULES')))
+  @if (has_module('todo'))
     @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-todo',
       'iconFaClass' => 'fas fa-tasks',
@@ -254,7 +254,7 @@
     ])
   @endif
 
-  @if (preg_match("/accounting/i", env('MODULES')))
+  @if (has_module('accounting'))
     @include ('partials.dashboard.app-left-menu-button', [
       'btnRoute' => 'dashboard-accounting',
       'iconFaClass' => 'fas fa-book',

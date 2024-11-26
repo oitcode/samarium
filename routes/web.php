@@ -1,9 +1,10 @@
 <?php
 
+use App\Webpage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
-
-use App\Webpage;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -159,7 +160,7 @@ Route::get('/dashboard/educ/institution', 'EducInstitutionController@index')->na
 
 
 /* Website home page */
-if (env('SITE_TYPE') == 'erp') {
+if (config('app.site_type') === 'erp') {
     Route::get('/', 'WebsiteController@homePage')->name('website-home');
 } else {
     Route::get('/', 'WebsiteController@cmsHome')->name('website-home');
@@ -193,7 +194,7 @@ Route::get('/o/table/{id}/{name}', 'WebsiteController@seatTableView')->name('web
  *-----------------------------------------------------------------------------
  *
  */
-if (true || preg_match("/shop/i", env('MODULES'))) {
+if (has_module('shop')) {
     $ecommCollectionWebpages = [
         'about-us',
         'contact-us',
@@ -235,9 +236,9 @@ Route::get('/cms/gallery', 'CmsGalleryController@index')->name('dashboard-cms-ga
 /* CMS website/front-page/customer routes */
 if (Schema::hasTable('webpage')) {
     $webpages = Webpage::where('visibility', 'public')->get();
-    
+
     foreach ($webpages as $webpage) {
-        Route::get('/'. $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-'. $webpage->permalink);
+        Route::get('/' . $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-' . $webpage->permalink);
     }
 }
 

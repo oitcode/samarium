@@ -81,7 +81,7 @@
       | App left menu
       |
       --}}
-      <div class="col-md-2 p-0 {{ env('OC_ASCENT_BG_COLOR') }}-rm bg-dark d-none d-md-block border-right shadow-sm-rm">
+      <div class="col-md-2 p-0 {{ config('app.oc_ascent_bg_color') }}-rm bg-dark d-none d-md-block border-right shadow-sm-rm">
         @livewire ('dashboard.app-left-menu')
       </div>
 
