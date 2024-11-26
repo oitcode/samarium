@@ -35,6 +35,7 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/product' ||
             $uri == '/dashboard/product-category' ||
             $uri == '/dashboard/product-question' ||
+            $uri == '/dashboard/product-vendor' ||
             $uri == '/dashboard/inventory'
         ) {
             $this->enterModeSilent('product');
