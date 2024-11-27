@@ -14,8 +14,8 @@ class UpdateExpenseTableDropOldColumns extends Migration
     public function up()
     {
         Schema::table('expense', function (Blueprint $table) {
-            $table->dropForeign('fk_expense_expense_category');
             $table->dropColumn('name');
+            $table->dropForeign(['expense_category_id']);
             $table->dropColumn('expense_category_id');
         });
     }
