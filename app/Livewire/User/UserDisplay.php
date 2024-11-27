@@ -42,4 +42,9 @@ class UserDisplay extends Component
     {
         $this->exitMode('addUserToGroupMode');
     }
+
+    public function closeThisComponent()
+    {
+        $this->dispatch('exitUserDisplayMode');
+    }
 }

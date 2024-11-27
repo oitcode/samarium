@@ -25,6 +25,7 @@ class UserComponent extends Component
         'userCreated',
 
         'displayUser',
+        'exitUserDisplayMode',
     ];
 
     public function render()
@@ -46,5 +47,11 @@ class UserComponent extends Component
     {
         $this->displayingUser = $user;
         $this->enterMode('displayUserMode');
+    }
+
+    public function exitUserDisplayMode()
+    {
+        $this->displayingUser = null;
+        $this->clearModes();
     }
 }

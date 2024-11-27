@@ -12,12 +12,14 @@
 
     @include ('partials.dashboard.spinner-button')
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('createUserMode')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'Create',
-        'btnCheckMode' => 'createUserMode',
-    ])
+    @if (! array_search(true, $modes) || $modes['listUserMode'])
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('createUserMode')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'Create',
+          'btnCheckMode' => 'createUserMode',
+      ])
+    @endif
 
     @if (false)
     @include ('partials.dashboard.tool-bar-button-pill', [
@@ -67,6 +69,8 @@
     @livewire ('user.user-list')
   @elseif ($modes['displayUserMode'])
     @livewire ('user.user-display', ['user' => $displayingUser,])
+  @else
+    @livewire ('user.user-list')
   @endif
 
 </div>

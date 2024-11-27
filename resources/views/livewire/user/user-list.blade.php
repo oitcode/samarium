@@ -2,9 +2,9 @@
 
   {{-- Top flash cards --}}
   @if (true)
-  <div class="row mb-1">
+  <div class="row my-3">
     <div class="col-md-6">
-      <div class="mb-4">
+      <div class="">
         @include ('partials.misc.glance-card', [
             'bsBgClass' => 'bg-white',
             'btnRoute' => '',
@@ -16,7 +16,7 @@
     </div>
 
     <div class="col-md-6">
-      <div class="mb-4">
+      <div class="">
         @include ('partials.misc.glance-card', [
             'bsBgClass' => 'bg-white',
             'btnRoute' => '',
