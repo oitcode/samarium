@@ -58,7 +58,7 @@
       </div>
     </div>
 
-    <div class="p-2">
+    <div class="p-2 py-3">
       {{ $user->name }}
     </div>
   </div>
@@ -75,7 +75,7 @@
       </div>
     </div>
 
-    <div class="p-2">
+    <div class="p-2 py-3">
       {{ $user->created_at->toDateString() }}
     </div>
   </div>
@@ -92,7 +92,7 @@
       </div>
     </div>
 
-    <div class="p-2">
+    <div class="p-2 py-3">
       @if ($user->role == 'standard')
         <span class="badge badge-pill badge-success">
           Standard
@@ -119,7 +119,7 @@
       </div>
     </div>
 
-    <div class="p-2">
+    <div class="p-2 py-3">
       {{ $user->last_login_at }}
     </div>
   </div>
@@ -148,13 +148,19 @@
         @livewire ('user.dashboard.add-user-to-group', ['user' => $user,])
       @else
         @if ($user->userGroups != null && count($user->userGroups) > 0)
-          @foreach ($user->userGroups as $userGroup)
-            <div class="px-2 mb-2 py-2">
-              <span class="badge-pill badge-light p-2 border mb-3">
-              {{ $userGroup->name }}
-              </span>
-            </div>
-          @endforeach
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                @foreach ($user->userGroups as $userGroup)
+                <td class="py-3">
+                    <span class="badge-pill badge-light p-2 border mb-3 mr-3">
+                    {{ $userGroup->name }}
+                    </span>
+                </td>
+                @endforeach
+              </tr>
+            </table>
+          </div>
         @else
           <div class="py-4 px-2 bg-white border" style="color: #fe8d01;">
             <i class="fas fa-exclamation-circle mr-2"></i>
