@@ -9,9 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3.0|^8.0",
-        "doctrine/dbal": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^10.0",
+        "laravel/framework": "^11.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^4.0",
         "livewire/livewire": "^3.0",
@@ -21,8 +20,8 @@
         "spatie/laravel-ignition": "^2.0",
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.3.1",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.0"
+        "nunomaduro/collision": "^8.1",
+        "phpunit/phpunit": "^11.0"
     },
     "config": {
         "optimize-autoloader": true,
