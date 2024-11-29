@@ -25,7 +25,7 @@ return [
     'oc_ascent_bg_color' => env('OC_ASCENT_BG_COLOR', ''),
     'oc_ascent_text_color' => env('OC_ASCENT_TEXT_COLOR', ''),
     'oc_ascent_hl_txt_color' => env('OC_ASCENT_HL_TXT_COLOR', ''),
-    'oc_select_color' => env('OC_SELECT_COLOR', ''),
+    'oc_select_color' => env('OC_SELECT_COLOR', '#005'),
     'oc_select_txt_color' => env('OC_SELECT_TXT_COLOR', ''),
     'oc_unselect_txt_color' => env('OC_UNSELECT_TXT_COLOR', ''),
     'site_ecs_theme_bs_class' => env('SITE_ECS_THEME_BS_CLASS', ''),
