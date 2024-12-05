@@ -15,17 +15,6 @@
       ])
     @endif
 
-    @if (false)
-      @if ($modes['displayCalendarEventMode'])
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "",
-            'btnIconFaClass' => 'fas fa-circle',
-            'btnText' => 'Event display',
-            'btnCheckMode' => 'displayCalendarEventMode',
-        ])
-      @endif
-    @endif
-
     @if ($modes['displayCalendarEventMode'] || $modes['eventCreate'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "clearModes",

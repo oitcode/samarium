@@ -10,11 +10,6 @@
         Previous
       </button>
 
-      @if (false)
-      <div class="p-2 mr-4 font-weight-bold">
-        {{ $displayMonthName }}
-      </div>
-      @endif
 
       <div class="dropdown py-3-rm">
         <button class="btn dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,9 +53,6 @@
           <div class="border">
             @if ($day)
               <div wire:click="selectDate({{ json_encode($day) }})" role="button">
-                @if (false)
-                {{ $day->toDateString() }}
-                @endif
                 {{ $day[1] }}
               </div>
             @else
@@ -78,9 +70,6 @@
           <div class="border">
             @if ($day)
               <div wire:click="selectDate({{ json_encode($day) }})" role="button">
-                @if (false)
-                {{ $day->toDateString() }}
-                @endif
                 {{ $day[1] }}
               </div>
             @else
@@ -98,9 +87,6 @@
           <div class="border">
             @if ($day)
               <div wire:click="selectDate({{ json_encode($day) }})" role="button">
-                @if (false)
-                {{ $day->toDateString() }}
-                @endif
                 {{ $day[1] }}
               </div>
             @else
@@ -118,9 +104,6 @@
           <div class="border">
             @if ($day)
               <div wire:click="selectDate({{ json_encode($day) }})" role="button">
-                @if (false)
-                {{ $day->toDateString() }}
-                @endif
                 {{ $day[1] }}
               </div>
             @else
@@ -138,9 +121,6 @@
           <div class="border">
             @if ($day)
               <div wire:click="selectDate({{ json_encode($day) }})" role="button">
-                @if (false)
-                {{ $day->toDateString() }}
-                @endif
                 {{ $day[1] }}
               </div>
             @else
@@ -158,9 +138,6 @@
           <div class="border">
             @if ($day)
               <div wire:click="selectDate({{ json_encode($day) }})" role="button">
-                @if (false)
-                {{ $day->toDateString() }}
-                @endif
                 {{ $day[1] }}
               </div>
             @else
@@ -178,9 +155,6 @@
           <div class="border">
             @if ($day)
               <div wire:click="selectDate({{ json_encode($day) }})" role="button">
-                @if (false)
-                {{ $day->toDateString() }}
-                @endif
                 {{ $day[1] }}
               </div>
             @else

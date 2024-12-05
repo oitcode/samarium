@@ -46,28 +46,6 @@
           @endif
         </div>
 
-        @if (false)
-        <div class="my-2">
-          <div class="h5 mb-2 text-primary">
-            <a href="{{ route('website-book-appointment', $person->team_member_id) }}" class="btn btn-primary">
-              Book appointment
-            </a>
-          </div>
-        </div>
-        @endif
-
-        @if (false)
-        <div class="mb-1">
-          <i class="far fa-star" style="color: orange;"></i>
-          <i class="far fa-star" style="color: orange;"></i>
-          <i class="far fa-star" style="color: orange;"></i>
-          <i class="far fa-star" style="color: orange;"></i>
-          <i class="far fa-star" style="color: orange;"></i>
-          <span class="mx-1 text-muted">
-            (0) reviews
-          </span>
-        </div>
-        @endif
       </div>
     </div>
   </div>

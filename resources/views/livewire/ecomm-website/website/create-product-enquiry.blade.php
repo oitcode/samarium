@@ -7,9 +7,6 @@
     {{-- Flash message div --}}
     <div class="p-2">
       <div class="alert alert-success alert-dismissible fade show" role="alert">
-        @if (false)
-        {{ session('message') }}
-        @endif
         <div>
           <h2 class="h4 font-weight-bold">
             <i class="fas fa-check-circle mr-1"></i>
@@ -26,13 +23,6 @@
       </div>
 
     </div>
-  @endif
-
-  @if (false)
-  <p class="text-muted">
-    If you have any question related to this product
-    then please feel free to ask your question here.
-  </p>
   @endif
 
 
@@ -72,9 +62,4 @@
     Submit
   </button>
   <br/>
-  @if (false)
-  <p class="text-muted">
-    ** Your contact details wont be published.
-  </p>
-  @endif
 </div>

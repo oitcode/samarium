@@ -20,11 +20,6 @@
           <th>
             Description
           </th>
-          @if (false)
-          <th>
-            Groups
-          </th>
-          @endif
           <th>
             Action
           </th>
@@ -41,21 +36,7 @@
               <td>
               {{ $documentFile->description }}
               </td>
-              @if (false)
               <td>
-                @foreach ($documentFile->userGroups as $userGroup)
-                  <span class="badge badge-primary mr-2">
-                    {{ $userGroup->name }}
-                  </span>
-                @endforeach
-              </td>
-              @endif
-              <td>
-                @if (false)
-                <button class="btn btn-primary badge-pill" wire:click="$dispatch('pdfDisplayDocumentFile', {{ $documentFile }})">
-                  View file
-                </button>
-                @endif
                 <a href=" {{ route('website-document-file-pdf-display', $documentFile->document_file_id) }}" target="_blank" class="mr-3">
                   View file
                 </a>

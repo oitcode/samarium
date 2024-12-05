@@ -1,10 +1,4 @@
 <div>
-  {{-- Top line --}}
-  @if (false)
-  <div class="my-3">
-    Total: {{ $totalPostCount }}
-  </div>
-  @endif
 
   @if (!is_null($posts) && count($posts) > 0)
     {{-- Show in bigger screen --}}
@@ -14,19 +8,11 @@
           <thead>
             <tr class="bg-white text-dark">
               <th>
-                @if (false)
-                  <input type="checkbox" class="mr-3">
-                @endif
                 Name
               </th>
               <th>
                 Author
               </th>
-              @if (false)
-              <th>
-                Permalink
-              </th>
-              @endif
               <th>
                 Categories
               </th>
@@ -46,9 +32,6 @@
             @foreach ($posts as $post)
               <tr>
                 <td class="h5 font-weight-bold py-4" wire:click="$dispatch('displayPost', { post: {{ $post }} })" role="button">
-                  @if (false)
-                    <input type="checkbox" class="mr-3">
-                  @endif
                   <span class="text-dark">
                     {{ \Illuminate\Support\Str::limit($post->name, 60, $end=' ...') }}
                   </span>
@@ -63,11 +46,6 @@
                     </span>
                   @endif
                 </td>
-                @if (false)
-                <td>
-                  {{ $post->permalink }}
-                </td>
-                @endif
                 <td>
                   @if (count($post->webpageCategories) > 0)
                     @foreach ($post->webpageCategories as $postCategory)
@@ -96,19 +74,11 @@
                     </span>
                   @elseif ($post->visibility == null)
                     <i class="fas fa-exclamation-circle text-secondary"></i>
-                    @if (false)
-                    Not set
-                    @endif
                   @else
                     Whoops!
                   @endif
                 </td>
                 <td>
-                  @if (false)
-                  <span class="btn btn-light mr-3">
-                    <i class="fas fa-pencil-alt"></i>
-                  </span>
-                  @endif
                   <span class="btn btn-light mr-3" wire:click="deletePost({{ $post }})">
                     <i class="fas fa-trash"></i>
                   </span>
@@ -181,9 +151,6 @@
               </span>
             @elseif ($post->visibility == null)
               <i class="fas fa-exclamation-circle text-secondary"></i>
-              @if (false)
-              Not set
-              @endif
             @else
               Whoops!
             @endif

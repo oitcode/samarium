@@ -6,11 +6,6 @@
           Delete this product
         </strong>
       </div>
-      @if (false)
-      <div>
-        Once you delete, it cannot be undone. Please be sure.
-      </div>
-      @endif
     </div>
 
     <div>

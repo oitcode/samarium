@@ -99,11 +99,9 @@
             <th class="">
               Status
             </th>
-            @if (false)
               <th>
                 Action
               </th>
-            @endif
           </tr>
         </thead>
 
@@ -141,25 +139,7 @@
                 @endif
                 @endif
               </td>
-              @if (false)
               <td>
-                @if (false)
-                <div class="dropdown">
-                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-cog text-secondary"></i>
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button class="dropdown-item" wire:click="">
-                      <i class="fas fa-file text-primary mr-2"></i>
-                      View
-                    </button>
-                    <button class="dropdown-item" wire:click="">
-                      <i class="fas fa-trash text-danger mr-2"></i>
-                      Delete
-                    </button>
-                  </div>
-                </div>
-                @endif
                 <div>
                   <button class="btn" wire:click="deleteContactMessage({{ $contactMessage }})">
                     <i class="fas fa-trash text-danger mr-1"></i>
@@ -178,7 +158,6 @@
                 </div>
 
               </td>
-              @endif
             </tr>
           @endforeach
         </tbody>

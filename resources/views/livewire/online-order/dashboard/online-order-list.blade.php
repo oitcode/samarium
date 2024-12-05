@@ -64,36 +64,10 @@
         <div class="mr-4 font-weight-bold">
           Total : {{ count($websiteOrders) }}
         </div>
-        @if (false)
-        <div class="mr-4 font-weight-bold">
-          Today : {{ $todayOrderCount }}
-        </div>
-        <div class="mr-4 font-weight-bold">
-          Total : {{ $totalOrderCount }}
-        </div>
-        @endif
       </div>
     </div>
   </div>
   @endif
-
-
-
-  @if (false)
-  <div class="d-flex mb-4 pl-2">
-    <div class="mr-4">
-      New : {{ $newOrderCount }}
-    </div>
-    <div class="mr-4">
-      Today : {{ $todayOrderCount }}
-    </div>
-    <div class="mr-4">
-      Total : {{ $totalOrderCount }}
-    </div>
-  </div>
-  @endif
-
-
 
   <div class="row">
     <div class="col-md-12">

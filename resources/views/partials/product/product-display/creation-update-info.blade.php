@@ -3,16 +3,6 @@
   <div class="mb-4">
     <h3 class="h5"> Product history </h3>
   </div>
-  @if (false)
-  <div class="row">
-    <div class="col-3">
-      Created by
-    </div>
-    <div class="col-6">
-      xx
-    </div>
-  </div>
-  @endif
   <div class="row">
     <div class="col-1">
       Created at

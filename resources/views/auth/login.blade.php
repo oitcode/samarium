@@ -56,28 +56,10 @@
     <div class="h-100">
       <div class="d-flex justify-content-center h-100">
         <div class="d-flex flex-column justify-content-center">
-            @if (false)
-            <div class="text-center px-3">
-              <div class="py-3 bg-white">
-                @if (\App\Company::first())
-                  <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
-                      class="img-fluid-rm"
-                      alt="{{ \App\Company::first()->name }} logo"
-                      style="height: 75px !important;">
-
-                @else
-                  <i class="fas fa-check-circle mr-1"></i>
-                @endif
-              </div>
-            </div>
-            @endif
 
             <div class="px-3">
               <div class="bg-white text-dark py-3 font-weight-bold rounded-rm border-rm shadow-rm" style="{{-- background-color: #eee; --}}">
                 <div class="h5 font-weight-bold text-center mb-0" style="">
-                  @if (false)
-                  <i class="far fa-circle fa-2x-rm"></i>
-                  @endif
                   @if (\App\Company::first())
                     <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
                         class="img-fluid-rm"
@@ -154,7 +136,7 @@
                       | Remember option
                       |
                       --}}
-                      @if (false)
+                      {{--
                       <div class="form-group">
                           <div class="form-check">
                               <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -164,7 +146,7 @@
                               </label>
                           </div>
                       </div>
-                      @endif
+                      --}}
 
                       {{--
                       | 
@@ -177,13 +159,13 @@
                               {{ __('Login') }}
                           </button>
 
-                          @if (false)
+                          {{--
                           @if (Route::has('password.request'))
                               <a class="btn btn-link" href="{{ route('password.request') }}">
                                   {{ __('Forgot Your Password?') }}
                               </a>
                           @endif
-                          @endif
+                          --}}
                       </div>
 
                   </form>
@@ -196,7 +178,6 @@
             | Display version at bottom
             |
             --}}
-            @if (true)
             <div class="pb-3-rm px-3">
               <div class="text-center bg-white text-muted pb-3">
                 <small>
@@ -204,7 +185,6 @@
                 </small>
               </div>
             </div>
-            @endif
 
         </div>
       </div>

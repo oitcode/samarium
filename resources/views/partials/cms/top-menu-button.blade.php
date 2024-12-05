@@ -1,4 +1,4 @@
-<div class="float-left border-right-rm">
+<div class="float-left">
   <a href="{{ route($btnRoute) }}"
       class="btn
           font-weight-bold
@@ -41,9 +41,6 @@
               "
           >
 
-    @if (false)
-    <i class="{{ $iconFaClass}} mr-2"></i>
-    @endif
     {{ strtoupper($btnText) }}
   </a>
 </div>

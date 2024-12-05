@@ -20,32 +20,14 @@
       ])
     @endif
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('listMode')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'listMode',
-    ])
-    @endif
-
     @if ($modes['displayMode'])
-      @if (false)
       @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Task display',
-          'btnCheckMode' => 'displayMode',
+          'btnClickMethod' => "clearModes",
+          'btnIconFaClass' => 'fas fa-times',
+          'btnText' => '',
+          'btnCheckMode' => '',
+          'btnBsColor' => 'bg-danger text-white',
       ])
-      @endif
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-        'btnBsColor' => 'bg-danger text-white',
-    ])
     @endif
 
   </x-toolbar-classic>

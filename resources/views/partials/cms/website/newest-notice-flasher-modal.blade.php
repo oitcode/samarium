@@ -10,9 +10,6 @@
             style="height: 100px !important; max-width: 100px !important;">
         @if (true)
         <button type="button" class="close-rm btn btn-danger" data-dismiss="modal" aria-label="Close">
-          @if (false)
-          <span aria-hidden="true">&times;</span>
-          @endif
           <i class="fas fa-times-circle fa-2x text-danger-rm"></i>
           Close
         </button>
@@ -37,17 +34,9 @@
           {{-- Published info --}}
           <div class="px-3-rm text-secondary mb-4">
             Published on:
-            @if (false)
-              {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->created_at->toDateString() }}
-            @else
-              {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->created_at->toDateString(), 'english')  }}
-              2081
-            @endif
-
+            {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->created_at->toDateString(), 'english')  }}
+            2081
           </div>
-
-
-
 
           <div>
             <img src="{{ asset('storage/' . \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post',

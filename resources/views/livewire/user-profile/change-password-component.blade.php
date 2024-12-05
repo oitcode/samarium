@@ -68,12 +68,6 @@
           </div>
         </div>
   
-        @if (false)
-        <button type="submit" class="btn btn-success form-control rounded-0" wire:click="change">
-          <i class="fas fa-sign-in-alt"></i>
-          Submit
-        </button>
-        @endif
         @include ('partials.button-general-block', ['clickMethod' => 'change', 'btnText' => 'Submit',])
     </div>
 

@@ -17,14 +17,6 @@
 
             <div class="table-responsive">
               <table class="table">
-                @if (false)
-                <thead>
-                  <tr>
-                    <th style="width: 100px;"></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                @endif
                 <tr>
                   <td style="width: 200px;">Invoice ID </td>
                   <td>{{ $saleInvoice->sale_invoice_id }}</td>
@@ -123,112 +115,7 @@
                 </tr>
               </table>
             </div>
-
-
-
-            @if (false)
-            <div class="col-md-3 mb-4">
-              <div class="text-muted-rm mb-1">
-                Invoice ID
-              </div>
-              <div class="">
-                {{ $saleInvoice->sale_invoice_id }}
-              </div>
-            </div>
-
-            <div class="col-md-3 mb-4">
-              <div class="text-muted-rm mb-1">
-                Invoice Date
-              </div>
-              <div class="">
-                {{ $saleInvoice->sale_invoice_date }}
-              </div>
-            </div>
-
-            <div class="col-md-3 mb-4">
-              <div class="text-muted-rm mb-1">
-                Customer
-              </div>
-              <div class="h5">
-                @if ($saleInvoice->customer)
-                  <i class="fas fa-user-circle text-muted mr-2"></i>
-                  {{ $saleInvoice->customer->name }}
-                @else
-                  <i class="fas fa-exclamation-circle text-muted mr-2"></i>
-                  <span class="text-muted">
-                    None
-                  </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="col-md-3 mb-4">
-              <div class="text-muted-rm mb-1">
-                Created by
-              </div>
-              <div class="h5">
-                @if ($saleInvoice->creator)
-                  {{ $saleInvoice->creator->name }}
-                @else
-                  Unknown
-                @endif
-              </div>
-            </div>
-
-            <div class="col-md-3 mb-3">
-              <div>
-                Payment Status
-              </div>
-              <div>
-                @if ( $saleInvoice->payment_status == 'paid')
-                <span class="badge badge-pill badge-success">
-                Paid
-                </span>
-                @elseif ( $saleInvoice->payment_status == 'partially_paid')
-                <span class="badge badge-pill badge-warning">
-                Partial
-                </span>
-                @elseif ( $saleInvoice->payment_status == 'pending')
-                <span class="badge badge-pill badge-danger">
-                Pending
-                </span>
-                @else
-                <span class="badge badge-pill badge-secondary">
-                  {{ $saleInvoice->payment_status }}
-                </span>
-                @endif
-               <div>
-                 <div class="text-primary" role="button" wire:click="enterMode('showPayments')">
-                   Show payments
-                 </div>
-               </div>
-               @if ($modes['showPayments'])
-                 <div>
-                   <div>
-                     Payments
-                   </div>
-                   <div>
-                     @foreach ($saleInvoice->saleInvoicePayments as $saleInvoicePayment)
-                       <div>
-                       Rs
-                       @php echo number_format( $saleInvoicePayment->amount ); @endphp
-                       <span class="badge badge-pill ml-3">
-                       {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
-                       </span>
-                       <span class="badge badge-pill ml-3">
-                       {{ $saleInvoicePayment->payment_date }}
-                       </span>
-                       </div>
-                     @endforeach
-                   </div>
-                 </div>
-               @endif
-              </div>
-            </div>
-            @endif
-
           </div>
-
         </div>
       </div>
 
@@ -256,9 +143,6 @@
                 {{ $item->product->name }}
               </td>
               <td>
-                {{--
-                @php echo number_format( $item->product->selling_price ); @endphp
-                --}}
                 @php echo number_format( $item->price_per_unit); @endphp
               </td>
               <td>

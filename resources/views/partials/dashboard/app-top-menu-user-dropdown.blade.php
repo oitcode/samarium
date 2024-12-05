@@ -2,9 +2,6 @@
   <div class="dropdown">
     <button class="btn btn-light-rm text-white-rm dropdown-toggle-rm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fas fa-user-circle mr-2 text-white"></i>
-      @if (false)
-      {{ Auth::user()->name }}
-      @endif
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
       <a class="dropdown-item" href="{{ route('dashboard-change-password') }}">

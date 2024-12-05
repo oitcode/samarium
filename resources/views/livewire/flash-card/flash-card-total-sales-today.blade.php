@@ -7,14 +7,9 @@
   
         <div class="">
           <div class="d-flex justify-content-between">
-
             <h2 class="h6 mb-3 text-secondary">
               Sales
             </h2>
-
-            @if (false)
-            <i class="fas fa-check-circle"></i>
-            @endif
           </div>
 
           <h2 class="h5 font-weight-bold">

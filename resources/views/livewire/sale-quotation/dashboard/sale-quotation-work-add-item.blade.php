@@ -18,7 +18,6 @@
   {{-- Show in bigger screen --}}
   <div class="mb-3 border shadow-sm d-none d-md-block" style="">
 
-    @if (true)
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
@@ -86,7 +85,6 @@
       </table>
     </div>
   
-    @if (true)
     <div class="p-2 m-0 bg-white">
       <div class="row">
         <div class="col-md-8">
@@ -118,39 +116,7 @@
           </div>
         @endif
       </div>
-  
     </div>
-    @endif
-    @endif
-  
   </div>
-
-
-  @if (false)
-  {{-- Show in smaller screen --}}
-  <div class="d-md-none mb-3">
-    @if (! $modes['showMobForm'])
-    <button class="btn btn-success ml-3" wire:click="showAddItemFormMob">
-      Add item
-    </button>
-    @else
-    <button class="btn btn-danger ml-3" wire:click="hideAddItemFormMob">
-      Cancel
-    </button>
-    @endif
-
-    <button wire:loading class="btn">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
-
-    @if ($modes['showMobForm'])
-      <div>
-        @include ('partials.mob.add-item-form')
-      </div>
-    @endif
-  </div>
-  @endif
-
 
 </div>

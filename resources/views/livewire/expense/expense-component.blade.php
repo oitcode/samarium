@@ -24,38 +24,6 @@
       ])
     @endif
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('list')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'list',
-    ])
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('createCategory')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'Category',
-        'btnCheckMode' => 'createCategory',
-    ])
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('report')",
-        'btnIconFaClass' => 'fas fa-paper-plane',
-        'btnText' => 'Report',
-        'btnCheckMode' => 'report',
-    ])
-
-    @if ($modes['display'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('display')",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Expense display',
-          'btnCheckMode' => 'displaye',
-      ])
-    @endif
-    @endif
-
   </x-toolbar-classic>
 
 

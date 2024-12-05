@@ -31,59 +31,6 @@
           </div>
         </div>
       </div>
-      @if (false)
-      <div class="col-md-4 p-3">
-        <div class="border bg-light-rm shadow p-3 h-100 rounded" style="{{--background-color: #eaeaef;--}}">
-          <div class="d-flex">
-            <div>
-              @if (false)
-              <p class="text-secondary">
-                Thanks for visiting our online store.
-              </p>
-              <p class="text-secondary">
-                Explore our products.
-              </p>
-              <div class="mt-5 mb-4">
-                <a href=""  class="font-weight-bold" style="color: orange;">
-                  <span>
-                    Register now
-                  </span>
-                </a>
-              </div>
-              @endif
-            </div>
-            @if (false)
-            <div>
-              <img class="img-fluid-rm h-25-rm w-100-rm"
-                  src="{{ asset('storage/' . $productCategory->image_path) }}"
-                  alt="{{ $productCategory->name }}"
-                  style="max-height: 150px; max-width: 100px;">
-            </div>
-            @endif
-          </div>
-        </div>
-      </div>
-      @endif
-    </div>
-  </div>
-  @endif
-
-
-
-
-  @if (false)
-  <div class="bg-danger-rm text-white-rm py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-center"
-      style="background-color: #efefef;">
-    <div class="" style=" {{-- background-color: white; color: black;--}} ">
-      <div class="h2 font-weight-bold pt-3 text-center">
-        @if (false)
-        <i class="fas fa-chevron-right mx-1"></i>
-        @endif
-        {{ $productCategory->name }}
-      </div>
-      <div class="text-secondary text-center">
-        Total products: 14
-      </div>
     </div>
   </div>
   @endif

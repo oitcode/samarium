@@ -1,13 +1,6 @@
 <div class="mb-4">
 
-  @if (false)
-  <x-component-header>
-    User
-  </x-component-header>
-  @endif
-
   {{-- Toolbar --}}
-  {{-- Show in bigger screens --}}
   <x-toolbar-classic toolbarTitle="Users">
 
     @include ('partials.dashboard.spinner-button')
@@ -21,34 +14,10 @@
       ])
     @endif
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('listUserMode')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'listUserMode',
-    ])
-
-    @if ($modes['displayUserMode'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'User display',
-          'btnCheckMode' => 'displayUserMode',
-      ])
-    @endif
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
-    @endif
-
   </x-toolbar-classic>
 
 
+  {{-- Flash message div --}}
   @if (session()->has('message'))
     {{-- Flash message div --}}
     <div class="p-2">
@@ -63,6 +32,7 @@
   @endif
 
 
+  {{-- Show required components as per mode --}}
   @if ($modes['createUserMode'])
     @livewire ('user.user-create')
   @elseif ($modes['listUserMode'])

@@ -51,19 +51,12 @@
                     {{ $gallery->totalDiskSpaceOccupied() }}
                   </td>
 
-                  @if (true)
                   <td>
-                    @if (false)
-                    <span class="btn btn-tool btn-sm border rounded-circle mr-3" wire:click="$dispatch('updateGallery', {{ $gallery }})">
-                      <i class="fas fa-pencil-alt text-primary"></i>
-                    </span>
-                    @endif
                     <span class="btn btn-tool btn-sm-rm text-danger" wire:click="$dispatch('confirmDeleteGallery', {{ $gallery }})">
                       <i class="fas fa-trash mr-1"></i>
                       Delete
                     </span>
                   </td>
-                  @endif
                 </tr>
                 @endforeach
               @else

@@ -16,31 +16,6 @@
     ])
     @endif
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('listMode')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'listMode',
-    ])
-
-    @if ($modes['displayMode'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Gallery display',
-          'btnCheckMode' => 'displayMode',
-      ])
-    @endif
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
-    @endif
-
   </x-toolbar-classic>
 
   <!-- Flash message div -->

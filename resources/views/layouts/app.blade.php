@@ -93,9 +93,6 @@
         --}}
         <div class="">
           @yield ('content')
-          @if (false)
-          @include ('partials.dashboard.pkg-branding')
-          @endif
         </div>
 
       </div>

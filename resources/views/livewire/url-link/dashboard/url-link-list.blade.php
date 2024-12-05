@@ -16,9 +16,6 @@
       <div class="d-flex">
         @if (true)
         <div class="mr-4 font-weight-bold pt-2">
-          @if (false)
-          <i class="fas fa-filter mr-2"></i>
-          @endif
         </div>
         @endif
       </div>

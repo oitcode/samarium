@@ -99,14 +99,7 @@
                     ;
         ">
           <div class="h-100 p-3-rm" style="background-color: rgba(255, 255, 255, 0.5)">
-            <div class="
-                  @if (false)
-                  @if (\Carbon\Carbon::today() == $day['day'])
-                    o-blink-dark
-                  @endif
-                  @endif
-                  h-100 p-3
-                  ">
+            <div class="h-100 p-3">
               <div class="h5 font-weight-bold text-success-rm mb-1" style="
                       color:
                       @if (\App\CmsTheme::first())
@@ -127,12 +120,6 @@
 
         <div class="col-8 border-0 py-3">
           @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
-            @if (false)
-            <span class=" badge badge-pill badge-danger">
-              Holiday
-            </span>
-            <br />
-            @endif
           @endif
           @if (\Carbon\Carbon::today() == $day['day'])
             <div class="d-flex o-toggle-oo">

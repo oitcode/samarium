@@ -1,26 +1,6 @@
 <div>
 
-  @if (false)
-  <div class="container-fluid bg-info-rm border pt-4 pb-4 text-white-rm" style="{{--background-color: #101530;--}}">
-    <div class="container">
-      <div class="py-3">
-        <div class="d-flex justify-content-end">
-          <div class="mr-5 p-2">
-            Be 
-          </div>
-          <div>
-            <input type="text" placeholder="Email Address" class="py-2 pl-2" style="min-width: 400px;">
-            <button class="btn btn-success btn-lg">
-              Submit
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  @endif
-
-  <div class="container-fluid bg-info-rm border pt-4 pb-5-rm text-white-rm" style="{{--background-color: #101530;--}}">
+  <div class="container-fluid bg-info-rm border pt-4 pb-5-rm text-white-rm">
     <div class="container pt-4">
       <div class="row">
       
@@ -128,11 +108,6 @@
 
         @if (true)
         <div class="col-md-3 mb-5">
-          @if (false)
-          <div class="text-secondary">
-            {{ $company->tagline }}
-          </div>
-          @endif
           <div class="mb-3">
             <button class="btn btn-success badge-pill py-2 w-100">
               <span class="h5">

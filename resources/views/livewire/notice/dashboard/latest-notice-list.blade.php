@@ -41,30 +41,6 @@
   </div>
       <div class="table-responsive border">
         <table class="table table-borderless-rm mb-0">
-          @if (false)
-          <tr>
-            <th class="bg-danger-rm text-white">
-              <h2 class="h5 font-weight-bold bg-primary-rm text-white-rm p-3 mb-0" style="
-                  background-color:
-                    @if (\App\CmsTheme::first())
-                      {{ \App\CmsTheme::first()->ascent_bg_color }}
-                    @else
-                      orange
-                    @endif
-                    ;
-                  color:
-                    @if (\App\CmsTheme::first())
-                      {{ \App\CmsTheme::first()->ascent_text_color }}
-                    @else
-                      white
-                    @endif
-                    ;
-              ">
-                Latest Notice
-              </h2>
-            </th>
-          </tr>
-          @endif
 
           @if ($notices != null && count($notices) > 0)
             @foreach ($notices as $notice) 

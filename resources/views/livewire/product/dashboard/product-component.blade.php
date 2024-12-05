@@ -24,39 +24,6 @@
       ])
     @endif
 
-
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('list')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'list',
-    ])
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('createProductFromCsvMode')",
-        'btnIconFaClass' => 'fas fa-file',
-        'btnText' => 'Upload from spreadsheet',
-        'btnCheckMode' => 'createProductFromCsvMode',
-    ])
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('search')",
-        'btnIconFaClass' => 'fas fa-search',
-        'btnText' => 'Search',
-        'btnCheckMode' => 'search',
-    ])
-
-    @if ($modes['displayProduct'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Product display',
-          'btnCheckMode' => 'displayProduct',
-      ])
-    @endif
-    @endif
-
     @if ($modes['updateProduct'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "",
@@ -71,17 +38,6 @@
 
   <!-- Flash message div -->
   @if (session()->has('message'))
-    @if (false)
-    <div class="p-2">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle mr-3"></i>
-        {{ session('message') }}
-        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-          <span class="text-danger" aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
-    @endif
     @include ('partials.flash-message-modal', ['message' => session('message'),])
   @endif
 

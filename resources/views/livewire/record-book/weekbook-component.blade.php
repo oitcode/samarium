@@ -10,17 +10,6 @@
     <div class="float-left mr-5">
     </div>
 
-    @if (false)
-    <button class="btn btn-success-rm p-3 pr-5 float-right border shadow-sm bg-white" wire:click="">
-      <h2>
-        <span class="mr-2">
-          Rs
-        </span>
-        @php echo number_format($totalAmount); @endphp
-      </h2>
-    </button>
-    @endif
-
     <div class="d-flex float-left my-3 text-secondary-rm border-rm p-3 bg-success-rm text-white-rm shadow-sm-rm">
       <button class="btn btn-success-rm m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
         <i class="fas fa-arrow-alt-circle-left fa-2x mr-3-rm"></i>
@@ -253,11 +242,6 @@
             <th>
               Day
             </th>
-            @if (false)
-            <th>
-              Bills
-            </th>
-            @endif
             <th>
               Total
             </th>
@@ -286,11 +270,6 @@
                     {{ $weekBook[$i]['day']->format('l') }}
                   </div>
                 </td>
-                @if (false)
-                <td>
-                  {{ $weekBook[$i]['totalBills'] }}
-                </td>
-                @endif
                 <td class="font-weight-bold">
                 <span class="text-secondary">
                 Sale:

@@ -16,9 +16,6 @@
                 <div class="text-secondary">
                   {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($post->created_at->toDateString(), 'english')  }}
                   <br/>
-                  @if (false)
-                  Posted on:
-                  @endif
                   {{ $post->created_at->toDateString() }}
                 </div>
             </div>

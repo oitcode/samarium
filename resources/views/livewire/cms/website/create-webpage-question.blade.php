@@ -1,4 +1,4 @@
-<div class="border bg-info-rm p-3 mb-3" style="{{-- background-color: #eee; --}}">
+<div class="border p-3 mb-3" style="{{-- background-color: #eee; --}}">
   <h2 class="h5 font-weight-bold text-primary">
     Any question?
   </h2>
@@ -7,9 +7,6 @@
     {{-- Flash message div --}}
     <div class="p-2">
       <div class="alert alert-success alert-dismissible fade show" role="alert">
-        @if (false)
-        {{ session('message') }}
-        @endif
         <div>
           <h2 class="h4 font-weight-bold">
             <i class="fas fa-check-circle mr-1"></i>
@@ -64,9 +61,4 @@
     Submit
   </button>
   <br/>
-  @if (false)
-  <p class="text-muted">
-    ** Your contact details wont be published.
-  </p>
-  @endif
 </div>

@@ -20,15 +20,6 @@
       ])
     @endif
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('listCalendarGroupMode')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'listMode',
-    ])
-    @endif
-
     @if ($modes['createCalendarGroupMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "clearModes",

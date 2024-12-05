@@ -32,12 +32,6 @@
 
               </div>
               <div class="col-md-4">
-                @if (false)
-                <span class="badge badge-pill badge-success">
-                <i class="fas fa-star"></i>
-                </span>
-                Full time
-                @endif
               </div>
             </div>
             <div class="py-2">

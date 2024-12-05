@@ -100,15 +100,6 @@
         </div>
 
         <div class="col-md-2">
-          @if (false)
-          <div class="d-none d-md-block">
-            <div class="d-flex h-100 h6 font-weight-bold">
-                <span>
-                  Sales
-                </span>
-            </div>
-          </div>
-          @endif
         </div>
     
       </div>

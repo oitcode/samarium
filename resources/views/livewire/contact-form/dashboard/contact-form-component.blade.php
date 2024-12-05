@@ -20,17 +20,6 @@
       ])
     @endif
 
-    @if (false)
-    @if ($modes['displayContactMessageMode'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Contact message display',
-          'btnCheckMode' => 'displayContactMessageMode',
-      ])
-    @endif
-    @endif
-
     @if ($modes['displayContactMessageMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "clearModes",

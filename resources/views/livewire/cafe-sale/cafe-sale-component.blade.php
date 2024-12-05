@@ -5,15 +5,6 @@
   <x-toolbar-classic toolbarTitle="Tables">
     @include ('partials.dashboard.spinner-button')
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('createSeatTableMode')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'New',
-        'btnCheckMode' => 'createSeatTableMode',
-    ])
-    @endif
-
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('editSettingsMode')",
         'btnIconFaClass' => 'fas fa-cogs',

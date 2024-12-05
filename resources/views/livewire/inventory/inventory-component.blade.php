@@ -4,37 +4,9 @@
   @if ($modes['productList'] || !array_search(true, $modes))
   {{-- Toolbar --}}
   <x-toolbar-classic toolbarTitle="Inventory">
-
     @include ('partials.dashboard.spinner-button')
-
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('productList')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'productList',
-    ])
-
-    @if ($modes['productDetail'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('productDetail')",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Product inventory detail',
-          'btnCheckMode' => 'productDetail',
-      ])
-    @endif
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
-    @endif
-
   </x-toolbar-classic>
   @endif
-
 
   @if ($modes['productDetail'])
     @livewire ('inventory-product-detail', ['product' => $displayingProduct,])

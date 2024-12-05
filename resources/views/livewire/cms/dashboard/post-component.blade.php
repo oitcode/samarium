@@ -14,38 +14,6 @@
     ])
     @endif
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('listPostMode')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'listPostMode',
-    ])
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('createPostCategoryMode')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'Create post category',
-        'btnCheckMode' => 'createPostCategoryMode',
-    ])
-
-    @if ($modes['displayPostMode'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Post display',
-          'btnCheckMode' => 'displayPostMode',
-      ])
-    @endif
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
-    @endif
-
   </x-toolbar-classic>
 
   <!-- Flash message div -->

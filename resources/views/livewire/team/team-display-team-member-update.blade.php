@@ -1,12 +1,6 @@
 <div>
 
 
-  @if (false)
-    <h1 class="font-weight-bold mb-3">
-      Update team member
-    </h1>
-  @endif
-
   <div class="row mb-4">
     <div class="col-md-6">
       <div class="row mb-1">

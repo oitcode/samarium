@@ -9,12 +9,6 @@
       Posted on
       {{ $vacancy->created_at->toDateString() }}
       </span>
-      @if (false)
-      <span class="badge badge-pill badge-success">
-        <i class="fas fa-star"></i>
-      </span>
-      Full time
-      @endif
     </div>
 
     <div class="my-3 py-2">
@@ -36,53 +30,6 @@
     <div class="mb-4">
       {{ $vacancy->job_location }}
     </div>
-
-    @if (false)
-    <h2 class="h5 font-weight-bold pt-2 mb-0">
-      Requirements
-    </h2>
-    <hr />
-    <div>
-      <ul>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-      </ul>
-    </div>
-
-    <h2 class="h5 font-weight-bold py-2">
-      Duties
-    </h2>
-    <hr />
-    <div>
-      <ul>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-      </ul>
-    </div>
-
-    <h2 class="h5 font-weight-bold py-2">
-      Info
-    </h2>
-    <hr />
-    <div>
-      <ul>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-        <li>Bachelor in IT or related field.</li>
-      </ul>
-    </div>
-    @endif
 
     <div class="my-3 py-2">
       <button class="btn btn-primary" style="background-color: #55a;">

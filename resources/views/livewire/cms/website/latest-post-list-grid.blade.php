@@ -22,15 +22,9 @@
                       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'english')  }}
                       2081
                     </span>
-                    @if (false)
-                    Published on:
-                    @endif
                   </div>
                   <a href="{{ route('website-webpage-' . $webpage->permalink) }}" class="text-reset text-decoration-none">
                   <h2 class="h5 font-weight-bold mb-1">
-                    @if (false)
-                    {{ \Illuminate\Support\Str::limit($webpage->name, 25, $end=' ...') }}
-                    @endif
                     {{ $webpage->name }}
                   </h2>
                   </a>

@@ -1,15 +1,4 @@
 <div>
-  @if (false)
-  <div class="form-group">
-    <label for="">Allows appointments</label>
-    <select class="form-control" wire:model="allows_appointments">
-      <option value="---">---</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select>
-    @error ('allows_appointments') <span class="text-danger">{{ $message }}</span> @enderror
-  </div>
-  @endif
 
   <div class="bg-white border">
     <h2 class="h4 p-3 mb-0 border">

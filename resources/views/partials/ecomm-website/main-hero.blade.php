@@ -1,4 +1,4 @@
-<div class="container-fluid py-5-rm bg-danger-rm text-white-rm" style="{{--background-color: #eee;--}}">
+<div class="container-fluid py-5-rm bg-danger-rm text-white-rm">
   <div class="container">
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -32,21 +32,6 @@
                 </button>
               </div>
             </div>
-            @if (false)
-            <div class="col-md-6">
-              <img class="img-fluid h-25-rm w-100-rm"
-                  src="{{ asset('img/esewa-1.jpeg') }}"
-                  alt="FOOBAR"
-                  style="max-height: 100px; max-width: 100px;">
-            </div>
-            @endif
-          </div>
-          @endif
-
-          @if (false)
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Lorem ipsum oklahoma</h5>
-            <p>However is the this</p>
           </div>
           @endif
         </div>
@@ -75,36 +60,15 @@
                 </button>
               </div>
             </div>
-            @if (false)
-            <div class="col-md-6">
-              <img class="img-fluid h-25-rm w-100-rm"
-                  src="{{ asset('img/khalti-1.jpeg') }}"
-                  alt="FOOBAR"
-                  style="max-height: 100px; max-width: 100px;">
-            </div>
-            @endif
-          </div>
-          @endif
-
-          @if (false)
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Lorem ipsum oklahoma</h5>
-            <p>However is the this</p>
           </div>
           @endif
         </div>
       </div>
       <a class="carousel-control-prev bg-dark-rm" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        @if (false)
-          <span class="carousel-control-prev-icon bg-light text-dark p-5" aria-hidden="true"></span>
-        @endif
         <i class="fas fa-chevron-left fa-2x bg-danger text-white p-5 border"></i>
         <span class="sr-only">Previous</span>
       </a>
       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        @if (false)
-          <span class="carousel-control-next-icon bg-light text-dark p-5" aria-hidden="true"></span>
-        @endif
         <i class="fas fa-chevron-right fa-2x bg-danger text-white p-5 border"></i>
         <span class="sr-only">Next</span>
       </a>

@@ -53,21 +53,6 @@
           </div>
         </div>
       </div>
-      @if (false)
-      <div class="mr-5">
-        <h2 class="font-weight-bold" style="font-family: Mono;">
-          Thanks for shopping
-        </h2>
-      </div>
-      @endif
-      @if (false)
-      <div>
-        <button class="btn btn-success">
-          SIGN UP FOR FREE
-          <i class="fas fa-arrow-right ml-1"></i>
-        </button>
-      </div>
-      @endif
     </div>
   </div>
 </div>

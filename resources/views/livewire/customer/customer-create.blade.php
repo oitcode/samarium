@@ -21,11 +21,6 @@
   <div class="form-group">
     <label>
       Phone
-      @if (false)
-      <small class="text-secondary">
-      (Optional)
-      </small>
-      @endif
     </label>
     <input type="text" class="form-control" wire:model="phone">
     @error('phone') <span class="text-danger">{{ $message }}</span> @enderror

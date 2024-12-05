@@ -20,13 +20,6 @@
   {{-- Single/Multi day setting --}}
   <div class="form-group mb-4">
     <label class="h5 font-weight-bold">Single or Multiple day *</label>
-    @if (false)
-    <select class="form-control" wire:model="single_multiple">
-      <option class="single">Single day</option>
-      <option class="multiple">Multiple days</option>
-    </select>
-    @error ('single_multiple') <span class="text-danger">{{ $message }}</span> @enderror
-    @endif
 
     <div>
       @if ($modes['multiDay'])

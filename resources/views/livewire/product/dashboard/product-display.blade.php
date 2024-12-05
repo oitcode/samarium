@@ -23,29 +23,6 @@
       <i class="fas fa-angle-right mx-2"></i>
       {{ $product->name }}
     </div>
-
-    {{-- Top tool bar --}}
-    @if (false)
-      <div>
-        <div>
-          <div class="mt-0 p-2 d-flex justify-content-between border-rm"
-              style="{{-- background-color: #dadada; --}}">
-
-            <div>
-              <button class="btn btn-light" wire:click="$refresh">
-                <i class="fas fa-refresh"></i>
-              </button>
-
-              <button class="btn btn-danger" wire:click="$dispatch('exitProductDisplayMode')">
-                <i class="fas fa-times"></i>
-                Close
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    @endif
   </div>
 
 

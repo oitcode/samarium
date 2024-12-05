@@ -16,9 +16,6 @@
       <div class="d-flex">
         @if (true)
         <div class="mr-4 font-weight-bold pt-2">
-          @if (false)
-          <i class="fas fa-filter mr-2"></i>
-          @endif
         </div>
         @endif
       </div>
@@ -78,11 +75,6 @@
                   @endforeach
                 </td>
                 <td>
-                  @if (false)
-                  <button class="btn btn-primary badge-pill" wire:click="$dispatch('pdfDisplayDocumentFile', {{ $documentFile }})">
-                    View file
-                  </button>
-                  @endif
                   <a href=" {{ route('dashboard-document-file-pdf-display', $documentFile->document_file_id) }}" target="_blank" class="btn btn-primary badge-pill">
                     View file
                   </a>

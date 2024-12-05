@@ -13,9 +13,6 @@
         href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}"
         style="background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};
                color: {{ \App\CmsTheme::first()->nav_menu_text_color }};">
-        @if (false)
-        <i class="fas fa-angle-right text-info-rm mr-2"></i>
-        @endif
         {{ strtoupper($cmsNavMenuDropdownItem->name) }}
       </a>
     @endforeach

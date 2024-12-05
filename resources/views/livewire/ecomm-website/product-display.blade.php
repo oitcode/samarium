@@ -1,19 +1,14 @@
 <div class="p-3-rm">
 
   <div class="py-1 text-secondary-rm mb-3 h5" style="">
-    @if (false)
-    <i class="fas fa-home mr-1"></i>
-    @endif
     <a class="text-primary-rm text-reset"
-        href="{{ route('website-home') }}"
-        style="{{-- color: #000; --}}">
+        href="{{ route('website-home') }}">
       Home
     </a>
 
     <i class="fas fa-angle-right mx-1"></i>
     <a class="text-primary-rm text-reset"
-        href="{{ route('website-product-category-product-list', [$product->productCategory->product_category_id, $product->productCategory->name]) }}"
-        style="{{-- color: #000; --}}">
+        href="{{ route('website-product-category-product-list', [$product->productCategory->product_category_id, $product->productCategory->name]) }}">
       {{ $product->productCategory->name }}
     </a>
 
@@ -28,7 +23,7 @@
           <div class="d-flex justify-content-center h-100">
             <div class="d-flex flex-column justify-content-start h-100">
               @if ($product->image_path)
-                <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 500px; {{--max-width: 100px;--}}">
+                <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 500px;">
               @else
                 <i class="fas fa-ellipsis-h fa-10x text-muted m-5"></i>
               @endif
@@ -40,19 +35,6 @@
             {{ strtoupper($product->name) }}
           </h1>
 
-          @if (false)
-          <div class="my-3">
-            <span class="badge-rm badge-pill-rm badge-success-rm" style="">
-              Available
-            </span>
-            @if (false)
-            <span class="badge badge-pill badge-danger">
-              Limited stock
-            </span>
-            @endif
-          </div>
-          @endif
-
           @if (true)
           <div class="mb-3">
             <i class="far fa-star" style="color: orange;"></i>
@@ -63,11 +45,6 @@
             <span class="mx-1 text-muted">
               (0) reviews
             </span>
-            @if (false)
-            <span class="mx-3 text-secondary">
-            53 views
-            </span>
-            @endif
           </div>
           @endif
 
@@ -85,19 +62,13 @@
               {{ $product->description }}
             </p>
           </div>
-          @if (false)
-          <hr />
-          @endif
 
 
           <div>
             <button class="btn btn-danger btn-block-rm badge-pill-rm py-3-rm h2-rm h-100-rm w-100 mb-0 p-3 mb-3"
-                style="{{-- background-color: #5a0; --}} font-family: Arial;"
+                style="font-family: Arial;"
                 wire:click="addItemToCart({{ $product->product_id }})">
               <span class="h5">
-                @if (false)
-                <i class="fas fa-plus-circle mr-1"></i>
-                @endif
                 <i class="fas fa-shopping-cart mr-1"></i>
                 @if (true)
                 ADD TO
@@ -130,13 +101,6 @@
       {{-- Stats --}}
       <div class="bg-white-rm px-3-rm border-rm my-3 border" style="background-color: #eee;">
         <div>
-          @if (false)
-          <div class="mb-3">
-            <strong>
-              Stats
-            </strong>
-          </div>
-          @endif
           <div class="p-3" style="">
             {{ $product->website_views }} views
           </div>
@@ -166,7 +130,6 @@
 
       <hr />
       @endif
-
 
 
       {{-- Product specification --}}
@@ -236,51 +199,6 @@
         </div>
       @endif
 
-
-
-
-
-
-        @if (false)
-        @if (count($product->productSpecifications) > 0)
-        <div class="bg-white p-3-rm border-rm mb-3">
-          <div>
-
-            @if (count($product->productSpecifications) > 0)
-              <div class="mb-5-rm">
-                <div class="mt-4 bg-primary text-white p-3">
-                  <h3 class="h6 font-weight-bold mb-0" style="font-weight: bold;">
-                    SPECIFICATIONS
-                  </h3>
-                </div>
-                <div class="table-responsive border-rm mb-0">
-                  <table class="table table-bordered mb-0">
-                    @foreach ($product->productSpecifications as $spec)
-                      <tr class="">
-                        <th class="bg-light-rm border-dark" style="{{-- background-color: #eee; --}}">
-                          {{ $spec->spec_heading }}
-                        </th>
-                        <td class="bg-success-rm text-white-rm border-dark">
-                          {{ $spec->spec_value }}
-                        </td>
-                      </tr>
-                    @endforeach
-                  </table>
-                </div>
-              </div>
-            @endif
-            @endif
-
-
-
-
-
-
-
-          </div>
-        </div>
-        <hr />
-        @endif
 
         <hr />
         {{-- Product features --}}
@@ -409,11 +327,6 @@
                 </strong>
               </div>
               <div>
-                @if (false)
-                <div class="mb-3">
-                  Good day
-                </div>
-                @endif
               </div>
             </div>
 
@@ -464,37 +377,9 @@
               {{ count($product->productReviews) }} reviews
             </div>
 
-            @if (false)
-            {{-- Show star ratings. --}}
-            <div class="px-3-rm" style="color: orange;">
-              <div>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                ({{ $product->getStarReviewCount(5) }})
-              </div>
-              <div>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                ({{ $product->getStarReviewCount(4) }})
-              </div>
-              <div>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                ({{ $product->getStarReviewCount(3) }})
-              </div>
-              <div>
-                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                ({{ $product->getStarReviewCount(2) }})
-              </div>
-              <div>
-                <i class="fas fa-star"></i>
-                ({{ $product->getStarReviewCount(1) }})
-              </div>
-            </div>
-            @endif
-
             {{-- Show product reviews --}}
             @foreach ($product->productReviews as $productReview)
-              <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="{{-- border-top: 2px solid red !important; --}} background-color: #fafafa;">
+              <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="background-color: #fafafa;">
                 <div class="d-flex justify-content-between">
                   <div>
                     <span class="font-weight-bold">
@@ -549,7 +434,7 @@
           @if (count($product->productQuestions) > 0)
             {{-- Show product reviews --}}
             @foreach ($product->productQuestions as $productQuestion)
-              <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="{{-- border-top: 2px solid red !important; --}} background-color: #fafafa;">
+              <div class="p-3 border my-3 mb-4 bg-white-rm shadow-sm" style="background-color: #fafafa;">
                 <div class="font-weight-bold">
                   Q:
                   {{ $productQuestion->question_text }}
@@ -611,11 +496,6 @@
   </div>
 
 
-  @if (false)
-  <hr class="my-5"/>
-  @endif
-
-  @if (true)
   {{-- You may also like section --}}
   <div class="my-5 px-3 pt-3 bg-white border shadow">
     <h2 class="h5 font-weight-bold text-center-rm mt-2 mb-4" style="font-family: Arial;">
@@ -625,6 +505,5 @@
     @livewire ('ecomm-website.product-category-random-product-list', ['productCategory' => $product->productCategory,])
 
   </div>
-  @endif
 
 </div>

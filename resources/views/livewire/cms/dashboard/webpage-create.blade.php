@@ -34,20 +34,6 @@
       @else
         @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
       @endif
-
-      @if (false)
-      <button type="submit"
-          class="btn btn-danger-rm"
-          wire:click="$emit(
-              @if ($is_post == 'yes')
-                'exitCreatePostMode'
-              @else
-                'exitCreateMode'
-              @endif
-          )">
-        Cancel
-      </button>
-      @endif
     </div>
   
   </div>

@@ -29,6 +29,8 @@ return [
     'oc_select_txt_color' => env('OC_SELECT_TXT_COLOR', ''),
     'oc_unselect_txt_color' => env('OC_UNSELECT_TXT_COLOR', ''),
     'site_ecs_theme_bs_class' => env('SITE_ECS_THEME_BS_CLASS', ''),
+    'no_cmp_display' => env('NO_CMP_DISPLAY', 'coming_soon'),
+    'date_type' => env('DATE_TYPE', 'standard'),
 
     /*
     |--------------------------------------------------------------------------

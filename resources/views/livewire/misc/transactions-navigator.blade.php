@@ -2,15 +2,6 @@
   <div class="bg-white border p-3">
     <div class="d-flex justify-content-between">
       <div class="mb-3">
-        @if (false)
-        <h2 class="h5 font-weight-bold mb-3">
-
-          {{ \Carbon\Carbon::create($daybookDate)->format('l') }}
-        </h2>
-        @endif
-        @if (false)
-        <i class="fas fa-calendar mr-2"></i>
-        @endif
         <h2 class="h6 font-weight-bold mb-3">
           @if (\Carbon\Carbon::today() == \Carbon\Carbon::create($daybookDate))
             <span class="badge badge-success mr-2">

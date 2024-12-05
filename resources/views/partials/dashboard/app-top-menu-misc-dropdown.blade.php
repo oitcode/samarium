@@ -25,10 +25,6 @@
         User group
       </a>
 
-      @if (false)
-      <div class="dropdown-divider mb-0"></div>
-      @endif
-
     </div>
   </div>
 </div>

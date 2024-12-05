@@ -5,40 +5,15 @@
         <h1 class="h4 font-weight-bold bg-light text-dark pl-3 mx-3-rm" style="">
           Checkout
         </h1>
-        @if (false)
-        <h1 class="bg-light text-dark p-3 mx-3" style="font-weight: bold; text-shadow: 0px 1px, 1px 0px, 1px 0px;">
-          Checkout
-        </h1>
-        @endif
       </div>
   
-      @if (false)
-      <hr />
-      @endif
-
       @if (session()->has('cart'))
       <div class="row" style="margin: auto;">
         <div class="col-md-6 bg-white text-white-rm border-right px-5 py-2 shadow-rm">
           <div class="p-3">
-            @if (false)
-            <h3 class="text-white-rm mb-3" style="font-family: Arial;">
-              Order details
-            </h3>
-            @endif
           </div>
           <div class="table-responsive bg-white-rm border-rm">
             <table class="table">
-              @if (false)
-              <thead>
-                <tr class="bg-success text-white">
-                  <th>Item</th>
-                  <th>Quantity</th>
-                  <th>Rate</th>
-                  <th>Total</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              @endif
   
               <tbody>
                 @foreach ($cartItemsProduct as $line)
@@ -69,18 +44,6 @@
                 @endforeach
               </tbody>
   
-              @if (false)
-              <tfoot>
-                <tr class="text-danger">
-                  <th colspan="3" class="text-right font-weight-bold h3">
-                    Rs
-                  </th>
-                  <td colspan="2" class="font-weight-bold h3">
-                    @php echo number_format( $cartTotalAmount ); @endphp
-                  </td>
-                </tr>
-              </tfoot>
-              @endif
             </table>
           </div>
           <div class="my-4 text-secondary">
@@ -135,22 +98,6 @@
               </div>
             </div>
           </div>
-  
-          {{-- Payment options --}}
-          @if (false)
-          <div class="card border-0 shadow-lg-rm">
-            <div class="card-body">
-              <div class="text-dark">
-                <h3>
-                  Payment options
-                </h3>
-              </div>
-  
-              <img src="{{ asset('img/cash-on-delivery-1.png') }}" class="mr-2" style="{{-- width: 100px; --}} height: 100px;">
-  
-            </div>
-          </div>
-          @endif
   
           {{-- Confirm button --}}
           <div class="card border-0 shadow-lg-rm">

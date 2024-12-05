@@ -20,7 +20,7 @@
   {{-- Published info --}}
   <div class="px-3 text-secondary">
     Published on:
-    @if (false)
+    @if (config('app.date_type') == 'standard')
       {{ $webpage->created_at->toDateString() }}
     @else
       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'english')  }}
@@ -93,18 +93,12 @@
       <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') border-left-rm border-right-rm @else @endif bg-primary-rm">
       <h1 class="h3 font-weight-bold"
           style="
-            @if (false && $webpage->is_post == 'yes')
-              color: #000;
-            @else
-              @if (true || ! $webpage->hasCategory('notice'))
-                color:
-                      @if (\App\CmsTheme::first())
-                        {{ \App\CmsTheme::first()->ascent_text_color }}
-                      @else
-                        white
-                      @endif
-              @endif
-            @endif
+            color:
+                  @if (\App\CmsTheme::first())
+                    {{ \App\CmsTheme::first()->ascent_text_color }}
+                  @else
+                    white
+                  @endif
           ;">
         {{ $webpage->name }}
       </h1>

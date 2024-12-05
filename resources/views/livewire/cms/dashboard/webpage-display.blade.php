@@ -86,16 +86,6 @@
                 'borderLess' => 'yes',
             ])
 
-            @if (false)
-            @include ('partials.dashboard.tool-bar-button-pill', [
-                'btnClickMethod' => "clearModes",
-                'btnIconFaClass' => 'fas fa-times',
-                'btnText' => '',
-                'btnCheckMode' => '',
-                'borderLess' => 'yes',
-            ])
-            @endif
-
             @include ('partials.dashboard.spinner-button')
           </x-toolbar-classic>
 
@@ -254,33 +244,6 @@
                       @endif
                     </td>
                   </tr>
-                  @if (false)
-                  <tr>
-                    <th class="border-0"> Featured </th>
-                    <td class="border-0">
-                      <div class="d-flex justify-content-between">
-                        <div>
-                          @if ($webpage->featured_webpage == 'yes')
-                            YES
-                          @else
-                            NO
-                          @endif
-                        </div>
-                        <div>
-                          @if ($webpage->featured_webpage == 'yes')
-                            <button class="btn btn-light mx-3" wire:click="makeWebpageFeaturedWebpageUndo">
-                              <i class="fas fa-toggle-off"></i>
-                            </button>
-                          @else
-                            <button class="btn btn-light mx-3" wire:click="makeWebpageFeaturedWebpage">
-                              <i class="fas fa-toggle-on"></i>
-                            </button>
-                          @endif
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  @endif
                 </tbody>
               </table>
             </div>
@@ -288,7 +251,6 @@
           @endif
 
 
-          @if (true)
           {{-- Featured Image --}}
           <div class="mb-4 bg-white border">
             <div class="d-flex justify-content-between">
@@ -298,9 +260,6 @@
               @if (! $modes['editFeaturedImageMode'])
                 @if ($webpage->featured_image_path)
                   <button class="btn btn-light mr-4" wire:click="removeFeaturedImage">
-                    @if (false)
-                    Remove
-                    @endif
                     <i class="fas fa-times-circle text-danger"></i>
                   </button>
                 @endif
@@ -339,7 +298,6 @@
             @endif
 
           </div>
-          @endif
 
           @if ($webpage->is_post != 'yes')
           {{-- Post page part --}}

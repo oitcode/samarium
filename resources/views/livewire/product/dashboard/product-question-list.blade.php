@@ -35,11 +35,6 @@
     <table class="table table-hover shadow-sm border">
       <thead>
         <tr class="p-4 bg-white text-dark">
-          @if (false)
-          <th>
-            ID
-          </th>
-          @endif
           <th class="">
             Product
           </th>
@@ -59,11 +54,6 @@
         @if (count($productQuestions) > 0)
         @foreach ($productQuestions as $productQuestion)
           <tr>
-            @if (false)
-            <td>
-              {{ $productQuestion->product_question_id }}
-            </td>
-            @endif
             <td class="h6 font-weight-bold" wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })" role="button">
               {{ \Illuminate\Support\Str::limit($productQuestion->product->name, 60, $end=' ...') }}
             </td>

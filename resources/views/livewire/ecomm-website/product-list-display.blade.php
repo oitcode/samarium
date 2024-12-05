@@ -48,21 +48,6 @@
               </div>
             @endif
 
-            @if (false)
-              @if (rand()%2 == 0)
-              <div class="h6 text-dark text-left">
-                Free shipping
-              </div>
-              @endif
-              @if (rand()%2 == 0)
-              <div class="h6 text-dark text-left">
-                Discount
-                <span class="text-success">
-                  50%
-                </span>
-              </div>
-              @endif
-            @endif
             <div class="text-danger mt-3">
               <span class="btn btn-outline-success-rm btn-light badge-pill-rm p-1 px-3" wire:click.prevent="addItemToCart({{ $product->product_id }})">
                 <i class="fas fa-plus-circle mr-1"></i>

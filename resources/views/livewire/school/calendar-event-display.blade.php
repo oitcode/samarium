@@ -3,13 +3,6 @@
 
   <div class="bg-white p-3 border">
 
-    @if (false)
-    {{-- Temp refresh --}}
-    <div class="mb-3">
-      <i class="fas fa-refresh" wire:click="$refresh"></i>
-    </div>
-    @endif
-
     {{-- Event name --}}
     <div class="my-3">
       <div class="mb-3">
@@ -84,31 +77,6 @@
     </div>
 
     <div class="col-md-6 p-0 border border-secondary-rm rounded">
-
-      @if (false)
-      {{-- Change visibility --}}
-      <div class="">
-        <div class="d-flex justify-content-between p-3">
-          <div>
-            <div class="">
-              <strong>
-                Change event visibility
-              </strong>
-            </div>
-            <div>
-              This event is currently public
-            </div>
-          </div>
-
-          <div>
-            <button class="btn btn-outline-danger">
-              Change visibility
-            </button>
-          </div>
-        </div>
-      </div>
-      <hr />
-      @endif
 
       {{-- Delete event --}}
       <div class="">

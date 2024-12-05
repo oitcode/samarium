@@ -69,10 +69,10 @@
 <body style="height: 100% !important;">
   @if (! $company)
     <div class="h-100">
-      @if (false)
-        @include ('partials.cms.website.company-not-set')
-      @else
+      @if (config('app.no_cmp_display') == 'coming_soon')
         @include ('partials.cms.website.coming-soon-page')
+      @else
+        @include ('partials.cms.website.company-not-set')
       @endif
     </div>
   @else

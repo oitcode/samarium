@@ -209,12 +209,6 @@
       </button>
     @endif
 
-    @if (false)
-    <input type="file" class="form-control-rm" wire:model.live="hero_image">
-    @error('hero_image')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
-    @endif
   </div>
 
   @if ($modes['updateFeaturedImageMode'])

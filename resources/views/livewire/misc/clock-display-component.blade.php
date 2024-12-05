@@ -1,16 +1,6 @@
 <div>
 
 
-  @if (false)
-  <div class="bg-white-rm border-rm pt-3 pl-3 h5-rm font-weight-bold-rm bg-primary text-white mb-0" style="font-family: mono;">
-    {{ \Carbon\Carbon::now()->format('l') }}
-  </div>
-
-  <div class="bg-white-rm border-rm pt-3 pl-3 h5-rm font-weight-bold-rm bg-primary text-white mb-0" style="font-family: mono;">
-    {{ \Carbon\Carbon::now()->toFormattedDateString() }}
-  </div>
-  @endif
-
   <div class="pt-1" style="font-family: mono;">
     <i class="fas fa-clock mr-1"></i>
     <span id="clock"></span>

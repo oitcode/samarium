@@ -8,11 +8,6 @@
   @if (true)
   <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
     <div class="font-weight-bold h6 d-flex">
-      @if (false)
-      <div class="mr-4">
-        Filter
-      </div>
-      @endif
       <div class="d-flex">
         @if (true)
         <div class="dropdown">

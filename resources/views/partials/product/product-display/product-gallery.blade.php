@@ -16,9 +16,6 @@
     <div class="my-3">
       @if (! $modes['createProductGalleryMode'])
         <span class="px-3 my-3 text-secondary">
-          @if (false)
-          <i class="fas fa-exclamation-circle mr-1"></i>
-          @endif
           No gallery
         </span>
         <div class="mt-4">

@@ -144,30 +144,12 @@
             </td>
             <td>
               <i class="fas fa-ellipsis-h text-secondary"></i>
-              @if (false)
-                <button class="dropdown-item" wire:click="deleteTodo({{ $todo }})">
-                  <i class="fas fa-trash text-danger mr-2"></i>
-                  Delete
-                </button>
-                @if ($modes['delete'])
-                  @if ($deletingTodo->todo_id == $todo->todo_id)
-                    <span class="btn btn-danger mr-3" wire:click="confirmDeleteTodo">
-                      Confirm delete
-                    </span>
-                    <span class="btn btn-light mr-3" wire:click="deleteTodoCancel">
-                      Cancel
-                    </span>
-                  @endif
-                @endif
-              @endif
             </td>
           </tr>
         @endforeach
       </tbody>
     </table>
-
   </div>
-
 
   @if (false)
     @if ($modes['confirmDeleteMode'])

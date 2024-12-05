@@ -5,11 +5,6 @@
   @if (true)
   <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
     <div class="font-weight-bold h6 d-flex">
-      @if (false)
-      <div class="mr-4">
-        Filter
-      </div>
-      @endif
       <div class="d-flex">
         @if (true)
         <div class="dropdown">
@@ -88,11 +83,6 @@
           <th class="d-none d-md-table-cell">
             Customer
           </th>
-          @if (false)
-          <th class="d-none d-md-table-cell">
-            Pending
-          </th>
-          @endif
           <th>
             Amount
           </th>
@@ -136,19 +126,6 @@
                 </span>
               @endif
             </td>
-            @if (false)
-            <td class="d-none d-md-table-cell">
-              @if ($saleInvoice->creation_status == 'progress')
-                @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
-                  @php echo number_format( $saleInvoice->getPendingAmount() * 1.13); @endphp
-                @else
-                  @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
-                @endif
-              @else
-                @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
-              @endif
-            </td>
-            @endif
             <td class="font-weight-bold">
               @if ($saleInvoice->creation_status == 'progress')
                 @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())

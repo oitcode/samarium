@@ -1,5 +1,6 @@
 <div>
 
+
   <!-- Flash message div -->
   @if (session()->has('message'))
     <div class="p-2">
@@ -21,29 +22,6 @@
       <i class="fas fa-angle-right mx-2"></i>
       {{ $productCategory->name }}
     </div>
-
-    {{-- Top tool bar --}}
-    @if (false)
-    <div>
-      <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
-            style="{{-- background-color: #dadada; --}}">
-
-          <div>
-            <button class="btn btn-light" wire:click="$refresh">
-              <i class="fas fa-refresh"></i>
-            </button>
-
-            <button class="btn btn-danger" wire:click="$dispatch('productCategoryDisplayCancelled')">
-              <i class="fas fa-times"></i>
-              Close
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    @endif
   </div>
 
 
@@ -56,9 +34,6 @@
         </div>
         <div class="d-flex flex-column justify-content-center px-3-rm">
           <button class="btn btn-light text-primary font-weight-bold" wire:click="enterMode('updateProductCategoryNameMode')">
-            @if (false)
-            <i class="fas fa-pencil-alt mr-2"></i>
-            @endif
             Edit
           </button>
         </div>
@@ -91,9 +66,6 @@
       </div>
       <div class="d-flex flex-column justify-content-center px-3-rm">
         <button class="btn btn-light text-primary font-weight-bold" wire:click="enterMode('updateProductCategoryImageMode')">
-          @if (false)
-          <i class="fas fa-pencil-alt mr-2"></i>
-          @endif
           Edit
         </button>
       </div>

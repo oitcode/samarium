@@ -30,12 +30,6 @@
             @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
             </span>
           @else
-            @if (false)
-            <button class="btn btn-light" wire:click="deleteSeatTable({{ $seatTable }})">
-              <i class="fas fa-trash mr-1"></i>
-              Delete
-            </button>
-            @endif
           @endif
       </div>
       <div wire:loading class="float-right">
@@ -86,35 +80,10 @@
       @else
         <div class="d-flex flex-column justify-content-center p-3 h-100">
   
-          @if (true)
           <div class="d-flex justify-content-between">
             <div wire:click="displayWorkingSeatTable({{ $seatTable->seat_table_id }})">
-              @if (false)
-              <h2 class="h3 ml-4-rm">
-                OPEN
-              </h2>
-              <div class="mr-4">
-                <i class="fas fa-dice-d6 text-secondary-rm fa-3x"></i>
-              </div>
-              @endif
             </div>
-
-            @if (false)
-            <div>
-              <div>
-                <h2 class="h3 ml-4-rm">
-                  &nbsp
-                </h2>
-                <div class="mr-4">
-                  <button class="btn btn-light" wire:click="displaySeatTableXypher({{ $seatTable->seat_table_id }})">
-                    <i class="fas fa-ellipsis-h fa-2x"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            @endif
           </div>
-          @endif
   
         </div>
       @endif

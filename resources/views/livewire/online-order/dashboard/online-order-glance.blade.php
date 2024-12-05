@@ -13,19 +13,6 @@
       ])
     </div>
 
-    @if (false)
-    @if ($newOnlineOrderCount > 0)
-      <div class="col-md-6 m-0 p-0" role="button">
-        @include ('partials.misc.glance-card', [
-            'bsBgClass' => 'bg-white',
-            'btnRoute' => 'online-order',
-            'iconFaClass' => 'fas fa-edit',
-            'btnTextPrimary' => 'New',
-            'btnTextSecondary' => $newOnlineOrderCount,
-        ])
-      </div>
-    @endif
-    @endif
   </div>
 
 

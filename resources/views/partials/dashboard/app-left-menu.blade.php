@@ -2,17 +2,6 @@
 <div class="d-none d-md-block">
 
   {{-- Top most button in the left menu. --}}
-  @if (false)
-  <div class="text-center border-rm">
-    <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-3 pl-4 font-weight-bold text-left">
-      <div class="d-flex justify-content-center">
-        <i class="far fa-check-circle text-primary mr-1"></i>
-      </div>
-      <span>
-      </span>
-    </a>
-  </div>
-  @endif
 
   @if (has_module('dashboard'))
     @include ('partials.dashboard.app-left-menu-button',
@@ -220,15 +209,6 @@
   | 
   |
   --}}
-  @if (false)
-  @can ('is-admin')
-    @include ('partials.dashboard.app-left-menu-button', [
-      'btnRoute' => 'dashboard',
-      'iconFaClass' => 'fas fa-users',
-      'btnText' => 'Users',
-    ])
-  @endcan
-  @endif
 
   @can ('is-admin')
     @include ('partials.dashboard.app-left-menu-button', [

@@ -2,36 +2,9 @@
 
 
   {{-- Brand Info --}}
-  @if (false)
-  <div class="container-fluid py-3" style="{{-- background-color: #dcdcdc; --}}">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="">
-            @if (true)
-            <img src="{{ asset('storage/' . $company->logo_image_path) }}"
-                class="img-fluid-rm"
-                alt="{{ $company->name }} logo"
-                style="height: 75px !important;">
-            @endif
-          </div>
-        </div>
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
-        </div>
-      </div>
-      <div class="d-flex justify-content-center">
-      </div>
-    </div>
-  </div>
-  @endif
-
   <div class="container-fluid" style="background-color: #ececec;">
     <div class="container">
       <div class="row">
-
-
 
         <div class="col-md-4 py-4">
           <div class="">
@@ -49,15 +22,11 @@
           <div class="d-flex flex-column justify-content-center">
 
             <div class="mr-3 mb-2">
-              @if (false)
-              <i class="fas fa-phone mr-2"></i>
-              @else
               <strong>
                 <span class="text-muted">
                   PHONE
                 </span>
               </strong>
-              @endif
               </br>
               <strong>
                 {{ $company->phone }}
@@ -66,15 +35,11 @@
 
 
             <div class="mr-3 mb-2">
-              @if (false)
-              <i class="fas fa-envelope mr-2"></i>
-              @else
               <strong>
                 <span class="text-muted">
                   EMAIL
                 </span>
               </strong>
-              @endif
               </br>
               <strong>
                 {{ $company->email }}
@@ -82,15 +47,11 @@
             </div>
 
             <div class="mr-3 mb-2">
-              @if (false)
-              <i class="fas fa-map-marker-alt mr-2"></i>
-              @else
               <strong>
                 <span class="text-muted">
               ADDRESS
                 </span>
               </strong>
-              @endif
               <br/>
               <strong>
               {{ $company->address }}
@@ -99,15 +60,11 @@
 
             @if ($company->companyInfos()->where('info_key', 'Whatsapp')->first())
             <div class="mr-3 my-2">
-              @if (false)
-              <i class="fas fa-phone mr-2"></i>
-              @else
               <strong>
                 <span class="text-muted">
                     WHATSAPP
                 </span>
               </strong>
-              @endif
               </br>
               <a aria-label="Chat on WhatsApp"
                   href="https://wa.me/{{ preg_replace("/[^0-9]/", "", $company->companyInfos()->where('info_key', 'Whatsapp')->first()->info_value ) }}"
@@ -121,41 +78,16 @@
             </div>
             @endif
 
-            @if (false)
-            @if ($company->companyInfos()->where('info_key', 'Viber')->first())
-            <div class="mr-3 mb-2">
-              @if (false)
-              <i class="fas fa-phone mr-2"></i>
-              @else
-              <strong>
-                <span class="text-muted">
-                    VIBER
-                </span>
-              </strong>
-              @endif
-              </br>
-              <a aria-label="Chat on Viber" href="viber://contact?number=%2B{{ preg_replace('/[^0-9]/', '', $company->companyInfos()->where('info_key', 'Viber')->first()->info_value ) }}">
-                <i class="fab fa-viber fa-2x mr-1" style="color: purple;"></i>
-                <strong>
-                  {{ $company->companyInfos()->where('info_key', 'Viber')->first()->info_value }}
-                </strong>
-              </a> 
-            </div>
-            @endif
-            @endif
           </div>
-
         </div>
 
         <div class="col-md-4 py-4">
-          @if (true)
           <h2 class="h5 text-dark font-weight-bold mb-3">
             About us
           </h2>
           <div class="mb-2">
             {{ $company->brief_description }}
           </div>
-          @endif
 
           <div class="my-4">
             <a href="/contact-us" class="text-reset-rm text-decoration-none">Contact us</a>
@@ -215,12 +147,6 @@
           </div>
 
           <div class="">
-            @if (false)
-            <img src="{{ asset('storage/' . $company->logo_image_path) }}"
-                class="img-fluid-rm"
-                alt="{{ $company->name }} logo"
-                style="height: 75px !important;">
-            @endif
           </div>
 
         </div>
@@ -239,11 +165,6 @@
           @foreach ($company->companyInfos()->where('info_key', 'Associated with')->get() as $companyInfo)
             <div class="col-6 col-md-3 font-weight-bold border-rm p-3 mb-0" style="font-family: Mono;">
               <div class="d-flex flex-column justify-content-between">
-                @if (false)
-                <div class="text-center mb-4">
-                  {{ $companyInfo->info_value }}
-                </div>
-                @endif
                 <div class="flex-grow-1">
                   <div class="d-flex flex-column justify-content-center h-100">
                     <div class="d-flex justify-content-center">
@@ -286,10 +207,6 @@
           <div>
             &copy; 2024
             {{ $company->name }}
-            @if (false)
-            |
-            All rights reserved
-            @endif
           </div>
           <div class="d-flex justify-content-center">
             Powered by

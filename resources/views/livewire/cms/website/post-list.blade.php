@@ -19,11 +19,6 @@
                 </span>
                 @endif
                 <br />
-                @if (false)
-                <i class="far fa-calendar mr-1-rm"></i>
-                Posted on:
-                {{ $post->created_at->format('M d Y') }}
-                @endif
               </div>
               <div class="mt-2 text-muted">
                 Categories:

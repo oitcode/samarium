@@ -9,11 +9,6 @@
             <h2 class="h2 font-weight-bold text-white-rm mb-4 p-3-rm" {{-- style="background-image: linear-gradient(to bottom right, #FF512F, #DD2476);" --}}>
               Signup to get started.
             </h2>
-            @if (false)
-            <h2 class="h4 font-weight-bold text-white">
-              Signup to get started.
-            </h2>
-            @endif
           </div>
         </div>
       </div>

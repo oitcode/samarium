@@ -16,22 +16,6 @@
       <input type="text" class="form-control" wire:model="writer_info" />
     </div>
 
-    @if (false)
-    <div class="mb-0 bg-warning-rm p-0">
-      <label class="p-0 m-0">Email</label>
-    </div>
-    <input type="text" class="m-0 p-0" />
-    <br/>
-    <br/>
-
-    <div class="mb-0 bg-warning-rm p-0">
-      <label class="p-0 m-0">Phone</label>
-    </div>
-    <input type="text" />
-    <br/>
-    <br/>
-    @endif
-
     <div class="form-group">
       <label class="m-0">Testimonial *</label>
       <textarea rows="5" class="form-control" wire:model="body" ></textarea>

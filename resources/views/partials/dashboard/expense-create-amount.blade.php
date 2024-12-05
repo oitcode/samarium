@@ -12,22 +12,6 @@
           </span>
         </div>
       </div>
-      @if (false)
-      <div class="px-3 mb-2">
-        @if ($modes['multiplePayments'])
-          <button class="btn btn-sm mr-3 border-secondary" wire:click="exitMultiplePaymentsMode">
-            Single payment
-          </button>
-        @else
-          <button class="btn btn-sm mr-3 text-white" wire:click="enterMultiplePaymentsMode">
-            <i class="fas fa-ellipsis-h"></i>
-            @if (false)
-            Multiple payments
-            @endif
-          </button>
-        @endif
-      </div>
-      @endif
     </div>
   </div>
   <div class="card-body p-0">
@@ -171,33 +155,5 @@
       </table>
     </div>
 
-
-    @if (false)
-    <div class="p-0 m-0">
-      @if (! $modes['paid'])
-      <button
-          onclick="this.disabled=true;"
-          class="btn btn-success mr-3-rm w-100 py-3"
-          wire:click="store">
-        <i class="fas fa-check-circle mr-3"></i>
-        Confirm
-      </button>
-      @else
-        <button
-            onclick="this.disabled=true;"
-            class="btn btn-lg btn-success"
-            wire:click="finishPayment">
-          FINISH
-        </button>
-        <button
-            onclick="this.disabled=true;"
-            class="btn btn-lg btn-warning-rm"
-            wire:click="finishPayment"
-            style="background-color: orange">
-          PRINT
-        </button>
-      @endif
-    </div>
-    @endif
   </div>
 </div>

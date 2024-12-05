@@ -400,10 +400,4 @@
   </div>
 
 
-  @if (false)
-  {{-- Login screen --}}
-  <div class="border p-3 my-5">
-    @livewire ('dashboard.settings.login-page-setting')
-  </div>
-  @endif
 </div>

@@ -20,17 +20,6 @@
       ])
     @endif
 
-    @if (false)
-    @if ($modes['displayAppointmentMode'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Appointment display',
-          'btnCheckMode' => 'displayAppointmentMode',
-      ])
-    @endif
-    @endif
-
     @if ($modes['displayAppointmentMode'])
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",

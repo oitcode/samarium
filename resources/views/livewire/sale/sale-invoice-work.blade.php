@@ -11,28 +11,6 @@
       {{ $saleInvoice->sale_invoice_id }}
     </div>
 
-    {{-- Top tool bar --}}
-    @if (false)
-    <div>
-      <div>
-        <div class="mt-0 p-2 d-flex justify-content-between"
-            style="{{-- background-color: #dadada; --}}">
-
-          <div>
-            <button class="btn btn-light" wire:click="$refresh">
-              <i class="fas fa-refresh"></i>
-            </button>
-
-            <button class="btn btn-outline-danger" wire:click="$dispatch('exitSaleInvoiceWorkMode')">
-              <i class="fas fa-times"></i>
-              Close
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    @endif
   </div>
   @endif
 
@@ -46,11 +24,6 @@
     
         <div class="col-md-8">
 
-          @if (false)
-          <div>
-            @include ('partials.dashboard.sale-invoice-work-options')
-          </div>
-          @endif
     
           @if ($saleInvoice)
             {{-- Todo: Why true? Why only takeaway? --}} 
@@ -180,15 +153,6 @@
                 </div>
 
                 <div class="col-md-2">
-                  @if (false)
-                  <div class="d-none d-md-block">
-                    <div class="d-flex h-100 h6 font-weight-bold">
-                        <span>
-                          Sales
-                        </span>
-                    </div>
-                  </div>
-                  @endif
                 </div>
     
               </div>
@@ -211,9 +175,6 @@
                     <thead>
                       <tr>
                         <th>--</th>
-                        @if (false)
-                        <th>#</th>
-                        @endif
                         <th>Item</th>
                         <th>Price</th>
                         <th>Qty</th>
@@ -231,9 +192,6 @@
                               <i class="fas fa-times-circle text-danger"></i>
                               </a>
                             </td>
-                            @if (false)
-                            <td class="text-secondary"> {{ $loop->iteration }} </td>
-                            @endif
                             <td>
                               <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
                               {{ $item->product->name }}

@@ -28,16 +28,11 @@
             ;
     ">
   
-      @if (true)
       <a class="navbar-brand p-3 text-reset" href="{{ route('website-home') }}" style="{{--color: #000;--}}">
         <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 60px;">
         <span class="h6 font-weight-bold ml-2"  style="width: 200 px !important;">
-          @if (false)
-            {{ \Illuminate\Support\Str::limit($company->name, 25, $end=' ...') }}
-          @endif
         </span>
       </a>
-      @endif
 
       @if (true)
       <div class="d-flex">
@@ -155,9 +150,6 @@
           @guest
             <li class="nav-item px-2 py-1 border-bottom">
               <a class="nav-link text-reset" href="{{ route('login') }}">
-                @if (false)
-                <i class="fas fa-user mr-3"></i>
-                @endif
                 <span class="btn btn-success badge-pill px-3"
                     {{--
                     style="
@@ -341,9 +333,6 @@
           @guest
             <li class="nav-item px-2 py-1 border-bottom">
               <a class="nav-link text-reset" href="{{ route('login') }}">
-                @if (false)
-                <i class="fas fa-user mr-3"></i>
-                @endif
                 <span class="btn btn-success badge-pill px-3"
                     {{--
                     style="

@@ -1,12 +1,7 @@
 <div class="p-2 bg-white border">
-    @if (false)
-    <h2 class="text-secondary">
-      Nav Menu
-    </h2>
-    @endif
 
     <div class="p-2 d-flex justify-content-between">
-      <h2 class="h4 text-secondary-rm">
+      <h2 class="h4">
         @if (true)
           Default nav menu
         @else
@@ -49,10 +44,10 @@
               @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
                 <tr>
                   <td>
-                    <button class="btn border-rm text-secondary rounded-circle-rm p-2-rm" wire:click="moveUp({{ $cmsNavMenuItem }})">
+                    <button class="btn text-secondary" wire:click="moveUp({{ $cmsNavMenuItem }})">
                       <i class="fas fa-arrow-up"></i>
                     </button>
-                    <button class="btn border-rm text-secondary rounded-circle-rm p-2-rm" wire:click="moveDown({{ $cmsNavMenuItem }})">
+                    <button class="btn text-secondary" wire:click="moveDown({{ $cmsNavMenuItem }})">
                       <i class="fas fa-arrow-down"></i>
                     </button>
                   </td>
@@ -77,12 +72,12 @@
                     @endif
                   </td>
                   <td>
-                    <button class="btn text-secondary p-2-rm border-rm rounded-circle-rm"
+                    <button class="btn text-secondary"
                         wire:click="deleteCmsNavMenuItem({{ $cmsNavMenuItem }})">
                       <i class="fas fa-trash"></i>
                     </button>
                     @if ($cmsNavMenuItem->type == 'dropdown')
-                      <button class="btn text-secondary p-2-rm border-rm rounded-circle-rm" wire:click="editDropdown({{ $cmsNavMenuItem }})">
+                      <button class="btn text-secondary" wire:click="editDropdown({{ $cmsNavMenuItem }})">
                         <i class="fas fa-plus-circle"></i>
                       </button>
                     @endif

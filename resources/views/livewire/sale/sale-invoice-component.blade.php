@@ -26,31 +26,6 @@
           ])
         @endif
 
-          @if (false)
-          @include ('partials.dashboard.tool-bar-button-pill', [
-              'btnClickMethod' => "enterMode('list')",
-              'btnIconFaClass' => 'fas fa-list',
-              'btnText' => 'List',
-              'btnCheckMode' => 'list',
-          ])
-
-          @include ('partials.dashboard.tool-bar-button-pill', [
-              'btnClickMethod' => "enterMode('search')",
-              'btnIconFaClass' => 'fas fa-search',
-              'btnText' => 'Search',
-              'btnCheckMode' => 'search',
-          ])
-
-          @if ($modes['display'])
-            @include ('partials.dashboard.tool-bar-button-pill', [
-                'btnClickMethod' => "enterMode('display')",
-                'btnIconFaClass' => 'fas fa-circle',
-                'btnText' => 'Sale invoice display',
-                'btnCheckMode' => 'display',
-            ])
-          @endif
-          @endif
-
       </x-toolbar-classic>
 
     </div>

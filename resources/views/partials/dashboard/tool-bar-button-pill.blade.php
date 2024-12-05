@@ -39,25 +39,10 @@
       @endisset
 
       m-0 mr-3 px-4 h-100 o-flipper py-1 d-flex flex-column justify-content-center badge-pill-rm rounded text-white
-      @if (false)
-      {{--
-      @if ($btnText == 'New' || $btnText == 'Create')
-        {{ config('app.oc_ascent_bg_color') }}
-        {{ config('app.oc_ascent_text_color') }}
-        shadow-lg
-        badge-pill
-      @else
-        bg-white
-        badge-pill
-      @endif
-      --}}
-      @endif
       @isset($btnBsColor)
         {{ $btnBsColor }}
       @endisset
       "
-
-  
   
       style="
       @if (true)
@@ -102,50 +87,7 @@
   {{-- For smaller screens --}}
   <div class="d-md-none">
   <div
-      class="btn btn-primary d-md-none
-      @if (false)
-      @isset($btnCheckMode)
-        @isset ($modes)
-          @isset ($modes[$btnCheckMode])
-            @if ($modes[$btnCheckMode])
-              bg-primary
-            @else
-              bg-primary
-            @endif
-          @else
-            bg-primary
-          @endisset
-        @else
-          bg-primary
-        @endisset
-      @else
-        bg-primary
-      @endisset
-      @endif
-      m-0 px-4 h-100 border-none shadow-none o-flipper-rm py-3 d-flex flex-column justify-content-center rounded"
-  
-  
-      style="
-      @if (false)
-      @isset($btnCheckMode)
-        @isset ($modes)
-          @isset ($modes[$btnCheckMode])
-            @if ($modes[$btnCheckMode])
-              {{--
-              border-bottom: 5px solid #55a;
-              padding-bottom: 10px;
-              background-color: {{ config('app.oc_select_color', '#000050') }};
-              color: white;
-              color: {{ config('app.oc_select_color', '#000050') }};
-              border-left: 10px solid {{ config('app.oc_select_color', '#000050') }};
-              --}}
-            @endif
-          @endisset
-        @endisset
-      @endisset
-      @endif
-      "
-
+      class="btn btn-primary d-md-none m-0 px-4 h-100 border-none shadow-none o-flipper-rm py-3 d-flex flex-column justify-content-center rounded"
       wire:click="{{ $btnClickMethod }}" role="button">
     <div class="">
         <i class="{{ $btnIconFaClass }} mr-2"></i>
@@ -155,6 +97,5 @@
     </div>
   </div>
   </div>
-
 
 </div>

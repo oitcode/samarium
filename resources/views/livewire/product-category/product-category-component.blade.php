@@ -24,25 +24,6 @@
     ])
     @endif
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('list')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'list',
-    ])
-
-    @if ($modes['display'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Product category display',
-          'btnCheckMode' => 'display',
-      ])
-    @endif
-
-    @endif
-
   </x-toolbar-classic>
 
 

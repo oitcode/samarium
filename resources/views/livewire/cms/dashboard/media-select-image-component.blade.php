@@ -42,14 +42,4 @@
     </div>
   </div>
 
-  @if (false)
-  <div>
-    <button class="btn btn-success mr-3" wire:click="">
-      Save
-    </button>
-    <button class="btn btn-danger mr-3" wire:click="">
-      Cancel
-    </button>
-  </div>
-  @endif
 </div>

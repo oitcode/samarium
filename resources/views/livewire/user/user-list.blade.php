@@ -42,9 +42,7 @@
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
-              @if (false)
               <th>Action</th>
-              @endif
             </tr>
           </thead>
   
@@ -75,8 +73,16 @@
                 @endif
               </td>
 
-              @if (false)
               <td>
+                <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="btn btn-danger px-2 py-1" wire:click="">
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button class="btn btn-success px-2 py-1" wire:click="">
+                  <i class="fas fa-eye"></i>
+                </button>
                 <span class="btn btn-tool text-danger btn-sm" wire:click="deleteUser({{ $user }})">
                   <i class="fas fa-trash mr-1"></i>
                   Delete
@@ -92,7 +98,6 @@
                   @endif
                 @endif
               </td>
-              @endif
             </tr>
             @endforeach
           </tbody>
@@ -128,6 +133,16 @@
             <br />
           </div>
           <div>
+            <button class="btn btn-primary px-2 py-1" wire:click="">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-danger px-2 py-1" wire:click="">
+              <i class="fas fa-trash"></i>
+            </button>
+            <button class="btn btn-success px-2 py-1" wire:click="">
+              <i class="fas fa-eye"></i>
+            </button>
+
             <span class="btn btn-light mr-3 mb-3" wire:click="deleteUser({{ $user }})">
               <i class="fas fa-trash mr-1"></i>
               Delete user

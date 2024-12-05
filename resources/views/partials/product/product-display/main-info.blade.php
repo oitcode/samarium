@@ -11,9 +11,6 @@
           </div>
           <div>
             <button class="btn btn-light text-primary" wire:click="enterMode('updateProductNameMode')">
-              @if (false)
-              <i class="fas fa-pencil-alt text-muted"></i>
-              @endif
               Edit
             </button>
           </div>
@@ -24,11 +21,6 @@
           <div class="d-flex justify-content-between my-0">
             {{-- Product name --}}
             <div class="d-flex">
-              @if (false)
-              <div class="font-weight-bold mr-5">
-                Product Name
-              </div>
-              @endif
               <div>
                 <h1 class="h5">
                   {{ $product->name }}
@@ -46,9 +38,6 @@
           </div>
           <div>
             <button class="btn btn-light text-primary" wire:click="enterMode('updateProductCategoryMode')">
-              @if (false)
-              <i class="fas fa-pencil-alt text-muted"></i>
-              @endif
               Edit
             </button>
           </div>
@@ -71,9 +60,6 @@
           </div>
           <div>
             <button class="btn btn-light text-primary" wire:click="enterMode('updateProductDescriptionMode')">
-              @if (false)
-              <i class="fas fa-pencil-alt text-muted"></i>
-              @endif
               Edit
             </button>
           </div>
@@ -94,9 +80,6 @@
           </div>
           <div>
             <button class="btn btn-light text-primary" wire:click="enterMode('updateProductPriceMode')">
-              @if (false)
-              <i class="fas fa-pencil-alt text-muted"></i>
-              @endif
               Edit
             </button>
           </div>

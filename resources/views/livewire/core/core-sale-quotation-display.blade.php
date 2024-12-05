@@ -3,33 +3,11 @@
 
   <div class="mb-0 p-0">
     @if ($display_toolbar)
-      {{-- Tool bar --}}
 
-      @if (true)
+      {{-- Tool bar --}}
       <x-toolbar-classic toolbarTitle="Sale quotation">
 
-        @if (false)
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "",
-            'btnIconFaClass' => 'fas fa-print',
-            'btnText' => 'Print',
-            'btnCheckMode' => '',
-        ])
-
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "",
-            'btnIconFaClass' => 'fas fa-file-pdf',
-            'btnText' => 'List',
-            'btnCheckMode' => '',
-        ])
-
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "",
-            'btnIconFaClass' => 'fas fa-excel-o',
-            'btnText' => 'Excel',
-            'btnCheckMode' => '',
-        ])
-        @endif
+        @include ('partials.dashboard.spinner-button')
 
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => '$refresh',
@@ -38,10 +16,8 @@
             'btnCheckMode' => '',
         ])
 
-        @include ('partials.dashboard.spinner-button')
 
       </x-toolbar-classic>
-      @endif
     @endif
   </div>
 
@@ -95,12 +71,6 @@
           </div>
 
           <div class="d-flex justify-content-between mb-0 bg-light-rm py-3 border-top border-bottom">
-            @if (false)
-            <h1 class="mb-3 p-3 h6 font-weight-bold bg-primary-rm text-white-rm">
-              SALE
-              QUOTATION
-            </h1>
-            @endif
             <div>
               <div class="mb-2 font-weight-bold text-secondary-rm">
                 To
@@ -111,13 +81,6 @@
                   @if ($saleQuotation->customer)
                     {{ $saleQuotation->customer->name }}
                   @else
-                    @if (false)
-                      <i class="fas fa-exclamation-circle text-muted mr-1"></i>
-                      <span class="text-muted">
-                        None
-                      </span>
-                    @else
-                    @endif
                   @endif
                 </h2>
               </div>
@@ -125,11 +88,6 @@
               <div class="table-responsive">
                 <table class="table table-sm table-striped-rm table-bordered-rm mb-0">
                   <tr>
-                    @if (false)
-                    <td class="font-weight-bold border-0 px-0 pr-5">
-                      Address
-                    </td>
-                    @endif
                     <td class="border-0 px-0 p-0">
                       @if ($saleQuotation->customer)
                         @if ($saleQuotation->customer->address)
@@ -143,11 +101,6 @@
                     </td>
                   </tr>
                   <tr class="">
-                    @if (false)
-                    <td class="font-weight-bold border-0 px-0 pr-5">
-                      PAN No
-                    </td>
-                    @endif
                     <td class="border-0 px-0 p-0">
                       PAN No:
                       @if ($saleQuotation->customer)
@@ -167,11 +120,6 @@
 
             <div class="px-4">
 
-              @if (false)
-              <div class="font-weight-bold bg-warning-rm mb-2" style="font-family: Times;">
-                QUOTATION
-              </div>
-              @endif
               <div class="mb-1">
                 <div class="font-weight-bold">
                   Quotation no:
@@ -207,11 +155,6 @@
             ----
         --}}
 
-        @if (false)
-        <h2 class="h5 font-weight-bold my-3">
-          Item list
-        </h2>
-        @endif
 
         {{-- Show in bigger screens --}}
         <div class="table-responsive border-rm bg-white-rm mb-0 d-none d-md-block">
@@ -233,17 +176,9 @@
                   {{ $loop->iteration }}
                 </td>
                 <td style="border: 1px solid black;">
-                  @if (false)
-                  <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
-                  @endif
                   {{ $item->product->name }}
                 </td>
                 <td style="border: 1px solid black;">
-                  @if (false)
-                  <span class="badge badge-pill-rm badge-success">
-                    {{ $item->quantity }}
-                  </span>
-                  @endif
                   {{ $item->quantity }}
                 </td>
                 <td style="border: 1px solid black;">
@@ -257,17 +192,6 @@
                 </td>
               </tr>
               @endforeach
-              @if (false)
-              @for ($ii=0; $ii<5; $ii++)
-                <tr>
-                  <td style="border: 1px solid black;">&nbsp;</td>
-                  <td style="border: 1px solid black;">&nbsp;</td>
-                  <td style="border: 1px solid black;">&nbsp;</td>
-                  <td style="border: 1px solid black;">&nbsp;</td>
-                  <td style="border: 1px solid black;">&nbsp;</td>
-                </tr>
-              @endfor
-              @endif
             </tbody>
   
             <tfoot class="bg-success-rm text-white-rm">
@@ -285,22 +209,6 @@
                 </td>
               </tr>
 
-              {{-- TODO --}} 
-              @if (false)
-              @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
-                <tr class="border-0 mb-0 p-0">
-                  <td colspan="3" class="font-weight-bold text-muted text-right border-0 p-0 pr-3">
-                    {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
-                    @if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) == 'vat')
-                    (13%)
-                    @endif
-                  </td>
-                  <td class=" @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus') text-danger @endif font-weight-bold border-0 p-0 pl-1">
-                    @php echo number_format( $saleInvoiceAddition->amount ); @endphp
-                  </td>
-                </tr>
-              @endforeach
-              @endif
   
               <tr class="border-0 bg-danger-rm p-0">
                 <td class="border-0"></td>
@@ -364,29 +272,6 @@
                 </td>
               </tr>
 
-              {{-- TODO --}}
-              @if (false)
-              @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
-                <tr class="border-0">
-                  <td style=""
-                      class="
-                        font-weight-bold text-right-rm border-0
-                      ">
-                    {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
-                  </td>
-                  <td style=""
-                      class="
-                        @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
-                          text-danger
-                        @endif
-                        text-right
-                        font-weight-bold border-0">
-                    @php echo number_format( $saleInvoiceAddition->amount ); @endphp
-                  </td>
-                </tr>
-              @endforeach
-              @endif
-  
               <tr class="border-0">
                 <td  style="" class="font-weight-bold text-right-rm border-0">
                   <strong>
@@ -429,21 +314,5 @@
     </div>
   </div>
 
-  @if (false)
-  <div class="bg-white-rm border-top p-3 col-md-8-rm my-5-rm">
-    Please note that this is a sales quotation/estimate and not a sale invoice.
-  </div>
-
-  <div class="bg-white-rm border-top p-3 col-md-8-rm my-5-rm">
-    {{ $company->name }}
-    <br />
-    {{ $company->address }}
-    <br />
-    Ph: &nbsp;&nbsp;{{ $company->phone }}
-    <br />
-    Email: &nbsp;&nbsp;{{ $company->email }}
-    <br />
-  </div>
-  @endif
 
 </div>

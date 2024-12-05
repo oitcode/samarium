@@ -91,14 +91,6 @@
   </div>
 
   <div class="bg-white border p-3 my-3">
-    @if (false)
-    {{-- Danger zone --}}
-    <div class="mb-3">
-      <strong>
-        Danger zone
-      </strong>
-    </div>
-    @endif
 
     <div class="col-md-6 p-0 border border-secondary-rm rounded">
 

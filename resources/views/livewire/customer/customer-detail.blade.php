@@ -241,11 +241,6 @@
               <button class="btn btn-primary mb-2">
                 Visa docs
               </button>
-              @if (false)
-              <button class="btn btn-primary mb-2">
-                University College B...
-              </button>
-              @endif
             </div>
 
             <div class="table-responsive">

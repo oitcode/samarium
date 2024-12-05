@@ -4,30 +4,28 @@
     <div class="border shadow">
       <div class="py-4"
       style="
-      @if (false && $webpage->is_post == 'yes')
-      @else
-        background-image:
-            linear-gradient(to right,
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_bg_color }}
-              @else
-                orange
-              @endif
-            ,
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_bg_color }}
-              @else
-                orange
-              @endif
-            );
-          color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_text_color }}
-              @else
-                white
-              @endif
-              ;
-      @endif"
+      background-image:
+          linear-gradient(to right,
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->ascent_bg_color }}
+            @else
+              orange
+            @endif
+          ,
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->ascent_bg_color }}
+            @else
+              orange
+            @endif
+          );
+      color:
+            @if (\App\CmsTheme::first())
+              {{ \App\CmsTheme::first()->ascent_text_color }}
+            @else
+              white
+            @endif
+            ;
+      "
       >
         <h1 class="h4 text-center">
           BOOK APPOINTMENT
@@ -115,25 +113,16 @@
               Patient Details
             </h2>
             <div class="form-group">
-              @if (false)
-              <label>Name</label>
-              @endif
               <input type="text" class="form-control" id="" wire:model="applicant_name" placeholder="Name">
               @error('applicant_name') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
 
             <div class="form-group">
-              @if (false)
-              <label>Phone</label>
-              @endif
               <input type="text" class="form-control" id="" wire:model="applicant_phone" placeholder="Phone">
               @error('applicant_phone') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
     
             <div class="form-group">
-              @if (false)
-              <label>Description</label>
-              @endif
               <textarea rows="3" class="form-control" wire:model="applicant_description" placeholder="Description"></textarea>
               @error('applicant_description') <span class="text-danger">{{ $message }}</span>@enderror
             </div>

@@ -1,32 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0">
   <a class="navbar-brand p-3 text-reset" href="{{ route('dashboard') }}" style="">
-    @if (false)
-    <i class="far fa-square fa-2x mr-3 text-white" style=""></i>
-    @endif
     <span class="h4 font-weight-bold text-white" style="">
       Menu
     </span>
   </a>
   <button class="navbar-toggler p-3 m-3 border-0 text-white" style="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    @if (false)
-    <span class="navbar-toggler-icon"></span>
-    @endif
     <i class="fas fa-list fa-2x" style="{{-- color: {{ config('app.oc_select_txt_color') }}; --}}"></i>
   </button>
 
   <div class="collapse navbar-collapse m-0 p-0 mt-4" id="navbarSupportedContent" style="margin-left: 0;">
     <ul class="navbar-nav m-0 p-0 mr-auto-rm" style="margin: auto;">
-      @if (false)
-        @can ('is-admin')
-          <li class="nav-item border bg-light text-dark p-3">
-            <a class="nav-link text-dark" href="{{ route('dashboard') }}">
-              <i class="fas fa-tv mr-3"></i>
-              Dashboard 
-            </a>
-          </li>
-        @endcan
-      @endif
-
 
       {{-- Product options --}}
       @if (has_module('product'))

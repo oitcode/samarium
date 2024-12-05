@@ -3,13 +3,7 @@
       @isset ($modes)
         @isset ($modes[$btnCheckMode])
           @if ($modes[$btnCheckMode])
-            @if (false)
-            {{ config('app.oc_ascent_btn_color') }}
-            @endif
           @else
-            @if (false)
-            {{ config('app.oc_ascent_btn_color') }}
-            @endif
           @endif
         @else
           bg-white

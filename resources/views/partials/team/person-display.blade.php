@@ -50,19 +50,6 @@
             @endif
           </div>
         </div>
-
-        @if (false)
-        <div class="mb-1">
-          <i class="far fa-star" style="color: orange;"></i>
-          <i class="far fa-star" style="color: orange;"></i>
-          <i class="far fa-star" style="color: orange;"></i>
-          <i class="far fa-star" style="color: orange;"></i>
-          <i class="far fa-star" style="color: orange;"></i>
-          <span class="mx-1 text-muted">
-            (0) reviews
-          </span>
-        </div>
-        @endif
       </div>
     </div>
   </div>

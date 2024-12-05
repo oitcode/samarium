@@ -33,7 +33,7 @@
         {{-- Published info --}}
         <div class="px-3 text-secondary-rm">
           Published on:
-          @if (false)
+          @if (config('app.date_type') == 'standard')
             {{ $webpage->created_at->toDateString() }}
           @else
             {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'english')  }}
@@ -127,7 +127,7 @@
         {{-- Published info --}}
         <div class="px-3 text-secondary">
           Published on:
-          @if (false)
+          @if (config('app.date_type') == 'standard')
             {{ $webpage->created_at->toDateString() }}
           @else
             {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'english')  }}

@@ -1,11 +1,5 @@
 <div>
-  @if (false)
-  <x-component-header>
-    Pages
-  </x-component-header>
-  @endif
 
-  @if (true || $modes['list'] || !array_search(true, $modes))
   <x-toolbar-classic toolbarTitle="Pages">
 
     @include ('partials.dashboard.spinner-button')
@@ -19,33 +13,7 @@
       ])
     @endif
 
-    @if (false)
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('list')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'list',
-    ])
-
-    @if ($modes['display'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Webpage display',
-          'btnCheckMode' => 'display',
-      ])
-    @endif
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-close',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
-    @endif
-
   </x-toolbar-classic>
-  @endif
 
 
   <!-- Flash message div -->
