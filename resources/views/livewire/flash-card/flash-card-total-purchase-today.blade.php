@@ -43,7 +43,7 @@
       <h2 class="h4 mr-4">
         Purchase
       </h2>
-      <h2 class="h4 mr-4 badge badge-success-rm badge-pill" style="font-size: 1.1rem;">
+      <h2 class="h4 mr-4 badge badge-success-rm badge-pill">
         Rs
         @php echo number_format( $todayPurchaseTotalAmount ); @endphp
       </h2>

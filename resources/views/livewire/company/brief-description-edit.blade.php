@@ -3,7 +3,7 @@
 
   <div class="p-3-rm">
 
-    <h1 class="text-white-rm" style="font-size: 1.3rem;">
+    <h1 class="text-white-rm">
       Edit brief description
     </h1>
 
@@ -12,8 +12,7 @@
       <textarea
           rows="5"
           class="form-control"
-          wire:model="brief_description"
-          style="font-size: 1.3rem;">
+          wire:model="brief_description">
       </textarea>
       @error ('brief_description') <span class="text-danger">{{ $message }}</span> @enderror
     </div>

@@ -2,13 +2,13 @@
   <div class="card-header bg-success text-white" style="">
     <div class="d-flex justify-content-between py-1-rm">
       <div class="d-flex flex-column justify-content-center">
-        <h2 class="" style="font-size: calc(1.1rem + 0.2vw);">
+        <h2>
           Payment
         </h1>
       </div>
       <div>
         <div wire:loading class="">
-          <span class="spinner-border text-white" role="status" style="font-size: 0.8rem;">
+          <span class="spinner-border text-white" role="status">
           </span>
         </div>
       </div>
@@ -19,7 +19,7 @@
             Single payment
           </button>
         @else
-          <button class="btn btn-sm mr-3 text-white" wire:click="enterMultiplePaymentsMode" style="font-size: calc(1rem + 0.2vw);">
+          <button class="btn btn-sm mr-3 text-white" wire:click="enterMultiplePaymentsMode">
             <i class="fas fa-ellipsis-h"></i>
           </button>
         @endif
@@ -34,15 +34,15 @@
         <tbody>
 
           <tr style="height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2" style="font-size: calc(0.8rem + 0.2vw);">
+            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2">
               <span class="ml-4">
                 Subtotal
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-0 border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-0 border-0">
               <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
-                  style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
+                  style="background-color: #afa; outline: none;"
                   wire:model="total" />
             </td>
           </tr>
@@ -54,7 +54,7 @@
             @continue
           @else
           <tr style="height: 50px;" class="bg-light border-0">
-            <td class="w-50 p-0 bg-info-rm p-0 pt-2 font-weight-bold border-bottom" style="font-size: calc(0.8rem + 0.2vw);">
+            <td class="w-50 p-0 bg-info-rm p-0 pt-2 font-weight-bold border-bottom">
               {{-- Hard code for discount . Temp. Todo permanent design/fix --}} 
               @if (strtolower($key) == 'discount')
                 <div class="ml-4">
@@ -82,13 +82,12 @@
                 </span>
               @endif
             </td>
-            <td class="p-0 h-100 font-weight-bold border-bottom" style="font-size: calc(0.6rem + 0.2vw);">
+            <td class="p-0 h-100 font-weight-bold border-bottom">
               @if (strtolower($key) == 'vat')
                 {{ $val }}
               @else
                 <input class="w-100 h-100 font-weight-bold pl-3 border-0"
                     type="text" wire:model.live.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
-                    style="font-size: calc(1rem + 0.2vw);"
                     wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
               @endif
             </td>
@@ -98,15 +97,15 @@
 
           {{-- Todo: Only vat? Any other taxes? --}}
           @if ($has_vat)
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+          <tr style="height: 50px;" class="bg-light border-bottom">
+            <td class="w-50 p-0 bg-info-rm font-weight-bold border-0">
               <div class="h-100 d-flex flex-column justify-content-center">
                 <span class="ml-4 d-inline-block">
                   Taxable amount
                 </span>
               </div>
             </td>
-            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-4 pt-2 border-0" style="font-size: calc(0.8rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-4 pt-2 border-0">
               @php echo number_format( $this->taxable_amount ); @endphp
             </td>
           </tr>
@@ -121,7 +120,7 @@
               @continue
             @else
             <tr style="height: 50px;" class="bg-danger border-bottom p-0">
-              <td class="w-50 h-100 p-0 font-weight-bold border-0 bg-warning" style="font-size: calc(0.6rem + 0.2vw);">
+              <td class="w-50 h-100 p-0 font-weight-bold border-0 bg-warning">
                 <div class="h-100 d-flex flex-column justify-content-center">
                   @if (strtolower($key) == 'vat')
                     <div class="ml-4">
@@ -134,23 +133,23 @@
                   @endif
                 </div>
               </td>
-              <td class="p-0 w-50 h-100 bg-info font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+              <td class="p-0 w-50 h-100 bg-info font-weight-bold border-0">
                 <input class="w-100 h-100 font-weight-bold border-0 pl-4"
                     type="text"
-                    style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
+                    style="background-color: #afa; outline: none;"
                     wire:model="" />
               </td>
             </tr>
             @endif
           @endforeach
 
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+          <tr class="bg-light border-bottom">
+            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0">
               <span class="ml-4 d-inline-block">
                 Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 border-0" style="font-size: calc(1.3rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 border-0">
               @php echo number_format( $this->grand_total ); @endphp
             </td>
           </tr>
@@ -166,8 +165,8 @@
         <tbody>
 
           <tr style="height: 50px;" class="bg-light-rm border-0">
-            <td class="w-50 p-0 pt-2 bg-success text-white p-0 font-weight-bold border-0" style="font-size: calc(0.9rem + 0.2vw);">
-              <span class="ml-4 d-inline-block mt-2 mb-3" style="font-size: 1rem;">
+            <td class="w-50 p-0 pt-2 bg-success text-white p-0 font-weight-bold border-0">
+              <span class="ml-4 d-inline-block mt-2 mb-3">
                 @if (true)
                 Tender Amount
                 @endif
@@ -182,18 +181,18 @@
             <td class="p-0 h-100 font-weight-bold border-0">
               <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
-                  style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
+                  style="background-color: #afa; outline: none;"
                   wire:model="tender_amount" />
             </td>
           </tr>
 
           <tr style="height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0">
               <span class="ml-4">
                 Payment type
               </span>
             </td>
-            <td class="p-0 h-100 w-50 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+            <td class="p-0 h-100 w-50 font-weight-bold border-0">
               <select class="w-100 h-100 custom-control border-0"
                   style="outline: none;"
                   wire:model="expense_payment_type_id">
@@ -218,12 +217,12 @@
         <tbody>
           @foreach ($multiPayments as $key => $val)
             <tr style="height: 50px;" wire:key="{{ $key }}">
-              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold" style="font-size: calc(0.6rem + 0.2vw);">
+              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
                 <span class="ml-4">
                   {{ $key }}
                 </span>
               </td>
-              <td class="p-0 h-100 w-50 bg-warning font-weight-bold" style="font-size: calc(0.6rem + 0.2vw);">
+              <td class="p-0 h-100 w-50 bg-warning font-weight-bold">
                 <input type="text"
                     class="w-100 h-100 font-weight-bold" 
                     wire:model.live="multiPayments.{{ $key }}"
@@ -241,12 +240,12 @@
       <table class="table table-bordered mb-0">
         <tbody>
           <tr class="border-0" style="height: 50px;" wire:key="{{ $key }}">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0" style="font-size: calc(0.6rem + 0.2vw);">
+            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
               <span class="ml-4">
                 Tender amount
               </span>
             </td>
-            <td class="border-0" style="font-size: 2.5rem;">
+            <td class="border-0">
               {{ $tender_amount }}
             </td>
           </tr>
@@ -261,8 +260,7 @@
       <button
           onclick="this.disabled=true;"
           class="btn btn-success mr-3-rm w-100 py-3"
-          wire:click="store"
-          style="font-size: calc(1rem + 0.2vw);">
+          wire:click="store">
         <i class="fas fa-check-circle mr-3"></i>
         Confirm
       </button>
@@ -270,15 +268,14 @@
         <button
             onclick="this.disabled=true;"
             class="btn btn-lg btn-success"
-            wire:click="finishPayment"
-            style="font-size: 1.3rem;">
+            wire:click="finishPayment">
           FINISH
         </button>
         <button
             onclick="this.disabled=true;"
             class="btn btn-lg btn-warning-rm"
             wire:click="finishPayment"
-            style="font-size: 1.3rem; background-color: orange">
+            style="background-color: orange">
           PRINT
         </button>
       @endif

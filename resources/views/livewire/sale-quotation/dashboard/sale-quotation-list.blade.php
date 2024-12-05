@@ -1,10 +1,8 @@
 <div>
 
 
-
-
-  <div class="d-flex bg-white border p-3 mb-3">
-    <div class="d-flex" style="font-size: 1rem;">
+  <div class="d-flex bg-white border p-3 mb-1">
+    <div class="d-flex">
       <div class="mr-4 font-weight-bold">
         Today : {{ $todaySaleQuotationCount }}
       </div>
@@ -24,7 +22,7 @@
   <div class="table-responsive d-none d-md-block">
     <table class="table table-hover shadow-sm border">
       <thead>
-        <tr class="p-4 bg-white text-dark" style="font-size: 1rem;">
+        <tr class="p-4 bg-white text-dark">
           <th>
             ID
           </th>
@@ -40,6 +38,9 @@
           <th>
             Amount
           </th>
+          <th>
+            Action
+          </th>
         </tr>
       </thead>
 
@@ -49,7 +50,7 @@
             <td>
               {{ $saleQuotation->sale_quotation_id }}
             </td>
-            <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+            <td class="d-none d-md-table-cell">
               @if ($saleQuotation->customer)
                 {{ $saleQuotation->customer->name }}
               @else
@@ -58,7 +59,7 @@
                 </span>
               @endif
             </td>
-            <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+            <td class="d-none d-md-table-cell">
               {{ $saleQuotation->sale_quotation_date }}
             </td>
             <td class="d-none d-md-table-cell">
@@ -73,6 +74,19 @@
                 @endif
               @else
                 @php echo number_format( $saleQuotation->getTotalAmount() ); @endphp
+              @endif
+            </td>
+            <td>
+              @if (true)
+                <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="btn btn-danger px-2 py-1" wire:click="">
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button class="btn btn-success px-2 py-1" wire:click="">
+                  <i class="fas fa-eye"></i>
+                </button>
               @endif
             </td>
           </tr>
@@ -105,7 +119,7 @@
                 </span>
 
               @else
-                <span style="font-size: 1rem;">
+                <span>
                   {{ $saleQuotation->created_at->toDateString() }}
                 </span>
               @endif

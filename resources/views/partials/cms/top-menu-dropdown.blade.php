@@ -1,4 +1,4 @@
-<div class="dropdown float-left h-100" style="font-size: 1.3rem;">
+<div class="dropdown float-left h-100">
   <button class="btn dropdown-toggle p-3 border-0 font-weight-bold rounded-0 m-0"
       style="background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};color: {{ \App\CmsTheme::first()->nav_menu_text_color }}"
       type="button" id="dropdownMenuButton-{{ $cmsNavMenuItem->cms_nav_menu_item_id }}"
@@ -12,8 +12,7 @@
       <a class="dropdown-item"
         href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}"
         style="background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};
-               color: {{ \App\CmsTheme::first()->nav_menu_text_color }};
-               font-size: 1rem;">
+               color: {{ \App\CmsTheme::first()->nav_menu_text_color }};">
         @if (false)
         <i class="fas fa-angle-right text-info-rm mr-2"></i>
         @endif

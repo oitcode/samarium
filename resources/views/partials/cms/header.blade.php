@@ -7,7 +7,7 @@
   {{-- Show in bigger screens --}}
   <div class="container-fluid d-none d-md-block border">
     <div class="container py-1">
-      <div class="float-left mr-5 mt-2" style="font-size: 1rem; font-weight: bold;">
+      <div class="float-left mr-5 mt-2" style="font-weight: bold;">
         <div class="d-flex justify-content-center h-100">
           <div class="justify-content-center h-100 align-self-center text-center text-secondary">
             <i class="fas fa-phone mr-3"></i>
@@ -18,11 +18,11 @@
 
       @if ($company->insta_link)
         <a href="{{ $company->insta_link }}" target="_blank">
-          <div class="float-right mr-3 h-100" style="font-size: 1.3rem; font-weight: bold;">
+          <div class="float-right mr-3 h-100" style="font-weight: bold;">
             <div class="d-flex justify-content-center h-100">
               <div class="justify-content-center h-100 align-self-center text-center">
-                <span class="" style="font-size: 1rem; font-weight:bold;">
-                  <i class="fab fa-instagram mr-3 fa-2x-rm text-danger" style="font-size: 1.5rem;"></i>
+                <span class="" style="font-weight:bold;">
+                  <i class="fab fa-instagram mr-3 fa-2x-rm text-danger"></i>
                 </span>
               </div>
             </div>
@@ -32,11 +32,11 @@
 
       @if ($company->fb_link)
         <a href="{{ $company->fb_link }}" target="_blank">
-          <div class="float-right mr-3 h-100" style="font-size: 1.3rem; font-weight: bold;">
+          <div class="float-right mr-3 h-100" style="font-weight: bold;">
             <div class="d-flex justify-content-center h-100">
               <div class="justify-content-center h-100 align-self-center text-center">
-                <span class="" style="font-size: 1.3rem; font-weight:bold;">
-                  <i class="fab fa-facebook text-primary fa-2x-rm" style="font-size: 1.5rem;"></i>
+                <span class="" style="font-weight:bold;">
+                  <i class="fab fa-facebook text-primary fa-2x-rm"></i>
                 </span>
               </div>
             </div>
@@ -46,10 +46,10 @@
   
       @if ($company->twitter_link)
         <a href="{{ $company->twitter_link }}" target="_blank">
-          <div class="float-right mr-3 h-100" style="font-size: 1.3rem; font-weight: bold;">
+          <div class="float-right mr-3 h-100" style="font-weight: bold;">
             <div class="d-flex justify-content-center h-100">
               <div class="justify-content-center h-100 align-self-center text-center">
-                <span class="" style="font-size: 1.3rem; font-weight:bold;">
+                <span class="" style="font-weight:bold;">
                   <i class="fab fa-twitter mr-3 fa-2x-rm text-info"></i>
                 </span>
               </div>
@@ -60,10 +60,10 @@
   
       @if ($company->youtube_link)
         <a href="{{ $company->youtube_link }}" target="_blank">
-          <div class="float-right mr-3 h-100" style="font-size: 1.3rem; font-weight: bold;">
+          <div class="float-right mr-3 h-100" style="font-weight: bold;">
             <div class="d-flex justify-content-center h-100">
               <div class="justify-content-center h-100 align-self-center text-center">
-                <span class="" style="font-size: 1.3rem; font-weight:bold;">
+                <span class="" style="font-weight:bold;">
                   <i class="fab fa-youtube mr-3 fa-2x-rm text-danger"></i>
                 </span>
               </div>
@@ -74,10 +74,10 @@
   
       @if ($company->tiktok_link)
         <a href="{{ $company->tiktok_link }}" target="_blank">
-          <div class="float-right mr-3 h-100" style="font-size: 1.3rem; font-weight: bold;">
+          <div class="float-right mr-3 h-100" style="font-weight: bold;">
             <div class="d-flex justify-content-center h-100">
               <div class="justify-content-center h-100 align-self-center text-center">
-                <span class="" style="font-size: 1.3rem; font-weight:bold;">
+                <span class="" style="font-weight:bold;">
                   <i class="fab fa-tiktok mr-3 fa-2x-rm text-danger"></i>
                 </span>
               </div>
@@ -99,8 +99,8 @@
             <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 80px;">
           </div>
           <div class="float-left mt-3 d-none d-md-block">
-            <h1 class="mt-2 sr-only" style="font-weight: bold; font-size: 2rem;">{{ $company->name }} OLA</h1>
-            <div class="mt-3" style="font-size: 1.3rem;">
+            <h1 class="mt-2 sr-only" style="font-weight: bold;">{{ $company->name }} OLA</h1>
+            <div class="mt-3">
               {{ $company->tagline }}
             </div>
           </div>
@@ -245,7 +245,7 @@
         @endif
   
         <div class="px-5 h-100-rm mt-3-rm bg-primary-rm border-rm border-left-primary text-white-rm"
-            style="{{--background-color: #004;font-size: 1.2rem; font-weight: bold;--}} ">
+            style="{{--background-color: #004; font-weight: bold;--}} ">
 
           {{-- Shopping cart badge (checkout link) --}}
           @if (true)
@@ -263,7 +263,7 @@
 
     {{-- Product category menu --}}
     <div class="container-fluid border-top border-bottom bg-light text-white">
-      <div class="container" style="font-size: 1.5rem; font-weight: bold;">
+      <div class="container" style="font-weight: bold;">
         @if (false)
           <div class="d-flex flex-column justify-content-center h-100">
             @include ('partials.ecomm-website.top-menu')

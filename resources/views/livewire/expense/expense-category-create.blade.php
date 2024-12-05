@@ -9,7 +9,7 @@
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
   
-    <div class="mt-4" style="font-size: 1.3rem;">
+    <div class="mt-4">
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCategoryCreateMode',])
     </div>

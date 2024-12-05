@@ -5,7 +5,7 @@
       <div class="table-responsive">
         <table class="table">
           <tbody>
-            <tr class="bg-success text-white" style="font-size: 1.3rem;">
+            <tr class="bg-success text-white">
               <th class="pl-3">
                 Customer
               </th>
@@ -14,7 +14,7 @@
                 self
               </td>
             </tr>
-            <tr class="text-secondary" style="font-size: 1.3rem;">
+            <tr class="text-secondary">
               <th class="pl-3">
                 Bill ID
               </th>
@@ -22,7 +22,7 @@
                 90{{ $seatTableBooking->seat_table_booking_id }}
               </td>
             </tr>
-            <tr class="text-secondary" style="font-size: 1.3rem;">
+            <tr class="text-secondary">
               <th class="pl-3">
                 Total
               </th>
@@ -31,7 +31,7 @@
                 @php echo number_format( $seatTableBooking->getTotalAmount() ); @endphp
               </td>
             </tr>
-            <tr class="text-secondary" style="font-size: 1.3rem;">
+            <tr class="text-secondary">
               <th class="pl-3">
                 Payment Status
               </th>
@@ -51,7 +51,7 @@
   <div class="table-responsive">
     <table class="table table-bordered table-hover border-dark shadow-sm">
       <thead>
-        <tr class="bg-success text-white" style="font-size: 1.3rem;{{-- background-color: orange;--}}">
+        <tr class="bg-success text-white">
           <th>#</th>
           <th>Item</th>
           <th>Price</th>
@@ -60,10 +60,10 @@
         </tr>
       </thead>
 
-      <tbody style="font-size: 1.3rem;">
+      <tbody>
         @foreach ($seatTableBooking->seatTableBookingItems as $item)
-        <tr style="font-size: 1.3rem; {{--background-image: linear-gradient(to right, #AFDBF5, #AFDBF5);--}}" class="font-weight-bold text-white-rm">
-          <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+        <tr class="font-weight-bold text-white-rm">
+          <td class="text-secondary"> {{ $loop->iteration }} </td>
           <td>
             <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
             {{ $item->product->name }}
@@ -84,12 +84,12 @@
       </tbody>
 
       <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
-        <td colspan="4" style="font-size: 1.5rem;" class="font-weight-bold text-right">
+        <td colspan="4" class="font-weight-bold text-right">
           <strong>
           TOTAL
           </strong>
         </td>
-        <td style="font-size: 1.5rem;" class="font-weight-bold">
+        <td class="font-weight-bold">
           @php echo number_format( $seatTableBooking->getTotalAmount() ); @endphp
         </td>
       </tfoot>

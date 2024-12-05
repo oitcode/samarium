@@ -1,4 +1,4 @@
-<div class="float-left border-right-rm" style="font-size: 1.3rem;">
+<div class="float-left border-right-rm">
   <a href="{{ route($btnRoute) }}"
       class="btn
           font-weight-bold

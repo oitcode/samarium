@@ -37,7 +37,7 @@
           <thead>
             <tr class="{{ config('app.oc_ascent_bg_color', 'bg-success') }}
                 {{ config('app.oc_ascent_text_color', 'text-white') }}
-                p-4" style="font-size: 1rem;">
+                p-4">
               <th>User ID</th>
               <th>Name</th>
               <th>Email</th>

@@ -11,14 +11,14 @@
 
   @foreach ($saleInvoice->saleInvoicePayments as $payment)
   <div class="table-responsive shadow">
-    <table class="table bg-white" style="font-size: 1.3rem;">
+    <table class="table bg-white">
       <tbody>
 
-        <tr class="bg-success-rm text-white-rm" style="{{--font-size: 2rem; background-color: #dff;--}}">
+        <tr class="bg-success-rm text-white-rm">
           <td>
             Paid By
           </td>
-          <td style="font-size: 1.3rem;">
+          <td>
             @if ($payment->deposited_by)
               {{ $payment->deposited_by }}
             @else
@@ -31,7 +31,7 @@
           <td>
             Payment ID: 
           </td>
-          <td class="text-secondary" style="font-size: 1rem;">
+          <td class="text-secondary">
             {{ $payment->sale_invoice_payment_id }}
           </td>
         </tr>
@@ -40,7 +40,7 @@
           <td>
             Date
           </td>
-          <td class="text-secondary" style="font-size: 1rem;">
+          <td class="text-secondary">
             {{ $payment->created_at->toDateString() }}
           </td>
         </tr>

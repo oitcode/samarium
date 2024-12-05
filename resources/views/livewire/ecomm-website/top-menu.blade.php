@@ -33,7 +33,7 @@
         @foreach ($productCategories as $productCategory)
           <div class="p-0 border-right-rm">
             <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-                class="btn btn-success-rm badge-pill-rm font-weight-bold text-white-rm p-3" style="font-size: 1.3rem;">
+                class="btn btn-success-rm badge-pill-rm font-weight-bold text-white-rm p-3">
               {{ strtoupper($productCategory->name) }}
             </a>
           </div>
@@ -43,8 +43,7 @@
           <a 
               href="{{ route('website-home') }}"
               class="btn btn-light badge-pill-rm font-weight-bold p-3 text-white-rm"
-              style="font-size: 1.3rem";
-              wire:click="{{--showAllCategories--}}">
+              wire:click="">
             <i class="fas fa-arrow-right fa-2x-rm mr-2 pt-2"></i>
           </a>
         </div>
@@ -85,7 +84,7 @@
           @endif
           <div class="p-0 border-bottom" style="background-color: #e0e0e0;">
             <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-                class="btn-block text-reset font-weight-bold p-3 text-decoration-none" style="font-size: 1rem;">
+                class="btn-block text-reset font-weight-bold p-3 text-decoration-none">
               @if (false)
               <img class="img-fluid h-25-rm w-100-rm mr-3"
                   src="{{ asset('storage/' . $productCategory->image_path) }}"

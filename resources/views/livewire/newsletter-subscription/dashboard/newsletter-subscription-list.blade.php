@@ -14,7 +14,7 @@
   @endif
 
 
-  <button wire:loading class="btn" style="font-size: 1.5rem;">
+  <button wire:loading class="btn">
     <div class="spinner-border text-info mr-3" role="status">
       <span class="sr-only">Loading...</span>
     </div>
@@ -46,7 +46,7 @@
     <div class="table-responsive">
       <table class="table table-hover shadow-sm border">
         <thead>
-          <tr class="p-4 bg-white text-dark" style="font-size: 1rem;">
+          <tr class="p-4 bg-white text-dark">
             <th>
               Email
             </th>

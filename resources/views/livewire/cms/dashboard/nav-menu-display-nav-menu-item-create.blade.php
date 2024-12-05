@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-body" style="font-size: 1.3rem;">
+  <div class="card-body">
   
     <h3 class="h5 text-secondary">Add item to menu</h3>
   
@@ -8,14 +8,13 @@
       <label for="">Name</label>
       <input type="text"
           class="form-control"
-          wire:model="name"
-          style="font-size: 1.3rem;">
+          wire:model="name">
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Type</label>
-      <select class="custom-select" wire:model="o_type" style="font-size: 1.3rem;">
+      <select class="custom-select" wire:model="o_type">
         <option>---</option>
           <option value="item">Link</option>
           <option value="dropdown">Dropdown</option>
@@ -26,7 +25,7 @@
 
     <div class="form-group">
       <label>Webpage</label>
-      <select class="custom-select" wire:model="webpage_id" style="font-size: 1.3rem;">
+      <select class="custom-select" wire:model="webpage_id">
         <option>---</option>
         @foreach($webpages as $webpage)
           <option value="{{ $webpage->webpage_id }}">{{ $webpage->name }}</option>
@@ -35,7 +34,7 @@
       @error('webpage_id') <span class="text-danger">{{ $message }}</span>@enderror
     </div>
 
-    <div class="mt-4" style="font-size: 1.3rem;">
+    <div class="mt-4">
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateCmsNavMenuItemMode',])
     </div>

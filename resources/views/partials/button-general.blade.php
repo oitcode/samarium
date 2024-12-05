@@ -7,7 +7,7 @@
         px-3 py-3
     "
     wire:click="{{ $clickMethod }}"
-    style="font-size: 1.1rem ;
+    style="
         @isset ($btnColor)
         @else
           background-color: {{ config('app.oc_select_color', '#000050') }}; color: white;

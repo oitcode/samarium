@@ -2,7 +2,7 @@
 
 
   @if (false)
-    <h1 class="font-weight-bold mb-3" style="font-size: 1.3rem;">
+    <h1 class="font-weight-bold mb-3">
       Update team member
     </h1>
   @endif

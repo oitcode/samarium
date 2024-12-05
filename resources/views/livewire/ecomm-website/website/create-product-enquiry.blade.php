@@ -29,7 +29,7 @@
   @endif
 
   @if (false)
-  <p class="text-muted" style="font-size: 0.9rem;">
+  <p class="text-muted">
     If you have any question related to this product
     then please feel free to ask your question here.
   </p>
@@ -73,7 +73,7 @@
   </button>
   <br/>
   @if (false)
-  <p class="text-muted" style="font-size: 0.7rem;">
+  <p class="text-muted">
     ** Your contact details wont be published.
   </p>
   @endif

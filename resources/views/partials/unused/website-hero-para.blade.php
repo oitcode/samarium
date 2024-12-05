@@ -16,10 +16,10 @@
                   <table class="table">
                     <tbody>
                       <tr>
-                        <th style="font-size: 1.5rem; font-weight: bold;">
+                        <th class="font-weight-bold;">
                           {{ $product->name }}
                         </th>
-                        <td class="text-danger" style="font-size: 1.5rem;">
+                        <td class="text-danger">
                           Rs.
                           {{ $product->selling_price }}
                         </td>

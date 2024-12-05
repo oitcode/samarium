@@ -8,7 +8,7 @@
 
 <div class="d-inline-block bg-danger h-100">
   {{-- Nav menu --}}
-  <nav class="navbar navbar-light navbar-expand-lg navbar-dark-rm bg-light h-100" style="font-size: 1rem; background-color: #eee; !important">
+  <nav class="navbar navbar-light navbar-expand-lg navbar-dark-rm bg-light h-100" style="background-color: #eee; !important">
     <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

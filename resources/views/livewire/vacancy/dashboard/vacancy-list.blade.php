@@ -42,7 +42,7 @@
     <div class="table-responsive d-none d-md-block">
       <table class="table table-hover shadow-sm border">
         <thead>
-          <tr class="p-4 bg-white text-dark" style="font-size: 1rem;">
+          <tr class="p-4 bg-white text-dark">
             <th>
               Vacancy
             </th>

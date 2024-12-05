@@ -214,7 +214,7 @@
           <span class="mr-2">
             {{ $displayMonthName }}
           </span>
-          <span class="text-muted-rm mr-2" style="font-size: 0.8rem;">
+          <span class="text-muted-rm mr-2">
             {{ $monthBook[0]['day']->format('F') }}
             /
             {{ \Carbon\Carbon::create($monthBook[0]['day']->copy()->addMonth())->format('F') }}
@@ -270,10 +270,10 @@
                       @endif
                       {{ $loop->iteration }}
                     </span>
-                    <span class="text-secondary mr-3-rm" style="display: inline-block; min-width: 30px !important;font-size: 0.6rem;">
+                    <span class="text-secondary mr-3-rm" style="display: inline-block; min-width: 30px !important;">
                       {{ $day['day']->format('j') }}
                     </span>
-                    <span class="text-secondary-rm mr-3-rm" style="font-size: 0.7rem;">
+                    <span class="text-secondary-rm mr-3-rm">
                       {{ $day['day']->isoFormat('ddd') }}
                     </span>
                     @if (\Carbon\Carbon::today() == $day['day'])

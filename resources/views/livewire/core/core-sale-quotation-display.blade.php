@@ -70,7 +70,7 @@
                   </div>
 
                   <div class="table-responsive p-0">
-                    <table class="table table-sm table-striped-rm table-bordered-rm mb-0" style="{{-- font-size: 0.9rem; --}}">
+                    <table class="table table-sm table-striped-rm table-bordered-rm mb-0">
                       <tr>
                         <td class="font-weight-bold border-0 px-0 py-0 pr-4">
                           Address
@@ -102,7 +102,7 @@
             </h1>
             @endif
             <div>
-              <div class="mb-2 font-weight-bold text-secondary-rm" style="{{--font-size: 0.8rem;--}}">
+              <div class="mb-2 font-weight-bold text-secondary-rm">
                 To
               </div>
 
@@ -275,12 +275,12 @@
                <td class="border-0"></td>
                <td class="border-0"></td>
                <td class="border-0"></td>
-               <td style="{{-- font-size: calc(0.8rem + 0.2vw); border: 1px solid black; --}}" class="font-weight-bold text-right pr-3 py-3">
+               <td class="font-weight-bold text-right pr-3 py-3">
                   <strong>
                   Subtotal
                   </strong>
                 </td>
-                <td style="{{-- font-size: calc(0.8rem + 0.2vw); border: 1px solid black; --}}" class="font-weight-bold py-3">
+                <td class="font-weight-bold py-3">
                   @php echo number_format( $saleQuotation->getTotalAmountRaw() ); @endphp
                 </td>
               </tr>
@@ -289,21 +289,13 @@
               @if (false)
               @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
                 <tr class="border-0 mb-0 p-0">
-                  <td colspan="3" style="{{-- font-size: calc(0.6rem + 0.2vw); --}}"
-                      class="
-                        font-weight-bold text-muted text-right border-0 p-0 pr-3
-                      ">
+                  <td colspan="3" class="font-weight-bold text-muted text-right border-0 p-0 pr-3">
                     {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                     @if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) == 'vat')
                     (13%)
                     @endif
                   </td>
-                  <td style="{{-- font-size: calc(0.6rem + 0.2vw); --}}"
-                      class="
-                        @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
-                          text-danger
-                        @endif
-                        font-weight-bold border-0 p-0 pl-1">
+                  <td class=" @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus') text-danger @endif font-weight-bold border-0 p-0 pl-1">
                     @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                   </td>
                 </tr>
@@ -314,11 +306,11 @@
                 <td class="border-0"></td>
                 <td class="border-0"></td>
                 <td class="border-0"></td>
-                <td style="{{-- font-size: calc(0.8rem + 0.2vw); border: 1px solid black; background-color: #ddd; --}}" class="font-weight-bold text-right border-0-rm pr-3 py-3
+                <td class="font-weight-bold text-right border-0-rm pr-3 py-3
                 bg-success-rm text-white-rm">
                   Total
                 </td>
-                <td style="{{-- font-size: calc(0.8rem + 0.2vw); border: 1px solid black; background-color: #ddd; --}}" class="font-weight-bold border-0-rm
+                <td class="font-weight-bold border-0-rm
                 bg-success-rm text-white-rm py-3">
                   @php echo number_format( $saleQuotation->getTotalAmount() ); @endphp
                 </td>
@@ -438,11 +430,11 @@
   </div>
 
   @if (false)
-  <div class="bg-white-rm border-top p-3 col-md-8-rm my-5-rm" style="{{-- font-size: 0.8rem; --}}">
+  <div class="bg-white-rm border-top p-3 col-md-8-rm my-5-rm">
     Please note that this is a sales quotation/estimate and not a sale invoice.
   </div>
 
-  <div class="bg-white-rm border-top p-3 col-md-8-rm my-5-rm" style="{{-- font-size: 0.8rem; --}}">
+  <div class="bg-white-rm border-top p-3 col-md-8-rm my-5-rm">
     {{ $company->name }}
     <br />
     {{ $company->address }}

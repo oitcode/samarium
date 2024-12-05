@@ -10,7 +10,6 @@
     <div class="my-4">
       <input type="text"
           class="mr-5 h-100 form-control"
-          style="font-size: 1.5rem;"
           wire:model="customer_search_name"
           wire:keydown.enter="search"
           autofocus>
@@ -33,7 +32,7 @@
       <thead>
         <tr class="{{ config('app.oc_ascent_bg_color', 'bg-success') }}
             {{ config('app.oc_ascent_text_color', 'text-white') }}
-            p-4" style="font-size: 1rem;">
+            p-4">
           <th>
             ID
           </th>
@@ -59,7 +58,7 @@
               <td>
                 {{ $saleQuotation->sale_quotation_id }}
               </td>
-              <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+              <td class="d-none d-md-table-cell">
                 @if ($saleQuotation->customer)
                   {{ $saleQuotation->customer->name }}
                 @else
@@ -68,7 +67,7 @@
                   </span>
                 @endif
               </td>
-              <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+              <td class="d-none d-md-table-cell">
                 {{ $saleQuotation->sale_quotation_date }}
               </td>
               <td class="d-none d-md-table-cell">

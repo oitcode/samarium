@@ -11,7 +11,7 @@
         <div class="table-responsive">
           <table class="table">
 
-            <tr style="font-size: 1.3rem;">
+            <tr>
               <td>
                 Total Bills
               </td>
@@ -20,7 +20,7 @@
               </td>
             </tr>
 
-            <tr style="font-size: 1.3rem;">
+            <tr>
               <td>
                 Cash Sales
               </td>
@@ -29,7 +29,7 @@
                 5359
               </td>
             </tr>
-            <tr style="font-size: 1.3rem;">
+            <tr>
               <td>
                 Credit Sales
               </td>
@@ -38,7 +38,7 @@
                 5359
               </td>
             </tr>
-            <tr style="font-size: 1.3rem;">
+            <tr>
               <td>
                 Total Sales
               </td>

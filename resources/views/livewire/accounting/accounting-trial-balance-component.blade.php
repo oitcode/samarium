@@ -17,7 +17,7 @@
     $creditBalance = 0;
   @endphp
 
-  <div class="table-responsive" style="font-size: 1.1rem;">
+  <div class="table-responsive">
     <table class="table table-bordered table-striped bg-white mb-0">
       <thead>
         <tr class="border bg-success text-white" style="border-width: 10px;">

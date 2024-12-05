@@ -59,7 +59,7 @@
 
   
   
-      style="font-size: 1.1rem;
+      style="
       @if (true)
       @isset($btnCheckMode)
         @isset ($modes)
@@ -125,7 +125,7 @@
       m-0 px-4 h-100 border-none shadow-none o-flipper-rm py-3 d-flex flex-column justify-content-center rounded"
   
   
-      style="font-size: 1.1rem;
+      style="
       @if (false)
       @isset($btnCheckMode)
         @isset ($modes)

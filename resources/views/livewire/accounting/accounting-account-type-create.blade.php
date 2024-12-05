@@ -24,10 +24,10 @@
   </div>
 
   <div class="py-3">
-    <button type="submit" class="btn btn-success" style="font-size: 1rem;" wire:click="store">
+    <button type="submit" class="btn btn-success" wire:click="store">
       Submit
     </button>
-    <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitAccountTypeCreateMode')" style="font-size: 1rem;">
+    <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitAccountTypeCreateMode')">
       Cancel
     </button>
   </div>

@@ -18,7 +18,7 @@
             <i class="far fa-arrow-alt-circle-right fa-2x text-secondary"></i>
           </button>
 
-          <div class="d-none d-md-block ml-3" style="font-size: 1rem;">
+          <div class="d-none d-md-block ml-3">
 
             <input type="date" wire:model="calendarDate" class="">
             <button class="btn btn-light" wire:click="setCalendarDate">

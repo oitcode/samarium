@@ -1,10 +1,10 @@
 <div>
 
 
-  <div class="mt-2 mb-3 text-secondary d-none d-md-block" style="font-size: 1rem;">
+  <div class="mt-2 mb-3 text-secondary d-none d-md-block bg-white">
 
     <div class="d-flex">
-      <div class="mt-0 text-secondary mr-3" style="font-size: 1.3rem;">
+      <div class="mt-0 text-secondary mr-3">
         <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
           <i class="fas fa-arrow-left"></i>
         </button>
@@ -27,8 +27,8 @@
         </div>
       </button>
       <div class="d-flex justify-content-end flex-grow-1">
-        <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white" style="font-size: 1rem;">
-          <span class="text-dark" style="font-size: 1.5rem;">
+        <div class="pl-2 font-weight-bold pr-3 border-rm py-2 bg-white-rm">
+          <span class="text-dark">
           Rs
           @if (is_numeric($total) && ctype_digit((string) $total))
             @php echo number_format( $total ); @endphp
@@ -41,9 +41,9 @@
     </div>
   </div>
   {{-- Show in smaller screens --}}
-  <div class="mt-2 mb-3 text-secondary d-md-none" style="font-size: 1rem;">
+  <div class="mt-2 mb-3 text-secondary d-md-none">
 
-    <div class="mt-0 text-secondary mr-3" style="font-size: 1.3rem;">
+    <div class="mt-0 text-secondary mr-3">
       <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left"></i>
       </button>
@@ -66,8 +66,8 @@
       </div>
     </button>
     <div class="d-flex justify-content-start flex-grow-1">
-      <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white" style="font-size: 1rem;">
-        <span class="text-dark" style="font-size: 1.5rem;">
+      <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white">
+        <span class="text-dark">
         Rs
         @if (is_numeric($total) && ctype_digit((string) $total))
           @php echo number_format( $total ); @endphp
@@ -83,7 +83,7 @@
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive bg-white d-none d-md-block">
-    <table class="table border mb-0" style="font-size: 1rem;">
+    <table class="table border mb-0">
       <thead>
         <tr class="
             {{ config('app.oc_ascent_bg_color', 'bg-success') }}
@@ -96,16 +96,17 @@
           <th style="width: 200px;">Payment Status</th>
           <th>Pending</th>
           <th>Amount</th>
+          <th>Action</th>
         </tr>
       </thead>
 
       <tbody>
         @foreach ($purchases as $purchase)
-          <tr wire:key="{{ rand() }}" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })" style="font-size: 0.8rem;" role="button">
+          <tr wire:key="{{ rand() }}" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })" role="button">
             <td>
               {{ $purchase->purchase_id }}
             </td>
-            <td style="font-size: 0.8rem;">
+            <td>
               {{ $purchase->purchase_date }}
             </td>
             <td>
@@ -157,17 +158,32 @@
                 @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
               @endif
             </td>
+            <td>
+              @if (true)
+                <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="btn btn-danger px-2 py-1" wire:click="">
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button class="btn btn-success px-2 py-1" wire:click="" style="{{-- background-color: #ac0; --}}">
+                  <i class="fas fa-eye"></i>
+                </button>
+              @endif
+            </td>
           </tr>
         @endforeach
       </tbody>
 
       <tfoot>
-        <tr style="font-size: 1.3rem;">
+        <tr>
           <th colspan="6" class="text-right pl-3">
             Total
           </th>
           <td>
               @php echo number_format($total, 2); @endphp
+          </td>
+          <td>
           </td>
         </tr>
       </tfoot>
@@ -204,7 +220,7 @@
               @endif
             </td>
             <td>
-              <span class="font-weight-bold" style="font-size: 1rem;">
+              <span class="font-weight-bold">
               Rs
               @if (is_int($purchase->getTotalAmount()))
                 @php echo number_format( $purchase->getTotalAmount() ); @endphp

@@ -11,8 +11,7 @@
       <label>Name *</label>
       <input type="text"
           class="form-control"
-          wire:model="name"
-          style="font-size: 1.3rem;">
+          wire:model="name">
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
@@ -30,8 +29,7 @@
       <label>Comment</label>
       <input type="text"
           class="form-control"
-          wire:model="comment"
-          style="font-size: 1.3rem;">
+          wire:model="comment">
       @error ('comment') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

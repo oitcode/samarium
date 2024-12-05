@@ -4,7 +4,7 @@
   </h2>
 
   {{-- Date bar --}}
-  <div class="my-3 text-secondary" style="font-size: 1.3rem;">
+  <div class="my-3 text-secondary">
 
     <input type="date" wire:model="startDate" class="mr-3" />
     <input type="date" wire:model="endDate" class="mr-3" />
@@ -12,7 +12,7 @@
   </div>
 
   {{-- Product bar --}}
-  <div class="d-flex flex-wrap my-3" style="font-size: 1.1rem;">
+  <div class="d-flex flex-wrap my-3">
 
       <div class="mr-3">
         <label>Category</label>
@@ -57,7 +57,7 @@
 
   @if ($todayItems && count($todayItems) > 0)
     <div class="table-responsive">
-      <table class="table table-bordered table-hover" style="font-size: 1.3rem;">
+      <table class="table table-bordered table-hover">
         <thead>
           <tr class="bg-success text-white">
             <th>

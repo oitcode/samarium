@@ -7,7 +7,7 @@
           <h2>
             Total Bills
           </h2>
-          <div style="font-size: 2rem;">
+          <div>
             {{ $customer->getTotalSaleInvoices() }}
           </div>
         </div>
@@ -19,7 +19,7 @@
           <h2>
             Total Sales
           </h2>
-          <div style="font-size: 2rem;">
+          <div>
             <i class="fas fa-rupee-sign"></i>
             {{ $customer->getTotalSaleAmount() }}
           </div>
@@ -32,7 +32,7 @@
           <h2>
             Pending Bills 
           </h2>
-          <div style="font-size: 2rem;">
+          <div>
             {{ $customer->getTotalPendingSaleInvoices() }}
           </div>
         </div>
@@ -44,7 +44,7 @@
           <h2>
             Pending Amount
           </h2>
-          <div class="text-danger" style="font-size: 2rem;">
+          <div class="text-danger">
             <i class="fas fa-rupee-sign"></i>
             {{ $customer->getBalance() }}
           </div>
@@ -55,7 +55,7 @@
 
   <div class="p-3-rm mb-3 border">
     <div class="table-responsive">
-      <table class="table table-sm table-bordered" style="font-size: 1.1rem;">
+      <table class="table table-sm table-bordered">
         <thead>
           <tr class="text-secondary">
             <th>Bill ID</th>

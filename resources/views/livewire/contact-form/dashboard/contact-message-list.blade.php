@@ -83,7 +83,7 @@
     @if ($contactMessages && count($contactMessages) > 0)
       <table class="table table-hover shadow-sm border">
         <thead>
-          <tr class="p-4 bg-white text-dark" style="font-size: 1rem;">
+          <tr class="p-4 bg-white text-dark">
             <th>
               ID
             </th>
@@ -116,10 +116,10 @@
               <td class="h6 font-weight-bold">
                 {{ $contactMessage->sender_name }}
               </td>
-              <td class="" style="font-size: 1rem;">
+              <td>
                 {{ \Illuminate\Support\Str::limit($contactMessage->message, 100, $end=' ...') }}
               </td>
-              <td class="" style="font-size: 1rem;">
+              <td>
                 {{ $contactMessage->created_at->toDateString() }}
               </td>
               <td>

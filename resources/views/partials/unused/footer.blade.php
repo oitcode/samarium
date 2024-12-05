@@ -5,7 +5,7 @@
     <div class="container">
       <div class="py-3">
         <div class="d-flex justify-content-end">
-          <div class="mr-5 p-2" style="font-size: 1.1rem;">
+          <div class="mr-5 p-2">
             Be 
           </div>
           <div>
@@ -127,7 +127,7 @@
         </div>
 
         @if (true)
-        <div class="col-md-3 mb-5" style="font-size: 1rem;">
+        <div class="col-md-3 mb-5">
           @if (false)
           <div class="text-secondary">
             {{ $company->tagline }}

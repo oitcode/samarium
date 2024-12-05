@@ -155,7 +155,7 @@
       </div>
     @enderror
     <input type="text" class="mr-3" wire:model="search_name" placeholder="Search product"/>
-    <button class="btn btn-success shadow-sm" style="font-size: 1.3rem;" wire:click="search">
+    <button class="btn btn-success shadow-sm" wire:click="search">
       Go
     </button>
   </div>
@@ -335,7 +335,7 @@
             @endforeach
           </div>
         @else
-          <div class="p-2 text-secondary" style="font-size: 1.3rem;">
+          <div class="p-2 text-secondary">
             Not found: {{ $search_name }} 
           </div>
         @endif

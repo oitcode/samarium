@@ -21,7 +21,7 @@
       <div class="table-responsive d-none d-md-block mb-3">
         <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
           <thead>
-            <tr class="bg-white" style="font-size: 1rem;">
+            <tr class="bg-white">
               <th style="width: 100px;">ID</th>
               <th class="d-none d-md-table-cell" style="width: 200px;">Time</th>
               <th class="d-none d-md-table-cell" style="width: 500px;">Vendor</th>
@@ -29,14 +29,11 @@
             </tr>
           </thead>
 
-          <tbody class="bg-white" style="font-size: calc(0.7rem + 0.3vw);">
+          <tbody class="bg-white">
             @if (count($expenses) > 0)
               @foreach ($expenses as $expense)
                 <tr class="" role="button" wire:click="displayExpense({{ $expense }})">
-                  <td class="text-secondary-rm"
-                      style="font-size: 1rem;"
-                      wire:click=""
-                      role="button">
+                  <td class="text-secondary-rm" wire:click="" role="button">
                     <span class="text-primary">
                     {{ $expense->expense_id }}
                     </span>
@@ -52,7 +49,7 @@
                       {{ $expense->vendor->name }}
                     @else
                       <i class="fas fa-exclamation-circle text-warning mr-1"></i>
-                      <span class="text-secondary" style="font-size: 1rem;">
+                      <span class="text-secondary">
                         Unknown
                       </span>
                     @endif
@@ -75,10 +72,7 @@
           <tbody>
             @foreach ($expenses as $expense)
               <tr class="" role="button" wire:click="displayExpense({{ $expense }})">
-                <td class="text-secondary-rm"
-                    style="font-size: 1rem;"
-                    wire:click=""
-                    role="button">
+                <td class="text-secondary-rm" wire:click="" role="button">
                   <span class="text-primary">
                   {{ $expense->expense_id }}
                   </span>
@@ -101,7 +95,7 @@
                     @endif
                   </div>
                 </td>
-                <td class="font-weight-bold" style="font-size: 1rem;">
+                <td class="font-weight-bold">
                   Rs
                   @php echo number_format( $expense->getTotalAmount() ); @endphp
                 </td>
@@ -117,7 +111,7 @@
       </div>
 
     @else
-      <div class="text-secondary py-3 px-3" style="font-size: 1.5rem;">
+      <div class="text-secondary py-3 px-3">
         No expenses.
       </div>
     @endif

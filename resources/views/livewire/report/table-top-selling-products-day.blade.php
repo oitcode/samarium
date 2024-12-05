@@ -9,7 +9,7 @@
 
     @if (count($todayItems) > 0)
       <div class="table-responsive">
-        <table class="table table-bordered table-hover m-0" style="font-size: 1.3rem;">
+        <table class="table table-bordered table-hover m-0">
           <thead>
             <tr class="bg-success text-white">
               <th>

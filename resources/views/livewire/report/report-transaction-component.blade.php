@@ -7,7 +7,7 @@
       </h2>
     </div>
 
-    <div class="my-3 text-secondary p-3" style="font-size: calc(1rem + 0.2vw);">
+    <div class="my-3 text-secondary p-3">
 
       <div>
         <i class="fas fa-calendar mr-2"></i>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="table-responsive mb-0">
-      <table class="table mb-0" style="font-size: calc(1rem + 0.2vw);">
+      <table class="table mb-0">
         <tbody>
 
           <tr>

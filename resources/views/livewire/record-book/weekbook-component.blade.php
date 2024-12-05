@@ -11,7 +11,7 @@
     </div>
 
     @if (false)
-    <button class="btn btn-success-rm p-3 pr-5 float-right border shadow-sm bg-white" wire:click="" style="font-size:1.3rem;">
+    <button class="btn btn-success-rm p-3 pr-5 float-right border shadow-sm bg-white" wire:click="">
       <h2>
         <span class="mr-2">
           Rs
@@ -21,7 +21,7 @@
     </button>
     @endif
 
-    <div class="d-flex float-left my-3 text-secondary-rm border-rm p-3 bg-success-rm text-white-rm shadow-sm-rm" style="font-size: 0.8rem;">
+    <div class="d-flex float-left my-3 text-secondary-rm border-rm p-3 bg-success-rm text-white-rm shadow-sm-rm">
       <button class="btn btn-success-rm m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
         <i class="fas fa-arrow-alt-circle-left fa-2x mr-3-rm"></i>
       </button>
@@ -68,11 +68,11 @@
 
   {{-- Show in smaller screens --}}
   <div class="bg-info-rm mb-4 d-md-none">
-    <button class="btn btn-success-rm m-0" style="font-size: 1.5rem;" wire:click="goToPreviousWeek">
+    <button class="btn btn-success-rm m-0" wire:click="goToPreviousWeek">
       <i class="fas fa-arrow-left mr-3"></i>
     </button>
 
-    <button class="btn btn-danger-rm m-0" style="font-size: 1.5rem;" wire:click="goToNextWeek">
+    <button class="btn btn-danger-rm m-0" wire:click="goToNextWeek">
       <i class="fas fa-arrow-right mr-3"></i>
     </button>
 
@@ -84,17 +84,17 @@
       Go
     </button>
 
-    <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+    <button wire:loading class="btn btn-danger-rm">
       <div class="spinner-border text-info mr-3" role="status">
         <span class="sr-only">Loading...</span>
       </div>
-      <span class="ml-3 text-secondary" style="font-size: 1rem;">
+      <span class="ml-3 text-secondary">
         Loading...
       </span>
     </button>
 
 
-    <div class="py-2 px-2" style="font-size: 1.1rem;">
+    <div class="py-2 px-2">
       <i class="fas fa-calendar mr-2"></i>
       {{ Carbon\Carbon::parse($startDay)->format('Y F d') }}
       &nbsp;&nbsp;
@@ -143,7 +143,7 @@
   @if (count($weekBook) > 0)
     {{-- Show in bigger screens --}}
     <div class="table-responsive m-0 p-0 d-none d-md-block shadow-sm">
-      <table class="table table-bordered-rm table-hover shadow-sm border mb-0" style="font-size: calc(0.8rem + 0.2vw);">
+      <table class="table table-bordered-rm table-hover shadow-sm border mb-0">
         <thead>
           <tr class="bg-white">
             <th>
@@ -169,7 +169,7 @@
             @foreach ($weekBook as $day)
             --}}
             @for ($i=0; $i<7; $i++)
-              <tr style="font-size: calc(0.6rem + 0.2vw);"> 
+              <tr> 
                 <td>
                   @if (\Carbon\Carbon::today() == $weekBook[$i]['day'])
                     <span class="badge badge-success">
@@ -227,16 +227,16 @@
 
         <tfoot class="bg-white">
           <tr>
-            <td colspan="2" class="text-right mr-3 font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
+            <td colspan="2" class="text-right mr-3 font-weight-bold">
               Total
             </td>
-            <td class="font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
+            <td class="font-weight-bold">
               @php echo number_format($totalAmount); @endphp
             </td>
-            <td class="font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
+            <td class="font-weight-bold">
               @php echo number_format($totalAmountPurchase); @endphp
             </td>
-            <td class="font-weight-bold" style="font-size: calc(1rem + 0.2vw);">
+            <td class="font-weight-bold">
               @php echo number_format($totalAmountExpense); @endphp
             </td>
           </tr>
@@ -278,7 +278,7 @@
                     </span>
 
                   @else
-                    <span class="text-secondary" style="font-size: 1rem;">
+                    <span class="text-secondary">
                       {{ $weekBook[$i]['day']->format('Y F d') }}
                     </span>
                   @endif
@@ -291,7 +291,7 @@
                   {{ $weekBook[$i]['totalBills'] }}
                 </td>
                 @endif
-                <td class="font-weight-bold" style="font-size: 1rem;">
+                <td class="font-weight-bold">
                 <span class="text-secondary">
                 Sale:
                 </span>

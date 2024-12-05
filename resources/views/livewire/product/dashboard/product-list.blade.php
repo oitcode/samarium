@@ -8,17 +8,39 @@
     ])
   @endif
 
+  {{-- Filter div --}}
+  <div class="d-flex justify-content-between bg-white my-2 p-2">
+    <div class="d-flex flex-column justify-content-center">
+      Total products: {{ \App\Product::count() }}
+    </div>
+    <div>
+      <div class="form-group mb-0">
+        <input type="text" class="form-row" placeholder="Search">
+      </div>
+    </div>
+  </div>
+
+  {{-- Filter div --}}
+  <div class="d-flex justify-content-between bg-white mt-2 p-2">
+    <div class="d-flex flex-column justify-content-center">
+      Displaying newest 5 products
+    </div>
+  </div>
+
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none-rm d-md-block-rm">
-    <table class="table table-hover shadow-sm border">
+    <table class="table table-hover table-bordered shadow-sm border">
       <thead>
-        <tr class="bg-white text-dark p-4" style="font-size: 1rem;">
+        <tr class="bg-white text-dark p-4">
           <th>
             Product ID
           </th>
           <th class="">
             Name
+          </th>
+          <th class="">
+            Active status
           </th>
           <th class="">
             Active status
@@ -50,12 +72,19 @@
               @endif
             </td>
             <td>
-              <i class="fas fa-ellipsis-h text-secondary"></i>
-              @if (false)
-              <button class="dropdown-item" wire:click="deleteTodo({{ $todo }})">
-                <i class="fas fa-trash text-danger mr-2"></i>
-                Delete
-              </button>
+              {{ $product->product_id }}
+            </td>
+            <td>
+              @if (true)
+                <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="btn btn-danger px-2 py-1" wire:click="">
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button class="btn btn-success px-2 py-1" wire:click="" style="{{-- background-color: #ac0; --}}">
+                  <i class="fas fa-eye"></i>
+                </button>
               @endif
             </td>
           </tr>

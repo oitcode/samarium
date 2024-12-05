@@ -11,15 +11,14 @@
       <label class="h5">Name *</label>
       <input type="text"
           class="form-control shadow-sm"
-          wire:model="name"
-          style="font-size: 1.3rem;">
+          wire:model="name">
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label class="h5">
         Image
-        <span class="text-muted ml-1" style="font-size: 0.7rem">
+        <span class="text-muted ml-1">
         (Optional)
         </span>
       </label>

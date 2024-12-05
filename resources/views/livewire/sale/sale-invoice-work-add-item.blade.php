@@ -19,7 +19,7 @@
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
-          <tr class="bg-white" style="font-size: calc(0.6rem + 0.2vw);">
+          <tr class="bg-white">
             <th class="py-2 pl-2" style="width: 200px;">
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-column justify-content-center">
@@ -50,7 +50,7 @@
         </thead>
   
         <tbody>
-          <tr class="p-0 font-weight-bold" style="height: 50px; font-size: calc(0.8rem + 0.2vw);">
+          <tr class="p-0 font-weight-bold" style="height: 50px;">
             <td class="h-100 bg-white">
               <input class="m-0 w-100 h-100 border-0 py-2" type="text"
                   wire:model="add_item_name" wire:keydown.enter="updateProductList"/>
@@ -105,13 +105,13 @@
       <div class="row">
         <div class="col-md-8">
           @if (false)
-          <button class="mr-3" wire:click="addItemToSaleInvoice" style="font-size: calc(0.7rem + 0.2vw);">
+          <button class="mr-3" wire:click="addItemToSaleInvoice">
             <i class="fas fa-plus mr-2"></i>
             Add
           </button>
           @endif
   
-          <button class="bg-white border-0 text-primary font-weight-bold" wire:click="resetInputFields" style="font-size: calc(0.7rem + 0.2vw);">
+          <button class="bg-white border-0 text-primary font-weight-bold" wire:click="resetInputFields">
             <i class="fas fa-refresh"></i>
             @if (false)
             Reset
@@ -213,11 +213,11 @@
   --}}
   <div class="d-md-none mb-3">
     @if (! $modes['showMobForm'])
-      <button class="btn btn-success ml-3" wire:click="showAddItemFormMob" style="font-size: 1.3rem;">
+      <button class="btn btn-success ml-3" wire:click="showAddItemFormMob">
         Add item
       </button>
     @else
-      <button class="btn btn-danger ml-3" wire:click="hideAddItemFormMob" style="font-size: 1.3rem;">
+      <button class="btn btn-danger ml-3" wire:click="hideAddItemFormMob">
         Cancel
       </button>
     @endif

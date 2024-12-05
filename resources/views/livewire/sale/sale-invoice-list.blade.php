@@ -58,7 +58,7 @@
 
 
     <div class="pt-2">
-      <div class="d-flex" style="font-size: 1rem;">
+      <div class="d-flex">
         <div class="mr-4 px-2 py-1 border font-weight-bold" style="background-color: #eef; color: #77f;">
           Today : {{ $todaySaleInvoiceCount }}
         </div>
@@ -75,7 +75,7 @@
   <div class="table-responsive d-none d-md-block">
     <table class="table table-hover shadow-sm border">
       <thead>
-        <tr class="p-4 bg-white text-dark" style="font-size: 1rem;">
+        <tr class="p-4 bg-white text-dark">
           <th style="">
             Sale invoice ID
           </th>
@@ -102,6 +102,9 @@
             </span>
             Status
           </th>
+          <th>
+            Action
+          </th>
         </tr>
       </thead>
 
@@ -111,7 +114,7 @@
             <td>
               {{ $saleInvoice->sale_invoice_id }}
             </td>
-            <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+            <td class="d-none d-md-table-cell">
               {{--
                   Todo: Should show saleInvoice date
                   if needed then set appropriate date for
@@ -174,6 +177,19 @@
                 {{ $saleInvoice->payment_status }}
               @endif
             </td>
+            <td>
+              @if (true)
+                <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="btn btn-danger px-2 py-1" wire:click="">
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button class="btn btn-success px-2 py-1" wire:click="" style="{{-- background-color: #ac0; --}}">
+                  <i class="fas fa-eye"></i>
+                </button>
+              @endif
+            </td>
           </tr>
         @endforeach
       </tbody>
@@ -204,7 +220,7 @@
                 </span>
 
               @else
-                <span style="font-size: 1rem;">
+                <span>
                   {{ $saleInvoice->created_at->toDateString() }}
                 </span>
               @endif

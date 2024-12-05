@@ -302,7 +302,6 @@
   
           <div class="container border-rm border-success-rm p-0 px-2 mb-3" 
               style="
-                  font-size: 1.2em;
                   @foreach ($webpageContent->cmsWebpageContentCssOptions as $cssOption)
                       {{ $cssOption->option_name }}: {{ $cssOption->option_value }};
                   @endforeach
@@ -324,7 +323,7 @@
                          col-md-8-rm
                      @endif
                      p-0 m-0
-                     justify-content-center-rm align-self-center-rm p-0" style="font-size: 1.1em !important;{{-- width: 500px !important;--}}">
+                     justify-content-center-rm align-self-center-rm p-0">
                    @if ($webpageContent->title)
                      <h2 class="h1 mt-3-rm mb-4-rm mb-0" style="color: #000; font-family: Arial; font-weight: bold;">
                        {{ $webpageContent->title}}

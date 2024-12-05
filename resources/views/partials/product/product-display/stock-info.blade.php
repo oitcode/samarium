@@ -8,7 +8,7 @@
     <div class="col-6">
       Stock applicable
     </div>
-    <div class="col-6" style="font-size: 0.8rem;">
+    <div class="col-6">
       {{ $product->stock_applicable }}
     </div>
   </div>
@@ -18,7 +18,7 @@
       <div class="col-6">
         Inventory unit
       </div>
-      <div class="col-6" style="font-size: 0.8rem;">
+      <div class="col-6">
         {{ $product->inventory_unit }}
       </div>
     </div>
@@ -27,7 +27,7 @@
       <div class="col-6">
         Stock count
       </div>
-      <div class="col-6" style="font-size: 0.8rem;">
+      <div class="col-6">
         {{ $product->stock_count }}
         {{ $product->inventory_unit }}
       </div>
@@ -39,7 +39,7 @@
         <div class="col-6">
           Base product
         </div>
-        <div class="col-6" style="font-size: 0.8rem;">
+        <div class="col-6">
           @if ($product->is_base_product)
             Yes
           @else

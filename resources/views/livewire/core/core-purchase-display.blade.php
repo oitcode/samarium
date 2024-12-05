@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="bg-warning" style="font-size: 0.2rem;">
+  <div class="bg-warning">
   &nbsp;
   </div>
 
@@ -41,22 +41,22 @@
 
       <div class="">
         <div class="mb-1">
-          <div class="h6 text-muted-rm mb-1" style="font-size: 0.8rem;">
-            <span class="text-muted" style="font-size: 0.8rem">
+          <div class="h6 text-muted-rm mb-1">
+            <span class="text-muted">
               Purchase ID:
             </span>
-            <span style="font-size: 0.8rem;">
+            <span>
               {{ $purchase->purchase_id }}
             </span>
           </div>
         </div>
 
         <div class="mb-1">
-          <div class="text-muted-rm mb-1" style="font-size: 0.8rem;">
-            <span class="text-muted" style="font-size: 0.8rem">
+          <div class="text-muted-rm mb-1">
+            <span class="text-muted">
               Date:
             </span>
-            <span style="font-size: 0.8rem">
+            <span>
               {{ $purchase->purchase_date }}
             </span>
           </div>
@@ -64,14 +64,14 @@
       </div>
 
         <div class="">
-          <span class="text-muted" style="font-size: 0.8rem;">
+          <span class="text-muted">
           Vendor
           </span>
           <br/>
           @if ($purchase->vendor)
             {{ $purchase->vendor->name }}
           @else
-            <span class="text-muted" style="font-size: 0.6rem;">
+            <span class="text-muted">
               Unknown
             </span>
           @endif
@@ -81,7 +81,7 @@
           <div class="text-muted-rm mb-1">
             Created by
           </div>
-          <div class="h5" style="font-size: 0.7rem;">
+          <div class="h5">
             @if ($purchase->creator)
               {{ $purchase->creator->name }}
             @else
@@ -91,7 +91,7 @@
         </div>
 
       <div>
-        <div class="text-muted-rm" style="font-size: calc(0.6rem + 0.2vw);">
+        <div class="text-muted-rm">
           Payment Status
         </div>
         <div>
@@ -114,7 +114,7 @@
             @endif
         </div>
         <div>
-          <span class="btn p-0 text-primary" style="font-size: 0.8rem;" wire:click="enterMode('showPayments')">
+          <span class="btn p-0 text-primary" wire:click="enterMode('showPayments')">
             Show payments
           </span>
         </div>
@@ -168,7 +168,7 @@
       <div class="table-responsive border bg-white mb-0 d-none d-md-block">
         <table class="table table-sm table-hover border-dark shadow-sm mb-0">
           <thead>
-            <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+            <tr class="bg-success-rm text-white-rm">
               <th>Item</th>
               <th>Qty</th>
               <th>Unit</th>
@@ -179,7 +179,7 @@
 
           <tbody>
             @foreach ($purchase->purchaseItems as $purchaseItem)
-              <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+              <tr class="bg-success-rm text-white-rm">
                 <td>
                   {{ $purchaseItem->product->name }}
                 </td>
@@ -201,24 +201,24 @@
 
           <tfoot class="bg-success-rm text-white-rm mt-4">
             <tr class="bg-primary-rm">
-             <td colspan="4" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right pr-3">
+             <td colspan="4" class="font-weight-bold text-right pr-3">
                 <strong>
                 Subtotal
                 </strong>
               </td>
-              <td style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
+              <td class="font-weight-bold">
                 @php echo number_format( $purchase->getSubTotal(), 2 ); @endphp
               </td>
             </tr>
             @foreach ($purchase->purchaseAdditions as $purchaseAddition)
               <tr class="border-0 mb-0 p-0">
-                <td colspan="4" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right pr-3 border-0">
+                <td colspan="4" class="font-weight-bold text-right pr-3 border-0">
                   {{ $purchaseAddition->purchaseAdditionHeading->name }}
                   @if (strtolower($purchaseAddition->purchaseAdditionHeading->name) == 'vat')
                   ( 13% )
                   @endif
                 </td>
-                <td style="font-size: calc(0.6rem + 0.2vw);"
+                <td
                     class="
                       @if ($purchaseAddition->purchaseAdditionHeading->effect == 'minus')
                         text-danger
@@ -230,10 +230,10 @@
             @endforeach
 
             <tr class="border-0 bg-light text-dark p-0">
-                <td colspan="4" style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold text-right pr-3 border-0">
+                <td colspan="4" class="font-weight-bold text-right pr-3 border-0">
                 Total
               </td>
-              <td style="font-size: calc(1rem + 0.2vw);" class="font-weight-bold border-0">
+              <td class="font-weight-bold border-0">
                 @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
               </td>
             </tr>

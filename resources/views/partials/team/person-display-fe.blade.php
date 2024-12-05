@@ -57,7 +57,7 @@
         @endif
 
         @if (false)
-        <div class="mb-1" style="font-size: 0.7rem;">
+        <div class="mb-1">
           <i class="far fa-star" style="color: orange;"></i>
           <i class="far fa-star" style="color: orange;"></i>
           <i class="far fa-star" style="color: orange;"></i>

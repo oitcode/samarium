@@ -15,14 +15,14 @@
           </tr>
           <tr class="border-0">
             <td class="border-0">Total</td>
-            <td class="border-0" style="font-size: 1.3rem;">
+            <td class="border-0">
               Rs
               @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
             </td>
           </tr>
           <tr class="border-0">
             <td class="border-0">Pending</td>
-            <td class="border-0 text-danger" style="font-size: 1.3rem;">
+            <td class="border-0 text-danger">
               Rs
               @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
             </td>
@@ -91,7 +91,7 @@
     <div class="mb-3">
       {{ $payment_date }}
       <br />
-      <span class="badge badge-pill badge-secondary" style="font-size: 1rem;">
+      <span class="badge badge-pill badge-secondary">
         {{ Carbon\Carbon::parse($payment_date)->format('l') }}
       <span>
     </div>
@@ -101,20 +101,20 @@
 
     <div class="form-group">
       <label>Amount *</label>
-      <input type="text" class="form-control" wire:model="pay_amount" style="font-size: 1.3rem;">
+      <input type="text" class="form-control" wire:model="pay_amount">
       @error('pay_amount') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Deposited by</label>
-      <input type="text" class="form-control" wire:model="deposited_by" style="font-size: 1.3rem;">
+      <input type="text" class="form-control" wire:model="deposited_by">
       @error('deposited_by') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
     <div class="form-group">
       <label>Payment type</label>
       <select class="w-100 h-100 custom-control"
-          wire:model="sale_invoice_payment_type_id" style="font-size: 1.3rem;">
+          wire:model="sale_invoice_payment_type_id">
         <option>---</option>
 
         @foreach ($saleInvoicePaymentTypes as $saleInvoicePaymentType)
@@ -128,8 +128,8 @@
   </div>
 
   <div class="p-3">
-    <button type="submit" class="btn btn-success" wire:click="store" style="font-size: 1.3rem;">Submit</button>
-    <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitSaleInvoicePaymentCreateMode')" style="font-size: 1.3rem;">Cancel</button>
+    <button type="submit" class="btn btn-success" wire:click="store">Submit</button>
+    <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitSaleInvoicePaymentCreateMode')">Cancel</button>
   </div>
 
 

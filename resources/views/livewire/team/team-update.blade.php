@@ -3,7 +3,7 @@
 
   <div class="card-body p-3">
 
-    <h1 style="font-size: 1.3rem;">
+    <h1>
       Update team
     </h1>
 
@@ -11,8 +11,7 @@
       <label for="">Name</label>
       <input type="text"
           class="form-control"
-          wire:model="name"
-          style="font-size: 1.3rem;">
+          wire:model="name">
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
@@ -30,8 +29,7 @@
       <label for="">Comment</label>
       <input type="text"
           class="form-control"
-          wire:model="comment"
-          style="font-size: 1.3rem;">
+          wire:model="comment">
       @error ('comment') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

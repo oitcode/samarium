@@ -1,7 +1,7 @@
-<div class="float-right border-right-rm" style="{{--font-size: 1.3rem;--}}">
+<div class="float-right border-right-rm">
   <div class="dropdown">
     <button class="btn btn-light-rm text-white-rm dropdown-toggle-rm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-th text-white" style="font-size: 1.3rem;"></i>
+      <i class="fas fa-th text-white"></i>
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
 

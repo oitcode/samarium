@@ -221,7 +221,7 @@
         <div class="table-responsive border-rm bg-white mb-0 d-none d-md-block">
           <table class="table table-sm table-borderd table-hover border-dark shadow-sm mb-0">
             <thead>
-              <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+              <tr class="bg-success-rm text-white-rm">
                 <th class="h5 py-2 pl-2 bg-success-rm text-white-rm" style="background-color: #eee;">Item</th>
                 <th class="h5 py-2 bg-info-rm text-white-rm">Price</th>
                 <th class="h5 py-2 bg-info-rm text-white-rm">Quantity</th>
@@ -231,7 +231,7 @@
   
             <tbody style="">
               @foreach ($saleInvoice->saleInvoiceItems as $item)
-              <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold-rm">
+              <tr class="font-weight-bold-rm">
                 <td>
                   <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
                   {{ $item->product->name }}
@@ -259,18 +259,18 @@
   
             <tfoot class="bg-success-rm text-white-rm">
               <tr class="bg-primary-rm">
-               <td colspan="3" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right pr-3 pt-4">
+               <td colspan="3" class="font-weight-bold text-right pr-3 pt-4">
                   <strong>
                   Subtotal
                   </strong>
                 </td>
-                <td style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold pt-4">
+                <td class="font-weight-bold pt-4">
                   @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
                 </td>
               </tr>
               @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
                 <tr class="border-0 mb-0 p-0">
-                  <td colspan="3" style="font-size: calc(0.6rem + 0.2vw);"
+                  <td colspan="3"
                       class="
                         font-weight-bold text-muted text-right border-0 p-0 pr-3
                       ">
@@ -279,7 +279,7 @@
                     (13%)
                     @endif
                   </td>
-                  <td style="font-size: calc(0.6rem + 0.2vw);"
+                  <td
                       class="
                         @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                           text-danger
@@ -291,10 +291,10 @@
               @endforeach
   
               <tr class="border-0 bg-danger-rm p-0">
-                <td colspan="3" style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-right border-0 pr-3">
+                <td colspan="3" class="font-weight-bold text-right border-0 pr-3">
                   Total
                 </td>
-                <td style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold border-0">
+                <td class="font-weight-bold border-0">
                   @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                 </td>
               </tr>
@@ -462,7 +462,7 @@
                   </div>
 
                   <div class="table-responsive p-0">
-                    <table class="table table-sm table-striped-rm table-bordered-rm mb-0" style="font-size: 0.9rem;">
+                    <table class="table table-sm table-striped-rm table-bordered-rm mb-0">
                       <tr>
                         <td class="font-weight-bold border-0 px-0 py-0 pr-4">
                           Address
@@ -494,12 +494,12 @@
             </h1>
             @endif
             <div>
-              <div class="mb-2 font-weight-bold text-secondary-rm" style="{{--font-size: 0.8rem;--}}">
+              <div class="mb-2 font-weight-bold text-secondary-rm">
                 To
               </div>
 
               <div class="mb-3-rm">
-                <h2 class="h5 font-weight-bold mt-2 mb-0" style="">
+                <h2 class="h5 font-weight-bold mt-2 mb-0">
                   @if ($saleInvoice->customer)
                     {{ $saleInvoice->customer->name }}
                   @else
@@ -667,12 +667,12 @@
                <td class="border-0"></td>
                <td class="border-0"></td>
                <td class="border-0"></td>
-               <td style="font-size: calc(0.8rem + 0.2vw); border: 1px solid black;" class="font-weight-bold text-right pr-3">
+               <td style="border: 1px solid black;" class="font-weight-bold text-right pr-3">
                   <strong>
                   Subtotal
                   </strong>
                 </td>
-                <td style="font-size: calc(0.8rem + 0.2vw); border: 1px solid black;" class="font-weight-bold py-3-rm">
+                <td style="border: 1px solid black;" class="font-weight-bold py-3-rm">
                   @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
                 </td>
               </tr>
@@ -684,14 +684,14 @@
                   <td class="border-0"></td>
                   <td class="border-0"></td>
                   <td class="border-0"></td>
-                  <td style="font-size: calc(0.8rem + 0.2vw); border: 1px solid black;"
+                  <td style="border: 1px solid black;"
                       class="font-weight-bold text-right pr-3">
                     {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                     @if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) == 'vat')
                     (13%)
                     @endif
                   </td>
-                  <td style="font-size: calc(0.8rem + 0.2vw); border: 1px solid black;"
+                  <td style="border: 1px solid black;"
                       class="
                         @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                           text-danger
@@ -707,12 +707,12 @@
                 <td class="border-0"></td>
                 <td class="border-0"></td>
                 <td class="border-0"></td>
-                <td style="font-size: calc(0.8rem + 0.2vw); border: 1px solid black; {{-- background-color: #ddd; --}}" class="font-weight-bold
+                <td style="border: 1px solid black; {{-- background-color: #ddd; --}}" class="font-weight-bold
                 text-right border-0-rm pr-3 py-3-rm
                 bg-success-rm text-white-rm">
                   Total
                 </td>
-                <td style="font-size: calc(0.8rem + 0.2vw); border: 1px solid black; {{-- background-color: #ddd; --}}" class="font-weight-bold border-0-rm
+                <td style="border: 1px solid black; {{-- background-color: #ddd; --}}" class="font-weight-bold border-0-rm
                 bg-success-rm text-white-rm py-3-rm">
                   @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                 </td>
@@ -834,7 +834,7 @@
   </div>
 
   @if (false)
-  <div class="bg-white-rm border-top p-3 col-md-8-rm my-5-rm" style="font-size: 0.8rem;">
+  <div class="bg-white-rm border-top p-3 col-md-8-rm my-5-rm">
     {{ $company->name }}
     <br />
     {{ $company->address }}

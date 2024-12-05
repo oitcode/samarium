@@ -81,7 +81,7 @@
   <div class="table-responsive">
     <table class="table table-hover shadow-sm border">
       <thead>
-        <tr class="bg-white text-dark p-4" style="font-size: 1rem;">
+        <tr class="bg-white text-dark p-4">
           <th>
             ID
           </th>
@@ -115,11 +115,11 @@
             <td class="h6 font-weight-bold" wire:click="$dispatch('displayTodo', { todo: {{ $todo }} })" role="button">
               {{ \Illuminate\Support\Str::limit($todo->title, 60, $end=' ...') }}
             </td>
-            <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+            <td class="d-none d-md-table-cell">
               <i class="fas fa-circle text-primary mr-1"></i>
               High
             </td>
-            <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+            <td class="d-none d-md-table-cell">
               {{ $todo->created_at->toDateString() }}
             </td>
             <td class="d-none d-md-table-cell">

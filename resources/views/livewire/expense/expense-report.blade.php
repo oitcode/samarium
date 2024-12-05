@@ -1,6 +1,6 @@
 <div>
 
-  <div class="mt-3 text-secondary py-3" style="font-size: 1.3rem;">
+  <div class="mt-3 text-secondary py-3">
 
     <input type="date" wire:model="startDate" class="mr-3" />
     <input type="date" wire:model="endDate" class="mr-3" />
@@ -16,8 +16,8 @@
     </button>
   </div>
 
-  <div class="my-4 pl-2 font-weight-bold" style="font-size: 1rem;">
-    <span style="font-size: 1.3rem;">
+  <div class="my-4 pl-2 font-weight-bold">
+    <span>
     Total:
     @php echo number_format( $total ); @endphp
     </span>
@@ -30,7 +30,7 @@
     <div class="col-md-6">
 
       <div class="table-responsive border bg-white">
-        <table class="table" style="font-size: 1.1rem;">
+        <table class="table">
           <thead>
             <th>Category</th>
             <th>Total</th>

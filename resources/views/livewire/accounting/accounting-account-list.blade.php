@@ -1,6 +1,6 @@
 <div>
   <div class="table-responsive bg-white border">
-    <table class="table table-striped table-bordered mb-0" style="font-size: 1.1rem;">
+    <table class="table table-striped table-bordered mb-0">
       <thead>
         <tr class="bg-success text-white">
           <th></th>
@@ -37,14 +37,14 @@
               @if ($abAccount->abAccountType)
                 {{ $abAccount->abAccountType->name }}
               @else
-                <div class="text-muted" style="font-size: 0.9rem;">
+                <div class="text-muted">
                   <i class="fas fa-exclamation-circle mr-2"></i>
                   Not set
                 </div>
               @endif
             </td>
             <td>
-              <span class="text-muted mr-1" style="font-size: 0.9rem;">
+              <span class="text-muted mr-1">
               Rs
               </span>
               {{ $abAccount->getLedgerBalance() }}

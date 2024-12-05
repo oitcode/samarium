@@ -47,7 +47,7 @@
             <i class="far fa-arrow-alt-circle-right fa-2x text-secondary"></i>
           </button>
 
-          <div class="d-none d-md-block my-3-rm text-secondary-rm ml-5" style="font-size: 1rem;">
+          <div class="d-none d-md-block my-3-rm text-secondary-rm ml-5">
 
             <input type="date" wire:model="daybookDate" class="ml-5">
             <button class="btn btn-light" wire:click="setTransactionsDate">
@@ -56,7 +56,7 @@
           </div>
         </div>
 
-        <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+        <button wire:loading class="btn btn-danger-rm">
           <div class="spinner-border text-info mr-3" role="status">
             <span class="sr-only">Loading...</span>
           </div>

@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-body" style="font-size: 1.3rem;">
+  <div class="card-body">
   
     <h3 class="h5 text-secondary">
         Create new post category
@@ -9,20 +9,17 @@
       <label for="">Name</label>
       <input type="text"
           class="form-control"
-          wire:model="name"
-          style="font-size: 1.3rem;">
+          wire:model="name">
       @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="mt-4" style="font-size: 1.3rem;">
+    <div class="mt-4">
       <button type="submit"
-          class="btn btn-success" wire:click="store"
-          style="font-size: 1.3rem;">
+          class="btn btn-success" wire:click="store">
         Submit
       </button>
       <button type="submit" class="btn btn-danger"
-          wire:click="$dispatch('createPostCategoryCanceled')"
-          style="font-size: 1.3rem;">
+          wire:click="$dispatch('createPostCategoryCanceled')">
         Cancel
       </button>
     </div>

@@ -54,7 +54,7 @@
           @endif
 
           @if (true)
-          <div class="mb-3" style="font-size: 0.7rem;">
+          <div class="mb-3">
             <i class="far fa-star" style="color: orange;"></i>
             <i class="far fa-star" style="color: orange;"></i>
             <i class="far fa-star" style="color: orange;"></i>
@@ -108,8 +108,7 @@
 
             {{-- Loading spinner --}}
             <span wire:loading class="spinner-border text-info mr-3"
-                role="status"
-                style="font-size: 1rem;">
+                role="status">
             </span>
           </div>
 

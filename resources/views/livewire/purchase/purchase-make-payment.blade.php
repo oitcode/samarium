@@ -5,13 +5,13 @@
       p-0">
     <div class="d-flex justify-content-between py-1-rm my-2">
       <div class="d-flex flex-column justify-content-center">
-        <h2 class="pl-3" style="font-size: calc(1.1rem + 0.2vw);">
+        <h2 class="pl-3">
           Payment
         </h1>
       </div>
       <div>
         <div wire:loading class="">
-          <span class="spinner-border text-white" role="status" style="font-size: 0.8rem;">
+          <span class="spinner-border text-white" role="status">
           </span>
         </div>
       </div>
@@ -24,7 +24,7 @@
         @else
           <button class="btn btn-sm mr-3
               {{ config('app.oc_ascent_text_color', 'text-white') }}"
-              wire:click="enterMultiplePaymentsMode" style="font-size: calc(1rem + 0.2vw);">
+              wire:click="enterMultiplePaymentsMode">
             <i class="fas fa-ellipsis-h"></i>
           </button>
         @endif
@@ -39,25 +39,25 @@
         <tbody>
 
           <tr style="height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2" style="font-size: calc(0.8rem + 0.2vw);">
+            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2">
               <span class="ml-4">
                 Subtotal
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0">
               @php echo number_format( $this->sub_total, 2 ); @endphp
             </td>
           </tr>
 
           {{-- Todo: Only vat? Any other taxes? --}}
           @if ($has_vat)
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2" style="font-size: calc(0.8rem + 0.2vw);">
+          <tr class="bg-light border-bottom">
+            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2">
               <span class="ml-4">
                 Taxable amount
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0" style="font-size: calc(1rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0">
               @php echo number_format( $this->taxable_amount, 2 ); @endphp
             </td>
           </tr>
@@ -71,7 +71,7 @@
               @continue
             @else
             <tr style="height: 50px;" class="bg-info-rm border-bottom p-0">
-              <td class="w-50 h-100 p-0 font-weight-bold border-0 bg-success-rm" style="font-size: calc(0.6rem + 0.2vw);">
+              <td class="w-50 h-100 p-0 font-weight-bold border-0 bg-success-rm">
                 <div class="h-100 d-flex flex-column justify-content-center">
                   @if (strtolower($key) == 'vat')
                     <div class="ml-4">
@@ -84,10 +84,9 @@
                   @endif
                 </div>
               </td>
-              <td class="p-0 w-50 h-100 bg-info font-weight-bold border-0" style="font-size: calc(0.6rem + 0.2vw);">
+              <td class="p-0 w-50 h-100 bg-info font-weight-bold border-0">
                 <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                     type="text"
-                    style="font-size: calc(1rem + 0.2vw); outline: none;"
                     wire:keydown.enter="updateNumbers"
                     wire:model.live.debounce.500ms="purchaseAdditions.{{ $key }}" />
               </td>
@@ -96,13 +95,13 @@
           @endforeach
 
           @if ($has_vat)
-          <tr style="font-size: 1.3rem; height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+          <tr class="bg-light border-bottom">
+            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0">
               <span class="ml-4 d-inline-block">
                 Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 border-0" style="font-size: calc(1.3rem + 0.2vw);">
+            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 border-0">
               @php echo number_format( $this->grand_total, 2 ); @endphp
             </td>
           </tr>
@@ -120,15 +119,15 @@
         <tbody>
 
           <tr style="height: 50px;" class="bg-light-rm border-bottom">
-            <td class="w-50 p-0 pt-2 bg-white text-white-rm p-0 font-weight-bold border-0" style="font-size: calc(0.9rem + 0.2vw);">
-              <span class="ml-4 d-inline-block mt-2 mb-3" style="font-size: 1rem;">
+            <td class="w-50 p-0 pt-2 bg-white text-white-rm p-0 font-weight-bold border-0">
+              <span class="ml-4 d-inline-block mt-2 mb-3">
                 @if (true)
                 Paid Amount
                 @endif
               </span>
               <i class="fas fa-arrow-alt-circle-right ml-2 fa-2x-rm"></i>
               @error('tender_amount')
-              <div class="pl-3" style="font-size: 0.8rem;">
+              <div class="pl-3">
                 <span class="text-danger">{{ $message }}</span>
               </div>
               @enderror
@@ -136,18 +135,18 @@
             <td class="p-0 h-100 font-weight-bold border-0">
               <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
-                  style="font-size: calc(1.2rem + 0.2vw); background-color: #afa; outline: none;"
+                  style="background-color: #afa; outline: none;"
                   wire:model="paid_amount" />
             </td>
           </tr>
 
           <tr style="height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0">
               <span class="ml-4">
                 Payment type
               </span>
             </td>
-            <td class="p-0 h-100 w-50 font-weight-bold border-0" style="font-size: calc(0.8rem + 0.2vw);">
+            <td class="p-0 h-100 w-50 font-weight-bold border-0">
               <select class="w-100 h-100 custom-control border-0 bg-white"
                   style="outline: none;"
                   wire:model="purchase_payment_type_id">
@@ -171,7 +170,7 @@
       <table class="table table-bordered mb-0">
         <tbody>
           @foreach ($multiPayments as $key => $val)
-            <tr style="font-size: 1.3rem; height: 50px;" wire:key="inzaghi">
+            <tr wire:key="inzaghi">
               <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
                 <span class="ml-4">
                   {{ $key }}
@@ -194,13 +193,13 @@
     <div class="table-responsive mb-0" wire:key=" FCBAYERN ">
       <table class="table table-bordered mb-0">
         <tbody>
-          <tr class="border-0" style="font-size: 1.3rem; height: 50px;" wire:key="ronaldinho">
+          <tr class="border-0" wire:key="ronaldinho">
             <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
               <span class="ml-4">
                 Paid amount
               </span>
             </td>
-            <td class="border-0" style="font-size: 2.5rem;">
+            <td class="border-0">
               {{ $paid_amount }}
             </td>
           </tr>
@@ -219,7 +218,7 @@
               {{ config('app.oc_ascent_text_color', 'text-white') }}
           mr-3-rm w-100 py-3"
           wire:click="store"
-          style="font-size: calc(1rem + 0.2vw);">
+          >
         <i class="fas fa-check-circle mr-3"></i>
         Confirm
       </button>
@@ -233,14 +232,14 @@
             onclick="this.disabled=true;"
             class="btn btn-lg btn-success mr-3"
             wire:click="finishPayment"
-            style="width: 120px; height: 70px; font-size: 1.3rem;">
+            style="width: 120px; height: 70px;">
           FINISH
         </button>
         <button
             onclick="this.disabled=true;"
             class="btn btn-lg btn-warning-rm mr-3"
             wire:click="finishPayment"
-            style="width: 120px; height: 70px; font-size: 1.3rem; background-color: orange">
+            style="width: 120px; height: 70px; background-color: orange">
           PRINT
         </button>
       @endif

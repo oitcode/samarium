@@ -37,7 +37,7 @@
       <div class="mb-4">
 
         <div class="table-responsive bg-white">
-          <table class="table border mb-0" style="font-size: 1.1rem;">
+          <table class="table border mb-0">
             <tbody>
 
               <tr>
@@ -134,7 +134,7 @@
       </div>
 
       <div class="table-responsive bg-white">
-        <table class="table table-hover table-bordered mb-0" style="font-size: 1.1rem;">
+        <table class="table table-hover table-bordered mb-0">
           <thead>
             <tr class="bg-primary text-white">
               <th>Item</th>

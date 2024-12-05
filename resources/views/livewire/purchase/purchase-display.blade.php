@@ -59,7 +59,7 @@
                 <div class="text-muted-rm mb-1">
                   Created by
                 </div>
-                <div class="h5" style="font-size: 0.7rem;">
+                <div class="h5">
                   @if ($purchase->creator)
                     {{ $purchase->creator->name }}
                   @else
@@ -91,7 +91,7 @@
                   </span>
                   @endif
                  <div>
-                   <div class="text-primary" style="font-size: 0.8rem;" role="button" wire:click="enterMode('showPayments')">
+                   <div class="text-primary" role="button" wire:click="enterMode('showPayments')">
                      Show payments
                    </div>
                  </div>
@@ -128,7 +128,7 @@
         <div class="table-responsive border d-none d-md-block">
           <table class="table table-hover mb-0">
             <thead>
-              <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+              <tr class="bg-success-rm text-white-rm">
                 <th>#</th>
                 <th>Item</th>
                 <th>Quantity</th>
@@ -138,11 +138,11 @@
               </tr>
             </thead>
     
-            <tbody style="font-size: 1.3rem;" class="bg-white">
+            <tbody class="bg-white">
               @if (count($purchase->purchaseItems) > 0)
                 @foreach ($purchase->purchaseItems as $item)
-                <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm border-bottom">
-                  <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+                <tr class="font-weight-bold text-white-rm border-bottom">
+                  <td class="text-secondary"> {{ $loop->iteration }} </td>
                   <td>
                     <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                     {{ $item->product->name }}
@@ -167,19 +167,19 @@
             </tbody>
     
             <tfoot class="bg-white">
-              <tr class="border-0" style="font-size: 1.8rem;">
-                <td colspan="5" style="font-size: 1.3rem;" class="font-weight-bold text-right border-0">
+              <tr class="border-0">
+                <td colspan="5" class="font-weight-bold text-right border-0">
                   <strong>
                   Subtotal
                   </strong>
                 </td>
-                <td style="font-size: 1.3rem;" class="border-0">
+                <td class="border-0">
                   @php echo number_format( $purchase->getTotalAmountRaw() ); @endphp
                 </td>
               </tr>
 
               @foreach ($purchase->purchaseAdditions as $purchaseAddition)
-                <tr class="border-0" style="font-size: 1rem;">
+                <tr class="border-0">
                   <td colspan="5" class="font-weight-bold text-right border-0">
                     <strong>
                     {{ $purchaseAddition->purchaseAdditionHeading->name }}
@@ -190,7 +190,7 @@
                   </td>
                 </tr>
               @endforeach
-              <tr style="font-size: 1.3rem;" class="border-0">
+              <tr class="border-0">
                 <td colspan="5" class="font-weight-bold text-right border-0">
                   <strong>
                   Total
@@ -231,7 +231,7 @@
                       </span>
                     </div>
                   </td>
-                  <td class="font-weight-bold" style="font-size: 1rem;">
+                  <td class="font-weight-bold">
                     Rs
                     @php echo number_format( $item->getTotalAmount() ); @endphp
                   </td>
@@ -241,7 +241,7 @@
             </tbody>
 
             <tfoot class="bg-white">
-              <tr class="font-weight-bold" style="font-size: 1.1rem">
+              <tr class="font-weight-bold">
                 <th colspan="2" class="text-right mr-3">
                   Total
                 </th>

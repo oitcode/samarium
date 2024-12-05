@@ -141,7 +141,7 @@
   
         @if (true)
         <div class="px-5 h-100-rm mt-3-rm bg-primary-rm border-rm border-left-primary text-white-rm"
-            style="{{--background-color: #004;font-size: 1.2rem; font-weight: bold;--}} ">
+            style="{{--background-color: #004; font-weight: bold;--}} ">
 
           {{-- Shopping cart badge (checkout link) --}}
           @if (true)
@@ -160,7 +160,7 @@
 
     {{-- Product category menu --}}
     <div class="container-fluid border-top border-bottom bg-light text-white">
-      <div class="container" style="font-size: 1.5rem; font-weight: bold;">
+      <div class="container" style="font-weight: bold;">
         @if (false)
           <div class="d-flex flex-column justify-content-center h-100">
             @include ('partials.ecomm-website.top-menu')

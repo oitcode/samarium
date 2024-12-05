@@ -1,5 +1,5 @@
 <div class="d-inline-block-rm">
-  <a href="{{ route('website-checkout') }}" class="" style="{{-- font-size: 2.7rem; font-weight: bold; --}}">
+  <a href="{{ route('website-checkout') }}">
     <i class="fas fa-shopping-cart fa-2x mr-2 text-white"></i>
     @if (false)
     <span class="text-secondary">
@@ -15,8 +15,7 @@
   </a>
 
   {{-- Loading spinner --}}
-  <div wire:loading class="m-0"
-      style="font-size: 1.5rem;">
+  <div wire:loading class="m-0">
     <span class="spinner-border text-info mr-3" role="status">
     </span>
   </div>

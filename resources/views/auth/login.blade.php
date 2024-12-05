@@ -108,7 +108,6 @@
                         </label>
                         <input id="email" type="email"
                             class="form-control @error('email') is-invalid @enderror badge-pill-rm px-4-rm"
-                            style="font-size: 1.2rem;"
                             name="email" value="{{ old('email') }}"
                             required
                             autocomplete="email"
@@ -136,7 +135,6 @@
                           </label>
                           <input id="password" type="password"
                               class="form-control @error('password') is-invalid @enderror badge-pill-rm px-4-rm"
-                              style="font-size: 1.2rem;"
                               name="password"
                               required
                               {{--

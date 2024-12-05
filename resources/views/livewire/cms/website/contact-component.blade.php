@@ -56,10 +56,10 @@
             @if (false)
             <i class="fas fa-map-marker-alt text-primary-rm mr-2"></i>
             @endif
-            <span class="font-weight-bold mr-2" style="font-size: 1rem; min-width: 100px;">
+            <span class="font-weight-bold mr-2">
               Address:
             </span>
-            <span class="text-secondary-rm font-weight-bold-rm" style="font-size: 1rem;">
+            <span class="text-secondary-rm font-weight-bold-rm">
               {{ $company->address }}
             </span>
           </div>
@@ -68,10 +68,10 @@
             @if (false)
             <i class="fas fa-phone text-primary-rm mr-2"></i>
             @endif
-            <span class="font-weight-bold mr-2" style="font-size: 1rem; min-width: 100px;">
+            <span class="font-weight-bold mr-2">
               Phone:
             </span>
-            <span class="text-secondary-rm font-weight-bold-rm" style="font-size: 1rem;">
+            <span class="text-secondary-rm font-weight-bold-rm">
               {{ $company->phone }}
             </span>
           </p>
@@ -80,17 +80,17 @@
             @if (false)
             <i class="fas fa-envelope text-primary-rm mr-2"></i>
             @endif
-            <span class="font-weight-bold mr-2" style="font-size: 1rem; min-width: 100px;">
+            <span class="font-weight-bold mr-2">
               Email:
             </span>
-            <span class="text-secondary-rm font-weight-bold-rm" style="font-size: 1rem;">
+            <span class="text-secondary-rm font-weight-bold-rm">
               {{ $company->email }}
             </span>
           </p>
           @endif
   
           @if (true)
-          <div class="my-5" style="font-size: 1.3rem;">
+          <div class="my-5">
             <h2 class="h5 font-weight-bold my-3">
               Our social media pages
             </h2>
@@ -138,7 +138,7 @@
       </div>
       @endif
       <div class="@if ($onlyForm == 'yes') col-md-12 @else col-md-6 @endif bg-white border py-4-rm shadow-lg-rm p-0">
-        <div style="font-size: 1.3rem;">
+        <div>
         <h2 class="h5 font-weight-bold text-muted-rm text-md-center pl-3 bg-danger-rm text-white-rm py-3" style="
                 background-color:
                   @if (\App\CmsTheme::first())

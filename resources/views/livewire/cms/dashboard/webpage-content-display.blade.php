@@ -3,7 +3,7 @@
 
   {{-- Display controls --}}
   @if (false)
-  <div class="text-dark mb-0 bg-light p-3 border p-3" style="font-size: 0.7rem;">
+  <div class="text-dark mb-0 bg-light p-3 border p-3">
     <i class="fas fa-arrow-down mr-2 border p-3" wire:click="moveDown" role="button"></i>
     <i class="fas fa-arrow-up mr-2 border p-3" wire:click="moveUp" role="button"></i>
     <i class="fas fa-pencil-alt mr-2 border p-3" wire:click="enterMode('edit')" role="button"></i>

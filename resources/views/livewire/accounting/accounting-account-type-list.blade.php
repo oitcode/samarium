@@ -1,6 +1,6 @@
 <div>
   <div class="table-responsive bg-white border">
-    <table class="table table-striped table-bordered mb-0" style="font-size: 1.1rem;">
+    <table class="table table-striped table-bordered mb-0">
       <thead>
         <tr class="bg-success text-white">
           <th></th>

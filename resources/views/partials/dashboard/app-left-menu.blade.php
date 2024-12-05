@@ -4,11 +4,11 @@
   {{-- Top most button in the left menu. --}}
   @if (false)
   <div class="text-center border-rm">
-    <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-3 pl-4 font-weight-bold text-left" style="font-size: 1rem;">
+    <a href="{{ route('dashboard') }}" class="btn btn-warning-rm w-100 h-100 p-3 pl-4 font-weight-bold text-left">
       <div class="d-flex justify-content-center">
-        <i class="far fa-check-circle text-primary mr-1" style="font-size: 1.3rem;"></i>
+        <i class="far fa-check-circle text-primary mr-1"></i>
       </div>
-      <span class="" style="font-size: 1.3rem;">
+      <span>
       </span>
     </a>
   </div>

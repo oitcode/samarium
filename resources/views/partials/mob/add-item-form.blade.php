@@ -1,7 +1,7 @@
 <div class="p-0">
 
 
-  <div class="my-3 p-3 bg-white border shadow" style="font-size: 1.1rem;">
+  <div class="my-3 p-3 bg-white border shadow">
     @if (true)
     {{-- Category --}}
     <div class="form-group">
@@ -44,7 +44,7 @@
         @if ($selectedProduct)
           @php echo number_format( $total ); @endphp
         @else
-          <span class="text-muted" style="font-size: 1rem;">
+          <span class="text-muted">
             No product selected
           </span>
         @endif

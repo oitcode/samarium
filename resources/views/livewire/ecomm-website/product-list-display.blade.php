@@ -25,7 +25,7 @@
               {{ ucwords($product->name) }}
             </h2>
             @if (true)
-            <div class="mb-1" style="font-size: 0.7rem;">
+            <div class="mb-1">
               <i class="far fa-star" style="color: orange;"></i>
               <i class="far fa-star" style="color: orange;"></i>
               <i class="far fa-star" style="color: orange;"></i>
@@ -70,8 +70,7 @@
               </span>
               {{-- Loading spinner --}}
               <span wire:loading class="spinner-border text-info mr-3"
-                  role="status"
-                  style="font-size: 1rem;">
+                  role="status">
               </span>
             </div>
 

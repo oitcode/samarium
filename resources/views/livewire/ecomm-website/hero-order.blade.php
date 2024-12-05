@@ -1,6 +1,6 @@
 <div>
   @if (! $modes['showForm'])
-  <button class="btn btn-warning-rm mr-3 w-100" style="height: 120px; {{-- width: 350px; --}} font-size: 2.5rem; background-color: orange;"
+  <button class="btn btn-warning-rm mr-3 w-100" style="height: 120px; background-color: orange;"
       wire:click="enterMode('showForm')">
     <i class="fas fa-shopping-cart mr-3"></i>
     ORDER
@@ -8,8 +8,8 @@
   @else
 
     <div class="card">
-      <div class="card-header p-3" style="{{--background-color: maroon;--}}">
-        <h2 class="text-success" style="font-size: 1.3rem;">
+      <div class="card-header p-3">
+        <h2 class="text-success">
           Confirm
         </h2>
       </div>
@@ -24,7 +24,7 @@
               </span>
             @enderror
           </label>
-          <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; font-size: 1.5rem; color: #555;" wire:model="phone">
+          <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; color: #555;" wire:model="phone">
         </div>
 
         <div class="mb-3">
@@ -32,19 +32,19 @@
             <i class="fas fa-map-marker-alt mr-2"></i>
             Address
           </label>
-          <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; font-size: 1.5rem; color: #555;" wire:model="address">
+          <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; color: #555;" wire:model="address">
         </div>
 
         <div class="row">
           <div class="col-md-6">
-            <button class="btn btn-warning-rm mr-3 text-white w-100" style="height: 100px; font-size: 1.5rem; background-color: green; font-weight:
+            <button class="btn btn-warning-rm mr-3 text-white w-100" style="height: 100px; background-color: green; font-weight:
             bold" wire:click="store">
               <i class="fas fa-shopping-cart mr-3"></i>
               CONFIRM
             </button>
           </div>
           <div class="col-md-6">
-            <button class="btn btn-danger mr-3 text-white w-100" style="height: 100px; font-size: 1.5rem; font-weight: bold;" wire:click="exitMode('showForm')">
+            <button class="btn btn-danger mr-3 text-white w-100" style="height: 100px; font-weight: bold;" wire:click="exitMode('showForm')">
               <i class="fas fa-shopping-cart mr-3"></i>
               CANCEL
             </button>

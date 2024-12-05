@@ -6,7 +6,7 @@
           Checkout
         </h1>
         @if (false)
-        <h1 class="bg-light text-dark p-3 mx-3" style="font-weight: bold; {{-- font-size: 1.5rem --}}; text-shadow: 0px 1px, 1px 0px, 1px 0px;">
+        <h1 class="bg-light text-dark p-3 mx-3" style="font-weight: bold; text-shadow: 0px 1px, 1px 0px, 1px 0px;">
           Checkout
         </h1>
         @endif
@@ -71,7 +71,7 @@
   
               @if (false)
               <tfoot>
-                <tr class="text-white-rm" style="font-size: 1rem; color: red;">
+                <tr class="text-danger">
                   <th colspan="3" class="text-right font-weight-bold h3">
                     Rs
                   </th>
@@ -120,7 +120,7 @@
               </div>
               <div class="form-group">
                 <input class="form-control p-3 w-100" type="text"
-                    style="height: 50px; width: 100%; font-size: 1rem; color: #555;"
+                    style="height: 50px; width: 100%; color: #555;"
                     placeholder="Phone"
                     wire:model="phone">
                 @error ('phone') <div class="text-danger"> {{ $message }} </div> @enderror
@@ -128,7 +128,7 @@
   
               <div class="form-group">
                 <input class="form-control p-3 w-100" type="text"
-                    style="height: 50px; width: 100%; font-size: 1rem; color: #555;"
+                    style="height: 50px; width: 100%; color: #555;"
                     placeholder="Address"
                     wire:model="address">
                 @error ('address') <div class="text-danger"> {{ $message }} </div> @enderror
@@ -157,7 +157,7 @@
             <div class="card-body">
               <div class="row" style="">
                 <div class="col-md-12">
-                  <button class="btn btn-danger mr-3 w-100 badge-pill-rm p-3" wire:click="store" style="font-size: 1.3rem;">
+                  <button class="btn btn-danger mr-3 w-100 badge-pill-rm p-3" wire:click="store">
                     <i class="fas fa-check-circle mr-3"></i>
                     Place order
                   </button>

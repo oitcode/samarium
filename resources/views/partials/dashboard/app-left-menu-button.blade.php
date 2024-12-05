@@ -14,7 +14,7 @@
         @endif
         text-white
         "
-      style="font-size: calc(0.7rem + 0.15vw);
+      style="
         @if(Route::current()->getName() == $btnRoute)
           background-color: rgba(0, 0, 0, 0.3);
           {{--

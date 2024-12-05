@@ -3,15 +3,13 @@
 
   <div class="p-3-rm">
 
-    <h1 class="text-white-rm" style="font-size: 1.3rem;">
+    <h1 class="text-white-rm">
       Create google map share link
     </h1>
 
     <div class="form-group">
       <label for="">Google map share link</label>
-      <input type="text" class="form-control"
-          wire:model="google_map_share_link"
-          style="font-size: 1.3rem;" />
+      <input type="text" class="form-control" wire:model="google_map_share_link" />
       @error ('google_map_share_link') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

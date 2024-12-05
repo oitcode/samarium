@@ -125,7 +125,7 @@
       <div class="table-responsive d-none d-md-block">
         <table class="table table-hover border-dark mb-0">
           <thead>
-            <tr class="bg-success-rm text-white-rm" style="font-size: calc(0.6rem + 0.2vw);">
+            <tr class="bg-success-rm text-white-rm">
               <th>--</th>
               <th>#</th>
               <th>Item</th>
@@ -135,15 +135,15 @@
           </thead>
   
           @if ($expense->expenseItems && count($expense->expenseItems) > 0)
-          <tbody style="font-size: 1.3rem;">
+          <tbody>
             @foreach ($expense->expenseItems as $expenseItem)
-              <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold text-white-rm">
+              <tr class="font-weight-bold text-white-rm">
                 <td>
                   <a href="" wire:click.prevent="" class="">
                   <i class="fas fa-trash text-danger"></i>
                   </a>
                 </td>
-                <td class="text-secondary" style="font-size: 1rem;">
+                <td class="text-secondary">
                   {{ $loop->iteration }}
                 </td>
                 <td>

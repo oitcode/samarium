@@ -11,7 +11,7 @@ Check if this file can be safely deleted.
 
 <div class="card">
   <div class="card-header bg-warning-rm">
-    <span style="font-size: 1.3rem;">
+    <span>
     FOO
     </span>
   </div>
@@ -20,7 +20,7 @@ Check if this file can be safely deleted.
       <div class="col-md-6">
         <div class="table-responsive">
           <table class="table">
-            <tbody style="font-size: 1.3rem;">
+            <tbody>
               <tr>
                 <th>
                   <span class="badge mr-2">
@@ -49,7 +49,7 @@ Check if this file can be safely deleted.
       <div class="col-md-4">
         <div class="d-flex justify-content-center h-100">
           <div class="justify-content-center align-self-center text-center">
-            <h3 class="font-weight-bold text-info" style="font-size: 2.5rem;">
+            <h3 class="font-weight-bold text-info">
               <img src="{{ asset('img/logo_1.jpg') }}" class="img-fluid">
             </h3>
           </div>

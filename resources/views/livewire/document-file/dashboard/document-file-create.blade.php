@@ -23,8 +23,7 @@
       <label>Description</label>
       <input type="text"
           class="form-control"
-          wire:model="description"
-          style="font-size: 1.3rem;">
+          wire:model="description">
       @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

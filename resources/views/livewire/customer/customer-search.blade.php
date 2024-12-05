@@ -10,7 +10,6 @@
     <div class="my-4">
       <input type="text"
           class="mr-5 h-100 form-control"
-          style="font-size: 1.5rem;"
           wire:model="customer_search_name"
           wire:keydown.enter="search"
           autofocus>

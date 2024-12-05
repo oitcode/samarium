@@ -15,7 +15,7 @@
         <i class="fas fa-arrow-alt-circle-left fa-2x mr-3" wire:click="setPreviousDay" role="button"></i>
         <i class="fas fa-arrow-alt-circle-right fa-2x mr-3" wire:click="setNextDay" role="button"></i>
 
-        <div class="d-none d-md-block my-3-rm text-secondary-rm ml-5" style="font-size: 1rem;">
+        <div class="d-none d-md-block my-3-rm text-secondary-rm ml-5">
           <i class="fas fa-calendar mr-2"></i>
           {{ Carbon\Carbon::parse($daybookDate)->format('Y F d') }}
           &nbsp;&nbsp;
@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+      <button wire:loading class="btn btn-danger-rm">
         <div class="spinner-border text-info mr-3" role="status">
           <span class="sr-only">Loading...</span>
         </div>
@@ -39,7 +39,7 @@
         <div class="card bg-white text-dark" style="">
           <div class="card-body p-2 bg-success-rm text-white-rm">
             <div class="p-0">
-              <h2 class="font-weight-bold pt-1" style="font-size: 1.5rem;">
+              <h2 class="font-weight-bold pt-1">
                 <span class="mr-2">
                   Rs
                 </span>
@@ -66,11 +66,11 @@
 
     {{-- Show in smaller screens --}}
     <div class="bg-info-rm mb-4 d-md-none">
-      <button class="btn btn-success-rm m-0" style="font-size: 1.5rem;" wire:click="setPreviousDay">
+      <button class="btn btn-success-rm m-0" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left mr-3"></i>
       </button>
 
-      <button class="btn btn-danger-rm m-0" style="font-size: 1.5rem;" wire:click="setNextDay">
+      <button class="btn btn-danger-rm m-0" wire:click="setNextDay">
         <i class="fas fa-arrow-right mr-3"></i>
       </button>
 
@@ -79,17 +79,17 @@
         Go
       </button>
 
-      <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+      <button wire:loading class="btn btn-danger-rm">
         <div class="spinner-border text-info mr-3" role="status">
           <span class="sr-only">Loading...</span>
         </div>
-        <span class="ml-3 text-secondary" style="font-size: 1rem;">
+        <span class="ml-3 text-secondary">
           Loading...
         </span>
       </button>
 
 
-      <div class="py-2 px-2" style="font-size: 1.1rem;">
+      <div class="py-2 px-2">
         <i class="fas fa-calendar mr-3"></i>
         <span class="mr-3">
           {{ $daybookDate }}
@@ -152,7 +152,7 @@
             <br />
             PDF
           </button>
-          <button wire:loading class="btn btn-danger-rm" style="font-size: 1.5rem;">
+          <button wire:loading class="btn btn-danger-rm">
             <div class="spinner-border text-info mr-3" role="status">
               <span class="sr-only">Loading...</span>
             </div>
@@ -189,7 +189,7 @@
           <div class="table-responsive d-none d-md-block mb-3">
             <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
               <thead>
-                <tr class="bg-white" style="font-size: 1rem;">
+                <tr class="bg-white">
                   <th style="width: 100px;">ID</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Time</th>
                   <th class="d-none d-md-table-cell" style="width: 200px;">Table</th>
@@ -205,14 +205,11 @@
                 </tr>
               </thead>
 
-              <tbody class="bg-white" style="font-size: calc(0.7rem + 0.3vw);">
+              <tbody class="bg-white">
                 @if (count($saleInvoices) > 0)
                   @foreach ($saleInvoices as $saleInvoice)
                     <tr class="" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
-                      <td class="text-secondary-rm"
-                          style="font-size: 1rem;"
-                          wire:click=""
-                          role="button">
+                      <td class="text-secondary-rm" wire:click="" role="button">
                         <span class="text-primary">
                         {{ $saleInvoice->sale_invoice_id }}
                         </span>
@@ -235,7 +232,7 @@
                           {{ $saleInvoice->customer->name }}
                         @else
                           <i class="fas fa-exclamation-circle text-warning mr-1"></i>
-                          <span class="text-secondary" style="font-size: 1rem;">
+                          <span class="text-secondary">
                             Unknown
                           </span>
                         @endif
@@ -287,7 +284,6 @@
                 @foreach ($saleInvoices as $saleInvoice)
                   <tr class="" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
                     <td class="text-secondary-rm"
-                        style="font-size: 1rem;"
                         wire:click=""
                         role="button">
                       <span class="text-primary">
@@ -339,7 +335,7 @@
                     <td class="border d-none d-md-table-cell">
                       {{ $saleInvoice->getPendingAmount() }}
                     </td>
-                    <td class="font-weight-bold" style="font-size: 1rem;">
+                    <td class="font-weight-bold">
                       Rs
                       @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                     </td>
@@ -355,7 +351,7 @@
           </div>
 
         @else
-          <div class="text-secondary py-3 px-3" style="font-size: 1.5rem;">
+          <div class="text-secondary py-3 px-3">
             No sales.
           </div>
         @endif
@@ -402,7 +398,7 @@
         </h2>
         @if (count($todayItems) > 0)
           <div class="table-responsive">
-            <table class="table table-bordered-rm table-hover" style="font-size: 1rem;">
+            <table class="table table-bordered-rm table-hover">
               <thead>
                 <tr class="bg-white">
                   <th colspan="2">

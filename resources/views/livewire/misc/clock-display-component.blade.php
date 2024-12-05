@@ -11,7 +11,7 @@
   </div>
   @endif
 
-  <div class="pt-1" style="font-family: mono; font-size: 0.9rem;">
+  <div class="pt-1" style="font-family: mono;">
     <i class="fas fa-clock mr-1"></i>
     <span id="clock"></span>
   </div>

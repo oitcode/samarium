@@ -98,7 +98,7 @@
             {{ config('app.oc_ascent_btn_color') }}
           @endif
           m-0 border shadow-sm badge-pill mr-3"
-          style="font-size: 1.3rem;" wire:click="enterMode('salesHistory')">
+          wire:click="enterMode('salesHistory')">
         <i class="fas fa-shopping-cart mr-3"></i>
         Sales
       </button>
@@ -108,13 +108,13 @@
             {{ config('app.oc_ascent_btn_color') }}
           @endif
           m-0 border shadow-sm badge-pill mr-3"
-          style="font-size: 1.3rem;" wire:click="enterMode('customerPaymentCreate')">
+          wire:click="enterMode('customerPaymentCreate')">
         <i class="fas fa-key mr-3"></i>
         Settle
       </button>
 
       <button wire:loading class="btn m-0"
-          style="height: 100px; width: 225px; font-size: 1.5rem;">
+          style="height: 100px; width: 225px;">
         <span class="spinner-border text-info mr-3" role="status">
         </span>
       </button>

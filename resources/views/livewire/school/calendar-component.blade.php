@@ -125,7 +125,7 @@
                     {{ $displayMonthName }}
                     {{ $loop->iteration }}
                   </span>
-                  <span class="text-secondary" style="{{--font-size: 0.5rem;--}}">
+                  <span class="text-secondary">
                     {{ $day['day']->format('Y F d') }}
                   </span>
                   @if (\Carbon\Carbon::today() == $day['day'])

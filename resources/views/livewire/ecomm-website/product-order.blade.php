@@ -11,8 +11,8 @@
   @endif
 
   <div class="card">
-    <div class="card-header p-3" style="{{--background-color: maroon;--}}">
-      <h2 class="text-success-rm" style="font-size: 1.3rem;">
+    <div class="card-header p-3">
+      <h2 class="text-success-rm">
         Order product
       </h2>
       <div class="text-secondary">
@@ -30,7 +30,7 @@
             </span>
           @enderror
         </label>
-        <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; font-size: 1.5rem; color: #555;" wire:model="phone">
+        <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; color: #555;" wire:model="phone">
       </div>
 
       <div class="mb-3">
@@ -38,7 +38,7 @@
           <i class="fas fa-map-marker-alt mr-2"></i>
           Address
         </label>
-        <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; font-size: 1.5rem; color: #555;" wire:model="address">
+        <input class="p-3 w-100" type="text" style="height: 50px; width: 100%; color: #555;" wire:model="address">
       </div>
 
       <div class="row">

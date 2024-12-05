@@ -3,7 +3,7 @@
 
   <div class="form-group">
     <label class="h5">Category *</label>
-    <select class="custom-select shadow-sm" wire:model="product_category_id" style="font-size: 1.3rem;">
+    <select class="custom-select shadow-sm" wire:model="product_category_id">
       <option>---</option>
       @foreach ($productCategories as $productCategory)
         <option value="{{ $productCategory->product_category_id }}">

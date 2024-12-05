@@ -18,7 +18,7 @@
 
   <div class="form-group">
     <label class="h5">Feature heading</label>
-    <select class="custom-select shadow-sm" wire:model="product_feature_heading_id" style="font-size: 1.3rem;">
+    <select class="custom-select shadow-sm" wire:model="product_feature_heading_id">
       <option>---</option>
       @foreach ($productFeatureHeadings as $productFeatureHeading)
         <option value="{{ $productFeatureHeading->product_feature_heading_id }}">

@@ -9,7 +9,7 @@
   >
     <div class="card-header @if ($seatTable->isBooked()) bg-danger-rm text-white-rm @else bg-success-rm text-white-rm @endif">
       <div class="float-left">
-        <h2 class="badge" style="font-size: 1.3rem;">
+        <h2 class="h6">
           {{ $seatTable->name }}
           @if ($seatTable->isBooked())
             <span class="badge badge-danger badge-pill ml-2">
@@ -23,9 +23,9 @@
         </h2>
 
       </div>
-      <div class="float-right" style="font-size: 1rem;">
+      <div class="float-right">
           @if ($seatTable->isBooked())
-            <span class="h4 pt-4">
+            <span class="h6 pt-4">
             Rs
             @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
             </span>
@@ -38,7 +38,7 @@
             @endif
           @endif
       </div>
-      <div wire:loading class="float-right" style="font-size: 1.5rem;">
+      <div wire:loading class="float-right">
         <span class="spinner-border text-white mr-3" role="status">
         </span>
       </div>
@@ -53,7 +53,7 @@
         <div class="col-md-12">
           <div class="table-responsive">
             <table class="table {{-- @if ($seatTable->isBooked()) bg-danger @else bg-success @endif --}} text-white-rm">
-              <tr class="border-0" style="font-size: 1rem;">
+              <tr class="border-0">
                 <td class="border-0">
                   <i class="fas fa-clock mr-3"></i>
                   Start
@@ -66,7 +66,7 @@
                   @endif
                 </td>
               </tr>
-              <tr class="border-0" style="font-size: 1rem;">
+              <tr class="border-0">
                 <td class="border-0">
                   <i class="fas fa-shopping-cart mr-3"></i>
                   Items
@@ -132,11 +132,11 @@
   >
     <div class="card-header @if ($seatTable->isBooked()) bg-danger-rm @else bg-success text-white @endif">
       <div class="float-left">
-        <h2 class="badge" style="font-size: 1.3rem;">
+        <h2 class="badge">
           {{ $seatTable->name }}
         </h2>
       </div>
-      <div wire:loading class="float-right" style="font-size: 1.5rem;">
+      <div wire:loading class="float-right">
         <span class="spinner-border text-white mr-3" role="status">
         </span>
       </div>
@@ -150,7 +150,7 @@
       <div class="row" style="margin: auto;">
         <div class="col-md-12">
           <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
-            <tr class="border-0" style="font-size: 1.1rem;">
+            <tr class="border-0">
               <td class="border-0">
                 @if ($seatTable->getCurrentBooking())
                   {{ $seatTable->getCurrentBooking()->created_at->format('h:i') }}
@@ -166,7 +166,7 @@
                 @endif
               </td>
             </tr>
-            <tr class="border-0" style="font-size: 1.1rem;">
+            <tr class="border-0">
               <td colspan="2" class="border-0">
                 @if ($seatTable->isBooked())
                   Rs
@@ -182,14 +182,14 @@
         <div class="">
   
           <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
-            <tr class="border-0" style="font-size: 1.1rem;">
+            <tr class="border-0">
               <td class="border-0">
                 OPEN
               </td>
               <td class="font-weight-bold border-0">
               </td>
             </tr>
-            <tr class="border-0" style="font-size: 1.1rem;">
+            <tr class="border-0">
               <td colspan="2" class="border-0">
               <i class="fas fa-plus-circle"></i>
               </td>

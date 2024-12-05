@@ -71,7 +71,7 @@
     <div class="pt-2 float-right">
 
     @if (true)
-    <div class="float-left mr-5 px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
+    <div class="float-left mr-5 px-2 border-left-rm" style="padding-top: 1px;">
       @livewire ('misc.clock-display-component')
     </div>
     @endif
@@ -88,7 +88,7 @@
 
     @if (has_module('shop'))
       {{-- Online order counter component --}}
-      <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
+      <div class="float-right mx-4-rm px-2 border-left-rm" style="padding-top: 1px;">
         <a href="{{ route('online-order') }}" class="text-reset">
           @livewire ('online-order.dashboard.online-order-counter')
         </a>
@@ -96,26 +96,26 @@
     @endif
 
     {{-- Help/Support --}}
-    <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
+    <div class="float-right mx-4-rm px-2 border-left-rm" style="padding-top: 1px;">
       <a href="{{ route('dashboard-help') }}" class="text-reset">
         <i  class="fas fa-question-circle text-dark-rm mr-2" style="color: {{ config('app.oc_select_txt_color') }}"></i>
       </a>
     </div>
 
     {{-- Misc. Misc operations. --}}
-    <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem;">
+    <div class="float-right mx-4-rm px-2 border-left-rm">
       @include ('partials.dashboard.app-top-menu-misc-dropdown')
     </div>
 
     {{-- Go to website --}}
-    <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem; padding-top: 1px;">
+    <div class="float-right mx-4-rm px-2 border-left-rm" style="padding-top: 1px;">
       <a href="/" target="_blank" class="text-reset">
         <i  class="fas fa-globe text-dark-rm mr-2" style="color: {{ config('app.oc_select_txt_color') }}"></i>
       </a>
     </div>
 
     @if (false)
-    <div class="float-right mx-4-rm px-2 border-left-rm" style="font-size: 1.3rem;">
+    <div class="float-right mx-4-rm px-2 border-left-rm">
       @livewire ('lv-package-info')
     </div>
     @endif

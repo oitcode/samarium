@@ -4,7 +4,7 @@
   <a href="{{ route('website-webpage-' . \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->permalink) }}"
       class="text-reset text-decoration-none" style="">
     <div class="container-fluid bg-dark-rm text-danger p-0" style="background-color: #fdd;">
-      <div class="container" style="font-size: 1.3rem; white-space: nowrap; overflow: hidden;">
+      <div class="container" style="white-space: nowrap; overflow: hidden;">
         <div class="o-ltr py-3 ">
           <div class="d-inline mr-5">
               <span class="badge badge-pill badge-light">

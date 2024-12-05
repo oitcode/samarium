@@ -12,7 +12,7 @@
           Name
         </label>
       </div>
-      <input type="text" wire:model="customerSearch.name" style="font-size: 1.1rem;" wire:keydown.enter="search" />
+      <input type="text" wire:model="customerSearch.name" wire:keydown.enter="search" />
     </div>
 
     <div class="float-left mr-3">
@@ -22,7 +22,7 @@
           Phone
         </label>
       </div>
-      <input type="text" wire:model="customerSearch.phone" style="font-size: 1.1rem;" wire:keydown.enter="search" />
+      <input type="text" wire:model="customerSearch.phone" wire:keydown.enter="search" />
     </div>
 
     <div class="float-left mr-3">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="float-right mr-3">
-      <button class="btn btn-outline-danger h-100 p-3 badge-pill" style="font-size: 1rem;" wire:click="getCreditors">
+      <button class="btn btn-outline-danger h-100 p-3 badge-pill" wire:click="getCreditors">
         Creditors
       </button>
     </div>
@@ -47,7 +47,7 @@
   <div class="mb-4 p-3 bg-white border d-md-none">
 
     <div class=" mb-3">
-      <button class="btn btn-danger h-100 badge-pill" style="font-size: 1.1rem;" wire:click="getCreditors">
+      <button class="btn btn-danger h-100 badge-pill" wire:click="getCreditors">
         Creditors
       </button>
     </div>
@@ -61,7 +61,7 @@
             Name
           </label>
         </div>
-        <input type="text" wire:model="customerSearch.name" style="font-size: 1.1rem;" wire:keydown.enter="search" />
+        <input type="text" wire:model="customerSearch.name" wire:keydown.enter="search" />
       </div>
 
       <div>
@@ -71,14 +71,14 @@
             Phone
           </label>
         </div>
-        <input type="text" wire:model="customerSearch.phone" style="font-size: 1.1rem;" wire:keydown.enter="search" />
+        <input type="text" wire:model="customerSearch.phone" wire:keydown.enter="search" />
       </div>
 
       <div class="mr-3">
         <div>
         &nbsp;
         </div>
-        <button class="btn btn-success" style="font-size: 1.3rem;" wire:click="search">
+        <button class="btn btn-success" wire:click="search">
           Search
         </button>
       </div>
@@ -107,10 +107,11 @@
     <div class="table-responsive border d-none d-md-block">
       <table class="table table-hover mb-0">
         <thead>
-          <tr class="bg-white text-dark" style="font-size: 1rem;">
+          <tr class="bg-white text-dark">
             <th>Name</th>
             <th>Phone</th>
             <th>Balance</th>
+            <th>Action</th>
           </tr>
         </thead>
 
@@ -119,16 +120,22 @@
             @foreach ($customers as $customer)
               <tr class="border" wire:click="$dispatch('displayCustomer', { customerId: {{ $customer->customer_id }} })" role="button">
                 <td>
-                  <span style="font-size: calc(1rem + 0.1vw);">
+                  <span>
                     {{ ucwords($customer->name) }}
                   </span>
                 </td>
-                <td style="font-size: 1rem;">
-                  {{ $customer->phone }}
+                <td>
+                  @if ($customer->phone)
+                    {{ $customer->phone }}
+                  @else
+                    <span class="text-secondary">
+                      No info
+                    </span>
+                  @endif
                 </td>
                 <td>
                   @if ($customer->getBalance() > 0)
-                    <span class="text-muted mr-1" style="font-size: 0.9rem;">
+                    <span class="text-muted mr-1">
                       Rs
                     </span>
                     <span class="font-weight-bold">
@@ -137,6 +144,19 @@
                   @else
                     Rs
                     @php echo number_format( $customer->getBalance() ); @endphp
+                  @endif
+                </td>
+                <td>
+                  @if (true)
+                    <button class="btn btn-primary px-2 py-1" wire:click="">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button class="btn btn-danger px-2 py-1" wire:click="">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="btn btn-success px-2 py-1" wire:click="">
+                      <i class="fas fa-eye"></i>
+                    </button>
                   @endif
                 </td>
               </tr>
@@ -160,7 +180,7 @@
     <div class="table-responsive border d-md-none">
       <table class="table table-hover mb-0">
         <thead>
-          <tr class="bg-white" style="font-size: 1rem;">
+          <tr class="bg-white">
             <th></th>
             <th>Customer</th>
             <th>Balance</th>
@@ -186,16 +206,22 @@
                   </div>
                 </td>
                 <td>
-                  <span style="font-size: calc(1rem + 0.1vw);">
+                  <span>
                     {{ ucwords($customer->name) }}
                   </span>
                   <div class="text-secondary" style="0.9rem;">
-                    {{ $customer->phone }}
+                    @if ($customer->phone)
+                      {{ $customer->phone }}
+                    @else
+                      <span style="color: orange;">
+                        No info
+                      </span>
+                    @endif
                   </div>
                 </td>
                 <td>
                   @if ($customer->getBalance() > 0)
-                    <span class="text-muted mr-1" style="font-size: 0.9rem;">
+                    <span class="text-muted mr-1">
                       Rs
                     </span>
                     <span class="font-weight-bold">
@@ -222,7 +248,7 @@
       </table>
     </div>
   @else
-    <div class="text-secondary py-3" style="font-size: 1.3rem;">
+    <div class="text-secondary py-3">
       No customers.
     </div>
   @endif

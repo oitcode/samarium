@@ -13,8 +13,7 @@
     <label class="h5 font-weight-bold">Title *</label>
     <input type="text"
         class="form-control bg-light rounded-lg"
-        wire:model="title"
-        style="font-size: 1.3rem;">
+        wire:model="title">
     @error ('title') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 

@@ -4,7 +4,7 @@
   </h2>
 
   {{-- Date bar --}}
-  <div class="mt-3 text-secondary py-3" style="font-size: 1.3rem;">
+  <div class="mt-3 text-secondary py-3">
 
     <input type="date" wire:model="startDate" class="mr-3" />
     <input type="date" wire:model="endDate" class="mr-3" />
@@ -22,7 +22,7 @@
 
   @if (count($todayItems) > 0)
     <div class="table-responsive">
-      <table class="table table-bordered table-hover" style="font-size: 1.3rem;">
+      <table class="table table-bordered table-hover">
         <thead>
           <tr class="bg-success-rm text-white-rm">
             <th>

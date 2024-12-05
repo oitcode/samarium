@@ -7,7 +7,7 @@
     <div class="table-responsive d-none d-md-block bg-white">
       <table class="table table-sm table-hover mb-0">
         <thead>
-          <tr class="text-secondary-rm" style="font-size: calc(0.7rem + 0.3vw);">
+          <tr class="text-secondary-rm">
             <th class="py-2">ID</th>
             <th class="py-2">Date</th>
             <th class="py-2">Customer</th>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
           @foreach ($saleInvoices as $saleInvoice)
-            <tr style="font-size: calc(0.7rem + 0.3vw);">
+            <tr>
               <td>
                 {{ $saleInvoice->sale_invoice_id }}
               </td>
@@ -96,7 +96,7 @@
                 </div>
               </td>
               <td>
-                <div class="font-weight-bold" style="font-size: 1rem;">
+                <div class="font-weight-bold">
                   Rs
                   {{ $saleInvoice->getTotalAmount() }}
                 </div>

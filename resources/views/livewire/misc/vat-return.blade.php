@@ -7,14 +7,14 @@
       </h2>
     </div>
 
-    <div class="my-3 text-secondary p-3" style="font-size: calc(1rem + 0.2vw);">
+    <div class="my-3 text-secondary p-3">
 
       <div class="d-flex justify-content-between">
         <div>
-          <div class="text-muted mb-2" style="font-size: 0.6rem;">
+          <div class="text-muted mb-2">
             Please select date range
           </div>
-          <div class="d-flex" style="font-size: 1rem;">
+          <div class="d-flex">
             <div>
               <input type="date" wire:model="startDate" class="mr-3" />
             </div>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="bg-warning-rm p-3 shadow-sm col-md-3" style="background-color: #ffa;">
-          <div style="font-size: 1rem;">
+          <div>
             <i class="fas fa-exclamation-circle fa-2x-rm mr-2 text-danger"></i>
             Please check your local tax regulations. 
           </div>
@@ -55,7 +55,7 @@
                 {{ config('app.oc_ascent_bg_color', 'bg-success') }}
                 {{ config('app.oc_ascent_text_color', 'text-white') }}
                 "
-                style="font-size: 0.9rem;">
+                >
               <th class="w-75">Category</th>
               <th>Bills</th>
               <th>Total</th>
@@ -114,7 +114,7 @@
         <h2 class="h5">
           Payable
         </h2>
-        <div class="mb-3 font-weight-bold" style="font-size: 0.6rem;">
+        <div class="mb-3 font-weight-bold">
           {{ $startDate }}
           to
           {{ $endDate }}

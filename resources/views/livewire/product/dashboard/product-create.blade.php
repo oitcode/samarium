@@ -20,14 +20,13 @@
             <label class="h5" for="">Name *</label>
             <input type="text"
                 class="form-control shadow-sm"
-                wire:model="name"
-                style="font-size: 1.3rem;">
+                wire:model="name">
             @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
       
           <div class="form-group">
             <label class="h5">Category *</label>
-            <select class="custom-select shadow-sm" wire:model="product_category_id" style="font-size: 1.3rem;">
+            <select class="custom-select shadow-sm" wire:model="product_category_id">
               <option>---</option>
               @foreach ($productCategories as $productCategory)
                 <option value="{{ $productCategory->product_category_id }}">
@@ -43,8 +42,7 @@
             <label class="h5" for="">Selling price *</label>
             <input type="text"
                 class="form-control shadow-sm"
-                wire:model="selling_price"
-                style="font-size: 1.3rem;">
+                wire:model="selling_price">
             @error('selling_price') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
 
@@ -60,8 +58,7 @@
               <textarea type="text"
                   class="form-control mb-0"
                   rows="5"
-                  wire:model="description"
-                  style="font-size: 1.3rem;">
+                  wire:model="description">
               </textarea>
               @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
@@ -82,7 +79,7 @@
 
         <h2 class="h5">
           Image
-          <span class="text-muted ml-1" style="font-size: 0.7rem">
+          <span class="text-muted ml-1">
             (Optional)
           </span>
         </h2>
@@ -134,7 +131,7 @@
             @if (false)
             <div class="form-group">
               <label for="">Stock applicable</label>
-              <select class="custom-select" wire:model="stock_applicable" style="font-size: 1.3rem;">
+              <select class="custom-select" wire:model="stock_applicable">
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -144,7 +141,7 @@
 
             <div class="form-group">
               <label>Product type</label>
-              <select class="custom-select" wire:model.live="product_type" style="font-size: 1.3rem;">
+              <select class="custom-select" wire:model.live="product_type">
                   <option value="normal">Normal</option>
                   <option value="base">Base</option>
                   <option value="sub">Sub</option>
@@ -157,8 +154,7 @@
               <label for="">Inventory unit</label>
               <input type="text"
                   class="form-control"
-                  wire:model="inventory_unit"
-                  style="font-size: 1.3rem;">
+                  wire:model="inventory_unit">
               @error ('inventory_unit') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
         
@@ -166,8 +162,7 @@
               <label for="">Opening stock count</label>
               <input type="text"
                   class="form-control"
-                  wire:model="opening_stock_count"
-                  style="font-size: 1.3rem;">
+                  wire:model="opening_stock_count">
               @error('opening_stock_count') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
         
@@ -175,8 +170,7 @@
               <label for="">Low stock notification count</label>
               <input type="text"
                   class="form-control"
-                  wire:model="stock_notification_count"
-                  style="font-size: 1.3rem;">
+                  wire:model="stock_notification_count">
               @error('stock_notification_count') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             @endif
@@ -184,7 +178,7 @@
             @if (false)
             <div class="form-group">
               <label>Is base product</label>
-              <select class="custom-select" wire:model="is_base_product" style="font-size: 1.3rem;">
+              <select class="custom-select" wire:model="is_base_product">
                 <option>---</option>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
@@ -196,7 +190,7 @@
             @if ($modes['subProduct'])
             <div class="form-group">
               <label>Base product</label>
-              <select class="custom-select" wire:model="base_product_id" style="font-size: 1.3rem;">
+              <select class="custom-select" wire:model="base_product_id">
                 <option>---</option>
                 @if (true)
                 @foreach ($baseProducts as $baseProduct)
@@ -216,8 +210,7 @@
               <label for="">Inventory Unit Consumption</label>
               <input type="text"
                   class="form-control"
-                  wire:model="inventory_unit_consumption"
-                  style="font-size: 1.3rem;">
+                  wire:model="inventory_unit_consumption">
               @error ('inventory_unit_consumption') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             @endif

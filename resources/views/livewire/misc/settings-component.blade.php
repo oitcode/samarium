@@ -52,24 +52,21 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model="new_sale_invoice_payment_type_name"
-                      style="font-size: 1.3rem; max-width: 500px;">
+                      wire:model="new_sale_invoice_payment_type_name">
                   @error('new_sale_invoice_payment_type_name')
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
 
-                <div class="mt-4" style="font-size: 1.3rem;">
+                <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
-                      wire:click="storeSaleInvoicePaymentType"
-                      style="font-size: 1rem;">
+                      wire:click="storeSaleInvoicePaymentType">
                     Submit
                   </button>
                   <button type="submit"
                       class="btn btn-danger"
-                      wire:click="exitMultiMode('createSaleInvoicePaymentType')"
-                      style="font-size: 1rem;">
+                      wire:click="exitMultiMode('createSaleInvoicePaymentType')">
                     Cancel
                   </button>
                 </div>
@@ -103,8 +100,7 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model="new_sale_invoice_addition_heading_name"
-                      style="font-size: 1.3rem;">
+                      wire:model="new_sale_invoice_addition_heading_name">
                   @error('new_sale_invoice_addition_heading_name')
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
@@ -112,7 +108,7 @@
 
                 <div class="form-group">
                   <label>Effect</label>
-                  <select class="custom-select" wire:model="new_sale_invoice_addition_heading_effect" style="font-size: 1.3rem;">
+                  <select class="custom-select" wire:model="new_sale_invoice_addition_heading_effect">
                     <option>---</option>
                       <option value="plus">Plus</option>
                       <option value="minus">Minus</option>
@@ -122,17 +118,15 @@
                   @enderror
                 </div>
 
-                <div class="mt-4" style="font-size: 1.3rem;">
+                <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
-                      wire:click="storeSaleInvoiceAdditionHeading"
-                      style="font-size: 1rem;">
+                      wire:click="storeSaleInvoiceAdditionHeading">
                     Submit
                   </button>
                   <button type="submit"
                       class="btn btn-danger"
-                      wire:click="exitMultiMode('createSaleInvoiceAdditionHeading')"
-                      style="font-size: 1rem;">
+                      wire:click="exitMultiMode('createSaleInvoiceAdditionHeading')">
                     Cancel
                   </button>
                 </div>
@@ -169,23 +163,20 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model="new_purchase_payment_type_name"
-                      style="font-size: 1.3rem;">
+                      wire:model="new_purchase_payment_type_name">
                   @error ('new_purchase_payment_type_name')
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
 
-                <div class="mt-4" style="font-size: 1.3rem;">
+                <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
-                      wire:click="storePurchasePaymentType"
-                      style="font-size: 1rem;">
+                      wire:click="storePurchasePaymentType">
                     Submit
                   </button>
                   <button type="submit"
-                      class="btn btn-danger" wire:click="exitMultiMode('createPurchasePaymentType')"
-                      style="font-size: 1rem;">
+                      class="btn btn-danger" wire:click="exitMultiMode('createPurchasePaymentType')">
                     Cancel
                   </button>
                 </div>
@@ -219,8 +210,7 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model="new_purchase_addition_heading_name"
-                      style="font-size: 1.3rem;">
+                      wire:model="new_purchase_addition_heading_name">
                   @error('new_purchase_addition_heading_name')
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
@@ -228,7 +218,7 @@
 
                 <div class="form-group">
                   <label>Effect</label>
-                  <select class="custom-select" wire:model="new_purchase_addition_heading_effect" style="font-size: 1.3rem;">
+                  <select class="custom-select" wire:model="new_purchase_addition_heading_effect">
                     <option>---</option>
                       <option value="plus">Plus</option>
                       <option value="minus">Minus</option>
@@ -238,17 +228,15 @@
                   @enderror
                 </div>
 
-                <div class="mt-4" style="font-size: 1.3rem;">
+                <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
-                      wire:click="storePurchaseAdditionHeading"
-                      style="font-size: 1rem;">
+                      wire:click="storePurchaseAdditionHeading">
                     Submit
                   </button>
                   <button type="submit"
                       class="btn btn-danger"
-                      wire:click="exitMultiMode('createPurchaseAdditionHeading')"
-                      style="font-size: 1rem;">
+                      wire:click="exitMultiMode('createPurchaseAdditionHeading')">
                     Cancel
                   </button>
                 </div>
@@ -285,24 +273,21 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model="new_expense_payment_type_name"
-                      style="font-size: 1.3rem;">
+                      wire:model="new_expense_payment_type_name">
                   @error('new_expense_payment_type_name')
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
 
-                <div class="mt-4" style="font-size: 1.3rem;">
+                <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
-                      wire:click="storeExpensePaymentType"
-                      style="font-size: 1rem;">
+                      wire:click="storeExpensePaymentType">
                     Submit
                   </button>
                   <button type="submit"
                       class="btn btn-danger"
-                      wire:click="exitMultiMode('createExpensePaymentType')"
-                      style="font-size: 1rem;">
+                      wire:click="exitMultiMode('createExpensePaymentType')">
                     Cancel
                   </button>
                 </div>
@@ -336,8 +321,7 @@
                   <label for="">Name</label>
                   <input type="text"
                       class="form-control"
-                      wire:model="new_expense_addition_heading_name"
-                      style="font-size: 1.3rem;">
+                      wire:model="new_expense_addition_heading_name">
                   @error('new_expense_addition_heading_name')
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
@@ -345,7 +329,7 @@
 
                 <div class="form-group">
                   <label>Effect</label>
-                  <select class="custom-select" wire:model="new_expense_addition_heading_effect" style="font-size: 1.3rem;">
+                  <select class="custom-select" wire:model="new_expense_addition_heading_effect">
                     <option>---</option>
                       <option value="plus">Plus</option>
                       <option value="minus">Minus</option>
@@ -355,17 +339,15 @@
                   @enderror
                 </div>
 
-                <div class="mt-4" style="font-size: 1.3rem;">
+                <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
-                      wire:click="storeExpenseAdditionHeading"
-                      style="font-size: 1rem;">
+                      wire:click="storeExpenseAdditionHeading">
                     Submit
                   </button>
                   <button type="submit"
                       class="btn btn-danger"
-                      wire:click="exitMultiMode('createExpenseAdditionHeading')"
-                      style="font-size: 1rem;">
+                      wire:click="exitMultiMode('createExpenseAdditionHeading')">
                     Cancel
                   </button>
                 </div>

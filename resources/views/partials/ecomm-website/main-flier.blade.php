@@ -62,7 +62,7 @@
       @endif
       @if (false)
       <div>
-        <button class="btn btn-success" style="font-size: 1.3rem;">
+        <button class="btn btn-success">
           SIGN UP FOR FREE
           <i class="fas fa-arrow-right ml-1"></i>
         </button>

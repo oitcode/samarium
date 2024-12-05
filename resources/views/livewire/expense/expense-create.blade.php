@@ -52,8 +52,7 @@
                 class="btn
                     {{ config('app.oc_ascent_btn_color', 'btn-light') }}
                     w-100 py-3"
-                wire:click="finishCreation"
-                style="font-size: calc(1rem + 0.2vw);">
+                wire:click="finishCreation">
               <i class="fas fa-check-circle mr-3"></i>
               Confirm
             </button>
@@ -62,14 +61,14 @@
                   onclick="this.disabled=true;"
                   class="btn btn-lg btn-success"
                   wire:click="finishPayment"
-                  style="font-size: 1.3rem;">
+                  >
                 FINISH
               </button>
               <button
                   onclick="this.disabled=true;"
                   class="btn btn-lg"
                   wire:click="finishPayment"
-                  style="font-size: 1.3rem; background-color: orange">
+                  style="background-color: orange">
                 PRINT
               </button>
             @endif

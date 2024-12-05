@@ -6,13 +6,13 @@
 
   {{-- Toolbar --}}
   <div class="mb-4 d-flex justify-content-end">
-    <button class="btn border mr-3 text-primary" style="font-size: 1rem;">
+    <button class="btn border mr-3 text-primary">
       <i class="fas fa-print mr-2"></i>
       <br />
       Print
     </button>
 
-    <button class="btn border text-primary" style="font-size: 1rem;">
+    <button class="btn border text-primary">
       <i class="fas fa-share mr-2"></i>
       <br />
       Share
@@ -25,7 +25,7 @@
       Assets
     </h2>
 
-    <div class="row" style="font-size: 1rem;">
+    <div class="row">
       <div class="col-6">
         Current assets
       </div>
@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <div class="row" style="font-size: 1rem;">
+    <div class="row">
       <div class="col-6">
         Non-current assets
       </div>
@@ -52,7 +52,7 @@
       Liabilities
     </h2>
 
-    <div class="row" style="font-size: 1rem;">
+    <div class="row">
       <div class="col-6">
         Current liabilities
       </div>
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <div class="row" style="font-size: 1rem;">
+    <div class="row">
       <div class="col-6">
         Non-current liabilities
       </div>
@@ -78,11 +78,11 @@
       Equity
     </h2>
 
-    <div class="row" style="font-size: 1rem;">
+    <div class="row">
       <div class="col-6">
         Equity
       </div>
-      <div class="col-6" style="font-size: 1rem;">
+      <div class="col-6">
         Rs
         @php echo number_format( $equityTotal ); @endphp
       </div>

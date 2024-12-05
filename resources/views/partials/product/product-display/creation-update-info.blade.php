@@ -17,7 +17,7 @@
     <div class="col-1">
       Created at
     </div>
-    <div class="col-6" style="font-size: 0.8rem;">
+    <div class="col-6">
       {{ $product->created_at }}
     </div>
   </div>
@@ -25,7 +25,7 @@
     <div class="col-1">
       Updated at
     </div>
-    <div class="col-6" style="font-size: 0.8rem;">
+    <div class="col-6">
       {{ $product->updated_at }}
     </div>
   </div>

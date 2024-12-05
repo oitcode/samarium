@@ -1,7 +1,7 @@
 <div class="p-3-rm border-rm bg-warning-rm">
 
   {{-- Breadcrumb --}}
-  <div class="py-1 text-secondary-rm mb-4-rm" style="font-size: 1.15rem;">
+  <div class="py-1 text-secondary-rm mb-4-rm">
     <a class="text-primary-rm text-reset"
         href="{{ route('website-home') }}"
         style="{{-- color: #000; --}}">
@@ -45,7 +45,7 @@
               </p>
               <div class="mt-5 mb-4">
                 <a href=""  class="font-weight-bold" style="color: orange;">
-                  <span style="font-size: 1.1rem;">
+                  <span>
                     Register now
                   </span>
                 </a>
@@ -73,7 +73,7 @@
 
   @if (false)
   <div class="bg-danger-rm text-white-rm py-3 px-2 pl-3-rm border-rm shadow-sm-rm d-flex justify-content-center"
-      style="background-color: #efefef; {{-- color: #555;  border: 10px solid #aaf;font-size: 1.15rem; border-left: 10px solid brown;--}} ">
+      style="background-color: #efefef;">
     <div class="" style=" {{-- background-color: white; color: black;--}} ">
       <div class="h2 font-weight-bold pt-3 text-center">
         @if (false)
@@ -134,7 +134,7 @@
         @endforeach
       </div>
     @else
-      <div class="p-2 text-secondary" style="font-size: 1.3rem;">
+      <div class="p-2 text-secondary">
         No products
       </div>
     @endif

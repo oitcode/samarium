@@ -60,7 +60,7 @@
 
 
     <div class="pt-2">
-      <div class="d-flex" style="font-size: 1rem;">
+      <div class="d-flex">
         <div class="mr-4 font-weight-bold">
           Total : {{ count($websiteOrders) }}
         </div>
@@ -80,7 +80,7 @@
 
 
   @if (false)
-  <div class="d-flex mb-4 pl-2" style="font-size: 1rem;">
+  <div class="d-flex mb-4 pl-2">
     <div class="mr-4">
       New : {{ $newOrderCount }}
     </div>
@@ -103,7 +103,7 @@
       <div class="table-responsive mb-3 d-none d-md-block">
         <table class="table table-hover border">
           <thead>
-            <tr class="bg-white text-dark"  style="font-size: 1.1rem;">
+            <tr class="bg-white text-dark">
               <th style="width: 120px;">
                 Order ID
               </th>
@@ -124,6 +124,9 @@
               </th>
               <th>
                 Status
+              </th>
+              <th>
+                Action
               </th>
             </tr>
           </thead>
@@ -152,7 +155,7 @@
                 <td>
                   {{ \Illuminate\Support\Str::limit($order->address, 15, $end=' ...') }}
                 </td>
-                <td class="font-weight-bold" style="font-size: 0.9rem;">
+                <td class="font-weight-bold">
                   Rs
                   @php echo number_format( $order->getTotalAmount() ); @endphp
                 </td>
@@ -177,6 +180,19 @@
                     <span class="badge">
                       {{ $order->status }}
                     </span>
+                  @endif
+                </td>
+                <td>
+                  @if (true)
+                    <button class="btn btn-primary px-2 py-1" wire:click="">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button class="btn btn-danger px-2 py-1" wire:click="">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="btn btn-success px-2 py-1" wire:click="">
+                      <i class="fas fa-eye"></i>
+                    </button>
                   @endif
                 </td>
 
@@ -205,7 +221,7 @@
                     @endif
                   <div>
                 </td>
-                <td class="" style="font-size: 1.1rem;">
+                <td class="">
                 </td>
                 <td class="pl-3">
                   {{ $order->phone }}
@@ -213,7 +229,7 @@
                     {{ \Illuminate\Support\Str::limit($order->address, 15, $end=' ...') }}
                   <div>
                 </td>
-                <td style="font-size: 1rem;">
+                <td>
                   Rs
                   @php echo number_format( $order->getTotalAmount() ); @endphp
                 </td>
@@ -252,7 +268,7 @@
       </div>
 
       @else
-        <div class="text-secondary pl-2" style="font-size: 1rem;">
+        <div class="text-secondary pl-2">
           No online orders.
         </div>
       @endif

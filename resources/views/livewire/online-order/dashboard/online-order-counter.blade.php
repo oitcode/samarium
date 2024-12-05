@@ -1,5 +1,5 @@
 <div>
-    <span style="{{-- font-size: 0.9rem; --}}">
+    <span>
       <i class="fas fa-shopping-cart text-info-rm mr-1"></i>
     </span>
     

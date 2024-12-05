@@ -5,8 +5,7 @@
     <div class="dropdown" wire:key="rand">
       <button class="btn btn-success dropdown-toggle"
           type="button" id="bookDropdown"
-          data-toggle="dropdown" aria-expanded="false"
-          style="font-size: 1.3rem;">
+          data-toggle="dropdown" aria-expanded="false">
         Book
       </button>
       <div class="dropdown-menu" aria-labelledby="bookDropdown">
@@ -24,7 +23,7 @@
         </button>
       </div>
     </div>
-    <button wire:loading class="btn btn-danger-rm" style="font-size: 0.5rem;">
+    <button wire:loading class="btn btn-danger-rm">
       <div class="spinner-border text-info mr-3" role="status">
         <span class="sr-only">Loading...</span>
       </div>
@@ -53,7 +52,6 @@
             wire:click="goToPrevious('year')"
           @else
           @endif
-          style="font-size: 1.3rem;"
           >
         <i class="fas fa-arrow-left mr-3"></i>
         Previous
@@ -70,7 +68,6 @@
             wire:click="goToNext('year')"
           @else
           @endif
-          style="font-size: 1.3rem;"
           >
         <i class="fas fa-arrow-right mr-3"></i>
         Next
@@ -78,7 +75,7 @@
     </div>
 
     {{-- Display info --}}
-    <div class="my-3 py-3 pl-3 bg-white border" style="font-size: 1.3rem;">
+    <div class="my-3 py-3 pl-3 bg-white border">
       @if ($modes['daybook'])
         <div style="color: orange">
           <h2>
@@ -113,7 +110,7 @@
     </div>
 
     <div class="table-responsive bg-white">
-      <table class="table table-bordered" style="font-size:1.3rem;">
+      <table class="table table-bordered">
         <thead>
           <tr class="bg-success text-white">
             <th>

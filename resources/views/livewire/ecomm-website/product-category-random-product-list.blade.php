@@ -46,7 +46,7 @@
         @endforeach
       </div>
     @else
-      <div class="p-2 text-secondary" style="font-size: 1.3rem;">
+      <div class="p-2 text-secondary">
         No products
       </div>
     @endif

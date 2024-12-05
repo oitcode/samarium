@@ -3,7 +3,7 @@
 
   <div class="card-body p-3">
 
-    <h1 class="" style="font-size: 1.3rem;">
+    <h1>
       Create team member
     </h1>
 
@@ -11,8 +11,7 @@
       <label for="">Name</label>
       <input type="text"
           class="form-control"
-          wire:model="name"
-          style="font-size: 1.3rem;">
+          wire:model="name">
       @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
@@ -49,8 +48,7 @@
       <label for="">Post</label>
       <input type="text"
           class="form-control"
-          wire:model="comment"
-          style="font-size: 1.3rem;">
+          wire:model="comment">
       @error ('comment') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
@@ -58,8 +56,7 @@
       <label for="">Phone</label>
       <input type="text"
           class="form-control"
-          wire:model="phone"
-          style="font-size: 1.3rem;">
+          wire:model="phone">
       @error ('phone') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
@@ -67,8 +64,7 @@
       <label for="">Email</label>
       <input type="text"
           class="form-control"
-          wire:model="email"
-          style="font-size: 1.3rem;">
+          wire:model="email">
       @error ('email') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 

@@ -3,7 +3,7 @@
 
   <div class="form-group">
     <label class="h5">Product vendor *</label>
-    <select class="custom-select shadow-sm" wire:model="product_vendor_id" style="font-size: 1.3rem;">
+    <select class="custom-select shadow-sm" wire:model="product_vendor_id">
       <option>---</option>
       @foreach ($productVendors as $productVendor)
         <option value="{{ $productVendor->product_vendor_id }}">

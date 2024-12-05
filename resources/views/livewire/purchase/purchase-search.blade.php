@@ -10,7 +10,6 @@
     <div class="my-4">
       <input type="text"
           class="mr-5 h-100 form-control"
-          style="font-size: 1.5rem;"
           wire:model="vendor_search_name"
           wire:keydown.enter="search"
           autofocus>
@@ -31,7 +30,7 @@
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive bg-white">
-    <table class="table border mb-0" style="font-size: 1rem;">
+    <table class="table border mb-0">
       <thead>
         <tr class="
             {{ config('app.oc_ascent_bg_color', 'bg-success') }}
@@ -50,11 +49,11 @@
       <tbody>
         @if (!is_null($purchases) && count($purchases) > 0)
           @foreach ($purchases as $purchase)
-            <tr wire:key="{{ rand() }}" wire:click="$dispatch('displayPurchase', {purchaseId: {{ $purchase->purchase_id }} })" style="font-size: 0.8rem;" role="button">
+            <tr wire:key="{{ rand() }}" wire:click="$dispatch('displayPurchase', {purchaseId: {{ $purchase->purchase_id }} })" role="button">
               <td>
                 {{ $purchase->purchase_id }}
               </td>
-              <td style="font-size: 0.8rem;">
+              <td>
                 {{ $purchase->purchase_date }}
               </td>
               <td>

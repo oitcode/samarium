@@ -1,6 +1,6 @@
 <div class="container-fluid {{ config('app.site_ecs_theme_bs_class') }}">
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-dark" style="font-size: 1.2rem;">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

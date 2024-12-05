@@ -26,7 +26,7 @@
 @if (\App\WebpageCategory::where('name', 'notice')->first())
   @if (count(\App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->get()) > 0)
     <div class="container-fluid bg-dark-rm text-danger-rm p-0" style="{{-- background-color: #fdd; --}}">
-      <div class="container" style="font-size: 1.3rem;">
+      <div class="container">
         <div class="o-ltr-rm py-3 ">
           <div class="mb-1 font-weight-bold">
               {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->name }}
@@ -35,7 +35,7 @@
 
 
           {{-- Published info --}}
-          <div class="px-3-rm text-secondary mb-4" style="font-size: 1rem;">
+          <div class="px-3-rm text-secondary mb-4">
             Published on:
             @if (false)
               {{ \App\WebpageCategory::where('name', 'notice')->first()->webpages()->where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->first()->created_at->toDateString() }}

@@ -62,7 +62,7 @@
           @if ($saleInvoice)
     
           {{-- Component loading indicator line --}}
-          <div class="w-100" wire:loading.class="bg-info w-100" style="font-size: 0.2rem;">
+          <div class="w-100" wire:loading.class="bg-info w-100">
             <div>
               &nbsp;
             </div>

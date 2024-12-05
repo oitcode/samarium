@@ -1,4 +1,4 @@
-<div style="width: 1000px !important; font-size: 1.3rem;">
+<div style="width: 1000px !important;">
       <div class="modal enter" tabindex="-1" role="dialog" data-backdrop="static" id="saleInvoiceItemDeleteConfirmModal">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -44,14 +44,12 @@
               <div class="mx-2 ml-3 mt-3 mb-3">
                 <button wire:click="$dispatch('removeItemFromSaleInvoice', {{ $deletingSaleInvoiceItem->sale_invoice_item_id }})"
                     class="btn btn-sm btn-danger mr-3 p-2"
-                    data-dismiss="modal"
-                    style="font-size: 1.2rem;">
+                    data-dismiss="modal">
                   Remove
                 </button>
                 <button wire:click="$dispatch('exitDeleteSaleInvoiceItem')"
                     class="btn btn-sm btn-secondary mr-3 p-2"
-                    data-dismiss="modal"
-                    style="font-size: 1.2rem;">
+                    data-dismiss="modal">
                   Cancel
                 </button>
               </div>

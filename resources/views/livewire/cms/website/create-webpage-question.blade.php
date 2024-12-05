@@ -65,7 +65,7 @@
   </button>
   <br/>
   @if (false)
-  <p class="text-muted" style="font-size: 0.7rem;">
+  <p class="text-muted">
     ** Your contact details wont be published.
   </p>
   @endif

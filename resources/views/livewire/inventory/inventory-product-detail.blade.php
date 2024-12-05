@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="mt-2-rm mb-3 text-secondary py-3-rm d-flex bg-warning-rm" style="font-size: 1rem;">
+  <div class="mt-2-rm mb-3 text-secondary py-3-rm d-flex bg-warning-rm">
 
     <div>
       <input type="date" wire:model="startDate" class="mr-3" />
@@ -30,7 +30,7 @@
 
   <div>
     <div class="d-flex bg-success-rm text-white-rm p-2 mb-3">
-      <div class="bg-success mr-3" style="font-size: 2rem;">
+      <div class="bg-success mr-3">
         &nbsp;
       </div>
       <div class="d-flex flex-column justify-content-center">
@@ -163,7 +163,7 @@
       </div>
     @endif
     <div class="d-flex bg-success-rm text-white-rm p-2 mb-3">
-      <div class="bg-success mr-3" style="font-size: 2rem;">
+      <div class="bg-success mr-3">
         &nbsp;
       </div>
       <div class="d-flex flex-column justify-content-center">

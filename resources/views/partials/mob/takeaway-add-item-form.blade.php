@@ -1,5 +1,5 @@
 <div class="m-2 p-3 border-rm">
-  <div class="p-3 border shadow" style="font-size: 1.1rem;">
+  <div class="p-3 border shadow">
     @if (true)
     {{-- Category --}}
     <div class="form-group">
@@ -42,7 +42,7 @@
         @if ($selectedProduct)
           @php echo number_format( $total ); @endphp
         @else
-          <span class="text-muted" style="font-size: 1rem;">
+          <span class="text-muted">
             No product selected
           </span>
         @endif
@@ -60,13 +60,13 @@
 
     {{-- Submit button --}}
     <div class="my-3">
-      <button class="btn btn-lg btn-success mr-3" wire:click.prevent="addItemToTakeaway" style="font-size: 1.3rem;">
+      <button class="btn btn-lg btn-success mr-3" wire:click.prevent="addItemToTakeaway">
         <i class="fas fa-plus-circle mr-2"></i>
         Add
       </button>
   
       @if (true)
-      <button class="btn btn-lg btn-danger" wire:click.prevent="resetInputFields" style="font-size: 1.3rem;">
+      <button class="btn btn-lg btn-danger" wire:click.prevent="resetInputFields">
         <i class="fas fa-sync mr-2"></i>
         Reset
       </button>

@@ -1,7 +1,6 @@
 <div class="mt-4">
   @if ($modes['openUpMode'])
     <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border shadow-sm d-flex justify-content-between"
-        style="{{-- background-color: #dadada; color: #000;  border: 10px solid #aaf; font-size: 1.15rem; border-left: 10px solid brown;--}}"
         wire:click="exitMode('openUpMode')"
         role="button">
       <div class="" style=" {{-- background-color: white; color: black;--}} ">
@@ -18,7 +17,7 @@
     </div>
   @else
     <div class="bg-primary-rm text-white-rm py-3 px-2 pl-3-rm border shadow-sm d-flex justify-content-between"
-        style="background-color: #f5f5f5; {{-- color: #000;  border: 10px solid #aaf; font-size: 1.15rem; border-left: 10px solid brown;--}}"
+        style="background-color: #f5f5f5;"
         wire:click="enterMode('openUpMode')"
         role="button">
       <div class="" style=" {{-- background-color: white; color: black;--}} ">
@@ -64,7 +63,7 @@
             @endforeach
           </div>
         @else
-          <div class="p-2 text-secondary" style="font-size: 1.3rem;">
+          <div class="p-2 text-secondary">
             No products
           </div>
         @endif

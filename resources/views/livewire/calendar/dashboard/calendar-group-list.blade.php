@@ -12,7 +12,7 @@
           <thead>
             <tr class="{{ config('app.oc_ascent_bg_color', 'bg-light') }}
                 {{ config('app.oc_ascent_text_color', 'text-dark') }}
-                p-4" style="font-size: 1rem;">
+                p-4">
               <th class="w-25">Calendar group ID</th>
               <th>Name</th>
             </tr>

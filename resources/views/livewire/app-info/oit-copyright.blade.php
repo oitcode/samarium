@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-center h-100 text-success">
       <div class="d-flex justify-content-center align-self-center">
 
-        <span class="badge badge-success text-white" style="font-size: 2rem;">
+        <span class="badge badge-success text-white">
           &copy;
           OIT
           cafePY

@@ -27,7 +27,7 @@
 
     @if (false)
     {{-- Just a message --}}
-    <div class="float-left ml-3" style="font-size: 0.7rem;">
+    <div class="float-left ml-3">
       <span class="text-secondary" style="font-family: Mono;">
         Thanks for visiting our e-store.
       </span>

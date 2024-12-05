@@ -37,7 +37,7 @@
       <h2 class="h4 mr-4">
         Today takeaways
       </h2>
-      <h2 class="h4 mr-4 badge badge-success-rm badge-pill" style="font-size: 1.1rem;">
+      <h2 class="h4 mr-4 badge badge-success-rm badge-pill">
         {{ $count }}
       </h2>
   

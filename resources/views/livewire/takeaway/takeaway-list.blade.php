@@ -61,7 +61,7 @@
 
 
     <div class="pt-2">
-      <div class="d-flex" style="font-size: 1rem;">
+      <div class="d-flex">
         <div class="mr-4 font-weight-bold">
           Today : {{ $todayTakeawayCount }}
         </div>
@@ -80,7 +80,7 @@
   <div class="table-responsive d-none d-md-block">
     <table class="table table-hover shadow-sm border">
       <thead>
-        <tr class="p-4 bg-white text-dark" style="font-size: 1rem;">
+        <tr class="p-4 bg-white text-dark">
           <th>
             ID
           </th>
@@ -111,7 +111,7 @@
             <td>
               {{ $takeaway->takeaway_id }}
             </td>
-            <td class="d-none d-md-table-cell" style="font-size: 1rem;">
+            <td class="d-none d-md-table-cell">
               {{--
                   Todo: Should show takeaway date
                   if needed then set appropriate date for
@@ -191,7 +191,7 @@
                 </span>
 
               @else
-                <span style="font-size: 1rem;">
+                <span>
                   {{ $takeaway->created_at->toDateString() }}
                 </span>
               @endif

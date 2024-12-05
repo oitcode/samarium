@@ -21,7 +21,7 @@
     </div>
 
     <div class="py-3">
-      <button type="submit" class="btn btn-success" style="font-size: 1rem;" wire:click="selectAbAccount">
+      <button type="submit" class="btn btn-success" wire:click="selectAbAccount">
         Go
       </button>
     </div>

@@ -2,7 +2,7 @@
   @if (!is_null($purchases) && count($purchases) > 0)
 
     {{-- Show in bigger screens --}}
-    <div class="table-responsive d-none d-md-block bg-white" style="font-size: 1.1rem;">
+    <div class="table-responsive d-none d-md-block bg-white">
       <table class="table mb-0">
         <thead>
           <tr class="">
@@ -45,7 +45,7 @@
                   NONE
                 @endif
               </td>
-              <td style="font-size: 1.1rem;">
+              <td>
                 @if ($purchase->payment_status == 'pending')
                   <span class="badge badge-pill badge-danger">
                     Pending

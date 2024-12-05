@@ -44,7 +44,7 @@
       @endif
 
       {{-- Component loading indicator line --}}
-      <div class="w-100" wire:loading.class="bg-info w-100" style="font-size: 0.2rem;">
+      <div class="w-100" wire:loading.class="bg-info w-100">
         <div>
           &nbsp;
         </div>
@@ -162,7 +162,7 @@
             <div class="table-responsive border d-none d-md-block">
               <table class="table table-hover mb-0">
                 <thead>
-                  <tr style="font-size: calc(0.6rem + 0.2vw);">
+                  <tr>
                     <th>--</th>
                     <th>#</th>
                     <th>Item</th>
@@ -173,16 +173,16 @@
                   </tr>
                 </thead>
   
-                <tbody class="bg-white" style="font-size: calc(0.6rem + 0.2vw);">
+                <tbody class="bg-white">
                   @if (count($purchase->purchaseItems) > 0)
                     @foreach ($purchase->purchaseItems as $item)
-                    <tr style="font-size: calc(0.6rem + 0.2vw);" class="font-weight-bold">
+                    <tr class="font-weight-bold">
                       <td>
                         <a href="" wire:click.prevent="confirmRemoveItemFromPurchase({{ $item->purchase_item_id }})">
                         <i class="fas fa-trash text-danger"></i>
                         </a>
                       </td>
-                      <td class="text-secondary" style="font-size: 1rem;"> {{ $loop->iteration }} </td>
+                      <td class="text-secondary"> {{ $loop->iteration }} </td>
                       <td>
                         <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                         {{ $item->product->name }}
@@ -206,7 +206,7 @@
                   @endif
                 </tbody>
   
-                <tfoot style="font-size: 0.8rem;">
+                <tfoot>
                   <tr>
                     <td colspan="6" class="font-weight-bold text-right">
                       <strong>
@@ -259,7 +259,7 @@
                         <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                       </td>
                       <td>
-                        <div class="font-weight-bold" style="font-size: 1rem;">
+                        <div class="font-weight-bold">
                           {{ $item->product->name }}
                         </div>
                         <div class="mt-2">
@@ -278,7 +278,7 @@
                           </span>
                         </div>
                       </td>
-                      <td class="font-weight-bold" style="font-size: 1rem;">
+                      <td class="font-weight-bold">
                         Rs
                         @php echo number_format( $item->getTotalAmount(), 2 ); @endphp
                       </td>
