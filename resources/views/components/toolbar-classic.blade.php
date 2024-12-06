@@ -1,7 +1,6 @@
 <div>
 
 
-  {{-- Show in bigger screens --}}
   <div class="mb-1 py-3 px-0 d-flex
       @isset ($toolbarAlign)
         @if ($toolbarAlign == 'left')
@@ -16,9 +15,9 @@
       p-0">
       @if (true || isset($toolbarTitle) && (isset($titleNone) && $titleNone != 'yes'))
         @if ($toolbarTitle != '')
-          <div class="p-2-rm bg-light-rm border-rm mr-4" style="">
-              <div class="h-100 d-flex flex-column justify-content-center bg-dark text-white px-3" style="{{-- background-color: #aaa; --}}">
-                <h1 class="h1 font-weight-bold px-3-rm py-3 mb-0 btn-rm {{  config('app.oc_ascent_btn_color') }}-rm badge-pill-rm p-3-rm">
+          <div class="mr-4" style="">
+              <div class="h-100 d-flex flex-column justify-content-center bg-dark text-white px-3">
+                <h1 class="h5 font-weight-bold py-3 mb-0">
                   {{ $toolbarTitle }}
                 </h1>
               </div>
