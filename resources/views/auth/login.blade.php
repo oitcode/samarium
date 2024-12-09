@@ -55,14 +55,14 @@
     --}}
     <div class="h-100">
       <div class="d-flex justify-content-center h-100">
-        <div class="d-flex flex-column justify-content-center">
+        <div class="d-flex flex-column justify-content-center col-md-3">
 
             <div class="px-3">
-              <div class="bg-white text-dark py-3 font-weight-bold rounded-rm border-rm shadow-rm" style="{{-- background-color: #eee; --}}">
+              <div class="bg-white text-dark py-3 font-weight-bold"">
                 <div class="h5 font-weight-bold text-center mb-0" style="">
                   @if (\App\Company::first())
                     <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
-                        class="img-fluid-rm"
+                        class="img-fluid"
                         alt="{{ \App\Company::first()->name }} logo"
                         style="height: 40px !important;">
 
@@ -74,8 +74,8 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-light-rm d-flex pt-5-rm" style="{{--background-color: #eee;--}}">
-                <div class="px-3 py-3 border-rm bg-white">
+              <div class="bg-white d-flex">
+                <div class="px-3 py-3 w-100">
                   <form method="POST" action="{{ route('login') }}">
                       @csrf
 
@@ -84,12 +84,12 @@
                       | User email
                       |
                       --}}
-                      <div class="form-group shadow-sm-rm mb-3">
+                      <div class="form-group mb-3">
                         <label>
                           Email
                         </label>
                         <input id="email" type="email"
-                            class="form-control @error('email') is-invalid @enderror badge-pill-rm px-4-rm"
+                            class="form-row form-control @error('email') is-invalid @enderror"
                             name="email" value="{{ old('email') }}"
                             required
                             autocomplete="email"
@@ -110,13 +110,13 @@
                       | Password
                       |
                       --}}
-                      <div class="form-group shadow-sm-rm mb-2">
+                      <div class="form-group mb-2">
 
                           <label>
                             Password
                           </label>
                           <input id="password" type="password"
-                              class="form-control @error('password') is-invalid @enderror badge-pill-rm px-4-rm"
+                              class="form-control @error('password') is-invalid @enderror"
                               name="password"
                               required
                               {{--
@@ -154,7 +154,7 @@
                       |
                       --}}
                       <div class="form-group mt-4 mb-0">
-                          <button type="submit" class="btn btn-dark badge-pill-rm btn-block py-3 text-white shadow-rm"
+                          <button type="submit" class="btn btn-dark btn-block py-3 text-white"
                               style="">
                               {{ __('Login') }}
                           </button>
@@ -178,7 +178,7 @@
             | Display version at bottom
             |
             --}}
-            <div class="pb-3-rm px-3">
+            <div class="px-3">
               <div class="text-center bg-white text-muted pb-3">
                 <small>
                   v0.8.7
