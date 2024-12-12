@@ -21,7 +21,7 @@
           <div class="col-md-4 p-5">
             <div class="d-flex justify-content-center h-100">
               <div class="d-flex flex-column justify-content-center">
-                <h5 class="h2 font-weight-bold">{{ $galleryImage->comment }}</h5>
+                <h5 class="h2 font-weight-bold">{{ $gallery->galleryImages()->first()->comment }}</h5>
               </div>
             </div>
           </div>
