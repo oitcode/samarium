@@ -5,7 +5,7 @@
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     @foreach ($gallery->galleryImages as $galleryImage)
-      @if ($loop->iteration == 0)
+      @if ($loop->first)
         @continue
       @endif
       <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->iteration }}"></li>
@@ -29,7 +29,7 @@
       </div>
     </div>
     @foreach ($gallery->galleryImages as $galleryImage)
-      @if ($loop->iteration == 0)
+      @if ($loop->first)
         @continue
       @endif
       <div class="carousel-item">
