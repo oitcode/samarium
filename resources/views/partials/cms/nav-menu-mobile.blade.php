@@ -297,7 +297,7 @@
           @if ($cmsNavMenu)
             @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
               @if ($cmsNavMenuItem->type == 'item')
-                <li class="nav-item px-2 py-1 bg-transparent border-bottom">
+                <li class="nav-item px-2 py-1 bg-transparent border-bottom bg-danger">
                   <a class="nav-link h6 text-reset font-weight-bold-rm mb-0"
                       href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
                     {{ $cmsNavMenuItem->name }}
@@ -313,7 +313,7 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{ $cmsNavMenuItem->name }}">
                     @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
                       @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
-                        <a class="dropdown-item bg-transparent" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
+                        <a class="dropdown-item bg-transparent broder-bottom" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
                           {{ $cmsNavMenuDropdownItem->name }}
                         </a>
                       @endforeach
