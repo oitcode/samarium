@@ -313,7 +313,7 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{ $cmsNavMenuItem->name }}">
                     @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
                       @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
-                        <a class="dropdown-item bg-transparent broder-bottom" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
+                        <a class="dropdown-item bg-transparent border-bottom" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
                           {{ $cmsNavMenuDropdownItem->name }}
                         </a>
                       @endforeach
