@@ -109,8 +109,8 @@
                   </a>
                 </li>
               @else
-                <li class="nav-item dropdown px-2 py-1 border-bottom">
-                  <a class="nav-link dropdown-toggle h6 mb-0 text-reset" href="#"
+                <li class="nav-item dropdown px-2 pt-1 border-bottom">
+                  <a class="nav-link dropdown-toggle h6 mb-0 text-reset mb-1" href="#"
                       id="navbarDropdown-{{ $cmsNavMenuItem->name }}"
                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ $cmsNavMenuItem->name }}
@@ -118,7 +118,7 @@
                   <div class="dropdown-menu p-0 bg-transparent border-0" aria-labelledby="navbarDropdown-{{ $cmsNavMenuItem->name }}">
                     @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
                       @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
-                        <a class="nav-link-rm dropdown-item bg-success-rm text-white-rm text-decoration-none text-reset-rm py-1"
+                        <a class="nav-link-rm dropdown-item border-bottom text-decoration-none py-2"
 
                             style="
                                 color:
@@ -313,8 +313,8 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown-{{ $cmsNavMenuItem->name }}">
                     @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
                       @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
-                        <a class="dropdown-item bg-transparent border-bottom" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
-                          {{ $cmsNavMenuDropdownItem->name }}
+                        <a class="dropdown-item bg-transparent bg-danger" href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}">
+                          {{ $cmsNavMenuDropdownItem->name }} OLA
                         </a>
                       @endforeach
                     @endif
