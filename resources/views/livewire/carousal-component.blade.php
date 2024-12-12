@@ -16,7 +16,7 @@
       <div class="container-fluid p-0 bg-primary text-white">
         <div class="row" style="margin: auto;">
           <div class="col-md-6 p-0">
-            <img class="d-block w-100" style="" src="{{ asset('storage/' . $gallery->galleryImage()->first()->image_path) }}" alt="First slide">
+            <img class="d-block w-100" style="" src="{{ asset('storage/' . $gallery->galleryImages()->first()->image_path) }}" alt="First slide">
           </div>
           <div class="col-md-4 p-5">
             <div class="d-flex justify-content-center h-100">
