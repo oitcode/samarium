@@ -27,6 +27,8 @@
 @if ($company)
 @section ('content')
 
+@livewire ('carousal-component')
+
 @if (has_module('school'))
   <div class="container-fluid o-fade-in" style="@if (\App\CmsTheme::first()) background-color: {{ \App\CmsTheme::first()->ascent_bg_color }}; @endif">
     <div class="container my-0 my-md-0 px-md-3 py-4 p-0" style="@if(\App\CmsTheme::first()) background-color: {{ \App\CmsTheme::first()->ascent_bg_color }}; @endif">
