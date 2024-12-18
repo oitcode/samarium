@@ -1,11 +1,11 @@
-<div>
+<div class="bg-info">
 
 
   <div class="container p-0">
     <div class="row" style="margin: auto;">
       @if ($onlyForm != 'yes')
       <div class="col-md-6 p-4">
-        <div class="d-flex mb-4">
+        <div class="d-flex">
           <div class="d-flex flex-column justify-content-center">
             <div>
               <h2 class="h1 font-weight-bold">

@@ -44,12 +44,12 @@
   color: {{ \App\CmsTheme::first()->ascent_text_color }};
   @endif
   ">
-    <div class="container bg-info-rm p-0">
+    <div class="container p-0">
       <div class="row p-0" style="margin: auto;">
         <div class="col-md-6 p-0">
 
           @if (true)
-          <img class="img-fluid h-25-rm w-100-rm mx-auto-rm d-block-rm" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
+          <img class="img-fluid" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}"
           style="{{--max-height: 200px;width: 1200px;--}}">
           @endif
         </div>
@@ -80,7 +80,7 @@
             ">
               <div class="border" style="background-color: rgba(0, 0, 0, 0.5)">
                 <a href="{{ \App\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first()->permalink }}"
-                    class="btn btn-danger-rm btn-block py-3"
+                    class="btn btn-block py-3"
                     style="
                     color:
                       @if (\App\CmsTheme::first())
@@ -116,7 +116,7 @@
 </div>
 
 {{-- Hero/Featured Div --}}
-<div class="container-fluid bg-white-rm p-0 pt-3" 
+<div class="container-fluid p-0 pt-3" 
   style="
            {{--
            background-image: @if (\App\CmsTheme::first())
@@ -133,10 +133,10 @@
            --}}
            "
 >
-  <div class="container bg-dark-rm">
+  <div class="container">
 
-    <div class="row bg-danger-rm" style="margin: auto;">
-      <div class="col-md-8 mb-4 p-0 border-rm">
+    <div class="row" style="margin: auto;">
+      <div class="col-md-8 p-0 border">
 
         {{--
         |
@@ -149,7 +149,7 @@
           <div class="row">
             @foreach (\App\Webpage::whereHas('webpageCategories', function ($query) { $query->where('name', 'featured');})->where('visibility', 'public')->orderBy('webpage_id', 'desc')->limit('4')->get() as $webpage)
 
-              <div class="col-6 mb-1 p-0 pr-1"> <a href="{{ route('website-webpage-' . $webpage->permalink) }}">
+              <div class="col-6 mb-1 p-0 pr-1 border bg-danger"> <a href="{{ route('website-webpage-' . $webpage->permalink) }}">
                   <div style="
                     background-image: @if (\App\CmsTheme::first())
                       url({{ asset('storage/' . $webpage->featured_image_path) }})
@@ -165,7 +165,7 @@
                     background-attachment: fixed;
                     --}}
                   ">
-                    <div class="o-overlay p-3-rm h-100 d-flex flex-column justify-content-end">
+                    <div class="o-overlay h-100 d-flex flex-column justify-content-end">
                       <div class="p-3" style="background-color: rgba(0, 0, 0, 0.5);">
                         <h2 class="text-white h4 font-weight-bold">
                           {{ $webpage->name }}
@@ -187,9 +187,9 @@
         | Show latest posts.
         |
         --}}
-        <div class="bg-warning-rm px-3-rm px-md-0">
+        <div class="px-md-0">
           <div class="mb-0">
-            <h2 class="h5 font-weight-bold bg-primary-rm text-white-rm p-3 mb-0" style="
+            <h2 class="h5 font-weight-bold p-3 mb-0" style="
                 background-color:
                   @if (\App\CmsTheme::first())
                     {{ \App\CmsTheme::first()->ascent_bg_color }}
@@ -213,7 +213,7 @@
 
       </div>
 
-      <div class="col-md-4 px-2-rm mb-4">
+      <div class="col-md-4">
         @livewire ('cms.website.contact-component', ['onlyForm' => 'yes',])
       </div>
     </div>
