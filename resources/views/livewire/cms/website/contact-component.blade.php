@@ -1,4 +1,4 @@
-<div class="bg-info">
+<div>
 
 
   <div class="container p-0">
