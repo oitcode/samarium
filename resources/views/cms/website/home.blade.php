@@ -135,7 +135,7 @@
 >
   <div class="container">
 
-    <div class="row" style="margin: auto;">
+    <div class="row mb-4" style="margin: auto;">
       <div class="col-md-8 p-0 border">
 
         {{--
