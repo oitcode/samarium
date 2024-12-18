@@ -38,13 +38,13 @@
 @endif
 
 @if (has_module('hfn'))
-  <div class="container-fluid pb-5 p-0 o-fade-in" style="
+  <div class="container-fluid pb-5-rm p-0 o-fade-in" style="
   @if(\App\CmsTheme::first())
   background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
   color: {{ \App\CmsTheme::first()->ascent_text_color }};
   @endif
   ">
-    <div class="container p-0">
+    <div class="container-rm p-0">
       <div class="row p-0" style="margin: auto;">
         <div class="col-md-6 p-0">
 
