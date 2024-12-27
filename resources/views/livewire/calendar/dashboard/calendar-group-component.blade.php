@@ -20,7 +20,7 @@
       ])
     @endif
 
-    @if ($modes['createCalendarGroupMode'])
+    @if ($modes['createCalendarGroupMode'] || $modes['displayCalendarGroupMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "clearModes",
           'btnIconFaClass' => 'fas fa-times',
@@ -56,6 +56,8 @@
     @livewire ('calendar.dashboard.calendar-group-create')
   @elseif ($modes['listCalendarGroupMode'])
     @livewire ('calendar.dashboard.calendar-group-list')
+  @elseif ($modes['displayCalendarGroupMode'])
+    @livewire ('calendar.dashboard.calendar-group-display', ['calendarGroup' => $displayingCalendarGroup,])
   @else
     @livewire ('calendar.dashboard.calendar-group-list')
   @endif

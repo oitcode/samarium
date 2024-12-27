@@ -1,27 +1,25 @@
 <div>
 
 
-  <div class="mb-3">
-      @if ($modes['list'] || !array_search(true, $modes))
-      {{-- Show in bigger screens --}}
-      <x-toolbar-classic toolbarTitle="Nav menu">
+  @if ($modes['list'] || !array_search(true, $modes))
+  {{-- Show in bigger screens --}}
+  <x-toolbar-classic toolbarTitle="Nav menu">
 
-        @include ('partials.dashboard.spinner-button')
+    @include ('partials.dashboard.spinner-button')
 
-        @if (\App\CmsNavMenu::first())
-        @else
-          @include ('partials.dashboard.tool-bar-button-pill', [
-              'btnClickMethod' => "enterMode('create')",
-              'btnIconFaClass' => 'fas fa-plus-circle',
-              'btnText' => 'Create',
-              'btnCheckMode' => 'create',
-          ])
-        @endif
+    @if (\App\CmsNavMenu::first())
+    @else
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('create')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'Create',
+          'btnCheckMode' => 'create',
+      ])
+    @endif
 
-      </x-toolbar-classic>
-      @endif
+  </x-toolbar-classic>
+  @endif
 
-  </div>
 
   <!-- Flash message div -->
   @if (session()->has('message'))

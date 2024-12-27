@@ -145,7 +145,7 @@
                   @endforeach
                 </td>
                 <td>
-                  <button class="btn text-primary"
+                  <button class="btn btn-primary"
                       wire:click="addEventForADate({{ json_encode($day['day']->toDateString()) }})">
                     <i class="fas fa-plus-circle"></i>
                     Add event

@@ -67,9 +67,17 @@
                   @endif
                 </td>
                 <td>
-                  <span class="btn btn-light mr-3" wire:click="deleteWebpage({{ $webpage }})">
-                    <i class="fas fa-trash"></i>
-                  </span>
+                  @if (true)
+                    <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayWebpage', { webpage: {{ $webpage }} })">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                    <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayWebpage', { webpage: {{ $webpage }} })">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="btn btn-danger px-2 py-1" wire:click="deleteWebpage({{ $webpage }})">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  @endif
                   @if ($modes['delete'])
                     @if ($deletingWebpage->webpage_id == $webpage->webpage_id)
                       @if ($modes['cannotDelete'])
@@ -166,6 +174,17 @@
                   Cancel
                 </span>
               @endif
+            @endif
+            @if (true)
+              <button class="btn btn-primary px-2 py-1" wire:click="">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn btn-danger px-2 py-1" wire:click="">
+                <i class="fas fa-trash"></i>
+              </button>
+              <button class="btn btn-success px-2 py-1" wire:click="">
+                <i class="fas fa-eye"></i>
+              </button>
             @endif
           </div>
         </div>

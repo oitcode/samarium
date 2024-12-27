@@ -15,6 +15,7 @@
                 p-4">
               <th class="w-25">Calendar group ID</th>
               <th>Name</th>
+              <th class="w-25">Action</th>
             </tr>
           </thead>
   
@@ -28,6 +29,18 @@
 
               <td class="font-weight-bold" wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })" role="button">
                 {{ $calendarGroup->name }}
+              </td>
+
+              <td>
+                <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="btn btn-success px-2 py-1" wire:click="">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-danger px-2 py-1" wire:click="">
+                  <i class="fas fa-trash"></i>
+                </button>
               </td>
 
             </tr>
