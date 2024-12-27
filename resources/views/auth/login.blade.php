@@ -181,7 +181,7 @@
             <div class="px-3">
               <div class="text-center bg-white text-muted pb-3">
                 <small>
-                  v0.8.7
+                  v0.8.8
                 </small>
               </div>
             </div>

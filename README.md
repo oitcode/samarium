@@ -1,6 +1,6 @@
 # Samarium
 
-<img src="https://img.shields.io/badge/Version-0.8.7-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005530" alt="Version">
+<img src="https://img.shields.io/badge/Version-0.8.8-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005530" alt="Version">
 
 Open source ERP plus Content Management System (CMS) built with Laravel and Livewire.
 You can create webpages and blog posts easily from easy to use admin panel. Apart from CMS,
@@ -23,6 +23,7 @@ calendar events, contact message, task manager, document sharing etc.
 - Team Catalogue
 - Contact Message
 - Appointment Scheduler
+- Task manager
 
 ## Installation
 
@@ -34,7 +35,7 @@ laravel application working.
 Below applications must be installed in the system. 
 
 ```
-php >= 8.1
+php >= 8.2
 mysql >= 8.0
 composer
 npm
@@ -62,7 +63,7 @@ $ cd samarium
 
 Copy env.example file to .env file
 ```
-$ mv env.example .env
+$ cp env.example .env
 ```
 
 Now, enter database name, mysql username and mysql password in the .env file.
