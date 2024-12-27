@@ -18,6 +18,9 @@ class TodoDisplay extends Component
     public $modes = [
         'updateTitleMode' => false,
         'updateDescriptionMode' => false,
+        'updatePriorityMode' => false,
+        'updateDueDateMode' => false,
+        'updateAssignedToMode' => false,
         'updateStatusMode' => false,
         'deleteMode' => false,
     ];
@@ -31,6 +34,15 @@ class TodoDisplay extends Component
 
         'todoUpdateStatusCancelled',
         'todoUpdateStatusCompleted',
+
+        'todoUpdatePriorityCancelled',
+        'todoUpdatePriorityCompleted',
+
+        'todoUpdateDueDateCancelled',
+        'todoUpdateDueDateCompleted',
+
+        'todoUpdateAssignedToCancelled',
+        'todoUpdateAssignedToCompleted',
     ];
 
     public function mount()
@@ -110,5 +122,35 @@ class TodoDisplay extends Component
          *
          */
         return redirect()->to('/dashboard/todo');
+    }
+
+    public function todoUpdatePriorityCancelled()
+    {
+        $this->exitMode('updatePriorityMode');
+    }
+
+    public function todoUpdatePriorityCompleted()
+    {
+        $this->exitMode('updatePriorityMode');
+    }
+
+    public function todoUpdateDueDateCancelled()
+    {
+        $this->exitMode('updateDueDateMode');
+    }
+
+    public function todoUpdateDueDateCompleted()
+    {
+        $this->exitMode('updateDueDateMode');
+    }
+
+    public function todoUpdateAssignedToCancelled()
+    {
+        $this->exitMode('updateAssignedToMode');
+    }
+
+    public function todoUpdateAssignedToCompleted()
+    {
+        $this->exitMode('updateAssignedToMode');
     }
 }

@@ -117,13 +117,26 @@
             </td>
             <td class="d-none d-md-table-cell">
               <i class="fas fa-circle text-primary mr-1"></i>
-              High
+              {{ $todo->priority }}
             </td>
             <td class="d-none d-md-table-cell">
-              {{ $todo->created_at->toDateString() }}
+              @if ($todo->due_date)
+                {{ $todo->due_date }}
+              @else
+                <span class="badge badge-warning badge-pill">
+                  Not set
+                </span>
+              @endif
             </td>
             <td class="d-none d-md-table-cell">
-              {{ fake()->unique()->name() }}
+              @if ($todo->assignedTo)
+                <i class="fas fa-user-circle mr-1"></i>
+                {{ $todo->assignedTo->name }}
+              @else
+                <span class="badge badge-warning badge-pill">
+                  Not set
+                </span>
+              @endif
             </td>
             <td>
               @if ($todo->status == 'pending')
@@ -143,7 +156,15 @@
               @endif
             </td>
             <td>
-              <i class="fas fa-ellipsis-h text-secondary"></i>
+              <button class="btn btn-primary px-2 py-1" wire:click="">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn btn-success px-2 py-1" wire:click="">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="btn btn-danger px-2 py-1" wire:click="">
+                <i class="fas fa-trash"></i>
+              </button>
             </td>
           </tr>
         @endforeach

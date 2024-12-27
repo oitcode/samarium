@@ -41,4 +41,12 @@ class Todo extends Model
         return $this->belongsTo('App\User', 'creator_id', 'id');
     }
 
+    /*
+     * users table (assigned to user).
+     *
+     */
+    public function assignedTo()
+    {
+        return $this->belongsTo('App\User', 'assigned_to_id', 'id');
+    }
 }

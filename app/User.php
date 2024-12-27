@@ -84,12 +84,12 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /*
-     * expense table.
+     * todo table.
      *
      */
     public function todos()
     {
-        return $this->hasMany('App\Expense', 'creator_id', 'id');
+        return $this->hasMany('App\Todo', 'creator_id', 'id');
     }
 
     /*
@@ -162,5 +162,14 @@ class User extends Authenticatable implements MustVerifyEmail
     public function userGroups()
     {
         return $this->belongsToMany('App\UserGroup', 'user__user_group', 'user_id', 'user_group_id');
+    }
+
+    /*
+     * todo table (as assigned to).
+     *
+     */
+    public function assignedToTodos()
+    {
+        return $this->hasMany('App\Todo', 'assigned_to_id', 'id');
     }
 }

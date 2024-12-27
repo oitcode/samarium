@@ -12,7 +12,7 @@ class TodoEditStatus extends Component
 
     public function mount()
     {
-        $this->status = $this->todo->tatus;
+        $this->status = $this->todo->status;
     }
 
     public function render()

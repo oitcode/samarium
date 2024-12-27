@@ -54,7 +54,28 @@
           Due Date
         </div>
         <div class="col-md-10 border bg-white p-3">
-          {{ $todo->created_at->toDateString() }}
+          @if ($modes['updateDueDateMode'])
+            <div class="p-3">
+              @livewire ('todo.dashboard.todo-edit-due-date', ['todo' => $todo,])
+            </div>
+          @else
+            <div class="d-flex justify-content-between">
+              <div class="">
+                @if ($todo->due_date)
+                  {{ $todo->due_date }}
+                @else
+                  <span class="badge badge-warning badge-pill">
+                    Not set
+                  </span>
+                @endif
+              </div>
+              <div>
+                <button class="btn btn-outline-primary" wire:click="enterMode('updateDueDateMode')">
+                  Edit
+                </button>
+              </div>
+            </div>
+          @endif
         </div>
       </div>
     </div>
@@ -65,8 +86,22 @@
           Priority
         </div>
         <div class="col-md-10 border bg-white p-3">
-          <i class="fas fa-circle text-primary mr-1"></i>
-          High
+          @if ($modes['updatePriorityMode'])
+            <div class="p-3">
+              @livewire ('todo.dashboard.todo-edit-priority', ['todo' => $todo,])
+            </div>
+          @else
+            <div class="d-flex justify-content-between">
+              <div class="">
+                {{ $todo->priority }}
+              </div>
+              <div>
+                <button class="btn btn-outline-primary" wire:click="enterMode('updatePriorityMode')">
+                  Edit
+                </button>
+              </div>
+            </div>
+          @endif
         </div>
       </div>
     </div>
@@ -116,7 +151,29 @@
     </div>
 
     <div>
-      {{ fake()->unique()->name() }}
+
+      @if ($modes['updateAssignedToMode'])
+        @livewire ('todo.dashboard.todo-edit-assigned-to', ['todo' => $todo,])
+      @else
+        <div class="d-flex justify-content-between">
+          <div>
+            @if ($todo->assignedTo)
+              <i class="fas fa-user-circle mr-1"></i>
+              {{ $todo->assignedTo->name }}
+            @else
+              <span class="badge badge-warning badge-pill">
+                Not set
+              </span>
+            @endif
+          </div>
+
+          <div class="">
+            <button class="btn btn-outline-primary" wire:click="enterMode('updateAssignedToMode')">
+              Edit
+            </button>
+          </div>
+        </div>
+      @endif
     </div>
   </div>
 
