@@ -83,11 +83,9 @@
     {{--
        | Members
     --}}
-    <div class="mt-5 mb-3">
-      <h3 class="h4">
-        Team members
-      </h3>
-    </div>
+    <x-toolbar-classic toolbarTitle="Team members">
+      @include ('partials.dashboard.spinner-button')
+    </x-toolbar-classic>
 
     <div>
       <div class="row">

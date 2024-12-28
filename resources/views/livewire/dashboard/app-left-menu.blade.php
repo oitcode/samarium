@@ -150,7 +150,7 @@
               [
                   'btnRoute' => 'online-order',
                   'iconFaClass' => 'fas fa-cloud-download-alt',
-                  'btnText' => 'Weborder',
+                  'btnText' => 'Online order',
               ])
   
           @if (config('app.has_vat') == true)

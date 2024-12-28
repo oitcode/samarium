@@ -45,7 +45,15 @@
                 {{ $educInstitution->institution_type }}
               </td>
               <td>
-                <i class="fas fa-ellipsis-horizontal"></i>
+                <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="btn btn-success px-2 py-1" wire:click="">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-danger px-2 py-1" wire:click="">
+                  <i class="fas fa-trash"></i>
+                </button>
               </td>
             </tr>
           @endforeach

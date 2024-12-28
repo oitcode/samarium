@@ -9,24 +9,16 @@
   @endif
 
 
-  {{-- Filter div --}}
-  @if (true)
-  <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
-    <div class="font-weight-bold h6 d-flex">
-      <div class="d-flex">
-        @if (true)
-        <div class="mr-4 font-weight-bold pt-2">
-        </div>
-        @endif
-      </div>
-    </div>
-
-
+  {{--
+     |
+     | Filter div
+     |
+  --}}
+  <div class="mb-1 p-3 bg-white border d-flex justify-content-between">
     <div class="pt-2 font-weight-bold">
       Total : {{ $urlLinksCount }}
     </div>
   </div>
-  @endif
 
 
     @if (true)
@@ -69,7 +61,15 @@
                   @endforeach
                 </td>
                 <td>
-                  <i class="fas fa-ellipsis-h text-secondary"></i>
+                  <button class="btn btn-primary px-2 py-1" wire:click="">
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="btn btn-success px-2 py-1" wire:click="">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-danger px-2 py-1" wire:click="">
+                    <i class="fas fa-trash"></i>
+                  </button>
                 </td>
               </tr>
             @endforeach

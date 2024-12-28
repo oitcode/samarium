@@ -20,7 +20,7 @@
      |
   --}}
 
-  <div class="mb-3 p-3 bg-white border d-flex justify-content-between">
+  <div class="mb-1 p-3 bg-white border d-flex justify-content-between">
     <div class="pt-2 font-weight-bold">
       Total : {{ $teamsCount }}
     </div>
@@ -59,8 +59,14 @@
                 </span>
               </td>
               <td>
-                <button class="btn mr-3" wire:click="">
-                  <i class="fas fa-trash-alt"></i>
+                <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="btn btn-success px-2 py-1" wire:click="">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-danger px-2 py-1" wire:click="">
+                  <i class="fas fa-trash"></i>
                 </button>
               </td>
             </tr>
@@ -104,8 +110,14 @@
                 </span>
               </td>
               <td>
-                <button class="btn mr-3" wire:click="deleteTeam({{ $team }})">
-                  <i class="fas fa-trash-alt"></i>
+                <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="btn btn-success px-2 py-1" wire:click="">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-danger px-2 py-1" wire:click="deleteTeam({{ $team }})">
+                  <i class="fas fa-trash"></i>
                 </button>
                 @if ($modes['delete'])
                   @if ($deletingTeam->team_id == $team->team_id)

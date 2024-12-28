@@ -1,9 +1,11 @@
 <div class="p-3 p-md-0">
 
 
-  <x-component-header>
-    Daybook
-  </x-component-header>
+
+  {{-- Top toolbar --}}
+  <x-toolbar-classic toolbarTitle="Daybook">
+    @include ('partials.dashboard.spinner-button')
+  </x-toolbar-classic>
 
   <div class="p-0" style="">
 

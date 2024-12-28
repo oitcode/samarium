@@ -1,7 +1,7 @@
 <div>
 
 
-  <div class="mt-2 mb-3 text-secondary d-none d-md-block bg-white">
+  <div class="mt-1 mb-1 py-2 text-secondary d-none d-md-block bg-white">
 
     <div class="d-flex">
       <div class="mt-0 text-secondary mr-3">
@@ -40,6 +40,7 @@
       </div>
     </div>
   </div>
+
   {{-- Show in smaller screens --}}
   <div class="mt-2 mb-3 text-secondary d-md-none">
 
@@ -163,11 +164,11 @@
                 <button class="btn btn-primary px-2 py-1" wire:click="">
                   <i class="fas fa-pencil-alt"></i>
                 </button>
+                <button class="btn btn-success px-2 py-1" wire:click="">
+                  <i class="fas fa-eye"></i>
+                </button>
                 <button class="btn btn-danger px-2 py-1" wire:click="">
                   <i class="fas fa-trash"></i>
-                </button>
-                <button class="btn btn-success px-2 py-1" wire:click="" style="{{-- background-color: #ac0; --}}">
-                  <i class="fas fa-eye"></i>
                 </button>
               @endif
             </td>

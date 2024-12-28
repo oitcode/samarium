@@ -6,7 +6,7 @@
      | Filter div
      |
   --}}
-  <div class="mb-3 py-3 px-2 bg-white border d-flex justify-content-between">
+  <div class="mb-1 py-3 px-2 bg-white border d-flex justify-content-between">
     <div class="font-weight-bold h6 d-flex">
       <div class="d-flex justify-content-between">
         <div class="dropdown p-0 px-2">

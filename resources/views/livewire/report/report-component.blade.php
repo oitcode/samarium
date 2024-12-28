@@ -1,8 +1,9 @@
 <div class="p-3-rm p-md-none">
 
-  <x-component-header>
-    Reports
-  </x-component-header>
+  {{-- Top toolbar --}}
+  <x-toolbar-classic toolbarTitle="Reports">
+    @include ('partials.dashboard.spinner-button')
+  </x-toolbar-classic>
 
   <div class="row mb-4">
     <div class="col-md-3 mb-3">

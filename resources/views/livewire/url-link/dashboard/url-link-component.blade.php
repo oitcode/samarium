@@ -53,7 +53,7 @@
   @endif
 
 
-  <div class="p-2">
+  <div>
     {{--
        |
        | Use the required component as per mode

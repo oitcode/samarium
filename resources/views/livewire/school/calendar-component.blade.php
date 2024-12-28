@@ -57,7 +57,7 @@
   @elseif ($modes['displayCalendarEventMode'])
     @livewire ('school.calendar-event-display', ['calendarEvent' => $displayingCalendarEvent,])
   @else
-  <div class="d-flex bg-white mb-4">
+  <div class="d-flex bg-white mb-1">
     <div class="d-flex flex-column justify-content-center mr-2 px-3">
       <div class="dropdown py-3">
         <button class="btn dropdown-toggle" type="button" id="monthDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

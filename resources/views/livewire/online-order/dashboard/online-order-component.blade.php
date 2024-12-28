@@ -2,7 +2,7 @@
 
 
   {{-- Show in bigger screens --}}
-  <x-toolbar-classic toolbarTitle="Weborder">
+  <x-toolbar-classic toolbarTitle="Online order">
 
     @include ('partials.dashboard.spinner-button')
 

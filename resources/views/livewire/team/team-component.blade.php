@@ -11,35 +11,23 @@
 
     @include ('partials.dashboard.spinner-button')
 
+    @if (! array_search(true, $modes) || $modes['listMode'])
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "enterMode('createMode')",
         'btnIconFaClass' => 'fas fa-plus-circle',
         'btnText' => 'New',
         'btnCheckMode' => 'createMode',
     ])
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('listMode')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'listMode',
-    ])
+    @endif
 
     @if ($modes['displayMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Team display',
-          'btnCheckMode' => 'displayMode',
+          'btnClickMethod' => "clearModes",
+          'btnIconFaClass' => 'fas fa-times',
+          'btnText' => '',
+          'btnCheckMode' => '',
       ])
     @endif
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
 
   </x-toolbar-classic>
 
@@ -69,6 +57,8 @@
     @livewire ('team.team-list')
   @elseif ($modes['displayMode'])
     @livewire ('team.team-display', ['team' => $displayingTeam, 'displayTeamName' => false,])
+  @else
+    @livewire ('team.team-list')
   @endif
 
 

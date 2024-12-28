@@ -1,12 +1,13 @@
 <div class="mb-4 p-3 p-md-0">
 
-  <x-component-header>
-    Weekbook
-  </x-component-header>
+  {{-- Top toolbar --}}
+  <x-toolbar-classic toolbarTitle="Weekbook">
+    @include ('partials.dashboard.spinner-button')
+  </x-toolbar-classic>
 
   {{-- Top Menu --}}
   {{-- Show in bigger screens --}}
-  <div class="mb-4 d-none d-md-block bg-white p-3">
+  <div class="mb-1 d-none d-md-block bg-white p-3">
     <div class="float-left mr-5">
     </div>
 

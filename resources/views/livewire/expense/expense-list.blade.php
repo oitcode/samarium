@@ -1,7 +1,7 @@
 <div>
 
   {{-- Show in bigger screens --}}
-  <div class="mt-2-rm mb-3 text-secondary py-3-rm d-flex-rm bg-warning-rm d-none d-md-block bg-white">
+  <div class="mt-1 mb-1 py-2 text-secondary py-3-rm d-flex-rm bg-warning-rm d-none d-md-block bg-white">
     <div class="d-flex">
       <div class="mt-0 text-secondary py-3-rm mr-3">
         <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
@@ -114,11 +114,11 @@
                 <button class="btn btn-primary px-2 py-1" wire:click="">
                   <i class="fas fa-pencil-alt"></i>
                 </button>
-                <button class="btn btn-danger px-2 py-1" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
-                  <i class="fas fa-trash"></i>
-                </button>
                 <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">
                   <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-danger px-2 py-1" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
+                  <i class="fas fa-trash"></i>
                 </button>
               @endif
             </td>

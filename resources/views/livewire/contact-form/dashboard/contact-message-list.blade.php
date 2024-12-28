@@ -141,9 +141,14 @@
               </td>
               <td>
                 <div>
-                  <button class="btn" wire:click="deleteContactMessage({{ $contactMessage }})">
-                    <i class="fas fa-trash text-danger mr-1"></i>
-                    Delete
+                  <button class="btn btn-primary px-2 py-1" wire:click="">
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="btn btn-success px-2 py-1" wire:click="">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-danger px-2 py-1" wire:click="deleteContactMessage({{ $contactMessage }})">
+                    <i class="fas fa-trash"></i>
                   </button>
                   @if ($modes['deleteContactMessageMode'])
                     @if ($deletingContactMessage->contact_message_id == $contactMessage->contact_message_id)

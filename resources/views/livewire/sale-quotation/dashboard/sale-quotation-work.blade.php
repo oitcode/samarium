@@ -1,7 +1,7 @@
 <div>
 
 
-  <div class="d-flex justify-content-between bg-white py-0 mb-2">
+  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white">
     {{-- Breadcrumb --}}
     <div class="my-2 p-2">
       Sale quotation
@@ -13,8 +13,7 @@
     {{-- Top tool bar --}}
     <div>
       <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
-            style="{{-- background-color: #dadada; --}}">
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm">
 
           <div>
             <button class="btn btn-info p-3" wire:click="$refresh">
@@ -37,9 +36,9 @@
   <div>
   
     {{-- Show in bigger screens --}}
-    <div class="row">
+    <div>
   
-      <div class="col-md-12">
+      <div>
   
         @if ($saleQuotation)
           @if ($modes['addItem'])
@@ -49,17 +48,19 @@
   
         @if ($saleQuotation)
   
+        @if (false)
         {{-- Component loading indicator line --}}
         <div class="w-100" wire:loading.class="bg-info w-100">
           <div>
             &nbsp;
           </div>
         </div>
+        @endif
   
         <div class="card mb-0 shadow-sm">
-          <div class="card-body p-0">
+          <div class="card-body p-0 mt-3">
 
-            <div class="row p-0 mt-2" style="margin: auto;">
+            <div class="row p-0 mt-2-rm" style="margin: auto;">
 
               <div class="col-md-4 d-flex">
                 <div class="mb-4">

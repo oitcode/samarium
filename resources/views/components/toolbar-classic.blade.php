@@ -1,4 +1,4 @@
-<div>
+<div class="my-1" style="{{-- border-left: 5px solid #555; --}}">
 
 
   <div class="mb-1 py-3 px-0 d-flex
@@ -16,8 +16,8 @@
       @if (true || isset($toolbarTitle) && (isset($titleNone) && $titleNone != 'yes'))
         @if ($toolbarTitle != '')
           <div class="mr-4" style="">
-              <div class="h-100 d-flex flex-column justify-content-center bg-dark text-white px-3">
-                <h1 class="h5 font-weight-bold py-3 mb-0">
+              <div class="h-100 d-flex flex-column justify-content-center bg-dark-rm text-muted-rm px-3-rm">
+                <h1 class="h4 font-weight-bold-rm py-3 mb-0" style="font-weight: 900; font-family: arial; color: #123;">
                   {{ $toolbarTitle }}
                 </h1>
               </div>
