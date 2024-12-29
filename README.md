@@ -141,6 +141,7 @@ Below are some screenshots.
 ![screenshot](screenshots/screenshot-product-list-1.png) ![screenshot](screenshots/screenshot-product-category-list-1.png) ![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
 ![screenshot](screenshots/screenshot-purchase-list-1.png) ![screenshot](screenshots/screenshot-expense-list-1.png) ![screenshot](screenshots/screenshot-page-list-1.png)
 ![screenshot](screenshots/screenshot-post-list-1.png)
+<img src="screenshots/screenshot-post-list-1.png" width="200"/> <img src="screenshots/screenshot-product-list-1.png" width="200"/> <img src="screenshots/screenshot-sale-invoice-list-1.png" width="300"/>
 
 ### GIFs
 
