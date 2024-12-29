@@ -138,12 +138,8 @@ Now open your web browser and visit
 
 Below are some screenshots.
 
-![screenshot](screenshots/screenshot-product-list-1.png)
-![screenshot](screenshots/screenshot-product-category-list-1.png)
-![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
-![screenshot](screenshots/screenshot-purchase-list-1.png)
-![screenshot](screenshots/screenshot-expense-list-1.png)
-![screenshot](screenshots/screenshot-page-list-1.png)
+![screenshot](screenshots/screenshot-product-list-1.png) ![screenshot](screenshots/screenshot-product-category-list-1.png) ![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
+![screenshot](screenshots/screenshot-purchase-list-1.png) ![screenshot](screenshots/screenshot-expense-list-1.png) ![screenshot](screenshots/screenshot-page-list-1.png)
 ![screenshot](screenshots/screenshot-post-list-1.png)
 
 ### GIFs
