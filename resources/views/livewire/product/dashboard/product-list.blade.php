@@ -43,7 +43,7 @@
             Active status
           </th>
           <th class="">
-            Active status
+            Selling price
           </th>
           <th class="text-right">
             Action
@@ -72,7 +72,7 @@
               @endif
             </td>
             <td>
-              {{ $product->product_id }}
+              {{ $product->selling_price }}
             </td>
             <td class="text-right">
               @if (true)
