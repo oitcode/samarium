@@ -99,7 +99,7 @@
               <th>
                 Status
               </th>
-              <th>
+              <th class="text-right">
                 Action
               </th>
             </tr>
@@ -156,7 +156,7 @@
                     </span>
                   @endif
                 </td>
-                <td>
+                <td class="text-right">
                   @if (true)
                     <button class="btn btn-primary px-2 py-1" wire:click="">
                       <i class="fas fa-pencil-alt"></i>

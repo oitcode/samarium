@@ -22,7 +22,7 @@
               <th>
                 Visibility
               </th>
-              <th>
+              <th class="text-right">
                 Action
               </th>
             </tr>
@@ -78,7 +78,7 @@
                     Whoops!
                   @endif
                 </td>
-                <td>
+                <td class="text-right">
                   @if (true)
                     <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
                       <i class="fas fa-pencil-alt"></i>

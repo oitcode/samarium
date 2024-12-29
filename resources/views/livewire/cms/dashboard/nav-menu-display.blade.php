@@ -24,7 +24,7 @@
           <thead>
             <th>Name</th>
             <th>Webpage</th>
-            <th>Action</th>
+            <th class="text-right">Action</th>
           </thead>
 
           <tbody>
@@ -50,7 +50,12 @@
                     NA
                   @endif
                 </td>
-                <td>
+                <td class="text-right">
+                  @if ($cmsNavMenuItem->type == 'dropdown')
+                    <button class="btn text-secondary" wire:click="editDropdown({{ $cmsNavMenuItem }})">
+                      <i class="fas fa-plus-circle"></i>
+                    </button>
+                  @endif
                   <button class="btn btn-primary" wire:click="moveUp({{ $cmsNavMenuItem }})">
                     <i class="fas fa-arrow-up"></i>
                   </button>
@@ -61,11 +66,6 @@
                       wire:click="deleteCmsNavMenuItem({{ $cmsNavMenuItem }})">
                     <i class="fas fa-trash"></i>
                   </button>
-                  @if ($cmsNavMenuItem->type == 'dropdown')
-                    <button class="btn text-secondary" wire:click="editDropdown({{ $cmsNavMenuItem }})">
-                      <i class="fas fa-plus-circle"></i>
-                    </button>
-                  @endif
                 </td>
               </tr>
             @endforeach

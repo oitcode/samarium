@@ -38,7 +38,7 @@
             <th>
               Groups
             </th>
-            <th>
+            <th class="text-right">
               Action
             </th>
           </tr>
@@ -66,7 +66,7 @@
                     </span>
                   @endforeach
                 </td>
-                <td>
+                <td class="text-right">
                   <a href=" {{ route('dashboard-document-file-pdf-display', $documentFile->document_file_id) }}" target="_blank" class="btn btn-primary badge-pill">
                     View file
                   </a>

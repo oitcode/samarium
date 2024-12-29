@@ -67,6 +67,8 @@
     @livewire ('document-file.dashboard.document-file-display', ['documentFile' => $displayingDocumentFile,])
   @elseif ($modes['pdfDisplay'])
     @livewire ('document-file.dashboard.document-file-display-pdf', ['documentFile' => $pdfDisplayingDocumentFile,])
+  @else
+    @livewire ('document-file.dashboard.document-file-list')
   @endif
 
 

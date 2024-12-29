@@ -15,7 +15,7 @@
                 p-4">
               <th class="w-25">Calendar group ID</th>
               <th>Name</th>
-              <th class="w-25">Action</th>
+              <th class="text-right">Action</th>
             </tr>
           </thead>
   
@@ -31,7 +31,7 @@
                 {{ $calendarGroup->name }}
               </td>
 
-              <td>
+              <td class="text-right">
                 <button class="btn btn-primary px-2 py-1" wire:click="">
                   <i class="fas fa-pencil-alt"></i>
                 </button>

@@ -66,6 +66,8 @@
       @livewire ('url-link.dashboard.url-link-list')
     @elseif ($modes['display'])
       @livewire ('url-link.dashboard.url-link-display', ['urlLink' => $displayingUrlLink,])
+    @else
+      @livewire ('url-link.dashboard.url-link-list')
     @endif
   </div>
 

@@ -55,7 +55,7 @@
             <th>
               Body
             </th>
-            <th>
+            <th class="text-right">
               Action
             </th>
           </tr>
@@ -73,7 +73,7 @@
               <td wire:click="$dispatch('displayTestimonial', {testimonial: {{ $testimonial }} })" role="button">
                 {{ \Illuminate\Support\Str::limit($testimonial->body, 100, $end=' ...') }}
               </td>
-              <td>
+              <td class="text-right">
                 <button class="btn btn-primary px-2 py-1" wire:click="">
                   <i class="fas fa-pencil-alt"></i>
                 </button>

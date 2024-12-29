@@ -35,7 +35,7 @@
               <tr style="color:#888888; text-shadow: 1px 0 #000; letter-spacing:1px; font-weight:bold;">
                 <th>Category</th>
                 <th>Products</th>
-                <th>Action</th>
+                <th class="text-right">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -49,7 +49,7 @@
                   <td>
                     {{ count($productCategory->products) }}
                   </td>
-                  <td>
+                  <td class="text-right">
                     @if (true)
                     <button class="btn btn-primary px-2 py-1" wire:click="">
                       <i class="fas fa-pencil-alt"></i>

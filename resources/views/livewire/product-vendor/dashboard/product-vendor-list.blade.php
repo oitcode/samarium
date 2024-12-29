@@ -6,7 +6,7 @@
       <thead>
         <tr>
           <th>Product Vendor</th>
-          <th>Action</th>
+          <th class="text-right">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -17,7 +17,7 @@
                 {{ $productVendor->name }}
               </strong>
             </td>
-            <td>
+            <td class="text-right">
               @if (true)
                 <button class="btn btn-primary px-2 py-1" wire:click="">
                   <i class="fas fa-pencil-alt"></i>

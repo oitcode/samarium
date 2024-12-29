@@ -99,9 +99,9 @@
             <th class="">
               Status
             </th>
-              <th>
-                Action
-              </th>
+            <th class="text-right">
+              Action
+            </th>
           </tr>
         </thead>
 
@@ -139,8 +139,7 @@
                 @endif
                 @endif
               </td>
-              <td>
-                <div>
+              <td class="text-right">
                   <button class="btn btn-primary px-2 py-1" wire:click="">
                     <i class="fas fa-pencil-alt"></i>
                   </button>
@@ -160,8 +159,6 @@
                       </span>
                     @endif
                   @endif
-                </div>
-
               </td>
             </tr>
           @endforeach

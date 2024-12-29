@@ -41,7 +41,7 @@
             <th>
               Team
             </th>
-            <th>
+            <th class="text-right">
               Action
             </th>
           </tr>
@@ -58,7 +58,7 @@
                   {{ $team->name }}
                 </span>
               </td>
-              <td>
+              <td class="text-right">
                 <button class="btn btn-primary px-2 py-1" wire:click="">
                   <i class="fas fa-pencil-alt"></i>
                 </button>
@@ -92,7 +92,7 @@
             <th>
               Team
             </th>
-            <th>
+            <th class="text-right">
               Action
             </th>
           </tr>
@@ -109,7 +109,7 @@
                   {{ $team->name }}
                 </span>
               </td>
-              <td>
+              <td class="text-right">
                 <button class="btn btn-primary px-2 py-1" wire:click="">
                   <i class="fas fa-pencil-alt"></i>
                 </button>

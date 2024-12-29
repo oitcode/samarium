@@ -19,7 +19,7 @@
                 <th>No of images</th>
                 <th>Space</th>
                 @if (true)
-                <th>Action</th>
+                <th class="text-right">Action</th>
                 @endif
               </tr>
             </thead>
@@ -51,7 +51,7 @@
                     {{ $gallery->totalDiskSpaceOccupied() }}
                   </td>
 
-                  <td>
+                  <td class="text-right">
                     @if (true)
                       <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })">
                         <i class="fas fa-pencil-alt"></i>

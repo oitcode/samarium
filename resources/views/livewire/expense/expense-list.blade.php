@@ -84,7 +84,7 @@
             <th>Date</th>
             <th>Expense</th>
             <th>Amount</th>
-            <th>Action</th>
+            <th class="text-right">Action</th>
           </tr>
         </thead>
   
@@ -109,7 +109,7 @@
               @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
             </td>
   
-            <td>
+            <td class="text-right">
               @if (true)
                 <button class="btn btn-primary px-2 py-1" wire:click="">
                   <i class="fas fa-pencil-alt"></i>
