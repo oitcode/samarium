@@ -136,7 +136,7 @@ Now open your web browser and visit
 
 ## Screenshots
 
-Below are screenshots of most used functionalities. 
+Below are some screenshots.
 
 ![screenshot](screenshots/screenshot-product-list-1.png)
 ![screenshot](screenshots/screenshot-product-category-list-1.png)
@@ -149,8 +149,6 @@ Below are screenshots of most used functionalities.
 ### GIFs
 
 ![screenshot](screenshots/create-webpage-1.gif)
-
-### Create a post
 
 ![screenshot](screenshots/create-post-1.gif)
 
