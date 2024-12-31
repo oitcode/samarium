@@ -1,5 +1,8 @@
-<x-box-create title="Receive payment">
+<div class="border p-2">
 
+  <h2 class="h6 o-heading">
+    Receive payment
+  </h2>
 
   <div class="p-0">
     <div class="my-3 font-weight-bold">
@@ -51,4 +54,4 @@
   </div>
 
 
-</x-box-create>
+</div>

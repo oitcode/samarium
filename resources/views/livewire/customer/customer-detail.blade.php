@@ -2,11 +2,12 @@
 
   <div class="d-flex justify-content-between bg-white py-0 mb-2">
     {{-- Breadcrumb --}}
-    <div class="my-2 p-2">
-      Customer
-
-      <i class="fas fa-angle-right mx-2"></i>
-      {{ $customer->name }}
+    <div class="my-2 p-2 d-flex flex-column justify-content-center">
+      <div>
+        Customer
+        <i class="fas fa-angle-right mx-2"></i>
+        {{ $customer->name }}
+      </div>
     </div>
 
     {{-- Top tool bar --}}
@@ -16,11 +17,11 @@
             style="{{-- background-color: #dadada; --}}">
 
           <div>
-            <button class="btn btn-light" wire:click="$refresh">
+            <button class="btn btn-light p-3" wire:click="$refresh">
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$dispatch('exitCustomerDisplayMode')">
+            <button class="btn btn-danger p-3" wire:click="$dispatch('exitCustomerDisplayMode')">
               <i class="fas fa-times"></i>
               Close
             </button>
@@ -31,10 +32,10 @@
     </div>
   </div>
 
-  <div class="row" style="margin: auto;">
-    <div class="col-md-4">
+  <div class="row-rm">
+    <div class="col-md-4-rm">
 
-      <div class="bg-white border mb-3">
+      <div class="bg-white border mb-2">
         <div class="table-responsive">
           <table class="table">
             <tbody>
@@ -48,7 +49,7 @@
                   @if ($customer->email)
                     {{ $customer->email}}
                   @else
-                    <i class="fas fa-exclamation-circle text-warning mr-1"></i>
+                    <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
                     <span class="text-secondary">
                     Email unknown
                     </span>
@@ -61,7 +62,7 @@
                   @if ($customer->phone)
                     {{ $customer->phone}}
                   @else
-                    <i class="fas fa-exclamation-circle text-warning mr-1"></i>
+                    <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
                     <span class="text-secondary">
                     Phone unknown
                     </span>
@@ -74,7 +75,7 @@
                   @if ($customer->pan_num)
                     {{ $customer->pan_num}}
                   @else
-                    <i class="fas fa-exclamation-circle text-warning mr-1"></i>
+                    <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
                     <span class="text-secondary">
                     PAN number unknown
                     </span>
@@ -93,10 +94,11 @@
         </div>
       </div>
 
-      <div class="bg-white border">
+      @if (false)
+      <div class="bg-white border mb-2">
 
         <div class="d-flex justify-content-between p-3">
-          <h2 class="h6 font-weight-bold text-secondary">
+          <h2 class="h6 font-weight-bold text-secondary-rm" style="font-weight: 900; font-family: arial; color: #123;">
             Applications
           </h2>
           <button class="btn btn-primary" wire:click="enterMode('educApplicationCreateMode')">
@@ -134,41 +136,52 @@
         </div>
         @endif
       </div>
+      @endif
 
-      {{-- Toolbar --}}
-      <div class="my-4">
-        <div class="mb-3">
-          <button class="btn
-              @if ($modes['salesHistory'])
-                {{ config('app.oc_ascent_btn_color') }}
-              @endif
-              m-0 border shadow-sm badge-pill mr-3"
-              wire:click="enterMode('salesHistory')">
-            <i class="fas fa-shopping-cart mr-3"></i>
+      {{--
+         |
+         | Sales history
+         |
+      --}}
+      <div class="mb-2 bg-white border p-2">
+        <div class="d-flex justify-content-between">
+          <h2 class="h6 font-weight-bold text-secondary-rm" style="font-weight: 900; font-family: arial; color: #123;">
             Sales
-          </button>
+          </h2>
+          <div class="mb-3-rm">
+            <button wire:loading class="btn m-0">
+              <span class="spinner-border text-info mr-3" role="status">
+              </span>
+            </button>
 
-          <button class="btn
-              @if ($modes['customerPaymentCreate'])
-                {{ config('app.oc_ascent_btn_color') }}
-              @endif
-              m-0 border shadow-sm badge-pill mr-3"
-              wire:click="enterMode('customerPaymentCreate')">
-            <i class="fas fa-key mr-3"></i>
-            Settle
-          </button>
+            <button class="btn btn-primary
+                @if ($modes['salesHistory'])
+                @endif
+                m-0 border"
+                wire:click="enterMode('salesHistory')"
+                style="min-width: 200px;">
+              <i class="fas fa-book mr-1"></i>
+              Sales history
+            </button>
 
-          <button wire:loading class="btn m-0"
-              style="height: 100px; width: 225px;">
-            <span class="spinner-border text-info mr-3" role="status">
-            </span>
-          </button>
-
-          <div class="clearfix">
           </div>
         </div>
+
+        @if ($modes['salesHistory'])
+          @livewire ('customer.customer-sale-list', ['customer' => $customer,])
+        @endif
+
+        @if ($modes['saleInvoiceDisplay'])
+          @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
+        @endif
+
+        @if ($modes['saleInvoicePaymentCreate'])
+          @livewire ('customer.customer-invoice-payment-create', ['saleInvoice' => $paymentReceivingSaleInvoice,])
+        @endif
       </div>
     </div>
+
+    @if (false)
     <div class="col-md-8">
       <div class="bg-white border p-3 mb-3">
         <div class="d-flex justify-content-between">
@@ -294,30 +307,105 @@
         </div>
       </div>
     </div>
+    @endif
   </div>
 
 
   {{--
      |
-     | Use required component as per mode
+     | Settlement
      |
   --}}
 
-  @if ($modes['salesHistory'])
-    @livewire ('customer.customer-sale-list', ['customer' => $customer,])
-  @endif
+  <div class="mb-2 bg-white border p-2">
+    <div class="d-flex justify-content-between">
+      <h2 class="h6 font-weight-bold text-secondary-rm" style="font-weight: 900; font-family: arial; color: #123;">
+        Settlement
+      </h2>
+      <div class="mb-3-rm">
+        <button wire:loading class="btn m-0">
+          <span class="spinner-border text-info mr-3" role="status">
+          </span>
+        </button>
 
-  @if ($modes['customerPaymentCreate'])
-    @livewire ('customer.customer-payment-create', ['customer' => $customer,])
-  @endif
+        <button class="btn btn-primary
+            @if ($modes['customerPaymentCreate'])
+            @endif
+            m-0 border"
+            style="min-width: 200px;"
+            wire:click="enterMode('customerPaymentCreate')">
+          <i class="fas fa-plus-circle mr-1"></i>
+          Add settlement
+        </button>
+      </div>
+    </div>
 
-  @if ($modes['saleInvoicePaymentCreate'])
-    @livewire ('customer.customer-invoice-payment-create', ['saleInvoice' => $paymentReceivingSaleInvoice,])
-  @endif
+    @if ($modes['customerPaymentCreate'])
+      <div class="my-3">
+        @livewire ('customer.customer-payment-create', ['customer' => $customer,])
+      </div>
+    @endif
+  </div>
 
-  @if ($modes['saleInvoiceDisplay'])
-    @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
-  @endif
+
+  {{--
+     |
+     | Customer notes
+     |
+  --}}
+
+  <div class="my-4-rm bg-white border p-2">
+    <div class="d-flex justify-content-between">
+      <h2 class="h6 font-weight-bold text-secondary-rm" style="font-weight: 900; font-family: arial; color: #123;">
+        Notes
+      </h2>
+      <div class="mb-3-rm">
+        <button wire:loading class="btn m-0">
+          <span class="spinner-border text-info mr-3" role="status">
+          </span>
+        </button>
+
+        <button class="btn btn-primary
+            @if ($modes['customerPaymentCreate'])
+            @endif
+            m-0 border"
+            style="min-width: 200px;"
+            wire:click="enterMode('customerCommentCreateMode')">
+          <i class="fas fa-plus-circle"></i>
+          Add a note
+        </button>
+      </div>
+    </div>
+
+    <div>
+      @if ($modes['customerCommentCreateMode'])
+        <div class="py-3">
+          @livewire ('customer.dashboard.customer-comment-create', ['customer' => $customer,])
+        </div>
+      @else
+        @if ($customer->customerComments && count($customer->customerComments) > 0)
+          @foreach ($customer->customerComments as $customerCommnet)
+            <div class="my-3">
+              <div class="mb-1">
+                <small>
+                  {{ $customerCommnet->created_at->toDateString() }}
+                  |
+                  {{ $customerCommnet->creator->name }}
+                </small>
+              </div>
+              <div class="border p-2" style="background-color: #feff9c;">
+                {{ $customerCommnet->comment_text}}
+              </div>
+            </div>
+          @endforeach
+        @else
+          <div class="my-3">
+            No notes
+          </div>
+        @endif
+      @endif
+    </div>
+  </div>
 
 
 </div>

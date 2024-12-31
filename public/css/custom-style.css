@@ -30,6 +30,10 @@
     position: relative;
 }
 
+.o-heading {
+    font-weight: 900; font-family: arial; color: #123; 
+}
+
 @keyframes oAnimated {
     from {
         background-color: #eee;

@@ -15,7 +15,7 @@
             <th class="py-2">Paid</th>
             <th class="py-2">Pending</th>
             <th class="py-2">Payment status</th>
-            <th class="py-2">Action</th>
+            <th class="py-2 text-right">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -24,7 +24,7 @@
               <td>
                 {{ $saleInvoice->sale_invoice_id }}
               </td>
-              <td class="text-secondary">
+              <td>
                 {{ $saleInvoice->sale_invoice_date }}
               </td>
               <td>
@@ -56,7 +56,7 @@
                   </span>
                 @endif
               </td>
-              <td>
+              <td class="text-right">
                 <div class="dropdown">
                   <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-cog text-secondary"></i>
@@ -143,7 +143,7 @@
       </table>
     </div>
   @else
-    <div class="text-secondary py-3 px-3">
+    <div class="py-3">
       No sales.
     </div>
   @endif
