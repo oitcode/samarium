@@ -8,6 +8,8 @@ use App\Vacancy;
 
 class VacancyList extends Component
 {
+    public $vacancies;
+
     public function render()
     {
         $this->vacancies = Vacancy::all();
