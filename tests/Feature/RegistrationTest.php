@@ -11,17 +11,12 @@ class RegistrationTest extends TestCase
     /**
      * Test that registration page is not available.
      *
-     * Todo: This is a design decision for now.
-     *       As in the next releases there
-     *       will be user registration
-     *       too.
-     *
      * @return void
      */
-    public function testRegistrationPageNotAvailable()
+    public function testRegistrationPageIsAvailable()
     {
         $response = $this->get('/register');
 
-        $response->assertStatus(404);
+        $response->assertStatus(200);
     }
 }

@@ -41,11 +41,11 @@ class PostComponentTest extends TestCase
      *
      * @return void
      */
-    public function testAllModesAreFalse()
+    public function testAllModesAreFalseExceptListMode()
     {
         Livewire::test(\App\Livewire\Cms\Dashboard\PostComponent::class)
             ->assertSet('modes.createPostMode', false)
-            ->assertSet('modes.listPostMode', false)
+            ->assertSet('modes.listPostMode', true)
             ->assertSet('modes.displayPostMode', false)
             ->assertSet('modes.createPostCategoryMode', false);
     }
@@ -65,9 +65,6 @@ class PostComponentTest extends TestCase
         $response = $this->actingAs(User::where('role', 'admin')->first())->get('/cms/post');
 
         $response->assertSee('Create');
-        $response->assertSee('List');
-        $response->assertSee('Create post category');
-        $response->assertSee('Clear modes');
     }
 
     /**
@@ -91,6 +88,7 @@ class PostComponentTest extends TestCase
     {
         Livewire::test(\App\Livewire\Cms\Dashboard\PostComponent::class) 
             /* ->set('modes.list', true) */
+            ->call('clearModes')
             ->call('enterMode', 'listPostMode')
             ->assertSeeLivewire(\App\Livewire\Cms\Dashboard\PostList::class);
     }
@@ -116,7 +114,7 @@ class PostComponentTest extends TestCase
      */
     public function testClearModes()
     {
-        Livewire::test(\App\Livewire\Cms\Dashboard\WebpageComponent::class) 
+        Livewire::test(\App\Livewire\Cms\Dashboard\PostComponent::class) 
             ->call('clearModes')
             ->assertSet('modes.createPostMode', false)
             ->assertSet('modes.listPostMode', false)

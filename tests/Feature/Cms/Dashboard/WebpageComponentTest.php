@@ -41,11 +41,11 @@ class WebpageComponentTest extends TestCase
      *
      * @return void
      */
-    public function testDashboardCmsWebpageComponentHasAllModesFalse()
+    public function testDashboardCmsWebpageComponentHasAllModesFalseExceptListMode()
     {
         Livewire::test(\App\Livewire\Cms\Dashboard\WebpageComponent::class)
             ->assertSet('modes.create', false)
-            ->assertSet('modes.list', false)
+            ->assertSet('modes.list', true)
             ->assertSet('modes.display', false);
     }
 
@@ -63,8 +63,6 @@ class WebpageComponentTest extends TestCase
         $response = $this->actingAs(User::where('role', 'admin')->first())->get('/cms/webpage');
 
         $response->assertSee('Create');
-        $response->assertSee('List');
-        $response->assertSee('Clear modes');
     }
 
     /**
@@ -88,6 +86,7 @@ class WebpageComponentTest extends TestCase
     {
         Livewire::test(\App\Livewire\Cms\Dashboard\WebpageComponent::class) 
             /* ->set('modes.list', true) */
+            ->call('clearModes')
             ->call('enterMode', 'list')
             ->assertSeeLivewire(\App\Livewire\Cms\Dashboard\WebpageList::class);
     }

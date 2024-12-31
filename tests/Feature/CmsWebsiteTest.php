@@ -20,7 +20,7 @@ class CmsWebsiteTest extends TestCase
         $publicWebpages = Webpage::where('visibility', 'public')->get();
 
         foreach ($publicWebpages as $publicWebpage) {
-            $response = $this->get('/' . $publicWebpage->permalink);
+            $response = $this->get($publicWebpage->permalink);
 
             $response->assertStatus(200);
         }
@@ -36,7 +36,7 @@ class CmsWebsiteTest extends TestCase
         $nonPublicWebpages = Webpage::where('visibility', '!=', 'public')->get();
 
         foreach ($nonPublicWebpages as $nonPublicWebpage) {
-            $response = $this->get('/' . $nonPublicWebpage->permalink);
+            $response = $this->get($nonPublicWebpage->permalink);
 
             $response->assertStatus(404);
         }
