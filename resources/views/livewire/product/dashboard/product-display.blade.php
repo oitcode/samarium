@@ -82,7 +82,7 @@
                  @endif
                </button>
              @else
-               <button class="btn btn-primary p-3 mr-1" wire:click="makeProductFeaturedProduct">
+               <button class="btn btn-success p-3 mr-1" wire:click="makeProductFeaturedProduct">
                  <i class="fas fa-star mr-2"></i>
                  @if (true)
                  <span class="">
