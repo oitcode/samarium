@@ -458,4 +458,9 @@ class ProductDisplay extends Component
         return redirect()->to('/dashboard/product');
 
     }
+
+    public function closeThisComponent()
+    {
+        $this->dispatch('exitProductDisplayMode');
+    }
 }

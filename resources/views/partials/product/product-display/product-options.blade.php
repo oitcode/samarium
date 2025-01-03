@@ -1,25 +1,26 @@
 <div class="my-3 bg-white border">
-  <h2 class="h5 m-3">
-    Product options
-  </h2>
+  <div class="d-flex justify-content-between p-3">
+    <h2 class="h6 o-heading">
+      Product options
+    </h2>
+    <div class="mb-3-rm">
+      @include ('partials.dashboard.spinner-button')
 
-  {{-- Toolbar --}}
-  @if ($modes['updateProductAddProductOptionMode'])
-  @else
-    <div class="p-2 bg-white border">
-        <button class="btn btn-light" wire:click="enterMode('updateProductAddProductOptionMode')">
-          <i class="fas fa-plus-circle mr-1"></i>
-          Add option
-        </button>
+      <button class="btn btn-primary"
+          style="min-width: 200px;"
+          wire:click="enterMode('updateProductAddProductOptionMode')">
+        <i class="fas fa-plus-circle mr-1"></i>
+        Add option
+      </button>
 
-        <button class="btn btn-light" wire:click="enterMode('updateProductAddProductOptionHeadingMode')">
-          <i class="fas fa-plus-circle mr-1"></i>
-          Add option heading
-        </button>
-
-        @include ('partials.dashboard.spinner-button')
+      <button class="btn btn-primary"
+          style="min-width: 200px;"
+          wire:click="enterMode('updateProductAddProductOptionHeadingMode')">
+        <i class="fas fa-plus-circle mr-1"></i>
+        Add option heading
+      </button>
     </div>
-  @endif
+  </div>
 
   <!-- Flash message div -->
   @if (session()->has('addProductOptionMessage'))
@@ -43,19 +44,19 @@
   @endif
 
   @if (count($product->productOptionHeadings) > 0)
-    <div class="mb-5">
+    <div class="mb-3 p-2">
       <div class="table-responsive">
         <table class="table table-bordered mb-0">
           @foreach ($product->productOptionHeadings as $productOptionHeading)
             <tr class="">
-              <th colspan="2" class="bg-primary text-white border-dark" style="width: 200px;">
+              <th colspan="2" class="o-heading" style="width: 200px;">
                 {{ $productOptionHeading->product_option_heading_name }}
               </th>
             </tr>
             @if (true)
             @foreach ($productOptionHeading->productOptions as $productOption)
               <tr class="">
-                <th class="border-dark" style="width: 200px;">
+                <th class="" style="width: 200px;">
                   @if ($modes['updateProductUpdateProductOption'])
                     @if ($updatingProductOption->product_option_id == $productOption->product_option_id)
                       @livewire ('product.dashboard.product-option-edit', ['productOption' => $productOption,])
@@ -72,7 +73,7 @@
                     </button>
                   @endif
                 </th>
-                <td class="border-dark" style="width: 200px;">
+                <td class="" style="width: 200px;">
                   @if ($modes['deleteProductOptionMode'])
                     @if ($deletingProductOption->product_option_id == $productOption->product_option_id)
                       <button class="btn btn-danger" wire:click="confirmDeleteProductOption({{ $productOption }})">

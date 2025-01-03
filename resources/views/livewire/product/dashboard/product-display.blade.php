@@ -14,14 +14,92 @@
     </div>
   @endif
 
-
-  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-1 border-rm bg-white mb-2">
+  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white">
     {{-- Breadcrumb --}}
-    <div class="my-2 py-2 px-2">
+    <div class="my-2 p-2">
       Products
-
       <i class="fas fa-angle-right mx-2"></i>
       {{ $product->name }}
+    </div>
+
+    {{-- Top tool bar --}}
+    <div>
+      <div>
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm">
+
+          <div>
+            <button class="btn btn-info p-3" wire:click="$refresh">
+              <i class="fas fa-refresh"></i>
+            </button>
+
+             @if ($product->is_active == 0)
+               <button class="btn btn-primary p-3 mr-1" wire:click="makeProductActive">
+                 <i class="fas fa-eye mr-2"></i>
+                 @if (true)
+                 <span>
+                   Make active </span>
+                 @endif
+               </button>
+             @elseif ($product->is_active == 1)
+               <button class="btn btn-primary p-3 mr-1" wire:click="makeProductInactive">
+                 <i class="fas fa-eye-slash mr-2"></i>
+                 @if (true)
+                 <span>
+                   Make inactive
+                 </span>
+                 @endif
+               </button>
+
+               @if ($product->show_in_front_end == 'yes')
+                 <button class="btn btn-primary p-3 mr-1" wire:click="makeProductNotVisibleInFrontEnd">
+                   <i class="fas fa-eye-slash mr-2"></i>
+                   @if (true)
+                   <span class="">
+                     Hide in website
+                   </span>
+                   @endif
+                 </button>
+               @else
+                 <button class="btn btn-primary p-3 mr-1" wire:click="makeProductVisibleInFrontEnd">
+                   <i class="fas fa-eye-slash mr-2"></i>
+                   @if (true)
+                   <span class="">
+                     Show in website
+                   </span>
+                   @endif
+                 </button>
+               @endif
+             @else
+             @endif
+
+             @if ($product->featured_product == 'yes')
+               <button class="btn btn-primary p-3 mr-1" wire:click="makeProductFeaturedProductUndo">
+                 <i class="fas fa-lock mr-2"></i>
+                 @if (true)
+                 <span class="">
+                   Remove from featured product
+                 </span>
+                 @endif
+               </button>
+             @else
+               <button class="btn btn-primary p-3 mr-1" wire:click="makeProductFeaturedProduct">
+                 <i class="fas fa-star mr-2"></i>
+                 @if (true)
+                 <span class="">
+                   Mark as featured product
+                 </span>
+                 @endif
+               </button>
+             @endif
+
+            <button class="btn btn-danger p-3" wire:click="closeThisComponent">
+              <i class="fas fa-times"></i>
+              Close
+            </button>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 
@@ -54,7 +132,9 @@
   @include ('partials.product.product-display.question-and-answer')
 
   {{-- Additional settings --}} 
+  {{--
   @include ('partials.product.product-display.additional-settings')
+  --}}
 
   {{-- Inventory info --}}
   @include ('partials.product.product-display.stock-info')

@@ -1,5 +1,5 @@
 <div class="my-4 bg-white">
-  <h2 class="h5 m-3 pt-3">
+  <h2 class="h6 o-heading m-3 pt-3">
     Additional settings
   </h2>
   <div>

@@ -180,6 +180,7 @@ class ProductComponent extends Component
 
     public function exitProductDisplayMode()
     {
+        $this->displayingProduct = null;
         $this->exitMode('displayProduct');
         $this->enterMode('list');
     }
@@ -193,4 +194,5 @@ class ProductComponent extends Component
     {
         $this->clearModes();
     }
+
 }

@@ -1,11 +1,9 @@
 <div class="mb-4 bg-white">
   <div class="d-flex justify-content-between p-3">
     <div>
-      <div class="">
-        <strong>
-          Delete this product
-        </strong>
-      </div>
+      <h2 class="h6 o-heading">
+        Delete this product
+      </h2>
     </div>
 
     <div>

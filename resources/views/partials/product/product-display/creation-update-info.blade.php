@@ -1,10 +1,12 @@
 {{-- Creation and update info --}} 
 <div class="border bg-white p-3 my-3">
   <div class="mb-4">
-    <h3 class="h5"> Product history </h3>
+    <h2 class="h6 o-heading">
+      Product history
+    </h2>
   </div>
   <div class="row">
-    <div class="col-1">
+    <div class="col-6">
       Created at
     </div>
     <div class="col-6">
@@ -12,7 +14,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-1">
+    <div class="col-6">
       Updated at
     </div>
     <div class="col-6">

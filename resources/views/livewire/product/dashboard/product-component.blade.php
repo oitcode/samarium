@@ -14,16 +14,6 @@
       ])
     @endif
 
-    @if ($modes['displayProduct'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "clearModes",
-          'btnIconFaClass' => 'fas fa-times',
-          'btnText' => '',
-          'btnCheckMode' => '',
-          'btnBsColor' => 'bg-danger text-white',
-      ])
-    @endif
-
     @if ($modes['updateProduct'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "",

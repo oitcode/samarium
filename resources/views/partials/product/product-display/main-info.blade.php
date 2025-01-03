@@ -1,16 +1,16 @@
-<div class="row border-rm bg-white-rm" style="margin: auto;">
+<div class="row-rm border-rm bg-white-rm">
 
 
   {{-- Product info --}}
-  <div class="col-md-9 p-0 pr-2">
+  <div class="col-md-12-rm p-0">
 
       <div class="mb-2 bg-white border p-3">
         <div class="d-flex justify-content-between">
-          <div>
+          <div class="o-heading">
             Product Name
           </div>
           <div>
-            <button class="btn btn-light text-primary" wire:click="enterMode('updateProductNameMode')">
+            <button class="btn btn-primary" wire:click="enterMode('updateProductNameMode')">
               Edit
             </button>
           </div>
@@ -33,11 +33,11 @@
 
       <div class="mb-2 bg-white border p-3">
         <div class="d-flex justify-content-between">
-          <div>
+          <div class="o-heading">
             Category
           </div>
           <div>
-            <button class="btn btn-light text-primary" wire:click="enterMode('updateProductCategoryMode')">
+            <button class="btn btn-primary" wire:click="enterMode('updateProductCategoryMode')">
               Edit
             </button>
           </div>
@@ -55,11 +55,11 @@
 
       <div class="mb-2 bg-white border p-3">
         <div class="d-flex justify-content-between">
-          <div>
+          <div class="o-heading">
             Description
           </div>
           <div>
-            <button class="btn btn-light text-primary" wire:click="enterMode('updateProductDescriptionMode')">
+            <button class="btn btn-primary" wire:click="enterMode('updateProductDescriptionMode')">
               Edit
             </button>
           </div>
@@ -75,11 +75,11 @@
 
       <div class="mb-2 bg-white border p-3">
         <div class="d-flex justify-content-between">
-          <div>
+          <div class="o-heading">
             Price
           </div>
           <div>
-            <button class="btn btn-light text-primary" wire:click="enterMode('updateProductPriceMode')">
+            <button class="btn btn-primary" wire:click="enterMode('updateProductPriceMode')">
               Edit
             </button>
           </div>
@@ -95,7 +95,7 @@
 
       @if ($product->baseProduct)
         <div class="mb-3">
-          <h2 class="h6 font-weight-bold">
+          <h2 class="h6 o-heading">
             Base product
           </h2>
           <div>
@@ -117,29 +117,27 @@
   </div>
 
   {{-- Product image --}}
-  <div class="col-md-3 bg-light">
-    <div class="d-flex justify-content-center h-100">
-      <div class="d-flex flex-column justify-content-center h-100">
-        {{-- Product media --}}
-        <div>
-          @if ($modes['updateProductImageMode'])
-            @livewire ('product.dashboard.product-edit-image', ['product' => $product,])
-          @else
-            <div>
-              <div class="my-4">
-                <button class="btn btn-light" wire:click="enterMode('updateProductImageMode')">
-                  <i class="fas fa-pencil-alt"></i>
-                </button>
-              </div>
-            </div>
-            @if ($product->image_path)
-              <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
-            @else
-              <i class="fas fa-dice-d6 text-muted fa-8x"></i>
-            @endif
-          @endif
-        </div>
+  <div class="col-md-12-rm mb-2 bg-white border p-3">
+    <div class="d-flex justify-content-between">
+      <div class="o-heading">
+        Image
+      </div>
+      <div>
+        <button class="btn btn-primary" wire:click="enterMode('updateProductImageMode')">
+          Edit
+        </button>
       </div>
     </div>
+    @if ($modes['updateProductDescriptionMode'])
+      @livewire ('product.dashboard.product-edit-image', ['product' => $product,])
+    @else
+      <div class="my-4">
+        @if ($product->image_path)
+          <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
+        @else
+          <i class="fas fa-dice-d6 text-muted fa-8x"></i>
+        @endif
+      </div>
+    @endif
   </div>
 </div>
