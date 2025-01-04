@@ -10,7 +10,7 @@
             Product Name
           </div>
           <div>
-            <button class="btn btn-primary" wire:click="enterMode('updateProductNameMode')">
+            <button class="btn btn-listh text-primary" wire:click="enterMode('updateProductNameMode')">
               Edit
             </button>
           </div>
@@ -22,7 +22,7 @@
             {{-- Product name --}}
             <div class="d-flex">
               <div>
-                <h1 class="h5">
+                <h1 class="h6">
                   {{ $product->name }}
                 </h1>
               </div>
@@ -37,7 +37,7 @@
             Category
           </div>
           <div>
-            <button class="btn btn-primary" wire:click="enterMode('updateProductCategoryMode')">
+            <button class="btn btn-listh text-primary" wire:click="enterMode('updateProductCategoryMode')">
               Edit
             </button>
           </div>
@@ -59,7 +59,7 @@
             Description
           </div>
           <div>
-            <button class="btn btn-primary" wire:click="enterMode('updateProductDescriptionMode')">
+            <button class="btn btn-listh text-primary" wire:click="enterMode('updateProductDescriptionMode')">
               Edit
             </button>
           </div>
@@ -79,7 +79,7 @@
             Price
           </div>
           <div>
-            <button class="btn btn-primary" wire:click="enterMode('updateProductPriceMode')">
+            <button class="btn btn-listh text-primary" wire:click="enterMode('updateProductPriceMode')">
               Edit
             </button>
           </div>
@@ -123,7 +123,7 @@
         Image
       </div>
       <div>
-        <button class="btn btn-primary" wire:click="enterMode('updateProductImageMode')">
+        <button class="btn btn-listh text-primary" wire:click="enterMode('updateProductImageMode')">
           Edit
         </button>
       </div>

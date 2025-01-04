@@ -3,8 +3,8 @@
 
   <!-- Flash message div -->
   @if (session()->has('message'))
-    <div class="p-2">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="my-2">
+      <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
         <i class="fas fa-check-circle mr-3"></i>
         {{ session('message') }}
         <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
@@ -14,12 +14,14 @@
     </div>
   @endif
 
-  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white">
+  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white-rm border" style="background-color: #f2f8f4;">
     {{-- Breadcrumb --}}
-    <div class="my-2 p-2">
+    <div class="my-2 p-2 d-flex flex-column justify-content-center">
+      <div>
       Products
       <i class="fas fa-angle-right mx-2"></i>
       {{ $product->name }}
+      </div>
     </div>
 
     {{-- Top tool bar --}}
@@ -28,7 +30,7 @@
         <div class="mt-0 p-2 d-flex justify-content-between border-rm">
 
           <div>
-            <button class="btn btn-info p-3" wire:click="$refresh">
+            <button class="btn btn-primary p-3" wire:click="$refresh">
               <i class="fas fa-refresh"></i>
             </button>
 

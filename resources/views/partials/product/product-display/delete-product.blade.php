@@ -22,7 +22,9 @@
           Cancel
         </button>
       @else
-        <button class="btn btn-outline-danger" wire:click="deleteProduct">
+        <button class="btn btn-danger"
+            style="min-width: 200px;"
+            wire:click="deleteProduct">
           Delete
         </button>
       @endif

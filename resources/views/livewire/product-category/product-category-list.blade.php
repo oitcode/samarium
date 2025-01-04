@@ -32,19 +32,17 @@
         <div class="table-responsive bg-white">
           <table class="table table-hover table-bordered mb-0">
             <thead>
-              <tr style="color:#888888; text-shadow: 1px 0 #000; letter-spacing:1px; font-weight:bold;">
-                <th>Category</th>
-                <th>Products</th>
-                <th class="text-right">Action</th>
+              <tr style="color:#888888;">
+                <th class="o-heading">Category</th>
+                <th class="o-heading">Products</th>
+                <th class="o-heading text-right">Action</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($productCategories as $productCategory)
                 <tr>
                   <td wire:click="$dispatch('displayProductCategory', { productCategory: {{ $productCategory }} } )" role="button">
-                    <strong>
                       {{ $productCategory->name }}
-                    </strong>
                   </td>
                   <td>
                     {{ count($productCategory->products) }}

@@ -6,6 +6,13 @@
     <div class="mb-3-rm">
       @include ('partials.dashboard.spinner-button')
 
+      <button class="btn btn-light text-primary"
+          style="min-width: 200px;"
+          wire:click="enterMode('updateProductAddProductOptionHeadingMode')">
+        <i class="fas fa-plus-circle mr-1"></i>
+        Add option heading
+      </button>
+
       <button class="btn btn-primary"
           style="min-width: 200px;"
           wire:click="enterMode('updateProductAddProductOptionMode')">
@@ -13,12 +20,6 @@
         Add option
       </button>
 
-      <button class="btn btn-primary"
-          style="min-width: 200px;"
-          wire:click="enterMode('updateProductAddProductOptionHeadingMode')">
-        <i class="fas fa-plus-circle mr-1"></i>
-        Add option heading
-      </button>
     </div>
   </div>
 

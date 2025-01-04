@@ -29,7 +29,7 @@
   <div class="bg-white mb-3 border">
     <div class="">
       <div class="d-flex justify-content-between border-bottom">
-        <div class="px-3 py-3">
+        <div class="px-3 py-3 o-heading">
             Product Category Name
         </div>
         <div class="d-flex flex-column justify-content-center px-3-rm">
@@ -61,7 +61,7 @@
   {{-- Product category image --}}
   <div class="bg-white my-3 border">
     <div class="d-flex justify-content-between border-bottom">
-      <div class="px-3 py-3">
+      <div class="px-3 py-3 o-heading">
           Product Category Image
       </div>
       <div class="d-flex flex-column justify-content-center px-3-rm">
@@ -95,7 +95,7 @@
 
     <div class="">
       <div class="d-flex justify-content-between border-bottom">
-        <div class="px-3 py-3">
+        <div class="px-3 py-3 o-heading">
           Number of products
         </div>
         <div class="d-flex flex-column justify-content-center px-3">
@@ -118,8 +118,8 @@
   {{-- Product list --}}
   <div class="my-3 border bg-white">
     <div>
-      <div class="border-bottom px-3 py-3">
-          Products
+      <div class="border-bottom px-3 py-3 o-heading">
+        Products
       </div>
       {{-- Product list --}}
       <div class="table-responsive bg-white pl-1">
@@ -144,7 +144,7 @@
 
   {{-- Settings --}}
   <div class="bg-white my-3">
-    <div class="border-bottom px-3 py-3">
+    <div class="border-bottom px-3 py-3 o-heading">
       Settings
     </div>
 

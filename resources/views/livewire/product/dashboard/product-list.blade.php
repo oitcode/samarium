@@ -33,19 +33,19 @@
     <table class="table table-hover table-bordered shadow-sm border">
       <thead>
         <tr class="bg-white text-dark p-4">
-          <th>
+          <th class="o-heading">
             Product ID
           </th>
-          <th class="">
+          <th class="o-heading">
             Name
           </th>
-          <th class="">
+          <th class="o-heading">
             Active status
           </th>
-          <th class="">
+          <th class="o-heading">
             Selling price
           </th>
-          <th class="text-right">
+          <th class="o-heading text-right">
             Action
           </th>
         </tr>
@@ -57,7 +57,7 @@
             <td>
               {{ $product->product_id }}
             </td>
-            <td class="h6 font-weight-bold" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })" role="button">
+            <td class="h6" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })" role="button">
               {{ \Illuminate\Support\Str::limit($product->name, 60, $end=' ...') }}
             </td>
             <td class="h6 font-weight-bold">

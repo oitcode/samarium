@@ -35,16 +35,16 @@
     <table class="table table-hover shadow-sm border">
       <thead>
         <tr class="p-4 bg-white text-dark">
-          <th class="">
+          <th class="o-heading">
             Product
           </th>
-          <th class="">
+          <th class="o-heading">
             Question
           </th>
-          <th class="">
+          <th class="o-heading">
             Status
           </th>
-          <th class="text-right">
+          <th class="text-right o-heading">
             Action
           </th>
         </tr>

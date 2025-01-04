@@ -5,17 +5,15 @@
     <table class="table table-hover mb-0">
       <thead>
         <tr>
-          <th>Product Vendor</th>
-          <th class="text-right">Action</th>
+          <th class="o-heading" >Product Vendor</th>
+          <th class="o-heading text-right">Action</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($productVendors as $productVendor)
           <tr>
             <td wire:click="$dispatch('displayProductVendor', { productVendor: {{ $productVendor }} } )" role="button">
-              <strong>
-                {{ $productVendor->name }}
-              </strong>
+              {{ $productVendor->name }}
             </td>
             <td class="text-right">
               @if (true)

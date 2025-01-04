@@ -16,11 +16,11 @@
       <table class="table table-sm table-hover mb-0">
         <thead>
           <tr class="">
-            <th colspan="2">Item</th>
-            <th>Inventory Unit</th>
-            <th>Inventory low</th>
-            <th>Used today</th>
-            <th>Stock</th>
+            <th colspan="2" class="o-heading">Item</th>
+            <th class="o-heading">Inventory Unit</th>
+            <th class="o-heading">Inventory low</th>
+            <th class="o-heading">Used today</th>
+            <th class="o-heading">Stock</th>
           </tr>
         </thead>
 
