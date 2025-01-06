@@ -43,13 +43,13 @@
       <table class="table table-hover shadow-sm border">
         <thead>
           <tr class="p-4 bg-white text-dark">
-            <th>
+            <th class="o-heading">
               Vacancy
             </th>
-            <th>
+            <th class="o-heading">
               Date
             </th>
-            <th class="text-right">
+            <th class="o-heading text-right">
               Action
             </th>
           </tr>

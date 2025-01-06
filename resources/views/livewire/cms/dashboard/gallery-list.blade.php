@@ -13,13 +13,13 @@
             @if (true)
             <thead>
               <tr class="bg-white text-dark">
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>No of images</th>
-                <th>Space</th>
+                <th class="o-heading">ID</th>
+                <th class="o-heading">Name</th>
+                <th class="o-heading">Description</th>
+                <th class="o-heading">No of images</th>
+                <th class="o-heading">Space</th>
                 @if (true)
-                <th class="text-right">Action</th>
+                <th class="o-heading text-right">Action</th>
                 @endif
               </tr>
             </thead>

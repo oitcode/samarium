@@ -23,22 +23,22 @@
     <table class="table table-hover shadow-sm border">
       <thead>
         <tr class="p-4 bg-white text-dark">
-          <th>
+          <th class="o-heading">
             ID
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="d-none d-md-table-cell o-heading">
             Customer
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="d-none d-md-table-cell o-heading">
             Date
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="d-none d-md-table-cell o-heading">
             Time
           </th>
-          <th>
+          <th class="o-heading">
             Amount
           </th>
-          <th class="text-right">
+          <th class="o-heading text-right">
             Action
           </th>
         </tr>

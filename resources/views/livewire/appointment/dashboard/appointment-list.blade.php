@@ -44,28 +44,28 @@
       <table class="table table-hover shadow-sm border">
         <thead>
           <tr class="p-4 bg-white text-dark">
-            <th>
+            <th class="o-heading">
               ID
             </th>
-            <th>
+            <th class="o-heading">
               Applicant
             </th>
-            <th>
+            <th class="o-heading">
               Phone
             </th>
-            <th>
+            <th class="o-heading">
               Staff name
             </th>
-            <th class="">
+            <th class="o-heading">
               Date
             </th>
-            <th>
+            <th class="o-heading">
               Time
             </th>
-            <th>
+            <th class="o-heading">
               Status
             </th>
-            <th class="text-right">
+            <th class="o-heading text-right">
               Action
             </th>
           </tr>

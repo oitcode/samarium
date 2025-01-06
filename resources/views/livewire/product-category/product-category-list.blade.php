@@ -6,7 +6,7 @@
   @else
     <div class="">
 
-    {{-- Filter div --}}
+    {{-- Info div --}}
     <div class="d-flex justify-content-between bg-white my-1 p-2">
       <div class="d-flex flex-column justify-content-center">
         Total product categories: {{ \App\ProductCategory::count() }}
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    {{-- Filter div --}}
+    {{-- Info div --}}
     <div class="d-flex justify-content-between bg-white p-2">
       <div class="d-flex flex-column justify-content-center">
         <div>
@@ -48,17 +48,15 @@
                     {{ count($productCategory->products) }}
                   </td>
                   <td class="text-right">
-                    @if (true)
-                    <button class="btn btn-primary px-2 py-1" wire:click="">
+                    <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayProductCategory', { productCategory: {{ $productCategory }} } )">
                       <i class="fas fa-pencil-alt"></i>
                     </button>
-                    <button class="btn btn-success px-2 py-1" wire:click="" style="{{-- background-color: #ac0; --}}">
+                    <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayProductCategory', { productCategory: {{ $productCategory }} } )">
                       <i class="fas fa-eye"></i>
                     </button>
                     <button class="btn btn-danger px-2 py-1" wire:click="">
                       <i class="fas fa-trash"></i>
                     </button>
-                    @endif
                   </td>
                 </tr>
               @endforeach

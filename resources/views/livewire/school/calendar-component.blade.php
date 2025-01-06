@@ -80,7 +80,7 @@
       </div>
       @if ($displayMonthName)
         <div>
-          <h2 class="h2 pb-3 text-center mb-0 font-weight-bold px-3" {{-- style="background-color: #eee;" --}}>
+          <h2 class="h2 pb-3 text-center mb-0 o-heading">
             {{ $displayMonthName }}
           </h2>
         </div>
@@ -95,10 +95,10 @@
         <table class="table table-sm table-hover mb-0">
           <thead>
             <tr class="bg-light py-5">
-              <th class="py-4" style="width: 300px;">Date</th>
-              <th class="py-4">Day</th>
-              <th class="py-4">Details</th>
-              <th class="py-4">Action</th>
+              <th class="o-heading py-4" style="width: 300px;">Date</th>
+              <th class="o-heading py-4">Day</th>
+              <th class="o-heading py-4">Details</th>
+              <th class="o-heading py-4 text-right">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -144,7 +144,7 @@
                     <br />
                   @endforeach
                 </td>
-                <td>
+                <td class="text-right">
                   <button class="btn btn-primary"
                       wire:click="addEventForADate({{ json_encode($day['day']->toDateString()) }})">
                     <i class="fas fa-plus-circle"></i>

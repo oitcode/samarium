@@ -8,7 +8,7 @@
     ])
   @endif
 
-  {{-- Filter div --}}
+  {{-- Info div --}}
   <div class="d-flex justify-content-between bg-white my-1 p-2">
     <div class="d-flex flex-column justify-content-center">
       Total product questions: {{ \App\ProductQuestion::count() }}
@@ -20,11 +20,11 @@
     </div>
   </div>
 
-  {{-- Filter div --}}
+  {{-- Info div --}}
   <div class="d-flex justify-content-between bg-white p-2">
     <div class="d-flex flex-column justify-content-center">
       <div>
-        Displaying <span class="text-success font-weight-bold">all</span> product categories
+        Displaying <span class="text-success font-weight-bold">all</span> product questions
       </div>
     </div>
   </div>

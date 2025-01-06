@@ -54,10 +54,10 @@
 
     <div class="pt-2">
       <div class="d-flex">
-        <div class="mr-4 px-2 py-1 border font-weight-bold" style="background-color: #eef; color: #77f;">
+        <div class="mr-4 px-2 py-1 border font-weight-bold">
           Today : {{ $todaySaleInvoiceCount }}
         </div>
-        <div class="mr-4 px-2 py-1 border font-weight-bold" style="background-color: #efe; color: #7a7;">
+        <div class="mr-4 px-2 py-1 border font-weight-bold">
           Total : {{ $totalSaleInvoiceCount }}
         </div>
       </div>
@@ -71,28 +71,28 @@
     <table class="table table-hover shadow-sm border">
       <thead>
         <tr class="p-4 bg-white text-dark">
-          <th style="">
+          <th class="o-heading">
             Sale invoice ID
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="d-none d-md-table-cell o-heading">
             Date
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="d-none d-md-table-cell o-heading">
             Time
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="d-none d-md-table-cell o-heading">
             Customer
           </th>
-          <th>
+          <th class="o-heading">
             Amount
           </th>
-          <th>
+          <th class="o-heading">
             <span class="d-none d-md-inline">
               Payment
             </span>
             Status
           </th>
-          <th class="text-right">
+          <th class="o-heading text-right">
             Action
           </th>
         </tr>

@@ -7,22 +7,22 @@
         <table class="table table-hover table-bordered-rm mb-0">
           <thead>
             <tr class="bg-white text-dark">
-              <th>
+              <th class="o-heading">
                 Name
               </th>
-              <th>
+              <th class="o-heading">
                 Author
               </th>
-              <th>
+              <th class="o-heading">
                 Categories
               </th>
-              <th>
+              <th class="o-heading">
                 Date
               </th>
-              <th>
+              <th class="o-heading">
                 Visibility
               </th>
-              <th class="text-right">
+              <th class="o-heading text-right">
                 Action
               </th>
             </tr>

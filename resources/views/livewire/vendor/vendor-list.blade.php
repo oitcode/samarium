@@ -6,10 +6,10 @@
       <table class="table table-hover mb-0">
         <thead>
           <tr class="bg-white text-dark">
-            <th>ID</th>
-            <th>Name</th>
-            <th>Pending</th>
-            <th class="text-right">Action</th>
+            <th class="o-heading">ID</th>
+            <th class="o-heading">Name</th>
+            <th class="o-heading">Pending</th>
+            <th class="o-heading text-right">Action</th>
           </tr>
         </thead>
         <tbody>

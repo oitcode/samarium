@@ -13,9 +13,9 @@
             <tr class="{{ config('app.oc_ascent_bg_color', 'bg-light') }}
                 {{ config('app.oc_ascent_text_color', 'text-dark') }}
                 p-4">
-              <th class="w-25">Calendar group ID</th>
-              <th>Name</th>
-              <th class="text-right">Action</th>
+              <th class="w-25 o-heading">Calendar group ID</th>
+              <th class="o-heading">Name</th>
+              <th class="o-heading text-right">Action</th>
             </tr>
           </thead>
   

@@ -78,28 +78,28 @@
         <table class="table table-hover border">
           <thead>
             <tr class="bg-white text-dark">
-              <th style="width: 120px;">
+              <th class="o-heading" style="width: 120px;">
                 Order ID
               </th>
-              <th style="width: 200px;">
+              <th class="o-heading" style="width: 200px;">
                 Date
               </th>
-              <th style="width: 200px;">
+              <th class="o-heading" style="width: 200px;">
                 Time
               </th>
-              <th style="width: 200px;">
+              <th class="o-heading" style="width: 200px;">
                 Phone
               </th>
-              <th style="width: 200px;">
+              <th class="o-heading" style="width: 200px;">
                 Address
               </th>
-              <th style="width: 200px;">
+              <th class="o-heading" style="width: 200px;">
                 Total
               </th>
-              <th>
+              <th class="o-heading">
                 Status
               </th>
-              <th class="text-right">
+              <th class="o-heading text-right">
                 Action
               </th>
             </tr>

@@ -28,7 +28,7 @@
 
   <div class="p-2-rm bg-white-rm border-rm">
     <div class="bg-white border mb-1-rm p-2">
-      <h2 class="h4 mt-4 my-3">
+      <h2 class="h6 my-2 o-heading">
         Header
       </h2>
 
@@ -67,7 +67,7 @@
     </div>
 
     <div class="bg-white border mb-1-rm p-2">
-      <h2 class="h4 mt-4 my-3">
+      <h2 class="h6 my-2 o-heading">
         Navigation menu
       </h2>
       {{-- Nav menu bg color --}}
@@ -105,7 +105,7 @@
 
 
     <div class="bg-white border mb-1-rm p-2">
-      <h2 class="h4 mt-4 my-3">
+      <h2 class="h6 my-2 o-heading">
         Ascent
       </h2>
       {{-- Ascent bg color --}}
@@ -142,7 +142,7 @@
     </div>
 
     <div class="bg-white border mb-1-rm p-2">
-      <h2 class="h4 mt-4 my-3">
+      <h2 class="h6 my-2 o-heading">
         Footer
       </h2>
 
@@ -181,7 +181,7 @@
 
 
     <div class="bg-white border mb-1-rm p-2">
-      <h2 class="h4 mt-4 my-3">
+      <h2 class="h6 my-2 o-heading">
         Heading
       </h2>
       {{-- Heading color --}}
@@ -203,7 +203,7 @@
 
     <div class="bg-white border mb-1-rm p-2">
       {{-- Hero image --}}
-      <h2 class="h4 mt-4 my-3">
+      <h2 class="h6 my-2 o-heading">
         Featured image
       </h2>
       <div class="form-group mt-4 mb-3">

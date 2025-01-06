@@ -80,11 +80,11 @@
               {{ config('app.oc_ascent_text_color', 'text-white') }}
               "
           >
-            <th>ID</th>
-            <th>Date</th>
-            <th>Expense</th>
-            <th>Amount</th>
-            <th class="text-right">Action</th>
+            <th class="o-heading">ID</th>
+            <th class="o-heading">Date</th>
+            <th class="o-heading">Expense</th>
+            <th class="o-heading">Amount</th>
+            <th class="o-heading text-right">Action</th>
           </tr>
         </thead>
   

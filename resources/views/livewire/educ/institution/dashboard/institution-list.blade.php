@@ -14,16 +14,16 @@
     <table class="table table-hover shadow-sm border">
       <thead>
         <tr class="p-4 bg-white text-dark">
-          <th>
+          <th class="o-heading">
             Name
           </th>
-          <th>
+          <th class="o-heading">
             Country
           </th>
-          <th>
+          <th class="o-heading">
             Type
           </th>
-          <th class="text-right">
+          <th class="o-heading text-right">
             Action
           </th>
         </tr>

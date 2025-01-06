@@ -82,25 +82,25 @@
     <table class="table table-hover shadow-sm border">
       <thead>
         <tr class="bg-white text-dark p-4">
-          <th>
+          <th class="o-heading">
             ID
           </th>
-          <th class="">
+          <th class="o-heading">
             Title
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="d-none d-md-table-cell o-heading">
             Priority
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="d-none d-md-table-cell o-heading">
             Due date
           </th>
-          <th class="d-none d-md-table-cell">
+          <th class="d-none d-md-table-cell o-heading">
             Assigned to
           </th>
-          <th>
+          <th class="o-heading">
             Status
           </th>
-          <th class="text-right">
+          <th class="o-heading text-right">
             Action
           </th>
         </tr>

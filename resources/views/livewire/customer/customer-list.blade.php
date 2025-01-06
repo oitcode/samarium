@@ -9,10 +9,10 @@
       <table class="table table-hover mb-0">
         <thead>
           <tr class="bg-white text-dark">
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Balance</th>
-            <th class="text-right">Action</th>
+            <th class="o-heading">Name</th>
+            <th class="o-heading">Phone</th>
+            <th class="o-heading">Balance</th>
+            <th class="o-heading text-right">Action</th>
           </tr>
         </thead>
 

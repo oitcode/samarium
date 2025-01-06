@@ -22,9 +22,9 @@
         <table class="table">
 
           <thead>
-            <th>Name</th>
-            <th>Webpage</th>
-            <th class="text-right">Action</th>
+            <th class="o-heading">Name</th>
+            <th class="o-heading">Webpage</th>
+            <th class="o-heading text-right">Action</th>
           </thead>
 
           <tbody>

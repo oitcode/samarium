@@ -90,14 +90,14 @@
             {{ config('app.oc_ascent_bg_color', 'bg-success') }}
             {{ config('app.oc_ascent_text_color', 'text-white') }}
         ">
-          <th>ID</th>
-          <th style="width: 100px;">Date</th>
-          <th>Vendor</th>
-          <th>Items</th>
-          <th style="width: 200px;">Payment Status</th>
-          <th>Pending</th>
-          <th>Amount</th>
-          <th class="text-right">Action</th>
+          <th class="o-heading">ID</th>
+          <th class="o-heading" style="width: 100px;">Date</th>
+          <th class="o-heading">Vendor</th>
+          <th class="o-heading">Items</th>
+          <th class="o-heading" style="width: 200px;">Payment Status</th>
+          <th class="o-heading"> Pending</th>
+          <th class="o-heading">Amount</th>
+          <th class="o-heading text-right">Action</th>
         </tr>
       </thead>
 
