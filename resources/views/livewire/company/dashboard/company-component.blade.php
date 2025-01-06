@@ -1,19 +1,23 @@
 <div>
 
-  <x-component-header>
-    Company settings
-  </x-component-header>
+  <x-toolbar-classic toolbarTitle="Company">
+    @include ('partials.dashboard.spinner-button')
+  </x-toolbar-classic>
 
   <div>
 
-    {{-- Flash message div --}}
+    {{--
+       |
+       | Flash message div
+       |
+    --}}
     @if (session()->has('message'))
       @include ('partials.flash-message-modal', ['message' => session('message'),])
     @endif
 
     <div class="row" style="margin: auto;">
       <div class="col-md-8 bg-white">
-        <h2 class="h5 mb-3 font-weight-bold my-3">
+        <h2 class="h6 mb-4 font-weight-bold my-3 o-heading">
           Basic Info
         </h2>
 
@@ -28,14 +32,14 @@
           </div>
           <div class="col-md-8">
             @if ($company && $company->logo_image_path)
-              <div class="d-flex">
+              <div class="d-flex justify-content-between">
                 <div class="d-flex justify-content-start mb-3">
                   <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 75px;">
                 </div>
-                <div class="mx-4">
-                  <button class="btn btn-light" wire:click="enterMode('updateLogoImageMode')">
+                <div>
+                  <button class="btn btn-primary" wire:click="enterMode('updateLogoImageMode')">
                     <i class="fas fa-pencil-alt mr-1"></i>
-                    Change
+                    Change logo
                   </button>
                 </div>
               </div>
@@ -202,7 +206,7 @@
 
         <hr class="my-5"/>
 
-        <h2 class="h5 mb-3 font-weight-bold">
+        <h2 class="h6 mb-3 o-heading">
           Social Media Links
         </h2>
 
@@ -282,7 +286,7 @@
         </div>
       </div>
 
-      <div class="col-md-4 p-0 px-0 px-md-2 mt-4 mt-md-0">
+      <div class="col-md-4 p-0 px-0 pl-md-2 mt-4 mt-md-0">
         {{--
         |
         | Company info section
@@ -297,7 +301,7 @@
         <div class="bg-white border h-100">
           @if ($company)
             <div class="p-2">
-              <h2 class="h5 mb-3 mt-2 font-weight-bold">
+              <h2 class="h6 mb-4 mt-2 o-heading">
                 Additional Info
               </h2>
 
@@ -320,7 +324,8 @@
                 @if ($modes['companyInfoCreateMode'])
                   @livewire ('company.dashboard.company-info-create', ['company' => $company,])
                 @else
-                  <button class="btn btn-light shadow-sm pl-3 text-primary" wire:click="enterMode('companyInfoCreateMode')">
+                  <button class="btn btn-primary shadow-sm pl-3" wire:click="enterMode('companyInfoCreateMode')">
+                    <i class="fas fa-plus-circle mr-1"></i>
                     Add company info
                   </button>
                 @endif
@@ -344,7 +349,7 @@
     --}}
     @if ($company)
     <div class="my-4 bg-white border p-3">
-      <h2 class="h5 font-weight-bold">
+      <h2 class="h6 o-heading">
         Brief description
       </h2>
 
@@ -355,8 +360,8 @@
           <div class="py-3">
             {{ $company->brief_description}}
           </div>
-          <div class="py-3-rm text-muted">
-            <button class="btn btn-light ml-0 pl-0 border-rm text-primary" wire:click="enterMode('briefDescriptionUpdateMode')">
+          <div class="text-muted">
+            <button class="btn btn-primary px-2 ml-0 pl-0" wire:click="enterMode('briefDescriptionUpdateMode')">
               <i class="fas fa-pencil-alt mr-1"></i>
               Edit
             </button>
@@ -369,8 +374,8 @@
           <div class="py-3 text-muted">
             No brief description.
           </div>
-          <div class="py-3-rm text-muted">
-            <button class="btn btn-light ml-0 pl-0 border-rm text-primary" wire:click="enterMode('briefDescriptionCreateMode')">
+          <div class="text-muted">
+            <button class="btn btn-light ml-0 pl-0 text-primary" wire:click="enterMode('briefDescriptionCreateMode')">
               Add brief description
             </button>
           </div>
@@ -389,7 +394,7 @@
     --}}
     @if ($company)
     <div class="my-4 bg-white border p-3">
-      <h2 class="h5 font-weight-bold">
+      <h2 class="h6 o-heading">
         Google map share link
       </h2>
 
@@ -400,8 +405,8 @@
           <div class="py-3">
             {{ $company->google_map_share_link}}
           </div>
-          <div class="py-3-rm text-muted">
-            <button class="btn btn-light ml-0 pl-0 border-rm text-primary" wire:click="enterMode('googleMapShareLinkUpdateMode')">
+          <div class="text-muted">
+            <button class="btn btn-primary px-2 ml-0 pl-0" wire:click="enterMode('googleMapShareLinkUpdateMode')">
               <i class="fas fa-pencil-alt mr-1"></i>
               Edit
             </button>
@@ -414,8 +419,8 @@
           <div class="py-3 text-muted">
             No google map share link.
           </div>
-          <div class="py-3-rm text-muted">
-            <button class="btn btn-light ml-0 pl-0 border-rm text-primary" wire:click="enterMode('googleMapShareLinkCreateMode')">
+          <div class="text-muted">
+            <button class="btn btn-light ml-0 pl-0 text-primary" wire:click="enterMode('googleMapShareLinkCreateMode')">
               Add google map share link.
             </button>
           </div>

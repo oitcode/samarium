@@ -26,6 +26,7 @@ class AppLeftMenu extends Component
         'document' => false,
         'educ' => false,
         'accounting' => false,
+        'more' => false,
     ];
 
     public function mount()
@@ -100,6 +101,10 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/accounting'
         ) {
             $this->enterModeSilent('accounting');
+        } else if (
+            $uri == '/company'
+        ) {
+            $this->enterModeSilent('more');
         }
     }
 

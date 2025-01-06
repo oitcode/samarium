@@ -1,14 +1,8 @@
 <div>
 
 
-  <div class="p-3-rm">
-
-    <h1 class="text-white-rm">
-      Edit brief description
-    </h1>
-
+  <div>
     <div class="form-group">
-      <label for="">Brief description</label>
       <textarea
           rows="5"
           class="form-control"
@@ -16,7 +10,6 @@
       </textarea>
       @error ('brief_description') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
-
 
     <div class="py-3 m-0">
 

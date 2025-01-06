@@ -687,6 +687,44 @@
       @endif
 
     @endif
+
   
+    @if ($modes['more'])
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "exitMode('more')",
+          'btnIconFaClass' => 'fas fa-th-large',
+          'btnText' => 'More',
+          'btnCheckMode' => 'more',
+      ])
+    @else
+      @include ('partials.dashboard.app-left-menu-button-lw', [
+          'btnClickMethod' => "enterModeSilent('more')",
+          'btnIconFaClass' => 'fas fa-th-large',
+          'btnText' => 'More',
+          'btnCheckMode' => 'more',
+      ])
+    @endif
+  
+    @if ($modes['more'])
+  
+      {{--
+      |
+      |
+      | More route buttons
+      |
+      |
+      --}}
+  
+      <div class="o-animated-rm mb-3 border-bottom">
+        @include ('partials.dashboard.app-left-menu-button',
+            [
+                'btnRoute' => 'company',
+                'iconFaClass' => 'fas fa-th',
+                'btnText' => 'Company',
+            ])
+      </div>
+  
+    @endif
+
   </div>
 </div>
