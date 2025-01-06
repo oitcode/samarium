@@ -1,20 +1,20 @@
 <div class="d-flex">
-  <div class="d-flex flex-column justify-content-center mr-4" style="font-size: 1rem;">
-    <i class="fas fa-bell mr-2 text-white fa-2x-rm"></i>
+  <div class="d-flex flex-column justify-content-center mr-3" style="font-size: 1rem;">
+    <i class="fas fa-bell text-white mr-2"></i>
   </div>
   <div class="dropdown pt-1">
-    <button class="btn btn-outline-success-rm mr-2 text-white" type="button" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <div class="d-flex bg-primary-rm px-2">
-        <div class="d-flex flex-column justify-content-center d-inline pt-1 bg-primary-rm">
-          <span class="h6 mr-2">
+    <button class="btn text-white mr-2" type="button" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="d-flex px-2">
+        <div class="d-flex flex-column justify-content-center pt-1 mr-3">
+          <span class="h6">
             {{ Auth::user()->name }}
           </span>
         </div>
-        <div class="d-flex flex-column justify-content-center d-inline pt-1-rm bg-primary-rm">
-          <i class="fas fa-user-circle mr-2 text-white-rm fa-2x-rm" style="font-size: 1.2rem;"></i>
+        <div class="d-flex flex-column justify-content-center mr-3">
+          <i class="fas fa-user-circle" style="font-size: 1.2rem;"></i>
         </div>
-        <div class="d-flex flex-column justify-content-center d-inline pt-1-rm bg-primary-rm">
-          <i class="fas fa-angle-down mr-2 text-white-rm fa-2x-rm" style="font-size: 1.2rem;"></i>
+        <div class="d-flex flex-column justify-content-center">
+          <i class="fas fa-angle-down mr-2" style="font-size: 1.2rem;"></i>
         </div>
       </div>
     </button>
