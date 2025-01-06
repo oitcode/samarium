@@ -4,9 +4,20 @@
   {{-- Filter div --}}
   @if (true)
   <div class="mb-1 p-3 bg-white border d-flex justify-content-between">
+    <div class="pt-2">
+      <div class="d-flex">
+        <div class="mr-4 font-weight-bold">
+          Total : {{ count($websiteOrders) }}
+        </div>
+      </div>
+    </div>
     <div class="font-weight-bold h6 d-flex">
       <div class="d-flex">
         @if (true)
+        <div class="d-flex flex-column justify-content-center mr-3 o-heading">
+          <i class="fas fa-funnel mr-1"></i>
+          Filter
+        </div>
         <div class="dropdown">
           <button class="btn
               @if ($modes['showOnlyNewMode'])
@@ -36,7 +47,7 @@
               Whoops
             @endif
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButtonToolbar">
             <button class="dropdown-item" wire:click="enterMode('showOnlyNewMode')">
               New
             </button>
@@ -58,14 +69,6 @@
       </div>
     </div>
 
-
-    <div class="pt-2">
-      <div class="d-flex">
-        <div class="mr-4 font-weight-bold">
-          Total : {{ count($websiteOrders) }}
-        </div>
-      </div>
-    </div>
   </div>
   @endif
 

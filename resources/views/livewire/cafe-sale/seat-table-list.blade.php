@@ -2,7 +2,7 @@
 
 
   {{-- For bigger screens --}}
-  <div class="d-none d-md-block">
+  <div class="d-none d-md-block mt-3">
     <div class="row">
       @foreach ($seatTables as $seatTable)
         <div class="col-md-3 mb-4">

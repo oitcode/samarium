@@ -7,22 +7,30 @@
      |
   --}}
   <div class="mb-1 py-3 px-2 bg-white border d-flex justify-content-between">
+
+    <div class="pt-2 px-2 font-weight-bold border mr-2">
+      Total : {{ $todoCount }}
+    </div>
     <div class="font-weight-bold h6 d-flex">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between-rm border-rm p-3-rm">
+        <div class="d-flex flex-column justify-content-center mr-3 o-heading">
+          <i class="fas fa-funnel mr-1"></i>
+          Filter
+        </div>
         <div class="dropdown p-0 px-2">
           <button class="btn
               @if ($modes['showOnlyPendingMode'])
-                btn-danger
+                btn-outline-danger
               @elseif ($modes['showOnlyDoneMode'])
-                btn-success
+                btn-outline-success
               @elseif ($modes['showOnlyProgressMode'])
                 btn-warning
               @elseif ($modes['showOnlyDeferredMode'])
-                btn-secondary
+                btn-outline-secondary
               @elseif ($modes['showOnlyCancelledMode'])
-                btn-dark
+                btn-outline-dark
               @elseif ($modes['showAllMode'])
-                btn-dark border
+                btn-outline-dark border border-dark
               @endif
               dropdown-toggle"
               style="min-width: 100px;"
@@ -65,10 +73,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="pt-2 px-2 font-weight-bold border mr-2" style="background-color: #eef; color: #aaf;">
-      Total : {{ $todoCount }}
     </div>
   </div>
 

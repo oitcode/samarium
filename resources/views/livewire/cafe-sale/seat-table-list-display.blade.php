@@ -9,7 +9,7 @@
   >
     <div class="card-header @if ($seatTable->isBooked()) bg-danger-rm text-white-rm @else bg-success-rm text-white-rm @endif">
       <div class="float-left">
-        <h2 class="h6">
+        <h2 class="h6 o-heading">
           {{ $seatTable->name }}
           @if ($seatTable->isBooked())
             <span class="badge badge-danger badge-pill ml-2">

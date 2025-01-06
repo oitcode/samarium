@@ -15,7 +15,9 @@
               <tr class="bg-white text-dark">
                 <th class="o-heading">ID</th>
                 <th class="o-heading">Name</th>
+                @if (false)
                 <th class="o-heading">Description</th>
+                @endif
                 <th class="o-heading">No of images</th>
                 <th class="o-heading">Space</th>
                 @if (true)
@@ -39,9 +41,11 @@
                     </strong>
                   </td>
 
+                  @if (false)
                   <td class="text-secondary-rm">
                     {{ $gallery->description }}
                   </td>
+                  @endif
 
                   <td class="text-secondary-rm">
                     {{ count($gallery->galleryImages) }}
