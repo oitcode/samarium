@@ -25,6 +25,7 @@ class AppLeftMenu extends Component
         'project' => false,
         'document' => false,
         'educ' => false,
+        'accounting' => false,
     ];
 
     public function mount()
@@ -47,7 +48,6 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/vendor' ||
             $uri == '/dashboard/expense' ||
             $uri == '/dashboard/onlineorder' ||
-            $uri == '/dashboard/accounting' ||
             $uri == '/dashboard/sale-quotation'
         ) {
             $this->enterModeSilent('shop');
@@ -96,6 +96,10 @@ class AppLeftMenu extends Component
             $uri == '/dashboard/document/file'
         ) {
             $this->enterModeSilent('document');
+        } else if (
+            $uri == '/dashboard/accounting'
+        ) {
+            $this->enterModeSilent('accounting');
         }
     }
 

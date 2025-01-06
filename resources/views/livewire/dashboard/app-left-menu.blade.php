@@ -41,14 +41,14 @@
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'product',
-                  'iconFaClass' => 'fas fa-list',
+                  'iconFaClass' => 'fas fa-dice-d6',
                   'btnText' => 'Products',
               ])
   
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'product-category',
-                  'iconFaClass' => 'fas fa-list',
+                  'iconFaClass' => 'fas fa-folder-open',
                   'btnText' => 'Product category',
               ])
   
@@ -110,12 +110,6 @@
                   'btnText' => 'Sales',
               ])
   
-          @if (config('app.cmp_type') === 'cafe')
-            @include ('partials.dashboard.app-left-menu-button',
-                [
-                    'btnRoute' => 'cafesale',
-                    'iconFaClass' => 'fas fa-table', 'btnText' => 'Tables', ])
-          @endif
   
           @include ('partials.dashboard.app-left-menu-button',
               [
@@ -161,17 +155,26 @@
             ])
           @endif
   
+          @if (false)
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-accounting',
             'iconFaClass' => 'fas fa-book',
             'btnText' => 'Accounting',
           ])
+          @endif
   
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-sale-quotation',
             'iconFaClass' => 'fas fa-edit',
             'btnText' => 'Quotation',
           ])
+
+          @if (config('app.cmp_type') === 'cafe')
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'cafesale',
+                    'iconFaClass' => 'fas fa-table', 'btnText' => 'Tables', ])
+          @endif
         </div>
       @endif
     @endif
@@ -474,14 +477,14 @@
       @if ($modes['document'])
         @include ('partials.dashboard.app-left-menu-button-lw', [
             'btnClickMethod' => "exitMode('document')",
-            'btnIconFaClass' => 'fas fa-file',
+            'btnIconFaClass' => 'fas fa-folder-open',
             'btnText' => 'Document',
             'btnCheckMode' => 'document',
         ])
       @else
         @include ('partials.dashboard.app-left-menu-button-lw', [
             'btnClickMethod' => "enterModeSilent('document')",
-            'btnIconFaClass' => 'fas fa-file',
+            'btnIconFaClass' => 'fas fa-folder-open',
             'btnText' => 'Document',
             'btnCheckMode' => 'document',
         ])
@@ -641,7 +644,48 @@
         </div>
   
       @endif
+
+    @endif
+
+    @if (has_module('accounting'))
   
+      @if ($modes['accounting'])
+        @include ('partials.dashboard.app-left-menu-button-lw', [
+            'btnClickMethod' => "exitMode('accounting')",
+            'btnIconFaClass' => 'fas fa-book',
+            'btnText' => 'Accounting',
+            'btnCheckMode' => 'accounting',
+        ])
+      @else
+        @include ('partials.dashboard.app-left-menu-button-lw', [
+            'btnClickMethod' => "enterModeSilent('accounting')",
+            'btnIconFaClass' => 'fas fa-book',
+            'btnText' => 'Accounting',
+            'btnCheckMode' => 'accounting',
+        ])
+      @endif
+  
+      @if ($modes['accounting'])
+  
+        {{--
+        |
+        |
+        | Accounting route buttons
+        |
+        |
+        --}}
+  
+        <div class="o-animated-rm mb-3 border-bottom">
+          @include ('partials.dashboard.app-left-menu-button',
+              [
+                  'btnRoute' => 'dashboard-accounting',
+                  'iconFaClass' => 'fas fa-book',
+                  'btnText' => 'Accounting',
+              ])
+        </div>
+  
+      @endif
+
     @endif
   
   </div>

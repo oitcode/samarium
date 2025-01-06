@@ -3,13 +3,17 @@
     @guest
     @else
       <div class="p-2 px-3">
-        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-check-circle text-success mr-1"></i>
+        <span class="o-heading text-success">
+          Samarium
+        </span>
       </div>
 
       {{-- Top menu buttons. --}}
       <div class="d-flex flex-column justify-content-center">
 
         <div class="d-flex">
+          @if (false)
           <div class="mr-5 px-2">
             @livewire ('misc.clock-display-component')
           </div>
@@ -40,6 +44,7 @@
                 @livewire ('online-order.dashboard.online-order-counter')
               </a>
             </div>
+          @endif
           @endif
 
           {{-- User related. Is placed on top right part. --}}
