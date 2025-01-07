@@ -15,9 +15,9 @@
 
     <div class="d-flex">
       <div class="d-flex justify-content-center mr-2 mt-1">
-        <i class="{{ $iconFaClass }} text-white-rm text-dark"></i>
+        <i class="{{ $iconFaClass }} text-white"></i>
       </div>
-      <div class="d-flex justify-content-center o-heading text-white-rm text-dark">
+      <div class="d-flex justify-content-center o-heading text-white">
         <strong style="{{-- @if(Route::current()->getName() == $btnRoute) text-shadow: 0.5px 0 {{ config('app.oc_select_txt_color') }} @else text-shadow: 0.5px 0 {{ config('app.oc_unselect_txt_color') }} @endif ; font-weight:bold; --}}">
         {{ $btnText }}
         </strong>
