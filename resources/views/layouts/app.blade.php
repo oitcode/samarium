@@ -81,7 +81,7 @@
       | App left menu
       |
       --}}
-      <div class="col-md-2 p-0 bg-dark d-none d-md-block border-right shadow-sm">
+      <div class="col-md-2 p-0 bg-white d-none d-md-block border-right shadow-sm">
         @livewire ('dashboard.app-left-menu')
       </div>
 

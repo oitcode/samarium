@@ -15,15 +15,31 @@
       @include ('partials.flash-message-modal', ['message' => session('message'),])
     @endif
 
-    <div class="row" style="margin: auto;">
-      <div class="col-md-8 bg-white">
-        <h2 class="h6 mb-4 font-weight-bold my-3 o-heading">
-          Basic Info
-        </h2>
+    <div class="">
+      <div class="bg-white p-3 mb-2">
+        <div class="d-flex justify-content-between">
+          <h2 class="h6 font-weight-bold text-secondary-rm" style="font-weight: 900; font-family: arial; color: #123;">
+            Logo
+          </h2>
+          <div class="mb-3-rm">
+            <button wire:loading class="btn m-0">
+              <span class="spinner-border text-info mr-3" role="status">
+              </span>
+            </button>
+
+            <button class="btn btn-primary m-0 border"
+                wire:click="enterMode('updateLogoImageMode')"
+                style="min-width: 200px;">
+              <i class="fas fa-pencil-alt mr-1"></i>
+              Change logo
+            </button>
+
+          </div>
+        </div>
 
         <div class="form-row mb-3">
           <div class="col-md-4">
-            @if (true)
+            @if (false)
             <label style="min-width: 200px;">
               <i class="fas fa-image mr-1"></i>
               Logo
@@ -36,12 +52,14 @@
                 <div class="d-flex justify-content-start mb-3">
                   <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 75px;">
                 </div>
+                @if (false)
                 <div>
                   <button class="btn btn-primary" wire:click="enterMode('updateLogoImageMode')">
                     <i class="fas fa-pencil-alt mr-1"></i>
                     Change logo
                   </button>
                 </div>
+                @endif
               </div>
             @else
               <div>
@@ -77,12 +95,17 @@
 
         @if ($modes['updateLogoImageFromNewUploadMode'])
           <div class="my-4 p-3 bg-white border">
-            Upload new image
-            <div>
+            <div class="o-heading mb-3">
+              Upload new image
+            </div>
+            <div class="mb-2">
               <input type="file" class="form-control" wire:model.live="logo_image">
               @error('logo_image') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
-            <div>
+            <div class="mt-3">
+              <button class="btn btn-success" wire:click="updateLogoImage">
+                Update
+              </button>
               <button class="btn btn-danger" wire:click="exitMode('updateLogoImageFromNewUploadMode')">
                 Cancel
               </button>
@@ -96,7 +119,42 @@
 
         @if ($modes['updateLogoImageFromLibraryMode'])
           @livewire ('cms.dashboard.media-select-image-component')
+          <div class="mt-3">
+            <button class="btn btn-success" wire:click="updateLogoImage">
+              Update
+            </button>
+            <button class="btn btn-danger" wire:click="exitMode('updateLogoImageFromLibraryMode')">
+              Cancel
+            </button>
+            <button wire:loading class="btn">
+              <span class="spinner-border text-info mr-3" role="status">
+              </span>
+            </button>
+          </div>
         @endif
+
+        @if (false)
+        {{-- Submit button section --}}
+        <div class="mt-4 mb-2">
+          @if ($company)
+            @include ('partials.button-update')
+          @else
+            @include ('partials.button-store')
+            @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
+          @endif
+
+          <button wire:loading class="btn">
+            <span class="spinner-border text-info mr-3" role="status">
+            </span>
+          </button>
+        </div>
+        @endif
+      </div>
+
+      <div class="bg-white p-3 mb-4">
+        <h2 class="h6 mb-4 font-weight-bold mb-3 o-heading">
+          Basic Info
+        </h2>
 
         <div class="form-row mb-3">
           <div class="col-md-4">
@@ -203,9 +261,22 @@
           </div>
         </div>
 
+        {{-- Submit button section --}}
+        <div class="mt-4 mb-2">
+          @if ($company)
+            @include ('partials.button-update')
+          @else
+            @include ('partials.button-store')
+            @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
+          @endif
 
-        <hr class="my-5"/>
-
+          <button wire:loading class="btn">
+            <span class="spinner-border text-info mr-3" role="status">
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="bg-white p-3 mb-4">
         <h2 class="h6 mb-3 o-heading">
           Social Media Links
         </h2>
@@ -271,7 +342,7 @@
         </div>
 
         {{-- Submit button section --}}
-        <div class="my-4">
+        <div class="mt-4 mb-2">
           @if ($company)
             @include ('partials.button-update')
           @else
@@ -286,7 +357,7 @@
         </div>
       </div>
 
-      <div class="col-md-4 p-0 px-0 pl-md-2 mt-4 mt-md-0">
+      <div class="p-0 px-0 pl-md-2-rm mt-4 mt-md-0">
         {{--
         |
         | Company info section

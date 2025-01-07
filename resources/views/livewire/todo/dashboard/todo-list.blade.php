@@ -51,7 +51,7 @@
               Whoops
             @endif
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonToolbar">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButtonToolbar">
             <button class="dropdown-item" wire:click="enterMode('showOnlyPendingMode')">
               Pending
             </button>

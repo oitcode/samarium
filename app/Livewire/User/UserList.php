@@ -22,7 +22,7 @@ class UserList extends Component
     public $usersCount;
     public $adminUsersCount;
 
-    public $deletingPost;
+    public $deletingUser;
 
     public $modes = [
         'delete' => false,

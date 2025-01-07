@@ -227,4 +227,32 @@ class CompanyComponent extends Component
         session()->flash('message', 'Google map share link updated.');
         $this->exitMode('googleMapShareLinkUpdateMode');
     }
+
+    public function updateLogoImage()
+    {
+        if ($this->modes['updateLogoImageFromNewUploadMode']) {
+            $validatedData = $this->validate([
+                'logo_image' => 'image',
+            ]);
+
+            if ($this->logo_image) {
+                $imagePath = $this->logo_image->store('company', 'public');
+                $validatedData['logo_image_path'] = $imagePath;
+            }
+        }
+
+        if ($this->modes['updateLogoImageFromLibraryMode']) {
+            if ($this->selectedMediaImage) {
+                $validatedData['logo_image_path'] = $this->selectedMediaImage->image_path;
+            }
+        }
+
+        $company = Company::first(); 
+        $company->update($validatedData);
+
+        $this->clearModes();
+
+        session()->flash('message', 'Updated');
+        $this->render();
+    }
 }

@@ -102,7 +102,7 @@ class AppLeftMenu extends Component
         ) {
             $this->enterModeSilent('accounting');
         } else if (
-            $uri == '/company'
+            $uri == '/dashboard/company'
         ) {
             $this->enterModeSilent('more');
         }

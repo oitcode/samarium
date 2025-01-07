@@ -38,11 +38,11 @@
             <tr class="{{ config('app.oc_ascent_bg_color', 'bg-success') }}
                 {{ config('app.oc_ascent_text_color', 'text-white') }}
                 p-4">
-              <th>User ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Action</th>
+              <th class="o-heading">User ID</th>
+              <th class="o-heading">Name</th>
+              <th class="o-heading">Email</th>
+              <th class="o-heading">Role</th>
+              <th class="text-right o-heading">Action</th>
             </tr>
           </thead>
   
@@ -73,20 +73,16 @@
                 @endif
               </td>
 
-              <td>
+              <td class="text-right">
                 <button class="btn btn-primary px-2 py-1" wire:click="">
                   <i class="fas fa-pencil-alt"></i>
-                </button>
-                <button class="btn btn-danger px-2 py-1" wire:click="">
-                  <i class="fas fa-trash"></i>
                 </button>
                 <button class="btn btn-success px-2 py-1" wire:click="">
                   <i class="fas fa-eye"></i>
                 </button>
-                <span class="btn btn-tool text-danger btn-sm" wire:click="deleteUser({{ $user }})">
-                  <i class="fas fa-trash mr-1"></i>
-                  Delete
-                </span>
+                <button class="btn btn-danger px-2 py-1" wire:click="deleteUser({{ $user }})">
+                  <i class="fas fa-trash"></i>
+                </button>
                 @if ($modes['delete'])
                   @if ($deletingUser->id == $user->id)
                     <span class="btn btn-danger mr-3" wire:click="confirmDeleteUser">

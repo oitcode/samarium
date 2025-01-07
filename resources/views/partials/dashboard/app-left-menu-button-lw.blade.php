@@ -14,7 +14,7 @@
     @else
       bg-dark
     @endisset
-    m-0 py-3 w-100 text-left rounded-0 font-weight-bold text-white o-heading"
+    m-0 py-3 w-100 text-left rounded-0 font-weight-bold text-white-rm o-heading"
     wire:click="{{ $btnClickMethod }}" wire:key="{{ rand() . $btnCheckMode }}">
   <div class="d-flex justify-content-between">
     <div>
