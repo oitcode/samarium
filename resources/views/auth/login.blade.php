@@ -33,6 +33,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom-style.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/all.css') }}" rel="stylesheet">
 
     <style>
@@ -45,148 +46,141 @@
     @livewireStyles
 </head>
 
-<body style="height: 100% !important; background-color: #ddd;">
+<body style="height: 100% !important; background-color: #f0f0f0;">
 
+    <div class="h-100 d-flex justify-content-center h-100">
+      <div class="d-flex flex-column justify-content-center col-md-3">
 
-    {{--
-    | 
-    | Right side
-    |
-    --}}
-    <div class="h-100">
-      <div class="d-flex justify-content-center h-100">
-        <div class="d-flex flex-column justify-content-center col-md-3">
+        <div class="px-3 bg-white border shadow-sm">
+          <div class="d-flex p-3">
+            <div class="d-flex flex-column justify-content-center mr-2">
+              @if (\App\Company::first())
+                <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
+                    class="img-fluid"
+                    alt="{{ \App\Company::first()->name }} logo"
+                    style="height: 40px !important;">
 
-            <div class="px-3">
-              <div class="bg-white text-dark py-3 font-weight-bold"">
-                <div class="h5 font-weight-bold text-center mb-0" style="">
-                  @if (\App\Company::first())
-                    <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
-                        class="img-fluid"
-                        alt="{{ \App\Company::first()->name }} logo"
-                        style="height: 40px !important;">
+              @else
+                <i class="fas fa-user-circle fa-2x mr-2"></i>
+              @endif
+            </div>
+            <div class="h4 my-3 o-heading">
+              Login
+            </div>
+          </div>
 
-                  @else
-                    <i class="fas fa-check-circle mr-1"></i>
-                  @endif
-                  <div>
-                    Login
+          <div class=" d-flex">
+            <div class="px-3 py-3 w-100">
+              <form method="POST" action="{{ route('login') }}">
+                  @csrf
+
+                  {{--
+                  | 
+                  | User email
+                  |
+                  --}}
+                  <div class="form-group mb-3">
+                    <label class="o-heading">
+                      Email
+                    </label>
+                    <input id="email" type="email"
+                        class="form-row form-control @error('email') is-invalid @enderror"
+                        name="email" value="{{ old('email') }}"
+                        required
+                        autocomplete="email"
+                        {{--
+                        placeholder="Email"
+                        --}}
+                        autofocus>
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                   </div>
-                </div>
-              </div>
-              <div class="bg-white d-flex">
-                <div class="px-3 py-3 w-100">
-                  <form method="POST" action="{{ route('login') }}">
-                      @csrf
 
-                      {{--
-                      | 
-                      | User email
-                      |
-                      --}}
-                      <div class="form-group mb-3">
-                        <label>
-                          Email
-                        </label>
-                        <input id="email" type="email"
-                            class="form-row form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}"
-                            required
-                            autocomplete="email"
-                            {{--
-                            placeholder="Email"
-                            --}}
-                            autofocus>
+                  {{--
+                  | 
+                  | Password
+                  |
+                  --}}
+                  <div class="form-group mb-2">
 
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                      </div>
-
-                      {{--
-                      | 
-                      | Password
-                      |
-                      --}}
-                      <div class="form-group mb-2">
-
-                          <label>
-                            Password
-                          </label>
-                          <input id="password" type="password"
-                              class="form-control @error('password') is-invalid @enderror"
-                              name="password"
-                              required
-                              {{--
-                              placeholder="Password"
-                              --}}
-                              autocomplete="current-password">
-
-                          @error('password')
-                              <span class="invalid-feedback" role="alert">
-                                  <strong>{{ $message }}</strong>
-                              </span>
-                          @enderror
-                      </div>
-
-                      {{--
-                      | 
-                      | Remember option
-                      |
-                      --}}
-                      {{--
-                      <div class="form-group">
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                              <label class="form-check-label" for="remember">
-                                  {{ __('Remember Me') }}
-                              </label>
-                          </div>
-                      </div>
-                      --}}
-
-                      {{--
-                      | 
-                      | Login button
-                      |
-                      --}}
-                      <div class="form-group mt-4 mb-0">
-                          <button type="submit" class="btn btn-dark btn-block py-3 text-white"
-                              style="">
-                              {{ __('Login') }}
-                          </button>
-
+                      <label class="o-heading">
+                        Password
+                      </label>
+                      <input id="password" type="password"
+                          class="form-control @error('password') is-invalid @enderror"
+                          name="password"
+                          required
                           {{--
-                          @if (Route::has('password.request'))
-                              <a class="btn btn-link" href="{{ route('password.request') }}">
-                                  {{ __('Forgot Your Password?') }}
-                              </a>
-                          @endif
+                          placeholder="Password"
                           --}}
+                          autocomplete="current-password">
+
+                      @error('password')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                  </div>
+
+                  {{--
+                  | 
+                  | Remember option
+                  |
+                  --}}
+                  {{--
+                  <div class="form-group">
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                          <label class="form-check-label" for="remember">
+                              {{ __('Remember Me') }}
+                          </label>
                       </div>
+                  </div>
+                  --}}
 
-                  </form>
-                </div>
-              </div>
+                  {{--
+                  | 
+                  | Login button
+                  |
+                  --}}
+                  <div class="form-group mt-4 mb-2">
+                      <button type="submit" class="btn btn-dark btn-block py-3 text-white"
+                          style="">
+                          {{ __('Login') }}
+                      </button>
+
+                      {{--
+                      @if (Route::has('password.request'))
+                          <a class="btn btn-link" href="{{ route('password.request') }}">
+                              {{ __('Forgot Your Password?') }}
+                          </a>
+                      @endif
+                      --}}
+                  </div>
+
+              </form>
             </div>
-
-            {{--
-            | 
-            | Display version at bottom
-            |
-            --}}
-            <div class="px-3">
-              <div class="text-center bg-white text-muted pb-3">
-                <small>
-                  v0.8.8
-                </small>
-              </div>
-            </div>
-
+          </div>
         </div>
+
+        {{--
+        | 
+        | Display version at bottom
+        |
+        --}}
+        <div class="px-3 my-4">
+          <div class="text-center text-muted">
+            <small>
+              v0.8.8
+            </small>
+          </div>
+        </div>
+
       </div>
     </div>
 
