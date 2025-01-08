@@ -3,8 +3,7 @@
 
 | Version | License |
 | :-----: | :-----: | 
-| <img src="https://img.shields.io/badge/Version-0.8.8-blue" alt="Version"> | <img src="https://img.shields.io/badge/Livewire-AA2BE2" alt="Livewire">
-<img src="https://img.shields.io/badge/License-MIT-005530" alt="License"> |
+| <img src="https://img.shields.io/badge/Version-0.8.8-blue" alt="Version"> | <img src="https://img.shields.io/badge/License-MIT-005530" alt="License"> |
 
 Open source ERP plus Content Management System (CMS) built with Laravel and Livewire.
 You can create webpages and blog posts easily from easy to use admin panel. Apart from CMS,
