@@ -140,6 +140,7 @@ Now open your web browser and visit
 
 Below are some screenshots.
 
+![screenshot](screenshots/screenshot-login-1.png)
 ![screenshot](screenshots/screenshot-product-list-1.png)
 ![screenshot](screenshots/screenshot-product-category-list-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
