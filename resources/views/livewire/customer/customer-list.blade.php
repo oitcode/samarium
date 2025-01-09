@@ -19,7 +19,7 @@
         <tbody class="bg-white">
           @if (count($customers) > 0)
             @foreach ($customers as $customer)
-              <tr class="border" wire:click="$dispatch('displayCustomer', { customerId: {{ $customer->customer_id }} })" role="button">
+              <tr class="border">
                 <td>
                   <span>
                     {{ ucwords($customer->name) }}
@@ -49,10 +49,10 @@
                 </td>
                 <td class="text-right">
                   @if (true)
-                    <button class="btn btn-primary px-2 py-1" wire:click="">
+                    <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayCustomer', { customerId: {{ $customer->customer_id }} })">
                       <i class="fas fa-pencil-alt"></i>
                     </button>
-                    <button class="btn btn-success px-2 py-1" wire:click="">
+                    <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayCustomer', { customerId: {{ $customer->customer_id }} })">
                       <i class="fas fa-eye"></i>
                     </button>
                     <button class="btn btn-danger px-2 py-1" wire:click="">

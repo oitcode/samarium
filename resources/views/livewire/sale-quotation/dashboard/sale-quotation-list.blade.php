@@ -46,7 +46,7 @@
 
       <tbody class="bg-white">
         @foreach ($saleQuotations as $saleQuotation)
-          <tr wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })" role="button">
+          <tr>
             <td>
               {{ $saleQuotation->sale_quotation_id }}
             </td>
@@ -78,10 +78,10 @@
             </td>
             <td class="text-right">
               @if (true)
-                <button class="btn btn-primary px-2 py-1" wire:click="">
+                <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
                   <i class="fas fa-pencil-alt"></i>
                 </button>
-                <button class="btn btn-success px-2 py-1" wire:click="">
+                <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
                   <i class="fas fa-eye"></i>
                 </button>
                 <button class="btn btn-danger px-2 py-1" wire:click="">

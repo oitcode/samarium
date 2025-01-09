@@ -31,7 +31,7 @@
           <tbody class="bg-white">
             @foreach ($posts as $post)
               <tr>
-                <td class="h5 font-weight-bold py-4" wire:click="$dispatch('displayPost', { post: {{ $post }} })" role="button">
+                <td class="h5 font-weight-bold py-4">
                   <span class="text-dark">
                     {{ \Illuminate\Support\Str::limit($post->name, 60, $end=' ...') }}
                   </span>

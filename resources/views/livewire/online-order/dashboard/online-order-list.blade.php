@@ -110,7 +110,7 @@
 
           <tbody class="bg-white">
             @foreach ($websiteOrders as $order)
-              <tr style="" role="button" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
+              <tr>
                 <td>
                   {{ $order->website_order_id }}
                 </td>
@@ -161,10 +161,10 @@
                 </td>
                 <td class="text-right">
                   @if (true)
-                    <button class="btn btn-primary px-2 py-1" wire:click="">
+                    <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
                       <i class="fas fa-pencil-alt"></i>
                     </button>
-                    <button class="btn btn-success px-2 py-1" wire:click="">
+                    <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
                       <i class="fas fa-eye"></i>
                     </button>
                     <button class="btn btn-danger px-2 py-1" wire:click="">

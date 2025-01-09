@@ -160,10 +160,10 @@
               @endif
             </td>
             <td class="text-right">
-              <button class="btn btn-primary px-2 py-1" wire:click="">
+              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayTodo', { todo: {{ $todo }} })">
                 <i class="fas fa-pencil-alt"></i>
               </button>
-              <button class="btn btn-success px-2 py-1" wire:click="">
+              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayTodo', { todo: {{ $todo }} })">
                 <i class="fas fa-eye"></i>
               </button>
               <button class="btn btn-danger px-2 py-1" wire:click="">

@@ -70,10 +70,10 @@
                   <a href=" {{ route('dashboard-document-file-pdf-display', $documentFile->document_file_id) }}" target="_blank" class="btn btn-primary badge-pill">
                     View file
                   </a>
-                  <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayDocumentFile', { documentFile: {{ $documentFile }} })">
                     <i class="fas fa-pencil-alt"></i>
                   </button>
-                  <button class="btn btn-success px-2 py-1" wire:click="">
+                  <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayDocumentFile', { documentFile: {{ $documentFile }} })">
                     <i class="fas fa-eye"></i>
                   </button>
                   <button class="btn btn-danger px-2 py-1" wire:click="">

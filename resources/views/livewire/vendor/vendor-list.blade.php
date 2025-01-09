@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           @foreach ($vendors as $vendor)
-            <tr style="" wire:click="$dispatch('displayVendor', { vendor: {{ $vendor }} })" role="button">
+            <tr>
               <td>
                 {{ $vendor->vendor_id }}
               </td>
@@ -31,10 +31,10 @@
               </td>
               <td class="text-right">
                 @if (true)
-                  <button class="btn btn-primary px-2 py-1" wire:click="">
+                  <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayVendor', { vendor: {{ $vendor }} })">
                     <i class="fas fa-pencil-alt"></i>
                   </button>
-                  <button class="btn btn-success px-2 py-1" wire:click="">
+                  <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayVendor', { vendor: {{ $vendor }} })">
                     <i class="fas fa-eye"></i>
                   </button>
                   <button class="btn btn-danger px-2 py-1" wire:click="">

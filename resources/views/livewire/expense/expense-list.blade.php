@@ -90,7 +90,7 @@
   
         <tbody>
           @foreach($expenses as $expense)
-          <tr wire:key="{{ rand() * $expense->expense_id }}" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })" role="button">
+          <tr wire:key="{{ rand() * $expense->expense_id }}">
             <td>
               {{ $expense->expense_id }}
             </td>
@@ -111,7 +111,7 @@
   
             <td class="text-right">
               @if (true)
-                <button class="btn btn-primary px-2 py-1" wire:click="">
+                <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">
                   <i class="fas fa-pencil-alt"></i>
                 </button>
                 <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">

@@ -1,7 +1,7 @@
-<div class="border bg-white-rm">
+<div>
 
-  <div class="p-3 mt-3 mb-4">
-    <h1 class="h4 text-primary">
+  <div class="bg-white p-3 mt-3 mb-4">
+    <h1 class="h4 text-primary o-heading">
       Trial Balance
     </h1>
     <h2 class="h5">

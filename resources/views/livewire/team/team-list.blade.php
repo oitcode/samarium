@@ -54,15 +54,15 @@
                 @if ($team->image_path)
                   <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
                 @endif
-                <span wire:click="$dispatch('displayTeam', { team: {{ $team }} })" role="button">
+                <span>
                   {{ $team->name }}
                 </span>
               </td>
               <td class="text-right">
-                <button class="btn btn-primary px-2 py-1" wire:click="">
+                <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayTeam', { team: {{ $team }} })">
                   <i class="fas fa-pencil-alt"></i>
                 </button>
-                <button class="btn btn-success px-2 py-1" wire:click="">
+                <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayTeam', { team: {{ $team }} })">
                   <i class="fas fa-eye"></i>
                 </button>
                 <button class="btn btn-danger px-2 py-1" wire:click="">
@@ -105,15 +105,15 @@
                 @if ($team->image_path)
                   <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
                 @endif
-                <span wire:click="$dispatch('displayTeam', { team: {{ $team }} })" role="button">
+                <span>
                   {{ $team->name }}
                 </span>
               </td>
               <td class="text-right">
-                <button class="btn btn-primary px-2 py-1" wire:click="">
+                <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayTeam', { team: {{ $team }} })">
                   <i class="fas fa-pencil-alt"></i>
                 </button>
-                <button class="btn btn-success px-2 py-1" wire:click="">
+                <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayTeam', { team: {{ $team }} })">
                   <i class="fas fa-eye"></i>
                 </button>
                 <button class="btn btn-danger px-2 py-1" wire:click="deleteTeam({{ $team }})">

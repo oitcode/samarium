@@ -32,8 +32,8 @@
       <tbody class="bg-white">
         @if ($educInstitutions != null && count($educInstitutions) > 0)
           @foreach ($educInstitutions as $educInstitution)
-            <tr wire:click="$dispatch('displayEducInstitution',{ educInstitution: {{ $educInstitution }} })">
-              <td>
+            <tr>
+              <td wire:click="$dispatch('displayEducInstitution',{ educInstitution: {{ $educInstitution }} })" role="button">
               {{ $educInstitution->name }}
               </td>
               <td class="h6 font-weight-bold" wire:click="" role="button">
@@ -45,10 +45,10 @@
                 {{ $educInstitution->institution_type }}
               </td>
               <td class="text-right">
-                <button class="btn btn-primary px-2 py-1" wire:click="">
+                <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayEducInstitution',{ educInstitution: {{ $educInstitution }} })">
                   <i class="fas fa-pencil-alt"></i>
                 </button>
-                <button class="btn btn-success px-2 py-1" wire:click="">
+                <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayEducInstitution',{ educInstitution: {{ $educInstitution }} })">
                   <i class="fas fa-eye"></i>
                 </button>
                 <button class="btn btn-danger px-2 py-1" wire:click="">

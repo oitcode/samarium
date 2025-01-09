@@ -29,7 +29,7 @@
           @if (!is_null($webpages) && count($webpages) > 0)
             @foreach ($webpages as $webpage)
               <tr>
-                <td class="h5 font-weight-bold py-4"  wire:click="$dispatch('displayWebpage', { webpage: {{ $webpage }} })" class="text-dark" role="button">
+                <td class="h5 font-weight-bold py-4">
                   <span>
                     {{ $webpage->name }}
                   </span>

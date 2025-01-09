@@ -19,7 +19,9 @@
                 <th class="o-heading">Description</th>
                 @endif
                 <th class="o-heading">No of images</th>
+                @if (false)
                 <th class="o-heading">Space</th>
+                @endif
                 @if (true)
                 <th class="o-heading text-right">Action</th>
                 @endif
@@ -36,7 +38,7 @@
                   </td>
 
                   <td class="h6 font-weight-bold">
-                    <strong wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })" role="button">
+                    <strong>
                     {{ $gallery->name }}
                     </strong>
                   </td>
@@ -51,9 +53,11 @@
                     {{ count($gallery->galleryImages) }}
                   </td>
 
+                  @if (false)
                   <td class="text-secondary-rm">
                     {{ $gallery->totalDiskSpaceOccupied() }}
                   </td>
+                  @endif
 
                   <td class="text-right">
                     @if (true)
