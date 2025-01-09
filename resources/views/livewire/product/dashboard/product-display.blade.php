@@ -14,7 +14,7 @@
     </div>
   @endif
 
-  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white-rm border" style="background-color: #f2f8f4;">
+  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white border">
     {{-- Breadcrumb --}}
     <div class="my-2 p-2 d-flex flex-column justify-content-center">
       <div>
