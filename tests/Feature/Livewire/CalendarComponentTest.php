@@ -7,15 +7,15 @@ use Tests\TestCase;
 
 use App\User;
  
-class ProductVendorComponentTest extends TestCase
+class CalendarComponentTest extends TestCase
 {
     /** @test */
     public function component_exists_on_the_page()
     {
-        $user = User::where('role', 'admin')->first();;
+        $user = User::where('role', 'admin')->first();
 
         $this->actingAs($user)
-            ->get('/dashboard/product-vendor')
-            ->assertSeeLivewire(ProductVendorComponent::class);
+            ->get('/dashboard/school/calendar')
+            ->assertSeeLivewire(CalendarComponent::class);
     }
 }
