@@ -3,10 +3,7 @@
 
 <img src="https://img.shields.io/badge/Version-0.8.8-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005530" alt="License">
 
-Open source ERP plus Content Management System (CMS) built with Laravel and Livewire.
-You can create webpages and blog posts easily from easy to use admin panel. Apart from CMS,
-there are also other features like product display, invoice creation,
-calendar events, contact message, task manager, document sharing etc.
+Open source ERP built with Laravel and Livewire.
 
 ![screenshot](dashboard-screenshot-1.png)
 
@@ -17,15 +14,18 @@ calendar events, contact message, task manager, document sharing etc.
 
 ## Features
 
-- Content Management System (CMS)
-- Ecommerce support
-- Product Catalogue
-- Invoice Generation
-- Calendar Events
-- Team Catalogue
-- Contact Message
-- Appointment Scheduler
-- Task manager
+Product | Create
+------- | ------
+Product Category | Create
+Invoicing | Create and manage sale invoice, purchase and expense entries
+Website Management (CMS) | Create and manage webpage and blog post entries
+Calendar | Create and manage events
+Team | Create
+Contact Message | View contact messages sent by website visitors 
+Appointment | ZZ
+Newsletter subscription | ZZ
+Task Manager | ZZ
+
 
 ## Installation
 
