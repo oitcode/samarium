@@ -1,7 +1,7 @@
 # Samarium
 
 
-<img src="https://img.shields.io/badge/Version-0.8.8-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005530" alt="License"> <img src="https://img.shields.io/badge/Using-Laravel-AA2BE2" alt="Laravel"> <img src="https://img.shields.io/badge/Using-Livewire-AA2BE2" alt="Livewire"> <img src="https://img.shields.io/badge/Using-Bootstrap-AA2BE2" alt="Bootstrap">
+<img src="https://img.shields.io/badge/Version-0.8.8-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005530" alt="License"> <img src="https://img.shields.io/badge/Using-Laravel-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Using-Livewire-AA3B62" alt="Livewire"> <img src="https://img.shields.io/badge/Using-Bootstrap-AA2BE2" alt="Bootstrap">
 
 Open source ERP built with Laravel and Livewire.
 
