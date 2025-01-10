@@ -1,30 +1,26 @@
 # Samarium
 
 
-<img src="https://img.shields.io/badge/Version-0.8.8-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005530" alt="License">
+<img src="https://img.shields.io/badge/Version-0.8.8-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005530" alt="License"> <img src="https://img.shields.io/badge/Using-Laravel-AA2BE2" alt="Laravel"> <img src="https://img.shields.io/badge/Using-Livewire-AA2BE2" alt="Livewire"> <img src="https://img.shields.io/badge/Using-Bootstrap-AA2BE2" alt="Bootstrap">
 
 Open source ERP built with Laravel and Livewire.
 
 ![screenshot](dashboard-screenshot-1.png)
 
-## Built with
-
-<img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat&logo=laravel&logoColor=white" alt="Laravel"> <img src="https://img.shields.io/badge/Livewire-AA2BE2" alt="Livewire"> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white" alt="Bootstrap">
- 
-
 ## Features
 
-Product | Create
-------- | ------
-Product Category | Create
-Invoicing | Create and manage sale invoice, purchase and expense entries
-Website Management (CMS) | Create and manage webpage and blog post entries
-Calendar | Create and manage events
-Team | Create
+Feature | Description
+------- | -----------
+Product | Create products from admin panel. This product can be added to invoices as well as displayed in the website.
+Product Category | Arrange products by product categories. 
+Invoicing | Create and manage sale invoice, purchase and expense entries.
+Website Management (CMS) | Create and manage webpage and blog post entries.
+Calendar | Create and manage calendar events.
+Team | Create and manage teams.
 Contact Message | View contact messages sent by website visitors 
-Appointment | ZZ
-Newsletter subscription | ZZ
-Task Manager | ZZ
+Appointment | Get appointment request from website visitors. Approve or reject from admin panel.
+Newsletter subscription | Get newsletter subscription request from website visitors.
+Task Manager | Create and manage tasks.
 
 
 ## Installation
