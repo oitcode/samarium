@@ -151,13 +151,37 @@ Below are some screenshots.
 
 ## Contributing
 
-__Please contribute to this project.__
-Contributions are welcome.
+Please consider contributing to this project. Any kind of contributions are welcome.
+You can contribute in following ways:
+
+### Raising issues
+
+You can raise issues for existing bugs. Or you can raise issue for requesting new features.
+
+### Adding test code
+
+More test code is needed to automate as much test as possible. You can add more test code.
+
+### Fixing issues
+
+You can fix issues that are raised here in github repo.
+
+### Extending the application
+
+You can add your own code to extend the features of this application. Or, if you can see
+the need for refactoring certain part of code then also, please send a pull request
+by making necessary code changes.
+
+All contributions are welcome.
 
 ## Issues
 
 If you find any issue in this application, you can help by raising an issue
 here in our github repo.
+
+## Encouraging/Support
+
+Please star this repository to show your support if you find this project useful and/or interesting.
 
 ## License
 
