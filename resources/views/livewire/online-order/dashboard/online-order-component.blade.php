@@ -1,59 +1,68 @@
-<div class="p-3-rm p-md-0">
+<div>
 
+  
+  <x-base-component moduleName="Online order">
 
-  {{-- Show in bigger screens --}}
-  <x-toolbar-classic toolbarTitle="Online order">
+    {{--
+    |
+    | Toolbar.
+    |
+    --}}
 
-    @include ('partials.dashboard.spinner-button')
+    <x-slot name="toolbar">
+      @include ('partials.dashboard.spinner-button')
 
-    @if ($modes['listMode'] || !array_search(true, $modes))
+      @if ($modes['listMode'] || !array_search(true, $modes))
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('listMode')",
+            'btnIconFaClass' => 'fas fa-list',
+            'btnText' => 'List',
+            'btnCheckMode' => 'listMode',
+        ])
+      @endif
+
       @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('listMode')",
-          'btnIconFaClass' => 'fas fa-list',
-          'btnText' => 'List',
-          'btnCheckMode' => 'listMode',
+          'btnClickMethod' => "enterMode('searchMode')",
+          'btnIconFaClass' => 'fas fa-search',
+          'btnText' => 'Search',
+          'btnCheckMode' => 'searchMode',
       ])
-    @endif
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('searchMode')",
-        'btnIconFaClass' => 'fas fa-search',
-        'btnText' => 'Search',
-        'btnCheckMode' => 'searchMode',
-    ])
+      @if ($modes['onlineOrderDisplay'])
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('onlineOrderDisplay')",
+            'btnIconFaClass' => 'fas fa-circle',
+            'btnText' => 'Online order display',
+            'btnCheckMode' => 'onlineOrderDisplay',
+        ])
+      @endif
 
-    @if ($modes['onlineOrderDisplay'])
       @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('onlineOrderDisplay')",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Online order display',
-          'btnCheckMode' => 'onlineOrderDisplay',
+          'btnClickMethod' => "clearModes",
+          'btnIconFaClass' => 'fas fa-times',
+          'btnText' => '',
+          'btnCheckMode' => '',
       ])
-    @endif
+    </x-slot>
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
+    <div>
 
-  </x-toolbar-classic>
+      {{--
+         |
+         | Use required component as per mode
+         |
+      --}}
 
+      @if ($modes['onlineOrderDisplay'])
+        @livewire ('online-order.dashboard.online-order-display', ['websiteOrder' => $displayingOnlineOrder,])
+      @elseif ($modes['listMode'])
+        @livewire ('online-order.dashboard.online-order-list')
+      @elseif ($modes['searchMode'])
+        @livewire ('online-order.dashboard.online-order-search')
+      @endif
 
-  {{--
-     |
-     | Use required component as per mode
-     |
-  --}}
-
-  @if ($modes['onlineOrderDisplay'])
-    @livewire ('online-order.dashboard.online-order-display', ['websiteOrder' => $displayingOnlineOrder,])
-  @elseif ($modes['listMode'])
-    @livewire ('online-order.dashboard.online-order-list')
-  @elseif ($modes['searchMode'])
-    @livewire ('online-order.dashboard.online-order-search')
-  @endif
+    </div>
+  </x-base-component>
 
 
 </div>

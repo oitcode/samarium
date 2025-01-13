@@ -1,41 +1,36 @@
 <div>
 
+  
+  <x-base-component moduleName="Product question">
 
-  {{-- Toolbar --}}
-  <x-toolbar-classic toolbarTitle="Product question">
+    {{--
+    |
+    | Toolbar.
+    |
+    --}}
 
-    @include ('partials.dashboard.spinner-button')
+    <x-slot name="toolbar">
+      @include ('partials.dashboard.spinner-button')
+    </x-slot>
 
-  </x-toolbar-classic>
+    <div>
 
+      {{--
+      |
+      | Use required component as per mode.
+      |
+      --}}
 
-  <!-- Flash message div -->
-  @if (session()->has('message'))
-    <div class="p-2">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle mr-3"></i>
-        {{ session('message') }}
-        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-          <span class="text-danger" aria-hidden="true">&times;</span>
-        </button>
-      </div>
+      @if ($modes['list'])
+        @livewire ('product.dashboard.product-question-list')
+      @elseif ($modes['display'])
+        @livewire ('product.dashboard.product-question-display', ['productQuestion' => $displayingProductQuestion,])
+      @else
+        @livewire ('product.dashboard.product-question-list')
+      @endif
+
     </div>
-  @endif
-
-
-  {{--
-  |
-  | Use required component as per mode.
-  |
-  --}}
-
-  @if ($modes['list'])
-    @livewire ('product.dashboard.product-question-list')
-  @elseif ($modes['display'])
-    @livewire ('product.dashboard.product-question-display', ['productQuestion' => $displayingProductQuestion,])
-  @else
-    @livewire ('product.dashboard.product-question-list')
-  @endif
+  </x-base-component>
 
 
 </div>

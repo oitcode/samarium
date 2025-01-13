@@ -1,14 +1,11 @@
 <div class="">
 
 
-  {{-- Flash message div --}}
-  @if (session()->has('message'))
-    @include ('partials.unused.flash-message', [
-        'flashMessage' => session('message'),
-    ])
-  @endif
-
-  {{-- Filter div --}}
+  {{--
+     |
+     | Info div
+     |
+  --}}
   <div class="d-flex justify-content-between bg-white my-1 p-2">
     <div class="d-flex flex-column justify-content-center">
       Total products: {{ \App\Product::count() }}
@@ -20,7 +17,11 @@
     </div>
   </div>
 
-  {{-- Filter div --}}
+  {{--
+     |
+     | Info div
+     |
+  --}}
   <div class="d-flex justify-content-between bg-white p-2">
     <div class="d-flex flex-column justify-content-center">
       Displaying newest 5 products
@@ -28,7 +29,11 @@
   </div>
 
 
-  {{-- Show in bigger screens --}}
+  {{--
+     |
+     | The table
+     |
+  --}}
   <div class="table-responsive d-none-rm d-md-block-rm">
     <table class="table table-hover table-bordered shadow-sm border">
       <thead>
@@ -91,7 +96,6 @@
         @endforeach
       </tbody>
     </table>
-
   </div>
 
 

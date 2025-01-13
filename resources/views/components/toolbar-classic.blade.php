@@ -1,4 +1,4 @@
-<div class="my-1" style="{{-- border-left: 5px solid #555; --}}">
+<div class="my-1">
 
 
   <div class="mb-1 py-3 px-0 d-flex

@@ -41,7 +41,6 @@ class ProductCategoryCreate extends Component
 
         ProductCategory::create($validatedData);
 
-        session()->flash('success', 'Product Added');
         $this->resetInputFields();
 
         $this->dispatch('productCategoryCreateCompleted');
