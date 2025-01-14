@@ -1,47 +1,46 @@
 <div>
 
+  
+  <x-base-component moduleName="Nav menu">
 
-  @if ($modes['list'] || !array_search(true, $modes))
-  {{-- Show in bigger screens --}}
-  <x-toolbar-classic toolbarTitle="Nav menu">
+    {{--
+    |
+    | Toolbar.
+    |
+    --}}
 
-    @include ('partials.dashboard.spinner-button')
+    <x-slot name="toolbar">
+      @include ('partials.dashboard.spinner-button')
 
-    @if (\App\CmsNavMenu::first())
-    @else
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('create')",
-          'btnIconFaClass' => 'fas fa-plus-circle',
-          'btnText' => 'Create',
-          'btnCheckMode' => 'create',
-      ])
-    @endif
+      @if (\App\CmsNavMenu::first())
+      @else
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('create')",
+            'btnIconFaClass' => 'fas fa-plus-circle',
+            'btnText' => 'Create',
+            'btnCheckMode' => 'create',
+        ])
+      @endif
+    </x-slot>
 
-  </x-toolbar-classic>
-  @endif
+    <div>
 
+      {{--
+      |
+      | Use required component as per mode.
+      |
+      --}}
 
-  <!-- Flash message div -->
-  @if (session()->has('message'))
-    <div class="p-2">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle mr-3"></i>
-        {{ session('message') }}
-        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-          <span class="text-danger" aria-hidden="true">&times;</span>
-        </button>
-      </div>
+      @if ($modes['create'])
+        @livewire ('cms.dashboard.nav-menu-create')
+      @elseif ($modes['display'])
+        @livewire ('cms.dashboard.nav-menu-display', ['cmsNavMenu' => $displayingCmsNavMenu,])
+      @elseif ($modes['list'])
+        @livewire ('cms.dashboard.nav-menu-list')
+      @endif
+
     </div>
-  @endif
-
-
-  @if ($modes['create'])
-    @livewire ('cms.dashboard.nav-menu-create')
-  @elseif ($modes['display'])
-    @livewire ('cms.dashboard.nav-menu-display', ['cmsNavMenu' => $displayingCmsNavMenu,])
-  @elseif ($modes['list'])
-    @livewire ('cms.dashboard.nav-menu-list')
-  @endif
+  </x-base-component>
 
 
 </div>

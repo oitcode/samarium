@@ -2,14 +2,12 @@
 
   <x-toolbar-classic toolbarTitle="Navigation menu" titleNone="yes">
     @include ('partials.dashboard.spinner-button')
-  </x-toolbar-classic>
 
-  <div class="mb-1 px-2 py-3 bg-white border">
-    <button class="btn btn-primary border" wire:click="enterMode('createNavMenuItem')">
+    <button class="btn btn-primary border mr-2" wire:click="enterMode('createNavMenuItem')">
       <i class="fas fa-plus-circle mr-2"></i>
       Add item
     </button>
-  </div>
+  </x-toolbar-classic>
 
 
   @if ($modes['createNavMenuItem'])
