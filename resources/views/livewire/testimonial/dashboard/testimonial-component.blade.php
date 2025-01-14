@@ -1,66 +1,57 @@
 <div>
 
+  
+  <x-base-component moduleName="Testimonial">
 
-  {{--
-     |
-     | Top toolbar
-     |
-  --}}
+    {{--
+    |
+    | Toolbar.
+    |
+    --}}
 
-  <x-toolbar-classic toolbarTitle="Testimonial">
+    <x-slot name="toolbar">
+      @include ('partials.dashboard.spinner-button')
 
-    @include ('partials.dashboard.spinner-button')
-
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('listTestimonialMode')",
-        'btnIconFaClass' => 'fas fa-list',
-        'btnText' => 'List',
-        'btnCheckMode' => 'listTestimonialMode',
-    ])
-
-    @if ($modes['displayTestimonialMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "",
-          'btnIconFaClass' => 'fas fa-circle',
-          'btnText' => 'Testimonial display',
-          'btnCheckMode' => 'displayTestimonialMode',
+          'btnClickMethod' => "enterMode('listTestimonialMode')",
+          'btnIconFaClass' => 'fas fa-list',
+          'btnText' => 'List',
+          'btnCheckMode' => 'listTestimonialMode',
       ])
-    @endif
 
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
+      @if ($modes['displayTestimonialMode'])
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "",
+            'btnIconFaClass' => 'fas fa-circle',
+            'btnText' => 'Testimonial display',
+            'btnCheckMode' => 'displayTestimonialMode',
+        ])
+      @endif
 
-  </x-toolbar-classic>
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "clearModes",
+          'btnIconFaClass' => 'fas fa-times',
+          'btnText' => '',
+          'btnCheckMode' => '',
+      ])
+    </x-slot>
 
+    <div>
 
-  {{--
-     |
-     | Flash message div
-     |
-  --}}
+      {{--
+         |
+         | Use the required component as per mode
+         |
+      --}}
 
-  @if (session()->has('message'))
-    @include ('partials.flash-message', [
-        'flashMessage' => session('message'),
-    ])
-  @endif
+      @if ($modes['listTestimonialMode'])
+        @livewire ('testimonial.dashboard.testimonial-list')
+      @elseif ($modes['displayTestimonialMode'])
+        @livewire ('testimonial.dashboard.testimonial-display', ['testimonial' => $displayingTestimonial,])
+      @endif
 
-
-  {{--
-     |
-     | Use the required component as per mode
-     |
-  --}}
-
-  @if ($modes['listTestimonialMode'])
-    @livewire ('testimonial.dashboard.testimonial-list')
-  @elseif ($modes['displayTestimonialMode'])
-    @livewire ('testimonial.dashboard.testimonial-display', ['testimonial' => $displayingTestimonial,])
-  @endif
+    </div>
+  </x-base-component>
 
 
 </div>

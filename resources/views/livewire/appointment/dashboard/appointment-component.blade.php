@@ -1,62 +1,53 @@
 <div>
 
+  
+  <x-base-component moduleName="Appointment">
 
-  {{--
-     |
-     | Top toolbar
-     |
-  --}}
+    {{--
+    |
+    | Toolbar.
+    |
+    --}}
 
-  <x-toolbar-classic toolbarTitle="Appointment">
+    <x-slot name="toolbar">
+      @include ('partials.dashboard.spinner-button')
 
-    @include ('partials.dashboard.spinner-button')
+      @if ($modes['listAppointmentMode'] || ! array_search(true, $modes))
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('listAppointmentMode')",
+            'btnIconFaClass' => 'fas fa-list',
+            'btnText' => 'List',
+            'btnCheckMode' => 'listAppointmentMode',
+        ])
+      @endif
 
-    @if ($modes['listAppointmentMode'] || ! array_search(true, $modes))
+      @if ($modes['displayAppointmentMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('listAppointmentMode')",
-          'btnIconFaClass' => 'fas fa-list',
-          'btnText' => 'List',
-          'btnCheckMode' => 'listAppointmentMode',
+          'btnClickMethod' => "clearModes",
+          'btnIconFaClass' => 'fas fa-times',
+          'btnText' => '',
+          'btnCheckMode' => '',
+          'btnBsColor' => 'bg-danger text-white',
       ])
-    @endif
+      @endif
+    </x-slot>
 
-    @if ($modes['displayAppointmentMode'])
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-        'btnBsColor' => 'bg-danger text-white',
-    ])
-    @endif
+    <div>
 
-  </x-toolbar-classic>
+      {{--
+         |
+         | Use the required component as per mode
+         |
+      --}}
 
+      @if ($modes['listAppointmentMode'])
+        @livewire ('appointment.dashboard.appointment-list')
+      @elseif ($modes['displayAppointmentMode'])
+        @livewire ('appointment.dashboard.appointment-display', ['appointment' => $displayingAppointment,])
+      @endif
 
-  {{--
-     |
-     | Flash message div
-     |
-  --}}
-
-  @if (session()->has('message'))
-    @include ('partials.flash-message', [
-        'flashMessage' => session('message'),
-    ])
-  @endif
-
-
-  {{--
-     |
-     | Use the required component as per mode
-     |
-  --}}
-
-  @if ($modes['listAppointmentMode'])
-    @livewire ('appointment.dashboard.appointment-list')
-  @elseif ($modes['displayAppointmentMode'])
-    @livewire ('appointment.dashboard.appointment-display', ['appointment' => $displayingAppointment,])
-  @endif
+    </div>
+  </x-base-component>
 
 
 </div>

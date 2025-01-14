@@ -1,7 +1,7 @@
 <div>
 
   
-  <x-base-component moduleName="Product">
+  <x-base-component moduleName="Tasks">
 
     {{--
     |

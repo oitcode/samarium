@@ -1,65 +1,56 @@
 <div>
 
+  
+  <x-base-component moduleName="Team">
 
-  {{--
-     |
-     | Top tool bar
-     |
-  --}}
+    {{--
+    |
+    | Toolbar.
+    |
+    --}}
 
-  <x-toolbar-classic toolbarTitle="Team">
+    <x-slot name="toolbar">
+      @include ('partials.dashboard.spinner-button')
 
-    @include ('partials.dashboard.spinner-button')
-
-    @if (! array_search(true, $modes) || $modes['listMode'])
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "enterMode('createMode')",
-        'btnIconFaClass' => 'fas fa-plus-circle',
-        'btnText' => 'New',
-        'btnCheckMode' => 'createMode',
-    ])
-    @endif
-
-    @if ($modes['displayMode'])
+      @if (! array_search(true, $modes) || $modes['listMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "clearModes",
-          'btnIconFaClass' => 'fas fa-times',
-          'btnText' => '',
-          'btnCheckMode' => '',
+          'btnClickMethod' => "enterMode('createMode')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'New',
+          'btnCheckMode' => 'createMode',
       ])
-    @endif
+      @endif
 
-  </x-toolbar-classic>
+      @if ($modes['displayMode'])
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "clearModes",
+            'btnIconFaClass' => 'fas fa-times',
+            'btnText' => '',
+            'btnCheckMode' => '',
+        ])
+      @endif
+    </x-slot>
 
+    <div>
 
-  {{--
-     |
-     | Flash message div
-     |
-  --}}
+      {{--
+         |
+         | Use the required component as per mode
+         |
+      --}}
 
-  @if (session()->has('message'))
-    @include ('partials.flash-message', [
-        'flashMessage' => session('message'),
-    ])
-  @endif
+      @if ($modes['createMode'])
+        @livewire ('team.team-create')
+      @elseif ($modes['listMode'])
+        @livewire ('team.team-list')
+      @elseif ($modes['displayMode'])
+        @livewire ('team.team-display', ['team' => $displayingTeam, 'displayTeamName' => false,])
+      @else
+        @livewire ('team.team-list')
+      @endif
 
-
-  {{--
-     |
-     | Use the required component as per mode
-     |
-  --}}
-
-  @if ($modes['createMode'])
-    @livewire ('team.team-create')
-  @elseif ($modes['listMode'])
-    @livewire ('team.team-list')
-  @elseif ($modes['displayMode'])
-    @livewire ('team.team-display', ['team' => $displayingTeam, 'displayTeamName' => false,])
-  @else
-    @livewire ('team.team-list')
-  @endif
+    </div>
+  </x-base-component>
 
 
 </div>
