@@ -1,4 +1,4 @@
-<div class="p-md-0">
+<div>
 
   
   <x-base-component moduleName="Product">
