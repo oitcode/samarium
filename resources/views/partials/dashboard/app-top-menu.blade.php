@@ -5,7 +5,7 @@
       <div class="p-2 px-3">
         <i class="fas fa-check-circle text-success mr-1"></i>
         <span class="o-heading text-success">
-          Samarium
+          {{ config('app.name') }}
         </span>
       </div>
 
