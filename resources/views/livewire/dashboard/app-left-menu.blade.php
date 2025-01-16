@@ -722,6 +722,13 @@
                 'iconFaClass' => 'fas fa-th',
                 'btnText' => 'Company',
             ])
+
+        @include ('partials.dashboard.app-left-menu-button',
+            [
+                'btnRoute' => 'dashboard-users',
+                'iconFaClass' => 'fas fa-users',
+                'btnText' => 'Users',
+            ])
       </div>
   
     @endif
