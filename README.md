@@ -149,6 +149,21 @@ Below are some screenshots.
 
 ![screenshot](screenshots/create-post-1.gif)
 
+## Configuration
+
+Please check `app/config.php` file to see different configuration options
+for the application. Below are some configutation options you may want to
+change.  
+
+File:                    `app/config.php`
+Configurable option:     `App menu color options`
+
+```
+'app_menu_dropdown_button_text_color' => 'text-white',
+'app_menu_normal_button_text_color'   => 'text-white',
+'app_menu_bg_color'                   => 'bg-dark',
+```
+
 ## Contributing
 
 Please consider contributing to this project. Any kind of contributions are welcome.
@@ -179,10 +194,16 @@ All contributions are welcome.
 If you find any issue in this application, you can help by raising an issue
 here in our github repo.
 
+## Note on invoicing system
+
+Different countries have different laws for using invoicing system. Although you can use this
+system to generate invoice for learning/experiment, please check with your local law before
+using this system to generate invoice commercially.
+
 ## Encouraging/Support
 
 Please star this repository to show your support if you find this project useful and/or interesting.
 
 ## License
 
-[MIT license](https://opensource.org/licenses/MIT).
+[MIT license](https://opensource.org/licenses/MIT)
