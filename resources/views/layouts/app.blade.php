@@ -4,9 +4,6 @@
 |
 | Dashboard layout blade file.
 |
-| Author: _______ _________
-|
-|
 | All the webpages of dashboard extend this blade file. It is a simple
 | layout with a top menu, left menu and content.
 |

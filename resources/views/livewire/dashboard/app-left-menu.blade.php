@@ -37,7 +37,7 @@
         |
         --}}
   
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'product',
@@ -102,7 +102,7 @@
         |
         |
         --}}
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'sale',
@@ -155,14 +155,6 @@
             ])
           @endif
   
-          @if (false)
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-accounting',
-            'iconFaClass' => 'fas fa-book',
-            'btnText' => 'Accounting',
-          ])
-          @endif
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-sale-quotation',
             'iconFaClass' => 'fas fa-edit',
@@ -205,7 +197,7 @@
         |
         --}}
   
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-cms-webpage',
             'iconFaClass' => 'fas fa-clone',
@@ -268,7 +260,7 @@
         |
         --}}
   
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-school-calendar',
             'iconFaClass' => 'fas fa-calendar',
@@ -315,7 +307,7 @@
         |
         |
         --}}
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-team',
             'iconFaClass' => 'fas fa-users',
@@ -361,7 +353,7 @@
         |
         |
         --}}
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-contact-form',
             'iconFaClass' => 'fas fa-sms',
@@ -418,7 +410,7 @@
         |
         |
         --}}
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
   
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-vacancy',
@@ -459,7 +451,7 @@
         |
         |
         --}}
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
   
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-todo',
@@ -499,7 +491,7 @@
         |
         |
         --}}
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
   
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-document-url-link',
@@ -571,7 +563,7 @@
         |
         --}}
   
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'daybook',
@@ -626,7 +618,7 @@
         |
         --}}
   
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'dashboard-educ-institution',
@@ -675,7 +667,7 @@
         |
         --}}
   
-        <div class="o-animated-rm mb-3 border-bottom">
+        <div class="mb-3 border-bottom">
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'dashboard-accounting',
@@ -715,7 +707,7 @@
       |
       --}}
   
-      <div class="o-animated-rm mb-3 border-bottom">
+      <div class="mb-3 border-bottom">
         @include ('partials.dashboard.app-left-menu-button',
             [
                 'btnRoute' => 'company',

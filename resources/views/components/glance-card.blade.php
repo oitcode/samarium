@@ -17,7 +17,7 @@
             <i class="fas fa-ellipsis-v fa-1x"></i>
           </div>
         </div>
-        <div class="h6 font-weight-bold mb-4 @if ($bsBgClass != 'bg-white') text-white @else text-secondary @endif">
+        <div class="h6 font-weight-bold mb-4 @if ($bsBgClass != 'bg-white') text-white @else text-secondary @endif o-heading">
           {{ $btnTextPrimary }}
         </div>
         <div class="h5 font-weight-bold">
