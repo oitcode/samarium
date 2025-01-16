@@ -15,22 +15,47 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
-    'site_type' => env('SITE_TYPE', ''),
-    'cmp_type' => env('CMP_TYPE', ''),
-    'cmp_url' => env('CMP_URL', ''),
-    'modules' => env('MODULES', ''),
-    'has_vat' => env('HAS_VAT', ''),
-    'announcement' => env('ANNOUNCEMENT', ''),
-    'oc_ascent_btn_color' => env('OC_ASCENT_BTN_COLOR', ''),
-    'oc_ascent_bg_color' => env('OC_ASCENT_BG_COLOR', ''),
-    'oc_ascent_text_color' => env('OC_ASCENT_TEXT_COLOR', ''),
-    'oc_ascent_hl_txt_color' => env('OC_ASCENT_HL_TXT_COLOR', ''),
-    'oc_select_color' => env('OC_SELECT_COLOR', '#005'),
-    'oc_select_txt_color' => env('OC_SELECT_TXT_COLOR', ''),
-    'oc_unselect_txt_color' => env('OC_UNSELECT_TXT_COLOR', ''),
+    /*
+    |--------------------------------------------------------------------------
+    | Application Miscellenious Config
+    |--------------------------------------------------------------------------
+    |
+    | These are the common/miscellenious configuration values of our
+    | application. 
+    |
+    */
+
+    'site_type'               => env('SITE_TYPE', ''),
+    'cmp_type'                => env('CMP_TYPE', ''),
+    'cmp_url'                 => env('CMP_URL', ''),
+    'modules'                 => env('MODULES', ''),
+    'has_vat'                 => env('HAS_VAT', ''),
+    'announcement'            => env('ANNOUNCEMENT', ''),
+    'oc_ascent_btn_color'     => env('OC_ASCENT_BTN_COLOR', ''),
+    'oc_ascent_bg_color'      => env('OC_ASCENT_BG_COLOR', ''),
+    'oc_ascent_text_color'    => env('OC_ASCENT_TEXT_COLOR', ''),
+    'oc_ascent_hl_txt_color'  => env('OC_ASCENT_HL_TXT_COLOR', ''),
+    'oc_select_color'         => env('OC_SELECT_COLOR', '#005'),
+    'oc_select_txt_color'     => env('OC_SELECT_TXT_COLOR', ''),
+    'oc_unselect_txt_color'   => env('OC_UNSELECT_TXT_COLOR', ''),
     'site_ecs_theme_bs_class' => env('SITE_ECS_THEME_BS_CLASS', ''),
-    'no_cmp_display' => env('NO_CMP_DISPLAY', 'coming_soon'),
-    'date_type' => env('DATE_TYPE', 'standard'),
+    'no_cmp_display'          => env('NO_CMP_DISPLAY', 'coming_soon'),
+    'date_type'               => env('DATE_TYPE', 'standard'),
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | App Menu Color
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the color of application dashboard menu. Please put
+    | appropriate bootstrap background and text colors here.
+    |
+    */
+
+    'app_menu_dropdown_button_text_color' => 'text-white',
+    'app_menu_normal_button_text_color'   => 'text-white',
+    'app_menu_bg_color'                   => 'bg-dark',
 
     /*
     |--------------------------------------------------------------------------
