@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
   
-    <h1 class="h5 font-weight-bold mb-4">
+    <h1 class="h5 mb-4 o-heading">
       @if ($is_post == 'yes')
         Create new post
       @else

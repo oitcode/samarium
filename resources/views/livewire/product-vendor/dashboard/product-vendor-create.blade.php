@@ -3,8 +3,8 @@
 
   <div class="card-body">
 
-    <h1 class="h5 font-weight-bold mb-4">
-      Add product vendor
+    <h1 class="h5 mb-4 o-heading">
+      Create product vendor
     </h1>
 
     <div class="form-group mb-4">

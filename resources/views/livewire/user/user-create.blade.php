@@ -1,6 +1,6 @@
 <div class="p-3 border bg-white">
 
-  <h2 class="h5 mb-4">
+  <h2 class="h5 o-heading mb-4">
     Create user
   </h2>
 

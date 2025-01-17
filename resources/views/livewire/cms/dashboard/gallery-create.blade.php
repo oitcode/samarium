@@ -1,6 +1,6 @@
-<div class="p-2 border bg-white">
+<div class="p-3 border bg-white">
 
-  <h1 class="h5 font-weight-bold mb-4">
+  <h1 class="h5 o-heading mb-4">
     Create new gallery
   </h1>
 

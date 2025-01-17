@@ -3,7 +3,7 @@
 
   <div class="card-body p-3">
 
-    <h1 class="h5 font-weight-bold mb-4">
+    <h1 class="h5 o-heading mb-4">
       Create vacancy
     </h1>
 

@@ -11,6 +11,15 @@
 
     <x-slot name="toolbar">
       @include ('partials.dashboard.spinner-button')
+
+      @if ($modes['listMode'] || ! array_search(true, $modes))
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('createMode')",
+            'btnIconFaClass' => 'fas fa-plus-circle',
+            'btnText' => 'New',
+            'btnCheckMode' => 'createMode',
+        ])
+      @endif
     </x-slot>
 
     <div>

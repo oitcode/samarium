@@ -3,8 +3,8 @@
 
   <div class="card-body p-3">
 
-    <h1 class="h5 font-weight-bold">
-      Add seat table
+    <h1 class="h5 o-heading">
+      Create Seat Table
     </h1>
 
     <div class="form-group">

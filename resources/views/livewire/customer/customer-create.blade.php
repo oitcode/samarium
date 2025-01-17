@@ -2,8 +2,8 @@
 
 
   <div class="mb-4">
-    <h1 class="h5 font-weight-bold">
-      Customer create
+    <h1 class="h5 o-heading">
+      Create Customer
     </h1>
   </div>
 

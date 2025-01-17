@@ -2,8 +2,8 @@
 
 
   <div class="d-flex justify-content-start">
-    <h1 class="h5 font-weight-bold mb-4">
-      Add event
+    <h1 class="h5 o-heading mb-4">
+      Create event
     </h1>
   </div>
 

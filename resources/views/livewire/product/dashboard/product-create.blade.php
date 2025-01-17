@@ -3,8 +3,8 @@
 
   {{-- Top heading bar --}}
   <div class="mb-4">
-    <h1 class="h5 font-weight-bold">
-      Add product
+    <h1 class="h5 o-heading">
+      Create product
     </h1>
   </div>
 
