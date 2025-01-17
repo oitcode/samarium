@@ -24,15 +24,16 @@
         <div class="dropdown">
           <button class="btn
               @if ($modes['showOnlyPendingMode'])
-                btn-danger
+                btn-outline-danger
               @elseif ($modes['showOnlyPaidMode'])
-                btn-success
+                btn-outline-success
               @elseif ($modes['showOnlyPartiallyPaidMode'])
                 btn-warning
               @elseif ($modes['showAllMode'])
-                btn-dark border
+                btn-outline-dark border border-dark
               @endif
               dropdown-toggle"
+              style="min-width: 100px;"
               type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             @if ($modes['showOnlyPendingMode'])
               Pending

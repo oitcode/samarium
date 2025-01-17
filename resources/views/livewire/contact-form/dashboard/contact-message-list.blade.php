@@ -37,15 +37,16 @@
         <div class="dropdown">
           <button class="btn
               @if ($modes['showOnlyNewMode'])
-                btn-danger
+                btn-outline-danger
               @elseif ($modes['showOnlyDoneMode'])
-                btn-success
+                btn-outline-success
               @elseif ($modes['showOnlyProgressMode'])
                 btn-warning
               @elseif ($modes['showAllMode'])
-                btn-light
+                btn-outline-dark border border-dark
               @endif
               dropdown-toggle"
+              style="min-width: 100px;"
               type="button" id="dropdownMenuButtonToolbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             @if ($modes['showOnlyNewMode'])
               New
