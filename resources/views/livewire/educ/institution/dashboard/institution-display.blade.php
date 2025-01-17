@@ -1,26 +1,26 @@
 <div>
 
-  <div class="d-flex justify-content-between bg-dark-rm text-white-rm py-0 border-rm">
+  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white border">
     {{-- Breadcrumb --}}
-    <div class="my-2 py-2">
+    <div class="my-2 p-2 d-flex flex-column justify-content-center">
+      <div>
       Insitution
-
       <i class="fas fa-angle-right mx-2"></i>
       {{ $educInstitution->name }}
+      </div>
     </div>
 
     {{-- Top tool bar --}}
     <div>
       <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
-            style="{{-- background-color: #dadada; --}}">
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm">
 
           <div>
-            <button class="btn btn-light" wire:click="$refresh">
+            <button class="btn btn-primary p-3" wire:click="$refresh">
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$dispatch('exitInstitutionDisplayMode')">
+            <button class="btn btn-danger p-3" wire:click="$dispatch('exitEducInstitutionDisplay')">
               <i class="fas fa-times"></i>
               Close
             </button>

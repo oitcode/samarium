@@ -21,6 +21,7 @@ class TestimonialComponent extends Component
 
     public $listeners = [
         'displayTestimonial',
+        'exitTestimonialDisplay',
     ];
 
     public function render()
@@ -33,5 +34,11 @@ class TestimonialComponent extends Component
         $this->displayingTestimonial = $testimonial;
 
         $this->enterMode('displayTestimonialMode');
+    }
+
+    public function exitTestimonialDisplay()
+    {
+        $this->displayingTestimonial = null;
+        $this->exitMode('displayTestimonialMode');
     }
 }

@@ -33,6 +33,7 @@ class DocumentFileComponent extends Component
         'documentFileCreateCompleted',
 
         'displayDocumentFile',
+        'exitDocumentFileDisplay',
     ];
 
     public function render()
@@ -60,5 +61,11 @@ class DocumentFileComponent extends Component
     {
         $this->displayingDocumentFile = $documentFile;
         $this->enterMode('display');
+    }
+
+    public function exitDocumentFileDisplay()
+    {
+        $this->displayingDocumentFile = null;
+        $this->exitMode('display');
     }
 }

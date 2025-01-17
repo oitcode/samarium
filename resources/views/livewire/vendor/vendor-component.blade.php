@@ -38,6 +38,8 @@
         @livewire ('vendor.vendor-display', ['vendor' => $displayingVendor,])
       @elseif ($modes['list'])
         @livewire ('vendor.vendor-list')
+      @else
+        @livewire ('vendor.vendor-list')
       @endif
 
     </div>

@@ -24,6 +24,7 @@ class NewsletterSubscriptionComponent extends Component
 
     public $listeners = [
         'displayNewsletterSubscription',
+        'exitNewsletterSubscriptionDisplay',
     ];
 
     public function render()
@@ -36,5 +37,11 @@ class NewsletterSubscriptionComponent extends Component
         $this->displayingNewsletterSubscription = $newsletterSubscription;
 
         $this->enterMode('displayMode');
+    }
+
+    public function exitNewsletterSubscriptionDisplay()
+    {
+        $this->displayingNewsletterSubscription = null;
+        $this->exitMode('displayMode');
     }
 }

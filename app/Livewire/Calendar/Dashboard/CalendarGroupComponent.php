@@ -23,6 +23,7 @@ class CalendarGroupComponent extends Component
         'calendarGroupCreateCancelled',
         'calendarGroupCreateCompleted',
         'displayCalendarGroup',
+        'calendarGroupDisplayCancelled',
     ];
 
     public function render()
@@ -45,5 +46,11 @@ class CalendarGroupComponent extends Component
     {
         $this->displayingCalendarGroup = $calendarGroup;
         $this->enterMode('displayCalendarGroupMode');
+    }
+
+    public function calendarGroupDisplayCancelled()
+    {
+        $this->displayingCalendarGroup = null;
+        $this->exitMode('displayCalendarGroupMode');
     }
 }

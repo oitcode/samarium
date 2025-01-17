@@ -25,6 +25,7 @@ class InstitutionComponent extends Component
         'educInstitutionCreateCompleted',
 
         'displayEducInstitution',
+        'exitEducInstitutionDisplay',
     ];
 
     public $displayingEducInstitution;
@@ -49,5 +50,11 @@ class InstitutionComponent extends Component
     {
         $this->displayingEducInstitution = $educInstitution;
         $this->enterMode('display');
+    }
+
+    public function exitEducInstitutionDisplay()
+    {
+        $this->displayingEducInstitution = null;
+        $this->exitMode('display');
     }
 }

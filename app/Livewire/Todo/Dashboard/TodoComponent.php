@@ -34,6 +34,7 @@ class TodoComponent extends Component
         'confirmDeleteTodo',
         'exitDelete' => 'exitDeleteMode',
         'displayTodo',
+        'exitTodoDisplay',
     ];
 
     public function render()
@@ -76,5 +77,11 @@ class TodoComponent extends Component
     {
         $this->displayingTodo = $todo;
         $this->enterMode('displayMode');
+    }
+
+    public function exitTodoDisplay()
+    {
+        $this->displayingTodo = null;
+        $this->exitMode('displayMode');
     }
 }

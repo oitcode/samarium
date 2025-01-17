@@ -169,4 +169,9 @@ class SaleInvoiceWork extends Component
 
         $this->modes['customerSelected'] = true;
     }
+
+    public function closeThisComponent()
+    {
+        $this->dispatch('exitSaleInvoiceWorkMode');
+    }
 }

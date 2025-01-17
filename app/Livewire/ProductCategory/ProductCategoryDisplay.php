@@ -61,4 +61,9 @@ class ProductCategoryDisplay extends Component
         $this->productCategory->save();
         $this->render();
     }
+
+    public function closeThisComponent()
+    {
+        $this->dispatch('exitProductCategoryDisplayMode');
+    }
 }

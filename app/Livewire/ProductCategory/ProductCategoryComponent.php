@@ -27,6 +27,7 @@ class ProductCategoryComponent extends Component
         'productCategoryCreateCancelled',
         'displayProductCategory',
         'productCategoryDisplayCancelled',
+        'exitProductCategoryDisplayMode',
     ];
 
     public function render()
@@ -57,5 +58,10 @@ class ProductCategoryComponent extends Component
         $this->displayingProductCategory = null;
 
         $this->exitMode('display');
+    }
+
+    public function exitProductCategoryDisplayMode()
+    {
+        $this->productCategoryDisplayCancelled();
     }
 }

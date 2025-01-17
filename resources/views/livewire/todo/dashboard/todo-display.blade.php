@@ -1,5 +1,35 @@
 <div>
 
+  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white border">
+    {{-- Breadcrumb --}}
+    <div class="my-2 p-2 d-flex flex-column justify-content-center">
+      <div>
+      Task
+      <i class="fas fa-angle-right mx-2"></i>
+      {{ $todo->task_id }}
+      </div>
+    </div>
+
+    {{-- Top tool bar --}}
+    <div>
+      <div>
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm">
+
+          <div>
+            <button class="btn btn-primary p-3" wire:click="$refresh">
+              <i class="fas fa-refresh"></i>
+            </button>
+
+            <button class="btn btn-danger p-3" wire:click="$dispatch('exitTodoDisplay')">
+              <i class="fas fa-times"></i>
+              Close
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   {{--
      |
@@ -7,14 +37,14 @@
      |
   --}}
   <div>
-    <div class="mb-3 h5 font-weight-bold border bg-white">
+    <div class="mb-2 h5 font-weight-bold border bg-white">
       @if ($modes['updateTitleMode'])
         <div class="p-3">
           @livewire ('todo.dashboard.todo-edit-title', ['todo' => $todo,])
         </div>
       @else
         <div class="d-flex justify-content-between py-3">
-          <div class="pl-3 d-flex flex-column justify-content-center">
+          <div class="pl-3 d-flex flex-column justify-content-center o-heading">
             {{ $todo->title }}
           </div>
           <div>
@@ -28,7 +58,7 @@
 
     <div class="mb-2">
       <div class="row" style="margin: auto;">
-        <div class="col-md-2 border p-3 bg-white font-weight-bold">
+        <div class="col-md-2 border p-3 bg-white o-heading">
           Task ID
         </div>
         <div class="col-md-10 border bg-white p-3">
@@ -39,7 +69,7 @@
 
     <div class="mb-2">
       <div class="row" style="margin: auto;">
-        <div class="col-md-2 border p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border p-3 bg-light o-heading">
           Posted Date
         </div>
         <div class="col-md-10 border bg-white p-3">
@@ -50,7 +80,7 @@
 
     <div class="mb-2">
       <div class="row" style="margin: auto;">
-        <div class="col-md-2 border p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border p-3 bg-light o-heading">
           Due Date
         </div>
         <div class="col-md-10 border bg-white p-3">
@@ -82,7 +112,7 @@
 
     <div class="mb-2">
       <div class="row" style="margin: auto;">
-        <div class="col-md-2 border p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border p-3 bg-light o-heading">
           Priority
         </div>
         <div class="col-md-10 border bg-white p-3">
@@ -108,7 +138,7 @@
 
     <div class="mb-2">
       <div class="row" style="margin: auto;">
-        <div class="col-md-2 border p-3 bg-light font-weight-bold">
+        <div class="col-md-2 border p-3 bg-light o-heading">
           Description
         </div>
         <div class="col-md-10 border bg-white p-3">
@@ -146,7 +176,7 @@
   --}}
   <div class="bg-white border p-3 my-3">
 
-    <div class="font-weight-bold mb-3">
+    <div class="o-heading mb-3">
       Assigned to
     </div>
 
@@ -185,7 +215,7 @@
   --}}
   <div class="bg-white border p-3 my-3">
 
-    <div class="font-weight-bold mb-3">
+    <div class="o-heading mb-3">
       Status
     </div>
 
@@ -241,10 +271,8 @@
     <div class="">
       <div class="d-flex justify-content-between p-3">
         <div>
-          <div class="">
-            <strong>
+          <div class="o-heading">
               Delete this task
-            </strong>
           </div>
           <div>
             Once you delete, it cannot be undone. Please be sure.

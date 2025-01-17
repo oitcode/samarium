@@ -2,15 +2,43 @@
 
 
   @if (true)
-  <div class="d-flex justify-content-between py-0 bg-white mb-2">
+  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white border">
     {{-- Breadcrumb --}}
-    <div class="my-2 p-2">
-      Sale
-
-      <i class="fas fa-angle-right mx-2"></i>
-      {{ $saleInvoice->sale_invoice_id }}
+    <div class="my-2 p-2 d-flex flex-column justify-content-center">
+      <div>
+        Sale
+        <i class="fas fa-angle-right mx-2"></i>
+        {{ $saleInvoice->sale_invoice_id }}
+      </div>
     </div>
 
+    {{-- Top tool bar --}}
+    <div>
+      <div>
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm">
+
+          <div>
+            <button class="btn btn-primary p-3" wire:click="$refresh">
+              <i class="fas fa-refresh"></i>
+            </button>
+
+            <button class="btn btn-primary p-3" wire:click="">
+              <i class="fas fa-envelope"></i>
+              Email
+            </button>
+            <button class="btn btn-success p-3" wire:click="">
+              <i class="fas fa-print"></i>
+              Print
+            </button>
+            <button class="btn btn-danger p-3" wire:click="closeThisComponent">
+              <i class="fas fa-times"></i>
+              Close
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
   @endif
 
@@ -26,31 +54,17 @@
 
     
           @if ($saleInvoice)
-            {{-- Todo: Why true? Why only takeaway? --}} 
-            @if (true || $modes['addItem'])
-              @livewire ('sale.sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
-            @endif
-          @endif
     
-          @if ($saleInvoice)
-    
-          {{-- Component loading indicator line --}}
-          <div class="w-100" wire:loading.class="bg-info w-100">
-            <div>
-              &nbsp;
-            </div>
-          </div>
-    
-          <div class="card mb-0">
+          <div class="card py-3-rm mb-2">
             <div class="card-body p-0">
     
     
-              <div class="row p-0 mt-2" style="margin: auto;">
+              <div class="row p-0 py-2" style="margin: auto;">
 
 
                 <div class="col-md-3 d-flex">
-                  <div class="mb-4">
-                    <div class="mb-1 h6 font-weight-bold">
+                  <div class="mb-4-rm">
+                    <div class="mb-1 h6 o-heading">
                       Invoice ID
                     </div>
                     <div class="h6">
@@ -62,7 +76,7 @@
                 <div class="col-md-3 d-flex">
 
                   <div class="">
-                    <div class="mb-1 h6 font-weight-bold">
+                    <div class="mb-1 h6 o-heading">
                       Invoice Date
                     </div>
                     @if ($modes['backDate'])
@@ -89,8 +103,8 @@
                 </div>
     
     
-                <div class="col-md-3 mb-3 border-left border-right">
-                  <div class="mb-1 h6 font-weight-bold">
+                <div class="col-md-3 mb-3-rm border-left border-right">
+                  <div class="mb-1 h6 o-heading">
                     Customer
                   </div>
                   <div class="d-flex">
@@ -128,7 +142,7 @@
                 </div>
     
                 <div class="col-md-3">
-                  <div class="font-weight-bold">
+                  <div class="o-heading">
                     Payment Status
                   </div>
                   <div>
@@ -160,7 +174,13 @@
             </div>
           </div>
           @endif
-    
+
+          @if ($saleInvoice)
+            {{-- Todo: Why true? Why only takeaway? --}} 
+            @if (true || $modes['addItem'])
+              @livewire ('sale.sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
+            @endif
+          @endif
     
           <div class="card mb-3 shadow-sm">
           
@@ -174,11 +194,11 @@
                   <table class="table table-hover border-dark mb-0">
                     <thead>
                       <tr>
-                        <th>--</th>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Amount</th>
+                        <th class="o-heading">--</th>
+                        <th class="o-heading">Item</th>
+                        <th class="o-heading">Price</th>
+                        <th class="o-heading">Qty</th>
+                        <th class="o-heading">Amount</th>
                       </tr>
                     </thead>
       
@@ -215,10 +235,8 @@
       
                     <tfoot>
                       <tr class="py-0">
-                        <td colspan="4" class="font-weight-bold text-right pr-4 py-3">
-                          <strong>
+                        <td colspan="4" class="o-heading text-right pr-4 py-3">
                           Subtotal
-                          </strong>
                         </td>
                         <td class="font-weight-bold py-3">
                           @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp

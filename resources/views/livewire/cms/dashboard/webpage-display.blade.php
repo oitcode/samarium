@@ -33,12 +33,12 @@
       @include ('partials.dashboard.spinner-button')
 
       @if (true)
-      <button class="btn btn-light mr-2" wire:click="$refresh">
+      <button class="btn btn-light p-3 mr-2" wire:click="$refresh">
         <i class="fas fa-refresh"></i>
       </button>
       @endif
 
-      <button class="btn btn-danger" wire:click="closeThisComponent">
+      <button class="btn btn-danger p-e" wire:click="closeThisComponent">
         <i class="fas fa-times"></i>
         <span class="d-none d-md-inline">
           Close

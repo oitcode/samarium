@@ -12,4 +12,9 @@ class CalendarGroupDisplay extends Component
     {
         return view('livewire.calendar.dashboard.calendar-group-display');
     }
+
+    public function closeThisComponent()
+    {
+        $this->dispatch('calendarGroupDisplayCancelled');
+    }
 }

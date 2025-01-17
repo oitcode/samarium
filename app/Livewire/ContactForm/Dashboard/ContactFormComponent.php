@@ -24,6 +24,7 @@ class ContactFormComponent extends Component
 
     protected $listeners = [
         'displayContactMessage',
+        'exitContactMessageDisplay'
     ];
 
     public function render()
@@ -35,5 +36,11 @@ class ContactFormComponent extends Component
     {
         $this->displayingContactMessage = $contactMessage;
         $this->enterMode('displayContactMessageMode');
+    }
+
+    public function exitContactMessageDisplay()
+    {
+        $this->displayingContactMessage = null;
+        $this->exitMode('displayContactMessageMode');
     }
 }

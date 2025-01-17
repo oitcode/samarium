@@ -26,6 +26,7 @@ class VacancyComponent extends Component
         'vacancyCreateCancelled',
 
         'displayVacancy',
+        'exitVacancyDisplay',
     ];
 
     public function render()
@@ -48,5 +49,11 @@ class VacancyComponent extends Component
         $this->displayingVacancy = $vacancy;
 
         $this->enterMode('displayMode');
+    }
+
+    public function exitVacancyDisplay()
+    {
+        $this->displayingVacancy = null;
+        $this->exitMode('displayMode');
     }
 }

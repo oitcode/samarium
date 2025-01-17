@@ -27,6 +27,8 @@
         @livewire ('newsletter-subscription.dashboard.newsletter-subscription-list')
       @elseif ($modes['displayMode'])
         @livewire ('newsletter-subscription.dashboard.newsletter-subscription-display', ['newsletterSubscription' => $displayingNewsletterSubscription,])
+      @else
+        @livewire ('newsletter-subscription.dashboard.newsletter-subscription-list')
       @endif
 
     </div>

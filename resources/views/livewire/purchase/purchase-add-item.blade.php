@@ -1,7 +1,7 @@
 <div>
 
   {{-- Show in bigger screen --}}
-  <div class="mb-3 border bg-light shadow-sm d-none d-md-block">
+  <div class="mb-2 border bg-light shadow-sm d-none d-md-block">
   
     @if ($errors->all())
       <div class="p-2 mb-3-rm border text-danger">
@@ -18,13 +18,13 @@
       <table class="table table-bordered m-0">
         <thead>
           <tr class="bg-success-rm text-white-rm">
-            <th>Search Item</th>
-            <th>Category</th>
-            <th>Item</th>
-            <th style="width: 50px;">Qty</th>
-            <th>Unit</th>
-            <th style="width: 110px;">Price per unit</th>
-            <th style="width: 100px;">Total</th>
+            <th class="o-heading">Search Item</th>
+            <th class="o-heading">Category</th>
+            <th class="o-heading">Item</th>
+            <th class="o-heading" style="width: 50px;">Qty</th>
+            <th class="o-heading">Unit</th>
+            <th class="o-heading" style="width: 110px;">PPU</th>
+            <th class="o-heading" style="width: 100px;">Total</th>
           </tr>
         </thead>
   

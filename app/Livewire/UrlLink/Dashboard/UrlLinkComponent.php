@@ -25,6 +25,7 @@ class UrlLinkComponent extends Component
         'urlLinkCreateCompleted',
 
         'displayUrlLink',
+        'exitUrlLinkDisplay',
     ];
 
     public function render()
@@ -46,5 +47,11 @@ class UrlLinkComponent extends Component
     {
         $this->displayingUrlLink = $urlLink;
         $this->enterMode('display');
+    }
+
+    public function exitUrlLinkDisplay()
+    {
+        $this->displayingUrlLink = null;
+        $this->exitMode('display');
     }
 }

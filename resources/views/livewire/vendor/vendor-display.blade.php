@@ -16,11 +16,11 @@
             style="{{-- background-color: #dadada; --}}">
 
           <div>
-            <button class="btn btn-light" wire:click="$refresh">
+            <button class="btn btn-light p-3" wire:click="$refresh">
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$dispatch('exitVendorDisplayMode')">
+            <button class="btn btn-danger p-3" wire:click="$dispatch('exitVendorDisplayMode')">
               <i class="fas fa-times"></i>
               Close
             </button>

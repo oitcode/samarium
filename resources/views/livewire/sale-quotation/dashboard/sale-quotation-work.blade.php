@@ -22,7 +22,7 @@
 
             @include ('partials.dashboard.sale-quotation-work-options')
 
-            <button class="btn btn-outline-danger p-3" wire:click="$dispatch('exitSaleQuotationDisplayMode')">
+            <button class="btn btn-danger p-3" wire:click="$dispatch('exitSaleQuotationDisplayMode')">
               <i class="fas fa-times"></i>
               Close
             </button>

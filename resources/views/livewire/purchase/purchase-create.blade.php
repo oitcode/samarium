@@ -1,26 +1,34 @@
 <div>
 
-  <div class="d-flex justify-content-between bg-white py-0 mb-2">
+  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white border">
     {{-- Breadcrumb --}}
-    <div class="my-2 py-2 px-2">
-      Purchase
-
-      <i class="fas fa-angle-right mx-2"></i>
-      {{ $purchase->purchase_id }}
+    <div class="my-2 p-2 d-flex flex-column justify-content-center">
+      <div>
+        Purchase
+        <i class="fas fa-angle-right mx-2"></i>
+        {{ $purchase->purchase_id }}
+      </div>
     </div>
 
     {{-- Top tool bar --}}
     <div>
       <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
-            style="{{-- background-color: #dadada; --}}">
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm">
 
           <div>
-            <button class="btn btn-light" wire:click="$refresh">
+            <button class="btn btn-primary p-3" wire:click="$refresh">
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$dispatch('exitPurchaseDisplayMode')">
+            <button class="btn btn-primary p-3" wire:click="">
+              <i class="fas fa-envelope"></i>
+              Email
+            </button>
+            <button class="btn btn-success p-3" wire:click="">
+              <i class="fas fa-print"></i>
+              Print
+            </button>
+            <button class="btn btn-danger p-3" wire:click="$dispatch('exitPurchaseDisplayMode')">
               <i class="fas fa-times"></i>
               Close
             </button>
@@ -32,10 +40,110 @@
   </div>
 
 
-
   <div class="row">
 
     <div class="col-md-8">
+      {{-- Top info --}}
+      <div class="row p-0 py-2 mt-2 bg-white mb-2" style="margin: auto;">
+
+        <div class="col-md-3 d-flex">
+          <div class="">
+            <div class="mb-1 h6 o-heading">
+              Purchase ID
+            </div>
+            <div class="h6">
+              {{ $purchase->purchase_id }}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 d-flex">
+
+          <div class="">
+            <div class="h6 o-heading">
+              Purchase Date
+            </div>
+            @if ($modes['backDate'])
+              <div>
+                <div>
+                  <input type="date" wire:model="sale_invoice_date">
+                  <div class="mt-2">
+                    <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
+                      <i class="fas fa-check-circle text-success"></i>
+                    </button>
+                    <button class="btn btn-light" wire:click="exitMode('backDate')">
+                      <i class="fas fa-times-circle text-danger"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            @else
+              <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
+                {{ $purchase->purchase_date }}
+              </div>
+            @endif
+          </div>
+
+        </div>
+    
+    
+        <div class="col-md-3 mb-3 border-left border-right">
+          <div class="h6 o-heading">
+            Vendor
+          </div>
+          <div class="d-flex">
+            @if ($modes['vendorSelected'])
+              {{ $purchase->vendor->name }}
+            @else
+              @if ($purchase->creation_status == 'progress')
+                <select class="custom-control w-75" wire:model="vendor_id">
+                  <option>---</option>
+
+                  @foreach ($vendors as $vendor)
+                    <option value="{{ $vendor->vendor_id }}">
+                      {{ $vendor->name }}
+                    </option>
+                  @endforeach
+                </select>
+                <button class="btn btn-sm btn-light ml-2" wire:click="linkVendorToPurchase">
+                  Yes
+                </button>
+              @else
+                None
+              @endif
+            @endif
+          </div>
+        </div>
+    
+        <div class="col-md-3">
+          <div class="o-heading">
+            Payment Status
+          </div>
+          <div>
+            @if ( $purchase->payment_status == 'paid')
+            <span class="badge badge-pill badge-success">
+            Paid
+            </span>
+            @elseif ( $purchase->payment_status == 'partially_paid')
+            <span class="badge badge-pill badge-warning">
+            Partial
+            </span>
+            @elseif ( $purchase->payment_status == 'pending')
+            <span class="badge badge-pill badge-danger">
+            Pending
+            </span>
+            @else
+            <span class="badge badge-pill badge-secondary">
+              {{ $purchase->payment_status }}
+            </span>
+            @endif
+          </div>
+        </div>
+
+        <div class="col-md-2">
+        </div>
+    
+      </div>
 
       @if (! $modes['paid'])
         @if (true || $modes['addItem'])
@@ -43,118 +151,19 @@
         @endif
       @endif
 
+      @if (false)
       {{-- Component loading indicator line --}}
       <div class="w-100" wire:loading.class="bg-info w-100">
         <div>
           &nbsp;
         </div>
       </div>
+      @endif
 
       <div class="card mb-0">
       
         <div class="card-body p-0">
 
-          {{-- Top info --}}
-          <div class="row p-0 mt-2" style="margin: auto;">
-
-            <div class="col-md-3 d-flex">
-              <div class="mb-4">
-                <div class="mb-1 h6 font-weight-bold">
-                  Purchase ID
-                </div>
-                <div class="h6">
-                  {{ $purchase->purchase_id }}
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3 d-flex">
-
-              <div class="">
-                <div class="mb-1 h6 font-weight-bold">
-                  Purchase Date
-                </div>
-                @if ($modes['backDate'])
-                  <div>
-                    <div>
-                      <input type="date" wire:model="sale_invoice_date">
-                      <div class="mt-2">
-                        <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
-                          <i class="fas fa-check-circle text-success"></i>
-                        </button>
-                        <button class="btn btn-light" wire:click="exitMode('backDate')">
-                          <i class="fas fa-times-circle text-danger"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                @else
-                  <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
-                    {{ $purchase->purchase_date }}
-                  </div>
-                @endif
-              </div>
-
-            </div>
-    
-    
-            <div class="col-md-3 mb-3 border-left border-right">
-              <div class="mb-1 h6 font-weight-bold">
-                Vendor
-              </div>
-              <div class="d-flex">
-                @if ($modes['vendorSelected'])
-                  {{ $purchase->vendor->name }}
-                @else
-                  @if ($purchase->creation_status == 'progress')
-                    <select class="custom-control w-75" wire:model="vendor_id">
-                      <option>---</option>
-
-                      @foreach ($vendors as $vendor)
-                        <option value="{{ $vendor->vendor_id }}">
-                          {{ $vendor->name }}
-                        </option>
-                      @endforeach
-                    </select>
-                    <button class="btn btn-sm btn-light ml-2" wire:click="linkVendorToPurchase">
-                      Yes
-                    </button>
-                  @else
-                    None
-                  @endif
-                @endif
-              </div>
-            </div>
-    
-            <div class="col-md-3">
-              <div class="font-weight-bold">
-                Payment Status
-              </div>
-              <div>
-                @if ( $purchase->payment_status == 'paid')
-                <span class="badge badge-pill badge-success">
-                Paid
-                </span>
-                @elseif ( $purchase->payment_status == 'partially_paid')
-                <span class="badge badge-pill badge-warning">
-                Partial
-                </span>
-                @elseif ( $purchase->payment_status == 'pending')
-                <span class="badge badge-pill badge-danger">
-                Pending
-                </span>
-                @else
-                <span class="badge badge-pill badge-secondary">
-                  {{ $purchase->payment_status }}
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="col-md-2">
-            </div>
-    
-          </div>
 
           @if (count($purchase->purchaseItems) > 0)
 
@@ -163,13 +172,13 @@
               <table class="table table-hover mb-0">
                 <thead>
                   <tr>
-                    <th>--</th>
-                    <th>#</th>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Unit</th>
-                    <th>Price per unit</th>
-                    <th>Amount</th>
+                    <th class="o-heading">--</th>
+                    <th class="o-heading">#</th>
+                    <th class="o-heading">Item</th>
+                    <th class="o-heading">Quantity</th>
+                    <th class="o-heading">Unit</th>
+                    <th class="o-heading">Price per unit</th>
+                    <th class="o-heading">Amount</th>
                   </tr>
                 </thead>
   
@@ -208,12 +217,10 @@
   
                 <tfoot>
                   <tr>
-                    <td colspan="6" class="font-weight-bold text-right">
-                      <strong>
+                    <td colspan="6" class="o-heading text-right">
                       Subtotal
-                      </strong>
                     </td>
-                    <td>
+                    <td class="o-heading">
                       @php echo number_format( $purchase->getTotalAmountRaw(), 2 ); @endphp
                     </td>
                   </tr>

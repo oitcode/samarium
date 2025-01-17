@@ -14,7 +14,7 @@
   {{--
   | Show in bigger screen
   --}}
-  <div class="mb-1 border shadow-sm d-none d-md-block">
+  <div class="mb-2 border shadow-sm d-none d-md-block">
 
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
@@ -22,7 +22,7 @@
           <tr class="bg-white">
             <th class="py-2 pl-2" style="width: 200px;">
               <div class="d-flex justify-content-between">
-                <div class="d-flex flex-column justify-content-center">
+                <div class="d-flex flex-column justify-content-center o-heading">
                   Search Item
                 </div>
                 <div>
@@ -51,8 +51,8 @@
   
         <tbody>
           <tr class="p-0 font-weight-bold" style="height: 50px;">
-            <td class="h-100 bg-white">
-              <input class="m-0 w-100 h-100 border-0 py-2" type="text"
+            <td class="h-100 bg-white p-0">
+              <input class="m-0 w-100 h-100 border-0 py-2" type="text" style="background-color: #afa;"
                   wire:model="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
             @if (false)
@@ -143,31 +143,36 @@
   @if ($modes['productSelected'])
     <div class="d-flex justify-content-between border p-3 bg-white text-white-rm" wire:key="{{ rand() }}">
       <div>
-        Product:
-        <br />
+        <div class="o-heading">
+          Product:
+        </div>
         {{ $selectedProduct->name }}
       </div>
       <div class="d-flex">
         <div class="mr-4">
-          Qty
-          <br />
+          <div class="o-heading">
+            Qty
+          </div>
           <input class="font-weight-bold border" type="text" wire:model="quantity" wire:keydown.enter="updateTotal" wire:change="updateTotal" />
         </div>
         <div class="mr-4">
-          Price per unit
-          <br />
+          <div class="o-heading">
+            Price per unit
+          </div>
           {{ $selectedProduct->selling_price }}
         </div>
         <div class="mr-4">
-          Total
-          <br />
+          <div class="o-heading">
+            Total
+          </div>
           @if ($selectedProduct)
             @php echo number_format( $total ); @endphp
           @endif
         </div>
         <div class="px-3">
-          Action
-          <br />
+          <div class="o-heading">
+            Action
+          </div>
           <button class="btn btn-primary" wire:click="addItemToSaleInvoice">
             Add
           </button>

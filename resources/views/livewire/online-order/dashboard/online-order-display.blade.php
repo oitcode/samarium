@@ -1,26 +1,26 @@
 <div>
 
-  <div class="d-flex justify-content-between bg-white py-0 mb-2">
+  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white border">
     {{-- Breadcrumb --}}
-    <div class="my-2 p-2">
-      Online order
-
-      <i class="fas fa-angle-right mx-2"></i>
-      {{ $websiteOrder->website_order_id }}
+    <div class="my-2 p-2 d-flex flex-column justify-content-center">
+      <div>
+        Online order
+        <i class="fas fa-angle-right mx-2"></i>
+        {{ $websiteOrder->website_order_id }}
+      </div>
     </div>
 
     {{-- Top tool bar --}}
     <div>
       <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
-            style="{{-- background-color: #dadada; --}}">
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm">
 
           <div>
-            <button class="btn btn-light" wire:click="$refresh">
+            <button class="btn btn-primary p-3" wire:click="$refresh">
               <i class="fas fa-refresh"></i>
             </button>
 
-            <button class="btn btn-outline-danger" wire:click="$dispatch('exitOnlineOrderDisplayMode')">
+            <button class="btn btn-danger p-3" wire:click="$dispatch('exitOnlineOrderDisplayMode')">
               <i class="fas fa-times"></i>
               Close
             </button>
@@ -34,14 +34,14 @@
   <div class="row">
     <div class="col-md-12">
 
-      <div class="mb-4">
+      <div class="mb-2">
 
         <div class="table-responsive bg-white">
           <table class="table border mb-0">
             <tbody>
 
               <tr>
-                <td>
+                <td class="o-heading">
                   Date
                 </td>
                 <td>
@@ -50,7 +50,7 @@
               </tr>
 
               <tr>
-                <td>
+                <td class="o-heading">
                   Time
                 </td>
                 <td>
@@ -59,7 +59,7 @@
               </tr>
 
               <tr>
-                <td>
+                <td class="o-heading">
                   Phone
                 </td>
                 <td>
@@ -68,7 +68,7 @@
               </tr>
 
               <tr>
-                <td>
+                <td class="o-heading">
                   Address
                 </td>
                 <td>
@@ -77,7 +77,7 @@
               </tr>
 
               <tr>
-                <td>
+                <td class="o-heading">
                   Status
                 </td>
                 <td>
@@ -104,7 +104,7 @@
               </tr>
 
               <tr>
-                <td>
+                <td class="o-heading">
                   Action
                 </td>
                 <td>
@@ -136,11 +136,11 @@
       <div class="table-responsive bg-white">
         <table class="table table-hover table-bordered mb-0">
           <thead>
-            <tr class="bg-primary text-white">
-              <th>Item</th>
-              <th>Quantity</th>
-              <th>Rate</th>
-              <th>Total</th>
+            <tr>
+              <th class="o-heading">Item</th>
+              <th class="o-heading">Quantity</th>
+              <th class="o-heading">Rate</th>
+              <th class="o-heading">Total</th>
             </tr>
           </thead>
 
@@ -165,10 +165,10 @@
 
           <tfoot>
             <tr>
-              <th colspan="3" class="text-right">
+              <th colspan="3" class="o-heading text-right">
                 Grand Total
               </th>
-              <td>
+              <td class="o-heading">
                 @php echo number_format( $websiteOrder->getTotalAmount() ); @endphp
               </td>
             </tr>

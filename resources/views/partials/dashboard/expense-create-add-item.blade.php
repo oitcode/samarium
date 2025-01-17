@@ -1,15 +1,15 @@
 <div style="">
 
   {{-- Show in bigger screen --}}
-  <div class="mb-3 border bg-light-rm shadow-sm d-none d-md-block">
+  <div class="mb-2 border bg-light-rm shadow-sm d-none d-md-block">
   
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
           <tr class="bg-white text-dark">
-            <th class="py-2" style="width: 200px;">Item</th>
-            <th class="py-2">Category</th>
-            <th class="py-2" style="width: 100px;">Amount</th>
+            <th class="o-heading py-2" style="width: 200px;">Item</th>
+            <th class="o-heading py-2">Category</th>
+            <th class="o-heading py-2" style="width: 100px;">Amount</th>
           </tr>
         </thead>
   

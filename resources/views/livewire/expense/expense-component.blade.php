@@ -20,15 +20,6 @@
             'btnCheckMode' => 'create',
         ])
       @endif
-
-      @if ($modes['display'])
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "clearModes",
-            'btnIconFaClass' => 'fas fa-times',
-            'btnText' => '',
-            'btnCheckMode' => '',
-        ])
-      @endif
     </x-slot>
 
     <div>

@@ -1,11 +1,8 @@
 <div class="card bg-transparent border-0">
-  <div class="card-header
-      {{ config('app.oc_ascent_bg_color', 'bg-light') }}
-      {{ config('app.oc_ascent_text_color', 'text-dark') }}
-      p-0">
-    <div class="d-flex justify-content-between py-1-rm my-2">
+  <div class="card-header p-0 bg-white">
+    <div class="d-flex justify-content-between my-2">
       <div class="d-flex flex-column justify-content-center">
-        <h2 class="pl-3">
+        <h2 class="h4 pl-3 o-heading">
           Payment
         </h1>
       </div>
@@ -39,12 +36,12 @@
         <tbody>
 
           <tr style="height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2">
+            <td class="w-50 p-0 h-100 bg-info-rm o-heading border-0 pt-2">
               <span class="ml-4">
                 Subtotal
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0">
+            <td class="p-0 h-100 bg-warning-rm o-heading pl-3 pt-2 border-0">
               @php echo number_format( $this->sub_total, 2 ); @endphp
             </td>
           </tr>
@@ -52,12 +49,12 @@
           {{-- Todo: Only vat? Any other taxes? --}}
           @if ($has_vat)
           <tr class="bg-light border-bottom">
-            <td class="w-50 p-0 h-100 bg-info-rm font-weight-bold border-0 pt-2">
+            <td class="w-50 p-0 h-100 bg-info-rm o-heading border-0 pt-2">
               <span class="ml-4">
                 Taxable amount
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm font-weight-bold pl-3 pt-2 border-0">
+            <td class="p-0 h-100 bg-warning-rm o-heading pl-3 pt-2 border-0">
               @php echo number_format( $this->taxable_amount, 2 ); @endphp
             </td>
           </tr>
@@ -71,7 +68,7 @@
               @continue
             @else
             <tr style="height: 50px;" class="bg-info-rm border-bottom p-0">
-              <td class="w-50 h-100 p-0 font-weight-bold border-0 bg-success-rm">
+              <td class="w-50 h-100 p-0 o-heading border-0 bg-success-rm">
                 <div class="h-100 d-flex flex-column justify-content-center">
                   @if (strtolower($key) == 'vat')
                     <div class="ml-4">
@@ -84,8 +81,8 @@
                   @endif
                 </div>
               </td>
-              <td class="p-0 w-50 h-100 bg-info font-weight-bold border-0">
-                <input class="w-100 h-100 font-weight-bold border-0 pl-3"
+              <td class="p-0 w-50 h-100 bg-info o-heading border-0">
+                <input class="w-100 h-100 o-heading border-0 pl-3"
                     type="text"
                     wire:keydown.enter="updateNumbers"
                     wire:model.live.debounce.500ms="purchaseAdditions.{{ $key }}" />
@@ -96,12 +93,12 @@
 
           @if ($has_vat)
           <tr class="bg-light border-bottom">
-            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0">
+            <td class="w-50 p-0 pt-2 bg-info-rm o-heading border-0">
               <span class="ml-4 d-inline-block">
                 Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm text-primary font-weight-bold pl-3 border-0">
+            <td class="p-0 h-100 bg-warning-rm text-primary o-heading pl-3 border-0">
               @php echo number_format( $this->grand_total, 2 ); @endphp
             </td>
           </tr>
@@ -119,7 +116,7 @@
         <tbody>
 
           <tr style="height: 50px;" class="bg-light-rm border-bottom">
-            <td class="w-50 p-0 pt-2 bg-white text-white-rm p-0 font-weight-bold border-0">
+            <td class="w-50 p-0 pt-2 bg-white text-white-rm p-0 o-heading border-0">
               <span class="ml-4 d-inline-block mt-2 mb-3">
                 @if (true)
                 Paid Amount
@@ -132,8 +129,8 @@
               </div>
               @enderror
             </td>
-            <td class="p-0 h-100 font-weight-bold border-0">
-              <input class="w-100 h-100 font-weight-bold border-0 pl-3"
+            <td class="p-0 h-100 o-heading border-0">
+              <input class="w-100 h-100 o-heading border-0 pl-3"
                   type="text"
                   style="background-color: #afa; outline: none;"
                   wire:model="paid_amount" />
@@ -141,12 +138,12 @@
           </tr>
 
           <tr style="height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 pt-2 bg-info-rm font-weight-bold border-0">
+            <td class="w-50 p-0 pt-2 bg-info-rm o-heading border-0">
               <span class="ml-4">
                 Payment type
               </span>
             </td>
-            <td class="p-0 h-100 w-50 font-weight-bold border-0">
+            <td class="p-0 h-100 w-50 o-heading border-0">
               <select class="w-100 h-100 custom-control border-0 bg-white"
                   style="outline: none;"
                   wire:model="purchase_payment_type_id">
@@ -171,14 +168,14 @@
         <tbody>
           @foreach ($multiPayments as $key => $val)
             <tr wire:key="inzaghi">
-              <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold">
+              <td class="w-50 p-0 bg-info-rm p-0 o-heading">
                 <span class="ml-4">
                   {{ $key }}
                 </span>
               </td>
-              <td class="p-0 h-100 w-50 bg-warning font-weight-bold">
+              <td class="p-0 h-100 w-50 bg-warning o-heading">
                 <input type="text"
-                    class="w-100 h-100 font-weight-bold" 
+                    class="w-100 h-100 o-heading" 
                     wire:model.live="multiPayments.{{ $key }}"
                     wire:keydown.enter="calculateTenderAmount"
                     wire:change="calculateTenderAmount"
@@ -194,7 +191,7 @@
       <table class="table table-bordered mb-0">
         <tbody>
           <tr class="border-0" wire:key="ronaldinho">
-            <td class="w-50 p-0 bg-info-rm p-0 font-weight-bold border-0">
+            <td class="w-50 p-0 bg-info-rm p-0 o-heading border-0">
               <span class="ml-4">
                 Paid amount
               </span>
@@ -213,10 +210,7 @@
       @if (! $modes['paid'])
       <button
           onclick="this.disabled=true;"
-          class="btn
-              {{ config('app.oc_ascent_bg_color', 'bg-success') }}
-              {{ config('app.oc_ascent_text_color', 'text-white') }}
-          mr-3-rm w-100 py-3"
+          class="btn btn-success mr-3-rm w-100 py-3 o-heading text-white"
           wire:click="store"
           >
         <i class="fas fa-check-circle mr-3"></i>

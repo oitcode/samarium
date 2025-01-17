@@ -30,6 +30,7 @@ class CafeSaleComponent extends Component
         'seatTableCreateCompleted',
         'seatTableCreateCancelled',
         'displaySeatTableXypher',
+        'exitSaleInvoiceWorkMode',
     ];
 
     public function render()
@@ -61,5 +62,11 @@ class CafeSaleComponent extends Component
 
         $this->displayingSeatTable = $seatTable;
         $this->enterMode('seatTableDisplayXypher');
+    }
+
+    public function exitSaleInvoiceWorkMode()
+    {
+        $this->displayingSaleInvoice = null;
+        $this->clearModes();
     }
 }

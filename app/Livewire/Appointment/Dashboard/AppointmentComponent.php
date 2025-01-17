@@ -24,6 +24,7 @@ class AppointmentComponent extends Component
 
     protected $listeners = [
         'displayAppointment',
+        'exitAppointmentDisplay',
     ];
 
     public function render()
@@ -35,5 +36,11 @@ class AppointmentComponent extends Component
     {
         $this->displayingAppointment = $appointment;  
         $this->enterMode('displayAppointmentMode');
+    }
+
+    public function exitAppointmentDisplay()
+    {
+        $this->displayingAppointment = null;
+        $this->exitMode('displayAppointmentMode');
     }
 }

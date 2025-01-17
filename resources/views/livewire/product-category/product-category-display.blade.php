@@ -14,13 +14,34 @@
     </div>
   @endif
 
-  <div class="d-flex justify-content-between bg-white mb-2">
+  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white border">
     {{-- Breadcrumb --}}
-    <div class="my-2 py-2 px-2">
-      Product category
+    <div class="my-2 p-2 d-flex flex-column justify-content-center">
+      <div>
+        Product category
+        <i class="fas fa-angle-right mx-2"></i>
+        {{ $productCategory->name }}
+      </div>
+    </div>
 
-      <i class="fas fa-angle-right mx-2"></i>
-      {{ $productCategory->name }}
+    {{-- Top tool bar --}}
+    <div>
+      <div>
+        <div class="mt-0 p-2 d-flex justify-content-between border-rm">
+
+          <div>
+            <button class="btn btn-primary p-3" wire:click="$refresh">
+              <i class="fas fa-refresh"></i>
+            </button>
+
+            <button class="btn btn-danger p-3" wire:click="closeThisComponent">
+              <i class="fas fa-times"></i>
+              Close
+            </button>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 
