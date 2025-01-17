@@ -152,7 +152,7 @@ Below are some screenshots.
 ## Configuration
 
 Please check `app/config.php` file to see different configuration options
-for the application. Below are some configutation options you may want to
+for the application. Below are some configuration options you may want to
 change.  
 
 File:                    `app/config.php`
