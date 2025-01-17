@@ -18,29 +18,6 @@
           'btnText' => 'Create',
           'btnCheckMode' => 'create',
       ])
-
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('list')",
-          'btnIconFaClass' => 'fas fa-list',
-          'btnText' => 'List',
-          'btnCheckMode' => 'list',
-      ])
-
-      @if ($modes['display'])
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "",
-            'btnIconFaClass' => 'fas fa-circle',
-            'btnText' => 'Url link display',
-            'btnCheckMode' => 'display',
-        ])
-      @endif
-
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "clearModes",
-          'btnIconFaClass' => 'fas fa-times',
-          'btnText' => '',
-          'btnCheckMode' => '',
-      ])
     </x-slot>
 
     <div>
@@ -57,6 +34,8 @@
         @livewire ('educ.institution.dashboard.institution-list')
       @elseif ($modes['display'])
         @livewire ('educ.institution.dashboard.institution-display', ['educInstitution' => $displayingEducInstitution,])
+      @else
+        @livewire ('educ.institution.dashboard.institution-list')
       @endif
 
     </div>

@@ -18,13 +18,6 @@
           'btnText' => 'Settings',
           'btnCheckMode' => 'editSettingsMode',
       ])
-
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "clearModes",
-          'btnIconFaClass' => 'fas fa-times',
-          'btnText' => '',
-          'btnCheckMode' => '',
-      ])
     </x-slot>
 
     <div>

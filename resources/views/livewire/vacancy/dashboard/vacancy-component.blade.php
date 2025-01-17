@@ -11,36 +11,6 @@
 
     <x-slot name="toolbar">
       @include ('partials.dashboard.spinner-button')
-
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('createMode')",
-          'btnIconFaClass' => 'fas fa-plus-circle',
-          'btnText' => 'New',
-          'btnCheckMode' => 'createMode',
-      ])
-
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('listMode')",
-          'btnIconFaClass' => 'fas fa-list',
-          'btnText' => 'List',
-          'btnCheckMode' => 'listMode',
-      ])
-
-      @if ($modes['displayMode'])
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "enterMode('displayMode')",
-            'btnIconFaClass' => 'fas fa-circle',
-            'btnText' => 'Vacancy display',
-            'btnCheckMode' => 'displayMode',
-        ])
-      @endif
-
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "clearModes",
-          'btnIconFaClass' => 'fas fa-times',
-          'btnText' => '',
-          'btnCheckMode' => '',
-      ])
     </x-slot>
 
     <div>
@@ -59,6 +29,8 @@
         @livewire ('vacancy.dashboard.vacancy-display', ['vacancy' => $displayingVacancy,])
       @elseif ($modes['updateMode'])
         @livewire ('vacancy-update', ['vacancy' => $updatingVacancy,])
+      @else
+        @livewire ('vacancy.dashboard.vacancy-list')
       @endif
 
     </div>
