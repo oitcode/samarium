@@ -53,6 +53,8 @@ class ExpenseCreate extends Component
 
     public $item_count = 0;
 
+    public $expense_date;
+
     public $modes = [
         'multiplePayments' => false,
         'paid' => false,

@@ -44,58 +44,49 @@
 
     <div class="col-md-8">
       {{-- Top info --}}
-      <div class="row p-0 py-2 mt-2 bg-white mb-2" style="margin: auto;">
+      <x-transaction-main-info-component>
 
-        <div class="col-md-3 d-flex">
-          <div class="">
-            <div class="mb-1 h6 o-heading">
-              Purchase ID
-            </div>
-            <div class="h6">
-              {{ $purchase->purchase_id }}
-            </div>
-          </div>
-        </div>
+        <x-slot name="transactionIdName">
+          Purchase ID
+        </x-slot>
+        <x-slot name="transactionIdValue">
+          {{ $purchase->purchase_id }}
+        </x-slot>
 
-        <div class="col-md-3 d-flex">
-
-          <div class="">
-            <div class="h6 o-heading">
-              Purchase Date
-            </div>
-            @if ($modes['backDate'])
+        <x-slot name="transactionDateName">
+          Purchase Date
+        </x-slot>
+        <x-slot name="transactionDateValue">
+          @if ($modes['backDate'])
+            <div>
               <div>
-                <div>
-                  <input type="date" wire:model="sale_invoice_date">
-                  <div class="mt-2">
-                    <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
-                      <i class="fas fa-check-circle text-success"></i>
-                    </button>
-                    <button class="btn btn-light" wire:click="exitMode('backDate')">
-                      <i class="fas fa-times-circle text-danger"></i>
-                    </button>
-                  </div>
+                <input type="date" wire:model="sale_invoice_date">
+                <div class="mt-2">
+                  <button class="btn btn-light" wire:click="changePurchaseDate">
+                    <i class="fas fa-check-circle text-success"></i>
+                  </button>
+                  <button class="btn btn-light" wire:click="exitMode('backDate')">
+                    <i class="fas fa-times-circle text-danger"></i>
+                  </button>
                 </div>
               </div>
-            @else
-              <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
-                {{ $purchase->purchase_date }}
-              </div>
-            @endif
-          </div>
+            </div>
+          @else
+            <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
+              {{ $purchase->purchase_date }}
+            </div>
+          @endif
+        </x-slot>
 
-        </div>
-    
-    
-        <div class="col-md-3 mb-3 border-left border-right">
-          <div class="h6 o-heading">
-            Vendor
-          </div>
-          <div class="d-flex">
-            @if ($modes['vendorSelected'])
-              {{ $purchase->vendor->name }}
-            @else
-              @if ($purchase->creation_status == 'progress')
+        <x-slot name="transactionPartyName">
+          Vendor
+        </x-slot>
+        <x-slot name="transactionPartyValue">
+          @if ($modes['vendorSelected'])
+            {{ $purchase->vendor->name }}
+          @else
+            @if ($purchase->creation_status == 'progress')
+              <div class="d-flex">
                 <select class="custom-control w-75" wire:model="vendor_id">
                   <option>---</option>
 
@@ -108,42 +99,37 @@
                 <button class="btn btn-sm btn-light ml-2" wire:click="linkVendorToPurchase">
                   Yes
                 </button>
-              @else
-                None
-              @endif
-            @endif
-          </div>
-        </div>
-    
-        <div class="col-md-3">
-          <div class="o-heading">
-            Payment Status
-          </div>
-          <div>
-            @if ( $purchase->payment_status == 'paid')
-            <span class="badge badge-pill badge-success">
-            Paid
-            </span>
-            @elseif ( $purchase->payment_status == 'partially_paid')
-            <span class="badge badge-pill badge-warning">
-            Partial
-            </span>
-            @elseif ( $purchase->payment_status == 'pending')
-            <span class="badge badge-pill badge-danger">
-            Pending
-            </span>
+              </div>
             @else
-            <span class="badge badge-pill badge-secondary">
-              {{ $purchase->payment_status }}
-            </span>
+              None
             @endif
-          </div>
-        </div>
+          @endif
+        </x-slot>
 
-        <div class="col-md-2">
-        </div>
-    
-      </div>
+        <x-slot name="transactionPaymentStatusName">
+          Payment Status
+        </x-slot>
+        <x-slot name="transactionPaymentStatusValue">
+          @if ( $purchase->payment_status == 'paid')
+          <span class="badge badge-pill badge-success">
+          Paid
+          </span>
+          @elseif ( $purchase->payment_status == 'partially_paid')
+          <span class="badge badge-pill badge-warning">
+          Partial
+          </span>
+          @elseif ( $purchase->payment_status == 'pending')
+          <span class="badge badge-pill badge-danger">
+          Pending
+          </span>
+          @else
+          <span class="badge badge-pill badge-secondary">
+            {{ $purchase->payment_status }}
+          </span>
+          @endif
+        </x-slot>
+
+      </x-transaction-main-info-component>
 
       @if (! $modes['paid'])
         @if (true || $modes['addItem'])

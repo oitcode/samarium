@@ -51,128 +51,104 @@
       <div class="row">
     
         <div class="col-md-8">
-
     
           @if ($saleInvoice)
     
-          <div class="card py-3-rm mb-2">
-            <div class="card-body p-0">
-    
-    
-              <div class="row p-0 py-2" style="margin: auto;">
+            <x-transaction-main-info-component>
 
+              <x-slot name="transactionIdName">
+                Sale Invoice ID
+              </x-slot>
+              <x-slot name="transactionIdValue">
+                {{ $saleInvoice->sale_invoice_id }}
+              </x-slot>
 
-                <div class="col-md-3 d-flex">
-                  <div class="mb-4-rm">
-                    <div class="mb-1 h6 o-heading">
-                      Invoice ID
-                    </div>
-                    <div class="h6">
-                      {{ $saleInvoice->sale_invoice_id }}
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-3 d-flex">
-
-                  <div class="">
-                    <div class="mb-1 h6 o-heading">
-                      Invoice Date
-                    </div>
-                    @if ($modes['backDate'])
-                      <div>
-                        <div>
-                          <input type="date" wire:model="sale_invoice_date">
-                          <div class="mt-2">
-                            <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
-                              <i class="fas fa-check-circle text-success"></i>
-                            </button>
-                            <button class="btn btn-light" wire:click="exitMode('backDate')">
-                              <i class="fas fa-times-circle text-danger"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    @else
-                      <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
-                        {{ $saleInvoice->sale_invoice_date }}
-                      </div>
-                    @endif
-                  </div>
-
-                </div>
-    
-    
-                <div class="col-md-3 mb-3-rm border-left border-right">
-                  <div class="mb-1 h6 o-heading">
-                    Customer
-                  </div>
-                  <div class="d-flex">
-                    @if ($modes['customerSelected'])
-                      {{ $saleInvoice->customer->name }}
-                    @else
-                      @if (
-                            (
-                              $saleInvoice->takeaway &&
-                              $saleInvoice->takeaway->status == 'open'
-                            )
-                            ||
-                            (
-                              $saleInvoice->seatTableBooking &&
-                              $saleInvoice->seatTableBooking->status == 'open'
-                            )
-                      )
-                        <select class="custom-control w-75" wire:model="customer_id">
-                          <option>---</option>
-    
-                          @foreach ($customers as $customer)
-                            <option value="{{ $customer->customer_id }}">
-                              {{ $customer->name }}
-                            </option>
-                          @endforeach
-                        </select>
-                        <button class="btn btn-sm btn-light ml-2" wire:click="linkCustomerToSaleInvoice">
-                          Select
-                        </button>
-                      @else
-                        None
-                      @endif
-                    @endif
-                  </div>
-                </div>
-    
-                <div class="col-md-3">
-                  <div class="o-heading">
-                    Payment Status
-                  </div>
+              <x-slot name="transactionDateName">
+                Sale Invoice Date
+              </x-slot>
+              <x-slot name="transactionDateValue">
+                @if ($modes['backDate'])
                   <div>
-                    @if ( $saleInvoice->payment_status == 'paid')
-                    <span class="badge badge-pill badge-success">
-                    Paid
-                    </span>
-                    @elseif ( $saleInvoice->payment_status == 'partially_paid')
-                    <span class="badge badge-pill badge-warning">
-                    Partial
-                    </span>
-                    @elseif ( $saleInvoice->payment_status == 'pending')
-                    <span class="badge badge-pill badge-danger">
-                    Pending
-                    </span>
-                    @else
-                    <span class="badge badge-pill badge-secondary">
-                      {{ $saleInvoice->payment_status }}
-                    </span>
-                    @endif
+                    <div>
+                      <input type="date" wire:model="sale_invoice_date">
+                      <div class="mt-2">
+                        <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
+                          <i class="fas fa-check-circle text-success"></i>
+                        </button>
+                        <button class="btn btn-light" wire:click="exitMode('backDate')">
+                          <i class="fas fa-times-circle text-danger"></i>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                @else
+                  <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
+                    {{ $saleInvoice->sale_invoice_date }}
+                  </div>
+                @endif
+              </x-slot>
 
-                <div class="col-md-2">
-                </div>
+              <x-slot name="transactionPartyName">
+                Customer
+              </x-slot>
+              <x-slot name="transactionPartyValue">
+                @if ($modes['customerSelected'])
+                  {{ $saleInvoice->customer->name }}
+                @else
+                  @if (
+                        (
+                          $saleInvoice->takeaway &&
+                          $saleInvoice->takeaway->status == 'open'
+                        )
+                        ||
+                        (
+                          $saleInvoice->seatTableBooking &&
+                          $saleInvoice->seatTableBooking->status == 'open'
+                        )
+                  )
+                    <select class="custom-control w-75" wire:model="customer_id">
+                      <option>---</option>
     
-              </div>
+                      @foreach ($customers as $customer)
+                        <option value="{{ $customer->customer_id }}">
+                          {{ $customer->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    <button class="btn btn-sm btn-light ml-2" wire:click="linkCustomerToSaleInvoice">
+                      Select
+                    </button>
+                  @else
+                    None
+                  @endif
+                @endif
+              </x-slot>
+
+              <x-slot name="transactionPaymentStatusName">
+                Payment Status
+              </x-slot>
+              <x-slot name="transactionPaymentStatusValue">
+                @if ( $saleInvoice->payment_status == 'paid')
+                <span class="badge badge-pill badge-success">
+                Paid
+                </span>
+                @elseif ( $saleInvoice->payment_status == 'partially_paid')
+                <span class="badge badge-pill badge-warning">
+                Partial
+                </span>
+                @elseif ( $saleInvoice->payment_status == 'pending')
+                <span class="badge badge-pill badge-danger">
+                Pending
+                </span>
+                @else
+                <span class="badge badge-pill badge-secondary">
+                  {{ $saleInvoice->payment_status }}
+                </span>
+                @endif
+              </x-slot>
+
+            </x-transaction-main-info-component>
     
-            </div>
-          </div>
           @endif
 
           @if ($saleInvoice)
