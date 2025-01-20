@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 use App\Traits\ModesTrait;
 
@@ -11,8 +12,9 @@ use App\Gallery;
 class GalleryList extends Component
 {
     use ModesTrait;
+    use WithPagination;
 
-    public $galleries = null;
+    // public $galleries = null;
 
     public $deletingGallery;
 
@@ -26,8 +28,9 @@ class GalleryList extends Component
 
     public function render()
     {
-        $this->galleries = Gallery::all();
+        $galleries = Gallery::orderBy('gallery_id', 'DESC')->paginate(5);
 
-        return view('livewire.cms.dashboard.gallery-list');
+        return view('livewire.cms.dashboard.gallery-list')
+            ->with('galleries', $galleries);
     }
 }

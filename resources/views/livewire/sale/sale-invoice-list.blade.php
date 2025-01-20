@@ -3,7 +3,7 @@
   
   {{-- Filter div --}}
   @if (true)
-  <div class="mb-1 p-3 bg-white border d-flex justify-content-between">
+  <div class="mb-1-rm p-3 bg-white border d-flex justify-content-between">
     <div class="pt-2">
       <div class="d-flex">
         <div class="mr-4 px-2 py-1 border font-weight-bold">
@@ -72,10 +72,10 @@
 
 
   {{-- Show in bigger screens --}}
-  <div class="table-responsive d-none d-md-block">
-    <table class="table table-hover shadow-sm border">
+  <div class="table-responsive d-none d-md-block p-2 bg-white border">
+    <table class="table table-hover shadow-sm border mb-0">
       <thead>
-        <tr class="p-4 bg-white text-dark">
+        <tr class="p-4 bg-light text-dark">
           <th class="o-heading">
             Sale invoice ID
           </th>
@@ -178,7 +178,9 @@
     </table>
 
     {{-- Pagination links --}}
-    {{ $saleInvoices->links() }}
+    <div class="bg-white border p-2">
+      {{ $saleInvoices->links() }}
+    </div>
 
   </div>
 

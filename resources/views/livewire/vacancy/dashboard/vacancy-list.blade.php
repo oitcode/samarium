@@ -40,7 +40,7 @@
   @if ($vacancies != null && count($vacancies) > 0)
     {{-- Show in bigger screens --}}
     <div class="table-responsive d-none d-md-block">
-      <table class="table table-hover shadow-sm border">
+      <table class="table table-hover shadow-sm border mb-0">
         <thead>
           <tr class="p-4 bg-white text-dark">
             <th class="o-heading">
@@ -85,7 +85,9 @@
     </div>
 
     {{-- Pagination links --}}
-    {{ $vacancies->links() }}
+    <div class="bg-white border p-2">
+      {{ $vacancies->links() }}
+    </div>
   @else
     <div class="p-2 text-secondary">
       <i class="fas fa-exclamation-circle mr-2"></i>

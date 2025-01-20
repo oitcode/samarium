@@ -3,12 +3,15 @@
 namespace App\Livewire\Customer;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 use App\Customer;
 
 class CustomerList extends Component
 {
-    public $customers;
+    use WithPagination;
+
+    // public $customers;
 
     public $total;
 
@@ -21,13 +24,15 @@ class CustomerList extends Component
 
     public function mount()
     {
-        $this->customers = Customer::orderBy('name', 'ASC')->get();
         $this->total = Customer::count();
     }
 
     public function render()
     {
-        return view('livewire.customer.customer-list');
+        $customers = Customer::orderBy('customer_id', 'DESC')->paginate(5);
+
+        return view('livewire.customer.customer-list')
+            ->with('customers', $customers);
     }
 
     public function search()

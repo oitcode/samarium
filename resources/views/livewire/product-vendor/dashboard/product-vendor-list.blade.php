@@ -1,6 +1,24 @@
 <div>
 
 
+  <div class="d-flex justify-content-between py-2 border bg-white px-2">
+    <div>
+      <button class="btn btn-light mr-2">
+        <i class="fas fa-plus-circle mr-1"></i>
+      </button>
+      <input type="text" class="mr-2">
+      <button class="btn btn-light">
+        <i class="fas fa-refresh mr-2"></i>
+      </button>
+    </div>
+    <div>
+      <button class="btn btn-light">
+        <i class="fas fa-download mr-1"></i>
+        Download
+      </button>
+    </div>
+  </div>
+
   <div class="table-responsive bg-white">
     <table class="table table-hover mb-0">
       <thead>
@@ -30,6 +48,11 @@
         @endforeach
       </tbody>
     </table>
+  </div>
+
+  {{-- Pagination links --}}
+  <div class="bg-white border p-2">
+    {{ $productVendors->links() }}
   </div>
 
 

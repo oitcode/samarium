@@ -17,7 +17,7 @@ class UserList extends Component
     /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
 
-    public $users;
+    // public $users;
 
     public $usersCount;
     public $adminUsersCount;
@@ -30,11 +30,12 @@ class UserList extends Component
 
     public function render()
     {
-        $this->users = User::all();
+        $users = User::orderBy('id', 'DESC')->paginate(5);
         $this->usersCount = User::count();
         $this->adminUsersCount = User::where('role', 'admin')->count();
 
-        return view('livewire.user.user-list');
+        return view('livewire.user.user-list')
+            ->with('users', $users);
     }
 
     public function deleteUser(User $user)

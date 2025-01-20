@@ -83,9 +83,11 @@
     {{--
        | Members
     --}}
+    @if (false)
     <x-toolbar-classic toolbarTitle="Team members">
       @include ('partials.dashboard.spinner-button')
     </x-toolbar-classic>
+    @endif
 
     <div>
       <div class="row">

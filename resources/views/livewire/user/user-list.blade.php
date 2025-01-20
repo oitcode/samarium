@@ -157,6 +157,10 @@
         </div>
       @endforeach
     </div>
+    {{-- Pagination links --}}
+    <div class="bg-white border p-2">
+      {{ $users->links() }}
+    </div>
   @else
     <div class="p-2 text-muted">
       No users to display.

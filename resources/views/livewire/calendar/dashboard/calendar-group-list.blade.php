@@ -67,6 +67,10 @@
       @endforeach
     </div>
 
+    {{-- Pagination links --}}
+    <div class="bg-white border p-2">
+      {{ $calendarGroups->links() }}
+    </div>
   @else
     <div class="p-2 text-muted">
       No calendar groups.

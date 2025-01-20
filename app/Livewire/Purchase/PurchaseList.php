@@ -5,12 +5,18 @@ namespace App\Livewire\Purchase;
 use Livewire\Component;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
+
+use App\Traits\ModesTrait;
 
 use App\Purchase;
 
 class PurchaseList extends Component
 {
-    public $purchases;
+    use ModesTrait;
+    use WithPagination;
+
+    // public $purchases;
 
     public $startDate = null;
     public $endDate = null;
@@ -34,30 +40,13 @@ class PurchaseList extends Component
 
     public function render()
     {
-        $this->getPurchasesForDateRange();
-        $this->calculateTotal();
-        return view('livewire.purchase.purchase-list');
-    }
+        // $this->getPurchasesForDateRange();
+        // $this->calculateTotal();
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
+        $purchases = Purchase::orderBy('purchase_id', 'DESC')->paginate(5);
 
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
+        return view('livewire.purchase.purchase-list')
+            ->with('purchases', $purchases);
     }
 
     public function calculateTotal()

@@ -37,7 +37,7 @@
      |
   --}}
   <div>
-    <div class="mb-2 h5 font-weight-bold border bg-white">
+    <div class="mb-0 h5 font-weight-bold border bg-white">
       @if ($modes['updateTitleMode'])
         <div class="p-3">
           @livewire ('todo.dashboard.todo-edit-title', ['todo' => $todo,])
@@ -56,7 +56,7 @@
       @endif
     </div>
 
-    <div class="mb-2">
+    <div class="mb-2-rm">
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-white o-heading">
           Task ID
@@ -67,7 +67,7 @@
       </div>
     </div>
 
-    <div class="mb-2">
+    <div class="mb-2-rm">
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-light o-heading">
           Posted Date
@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <div class="mb-2">
+    <div class="mb-2-rm">
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-light o-heading">
           Due Date
@@ -110,7 +110,7 @@
       </div>
     </div>
 
-    <div class="mb-2">
+    <div class="mb-2-rm">
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-light o-heading">
           Priority
@@ -136,7 +136,7 @@
       </div>
     </div>
 
-    <div class="mb-2">
+    <div class="mb-2-rm">
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-light o-heading">
           Description

@@ -3,17 +3,21 @@
 namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 use App\CalendarGroup;
 
 class CalendarGroupList extends Component
 {
-    public $calendarGroups;
+    use WithPagination;
+
+    // public $calendarGroups;
 
     public function render()
     {
-        $this->calendarGroups = CalendarGroup::all();
+        $calendarGroups = CalendarGroup::orderBy('calendar_group_id', 'DESC')->paginate(5);
 
-        return view('livewire.calendar.dashboard.calendar-group-list');
+        return view('livewire.calendar.dashboard.calendar-group-list')
+            ->with('calendarGroups', $calendarGroups);
     }
 }

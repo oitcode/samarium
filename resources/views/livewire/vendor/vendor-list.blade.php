@@ -47,6 +47,10 @@
         </tbody>
       </table>
     </div>
+    {{-- Pagination links --}}
+    <div class="bg-white border p-2">
+      {{ $vendors->links() }}
+    </div>
   @else
     <div class="text-secondary py-3 px-3">
       No vendors.

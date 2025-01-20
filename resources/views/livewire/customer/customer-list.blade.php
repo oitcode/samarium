@@ -1,14 +1,33 @@
 <div>
 
 
+  <div class="border bg-white">
+    <div class="d-flex justify-content-between py-2 border">
+      <div>
+        <button class="btn btn-light mr-2">
+          <i class="fas fa-plus-circle mr-1"></i>
+        </button>
+        <input type="text" class="mr-2">
+        <button class="btn btn-light">
+          <i class="fas fa-refresh mr-2"></i>
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-light">
+          <i class="fas fa-download mr-1"></i>
+          Download
+        </button>
+      </div>
+    </div>
   {{-- Customer table --}}
   @if ($customers != null && count($customers) > 0)
 
     {{-- Show in bigger screens --}}
+    <div class="p-1">
     <div class="table-responsive border d-none d-md-block">
       <table class="table table-hover mb-0">
         <thead>
-          <tr class="bg-white text-dark">
+          <tr class="bg-light text-dark">
             <th class="o-heading">Name</th>
             <th class="o-heading">Phone</th>
             <th class="o-heading">Balance</th>
@@ -148,11 +167,18 @@
         </tbody>
       </table>
     </div>
+    {{-- Pagination links --}}
+    <div class="bg-white border p-2">
+      {{ $customers->links() }}
+    </div>
+    </div>
   @else
     <div class="text-secondary py-3">
       No customers.
     </div>
   @endif
+  </div>
+
 
 
 </div>

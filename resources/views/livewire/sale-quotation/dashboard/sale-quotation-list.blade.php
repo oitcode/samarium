@@ -20,7 +20,7 @@
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive d-none d-md-block">
-    <table class="table table-hover shadow-sm border">
+    <table class="table table-hover shadow-sm border mb-0">
       <thead>
         <tr class="p-4 bg-white text-dark">
           <th class="o-heading">
@@ -93,10 +93,11 @@
         @endforeach
       </tbody>
     </table>
+  </div>
 
-    {{-- Pagination links --}}
+  {{-- Pagination links --}}
+  <div class="bg-white border p-2">
     {{ $saleQuotations->links() }}
-
   </div>
 
 

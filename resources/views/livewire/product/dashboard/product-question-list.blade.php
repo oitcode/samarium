@@ -1,38 +1,30 @@
 <div>
 
 
-  {{-- Flash message div --}}
-  @if (session()->has('message'))
-    @include ('partials.flash-message', [
-        'flashMessage' => session('message'),
-    ])
-  @endif
-
-  {{-- Info div --}}
-  <div class="d-flex justify-content-between bg-white my-1 p-2">
-    <div class="d-flex flex-column justify-content-center">
-      Total product questions: {{ \App\ProductQuestion::count() }}
+  <div class="d-flex justify-content-between py-2 border bg-white px-2">
+    <div>
+      <span class="mr-2">
+        Total product questions: {{ \App\ProductQuestion::count() }}
+      </span>
+      <button class="btn btn-light mr-2">
+        <i class="fas fa-plus-circle mr-1"></i>
+      </button>
+      <input type="text" class="mr-2">
+      <button class="btn btn-light">
+        <i class="fas fa-refresh mr-2"></i>
+      </button>
     </div>
     <div>
-      <div class="form-group mb-0">
-        <input type="text" class="form-row" placeholder="Search">
-      </div>
+      <button class="btn btn-light">
+        <i class="fas fa-download mr-1"></i>
+        Download
+      </button>
     </div>
   </div>
-
-  {{-- Info div --}}
-  <div class="d-flex justify-content-between bg-white p-2">
-    <div class="d-flex flex-column justify-content-center">
-      <div>
-        Displaying <span class="text-success font-weight-bold">all</span> product questions
-      </div>
-    </div>
-  </div>
-
 
   {{-- Show product question list --}}
   <div class="table-responsive">
-    <table class="table table-hover shadow-sm border">
+    <table class="table table-hover shadow-sm border mb-0">
       <thead>
         <tr class="p-4 bg-white text-dark">
           <th class="o-heading">
@@ -93,6 +85,11 @@
       </tbody>
     </table>
 
+  </div>
+
+  {{-- Pagination links --}}
+  <div class="bg-white border p-2">
+    {{ $productQuestions->links() }}
   </div>
 
 

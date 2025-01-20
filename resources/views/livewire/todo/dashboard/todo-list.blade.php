@@ -6,7 +6,7 @@
      | Filter div
      |
   --}}
-  <div class="mb-1 py-3 px-2 bg-white border d-flex justify-content-between">
+  <div class="py-3 px-2 bg-white border d-flex justify-content-between">
 
     <div class="pt-2 px-2 font-weight-bold border mr-2">
       Total : {{ $todoCount }}
@@ -83,7 +83,7 @@
      |
   --}}
   <div class="table-responsive">
-    <table class="table table-hover shadow-sm border">
+    <table class="table table-hover shadow-sm border mb-0">
       <thead>
         <tr class="bg-white text-dark p-4">
           <th class="o-heading">
@@ -174,6 +174,11 @@
         @endforeach
       </tbody>
     </table>
+  </div>
+
+  {{-- Pagination links --}}
+  <div class="bg-white border p-2">
+    {{ $todos->links() }}
   </div>
 
   @if (false)

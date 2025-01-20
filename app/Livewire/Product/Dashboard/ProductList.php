@@ -3,17 +3,21 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 use App\Product;
 
 class ProductList extends Component
 {
-    public $products;
+    use WithPagination;
+
+    // public $products;
 
     public function render()
     {
-        $this->products = Product::orderBy('product_id', 'desc')->limit(5)->get();
+        $products = Product::orderBy('product_id', 'desc')->paginate(5);
 
-        return view('livewire.product.dashboard.product-list');
+        return view('livewire.product.dashboard.product-list')
+            ->with('products', $products);
     }
 }

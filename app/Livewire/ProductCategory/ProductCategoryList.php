@@ -3,12 +3,15 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 use App\ProductCategory;
 
 class ProductCategoryList extends Component
 {
-    public $productCategories;
+    use WithPagination;
+
+    // public $productCategories;
     public $products = null;
     public $selectedProductCategory;
 
@@ -20,12 +23,14 @@ class ProductCategoryList extends Component
 
     public function mount()
     {
-        $this->productCategories = ProductCategory::orderBy('name', 'ASC')->get();
     }
 
     public function render()
     {
-        return view('livewire.product-category.product-category-list');
+        $productCategories = ProductCategory::orderBy('name', 'ASC')->paginate(5);
+
+        return view('livewire.product-category.product-category-list')
+            ->with('productCategories', $productCategories);
     }
 
     /* Clear modes */

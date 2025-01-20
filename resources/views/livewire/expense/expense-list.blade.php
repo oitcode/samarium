@@ -1,5 +1,6 @@
 <div>
 
+  @if (false)
   {{-- Show in bigger screens --}}
   <div class="mt-1 mb-1 py-2 text-secondary py-3-rm d-flex-rm bg-warning-rm d-none d-md-block bg-white">
     <div class="d-flex">
@@ -35,6 +36,7 @@
       </div>
     </div>
   </div>
+  @endif
 
   {{-- Show in smaller screens --}}
   <div class="mt-2-rm mb-3 text-secondary py-3-rm  bg-warning-rm d-md-none">
@@ -126,19 +128,6 @@
           </tr>
           @endforeach
         </tbody>
-  
-        <tfoot>
-          <tr>
-            <th colspan="3" class="text-right mr-3">
-              Total
-            </th>
-            <td>
-              @php echo number_format( $total, 2 ); @endphp
-            </td>
-            <td>
-            </td>
-          </tr>
-        </tfoot>
       </table>
     </div>
 
@@ -198,6 +187,10 @@
           </tr>
         </tfoot>
       </table>
+    </div>
+    {{-- Pagination links --}}
+    <div class="bg-white border p-2">
+      {{ $expenses->links() }}
     </div>
   @else
     <div class="pl-3 text-muted">

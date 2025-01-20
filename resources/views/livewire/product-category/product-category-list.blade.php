@@ -7,7 +7,7 @@
     <div class="">
 
     {{-- Info div --}}
-    <div class="d-flex justify-content-between bg-white my-1 p-2">
+    <div class="d-flex justify-content-between bg-white mt-1 p-2">
       <div class="d-flex flex-column justify-content-center">
         Total product categories: {{ \App\ProductCategory::count() }}
       </div>
@@ -18,19 +18,10 @@
       </div>
     </div>
 
-    {{-- Info div --}}
-    <div class="d-flex justify-content-between bg-white p-2">
-      <div class="d-flex flex-column justify-content-center">
-        <div>
-          Displaying <span class="text-success font-weight-bold">all</span> product categories
-        </div>
-      </div>
-    </div>
-
       @if ($products == null || count($products) == 0)
 
         <div class="table-responsive bg-white">
-          <table class="table table-hover table-bordered mb-0">
+          <table class="table table-hover mb-0">
             <thead>
               <tr style="color:#888888;">
                 <th class="o-heading">Category</th>
@@ -62,6 +53,10 @@
               @endforeach
             </tbody>
           </table>
+        </div>
+        {{-- Pagination links --}}
+        <div class="bg-white border p-2">
+          {{ $productCategories->links() }}
         </div>
       @endif
     </div>

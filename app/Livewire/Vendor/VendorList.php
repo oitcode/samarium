@@ -3,17 +3,21 @@
 namespace App\Livewire\Vendor;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 use App\Vendor;
 
 class VendorList extends Component
 {
-    public $vendors;
+    use WithPagination;
+
+    // public $vendors;
 
     public function render()
     {
-        $this->vendors = Vendor::all();
+        $vendors = Vendor::orderBy('vendor_id', 'DESC')->paginate(5);
 
-        return view('livewire.vendor.vendor-list');
+        return view('livewire.vendor.vendor-list')
+            ->with('vendors', $vendors);
     }
 }

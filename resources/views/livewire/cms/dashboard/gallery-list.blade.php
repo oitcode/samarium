@@ -113,5 +113,10 @@
           </div>
         @endforeach
       </div>
+
+      {{-- Pagination links --}}
+      <div class="bg-white border p-2">
+        {{ $galleries->links() }}
+      </div>
   </div>
 </div>

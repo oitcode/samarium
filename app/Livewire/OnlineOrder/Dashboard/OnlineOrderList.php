@@ -12,7 +12,6 @@ use App\WebsiteOrder;
 class OnlineOrderList extends Component
 {
     use ModesTrait;
-
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
@@ -33,19 +32,19 @@ class OnlineOrderList extends Component
 
     public function render()
     {
-        $websiteOrders = WebsiteOrder::orderBy('website_order_id', 'desc')->paginate(10);
+        $websiteOrders = WebsiteOrder::orderBy('website_order_id', 'desc')->paginate(5);
         $this->setOrderCounts();
 
         if ($this->modes['showAllMode']) {
-            $websiteOrders = WebsiteOrder::orderBy('website_order_id', 'desc')->paginate(10);
+            $websiteOrders = WebsiteOrder::orderBy('website_order_id', 'desc')->paginate(5);
         } else if ($this->modes['showOnlyNewMode']) {
-            $websiteOrders = WebsiteOrder::where('status', 'new')->paginate(10);
+            $websiteOrders = WebsiteOrder::where('status', 'new')->paginate(5);
         } else if ($this->modes['showOnlyOpenMode']) {
-            $websiteOrders = WebsiteOrder::where('status', 'open')->paginate(10);
+            $websiteOrders = WebsiteOrder::where('status', 'open')->paginate(5);
         } else if ($this->modes['showOnlyDeliveredMode']) {
-            $websiteOrders = WebsiteOrder::where('status', 'delivered')->paginate(10);
+            $websiteOrders = WebsiteOrder::where('status', 'delivered')->paginate(5);
         } else if ($this->modes['showOnlyRejectedMode']) {
-            $websiteOrders = WebsiteOrder::where('status', 'rejected')->paginate(10);
+            $websiteOrders = WebsiteOrder::where('status', 'rejected')->paginate(5);
         } else {
             dd ('Whoops');
         }

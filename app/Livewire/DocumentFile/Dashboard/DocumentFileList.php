@@ -3,6 +3,7 @@
 namespace App\Livewire\DocumentFile\Dashboard;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,7 +11,9 @@ use App\DocumentFile;
 
 class DocumentFileList extends Component
 {
-    public $documentFiles;
+    use WithPagination;
+
+    // public $documentFiles;
 
     public $documentFilesCount;
 
@@ -30,8 +33,9 @@ class DocumentFileList extends Component
 
         $this->documentFiles = $this->documentFiles->unique('document_file_id');
 
-        $this->documentFiles = DocumentFile::all();
+        $documentFiles = DocumentFile::orderBy('document_file_id', 'DESC')->paginate(2);
 
-        return view('livewire.document-file.dashboard.document-file-list');
+        return view('livewire.document-file.dashboard.document-file-list')
+            ->with('documentFiles', $documentFiles);
     }
 }

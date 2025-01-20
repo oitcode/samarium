@@ -90,9 +90,9 @@
      |
   --}}
 
-  <div class="table-responsive">
-    @if ($contactMessages && count($contactMessages) > 0)
-      <table class="table table-hover shadow-sm border">
+  @if ($contactMessages && count($contactMessages) > 0)
+    <div class="table-responsive">
+      <table class="table table-hover shadow-sm border mb-0">
         <thead>
           <tr class="p-4 bg-white text-dark">
             <th class="o-heading">
@@ -175,16 +175,19 @@
           @endforeach
         </tbody>
       </table>
-    @else
-      <div class="p-4 bg-white border text-muted">
-        <p class="font-weight-bold h4-rm py-4 text-center-rm" style="color: #fe8d01;">
-          <i class="fas fa-exclamation-circle mr-2"></i>
-          No contact messages
-        <p>
-      </div>
-    @endif
-
-  </div>
+    </div>
+    {{-- Pagination links --}}
+    <div class="bg-white border p-2">
+      {{ $contactMessages->links() }}
+    </div>
+  @else
+    <div class="p-4 bg-white border text-muted">
+      <p class="font-weight-bold h4-rm py-4 text-center-rm" style="color: #fe8d01;">
+        <i class="fas fa-exclamation-circle mr-2"></i>
+        No contact messages
+      <p>
+    </div>
+  @endif
 
 
 </div>

@@ -6,7 +6,7 @@
      | Info div
      |
   --}}
-  <div class="d-flex justify-content-between bg-white my-1 p-2">
+  <div class="d-flex justify-content-between bg-white mt-1 p-2">
     <div class="d-flex flex-column justify-content-center">
       Total products: {{ \App\Product::count() }}
     </div>
@@ -17,17 +17,6 @@
     </div>
   </div>
 
-  {{--
-     |
-     | Info div
-     |
-  --}}
-  <div class="d-flex justify-content-between bg-white p-2">
-    <div class="d-flex flex-column justify-content-center">
-      Displaying newest 5 products
-    </div>
-  </div>
-
 
   {{--
      |
@@ -35,7 +24,7 @@
      |
   --}}
   <div class="table-responsive d-none-rm d-md-block-rm">
-    <table class="table table-hover table-bordered shadow-sm border">
+    <table class="table table-hover table-bordered-rm shadow-sm border mb-0">
       <thead>
         <tr class="bg-white text-dark p-4">
           <th class="o-heading">
@@ -96,6 +85,10 @@
         @endforeach
       </tbody>
     </table>
+    {{-- Pagination links --}}
+    <div class="bg-white border p-2">
+      {{ $products->links() }}
+    </div>
   </div>
 
 

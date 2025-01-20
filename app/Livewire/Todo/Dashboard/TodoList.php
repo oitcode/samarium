@@ -5,14 +5,16 @@ namespace App\Livewire\Todo\Dashboard;
 use App\Traits\ModesTrait;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 use App\Todo;
 
 class TodoList extends Component
 {
+    use WithPagination;
     use ModesTrait;
 
-    public $todos = null;
+    // public $todos = null;
 
     public $searchToolBoxShow = false;
 
@@ -57,28 +59,31 @@ class TodoList extends Component
         // $this->todoDisplayCount = $this->todoCount;;
         $this->todoDisplayCount = $this->todoCount;;
 
+        $todos = null;
+
         // $this->todos = Todo::orderBy('todo_id', 'desc')->get();
         if ($this->modes['showAllMode']) {
-            $this->todos = Todo::orderBy('todo_id', 'desc')->get();
+            $todos = Todo::orderBy('todo_id', 'desc')->paginate(5);
         } else if ($this->modes['showOnlyPendingMode']) {
-            $this->todos = Todo::where('status', 'pending')->orderBy('todo_id', 'desc')->get();
+            $todos = Todo::where('status', 'pending')->orderBy('todo_id', 'desc')->paginate(5);
         } else if ($this->modes['showOnlyProgressMode']) {
-            $this->todos = Todo::where('status', 'progress')->orderBy('todo_id', 'desc')->get();
+            $todos = Todo::where('status', 'progress')->orderBy('todo_id', 'desc')->paginate(5);
         } else if ($this->modes['showOnlyDoneMode']) {
-            $this->todos = Todo::where('status', 'done')->orderBy('todo_id', 'desc')->get();
+            $todos = Todo::where('status', 'done')->orderBy('todo_id', 'desc')->paginate(5);
         } else if ($this->modes['showOnlyDeferredMode']) {
-            $this->todos = Todo::where('status', 'deferred')->orderBy('todo_id', 'desc')->get();
+            $todos = Todo::where('status', 'deferred')->orderBy('todo_id', 'desc')->paginate(5);
         } else if ($this->modes['showOnlyCancelledMode']) {
-            $this->todos = Todo::where('status', 'cancelled')->orderBy('todo_id', 'desc')->get();
+            $todos = Todo::where('status', 'cancelled')->orderBy('todo_id', 'desc')->paginate(5);
         } else {
             dd ('Whoops');
         }
 
         // $this->todoCount = count($this->todos);
-        $this->todoCount = $this->todos->count();
+        $this->todoCount = $todos->count();
 
 
-        return view('livewire.todo.dashboard.todo-list');
+        return view('livewire.todo.dashboard.todo-list')
+            ->with('todos', $todos);
     }
 
     public function toggleSearchToolBox()

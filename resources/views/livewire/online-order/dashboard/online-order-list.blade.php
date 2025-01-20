@@ -77,8 +77,8 @@
       @if ($websiteOrders != null && count($websiteOrders) > 0)
 
       {{-- Show in bigger screens --}}
-      <div class="table-responsive mb-3 d-none d-md-block">
-        <table class="table table-hover border">
+      <div class="table-responsive d-none d-md-block">
+        <table class="table table-hover border mb-0">
           <thead>
             <tr class="bg-white text-dark">
               <th class="o-heading" style="width: 120px;">
@@ -240,7 +240,8 @@
         </table>
       </div>
 
-      <div>
+      {{-- Pagination links --}}
+      <div class="bg-white border p-2">
         {{ $websiteOrders->links() }}
       </div>
 

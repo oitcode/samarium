@@ -39,9 +39,9 @@
      | Appointment list table
      |
   --}}
-  <div class="table-responsive">
-    @if ($appointments && count($appointments) > 0)
-      <table class="table table-hover shadow-sm border">
+  @if ($appointments && count($appointments) > 0)
+    <div class="table-responsive">
+      <table class="table table-hover shadow-sm border mb-0">
         <thead>
           <tr class="p-4 bg-white text-dark">
             <th class="o-heading">
@@ -138,13 +138,16 @@
           @endforeach
         </tbody>
       </table>
-    @else
-      <div class="p-3 text-secondary">
-        No appointments.
-      </div>
-    @endif
-
-  </div>
+    </div>
+    {{-- Pagination links --}}
+    <div class="bg-white border p-2">
+      {{ $appointments->links() }}
+    </div>
+  @else
+    <div class="p-3 text-secondary">
+      No appointments.
+    </div>
+  @endif
 
 
 </div>

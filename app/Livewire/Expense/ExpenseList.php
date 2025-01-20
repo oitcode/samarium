@@ -3,15 +3,20 @@
 namespace App\Livewire\Expense;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+
+use App\Traits\ModesTrait;
 
 use App\Expense;
 
 class ExpenseList extends Component
 {
-    public $expenses = null;
+    use ModesTrait;
+    use WithPagination;
+    // public $expenses = null;
 
     public $startDate = null;
     public $endDate = null;
@@ -39,28 +44,10 @@ class ExpenseList extends Component
         $this->getExpensesForDateRange();
         $this->calculateTotal();
 
-        return view('livewire.expense.expense-list');
-    }
+        $expenses = Expense::orderBy('expense_id', 'DESC')->paginate(5);
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
+        return view('livewire.expense.expense-list')
+            ->with('expenses', $expenses);
     }
 
     public function calculateTotal()

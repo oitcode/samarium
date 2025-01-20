@@ -198,7 +198,7 @@
   </div>
 
   {{-- Pagination links --}}
-  <div class="my-4">
+  <div class="bg-white border p-2">
     {{ $webpages->links() }}
   </div>
 

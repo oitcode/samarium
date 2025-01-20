@@ -3,6 +3,7 @@
 namespace App\Livewire\ContactForm\Dashboard;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 use App\Traits\ModesTrait;
 
@@ -11,8 +12,9 @@ use App\ContactMessage;
 class ContactMessageList extends Component
 {
     use ModesTrait;
+    use WithPagination;
 
-    public $contactMessages;
+    // public $contactMessages;
 
     public $deletingContactMessage;
 
@@ -29,21 +31,24 @@ class ContactMessageList extends Component
 
     public function render()
     {
+        $contactMessages = null;
+
         if ($this->modes['showAllMode']) {
-            $this->contactMessages = ContactMessage::orderBy('contact_message_id', 'desc')->get();
+            $contactMessages = ContactMessage::orderBy('contact_message_id', 'desc')->paginate(5);
         } else if ($this->modes['showOnlyNewMode']) {
-            $this->contactMessages = ContactMessage::where('status', 'new')->orderBy('contact_message_id', 'desc')->get();
+            $contactMessages = ContactMessage::where('status', 'new')->orderBy('contact_message_id', 'desc')->paginate(5);
         } else if ($this->modes['showOnlyProgressMode']) {
-            $this->contactMessages = ContactMessage::where('status', 'progress')->orderBy('contact_message_id', 'desc')->get();
+            $contactMessages = ContactMessage::where('status', 'progress')->orderBy('contact_message_id', 'desc')->paginate(5);
         } else if ($this->modes['showOnlyDoneMode']) {
-            $this->contactMessages = ContactMessage::where('status', 'done')->orderBy('contact_message_id', 'desc')->get();
+            $contactMessages = ContactMessage::where('status', 'done')->orderBy('contact_message_id', 'desc')->paginate(5);
         } else {
             dd ('Whoops');
         }
 
-        $this->contactMessageCount = count($this->contactMessages);
+        $this->contactMessageCount = count($contactMessages);
 
-        return view('livewire.contact-form.dashboard.contact-message-list');
+        return view('livewire.contact-form.dashboard.contact-message-list')
+            ->with('contactMessages', $contactMessages);
     }
 
     public function deleteContactMessage(ContactMessage $contactMessage)
