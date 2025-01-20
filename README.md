@@ -194,12 +194,6 @@ All contributions are welcome.
 If you find any issue in this application, you can help by raising an issue
 here in our github repo.
 
-## Note on invoicing system
-
-Different countries have different laws for using invoicing system. Although you can use this
-system to generate invoice for learning/experiment, please check with your local law before
-using this system to generate invoice commercially.
-
 ## Encouraging/Support
 
 Please star this repository to show your support if you find this project useful and/or interesting.
