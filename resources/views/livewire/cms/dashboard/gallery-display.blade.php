@@ -1,47 +1,37 @@
 <div>
 
-  <div class="d-flex justify-content-between bg-white py-0 mb-2">
-    {{-- Breadcrumb --}}
-    <div class="my-2 p-2">
-      Gallery
+  {{--
+  |
+  | Toolbar.
+  |
+  --}}
 
+  <x-toolbar-component>
+    <x-slot name="toolbarInfo">
+      Gallery
       <i class="fas fa-angle-right mx-2"></i>
       {{ $gallery->name }}
-    </div>
+    </x-slot>
+    <x-slot name="toolbarButtons">
+      <button class="btn btn-light p-3" wire:click="$refresh">
+        <i class="fas fa-refresh"></i>
+      </button>
 
-    {{-- Top tool bar --}}
-    <div>
-      <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
-            style="{{-- background-color: #dadada; --}}">
+      <button class="btn btn-danger p-3" wire:click="$dispatch('exitGalleryDisplayMode')">
+        <i class="fas fa-times"></i>
+        Close
+      </button>
+    </x-slot>
+  </x-toolbar-component>
 
-          <div>
-            <button class="btn btn-light p-3" wire:click="$refresh">
-              <i class="fas fa-refresh"></i>
-            </button>
+  {{--
+  |
+  | Flash message div.
+  |
+  --}}
 
-            <button class="btn btn-danger p-3" wire:click="$dispatch('exitGalleryDisplayMode')">
-              <i class="fas fa-times"></i>
-              Close
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Flash message div -->
   @if (session()->has('message'))
-    <div class="p-2">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle mr-3"></i>
-        {{ session('message') }}
-        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-          <span class="text-danger" aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
+    @include ('partials.flash-message', ['message' => session('message'),])
   @endif
 
   <div class="mb-3 p-3 bg-white">

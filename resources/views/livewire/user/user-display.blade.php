@@ -1,40 +1,33 @@
 <div>
 
 
-  <div class="d-flex justify-content-between bg-white py-0 mb-2">
-    {{-- Breadcrumb --}}
-    <div class="d-flex flex-column justify-content-center px-2">
-      <div>
-        User <i class="fas fa-angle-right mx-2"></i> {{ $user->name }}
-      </div>
-    </div>
+  {{--
+  |
+  | Toolbar.
+  |
+  --}}
 
-    {{-- Top tool bar --}}
-    <div>
-      <div>
-        <div class="mt-0 p-2 d-flex justify-content-between">
+  <x-toolbar-component>
+    <x-slot name="toolbarInfo">
+      User
+      <i class="fas fa-angle-right mx-2"></i>
+      {{ $user->name }}
+    </x-slot>
+    <x-slot name="toolbarButtons">
+      <button class="btn btn-light border p-3" wire:click="$refresh">
+        <i class="fas fa-refresh"></i>
+      </button>
 
-          @include ('partials.dashboard.spinner-button')
+      <button class="btn btn-light border p-3" wire:click="">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
 
-          <div>
-            <button class="btn btn-light border p-3" wire:click="$refresh">
-              <i class="fas fa-refresh"></i>
-            </button>
-
-            <button class="btn btn-light border p-3" wire:click="">
-              <i class="fas fa-ellipsis-h"></i>
-            </button>
-
-            <button class="btn btn-danger border p-3" wire:click="closeThisComponent">
-              <i class="fas fa-times"></i>
-              Close
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
+      <button class="btn btn-danger border p-3" wire:click="closeThisComponent">
+        <i class="fas fa-times"></i>
+        Close
+      </button>
+    </x-slot>
+  </x-toolbar-component>
 
   {{--
      |

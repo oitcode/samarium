@@ -1,35 +1,28 @@
 <div>
 
-  <div class="d-flex justify-content-between bg-white py-0 mb-2">
-    {{-- Breadcrumb --}}
-    <div class="my-2 p-2">
-      Vendor
+  {{--
+  |
+  | Toolbar.
+  |
+  --}}
 
+  <x-toolbar-component>
+    <x-slot name="toolbarInfo">
+      Vendor
       <i class="fas fa-angle-right mx-2"></i>
       {{ $vendor->vendor_id }}
-    </div>
+    </x-slot>
+    <x-slot name="toolbarButtons">
+      <button class="btn btn-light p-3" wire:click="$refresh">
+        <i class="fas fa-refresh"></i>
+      </button>
 
-    {{-- Top tool bar --}}
-    <div>
-      <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm"
-            style="{{-- background-color: #dadada; --}}">
-
-          <div>
-            <button class="btn btn-light p-3" wire:click="$refresh">
-              <i class="fas fa-refresh"></i>
-            </button>
-
-            <button class="btn btn-danger p-3" wire:click="$dispatch('exitVendorDisplayMode')">
-              <i class="fas fa-times"></i>
-              Close
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
+      <button class="btn btn-danger p-3" wire:click="$dispatch('exitVendorDisplayMode')">
+        <i class="fas fa-times"></i>
+        Close
+      </button>
+    </x-slot>
+  </x-toolbar-component>
 
   <div class="bg-white border">
 

@@ -10,43 +10,37 @@
 --}}
 
 
-  <div class="d-flex justify-content-between p-0 bg-white mb-2">
+  {{--
+  |
+  | Toolbar.
+  |
+  --}}
 
-    {{--
-    | Breadcrumb
-    --}}
-    <div class="my-2 py-2 p-2">
+  <x-toolbar-component>
+    <x-slot name="toolbarInfo">
       @if ($webpage->is_post == 'yes')
         Post
       @else
         Webpage
       @endif
-
       <i class="fas fa-angle-right mx-2"></i>
       {{ $webpage->name }}
-    </div>
-
-    {{--
-    | Top right tool bar
-    --}}
-    <div class="mt-0 p-2 d-flex justify-content-between">
+    </x-slot>
+    <x-slot name="toolbarButtons">
       @include ('partials.dashboard.spinner-button')
 
-      @if (true)
       <button class="btn btn-light p-3 mr-2" wire:click="$refresh">
         <i class="fas fa-refresh"></i>
       </button>
-      @endif
 
-      <button class="btn btn-danger p-e" wire:click="closeThisComponent">
+      <button class="btn btn-danger p-3" wire:click="closeThisComponent">
         <i class="fas fa-times"></i>
         <span class="d-none d-md-inline">
           Close
         </span>
       </button>
-    </div>
-
-  </div>
+    </x-slot>
+  </x-toolbar-component>
 
   <div class="row" style="margin: auto;">
     <div class="col-md-8 p-0">

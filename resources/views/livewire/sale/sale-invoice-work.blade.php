@@ -1,46 +1,38 @@
 <div>
 
 
-  @if (true)
-  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white border">
-    {{-- Breadcrumb --}}
-    <div class="my-2 p-2 d-flex flex-column justify-content-center">
-      <div>
-        Sale
-        <i class="fas fa-angle-right mx-2"></i>
-        {{ $saleInvoice->sale_invoice_id }}
-      </div>
-    </div>
+  {{--
+  |
+  | Toolbar.
+  |
+  --}}
 
-    {{-- Top tool bar --}}
-    <div>
-      <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm">
+  <x-toolbar-component>
+    <x-slot name="toolbarInfo">
+      Sale
+      <i class="fas fa-angle-right mx-2"></i>
+      {{ $saleInvoice->sale_invoice_id }}
+    </x-slot>
+    <x-slot name="toolbarButtons">
+      <button class="btn btn-primary p-3" wire:click="$refresh">
+        <i class="fas fa-refresh"></i>
+      </button>
 
-          <div>
-            <button class="btn btn-primary p-3" wire:click="$refresh">
-              <i class="fas fa-refresh"></i>
-            </button>
+      <button class="btn btn-primary p-3" wire:click="">
+        <i class="fas fa-envelope"></i>
+        Email
+      </button>
+      <button class="btn btn-success p-3" wire:click="">
+        <i class="fas fa-print"></i>
+        Print
+      </button>
+      <button class="btn btn-danger p-3" wire:click="closeThisComponent">
+        <i class="fas fa-times"></i>
+        Close
+      </button>
+    </x-slot>
+  </x-toolbar-component>
 
-            <button class="btn btn-primary p-3" wire:click="">
-              <i class="fas fa-envelope"></i>
-              Email
-            </button>
-            <button class="btn btn-success p-3" wire:click="">
-              <i class="fas fa-print"></i>
-              Print
-            </button>
-            <button class="btn btn-danger p-3" wire:click="closeThisComponent">
-              <i class="fas fa-times"></i>
-              Close
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  @endif
 
   @if ($saleInvoice->takeaway && $saleInvoice->takeaway->status == 'closed')
     @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $saleInvoice,])

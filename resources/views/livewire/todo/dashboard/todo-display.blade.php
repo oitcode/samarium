@@ -1,35 +1,28 @@
 <div>
 
-  <div class="d-flex justify-content-between bg-white-rm py-0 mb-1 bg-white border">
-    {{-- Breadcrumb --}}
-    <div class="my-2 p-2 d-flex flex-column justify-content-center">
-      <div>
+  {{--
+  |
+  | Toolbar.
+  |
+  --}}
+
+  <x-toolbar-component>
+    <x-slot name="toolbarInfo">
       Task
       <i class="fas fa-angle-right mx-2"></i>
-      {{ $todo->task_id }}
-      </div>
-    </div>
+      {{ $todo->todo_id }}
+    </x-slot>
+    <x-slot name="toolbarButtons">
+      <button class="btn btn-primary p-3" wire:click="$refresh">
+        <i class="fas fa-refresh"></i>
+      </button>
 
-    {{-- Top tool bar --}}
-    <div>
-      <div>
-        <div class="mt-0 p-2 d-flex justify-content-between border-rm">
-
-          <div>
-            <button class="btn btn-primary p-3" wire:click="$refresh">
-              <i class="fas fa-refresh"></i>
-            </button>
-
-            <button class="btn btn-danger p-3" wire:click="$dispatch('exitTodoDisplay')">
-              <i class="fas fa-times"></i>
-              Close
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
+      <button class="btn btn-danger p-3" wire:click="$dispatch('exitTodoDisplay')">
+        <i class="fas fa-times"></i>
+        Close
+      </button>
+    </x-slot>
+  </x-toolbar-component>
 
   {{--
      |
