@@ -82,53 +82,128 @@
     </div>
   </div>
 
-  @if (!is_null($purchases) && count($purchases) > 0)
+  <x-list-component>
+    <x-slot name="listInfo">
+    </x-slot>
 
-  {{-- Show in bigger screens --}}
-  <div class="table-responsive bg-white d-none d-md-block">
-    <table class="table border mb-0">
-      <thead>
-        <tr class="
-            {{ config('app.oc_ascent_bg_color', 'bg-success') }}
-            {{ config('app.oc_ascent_text_color', 'text-white') }}
-        ">
-          <th class="o-heading">ID</th>
-          <th class="o-heading" style="width: 100px;">Date</th>
-          <th class="o-heading">Vendor</th>
-          <th class="o-heading">Items</th>
-          <th class="o-heading" style="width: 200px;">Payment Status</th>
-          <th class="o-heading"> Pending</th>
-          <th class="o-heading">Amount</th>
-          <th class="o-heading text-right">Action</th>
+    <x-slot name="listHeadingRow">
+      <th class="d-none d-md-table-cell">ID</th>
+      <th class="d-none d-md-table-cell" style="width: 100px;">Date</th>
+      <th class="d-none d-md-table-cell">Vendor</th>
+      <th class="d-none d-md-table-cell">Items</th>
+      <th class="d-none d-md-table-cell" style="width: 200px;">Payment Status</th>
+      <th class="d-none d-md-table-cell"> Pending</th>
+      <th class="d-none d-md-table-cell">Amount</th>
+      <th class="d-none d-md-table-cell text-right">Action</th>
+    </x-slot>
+
+    <x-slot name="listBody">
+      @foreach ($purchases as $purchase)
+        {{-- Show in bigger screens --}} 
+        <tr class="d-none d-md-table-row" wire:key="{{ rand() }}">
+          <td>
+            {{ $purchase->purchase_id }}
+          </td>
+          <td>
+            {{ $purchase->purchase_date }}
+          </td>
+          <td>
+            @if ($purchase->vendor)
+              {{ $purchase->vendor->name }}
+            @else
+            @endif
+          </td>
+          <td>
+            @if ($purchase->purchaseItems)
+              @foreach ($purchase->purchaseItems as $purchaseItem )
+                {{ $purchaseItem->product->name }}
+                ,
+              @endforeach
+            @else
+              NONE
+            @endif
+          </td>
+          <td>
+            @if ($purchase)
+              @if ($purchase->payment_status == 'pending')
+                <span class="badge badge-pill badge-danger">
+                  Pending
+                </span>
+              @elseif ($purchase->payment_status == 'partially_paid')
+                <span class="badge badge-pill badge-warning">
+                  Partial
+                </span>
+              @elseif ($purchase->payment_status == 'paid')
+                <span class="badge badge-pill badge-success">
+                  Paid
+                </span>
+              @else
+                {{ $purchase->payment_status }}
+              @endif
+            @endif
+          </td>
+          <td>
+            @if (is_int($purchase->getPendingAmount()))
+              @php echo number_format( $purchase->getPendingAmount() ); @endphp
+            @else
+              @php echo number_format( $purchase->getPendingAmount(), 2 ); @endphp
+            @endif
+          </td>
+          <td>
+            @if (is_int($purchase->getTotalAmount()))
+              @php echo number_format( $purchase->getTotalAmount() ); @endphp
+            @else
+              @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
+            @endif
+          </td>
+          <td class="text-right">
+            @if (true)
+              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="btn btn-danger px-2 py-1" wire:click="">
+                <i class="fas fa-trash"></i>
+              </button>
+            @endif
+          </td>
         </tr>
-      </thead>
 
-      <tbody>
-        @foreach ($purchases as $purchase)
-          <tr wire:key="{{ rand() }}">
-            <td>
-              {{ $purchase->purchase_id }}
-            </td>
-            <td>
-              {{ $purchase->purchase_date }}
-            </td>
-            <td>
+        {{-- Show in mobile screens --}}
+        <tr class="d-md-none" wire:key="{{ rand() }}">
+          <td>
+            {{ $purchase->purchase_id }}
+            <div>
+              {{ $purchase->created_at->toDateString() }}
+            </div>
+            <div>
               @if ($purchase->vendor)
                 {{ $purchase->vendor->name }}
               @else
               @endif
-            </td>
-            <td>
-              @if ($purchase->purchaseItems)
-                @foreach ($purchase->purchaseItems as $purchaseItem )
-                  {{ $purchaseItem->product->name }}
-                  ,
-                @endforeach
-              @else
-                NONE
-              @endif
-            </td>
-            <td>
+            </div>
+          </td>
+          <td>
+            @if ($purchase->purchaseItems)
+              @foreach ($purchase->purchaseItems as $purchaseItem )
+                {{ $purchaseItem->product->name }}
+              @endforeach
+            @else
+              NONE
+            @endif
+          </td>
+          <td>
+            <span class="font-weight-bold">
+            Rs
+            @if (is_int($purchase->getTotalAmount()))
+              @php echo number_format( $purchase->getTotalAmount() ); @endphp
+            @else
+              @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
+            @endif
+            </span>
+            <div>
               @if ($purchase)
                 @if ($purchase->payment_status == 'pending')
                   <span class="badge badge-pill badge-danger">
@@ -146,134 +221,37 @@
                   {{ $purchase->payment_status }}
                 @endif
               @endif
-            </td>
-            <td>
-              @if (is_int($purchase->getPendingAmount()))
-                @php echo number_format( $purchase->getPendingAmount() ); @endphp
-              @else
-                @php echo number_format( $purchase->getPendingAmount(), 2 ); @endphp
-              @endif
-            </td>
-            <td>
-              @if (is_int($purchase->getTotalAmount()))
-                @php echo number_format( $purchase->getTotalAmount() ); @endphp
-              @else
-                @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
-              @endif
-            </td>
-            <td class="text-right">
-              @if (true)
-                <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
-                  <i class="fas fa-pencil-alt"></i>
+            </div>
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-cog text-secondary"></i>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button class="dropdown-item" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
+                  <i class="fas fa-file text-primary mr-2"></i>
+                  View
                 </button>
-                <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
-                  <i class="fas fa-eye"></i>
+                <button class="dropdown-item" wire:click="enterConfirmDeletePurchaseMode({{ $purchase }})">
+                  <i class="fas fa-trash text-danger mr-2"></i>
+                  Delete
                 </button>
-                <button class="btn btn-danger px-2 py-1" wire:click="">
-                  <i class="fas fa-trash"></i>
-                </button>
-              @endif
-            </td>
-          </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
-
-
-  {{-- Show in smaller screens --}}
-  <div class="table-responsive bg-white d-md-none">
-    <table class="table border mb-0">
-
-      <tbody>
-        @foreach ($purchases as $purchase)
-          <tr wire:key="{{ rand() }}">
-            <td>
-              {{ $purchase->purchase_id }}
-              <div>
-                {{ $purchase->created_at->toDateString() }}
               </div>
-              <div>
-                @if ($purchase->vendor)
-                  {{ $purchase->vendor->name }}
-                @else
-                @endif
-              </div>
-            </td>
-            <td>
-              @if ($purchase->purchaseItems)
-                @foreach ($purchase->purchaseItems as $purchaseItem )
-                  {{ $purchaseItem->product->name }}
-                @endforeach
-              @else
-                NONE
-              @endif
-            </td>
-            <td>
-              <span class="font-weight-bold">
-              Rs
-              @if (is_int($purchase->getTotalAmount()))
-                @php echo number_format( $purchase->getTotalAmount() ); @endphp
-              @else
-                @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
-              @endif
-              </span>
-              <div>
-                @if ($purchase)
-                  @if ($purchase->payment_status == 'pending')
-                    <span class="badge badge-pill badge-danger">
-                      Pending
-                    </span>
-                  @elseif ($purchase->payment_status == 'partially_paid')
-                    <span class="badge badge-pill badge-warning">
-                      Partial
-                    </span>
-                  @elseif ($purchase->payment_status == 'paid')
-                    <span class="badge badge-pill badge-success">
-                      Paid
-                    </span>
-                  @else
-                    {{ $purchase->payment_status }}
-                  @endif
-                @endif
-              </div>
-            </td>
-            <td>
-              <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-cog text-secondary"></i>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
-                    <i class="fas fa-file text-primary mr-2"></i>
-                    View
-                  </button>
-                  <button class="dropdown-item" wire:click="enterConfirmDeletePurchaseMode({{ $purchase }})">
-                    <i class="fas fa-trash text-danger mr-2"></i>
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </td>
-          </tr>
-        @endforeach
-      </tbody>
+            </div>
+          </td>
+        </tr>
+      @endforeach
+    </x-slot>
 
-    </table>
-  </div>
-  {{-- Pagination links --}}
-  <div class="bg-white border p-2">
-    {{ $purchases->links() }}
-  </div>
-  @else
-    <div class="pl-3 text-muted">
-      No purchases
-    </div>
-  @endif
+    <x-slot name="listPaginationLinks">
+      {{ $purchases->links() }}
+    </x-slot>
+
+  </x-list-component>
 
   @if ($modes['confirmDeletePurchase'])
     @livewire ('purchase-list-purchase-delete-confirm', ['purchase' => $deletingPurchase,])
   @endif
-
 
 </div>

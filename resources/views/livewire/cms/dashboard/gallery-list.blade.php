@@ -1,122 +1,71 @@
-<div class="card shadow-none">
-  <div class="card-body p-0">
-
-    <div wire:loading class="p-2 text-info">
-      Loading ...
-    </div>
+<div>
 
 
-      {{-- Show in bigger screen --}}
-      <div class="d-none d-md-block">
-        <div class="table-responsive">
-          <table class="table table-hover mb-0">
-            @if (true)
-            <thead>
-              <tr class="bg-white text-dark">
-                <th class="o-heading">ID</th>
-                <th class="o-heading">Name</th>
-                @if (false)
-                <th class="o-heading">Description</th>
-                @endif
-                <th class="o-heading">No of images</th>
-                @if (false)
-                <th class="o-heading">Space</th>
-                @endif
-                @if (true)
-                <th class="o-heading text-right">Action</th>
-                @endif
-              </tr>
-            </thead>
-            @endif
+  <x-list-component>
+    <x-slot name="listInfo">
+    </x-slot>
 
-            <tbody>
-              @if (!is_null($galleries) && count($galleries) > 0)
-                @foreach ($galleries as $gallery)
-                <tr>
-                  <td class="text-muted-rm">
-                    {{ $gallery->gallery_id }}
-                  </td>
+    <x-slot name="listHeadingRow">
+      <th>ID</th>
+      <th>Name</th>
+      <th>No of images</th>
+      @if (false)
+      <th>Space</th>
+      @endif
+      <th class="text-right">Action</th>
+    </x-slot>
 
-                  <td class="h6 font-weight-bold">
-                    <strong>
-                    {{ $gallery->name }}
-                    </strong>
-                  </td>
+    <x-slot name="listBody">
+      @foreach ($galleries as $gallery)
+      <tr>
+        <td class="text-muted-rm">
+          {{ $gallery->gallery_id }}
+        </td>
 
-                  @if (false)
-                  <td class="text-secondary-rm">
-                    {{ $gallery->description }}
-                  </td>
-                  @endif
+        <td class="h6 font-weight-bold">
+          <strong>
+          {{ $gallery->name }}
+          </strong>
+        </td>
 
-                  <td class="text-secondary-rm">
-                    {{ count($gallery->galleryImages) }}
-                  </td>
+        @if (false)
+        <td class="text-secondary-rm">
+          {{ $gallery->description }}
+        </td>
+        @endif
 
-                  @if (false)
-                  <td class="text-secondary-rm">
-                    {{ $gallery->totalDiskSpaceOccupied() }}
-                  </td>
-                  @endif
+        <td class="text-secondary-rm">
+          {{ count($gallery->galleryImages) }}
+        </td>
 
-                  <td class="text-right">
-                    @if (true)
-                      <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })">
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>
-                      <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })">
-                        <i class="fas fa-eye"></i>
-                      </button>
-                      <button class="btn btn-danger px-2 py-1" wire:click="$dispatch('confirmDeleteGallery', {{ $gallery }})">
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    @endif
-                  </td>
-                </tr>
-                @endforeach
-              @else
-                <tr>
-                  <td colspan="6">
-                    <p class="font-weight-bold text-muted-rm h4 py-4 text-center" style="color: #fe8d01;">
-                      <i class="fas fa-exclamation-circle mr-2"></i>
-                      No galleries
-                    <p>
-                  </td>
-                </tr>
-              @endif
-            </tbody>
-          </table>
-        </div>
-      </div>
-      {{-- Show in smaller screens --}}
-      <div class="d-md-none">
+        @if (false)
+        <td class="text-secondary-rm">
+          {{ $gallery->totalDiskSpaceOccupied() }}
+        </td>
+        @endif
 
-        @foreach ($galleries as $gallery)
-          <div class="bg-white border px-3">
-            <div class="h4-rm py-4">
-              <span  wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })" class="h5 text-dark font-weight-bold" role="button">
-                {{ \Illuminate\Support\Str::limit($gallery->name, 60, $end=' ...') }}
-              </span>
+        <td class="text-right">
+          @if (true)
+            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-danger px-2 py-1" wire:click="$dispatch('confirmDeleteGallery', {{ $gallery }})">
+              <i class="fas fa-trash"></i>
+            </button>
+          @endif
+        </td>
+      </tr>
+      @endforeach
+    </x-slot>
 
-              <br/ >
-              <br/ >
+    <x-slot name="listPaginationLinks">
+      {{ $galleries->links() }}
+    </x-slot>
 
-              Num of images: {{ count($gallery->galleryImages) }}
-              <br/>
-            </div>
-            <div>
-              <span class="btn btn-light mr-3 mb-3" wire:click="$dispatch('confirmDeleteGallery', {{ $gallery }})">
-                <i class="fas fa-trash mr-1"></i>
-                Delete gallery
-              </span>
-            </div>
-          </div>
-        @endforeach
-      </div>
+  </x-list-component>
 
-      {{-- Pagination links --}}
-      <div class="bg-white border p-2">
-        {{ $galleries->links() }}
-      </div>
-  </div>
+
 </div>

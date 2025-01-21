@@ -1,126 +1,41 @@
 <div>
 
-  @if (!is_null($posts) && count($posts) > 0)
-    {{-- Show in bigger screen --}}
-    <div class="d-none d-md-block">
-      <div class="table-responsive border">
-        <table class="table table-hover table-bordered-rm mb-0">
-          <thead>
-            <tr class="bg-white text-dark">
-              <th class="o-heading">
-                Name
-              </th>
-              <th class="o-heading">
-                Author
-              </th>
-              <th class="o-heading">
-                Categories
-              </th>
-              <th class="o-heading">
-                Date
-              </th>
-              <th class="o-heading">
-                Visibility
-              </th>
-              <th class="o-heading text-right">
-                Action
-              </th>
-            </tr>
-          </thead>
 
-          <tbody class="bg-white">
-            @foreach ($posts as $post)
-              <tr>
-                <td class="h5 font-weight-bold py-4">
-                  <span class="text-dark">
-                    {{ \Illuminate\Support\Str::limit($post->name, 60, $end=' ...') }}
-                  </span>
-                </td>
-                <td>
-                  @if ($post->creator)
-                    {{ $post->creator->name }}
-                  @else
-                    <span class="">
-                      <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
-                      Not set
-                    </span>
-                  @endif
-                </td>
-                <td>
-                  @if (count($post->webpageCategories) > 0)
-                    @foreach ($post->webpageCategories as $postCategory)
-                      <span class="badge badge-primary mr-3">
-                        {{ $postCategory->name }}
-                      </span>
-                    @endforeach
-                  @else
-                    <i class="fas fa-exclamation-circle text-secondary mr-2"></i>
-                    None
-                  @endif
-                </td>
-                <td>
-                  Published
-                  <br/>
-                  {{ $post->created_at->toDateString() }}
-                </td>
-                <td>
-                  @if ($post->visibility == 'private')
-                    <i class="fas fa-user text-secondary mr-2"></i>
-                    Private
-                  @elseif ($post->visibility == 'public')
-                    <span class="text-success">
-                    <i class="fas fa-check-circle mr-1"></i>
-                      Public
-                    </span>
-                  @elseif ($post->visibility == null)
-                    <i class="fas fa-exclamation-circle text-secondary"></i>
-                  @else
-                    Whoops!
-                  @endif
-                </td>
-                <td class="text-right">
-                  @if (true)
-                    <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
-                    <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
-                      <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="btn btn-danger px-2 py-1" wire:click="deletePost({{ $post }})">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  @endif
-                  @if ($modes['delete'])
-                    @if ($deletingPost->webpage_id == $post->webpage_id)
-                      <span class="btn btn-danger mr-3" wire:click="confirmDeletePost">
-                        Confirm delete
-                      </span>
-                      <span class="btn btn-light mr-3" wire:click="deletePostCancel">
-                        Cancel
-                      </span>
-                    @endif
-                  @endif
-                </td>
-              </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <x-list-component>
+    <x-slot name="listInfo">
+    </x-slot>
 
-    {{-- Show in smaller screens --}}
-    <div class="d-md-none">
+    <x-slot name="listHeadingRow">
+      <th>
+        Name
+      </th>
+      <th>
+        Author
+      </th>
+      <th>
+        Categories
+      </th>
+      <th>
+        Date
+      </th>
+      <th>
+        Visibility
+      </th>
+      <th class="text-right">
+        Action
+      </th>
+    </x-slot>
 
+    <x-slot name="listBody">
       @foreach ($posts as $post)
-        <div class="bg-white border px-3">
-          <div class="h4-rm py-4">
-            <span  wire:click="$dispatch('displayPost', { post: {{ $post }} })" class="h5 text-dark font-weight-bold" role="button">
+        {{-- Show in bigger screens --}}
+        <tr>
+          <td class="h5 font-weight-bold py-4">
+            <span class="text-dark">
               {{ \Illuminate\Support\Str::limit($post->name, 60, $end=' ...') }}
             </span>
-
-            <br/ >
-            <br/ >
-            Author:
+          </td>
+          <td>
             @if ($post->creator)
               {{ $post->creator->name }}
             @else
@@ -129,9 +44,8 @@
                 Not set
               </span>
             @endif
-
-            <br />
-            Category:
+          </td>
+          <td>
             @if (count($post->webpageCategories) > 0)
               @foreach ($post->webpageCategories as $postCategory)
                 <span class="badge badge-primary mr-3">
@@ -142,13 +56,13 @@
               <i class="fas fa-exclamation-circle text-secondary mr-2"></i>
               None
             @endif
-
+          </td>
+          <td>
+            Published
             <br/>
-            Published:
             {{ $post->created_at->toDateString() }}
-
-            <br/>
-            Visibility:
+          </td>
+          <td>
             @if ($post->visibility == 'private')
               <i class="fas fa-user text-secondary mr-2"></i>
               Private
@@ -162,32 +76,42 @@
             @else
               Whoops!
             @endif
-          </div>
-          <div>
-            <span class="btn btn-light mr-3 mb-3" wire:click="deletePost({{ $post }})">
-              <i class="fas fa-trash mr-1"></i>
-              Delete post
-            </span>
+          </td>
+          <td class="text-right">
+            @if (true)
+              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="btn btn-danger px-2 py-1" wire:click="deletePost({{ $post }})">
+                <i class="fas fa-trash"></i>
+              </button>
+            @endif
             @if ($modes['delete'])
               @if ($deletingPost->webpage_id == $post->webpage_id)
-                <span class="btn btn-danger mr-3 mb-3" wire:click="confirmDeletePost">
+                <span class="btn btn-danger mr-3" wire:click="confirmDeletePost">
                   Confirm delete
                 </span>
-                <span class="btn btn-light mr-3 mb-3" wire:click="deletePostCancel">
+                <span class="btn btn-light mr-3" wire:click="deletePostCancel">
                   Cancel
                 </span>
               @endif
             @endif
-          </div>
-        </div>
-      @endforeach
-    </div>
+          </td>
+        </tr>
 
-    {{-- Pagination links --}}
-    <div class="bg-white border p-2">
+        {{-- Show in smaller screens --}}
+        {{-- TODO --}}
+      @endforeach
+    </x-slot>
+
+    <x-slot name="listPaginationLinks">
       {{ $posts->links() }}
-    </div>
-  @else
-    No posts
-  @endif
+    </x-slot>
+
+  </x-list-component>
+
+
 </div>

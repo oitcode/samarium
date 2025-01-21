@@ -1,112 +1,90 @@
 <div>
 
 
-  <div class="d-flex bg-white border p-3 mb-1">
-    <div class="d-flex">
-      <div class="mr-4 font-weight-bold">
-        Today : {{ $todaySaleQuotationCount }}
-      </div>
-      <div class="mr-4 font-weight-bold">
-        Total : {{ $totalSaleQuotationCount }}
-      </div>
-    </div>
-    <div wire:loading class="">
-      <div class="spinner-border text-info mr-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-  </div>
+  <x-list-component>
 
+    <x-slot name="listInfo">
+      <div class="d-flex">
+        <div class="mr-4 font-weight-bold">
+          Today : {{ $todaySaleQuotationCount }}
+        </div>
+        <div class="mr-4 font-weight-bold">
+          Total : {{ $totalSaleQuotationCount }}
+        </div>
+      </div>
+    </x-slot>
 
-  {{-- Show in bigger screens --}}
-  <div class="table-responsive d-none d-md-block">
-    <table class="table table-hover shadow-sm border mb-0">
-      <thead>
-        <tr class="p-4 bg-white text-dark">
-          <th class="o-heading">
-            ID
-          </th>
-          <th class="d-none d-md-table-cell o-heading">
-            Customer
-          </th>
-          <th class="d-none d-md-table-cell o-heading">
-            Date
-          </th>
-          <th class="d-none d-md-table-cell o-heading">
-            Time
-          </th>
-          <th class="o-heading">
-            Amount
-          </th>
-          <th class="o-heading text-right">
-            Action
-          </th>
-        </tr>
-      </thead>
+    <x-slot name="listHeadingRow">
+      <th class="d-none d-md-table-cell">
+        ID
+      </th>
+      <th class="d-none d-md-table-cell">
+        Customer
+      </th>
+      <th class="d-none d-md-table-cell">
+        Date
+      </th>
+      <th class="d-none d-md-table-cell">
+        Time
+      </th>
+      <th class="d-none d-md-table-cell">
+        Amount
+      </th>
+      <th class="d-none d-md-table-cell text-right">
+        Action
+      </th>
+    </x-slot>
 
-      <tbody class="bg-white">
-        @foreach ($saleQuotations as $saleQuotation)
-          <tr>
-            <td>
-              {{ $saleQuotation->sale_quotation_id }}
-            </td>
-            <td class="d-none d-md-table-cell">
-              @if ($saleQuotation->customer)
-                {{ $saleQuotation->customer->name }}
-              @else
-                <span class="text-secondary">
-                  --
-                </span>
-              @endif
-            </td>
-            <td class="d-none d-md-table-cell">
-              {{ $saleQuotation->sale_quotation_date }}
-            </td>
-            <td class="d-none d-md-table-cell">
-              {{ $saleQuotation->created_at->format('H:i A') }}
-            </td>
-            <td class="font-weight-bold">
-              @if ($saleQuotation->creation_status == 'progress')
-                @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
-                  @php echo number_format( $saleQuotation->getTotalAmount() * 1.13); @endphp
-                @else
-                  @php echo number_format( $saleQuotation->getTotalAmount() ); @endphp
-                @endif
+    <x-slot name="listBody">
+      @foreach ($saleQuotations as $saleQuotation)
+        {{-- Show in bigger screens --}}
+        <tr>
+          <td>
+            {{ $saleQuotation->sale_quotation_id }}
+          </td>
+          <td class="d-none d-md-table-cell">
+            @if ($saleQuotation->customer)
+              {{ $saleQuotation->customer->name }}
+            @else
+              <span class="text-secondary">
+                --
+              </span>
+            @endif
+          </td>
+          <td class="d-none d-md-table-cell">
+            {{ $saleQuotation->sale_quotation_date }}
+          </td>
+          <td class="d-none d-md-table-cell">
+            {{ $saleQuotation->created_at->format('H:i A') }}
+          </td>
+          <td class="font-weight-bold">
+            @if ($saleQuotation->creation_status == 'progress')
+              @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
+                @php echo number_format( $saleQuotation->getTotalAmount() * 1.13); @endphp
               @else
                 @php echo number_format( $saleQuotation->getTotalAmount() ); @endphp
               @endif
-            </td>
-            <td class="text-right">
-              @if (true)
-                <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
-                  <i class="fas fa-pencil-alt"></i>
-                </button>
-                <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
-                  <i class="fas fa-eye"></i>
-                </button>
-                <button class="btn btn-danger px-2 py-1" wire:click="">
-                  <i class="fas fa-trash"></i>
-                </button>
-              @endif
-            </td>
-          </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
+            @else
+              @php echo number_format( $saleQuotation->getTotalAmount() ); @endphp
+            @endif
+          </td>
+          <td class="text-right">
+            @if (true)
+              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="btn btn-danger px-2 py-1" wire:click="">
+                <i class="fas fa-trash"></i>
+              </button>
+            @endif
+          </td>
+        </tr>
 
-  {{-- Pagination links --}}
-  <div class="bg-white border p-2">
-    {{ $saleQuotations->links() }}
-  </div>
-
-
-  {{-- Show in smaller screens --}}
-  <div class="table-responsive d-md-none border bg-white">
-    <table class="table">
-      <tbody>
-        @foreach ($saleQuotations as $saleQuotation)
-        <tr>
+        {{-- Show in smaller screens --}} 
+        <tr class="d-md-none">
           <td>
             {{ $saleQuotation->sale_quotation_id }}
           </td>
@@ -154,11 +132,14 @@
             </div>
           </td>
         </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
+      @endforeach
+    </x-slot>
 
+    <x-slot name="listPaginationLinks">
+      {{ $saleQuotations->links() }}
+    </x-slot>
+
+  </x-list-component>
 
   @if ($modes['confirmDelete'])
     @livewire ('sale-quotation-list-confirm-delete', ['saleQuotation' => $deletingSaleQuotation,])

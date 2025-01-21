@@ -1,81 +1,50 @@
 <div>
 
 
-  @if (!is_null($calendarGroups) && count($calendarGroups) > 0)
+  <x-list-component>
+    <x-slot name="listInfo">
+      Total products: {{ \App\Product::count() }}
+    </x-slot>
 
-    {{--
-       | Show in bigger screens
-    --}}
-    <div class="d-none d-md-block bg-white border">
-      <div class="table-responsive">
-        <table class="table table-hover table-valign-middle">
-          <thead>
-            <tr class="{{ config('app.oc_ascent_bg_color', 'bg-light') }}
-                {{ config('app.oc_ascent_text_color', 'text-dark') }}
-                p-4">
-              <th class="w-25 o-heading">Calendar group ID</th>
-              <th class="o-heading">Name</th>
-              <th class="o-heading text-right">Action</th>
-            </tr>
-          </thead>
-  
-          <tbody>
-            @foreach ($calendarGroups as $calendarGroup)
-            <tr>
+    <x-slot name="listHeadingRow">
+      <th class="w-25">Calendar group ID</th>
+      <th>Name</th>
+      <th class="text-right">Action</th>
+    </x-slot>
 
-              <td>
-                {{ $calendarGroup->calendar_group_id }}
-              </td>
-
-              <td class="font-weight-bold">
-                {{ $calendarGroup->name }}
-              </td>
-
-              <td class="text-right">
-                <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })">
-                  <i class="fas fa-pencil-alt"></i>
-                </button>
-                <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })">
-                  <i class="fas fa-eye"></i>
-                </button>
-                <button class="btn btn-danger px-2 py-1" wire:click="">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </td>
-
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-
-    {{--
-       | Show in smaller screens
-    --}}
-    <div class="d-md-none">
-
+    <x-slot name="listBody">
       @foreach ($calendarGroups as $calendarGroup)
-        <div class="bg-white border px-3">
-          <div class="py-4">
-            <span  wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })" class="h5 text-dark font-weight-bold" role="button">
-              {{ $calendarGroup->name }}
-            </span>
-          </div>
-        </div>
-      @endforeach
-    </div>
+      <tr>
 
-    {{-- Pagination links --}}
-    <div class="bg-white border p-2">
+        <td>
+          {{ $calendarGroup->calendar_group_id }}
+        </td>
+
+        <td class="font-weight-bold">
+          {{ $calendarGroup->name }}
+        </td>
+
+        <td class="text-right">
+          <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+          <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })">
+            <i class="fas fa-eye"></i>
+          </button>
+          <button class="btn btn-danger px-2 py-1" wire:click="">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+
+      </tr>
+      @endforeach
+    </x-slot>
+
+    <x-slot name="listPaginationLinks">
       {{ $calendarGroups->links() }}
-    </div>
-  @else
-    <div class="p-2 text-muted">
-      No calendar groups.
-    </div>
-  @endif
+    </x-slot>
+
+  </x-list-component>
 
 
 </div>

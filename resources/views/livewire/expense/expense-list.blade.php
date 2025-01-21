@@ -1,5 +1,6 @@
 <div>
 
+
   @if (false)
   {{-- Show in bigger screens --}}
   <div class="mt-1 mb-1 py-2 text-secondary py-3-rm d-flex-rm bg-warning-rm d-none d-md-block bg-white">
@@ -36,7 +37,6 @@
       </div>
     </div>
   </div>
-  @endif
 
   {{-- Show in smaller screens --}}
   <div class="mt-2-rm mb-3 text-secondary py-3-rm  bg-warning-rm d-md-none">
@@ -71,134 +71,104 @@
       </div>
     </div>
   </div>
-
-  @if (!is_null($expenses) && count($expenses) > 0)
-    {{-- Show in bigger screens --}}
-    <div class="table-responsive bg-white d-none d-md-block">
-      <table class="table border mb-0">
-        <thead>
-          <tr class="
-              {{ config('app.oc_ascent_bg_color', 'bg-success') }}
-              {{ config('app.oc_ascent_text_color', 'text-white') }}
-              "
-          >
-            <th class="o-heading">ID</th>
-            <th class="o-heading">Date</th>
-            <th class="o-heading">Expense</th>
-            <th class="o-heading">Amount</th>
-            <th class="o-heading text-right">Action</th>
-          </tr>
-        </thead>
-  
-        <tbody>
-          @foreach($expenses as $expense)
-          <tr wire:key="{{ rand() * $expense->expense_id }}">
-            <td>
-              {{ $expense->expense_id }}
-            </td>
-  
-            <td class="">
-              {{ $expense->date }}
-            </td>
-  
-            <td>
-              @foreach ($expense->expenseItems as $expenseItem)
-                {{ $expenseItem->name }}
-              @endforeach
-            </td>
-  
-            <td>
-              @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
-            </td>
-  
-            <td class="text-right">
-              @if (true)
-                <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">
-                  <i class="fas fa-pencil-alt"></i>
-                </button>
-                <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">
-                  <i class="fas fa-eye"></i>
-                </button>
-                <button class="btn btn-danger px-2 py-1" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
-                  <i class="fas fa-trash"></i>
-                </button>
-              @endif
-            </td>
-  
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-
-    {{-- Show in smaller screens --}}
-    <div class="table-responsive bg-white d-md-none">
-      <table class="table border mb-0">
-  
-        <tbody>
-          @foreach($expenses as $expense)
-          <tr wire:key="{{ rand() }}">
-            <td>
-              {{ $expense->expense_id }}
-              <div>
-                {{ $expense->date }}
-              </div>
-            </td>
-  
-            <td class="font-weight-bold">
-              Rs
-              @php echo number_format( $expense->amount, 2 ); @endphp
-            </td>
-  
-            <td>
-
-              <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-cog text-secondary"></i>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <button class="dropdown-item" wire:click="">
-                    <i class="fas fa-file text-primary mr-2"></i>
-                    View
-                  </button>
-                  <button class="dropdown-item" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
-                    <i class="fas fa-trash text-danger mr-2"></i>
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </td>
-  
-          </tr>
-          @endforeach
-        </tbody>
-  
-        <tfoot>
-          <tr>
-            <th colspan="2" class="text-right mr-3">
-              Total
-            </th>
-            <td>
-              Rs
-              @php echo number_format( $total, 2 ); @endphp
-            </td>
-            <td>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-    {{-- Pagination links --}}
-    <div class="bg-white border p-2">
-      {{ $expenses->links() }}
-    </div>
-  @else
-    <div class="pl-3 text-muted">
-      No expenses
-    </div>
   @endif
+
+  <x-list-component>
+    <x-slot name="listInfo">
+    </x-slot>
+
+    <x-slot name="listHeadingRow">
+      <th class="d-none d-md-table-cell">ID</th>
+      <th class="d-none d-md-table-cell">Date</th>
+      <th class="d-none d-md-table-cell">Expense</th>
+      <th class="d-none d-md-table-cell">Amount</th>
+      <th class="d-none d-md-table-cell text-right">Action</th>
+    </x-slot>
+
+    <x-slot name="listBody">
+      @foreach ($expenses as $expense)
+        {{-- Show in bigger screens --}} 
+        <tr class="d-none d-md-table-row" wire:key="{{ rand() * $expense->expense_id }}">
+          <td>
+            {{ $expense->expense_id }}
+          </td>
+  
+          <td class="">
+            {{ $expense->date }}
+          </td>
+  
+          <td>
+            @foreach ($expense->expenseItems as $expenseItem)
+              {{ $expenseItem->name }}
+            @endforeach
+          </td>
+  
+          <td>
+            @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
+          </td>
+  
+          <td class="text-right">
+            @if (true)
+              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="btn btn-danger px-2 py-1" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
+                <i class="fas fa-trash"></i>
+              </button>
+            @endif
+          </td>
+  
+        </tr>
+
+        {{-- Show in smaller screens --}}
+        <tr class="d-md-none" wire:key="{{ rand() }}">
+          <td>
+            {{ $expense->expense_id }}
+            <div>
+              {{ $expense->date }}
+            </div>
+          </td>
+  
+          <td class="font-weight-bold">
+            Rs
+            @php echo number_format( $expense->amount, 2 ); @endphp
+          </td>
+  
+          <td>
+
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-cog text-secondary"></i>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button class="dropdown-item" wire:click="">
+                  <i class="fas fa-file text-primary mr-2"></i>
+                  View
+                </button>
+                <button class="dropdown-item" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
+                  <i class="fas fa-trash text-danger mr-2"></i>
+                  Delete
+                </button>
+              </div>
+            </div>
+          </td>
+  
+        </tr>
+      @endforeach
+    </x-slot>
+
+    <x-slot name="listPaginationLinks">
+      {{ $expenses->links() }}
+    </x-slot>
+
+  </x-list-component>
 
   @if ($modes['confirmDeleteExpense'])
     @livewire ('expense-list-expense-delete-confirm', ['expense' => $deletingExpense,])
   @endif
+
+
 </div>
