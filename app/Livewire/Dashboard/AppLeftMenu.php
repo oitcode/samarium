@@ -103,7 +103,8 @@ class AppLeftMenu extends Component
             $this->enterModeSilent('accounting');
         } else if (
             $uri == '/dashboard/company' ||
-            $uri == '/dashboard/users'
+            $uri == '/dashboard/users' ||
+            $uri == '/dashboard/settings'
         ) {
             $this->enterModeSilent('more');
         }
