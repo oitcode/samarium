@@ -14,14 +14,13 @@
       {{ $calendarGroup->calendar_group_id }}
     </x-slot>
     <x-slot name="toolbarButtons">
-      <button class="btn btn-primary p-3" wire:click="$refresh">
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
-      </button>
-
-      <button class="btn btn-danger p-3" wire:click="closeThisComponent">
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="closeThisComponent">
         <i class="fas fa-times"></i>
         Close
-      </button>
+      </x-toolbar-button-component>
     </x-slot>
   </x-toolbar-component>
 

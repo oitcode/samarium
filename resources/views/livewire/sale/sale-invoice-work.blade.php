@@ -14,27 +14,30 @@
       {{ $saleInvoice->sale_invoice_id }}
     </x-slot>
     <x-slot name="toolbarButtons">
-      <button class="btn btn-primary p-3" wire:click="$refresh">
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
-      </button>
-
-      <button class="btn btn-primary p-3" wire:click="">
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="">
         <i class="fas fa-envelope"></i>
         Email
-      </button>
-      <button class="btn btn-success p-3" wire:click="">
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="">
         <i class="fas fa-print"></i>
         Print
-      </button>
-      <button class="btn btn-danger p-3" wire:click="closeThisComponent">
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="closeThisComponent">
         <i class="fas fa-times"></i>
         Close
-      </button>
+      </x-toolbar-button-component>
     </x-slot>
   </x-toolbar-component>
 
 
-  @if ($saleInvoice->takeaway && $saleInvoice->takeaway->status == 'closed')
+  @if (
+          ($saleInvoice->takeaway && $saleInvoice->takeaway->status == 'closed')
+          ||
+          ($saleInvoice->seatTableBooking && $saleInvoice->seatTableBooking->status == 'closed')
+      )
     @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $saleInvoice,])
   @else
     <div>

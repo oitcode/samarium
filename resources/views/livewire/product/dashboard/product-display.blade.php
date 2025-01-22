@@ -24,74 +24,44 @@
       {{ $product->name }}
     </x-slot>
     <x-slot name="toolbarButtons">
-      <button class="btn btn-primary p-3" wire:click="$refresh">
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
-      </button>
+      </x-toolbar-button-component>
 
        @if ($product->is_active == 0)
-         <button class="btn btn-primary p-3 mr-1" wire:click="makeProductActive">
-           <i class="fas fa-eye mr-2"></i>
-           @if (true)
-           <span>
-             Make active </span>
-           @endif
-         </button>
+         <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductActive">
+           Make active
+         </x-toolbar-button-component>
        @elseif ($product->is_active == 1)
-         <button class="btn btn-primary p-3 mr-1" wire:click="makeProductInactive">
-           <i class="fas fa-eye-slash mr-2"></i>
-           @if (true)
-           <span>
-             Make inactive
-           </span>
-           @endif
-         </button>
+         <x-toolbar-button-component btnBsClass="btn-dark" btnClickMethod="makeProductInactive">
+           Make inactive
+         </x-toolbar-button-component>
 
          @if ($product->show_in_front_end == 'yes')
-           <button class="btn btn-primary p-3 mr-1" wire:click="makeProductNotVisibleInFrontEnd">
-             <i class="fas fa-eye-slash mr-2"></i>
-             @if (true)
-             <span class="">
-               Hide in website
-             </span>
-             @endif
-           </button>
+           <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="makeProductNotVisibleInFrontEnd">
+             Hide in website
+           </x-toolbar-button-component>
          @else
-           <button class="btn btn-primary p-3 mr-1" wire:click="makeProductVisibleInFrontEnd">
-             <i class="fas fa-eye-slash mr-2"></i>
-             @if (true)
-             <span class="">
-               Show in website
-             </span>
-             @endif
-           </button>
+           <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="makeProductVisibleInFrontEnd">
+             Show in website
+           </x-toolbar-button-component>
          @endif
        @else
        @endif
 
        @if ($product->featured_product == 'yes')
-         <button class="btn btn-primary p-3 mr-1" wire:click="makeProductFeaturedProductUndo">
-           <i class="fas fa-lock mr-2"></i>
-           @if (true)
-           <span class="">
-             Remove from featured product
-           </span>
-           @endif
-         </button>
+         <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductFeaturedProductUndo">
+           Remove from featured product
+         </x-toolbar-button-component>
        @else
-         <button class="btn btn-success p-3 mr-1" wire:click="makeProductFeaturedProduct">
-           <i class="fas fa-star mr-2"></i>
-           @if (true)
-           <span class="">
-             Mark as featured product
-           </span>
-           @endif
-         </button>
+         <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="makeProductFeaturedProduct">
+           Mark as featured product
+         </x-toolbar-button-component>
        @endif
 
-      <button class="btn btn-danger p-3" wire:click="closeThisComponent">
-        <i class="fas fa-times"></i>
+      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="closeThisComponent">
         Close
-      </button>
+      </x-toolbar-button-component>
     </x-slot>
   </x-toolbar-component>
 

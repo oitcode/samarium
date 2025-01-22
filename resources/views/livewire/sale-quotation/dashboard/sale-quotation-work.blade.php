@@ -14,16 +14,21 @@
       {{ $saleQuotation->sale_quotation_id }}
     </x-slot>
     <x-slot name="toolbarButtons">
-      <button class="btn btn-info p-3" wire:click="$refresh">
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
-      </button>
-
-      @include ('partials.dashboard.sale-quotation-work-options')
-
-      <button class="btn btn-danger p-3" wire:click="$dispatch('exitSaleQuotationDisplayMode')">
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="enterModeSilent('addItem')">
+        <i class="fas fa-plus-circle mr-1"></i>
+        Add item
+      </x-toolbar-button-component>
+      <a href="{{ route('dashboard-print-sale-quotation', $saleQuotation->sale_quotation_id) }}" class="btn btn-primary p-3" target="_blank">
+        <i class="fas fa-print mr-1"></i>
+        Print
+      </a>
+      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitSaleQuotationDisplayMode')">
         <i class="fas fa-times"></i>
         Close
-      </button>
+      </x-toolbar-button-component>
     </x-slot>
   </x-toolbar-component>
 

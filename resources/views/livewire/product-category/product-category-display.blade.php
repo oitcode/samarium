@@ -27,13 +27,12 @@
       {{ $productCategory->name }}
     </x-slot>
     <x-slot name="toolbarButtons">
-      <button class="btn btn-primary p-3" wire:click="$refresh">
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
-      </button>
-      <button class="btn btn-danger p-3" wire:click="closeThisComponent">
-        <i class="fas fa-times"></i>
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="closeThisComponent">
         Close
-      </button>
+      </x-toolbar-button-component>
     </x-slot>
   </x-toolbar-component>
 
