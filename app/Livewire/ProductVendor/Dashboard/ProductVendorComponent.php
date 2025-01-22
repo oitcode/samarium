@@ -6,9 +6,13 @@ use Livewire\Component;
 
 use App\Traits\ModesTrait;
 
+use App\ProductVendor;
+
 class ProductVendorComponent extends Component
 {
     use ModesTrait;
+
+    public $displayingProductVendor;
 
     public $modes = [
         'create' => false,
@@ -20,6 +24,8 @@ class ProductVendorComponent extends Component
     protected $listeners = [
         'productVendorCreateCompleted',
         'productVendorCreateCancelled',
+        'displayProductVendor',
+        'exitProductVendorDisplay',
     ];
 
     public function render()
@@ -35,5 +41,17 @@ class ProductVendorComponent extends Component
     public function productVendorCreateCancelled()
     {
         $this->exitMode('create');
+    }
+
+    public function displayProductVendor(ProductVendor $productVendor)
+    {
+        $this->displayingProductVendor = $productVendor;
+        $this->enterMode('display');
+    }
+
+    public function exitProductVendorDisplay()
+    {
+        $this->displayingProductVendor = null;
+        $this->exitMode('display');
     }
 }

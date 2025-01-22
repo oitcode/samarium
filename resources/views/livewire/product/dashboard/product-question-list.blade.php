@@ -25,7 +25,9 @@
       @if (count($productQuestions) > 0)
         @foreach ($productQuestions as $productQuestion)
           <tr>
-            <td class="h6 font-weight-bold" wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })" role="button">
+            <td class="h6 font-weight-bold"
+                wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })"
+                role="button">
               {{ \Illuminate\Support\Str::limit($productQuestion->product->name, 60, $end=' ...') }}
             </td>
             <td class="font-weight-bold">
@@ -38,10 +40,12 @@
             </td>
             <td class="text-right">
               @if (true)
-                <button class="btn btn-primary px-2 py-1" wire:click="">
+                <button class="btn btn-primary px-2 py-1"
+                    wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })">
                   <i class="fas fa-pencil-alt"></i>
                 </button>
-                <button class="btn btn-success px-2 py-1" wire:click="">
+                <button class="btn btn-success px-2 py-1"
+                    wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })">
                   <i class="fas fa-eye"></i>
                 </button>
                 <button class="btn btn-danger px-2 py-1" wire:click="">
