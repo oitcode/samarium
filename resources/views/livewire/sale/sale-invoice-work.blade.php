@@ -34,30 +34,25 @@
 
 
   @if (
-          ($saleInvoice->takeaway && $saleInvoice->takeaway->status == 'closed')
-          ||
           ($saleInvoice->seatTableBooking && $saleInvoice->seatTableBooking->status == 'closed')
-      )
+          ||
+          $saleInvoice->creation_status == 'closed'
+  )
     @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $saleInvoice,])
   @else
     <div>
     
       {{-- Show in bigger screens --}}
       <div class="row">
-    
         <div class="col-md-8">
-    
           @if ($saleInvoice)
-    
             <x-transaction-main-info-component>
-
               <x-slot name="transactionIdName">
                 Sale Invoice ID
               </x-slot>
               <x-slot name="transactionIdValue">
                 {{ $saleInvoice->sale_invoice_id }}
               </x-slot>
-
               <x-slot name="transactionDateName">
                 Sale Invoice Date
               </x-slot>
@@ -82,7 +77,6 @@
                   </div>
                 @endif
               </x-slot>
-
               <x-slot name="transactionPartyName">
                 Customer
               </x-slot>
@@ -118,7 +112,6 @@
                   @endif
                 @endif
               </x-slot>
-
               <x-slot name="transactionPaymentStatusName">
                 Payment Status
               </x-slot>
@@ -141,24 +134,19 @@
                 </span>
                 @endif
               </x-slot>
-
             </x-transaction-main-info-component>
-    
           @endif
 
           @if ($saleInvoice)
-            {{-- Todo: Why true? Why only takeaway? --}} 
+            {{-- Todo: Why true? --}} 
             @if (true || $modes['addItem'])
               @livewire ('sale.sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
             @endif
           @endif
     
           <div class="card mb-3 shadow-sm">
-          
             <div class="card-body p-0">
-    
               @if ($saleInvoice)
-    
                 @if (count($saleInvoice->saleInvoiceItems) > 0)
                 {{-- Show in bigger screens --}}
                 <div class="table-responsive d-none d-md-block">
@@ -172,7 +160,6 @@
                         <th class="o-heading">Amount</th>
                       </tr>
                     </thead>
-      
                     <tbody>
                       @if ($saleInvoice)
                         @if (count($saleInvoice->saleInvoiceItems) > 0)
@@ -203,7 +190,6 @@
                         @endif
                       @endif
                     </tbody>
-      
                     <tfoot>
                       <tr class="py-0">
                         <td colspan="4" class="o-heading text-right pr-4 py-3">
@@ -227,11 +213,9 @@
                       )
                       {{-- Non tax sale invoice additions --}}
                       @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
-    
                         @if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) == 'vat')
                           @continue
                         @endif
-    
                         <tr class="border-0 p-0">
                           <td colspan="5" class="font-weight-bold text-right border-0 pr-4 py-1">
                             {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
@@ -246,7 +230,6 @@
                           </td>
                         </tr>
                       @endforeach
-    
                       {{-- Taxable amount --}}
                       {{-- Todo: Only vat? --}}
                       @if ($has_vat)
@@ -260,14 +243,11 @@
                           </td>
                         </tr>
                       @endif
-    
                       {{--Tax sale invoice additions --}}
                       @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
-    
                         @if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) != 'vat')
                           @continue
                         @endif
-    
                         <tr class="border-0 p-0">
                           <td colspan="5"
                               class="
@@ -285,7 +265,6 @@
                           </td>
                         </tr>
                       @endforeach
-    
                       <tr class="border-0 bg-success text-white p-0">
                         <td colspan="5"
                             class="font-weight-bold text-right border-0 pr-4 py-2">
@@ -299,7 +278,6 @@
                       </tr>
                       @endif
                     </tfoot>
-      
                   </table>
                 </div>
     
@@ -346,27 +324,18 @@
                   </div>
                 @endif
               @endif
-    
             </div>
           </div>
-    
         </div>
-      
-    
         <div class="col-md-4">
           @if ($saleInvoice->status != 'closed' && $saleInvoice->payment_status != 'paid' && $modes['makePayment'])
             @livewire ('sale.sale-invoice-work-make-payment', ['saleInvoice' => $saleInvoice,])
           @endif
         </div>
-    
-        <div class="col-md-2">
-        </div>
       </div>
-    
       @if ($modes['confirmRemoveSaleInvoiceItem'])
         @livewire ('sale.sale-invoice-work-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
       @endif
-    
     </div>
   @endif
 

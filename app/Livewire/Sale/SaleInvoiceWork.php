@@ -39,6 +39,7 @@ class SaleInvoiceWork extends Component
         'itemAddedToSaleInvoice',
         'removeItemFromSaleInvoice',
         'exitDeleteSaleInvoiceItem',
+        'completeTheTransaction',
     ];
 
     public function render()
@@ -173,5 +174,11 @@ class SaleInvoiceWork extends Component
     public function closeThisComponent()
     {
         $this->dispatch('exitSaleInvoiceWorkMode');
+    }
+
+    public function completeTheTransaction()
+    {
+        $this->saleInvoice = $this->saleInvoice->fresh();
+        $this->render();
     }
 }

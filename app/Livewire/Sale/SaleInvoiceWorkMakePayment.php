@@ -269,6 +269,8 @@ class SaleInvoiceWorkMakePayment extends Component
             /* Make accounting entries */
             // $this->makeAccountingEntry($saleInvoice);
 
+            $this->saleInvoice->creation_status = 'closed';
+            $this->saleInvoice->save();
             DB::commit();
 
             $this->enterModeSingle('paid');
@@ -281,7 +283,7 @@ class SaleInvoiceWorkMakePayment extends Component
 
     public function finishPayment()
     {
-        $this->dispatch('exitMakePaymentMode');
+        $this->dispatch('completeTheTransaction');
     }
 
     public function fetchCustomerData()
