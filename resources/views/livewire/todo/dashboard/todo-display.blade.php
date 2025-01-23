@@ -40,7 +40,7 @@
             {{ $todo->title }}
           </div>
           <div>
-            <button class="btn btn-outline-primary mx-3" wire:click="enterMode('updateTitleMode')">
+            <button class="btn btn-primary-rm mx-3" wire:click="enterMode('updateTitleMode')">
               Edit
             </button>
           </div>
@@ -92,7 +92,7 @@
                 @endif
               </div>
               <div>
-                <button class="btn btn-outline-primary" wire:click="enterMode('updateDueDateMode')">
+                <button class="btn btn-primary-rm" wire:click="enterMode('updateDueDateMode')">
                   Edit
                 </button>
               </div>
@@ -118,7 +118,7 @@
                 {{ $todo->priority }}
               </div>
               <div>
-                <button class="btn btn-outline-primary" wire:click="enterMode('updatePriorityMode')">
+                <button class="btn btn-primary-rm" wire:click="enterMode('updatePriorityMode')">
                   Edit
                 </button>
               </div>
@@ -148,7 +148,7 @@
                 @endif
               </div>
               <div>
-                <button class="btn btn-outline-primary" wire:click="enterMode('updateDescriptionMode')">
+                <button class="btn btn-primary-rm" wire:click="enterMode('updateDescriptionMode')">
                   Edit
                 </button>
               </div>
@@ -190,7 +190,7 @@
           </div>
 
           <div class="">
-            <button class="btn btn-outline-primary" wire:click="enterMode('updateAssignedToMode')">
+            <button class="btn btn-primary-rm" wire:click="enterMode('updateAssignedToMode')">
               Edit
             </button>
           </div>
@@ -244,7 +244,7 @@
           </div>
 
           <div class="">
-            <button class="btn btn-outline-primary" wire:click="enterMode('updateStatusMode')">
+            <button class="btn btn-primary-rm" wire:click="enterMode('updateStatusMode')">
               Edit
             </button>
           </div>
@@ -279,7 +279,7 @@
               Cancel
             </button>
           @else
-            <button class="btn btn-outline-danger" wire:click="enterMode('deleteMode')">
+            <button class="btn btn-danger" wire:click="enterMode('deleteMode')">
               Delete
             </button>
           @endif

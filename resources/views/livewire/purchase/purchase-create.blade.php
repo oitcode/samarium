@@ -1,5 +1,6 @@
 <div>
 
+
   {{--
   |
   | Toolbar.
@@ -275,7 +276,6 @@
           @endif
         </div>
       </div>
-
     </div>
 
     {{-- Purchase item delete confirm --}}

@@ -1,99 +1,86 @@
-<div class="bg-white shadow-rm">
+<div class="bg-white">
 
-  @if (true)
-    {{-- Tool bar --}}
-    <div class="d-flex justify-content-between mb-4 border p-1 bg-white-rm text-white-rm shadow-sm" style="background-color: #fff;">
-      <div>
-        <a href=""
-            target="_blank"
-            class="btn text-secondary">
-          <i class="fas fa-print fa-2x-rm"></i>
-          <br />
-          Print
-        </a>
-        <button class="btn text-secondary">
-          <i class="fas fa-file-pdf-o fa-2x-rm"></i>
-          <br />
-          PDF
-        </button>
-        <button class="btn text-secondary">
-          <i class="fas fa-file-excel-o fa-2x-rm"></i>
-          <br />
-          Excel
-        </button>
-      </div>
-      <div class="">
-        <button class="btn text-dark" wire:click="$dispatch('exitDisplayExpenseMode')">
-          <i class="fas fa-times-circle fa-2x"></i>
-          <br />
-          Close
-        </button>
-      </div>
+  {{-- Tool bar --}}
+  <div class="d-flex justify-content-between border p-1 shadow-sm">
+    <div>
+      <a href=""
+          target="_blank"
+          class="btn text-secondary">
+        <i class="fas fa-print"></i>
+        <br />
+        Print
+      </a>
+      <button class="btn text-secondary">
+        <i class="fas fa-file-pdf-o"></i>
+        <br />
+        PDF
+      </button>
+      <button class="btn text-secondary">
+        <i class="fas fa-file-excel-o"></i>
+        <br />
+        Excel
+      </button>
     </div>
-  @endif
-
-  <div class="bg-warning">
-  &nbsp;
+    <div>
+      <button class="btn text-dark" wire:click="$refresh">
+        <i class="fas fa-refresh fa-2x"></i>
+      </button>
+      <button class="btn text-dark" wire:click="$dispatch('exitDisplayExpenseMode')">
+        <i class="fas fa-times-circle fa-2x"></i>
+        <br />
+        Close
+      </button>
+    </div>
   </div>
 
   <div class="border p-0">
-
     {{-- Company Info --}}
-    <div class="d-flex justify-content-between p-3 border-bottom bg-success-rm text-white-rm">
-
-      <div class="">
-        <div class="mb-1">
-          <div class="h6 text-muted-rm mb-1">
-            <span class="text-muted">
-              Expense ID:
-            </span>
-            <span>
-              {{ $expense->expense_id }}
-            </span>
-          </div>
-        </div>
-
-        <div class="mb-1">
-          <div class="text-muted-rm mb-1">
-            <span class="text-muted">
-              Date:
-            </span>
-            <span>
-              {{ $expense->date }}
-            </span>
-          </div>
-        </div>
+    <div class="d-flex justify-content-between p-3 border-bottom">
+      <div>
+        <span class="o-heading">
+          Expense ID:
+        </span>
+        <br/>
+        <span>
+          {{ $expense->expense_id }}
+        </span>
       </div>
-
-        <div class="">
+      <div>
+        <span class="o-heading">
+          Date:
+        </span>
+        <br/>
+        <span>
+          {{ $expense->date }}
+        </span>
+      </div>
+      <div>
+        <span class="o-heading">
+        Vendor
+        </span>
+        <br/>
+        @if ($expense->vendor)
+          {{ $expense->vendor->name }}
+        @else
           <span class="text-muted">
-          Vendor
+            Unknown
           </span>
-          <br/>
-          @if ($expense->vendor)
-            {{ $expense->vendor->name }}
+        @endif
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="o-heading">
+          Created by
+        </div>
+        <div>
+          @if ($expense->creator)
+            {{ $expense->creator->name }}
           @else
-            <span class="text-muted">
-              Unknown
-            </span>
+            Unknown
           @endif
         </div>
-
-        <div class="col-md-3 mb-3">
-          <div class="text-muted-rm mb-1">
-            Created by
-          </div>
-          <div class="h5">
-            @if ($expense->creator)
-              {{ $expense->creator->name }}
-            @else
-              Unknown
-            @endif
-          </div>
-        </div>
-
+      </div>
       <div>
-        <div class="text-muted-rm">
+        <div class="o-heading">
           Payment Status
         </div>
         <div>
@@ -120,7 +107,6 @@
             Show payments
           </span>
         </div>
-
         @if ($modes['showPayments'])
           <div>
             <div>
@@ -143,17 +129,12 @@
           </div>
         @endif
       </div>
-
-      <div class="">
-        @if (true)
+      <div>
         <div class="mb-3 p-2 bg-danger text-white text-center" style="{{--background-color: orange;--}}">
           EXPENSE
         </div>
-        @endif
       </div>
     </div>
-
-
      {{-- Vendor Info --}}
      @if ($expense->vendor)
       <div class="p-3">
@@ -164,22 +145,20 @@
     @endif
 
     {{-- Main Info --}}
-    <div class="shadow-rm">
-
+    <div>
       {{-- Items List --}}
       {{-- Show in bigger screens --}}
       <div class="table-responsive border bg-white mb-0 d-none d-md-block">
         <table class="table table-sm table-hover border-dark shadow-sm mb-0">
           <thead>
-            <tr class="bg-success-rm text-white-rm">
-              <th>Item</th>
-              <th>Amount</th>
+            <tr>
+              <th class="o-heading">Item</th>
+              <th class="o-heading">Amount</th>
             </tr>
           </thead>
-
           <tbody>
             @foreach ($expense->expenseItems as $expenseItem)
-              <tr class="bg-success-rm text-white-rm">
+              <tr>
                 <td>
                   {{ $expenseItem->name }}
                 </td>
@@ -189,22 +168,15 @@
               </tr>
             @endforeach
           </tbody>
-
-          @if (true)
-
-          <tfoot class="bg-success-rm text-white-rm mt-4">
-            @if (true)
-            <tr class="bg-primary-rm">
-             <td colspan="1" class="font-weight-bold text-right pr-3">
-                <strong>
+          <tfoot class="mt-4">
+            <tr>
+             <td colspan="1" class="o-heading text-right pr-3">
                 Subtotal
-                </strong>
               </td>
-              <td class="font-weight-bold">
+              <td class="o-heading">
                 @php echo number_format( $expense->getSubTotal(), 2 ); @endphp
               </td>
             </tr>
-            @endif
             @foreach ($expense->expenseAdditions as $expenseAddition)
               <tr class="border-0 mb-0 p-0">
                 <td colspan="1" class="font-weight-bold text-right pr-3 border-0">
@@ -223,29 +195,17 @@
                 </td>
               </tr>
             @endforeach
-
             <tr class="border-0 bg-light text-dark p-0">
-                <td colspan="1" class="font-weight-bold text-right pr-3 border-0">
+                <td colspan="1" class="o-heading text-right pr-3 border-0">
                 Total
               </td>
-              <td class="font-weight-bold border-0">
+              <td class="o-heading border-0">
                 @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
               </td>
             </tr>
           </tfoot>
-          @endif
-
         </table>
       </div>
-
-
-
-
-
-
-
-
     </div>
-
   </div>
 </div>

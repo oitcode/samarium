@@ -9,13 +9,10 @@
   </div>
 
   <div class="row border pb-0 border-0" style="margin:auto;">
-
     {{-- Left side of the product create page --}}
     <div class="col-md-6 pl-0">
-
       <div class="card h-100 border-0 pb-0">
         <div class="card-body pl-0 h-100 pb-0">
-      
           <div class="form-group">
             <label class="h5" for="">Name *</label>
             <input type="text"
@@ -23,7 +20,6 @@
                 wire:model="name">
             @error ('name') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
-      
           <div class="form-group">
             <label class="h5">Category *</label>
             <select class="custom-select shadow-sm" wire:model="product_category_id">
@@ -36,8 +32,6 @@
             </select>
             @error ('product_category_id') <span class="text-danger">{{ $message }}</span>@enderror
           </div>
-      
-      
           <div class="form-group">
             <label class="h5" for="">Selling price *</label>
             <input type="text"
@@ -45,9 +39,7 @@
                 wire:model="selling_price">
             @error('selling_price') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
-
           <div class="bg-white pb-0">
-
             <h2 class="h5">
               Description *
             </h2>
@@ -62,21 +54,14 @@
               </textarea>
               @error ('description') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
-
           </div>
-      
-      
         </div>
       </div>
-
     </div>
-
 
     {{-- Right side of the product create page --}}
     <div class="col-md-6 pl-0">
-
       <div class="bg-white pl-0 p-2 mb-3">
-
         <h2 class="h5">
           Image
           <span class="text-muted ml-1">
@@ -90,22 +75,15 @@
           <input type="file" class="form-control" wire:model.live="image">
           @error('image') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
-
       </div>
-
     </div>
   </div>
 
   {{-- Save/Cancel buttons div --}}
   <div class="py-4 m-0">
-
     @include ('partials.button-store')
     @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateProductMode',])
-
-    <button wire:loading class="btn">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+    @include ('partials.dashboard.spinner-button')
   </div>
 
 

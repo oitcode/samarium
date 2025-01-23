@@ -1,8 +1,9 @@
 <div>
 
+
   {{--
   |
-  | Toolbar.
+  | Toolbar
   |
   --}}
 
@@ -24,14 +25,12 @@
   </x-toolbar-component>
 
   <div class="bg-white p-3">
-    <div class="mt-3-rm mb-3 h5 font-weight-bold border-rm bg-light-rm py-3" {{-- style="border-left: 5px solid #05a;" --}}>
+    <div class="mb-3 h5 font-weight-bold py-3">
       <i class="fas fa-cogs mr-3 text-secondary"></i>
-      @if (true)
       {{ $documentFile->name }}
-      @endif
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           DocumentFile
@@ -55,7 +54,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Document File ID
@@ -66,7 +65,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Posted Date
@@ -77,7 +76,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Posted By
@@ -88,12 +87,12 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Description
         </div>
-        <div class="col-md-9 border p-3 flex-grow-1-rm">
+        <div class="col-md-9 border p-3">
           @if ($modes['updateDescriptionMode'])
             @livewire ('document-file.dashboard.document-file-edit-description', ['documentFile' => $documentFile,])
           @else
@@ -111,9 +110,7 @@
         </div>
       </div>
     </div>
-
   </div>
-
 
   <div class="p-3 my-3 bg-white border">
     <div class="mb-3">
@@ -136,7 +133,6 @@
     </div>
 
     <div class="col-md-6 p-0 rounded">
-
       @if ($modes['editUserGroupMode'])
         @livewire ('document-file.dashboard.document-file-edit-user-group', ['documentFile' => $documentFile,])
       @else
@@ -152,25 +148,21 @@
               None
             @endif
           </div>
-
-          <button class="btn btn-light border-rm mx-3" wire:click="enterModeSilent('editUserGroupMode')">
+          <button class="btn btn-light mx-3" wire:click="enterModeSilent('editUserGroupMode')">
             <i class="fas fa-plus-circle"></i>
           </button>
         </div>
       @endif
-
     </div>
   </div>
 
   <div class="bg-white border p-3 my-3">
-
-    <div class="col-md-6 p-0 border border-secondary-rm rounded">
-
+    <div class="col-md-6 p-0 border rounded">
       {{-- Delete event --}}
-      <div class="">
+      <div>
         <div class="d-flex justify-content-between p-3">
           <div>
-            <div class="">
+            <div>
               <strong>
                 Delete this document file
               </strong>
@@ -181,8 +173,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 

@@ -1,17 +1,14 @@
 <div>
 
 
-  <!-- Flash message div -->
+  {{--
+  |
+  | Flash message div.
+  |
+  --}}
+
   @if (session()->has('message'))
-    <div class="p-2">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle mr-3"></i>
-        {{ session('message') }}
-        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-          <span class="text-danger" aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
+    @include ('partials.flash-message', ['message' => session('message'),])
   @endif
 
   {{--
@@ -43,7 +40,7 @@
         <div class="px-3 py-3 o-heading">
             Product Category Name
         </div>
-        <div class="d-flex flex-column justify-content-center px-3-rm">
+        <div class="d-flex flex-column justify-content-center">
           <button class="btn btn-light text-primary font-weight-bold" wire:click="enterMode('updateProductCategoryNameMode')">
             Edit
           </button>
@@ -74,7 +71,7 @@
       <div class="px-3 py-3 o-heading">
           Product Category Image
       </div>
-      <div class="d-flex flex-column justify-content-center px-3-rm">
+      <div class="d-flex flex-column justify-content-center">
         <button class="btn btn-light text-primary font-weight-bold" wire:click="enterMode('updateProductCategoryImageMode')">
           Edit
         </button>
@@ -102,7 +99,6 @@
 
   {{-- Number of products --}}
   <div class="bg-white my-3 border">
-
     <div class="">
       <div class="d-flex justify-content-between border-bottom">
         <div class="px-3 py-3 o-heading">
@@ -122,7 +118,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
   {{-- Product list --}}
@@ -146,39 +141,34 @@
         </table>
       </div>
     </div>
-    @if (true)
     <hr class="m-0 p-0"/>
-    @endif
   </div>
-
 
   {{-- Settings --}}
   <div class="bg-white my-3">
     <div class="border-bottom px-3 py-3 o-heading">
       Settings
     </div>
-
     {{-- Show in website setitng --}}
     <div class="px-3 py-2">
       <div class="font-weight-bold mb-3">
         Show in website
       </div>
+      <div>
+        @if ($productCategory->does_sell == 'yes')
+          <i class="fas fa-check-circle text-success"></i>
+          Yes
+        @else
+          <i class="fas fa-times-circle text-danger"></i>
+          No
+        @endif
         <div>
-          @if ($productCategory->does_sell == 'yes')
-            <i class="fas fa-check-circle text-success"></i>
-            Yes
-          @else
-            <i class="fas fa-times-circle text-danger"></i>
-            No
-          @endif
-          <div>
-            <button class="btn text-primary pl-0" wire:click="toggleProductCategorySellability">
-              Toggle
-            </button>
-          </div>
+          <button class="btn text-primary pl-0" wire:click="toggleProductCategorySellability">
+            Toggle
+          </button>
         </div>
+      </div>
     </div>
-
   </div>
 
 

@@ -1,10 +1,13 @@
-<div class="mb-4">
+<div>
 
-  {{-- Toolbar --}}
+  {{--
+  |
+  | Toolbar
+  |
+  --}}
+
   <x-toolbar-classic toolbarTitle="Users">
-
     @include ('partials.dashboard.spinner-button')
-
     @if (! array_search(true, $modes) || $modes['listUserMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('createUserMode')",
@@ -13,26 +16,24 @@
           'btnCheckMode' => 'createUserMode',
       ])
     @endif
-
   </x-toolbar-classic>
 
+  {{--
+  |
+  | Flash message div.
+  |
+  --}}
 
-  {{-- Flash message div --}}
   @if (session()->has('message'))
-    {{-- Flash message div --}}
-    <div class="p-2">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle mr-3"></i>
-        {{ session('message') }}
-        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-          <span class="text-success" aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
+    @include ('partials.flash-message', ['message' => session('message'),])
   @endif
 
+  {{--
+  | 
+  | Show required components as per mode
+  |
+  --}}
 
-  {{-- Show required components as per mode --}}
   @if ($modes['createUserMode'])
     @livewire ('user.user-create')
   @elseif ($modes['listUserMode'])

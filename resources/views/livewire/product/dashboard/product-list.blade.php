@@ -67,7 +67,6 @@
     <x-slot name="listPaginationLinks">
       {{ $products->links() }}
     </x-slot>
-
   </x-list-component>
 
 

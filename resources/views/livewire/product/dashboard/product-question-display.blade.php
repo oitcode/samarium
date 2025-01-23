@@ -29,7 +29,7 @@
       {{ \Illuminate\Support\Str::limit($productQuestion->question_text, 100, $end=' ...') }}
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Product
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Product question
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Product question ID
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Posted Date
@@ -73,7 +73,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Writer name
@@ -84,7 +84,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Writer info
@@ -101,7 +101,7 @@
   {{-- Delete product question --}}
   <div class="bg-white border p-3 my-3">
     <div class="col-md-6 p-0 border rounded">
-      <div class="">
+      <div>
         <div class="d-flex justify-content-between p-3">
           <div>
             <div class="">

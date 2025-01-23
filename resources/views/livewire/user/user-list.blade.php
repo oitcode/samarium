@@ -1,4 +1,5 @@
-<div class="border-rm bg-white-rm">
+<div>
+
 
   <x-list-component>
     <x-slot name="listInfo">
@@ -6,7 +7,6 @@
         <div class="mr-4">
           Users: {{ $usersCount }}
         </div>
-
         <div>
           Admin: {{ $adminUsersCount }}
         </div>
@@ -27,15 +27,12 @@
           <td>
             {{ $user->id }}
           </td>
-
           <td class="font-weight-bold" wire:click="$dispatch('displayUser', {user: {{ $user }} })" role="button">
             {{ $user->name }}
           </td>
-
           <td>
             {{ $user->email }}
           </td>
-
           <td>
             @if ($user->role == 'admin')
               <span class="badge badge-pill badge-primary shadow">
@@ -47,7 +44,6 @@
               </span>
             @endif
           </td>
-
           <td class="text-right">
             <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayUser', {user: {{ $user }} })">
               <i class="fas fa-pencil-alt"></i>
@@ -76,7 +72,6 @@
     <x-slot name="listPaginationLinks">
       {{ $users->links() }}
     </x-slot>
-
   </x-list-component>
 
 

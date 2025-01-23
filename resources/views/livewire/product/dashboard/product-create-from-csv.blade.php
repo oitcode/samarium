@@ -2,7 +2,6 @@
 
 
   <div class="card-body p-3">
-  
     <h1 class="h5 font-weight-bold mb-4">Upload products from file</h1>
   
     <div wire:loading class="text-primary">
@@ -12,11 +11,10 @@
     </div>
   
     <div class="form-group my-4">
-      <label class="h5 mb-2" for="">File *</label>
+      <label class="h5 mb-2">File *</label>
       <input type="file" class="form-control pl-0 border-0" wire:model.live="products_file">
       @error('products_file') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
-
   
     @if ($startMode)
       @include ('partials.button-general', ['btnText' => 'Upload', 'clickMethod' => 'preview',])
@@ -25,7 +23,6 @@
       @include ('partials.button-general', ['btnText' => 'Import', 'clickMethod' => 'preview',])
     @endif
     @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateProductFromCsvMode',])
-  
   
     @if ($previewMode)
   
@@ -42,7 +39,6 @@
             <th>Selling price</th>
           </tr>
         <thead>
-  
         <tbody>
           @foreach ($lines as $line)
             <tr>
@@ -57,7 +53,6 @@
         </tbody>
       </table>
     @endif
-  
   </div>
 
 

@@ -3,7 +3,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      <div class="mb-1-rm p-3 bg-white border d-flex justify-content-between">
+      <div class="p-3 bg-white border d-flex justify-content-between">
         <div class="pt-2">
           <div class="d-flex">
             <div class="mr-4 px-2 py-1 border font-weight-bold">
@@ -16,7 +16,6 @@
         </div>
         <div class="font-weight-bold h6 d-flex">
           <div class="d-flex">
-            @if (true)
             <div class="d-flex flex-column justify-content-center mr-3 o-heading">
               <i class="fas fa-funnel mr-1"></i>
               Filter
@@ -62,7 +61,6 @@
                 </button>
               </div>
             </div>
-            @endif
           </div>
         </div>
       </div>
@@ -150,17 +148,15 @@
             @endif
           </td>
           <td class="text-right">
-            @if (true)
-              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
-                <i class="fas fa-eye"></i>
-              </button>
-              <button class="btn btn-danger px-2 py-1" wire:click="">
-                <i class="fas fa-trash"></i>
-              </button>
-            @endif
+            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-danger px-2 py-1" wire:click="">
+              <i class="fas fa-trash"></i>
+            </button>
           </td>
         </tr>
 
@@ -169,7 +165,6 @@
           <td>
             {{ $saleInvoice->sale_invoice_id }}
           </td>
-
           <td>
             <p>
               @if (\Carbon\Carbon::today()->toDateString() == $saleInvoice->created_at->toDateString())
@@ -188,7 +183,6 @@
               {{ $saleInvoice->created_at->format('H:i A') }}
             </p>
           </td>
-
           <td>
             <p class="h5">
               Rs

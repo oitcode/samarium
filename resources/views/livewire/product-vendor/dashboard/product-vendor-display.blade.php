@@ -29,7 +29,7 @@
       {{ $productVendor->name }}
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Product vendor ID
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Name
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Creaeted Date
@@ -61,9 +61,7 @@
         </div>
       </div>
     </div>
-
   </div>
-
 
   {{-- Delete product vendor --}}
   <div class="bg-white border p-3 my-3">

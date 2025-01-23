@@ -1,8 +1,9 @@
 <div>
 
+
   {{--
   |
-  | Toolbar.
+  | Toolbar
   |
   --}}
 
@@ -25,7 +26,6 @@
 
   <div class="row" style="margin: auto;">
     <div class="col-md-4">
-
       <div class="bg-white border mb-3">
         <div class="table-responsive">
           <table class="table">
@@ -57,7 +57,6 @@
             Add a program
           </button>
         </div>
-
         @if ($modes['createEducInstitutionProgramMode'])
           <div class="p-3">
             @livewire ('educ.institution.dashboard.institution-program-create', ['educInstitution' => $educInstitution,])
@@ -85,25 +84,19 @@
           </table>
         </div>
         @endif
-
       </div>
-
     </div>
 
     <div class="col-md-8">
       <div class="bg-white border">
-
         <h2 class="h5 font-weight-bold text-primary px-3 pt-3">
           Applications
         </h2>
-
         <div class="px-3 mb-3">
           <button class="btn btn-outline-primary">
             Applications
           </button>
         </div>
-
-
         <div class="table-responsive">
           <table class="table">
               <tr>
@@ -156,5 +149,6 @@
       </div>
     </div>
   </div>
+
 
 </div>

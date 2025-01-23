@@ -66,7 +66,6 @@
     <x-slot name="listPaginationLinks">
       {{ $documentFiles->links() }}
     </x-slot>
-
   </x-list-component>
 
 

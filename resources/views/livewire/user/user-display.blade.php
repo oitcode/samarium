@@ -3,7 +3,7 @@
 
   {{--
   |
-  | Toolbar.
+  | Toolbar
   |
   --}}
 
@@ -28,61 +28,60 @@
   </x-toolbar-component>
 
   {{--
-     |
-     | Name
-     |
+  |
+  | Name
+  |
   --}}
+
   <div class="bg-white mb-2 p-2 border-bottom">
     <div class="d-flex justify-content-start">
       <div class="d-flex flex-column justify-content-center mr-3">
-        <span class="font-weight-bold">
+        <span class="o-heading">
           {{ $user->name }}
         </span>
       </div>
     </div>
   </div>
-
   <div class="bg-white mb-2">
     <div class="d-flex justify-content-between p-2 border-bottom">
-      <div class="d-flex flex-column justify-content-center font-weight-bold">
+      <div class="d-flex flex-column justify-content-center o-heading">
         Name
       </div>
     </div>
-
     <div class="p-2 py-3">
       {{ $user->name }}
     </div>
   </div>
 
   {{--
-     |
-     | Created at
-     |
+  |
+  | Created at
+  |
   --}}
+
   <div class="bg-white mb-2">
     <div class="d-flex justify-content-between p-2 border-bottom">
-      <div class="d-flex flex-column justify-content-center font-weight-bold">
+      <div class="d-flex flex-column justify-content-center o-heading">
         Created at
       </div>
     </div>
-
     <div class="p-2 py-3">
       {{ $user->created_at->toDateString() }}
     </div>
   </div>
 
   {{--
-     |
-     | Role
-     |
+  |
+  | Role
+  |
   --}}
+
   <div class="bg-white mb-2">
     <div class="d-flex justify-content-between p-2 border-bottom">
-      <div class="d-flex flex-column justify-content-center font-weight-bold">
+      <div class="d-flex flex-column justify-content-center o-heading">
         Role
       </div>
     </div>
-
     <div class="p-2 py-3">
       @if ($user->role == 'standard')
         <span class="badge badge-pill badge-success">
@@ -99,32 +98,31 @@
   </div>
 
   {{--
-     |
-     | Last login
-     |
+  |
+  | Last login
+  |
   --}}
+
   <div class="bg-white mb-2">
     <div class="d-flex justify-content-between p-2 border-bottom">
-      <div class="d-flex flex-column justify-content-center font-weight-bold">
+      <div class="d-flex flex-column justify-content-center o-heading">
         Last login
       </div>
     </div>
-
     <div class="p-2 py-3">
       {{ $user->last_login_at }}
     </div>
   </div>
 
-
   {{--
-     |
-     | Groups
-     |
+  |
+  | Groups
+  |
   --}}
 
   <div class="bg-white bg-2">
     <div class="d-flex justify-content-between p-2 border-bottom">
-      <div class="d-flex flex-column justify-content-center font-weight-bold">
+      <div class="d-flex flex-column justify-content-center o-heading">
         Groups
       </div>
       <div>
@@ -133,7 +131,6 @@
         </button>
       </div>
     </div>
-
     <div>
       @if ($modes['addUserToGroupMode'])
         @livewire ('user.dashboard.add-user-to-group', ['user' => $user,])

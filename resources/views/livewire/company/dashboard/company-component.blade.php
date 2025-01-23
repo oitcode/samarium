@@ -1,5 +1,6 @@
 <div>
 
+
   <x-toolbar-classic toolbarTitle="Company">
     @include ('partials.dashboard.spinner-button')
   </x-toolbar-classic>
@@ -11,40 +12,29 @@
        | Flash message div
        |
     --}}
+
     @if (session()->has('message'))
       @include ('partials.flash-message-modal', ['message' => session('message'),])
     @endif
 
-    <div class="">
+    <div>
       <div class="bg-white p-3 mb-2">
         <div class="d-flex justify-content-between">
-          <h2 class="h6 font-weight-bold text-secondary-rm" style="font-weight: 900; font-family: arial; color: #123;">
+          <h2 class="h6 font-weight-bold" style="font-weight: 900; font-family: arial; color: #123;">
             Logo
           </h2>
-          <div class="mb-3-rm">
-            <button wire:loading class="btn m-0">
-              <span class="spinner-border text-info mr-3" role="status">
-              </span>
-            </button>
-
+          <div>
+            @include ('partials.dashboard.spinner-button')
             <button class="btn btn-primary m-0 border"
                 wire:click="enterMode('updateLogoImageMode')"
                 style="min-width: 200px;">
               <i class="fas fa-pencil-alt mr-1"></i>
               Change logo
             </button>
-
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
-            @if (false)
-            <label style="min-width: 200px;">
-              <i class="fas fa-image mr-1"></i>
-              Logo
-            </label>
-            @endif
           </div>
           <div class="col-md-8">
             @if ($company && $company->logo_image_path)
@@ -52,14 +42,6 @@
                 <div class="d-flex justify-content-start mb-3">
                   <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 75px;">
                 </div>
-                @if (false)
-                <div>
-                  <button class="btn btn-primary" wire:click="enterMode('updateLogoImageMode')">
-                    <i class="fas fa-pencil-alt mr-1"></i>
-                    Change logo
-                  </button>
-                </div>
-                @endif
               </div>
             @else
               <div>
@@ -109,10 +91,7 @@
               <button class="btn btn-danger" wire:click="exitMode('updateLogoImageFromNewUploadMode')">
                 Cancel
               </button>
-              <button wire:loading class="btn">
-                <span class="spinner-border text-info mr-3" role="status">
-                </span>
-              </button>
+              @include ('partials.dashboard.spinner-button')
             </div>
           </div>
         @endif
@@ -126,28 +105,8 @@
             <button class="btn btn-danger" wire:click="exitMode('updateLogoImageFromLibraryMode')">
               Cancel
             </button>
-            <button wire:loading class="btn">
-              <span class="spinner-border text-info mr-3" role="status">
-              </span>
-            </button>
+            @include ('partials.dashboard.spinner-button')
           </div>
-        @endif
-
-        @if (false)
-        {{-- Submit button section --}}
-        <div class="mt-4 mb-2">
-          @if ($company)
-            @include ('partials.button-update')
-          @else
-            @include ('partials.button-store')
-            @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
-          @endif
-
-          <button wire:loading class="btn">
-            <span class="spinner-border text-info mr-3" role="status">
-            </span>
-          </button>
-        </div>
         @endif
       </div>
 
@@ -155,105 +114,84 @@
         <h2 class="h6 mb-4 font-weight-bold mb-3 o-heading">
           Basic Info
         </h2>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
-            @if (true)
             <label style="min-width: 200px;">
               <i class="fas fa-home mr-1"></i>
               Name
             </label>
-            @endif
           </div>
           <div class="col-md-8">
             <input type="text" class="form-control" wire:model="name">
             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
-            @if (true)
             <label style="min-width: 200px;">
               <i class="fas fa-circle mr-1"></i>
               Short name
             </label>
-            @endif
           </div>
           <div class="col-md-8">
             <input type="text" class="form-control" wire:model="short_name">
             @error('short_name') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
-            @if (true)
             <label style="min-width: 200px;">
               <i class="fas fa-info-circle mr-1"></i>
               Tagline
             </label>
-            @endif
           </div>
           <div class="col-md-8">
             <input type="text" class="form-control" wire:model="tagline">
             @error('tagline') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
-            @if (true)
             <label style="min-width: 200px;">
               <i class="fas fa-phone mr-1"></i>
               Phone
             </label>
-            @endif
           </div>
           <div class="col-md-8">
             <input type="text" class="form-control" wire:model="phone">
             @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
-            @if (true)
             <label style="min-width: 200px;">
               <i class="fas fa-envelope mr-1"></i>
               Email
             </label>
-            @endif
           </div>
           <div class="col-md-8">
             <input type="text" class="form-control" wire:model="email">
             @error('email') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
-            @if (true)
             <label style="min-width: 200px;">
               <i class="fas fa-map-marker-alt mr-1"></i>
               Address
             </label>
-            @endif
           </div>
           <div class="col-md-8">
             <input type="text" class="form-control" wire:model="address">
             @error('address') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
-            @if (true)
             <label style="min-width: 200px;">
               <i class="fas fa-info-circle mr-1"></i>
               PAN Number
             </label>
-            @endif
           </div>
           <div class="col-md-8">
             <input type="text" class="form-control" wire:model="pan_number">
@@ -269,18 +207,14 @@
             @include ('partials.button-store')
             @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
           @endif
-
-          <button wire:loading class="btn">
-            <span class="spinner-border text-info mr-3" role="status">
-            </span>
-          </button>
+          @include ('partials.dashboard.spinner-button')
         </div>
       </div>
+
       <div class="bg-white p-3 mb-4">
         <h2 class="h6 mb-3 o-heading">
           Social Media Links
         </h2>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
             <label style="min-width: 200px;">
@@ -292,7 +226,6 @@
             @error('fb_link') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
             <label style="min-width: 200px;">
@@ -304,7 +237,6 @@
             @error('twitter_link') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
             <label style="min-width: 200px;">
@@ -316,7 +248,6 @@
             @error('insta_link') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
             <label style="min-width: 200px;">
@@ -328,7 +259,6 @@
             @error('youtube_link') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         </div>
-
         <div class="form-row mb-3">
           <div class="col-md-4">
             <label style="min-width: 200px;">
@@ -349,15 +279,12 @@
             @include ('partials.button-store')
             @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
           @endif
-
-          <button wire:loading class="btn">
-            <span class="spinner-border text-info mr-3" role="status">
-            </span>
-          </button>
+          @include ('partials.dashboard.spinner-button')
         </div>
       </div>
 
-      <div class="p-0 px-0 pl-md-2-rm mt-4 mt-md-0">
+      <div class="p-0 px-0 mt-4 mt-md-0">
+
         {{--
         |
         | Company info section
@@ -369,6 +296,7 @@
         | will keep the workflow clean as well.
         | 
         --}}
+
         <div class="bg-white border h-100">
           @if ($company)
             <div class="p-2">
@@ -401,14 +329,11 @@
                   </button>
                 @endif
               </div>
-
             </div>
           @endif
         </div>
       </div>
-
     </div>
-
 
     {{--
     |
@@ -418,6 +343,7 @@
     | information.
     | 
     --}}
+
     @if ($company)
     <div class="my-4 bg-white border p-3">
       <h2 class="h6 o-heading">
@@ -455,7 +381,6 @@
     </div>
     @endif
 
-
     {{--
     |
     | Google map share link
@@ -463,6 +388,7 @@
     | Google map share link of the company
     | 
     --}}
+
     @if ($company)
     <div class="my-4 bg-white border p-3">
       <h2 class="h6 o-heading">
@@ -499,7 +425,7 @@
       @endif
     </div>
     @endif
-
   </div>
+
 
 </div>

@@ -42,7 +42,6 @@
       <x-slot name="listPaginationLinks">
         {{ $productCategories->links() }}
       </x-slot>
-    
     </x-list-component>
   @endif
 

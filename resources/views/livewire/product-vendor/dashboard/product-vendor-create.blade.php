@@ -1,8 +1,7 @@
-<div class="card shadow-sm">
+<div class="card">
 
 
   <div class="card-body">
-
     <h1 class="h5 mb-4 o-heading">
       Create product vendor
     </h1>
@@ -16,14 +15,9 @@
     </div>
 
     <div class="py-3 m-0">
-
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'productVendorCreateCancelled',])
-
-      <button wire:loading class="btn">
-        <span class="spinner-border text-info mr-3" role="status">
-        </span>
-      </button>
+      @include ('partials.dashboard.spinner-button')
     </div>
   </div>
 

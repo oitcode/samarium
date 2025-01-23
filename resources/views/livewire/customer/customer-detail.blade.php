@@ -31,11 +31,11 @@
           <table class="table">
             <tbody>
               <tr>
-                <th>Name</th>
+                <th class="o-heading">Name</th>
                 <td>{{ $customer->name }}</td>
               </tr>
               <tr>
-                <th>Email</th>
+                <th class="o-heading">Email</th>
                 <td>
                   @if ($customer->email)
                     {{ $customer->email}}
@@ -48,7 +48,7 @@
                 </td>
               </tr>
               <tr>
-                <th>Phone</th>
+                <th class="o-heading">Phone</th>
                 <td>
                   @if ($customer->phone)
                     {{ $customer->phone}}
@@ -61,7 +61,7 @@
                 </td>
               </tr>
               <tr>
-                <th>PAN Num</th>
+                <th class="o-heading">PAN Num</th>
                 <td>
                   @if ($customer->pan_num)
                     {{ $customer->pan_num}}
@@ -74,7 +74,7 @@
                 </td>
               </tr>
               <tr>
-                <th>Balance</th>
+                <th class="o-heading">Balance</th>
                 <td>
                   Rs
                   @php echo number_format( $customer->getBalance() ); @endphp

@@ -1,10 +1,10 @@
 <div>
 
+
   <x-list-component>
     <x-slot name="listInfo">
       Total product vendors: {{ \App\ProductVendor::count() }}
     </x-slot>
-  
     <x-slot name="listHeadingRow">
       <th>Product Vendor</th>
       <th class="text-right">Action</th>
@@ -34,7 +34,6 @@
     <x-slot name="listPaginationLinks">
       {{ $productVendors->links() }}
     </x-slot>
-  
   </x-list-component>
 
 

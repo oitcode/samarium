@@ -4,25 +4,19 @@
     Settings
   </x-component-header>
 
-
   <div class="mb-3 p-2 bg-white border">
     <h1 class="h5 font-weight-bold pt-2">
       <i class="fas fa-exclamation-circle mr-1 text-danger"></i>
       Caution
     </h1>
-
     <div class="text-muted">
       Please be careful while making settings changes.
     </div>
   </div>
 
-
-  <div class="bg-white-rm">
-
+  <div>
     <div class="row" style="margin: auto;">
-
       <div class="col-md-12 p-0">
-
         {{-- Sales settings --}}
         @if (has_module('shop'))
         <div class="bg-white p-2 mb-3 shadow-sm border rounded-lg">
@@ -43,13 +37,11 @@
               </button>
             </div>
 
-
             {{-- Cretae saleInvoicePaymentType --}}
-
             @if ($multiModes['createSaleInvoicePaymentType'])
               <div class="my-2 p-3 border shadow-sm" style="max-width: 500px;">
                 <div class="form-group">
-                  <label for="">Name</label>
+                  <label>Name</label>
                   <input type="text"
                       class="form-control"
                       wire:model="new_sale_invoice_payment_type_name">
@@ -57,7 +49,6 @@
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
-
                 <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
@@ -97,7 +88,7 @@
             @if ($multiModes['createSaleInvoiceAdditionHeading'])
               <div class="my-2 p-3 border shadow-sm" style="max-width: 500px;">
                 <div class="form-group">
-                  <label for="">Name</label>
+                  <label>Name</label>
                   <input type="text"
                       class="form-control"
                       wire:model="new_sale_invoice_addition_heading_name">
@@ -135,7 +126,6 @@
           </div>
         </div>
 
-
         {{-- Purchase payment types --}}
         <div class="bg-white p-2 mb-3 border shadow-sm rounded-lg">
           <div class="mb-4">
@@ -154,13 +144,11 @@
               </button>
             </div>
 
-
             {{-- Cretae purchaseInvoicePaymentType --}}
-
             @if ($multiModes['createPurchasePaymentType'])
               <div class="my-2 p-3 border shadow-sm" style="max-width: 500px;">
                 <div class="form-group">
-                  <label for="">Name</label>
+                  <label>Name</label>
                   <input type="text"
                       class="form-control"
                       wire:model="new_purchase_payment_type_name">
@@ -168,7 +156,6 @@
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
-
                 <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
@@ -207,7 +194,7 @@
             @if ($multiModes['createPurchaseAdditionHeading'])
               <div class="my-2 p-3 border shadow-sm" style="max-width: 500px;">
                 <div class="form-group">
-                  <label for="">Name</label>
+                  <label>Name</label>
                   <input type="text"
                       class="form-control"
                       wire:model="new_purchase_addition_heading_name">
@@ -227,7 +214,6 @@
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
-
                 <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
@@ -244,7 +230,6 @@
             @endif
           </div>
         </div>
-
 
         {{-- Expense payment types --}}
         <div class="bg-white p-2 mb-3 border shadow-sm rounded-lg">
@@ -264,13 +249,11 @@
               </button>
             </div>
 
-
             {{-- Cretae expensePaymentType --}}
-
             @if ($multiModes['createExpensePaymentType'])
               <div class="my-2 p-3 border shadow-sm" style="max-width: 500px;">
                 <div class="form-group">
-                  <label for="">Name</label>
+                  <label>Name</label>
                   <input type="text"
                       class="form-control"
                       wire:model="new_expense_payment_type_name">
@@ -278,7 +261,6 @@
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
-
                 <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
@@ -318,7 +300,7 @@
             @if ($multiModes['createExpenseAdditionHeading'])
               <div class="my-2 p-3 border shadow-sm" style="max-width: 500px;">
                 <div class="form-group">
-                  <label for="">Name</label>
+                  <label>Name</label>
                   <input type="text"
                       class="form-control"
                       wire:model="new_expense_addition_heading_name">
@@ -326,7 +308,6 @@
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
-
                 <div class="form-group">
                   <label>Effect</label>
                   <select class="custom-select" wire:model="new_expense_addition_heading_effect">
@@ -338,7 +319,6 @@
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
-
                 <div class="mt-4">
                   <button type="submit"
                       class="btn btn-success"
@@ -353,7 +333,6 @@
                 </div>
               </div>
             @endif
-
           </div>
         </div>
 
@@ -372,16 +351,12 @@
           </select>
         </div>
         @endif
-
       </div>
-
       <div class="col-md-4">
       </div>
-
       <div class="col-md-2">
       </div>
     </div>
-
   </div>
 
   {{-- Site type --}}

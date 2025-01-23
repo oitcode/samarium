@@ -2,8 +2,8 @@
 
 
   @if (false)
+  {{-- TODO: Top toolbar of purchase list has to be implemented --}} 
   <div class="mt-1 mb-1 py-2 text-secondary d-none d-md-block bg-white">
-
     <div class="d-flex">
       <div class="mt-0 text-secondary mr-3">
         <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
@@ -16,17 +16,13 @@
       <div>
         <input type="date" wire:model="startDate" class="mr-3" />
         <input type="date" wire:model="endDate" class="mr-3" />
-
         <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getPurchasesForDateRange">
           Go
         </button>
       </div>
 
-      <button wire:loading class="btn">
-        <div class="spinner-border text-info mr-3" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </button>
+      @include ('partials.dashboard.spinner-button')
+
       <div class="d-flex justify-content-end flex-grow-1">
         <div class="pl-2 font-weight-bold pr-3 border-rm py-2 bg-white-rm">
           <span class="text-dark">
@@ -45,7 +41,6 @@
 
   {{-- Show in smaller screens --}}
   <div class="mt-2 mb-3 text-secondary d-md-none">
-
     <div class="mt-0 text-secondary mr-3">
       <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
         <i class="fas fa-arrow-left"></i>
@@ -57,17 +52,13 @@
     <div>
       <input type="date" wire:model="startDate" class="mr-3" />
       <input type="date" wire:model="endDate" class="mr-3" />
-
       <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getPurchasesForDateRange">
         Go
       </button>
     </div>
 
-    <button wire:loading class="btn">
-      <div class="spinner-border text-info mr-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </button>
+    @include ('partials.dashboard.spinner-button')
+
     <div class="d-flex justify-content-start flex-grow-1">
       <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white">
         <span class="text-dark">
@@ -253,5 +244,6 @@
   @if ($modes['confirmDeletePurchase'])
     @livewire ('purchase-list-purchase-delete-confirm', ['purchase' => $deletingPurchase,])
   @endif
+
 
 </div>

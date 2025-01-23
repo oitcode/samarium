@@ -3,7 +3,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      Total products: {{ \App\Product::count() }}
+      Total calendar groups: {{ \App\CalendarGroup::count() }}
     </x-slot>
 
     <x-slot name="listHeadingRow">
