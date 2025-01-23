@@ -147,6 +147,30 @@ Route::get('/dashboard/document/file/display/{id}', 'DocumentFileController@pdfD
 /* Educ institution  */
 Route::get('/dashboard/educ/institution', 'EducInstitutionController@index')->name('dashboard-educ-institution');
 
+/* CMS Dashboard routes */
+Route::get('/cms/webpage', 'CmsWebpageController@index')->name('dashboard-cms-webpage');
+Route::get('/cms/post', 'CmsPostController@index')->name('dashboard-cms-post');
+Route::get('/cms/navMenu', 'CmsNavMenuController@index')->name('dashboard-cms-nav-menu');
+Route::get('/cms/theme', 'CmsThemeController@index')->name('dashboard-cms-theme');
+Route::get('/cms/gallery', 'CmsGalleryController@index')->name('dashboard-cms-gallery');
+
+/* School */
+Route::get('/dashboard/school/calendar', 'SchoolCalendarController@index')->name('dashboard-school-calendar');
+
+/* Calendar */
+Route::get('/dashboard/calendar/calendar-group', 'CalendarGroupController@index')->name('dashboard-calendar-group');
+
+/* Print */
+Route::get('/dashboard/print/saleInvoice/{id}', 'PrintController@printSaleInvoice')->name('dashboard-print-sale-invoice');
+Route::get('/dashboard/print/saleQuotation/{id}', 'PrintController@printSaleQuotation')->name('dashboard-print-sale-quotation');
+
+/* VAT */
+Route::get('/dashboard/vat', 'VatController@index')->name('dashboard-vat');
+
+/* BGC */
+Route::get('/dashboard/quick-contacts', 'BgcController@quickContacts')->name('dashboard-quick-contacts');
+Route::get('/dashboard/organizing-committee', 'BgcController@organizingCommittee')->name('dashboard-organizing-committee');
+Route::get('/dashboard/sponsors', 'BgcController@sponsors')->name('dashboard-sponsors');
 
 /*
  *-----------------------------------------------------------------------------
@@ -158,7 +182,6 @@ Route::get('/dashboard/educ/institution', 'EducInstitutionController@index')->na
  *
  */
 
-
 /* Website home page */
 if (config('app.site_type') === 'erp') {
     Route::get('/', 'WebsiteController@homePage')->name('website-home');
@@ -166,6 +189,14 @@ if (config('app.site_type') === 'erp') {
     Route::get('/', 'WebsiteController@cmsHome')->name('website-home');
 }
 
+/* CMS website/front-page/customer routes */
+if (Schema::hasTable('webpage')) {
+    $webpages = Webpage::where('visibility', 'public')->get();
+
+    foreach ($webpages as $webpage) {
+        Route::get($webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-' . $webpage->permalink);
+    }
+}
 
 /* Product category page. Shows all product of this category  */
 Route::get('/product/category/{id}/{name}', 'WebsiteController@productCategoryProductList')->name('website-product-category-product-list');
@@ -179,150 +210,18 @@ Route::get('/checkout', 'WebsiteController@checkout')->name('website-checkout');
 /* Write testimonial page */
 Route::get('/write-testimonial', 'WebsiteController@writeTestimonial')->name('website-write-testimonial');
 
-/*
- *-----------------------------------------------------------------------------
- * Restaurant / Cafe
- *-----------------------------------------------------------------------------
- *
- */
+/* Restaurant / Cafe */
 Route::get('/o/table/{id}/{name}', 'WebsiteController@seatTableView')->name('website-seat-table-view');
 
-
-/*
- *-----------------------------------------------------------------------------
- * Ecommerce/shop collection
- *-----------------------------------------------------------------------------
- *
- */
-if (has_module('shop')) {
-    $ecommCollectionWebpages = [
-        'about-us',
-        'contact-us',
-        'careers',
-        'press',
-        'payments',
-        'shipping',
-        'cancellation-and-returns',
-        'faq',
-        'return-policy',
-        'terms-of-use',
-        'privacy',
-        'sitemap',
-    ];
-
-    foreach ($ecommCollectionWebpages as $ecommCollectionWebpage) {
-        Route::get(
-            '/' . $ecommCollectionWebpage,
-            'WebsiteController@ecommCollectionWebpageDisplay'
-        )->name('ecomm-collection-webpage-display-' . $ecommCollectionWebpage);
-    }
-}
-
-
-/*
- *-----------------------------------------------------------------------------
- * CMS
- *-----------------------------------------------------------------------------
- *
- */
-
-/* CMS Dashboard routes */
-Route::get('/cms/webpage', 'CmsWebpageController@index')->name('dashboard-cms-webpage');
-Route::get('/cms/post', 'CmsPostController@index')->name('dashboard-cms-post');
-Route::get('/cms/navMenu', 'CmsNavMenuController@index')->name('dashboard-cms-nav-menu');
-Route::get('/cms/theme', 'CmsThemeController@index')->name('dashboard-cms-theme');
-Route::get('/cms/gallery', 'CmsGalleryController@index')->name('dashboard-cms-gallery');
-
-/* CMS website/front-page/customer routes */
-if (Schema::hasTable('webpage')) {
-    $webpages = Webpage::where('visibility', 'public')->get();
-
-    foreach ($webpages as $webpage) {
-        Route::get('/' . $webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-' . $webpage->permalink);
-    }
-}
-
-
-
-/*
- *-----------------------------------------------------------------------------
- * School
- *-----------------------------------------------------------------------------
- *
- */
-
-Route::get('/dashboard/school/calendar', 'SchoolCalendarController@index')->name('dashboard-school-calendar');
-
-
-/*
- *-----------------------------------------------------------------------------
- * Calendar
- *-----------------------------------------------------------------------------
- *
- */
-
-Route::get('/dashboard/calendar/calendar-group', 'CalendarGroupController@index')->name('dashboard-calendar-group');
-
-
-/*
- *-----------------------------------------------------------------------------
- * Print
- *-----------------------------------------------------------------------------
- *
- */
-Route::get('/dashboard/print/saleInvoice/{id}', 'PrintController@printSaleInvoice')->name('dashboard-print-sale-invoice');
-Route::get('/dashboard/print/saleQuotation/{id}', 'PrintController@printSaleQuotation')->name('dashboard-print-sale-quotation');
-
-
-/*
- *-----------------------------------------------------------------------------
- * VAT
- *-----------------------------------------------------------------------------
- *
- */
-Route::get('/dashboard/vat', 'VatController@index')->name('dashboard-vat');
-
-
-/*
- *-----------------------------------------------------------------------------
- * BGC
- *-----------------------------------------------------------------------------
- *
- */
-Route::get('/dashboard/quick-contacts', 'BgcController@quickContacts')->name('dashboard-quick-contacts');
-Route::get('/dashboard/organizing-committee', 'BgcController@organizingCommittee')->name('dashboard-organizing-committee');
-Route::get('/dashboard/sponsors', 'BgcController@sponsors')->name('dashboard-sponsors');
-
-
-/*
- *-----------------------------------------------------------------------------
- * Appointment
- *-----------------------------------------------------------------------------
- *
- */
+/* Appointment */
 Route::get('/book-appointment/{id}', 'WebsiteController@bookAppointment')->name('website-book-appointment');
 
-/*
- *-----------------------------------------------------------------------------
- * Vacancy
- *-----------------------------------------------------------------------------
- *
- */
+/* Vacancy */
 Route::get('/vacancy/{id}/{name}', 'WebsiteController@vacancyView')->name('website-vacancy-view');
 
-/*
- *-----------------------------------------------------------------------------
- * User related
- *-----------------------------------------------------------------------------
- *
- */
+/* User related */
 Route::get('/user/signup', 'WebsiteController@userSignup')->name('website-user-signup');
 Route::get('/user/profile', 'WebsiteController@userProfile')->middleware(['auth', 'verified',])->name('website-user-profile');
 
-/*
- *-----------------------------------------------------------------------------
- * Document file
- *-----------------------------------------------------------------------------
- *
- */
+/* Document file */
 Route::get('/document/file/display/{id}', 'WebsiteController@pdfDisplayFile')->name('website-document-file-pdf-display');
