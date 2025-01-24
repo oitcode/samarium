@@ -130,6 +130,10 @@ Now open your web browser and visit
 - `127.0.0.1:8000` to see the website
 - `127.0.0.1:8000/dashboard` to see the dashboard
 
+<details>
+<summary>
+  Click to see screenshots
+</summary>
 ## Screenshots
 
 Below are some screenshots.
@@ -142,6 +146,7 @@ Below are some screenshots.
 ![screenshot](screenshots/screenshot-expense-list-1.png)
 ![screenshot](screenshots/screenshot-page-list-1.png)
 ![screenshot](screenshots/screenshot-post-list-1.png)
+</details>
 
 ### GIFs
 
