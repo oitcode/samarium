@@ -11,7 +11,7 @@
       @else
         justify-content-between
       @endisset
-      bg-white pl-3
+      bg-white-rm pl-1
       p-0">
       @if (true || isset($toolbarTitle) && (isset($titleNone) && $titleNone != 'yes'))
         @if ($toolbarTitle != '')

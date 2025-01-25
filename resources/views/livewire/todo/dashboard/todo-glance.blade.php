@@ -3,7 +3,7 @@
 
   <div class="d-flex justify-content-between">
     <div>
-      <h2 class="h5 font-weight-bold">
+      <h2 class="h5 o-heading">
         Tasks
       </h2>
     </div>

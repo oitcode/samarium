@@ -1,7 +1,7 @@
 <div>
 
 
-  <div class="row bg-white py-3 mb-1" style="margin: auto;">
+  <div class="row bg-white py-3 mb-1-rm border-bottom" style="margin: auto;">
     <div class="col-md-3 o-heading">
       Product name
     </div>
@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <div class="row bg-white py-3 mb-1" style="margin: auto;">
+  <div class="row bg-white py-3 mb-1-rm border-bottom" style="margin: auto;">
     <div class="col-md-3 o-heading">
       Category
     </div>
@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  <div class="row bg-white py-3 mb-1" style="margin: auto;">
+  <div class="row bg-white py-3 mb-1-rm border-bottom" style="margin: auto;">
     <div class="col-md-3 o-heading">
       Description
     </div>
@@ -70,7 +70,7 @@
     </div>
   </div>
 
-  <div class="row bg-white py-3 mb-1" style="margin: auto;">
+  <div class="row bg-white py-3 mb-1-rm border-bottom" style="margin: auto;">
     <div class="col-md-3 o-heading">
       Price
     </div>

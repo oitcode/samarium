@@ -33,7 +33,11 @@
       @if ($modes['create'])
         @livewire ('sale.sale-invoice-create')
       @elseif ($modes['display'])
-        @livewire ('sale.sale-invoice-work', ['saleInvoice' => $displayingSaleInvoice,])
+        @if ($displayingSaleInvoice->creation_status == 'progress')
+          @livewire ('sale.sale-invoice-work', ['saleInvoice' => $displayingSaleInvoice,])
+        @else
+          @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
+        @endif
       @elseif ($modes['list'])
         @livewire ('sale.sale-invoice-list')
       @elseif ($modes['search'])

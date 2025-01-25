@@ -1,6 +1,42 @@
 <div class="bg-white">
 
 
+  {{--
+  |
+  | Toolbar.
+  |
+  --}}
+
+  @if ($display_toolbar == true)
+    <x-toolbar-component>
+      <x-slot name="toolbarInfo">
+        Sale invoice
+        <i class="fas fa-angle-right mx-2"></i>
+        {{ $saleInvoice->sale_invoice_id }}
+      </x-slot>
+      <x-slot name="toolbarButtons">
+        <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+          <i class="fas fa-refresh"></i>
+        </x-toolbar-button-component>
+        <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+          <i class="fas fa-print mr-1"></i>
+          Print
+        </x-toolbar-button-component>
+        <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+          <i class="fas fa-file-pdf-o mr-1"></i>
+          PDF
+        </x-toolbar-button-component>
+        <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+          <i class="fas fa-file-excel-o mr-1"></i>
+          Excel
+        </x-toolbar-button-component>
+        <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitSaleInvoiceDisplay')">
+          Close
+        </x-toolbar-button-component>
+      </x-slot>
+    </x-toolbar-component>
+  @endif
+
   <div class="p-0 m-0">
     <div class="p-0">
       <div class="px-2">

@@ -8,6 +8,8 @@ class CorePurchaseDisplay extends Component
 {
     public $purchase;
 
+    public $display_toolbar = true;
+
     public $modes = [
         'showPayments' => false,
     ];

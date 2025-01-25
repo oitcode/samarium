@@ -32,7 +32,7 @@
   </x-toolbar-component>
 
   @if ($expense->creation_status == 'created')
-    @livewire ('core.core-expense-display', ['expense' => $expense,])
+    @livewire ('core.core-expense-display', ['expense' => $expense, 'display_toolbar' => false,])
   @else
     {{-- Top info --}}
     <div class="row">

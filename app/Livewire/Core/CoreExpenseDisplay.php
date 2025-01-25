@@ -8,6 +8,8 @@ class CoreExpenseDisplay extends Component
 {
     public $expense;
 
+    public $display_toolbar = true;
+
     public $modes = [
         'showPayments' => false,
     ];

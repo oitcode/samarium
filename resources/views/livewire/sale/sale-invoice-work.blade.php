@@ -38,7 +38,7 @@
           ||
           $saleInvoice->creation_status == 'closed'
   )
-    @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $saleInvoice,])
+    @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $saleInvoice, 'display_toolbar' => false,])
   @else
     <div>
     

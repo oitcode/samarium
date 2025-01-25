@@ -33,7 +33,7 @@
   </x-toolbar-component>
 
   @if ($purchase->creation_status == 'created')
-    @livewire ('core.core-purchase-display', ['purchase' => $purchase,])
+    @livewire ('core.core-purchase-display', ['purchase' => $purchase, 'display_toolbar' => false,])
   @else
     <div class="row">
       <div class="col-md-8">

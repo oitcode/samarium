@@ -25,6 +25,7 @@ class SaleInvoiceComponent extends Component
         'exitSaleInvoiceWork',
 
         'exitSaleInvoiceWorkMode',
+        'exitSaleInvoiceDisplay',
     ];
 
     public function render()
@@ -49,6 +50,12 @@ class SaleInvoiceComponent extends Component
     }
 
     public function exitSaleInvoiceWorkMode()
+    {
+        $this->displayingSaleInvoice = null;
+        $this->clearModes();
+    }
+
+    public function exitSaleInvoiceDisplay()
     {
         $this->displayingSaleInvoice = null;
         $this->clearModes();

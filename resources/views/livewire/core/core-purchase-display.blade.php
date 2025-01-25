@@ -6,33 +6,35 @@
   |
   --}}
 
-  <x-toolbar-component>
-    <x-slot name="toolbarInfo">
-      Purchase
-      <i class="fas fa-angle-right mx-2"></i>
-      {{ $purchase->purchase_id }}
-    </x-slot>
-    <x-slot name="toolbarButtons">
-      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
-        <i class="fas fa-refresh"></i>
-      </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
-        <i class="fas fa-print mr-1"></i>
-        Print
-      </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
-        <i class="fas fa-file-pdf-o mr-1"></i>
-        PDF
-      </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
-        <i class="fas fa-file-excel-o mr-1"></i>
-        Excel
-      </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitPurchaseDisplay')">
-        Close
-      </x-toolbar-button-component>
-    </x-slot>
-  </x-toolbar-component>
+  @if ($display_toolbar)
+    <x-toolbar-component>
+      <x-slot name="toolbarInfo">
+        Purchase
+        <i class="fas fa-angle-right mx-2"></i>
+        {{ $purchase->purchase_id }}
+      </x-slot>
+      <x-slot name="toolbarButtons">
+        <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+          <i class="fas fa-refresh"></i>
+        </x-toolbar-button-component>
+        <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+          <i class="fas fa-print mr-1"></i>
+          Print
+        </x-toolbar-button-component>
+        <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+          <i class="fas fa-file-pdf-o mr-1"></i>
+          PDF
+        </x-toolbar-button-component>
+        <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+          <i class="fas fa-file-excel-o mr-1"></i>
+          Excel
+        </x-toolbar-button-component>
+        <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitPurchaseDisplay')">
+          Close
+        </x-toolbar-button-component>
+      </x-slot>
+    </x-toolbar-component>
+  @endif
 
   <div class="bg-white border p-0">
     {{-- Company Info --}}
