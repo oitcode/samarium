@@ -1,39 +1,40 @@
-<div class="bg-white">
+<div class="bg-white-rm">
 
-  {{-- Top tool bar --}}
-  <div class="d-flex justify-content-between border p-1 shadow-sm">
-    <div>
-      <a href=""
-          target="_blank"
-          class="btn text-secondary">
-        <i class="fas fa-print"></i>
-        <br />
+  {{--
+  |
+  | Toolbar.
+  |
+  --}}
+
+  <x-toolbar-component>
+    <x-slot name="toolbarInfo">
+      Purchase
+      <i class="fas fa-angle-right mx-2"></i>
+      {{ $purchase->purchase_id }}
+    </x-slot>
+    <x-slot name="toolbarButtons">
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+        <i class="fas fa-refresh"></i>
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+        <i class="fas fa-print mr-1"></i>
         Print
-      </a>
-      <button class="btn text-secondary">
-        <i class="fas fa-file-pdf-o"></i>
-        <br />
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+        <i class="fas fa-file-pdf-o mr-1"></i>
         PDF
-      </button>
-      <button class="btn text-secondary">
-        <i class="fas fa-file-excel-o"></i>
-        <br />
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+        <i class="fas fa-file-excel-o mr-1"></i>
         Excel
-      </button>
-    </div>
-    <div>
-      <button class="btn text-dark" wire:click="$refresh">
-        <i class="fas fa-refresh fa-2x"></i>
-      </button>
-      <button class="btn text-dark" wire:click="$dispatch('exitPurchaseDisplay')">
-        <i class="fas fa-times-circle fa-2x"></i>
-        <br />
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitPurchaseDisplay')">
         Close
-      </button>
-    </div>
-  </div>
+      </x-toolbar-button-component>
+    </x-slot>
+  </x-toolbar-component>
 
-  <div class="border p-0">
+  <div class="bg-white border p-0">
     {{-- Company Info --}}
     <div class="d-flex justify-content-between p-3 border-bottom">
       <div>

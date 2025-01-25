@@ -1,10 +1,10 @@
 <div class="d-flex">
   <div class="d-flex flex-column justify-content-center mr-3" style="font-size: 1rem;">
-    <i class="fas fa-bell text-white mr-2"></i>
+    <i class="fas fa-bell mr-2"></i>
   </div>
   <div class="dropdown pt-1">
-    <button class="btn text-white mr-2" type="button" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <div class="d-flex px-2">
+    <button class="btn mr-2" type="button" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="d-flex px-2 {{ config('app.app_top_menu_text_color') }}">
         <div class="d-flex flex-column justify-content-center pt-1 mr-3">
           <span class="h6">
             {{ Auth::user()->name }}
