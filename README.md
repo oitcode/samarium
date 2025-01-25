@@ -134,11 +134,6 @@ Now open your web browser and visit
 
 Below are some screenshots.
 
-<details>
-<summary>
-  All screenshots
-</summary>
-
 ![screenshot](screenshots/screenshot-login-1.png)
 ![screenshot](screenshots/screenshot-product-list-1.png)
 ![screenshot](screenshots/screenshot-product-category-list-1.png)
@@ -147,41 +142,6 @@ Below are some screenshots.
 ![screenshot](screenshots/screenshot-expense-list-1.png)
 ![screenshot](screenshots/screenshot-page-list-1.png)
 ![screenshot](screenshots/screenshot-post-list-1.png)
-</details>
-
-<details>
-<summary>
-  Billing screenshots
-</summary>
-![screenshot](screenshots/screenshot-sale-invoice-1.png)
-![screenshot](screenshots/screenshot-purchase-record-1.png)
-![screenshot](screenshots/screenshot-expense-record-1.png)
-</details>
-
-<details>
-<summary>
-  CMS screenshots
-</summary>
-![screenshot](screenshots/screenshot-post-list-1.png)
-![screenshot](screenshots/screenshot-page-list-1.png)
-</details>
-
-<details>
-<summary>
-  CRM screenshots
-</summary>
-![screenshot](screenshots/screenshot-contact-message-list-1.png)
-![screenshot](screenshots/screenshot-appointment-list-1.png)
-![screenshot](screenshots/screenshot-newsletter-subscription-list-1.png)
-![screenshot](screenshots/screenshot-testimonial-list-1.png)
-</details>
-
-<details>
-<summary>
-  Other screenshots
-</summary>
-![screenshot](screenshots/screenshot-login-1.png)
-</details>
 
 ### GIFs
 
