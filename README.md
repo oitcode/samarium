@@ -117,8 +117,13 @@ Below are some screenshots.
 ![screenshot](screenshots/screenshot-product-list-1.png)
 ![screenshot](screenshots/screenshot-product-category-list-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
+![screenshot](screenshots/screenshot-sale-invoice-display-progress-1.png)
+![screenshot](screenshots/screenshot-sale-invoice-display-finished-1.png)
 ![screenshot](screenshots/screenshot-purchase-list-1.png)
+![screenshot](screenshots/screenshot-purchase-display-finished-1.png)
 ![screenshot](screenshots/screenshot-expense-list-1.png)
+![screenshot](screenshots/screenshot-expense-display-finished-1.png)
+![screenshot](screenshots/screenshot-customer-display-1.png)
 ![screenshot](screenshots/screenshot-page-list-1.png)
 ![screenshot](screenshots/screenshot-post-list-1.png)
 
