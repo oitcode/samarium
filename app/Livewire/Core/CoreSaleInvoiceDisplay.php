@@ -15,6 +15,8 @@ class CoreSaleInvoiceDisplay extends Component
     public $has_vat;
     public $display_toolbar = true;
 
+    public $exitDispatchEvent;
+
     public $modes = [
         'showPayments' => false,
     ];

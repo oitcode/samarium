@@ -30,7 +30,7 @@
           <i class="fas fa-file-excel-o mr-1"></i>
           Excel
         </x-toolbar-button-component>
-        <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitSaleInvoiceDisplay')">
+        <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('{{ $exitDispatchEvent }}')">
           Close
         </x-toolbar-button-component>
       </x-slot>
