@@ -1,5 +1,6 @@
 <div>
 
+
   {{--
   |
   | Toolbar.
@@ -23,76 +24,67 @@
     </x-slot>
   </x-toolbar-component>
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="bg-white p-3 border">
+  <div class="table-responsive bg-white border mb-2">
+    <table class="table border-bottom border mb-0">
+      <tbody>
+        <tr>
+          <th class="o-heading">
+            <i class="fas fa-user-circle mr-1"></i>
+            Employee name
+          </th>
+          <td>
+            {{ $appointment->teamMember->name }}
+          </td>
+        </tr>
+        <tr>
+          <th class="o-heading">
+            <i class="fas fa-user-circle mr-1"></i>
+            Applicant Name
+          </th>
+          <td>
+            {{ $appointment->applicant_name }}
+          </td>
+        </tr>
+        <tr>
+          <th class="o-heading">
+            <i class="fas fa-user-circle mr-1"></i>
+            Appointment date time
+          </th>
+          <td>
+            {{ $appointment->appointment_date_time }}
+          </td>
+        </tr>
+        <tr>
+          <th class="o-heading">
+            <i class="fas fa-phone mr-1"></i>
+            Applicant Phone
+          </th>
+          <td>
+            {{ $appointment->applicant_phone }}
+          </td>
+        </tr>
+        <tr>
+          <th class="o-heading">
+            <i class="fas fa-envelope mr-1"></i>
+            Description
+          </th>
+          <td>
+            {{ $appointment->applicant_description }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-        <div class="row">
-          <div class="col-md-4">
-            <div class="d-flex justify-content-center">
-              <div class="d-flex flex-column justify-content-center h-100">
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 d-flex flex-column justify-content-center">
-
-            <div class="table-responsive">
-              <table class="table border-bottom">
-                <tbody>
-                  <tr class="">
-                    <th class="">
-                      <i class="fas fa-user-circle mr-1"></i>
-                      Emplyoee name
-                    </th>
-                    <td class="">
-                      {{ $appointment->teamMember->name }}
-                    </td>
-                  </tr>
-                  <tr class="">
-                    <th class="">
-                      <i class="fas fa-user-circle mr-1"></i>
-                      Applicant Name
-                    </th>
-                    <td class="">
-                      {{ $appointment->applicant_name }}
-                    </td>
-                  </tr>
-                  <tr class="">
-                    <th class="">
-                      <i class="fas fa-user-circle mr-1"></i>
-                      Appointment date time
-                    </th>
-                    <td class="">
-                      {{ $appointment->appointment_date_time }}
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>
-                      <i class="fas fa-phone mr-1"></i>
-                      Applicant Phone
-                    </th>
-                    <td>
-                      {{ $appointment->applicant_phone }}
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>
-                      <i class="fas fa-envelope mr-1"></i>
-                      Description
-                    </th>
-                    <td>
-                      {{ $appointment->applicant_description }}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+  {{-- Delete appointment --}}
+  <div class="bg-white border p-3 mb-2">
+    <div class="col-md-6 p-3 border rounded">
+      <div class="o-heading">
+        Delete this appointment
       </div>
-    </div>
-
-    <div class="col-md-4 px-3">
+      <div>
+        Once you delete, it cannot be undone. Please be sure.
+      </div>
     </div>
   </div>
 
