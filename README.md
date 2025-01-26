@@ -1,6 +1,6 @@
 # Samarium
 
-<img src="https://img.shields.io/badge/Version-0.9.1-blue" alt="Version"> <img src="https://img.shields.io/badge/License-MIT-005530" alt="License"> <img src="https://img.shields.io/badge/Using-Laravel-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Using-Livewire-AA3B62" alt="Livewire"> <img src="https://img.shields.io/badge/Using-Bootstrap-AA2BE2" alt="Bootstrap">
+<img src="https://img.shields.io/badge/Version-0.9.1-blue" alt="Version">  <img src="https://img.shields.io/badge/PHP-^8.2-474A8A" alt="PHP"> <img src="https://img.shields.io/badge/Laravel-^11.0-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Livewire-^3.0-AA3B62" alt="Livewire"> <img src="https://img.shields.io/badge/Bootstrap-^4.0-AA2BE2" alt="Bootstrap"> <img src="https://img.shields.io/badge/License-MIT-7b2" alt="License"> 
 
 Open source ERP built with Laravel and Livewire.
 
@@ -18,6 +18,7 @@ Contact Message | View contact messages sent by website visitors
 Appointment | Get appointment request from website visitors. Approve or reject from admin panel.
 Newsletter subscription | Get newsletter subscription request from website visitors.
 Task Manager | Create and manage tasks.
+Users  | Create and manage users.
 
 ![screenshot](dashboard-screenshot-1.png)
 
@@ -41,29 +42,23 @@ npm
 
 Perform below steps to get the application running.
 
-First create a mysql database. Then grant access to the mysql user. 
+```
+git clone https://github.com/oitcode/samarium.git
+```
+
+```
+cd samarium
+```
+
+```
+cp env.example .env
+```
+
+Now create a mysql database. Then grant access to the mysql user. 
 Lets assume you created database named `demo_database` and you granted
-access to mysql user `demo_user`. You will need this info to enter
-in the .env file later.
-
-Clone the repository.
-
-```
-$ git clone https://github.com/oitcode/samarium.git
-```
-
-Go to the directory.
-```
-$ cd samarium
-```
-
-Copy env.example file to .env file
-```
-$ cp env.example .env
-```
-
-Now, enter database name, mysql username and mysql password in the .env file.
-Your .env file's database part should be like this.
+access to mysql user `demo_user`. Next, enter database name, mysql username
+and mysql password in the .env file.  Your .env file's database part should
+be like this.
 
 ```
 DB_DATABASE=demo_database
@@ -73,45 +68,29 @@ DB_PASSWORD='demo_password'
 Please replace `demo_database`, `demo_user` and `demo_password` with real
 database name, username and password.
 
-Install composer dependencies.
 ```
-$ composer install
-```
-
-Install npm dependencies.
-```
-$ npm install
+composer install
 ```
 
-Compile front end assets.
 ```
-$ npm run dev
-```
-
-Run database migrations.
-```
-$ php artisan migrate
+npm install
 ```
 
-Generate key.
 ```
-$ php artisan key:generate
-```
-
-Create storage links.
-```
-$ php artisan storage:link
+npm run dev
 ```
 
-### Script installation
+```
+php artisan migrate
+```
 
-If you do not want to perform all the installation steps manually,
-then there is a bash script provided that will run all the 
-required steps.
+```
+php artisan key:generate
+```
 
-Please run below bash script.
-
-`bash app-install.sh`
+```
+php artisan storage:link
+```
 
 ## Creating first user
 
@@ -162,6 +141,9 @@ Configurable option:     `App menu color options`
 'app_menu_dropdown_button_text_color' => 'text-white',
 'app_menu_normal_button_text_color'   => 'text-white',
 'app_menu_bg_color'                   => 'bg-dark',
+
+'app_top_menu_bg_color'               => 'bg-light',
+'app_top_menu_text_color'             => 'text-dark',
 ```
 
 ## Contributing
@@ -169,32 +151,20 @@ Configurable option:     `App menu color options`
 Please consider contributing to this project. Any kind of contributions are welcome.
 You can contribute in following ways:
 
-### Raising issues
-
-You can raise issues for existing bugs. Or you can raise issue for requesting new features.
-
-### Adding test code
-
-More test code is needed to automate as much test as possible. You can add more test code.
-
-### Fixing issues
-
-You can fix issues that are raised here in github repo.
-
-### Extending the application
-
-You can add your own code to extend the features of this application. Or, if you can see
-the need for refactoring certain part of code then also, please send a pull request
-by making necessary code changes.
-
-All contributions are welcome.
+Task    | How to contribute
+------- | -----------
+Raising issues | You can raise issues for existing bugs. Or you can raise issue for requesting new features.
+Fixing issues | You can fix issues that are raised here in github repo.
+Implement new feature | You can add new features to this application. Pull requests are welcome.
+Refactor existing feature | Please refactor the code if something can be done better. Pull requests are welcome.
+Adding test code | More test code is needed to automate as much test as possible. You can add more test code. 
+Improve documentation | You can help by improving the documentation.
 
 ## Issues
 
-If you find any issue in this application, you can help by raising an issue
-here in our github repo.
+If you find any issue in this application, you can help by raising an issue here in our github repo.
 
-## Encouraging/Support
+## Support
 
 Please star this repository to show your support if you find this project useful and/or interesting.
 
