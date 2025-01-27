@@ -1,9 +1,9 @@
 <div>
 
+
   <x-list-component>
     <x-slot name="listInfo">
       <div class="py-3 px-2 bg-white border d-flex justify-content-between">
-
         <div class="pt-2 px-2 font-weight-bold border mr-2">
           Total : {{ $todoCount }}
         </div>
@@ -164,13 +164,10 @@
     <x-slot name="listPaginationLinks">
       {{ $todos->links() }}
     </x-slot>
-
   </x-list-component>
 
-  @if (false)
-    @if ($modes['confirmDeleteMode'])
-      @livewire ('todo-list-confirm-delete', ['todo' => $deletingTodo,])
-    @endif
+  @if ($modes['confirmDeleteMode'])
+    @livewire ('todo-list-confirm-delete', ['todo' => $deletingTodo,])
   @endif
 
 

@@ -22,11 +22,8 @@
         </button>
       </div>
 
-      <button wire:loading class="btn">
-        <div class="spinner-border text-info mr-3" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </button>
+      @include ('partials.dashboard.spinner-button')
+
       <div class="d-flex justify-content-end flex-grow-1">
         <div class="pl-2 font-weight-bold pr-3 py-2 bg-white">
           <span class="text-dark">
@@ -51,17 +48,11 @@
     <div>
       <input type="date" wire:model="startDate" class="mr-3" />
       <input type="date" wire:model="endDate" class="mr-3" />
-
       <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getExpensesForDateRange">
         Go
       </button>
     </div>
-
-    <button wire:loading class="btn">
-      <div class="spinner-border text-info mr-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </button>
+    @include ('partials.dashboard.spinner-button')
     <div class="d-flex flex-grow-1">
       <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white">
         <span class="text-dark">
@@ -92,21 +83,17 @@
           <td>
             {{ $expense->expense_id }}
           </td>
-  
-          <td class="">
+          <td>
             {{ $expense->date }}
           </td>
-  
           <td>
             @foreach ($expense->expenseItems as $expenseItem)
               {{ $expenseItem->name }}
             @endforeach
           </td>
-  
           <td>
             @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
           </td>
-  
           <td class="text-right">
             @if (true)
               <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">
@@ -120,7 +107,6 @@
               </button>
             @endif
           </td>
-  
         </tr>
 
         {{-- Show in smaller screens --}}
@@ -138,7 +124,6 @@
           </td>
   
           <td>
-
             <div class="dropdown">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-cog text-secondary"></i>
@@ -155,7 +140,6 @@
               </div>
             </div>
           </td>
-  
         </tr>
       @endforeach
     </x-slot>
@@ -163,7 +147,6 @@
     <x-slot name="listPaginationLinks">
       {{ $expenses->links() }}
     </x-slot>
-
   </x-list-component>
 
   @if ($modes['confirmDeleteExpense'])

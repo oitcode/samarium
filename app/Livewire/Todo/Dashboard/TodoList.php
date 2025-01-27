@@ -44,6 +44,7 @@ class TodoList extends Component
         'showAllMode' => true,
 
         'delete' => false, 
+        'confirmDeleteMode' => false, 
         'cannotDelete' => false, 
     ];
 

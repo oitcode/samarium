@@ -24,7 +24,7 @@
       @include ('partials.dashboard.spinner-button')
 
       <div class="d-flex justify-content-end flex-grow-1">
-        <div class="pl-2 font-weight-bold pr-3 border-rm py-2 bg-white-rm">
+        <div class="pl-2 font-weight-bold pr-3 py-2">
           <span class="text-dark">
           Rs
           @if (is_numeric($total) && ctype_digit((string) $total))
@@ -238,7 +238,6 @@
     <x-slot name="listPaginationLinks">
       {{ $purchases->links() }}
     </x-slot>
-
   </x-list-component>
 
   @if ($modes['confirmDeletePurchase'])

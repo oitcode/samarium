@@ -80,15 +80,7 @@
   @elseif ($modes['updateTeamMemberMode'])
     @livewire ('team.team-display-team-member-update', ['teamMember' => $updatingTeamMember,])
   @else
-    {{--
-       | Members
-    --}}
-    @if (false)
-    <x-toolbar-classic toolbarTitle="Team members">
-      @include ('partials.dashboard.spinner-button')
-    </x-toolbar-classic>
-    @endif
-
+    {{-- Members --}}
     <div>
       <div class="row">
         @foreach ($team->teamMembers()->orderBy('position')->get() as $teamMember)

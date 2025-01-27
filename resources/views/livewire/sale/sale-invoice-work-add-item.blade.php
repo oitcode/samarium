@@ -2,20 +2,23 @@
 
 
   {{--
-  | Flash message div
+     |
+     | Flash message div
+     |
   --}}
+
   @if (session()->has('errorMessage'))
     @include ('partials.flash-message', [
         'flashMessage' => session('errorMessage'),
     ])
   @endif
 
-
   {{--
-  | Show in bigger screen
+     |
+     | Show in bigger screen
+     |
   --}}
   <div class="mb-2 border shadow-sm d-none d-md-block">
-
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
@@ -118,11 +121,7 @@
             @endif
           </button>
   
-          <button wire:loading class="btn">
-            <span class="spinner-border spinner-border-sm text-info mr-3" role="status">
-            </span>
-          </button>
-  
+          @include ('partials.dashboard.spinner-button')
         </div>
 
         @if ($selectedProduct != null)
@@ -135,9 +134,7 @@
           </div>
         @endif
       </div>
-  
     </div>
-  
   </div>
   
   @if ($modes['productSelected'])
@@ -212,9 +209,10 @@
     @endif
   @endif
 
-
   {{--
-  | Show in smaller screen
+     |
+     | Show in smaller screen
+     |
   --}}
   <div class="d-md-none mb-3">
     @if (! $modes['showMobForm'])
@@ -227,10 +225,7 @@
       </button>
     @endif
 
-    <button wire:loading class="btn">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+    @include ('partials.dashboard.spinner-button')
 
     @if ($modes['showMobForm'])
       <div>

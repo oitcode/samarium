@@ -4,13 +4,10 @@
 |
 | CMS webpage layout blade file.
 |
-| Author: _______ _________
-|
-|
 | All the webpages of cms website extend this blade file. It is a simple
 | layout with a header, top navigation menu, content and footer.
 |
-| If you want to remove header, top-navigation, content (??) or footer,
+| If you want to remove header, top-navigation, content or footer,
 | then you can remove them by modifying this file.
 |
 --}}
@@ -60,7 +57,6 @@
     <style> 
     html, body { overflow-x: hidden; } 
     </style>
-
 
     <!-- Livewire -->
     @livewireStyles

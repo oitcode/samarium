@@ -7,15 +7,7 @@
   <div class="d-flex flex-column justify-content-center">
     {{ $listInfo }}
   </div>
-  @if (false)
-  <div>
-    <div class="form-group mb-0">
-      <input type="text" class="form-row" placeholder="Search">
-    </div>
-  </div>
-  @endif
 </div>
-
 
 {{--
    |

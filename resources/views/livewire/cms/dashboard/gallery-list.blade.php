@@ -18,7 +18,7 @@
     <x-slot name="listBody">
       @foreach ($galleries as $gallery)
       <tr>
-        <td class="text-muted-rm">
+        <td>
           {{ $gallery->gallery_id }}
         </td>
 
@@ -28,34 +28,26 @@
           </strong>
         </td>
 
-        @if (false)
-        <td class="text-secondary-rm">
-          {{ $gallery->description }}
-        </td>
-        @endif
-
-        <td class="text-secondary-rm">
+        <td>
           {{ count($gallery->galleryImages) }}
         </td>
 
         @if (false)
-        <td class="text-secondary-rm">
+        <td>
           {{ $gallery->totalDiskSpaceOccupied() }}
         </td>
         @endif
 
         <td class="text-right">
-          @if (true)
-            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })">
-              <i class="fas fa-pencil-alt"></i>
-            </button>
-            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })">
-              <i class="fas fa-eye"></i>
-            </button>
-            <button class="btn btn-danger px-2 py-1" wire:click="$dispatch('confirmDeleteGallery', {{ $gallery }})">
-              <i class="fas fa-trash"></i>
-            </button>
-          @endif
+          <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+          <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })">
+            <i class="fas fa-eye"></i>
+          </button>
+          <button class="btn btn-danger px-2 py-1" wire:click="$dispatch('confirmDeleteGallery', {{ $gallery }})">
+            <i class="fas fa-trash"></i>
+          </button>
         </td>
       </tr>
       @endforeach
@@ -64,7 +56,6 @@
     <x-slot name="listPaginationLinks">
       {{ $galleries->links() }}
     </x-slot>
-
   </x-list-component>
 
 
