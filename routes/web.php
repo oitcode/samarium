@@ -28,7 +28,7 @@ Auth::routes(['verify' => true,]);
 
 Route::get('/dashboard', 'DashboardController@index')->middleware('isAdmin')  ->name('dashboard');
 Route::get('/dashboard/product-category', 'ProductCategoryController@index')  ->name('product-category');
-Route::get('/dashboard/product', 'ProductController@index')                      ->name('product');
+Route::get('/dashboard/product', 'ProductController@index')                   ->name('product');
 Route::get('/dashboard/sale', 'SaleController@saleInvoice')                   ->name('sale');
 Route::get('/dashboard/takeaway', 'SaleController@takeaway')                  ->name('takeaway');
 Route::get('/dashboard/sale-quotation', 'SaleQuotationController@index')      ->name('dashboard-sale-quotation');
