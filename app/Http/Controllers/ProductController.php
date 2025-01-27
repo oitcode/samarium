@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class ProductController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +23,6 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return view('dashboard.menu');
+        return view('dashboard.product');
     }
 }
