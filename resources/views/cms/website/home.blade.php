@@ -200,7 +200,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container pb-4">
       <div class="row" style="margin: auto;">
         <div class="col-md-8">
           @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
