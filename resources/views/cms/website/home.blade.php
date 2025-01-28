@@ -138,7 +138,7 @@
           <div class="col-md-8 border p-0">
             @livewire ('calendar.website.upcoming-events-list')
           </div>
-          <div class="col-md-4 pt-5 pt-md-0 px-0 px-md-3">
+          <div class="col-md-4 pt-4 pt-md-0 px-0 px-md-3">
             @livewire ('notice.dashboard.latest-notice-list')
           </div>
         </div>
@@ -202,10 +202,7 @@
 
     <div class="container">
       <div class="row" style="margin: auto;">
-        <div class="col-md-8 border bg-white">
-          <h2 class="h5 o-heading p-3 mb-0">
-            Latest posts
-          </h2>
+        <div class="col-md-8">
           @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
         </div>
         <div class="col-md-4">

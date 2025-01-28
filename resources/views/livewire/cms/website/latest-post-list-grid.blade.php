@@ -1,5 +1,9 @@
-<div>
+<div class="mb-4 bg-white border">
 
+
+    <h2 class="h5 o-heading p-3 mb-0">
+      Latest posts
+    </h2>
 
     @if (true && count($webpages) > 0)
       <div class="row p-2" style="margin: auto;">
