@@ -1,38 +1,8 @@
-<div class="">
+<div>
 
-  <div class="d-flex justify-content-between-rm col-md-4-rm bg-success-rm text-white-rm p-3" style="
-                background-color:
-                  @if (\App\CmsTheme::first())
-                    {{ \App\CmsTheme::first()->ascent_bg_color }}
-                  @else
-                    orange
-                  @endif
-                  ;
-                color:
-                  @if (\App\CmsTheme::first())
-                    {{ \App\CmsTheme::first()->ascent_text_color }}
-                  @else
-                    white
-                  @endif
-                  ;
-  ">
+  <div class="d-flex p-3 border">
     <div class="d-flex flex-column justify-content-center">
-      <h2 class="h5 font-weight-bold bg-primary-rm text-white-rm py-3 mb-0" style="
-          background-color:
-            @if (\App\CmsTheme::first())
-              {{ \App\CmsTheme::first()->ascent_bg_color }}
-            @else
-              orange
-            @endif
-            ;
-          color:
-            @if (\App\CmsTheme::first())
-              {{ \App\CmsTheme::first()->ascent_text_color }}
-            @else
-              white
-            @endif
-            ;
-      ">
+      <h2 class="h5 o-heading py-3 mb-0">
         Upcoming events
       </h2>
     </div>
@@ -40,7 +10,7 @@
 
   @if ($selectedCalendarGroup)
     <div class="row" style="margin: auto;">
-      <div class="col-md-4 p-0 bg-warning-rm" style="
+      <div class="col-md-4 p-0" style="
           background-color:
             @if (\App\CmsTheme::first())
               {{ \App\CmsTheme::first()->ascent_bg_color }}
@@ -57,13 +27,13 @@
             ;
       ">
         <div class="d-flex flex-column justify-content-center h-100" style="background-color: rgba(0, 0, 0, 0.5)">
-          <div class="h5 text-dark-rm font-weight-bold p-3 mb-0">
+          <div class="h5 font-weight-bold p-3 mb-0">
             {{ $selectedCalendarGroup->name }}
           </div>
         </div>
       </div>
       <div class="col-md-8">
-        <div class="d-flex justify-content-between-rm p-3-rm py-3">
+        <div class="d-flex py-3">
           <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
             <button class="btn btn-success border dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Select Calendar Group
@@ -89,7 +59,7 @@
     @foreach ($monthBook as $day)
       @if (count($day['events']) > 0)
       <div class="row border" style="margin: auto; " wire:key="{{ rand() }}">
-        <div class="col-4 border-0 w-50 bg-danger-rm bg-success-rm text-white-rm p-0 " style="
+        <div class="col-4 border-0 w-50 p-0 " style="
                   background-color:
                     @if (\App\CmsTheme::first())
                       {{ \App\CmsTheme::first()->ascent_bg_color }}
@@ -98,9 +68,9 @@
                     @endif
                     ;
         ">
-          <div class="h-100 p-3-rm" style="background-color: rgba(255, 255, 255, 0.5)">
+          <div class="h-100" style="background-color: rgba(255, 255, 255, 0.5)">
             <div class="h-100 p-3">
-              <div class="h5 font-weight-bold text-success-rm mb-1" style="
+              <div class="h5 font-weight-bold mb-1" style="
                       color:
                       @if (\App\CmsTheme::first())
                         {{ \App\CmsTheme::first()->ascent_bg_color }}

@@ -2,7 +2,7 @@
 
 
     @if (true && count($webpages) > 0)
-      <div class="row" style="margin: auto;">
+      <div class="row p-2" style="margin: auto;">
           @foreach ($webpages as $webpage)
             <div class="col-md-6 px-0 px-md-0 pb-3 pb-md-0 mb-0 pt-0">
 

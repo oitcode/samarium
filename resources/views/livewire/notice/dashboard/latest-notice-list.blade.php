@@ -1,58 +1,27 @@
-<div class="border-rm bg-white">
+<div class="bg-white border">
 
-  <div class="d-flex-rm justify-content-between-rm col-md-4-rm bg-success-rm text-white-rm p-3-rm" style="
-                background-color:
-                  @if (\App\CmsTheme::first())
-                    {{ \App\CmsTheme::first()->ascent_bg_color }}
-                  @else
-                    orange
-                  @endif
-                  ;
-                color:
-                  @if (\App\CmsTheme::first())
-                    {{ \App\CmsTheme::first()->ascent_text_color }}
-                  @else
-                    white
-                  @endif
-                  ;
-  ">
-    <div class="d-flex-rm flex-column-rm justify-content-center-rm" style="
-            background-color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_bg_color }}
-              @else
-                orange
-              @endif
-              ;
-            color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_text_color }}
-              @else
-                white
-              @endif
-              ;
-    ">
-      <div class="o-blink-dark-rm h-100 w-100 p-3">
-        <h2 class="h5 font-weight-bold bg-primary-rm text-white-rm py-3 mb-0 h-100 w-100">
-          Latest Notice
-        </h2>
-      </div>
+  <div>
+    <div class="h-100 w-100 p-3">
+      <h2 class="h5 o-heading py-3 mb-0 h-100 w-100">
+        Latest Notice
+      </h2>
     </div>
   </div>
       <div class="table-responsive border">
-        <table class="table table-borderless-rm mb-0">
+        <table class="table mb-0">
 
           @if ($notices != null && count($notices) > 0)
             @foreach ($notices as $notice) 
             <tr class="border-bottom">
-              <td class="text-primary-rm font-weight-bold-rm">
+              <td>
                 <a href="{{ route('website-webpage-' . $notice->permalink) }}" class="text-decoration-none text-reset">
                   <div>
-                    <div class="h5 font-weight-bold">
+                    <div class="h6">
                       {{ $notice->name }}
                     </div>
-                    <div>
+                    <div style="color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
                       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($notice->created_at->toDateString(), 'english')  }}
+                      2081
                     </div>
                   </div>
                 </a>
@@ -72,7 +41,7 @@
         </table>
       </div>
 
-      <div class="my-0-rm p-3 border">
+      <div class="p-3 border">
         @if (Route::has('website-webpage-/notice'))
           <a href="{{ route('website-webpage-/notice') }}">See all notice</a>
         @elseif (Route::has('website-webpage-/noticeboard'))

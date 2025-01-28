@@ -42,7 +42,9 @@
     |--------------------------------------------------------------------------
     |
     --}}
+    @if (false)
     @livewire ('carousal-component')
+    @endif
     
     {{--
     |--------------------------------------------------------------------------
@@ -76,7 +78,7 @@
             <div class="col-md-6 p-0">
               <img class="img-fluid" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}">
             </div>
-            <div class="col-md-6 pt-5 px-md-5">
+            <div class="col-md-6 pt-5 px-md-5 pb-5 pb-md-0">
               <div class="d-flex flex-column justify-content-center h-100">
                 <h1 class="h1">
                   {{ $company->name }}
@@ -149,23 +151,7 @@
     |--------------------------------------------------------------------------
     |
     --}}
-    <div class="container-fluid p-0 pt-3" 
-      style="
-               {{--
-               background-image: @if (\App\CmsTheme::first())
-                 url({{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }})
-               @else
-                 url({{ asset('img/school-5.jpg') }})
-               @endif
-               ;
-               background-size: cover;
-               background-repeat: no-repeat;
-               background-position: center;
-               background-attachment: fixed;
-               height: 500px;
-               --}}
-               "
-    >
+    <div class="container-fluid p-0 pt-3">
       <div class="container">
         <div class="row mb-4" style="margin: auto;">
           <div class="col-md-8 p-0 border">
@@ -192,9 +178,6 @@
                         background-repeat: no-repeat;
                         background-position: center;
                         height: 300px;
-                        {{--
-                        background-attachment: fixed;
-                        --}}
                       ">
                         <div class="o-overlay h-100 d-flex flex-column justify-content-end">
                           <div class="p-3" style="background-color: rgba(0, 0, 0, 0.5);">
@@ -203,7 +186,6 @@
                             </h2>
                           </div>
                         </div>
-    
                       </div>
                     </a>
                   </div>
@@ -211,40 +193,23 @@
               </div>
             </div>
             @endif
-    
-            {{--
-            |
-            | Show latest posts.
-            |
-            --}}
-            <div class="px-md-0">
-              <div class="mb-0">
-                <h2 class="h5 font-weight-bold p-3 mb-0" style="
-                    background-color:
-                      @if (\App\CmsTheme::first())
-                        {{ \App\CmsTheme::first()->ascent_bg_color }}
-                      @else
-                        orange
-                      @endif
-                      ;
-                    color:
-                      @if (\App\CmsTheme::first())
-                        {{ \App\CmsTheme::first()->ascent_text_color }}
-                      @else
-                        white
-                      @endif
-                      ;
-                ">
-                  Latest posts
-                </h2>
-              </div>
-              @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
-            </div>
           </div>
-    
           <div class="col-md-4">
-            @livewire ('cms.website.contact-component', ['onlyForm' => 'yes',])
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row" style="margin: auto;">
+        <div class="col-md-8 border bg-white">
+          <h2 class="h5 o-heading p-3 mb-0">
+            Latest posts
+          </h2>
+          @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
+        </div>
+        <div class="col-md-4">
+          @livewire ('cms.website.contact-component', ['onlyForm' => 'yes',])
         </div>
       </div>
     </div>

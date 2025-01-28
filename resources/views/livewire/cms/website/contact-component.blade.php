@@ -94,22 +94,7 @@
       @endif
       <div class="@if ($onlyForm == 'yes') col-md-12 @else col-md-6 @endif bg-white border p-0">
         <div>
-        <h2 class="h5 font-weight-bold text-md-center pl-3 py-3" style="
-                background-color:
-                  @if (\App\CmsTheme::first())
-                    {{ \App\CmsTheme::first()->ascent_bg_color }}
-                  @else
-                    orange
-                  @endif
-                  ;
-                color:
-                  @if (\App\CmsTheme::first())
-                    {{ \App\CmsTheme::first()->ascent_text_color }}
-                  @else
-                    white
-                  @endif
-                  ;
-        ">
+        <h2 class="h5 o-heading text-md-center pl-3 py-3">
           Send us a message
           </h2>
         </div>
