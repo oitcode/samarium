@@ -2,7 +2,6 @@
 
 
   <x-list-component>
-
     <x-slot name="listInfo">
       <div class="d-flex">
         <div class="mr-4 font-weight-bold">
@@ -69,17 +68,15 @@
             @endif
           </td>
           <td class="text-right">
-            @if (true)
-              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
-                <i class="fas fa-eye"></i>
-              </button>
-              <button class="btn btn-danger px-2 py-1" wire:click="">
-                <i class="fas fa-trash"></i>
-              </button>
-            @endif
+            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-danger px-2 py-1" wire:click="">
+              <i class="fas fa-trash"></i>
+            </button>
           </td>
         </tr>
 
@@ -138,7 +135,6 @@
     <x-slot name="listPaginationLinks">
       {{ $saleQuotations->links() }}
     </x-slot>
-
   </x-list-component>
 
   @if ($modes['confirmDelete'])

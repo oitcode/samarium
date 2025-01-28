@@ -17,14 +17,13 @@
         <div class="carousel-item active">
           @include ('partials.ecs.client-testimonials')
         </div>
-        <div class="carousel-item" style="">
+        <div class="carousel-item">
           @include ('partials.ecs.client-testimonials')
         </div>
-        <div class="carousel-item" style="">
+        <div class="carousel-item">
           @include ('partials.ecs.client-testimonials')
         </div>
       </div>
-    
     </div>
 
     <div class="d-flex flex-column justify-content-center">
@@ -33,7 +32,4 @@
           role="button"></i>
     </div>
   </div>
-
-
-
 </div>

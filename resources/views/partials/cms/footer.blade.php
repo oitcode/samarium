@@ -17,30 +17,29 @@
 |
 --}}
 @if ($company->companyInfos()->where('info_key', 'Associated with')->first())
-    <div class="container-fluid my-5 border-top">
-      <div class="container">
-        <h2 class="h6 font-weight-bold my-4 text-center">
-          {{ $company->companyInfos()->where('info_key', 'Associated with')->first()->info_key }}
-        </h2>
-        <div class="row" style="margin: auto;">
-          @foreach ($company->companyInfos()->where('info_key', 'Associated with')->get() as $companyInfo)
-            <div class="col-6 col-md-3 font-weight-bold border-rm p-3 mb-0" style="font-family: Mono;">
-              <div class="d-flex flex-column justify-content-center h-100">
-                <div class="text-center mb-4">
-                  {{ $companyInfo->info_value }}
-                </div>
-                @if ($companyInfo->image_path)
-                  <img src="{{ asset('storage/' . $companyInfo->image_path) }}" class="img-fluid" style="{{--height: 75px;--}}">
-                @else
-                @endif
+  <div class="container-fluid my-5 border-top">
+    <div class="container">
+      <h2 class="h6 font-weight-bold my-4 text-center">
+        {{ $company->companyInfos()->where('info_key', 'Associated with')->first()->info_key }}
+      </h2>
+      <div class="row" style="margin: auto;">
+        @foreach ($company->companyInfos()->where('info_key', 'Associated with')->get() as $companyInfo)
+          <div class="col-6 col-md-3 font-weight-bold p-3 mb-0" style="font-family: Mono;">
+            <div class="d-flex flex-column justify-content-center h-100">
+              <div class="text-center mb-4">
+                {{ $companyInfo->info_value }}
               </div>
+              @if ($companyInfo->image_path)
+                <img src="{{ asset('storage/' . $companyInfo->image_path) }}" class="img-fluid">
+              @else
+              @endif
             </div>
-          @endforeach
-        </div>
+          </div>
+        @endforeach
       </div>
     </div>
+  </div>
 @endif
-
 
 <div class="border-top"
      style="
@@ -57,9 +56,8 @@
           @else
             white
           @endif
-      ;
-">
-
+      ;"
+>
   {{--
   |
   | Logo and contact details row.
@@ -67,46 +65,37 @@
   | This row will have company logo and contact details info.
   |
   --}}
-  <div class="container-fluid bg-primary-rm text-white-rm p-0" style="">
-
+  <div class="container-fluid p-0">
     <div class="p-3" style="background-color: rgba(0, 0, 0, 0.1);">
       <div class="container">
         <div class="row">
-
           <div class="col-md-3 mb-3">
             <img src="{{ asset('storage/' . $company->logo_image_path) }}"
                 class="img-fluid"
-                alt="{{ $company->name }} logo"
-                style="{{-- height: 150px !important; max-width: 200px !important; --}}">
+                alt="{{ $company->name }} logo">
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="h5 font-weight-bold">
                 Address
               </div>
               {{ $company->address }}
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="h5 font-weight-bold">
                 Phone
               </div>
               {{ $company->phone }}
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="h5 font-weight-bold">
                 Email
               </div>
               {{ $company->email }}
           </div>
-
         </div>
       </div>
     </div>
-
   </div>
-
 
   {{--
   |
@@ -118,14 +107,13 @@
   | 4. Subscribe us
   |
   --}}
-  <div class="container-fluid border-rm pt-4 pb-3" style="">
-
+  <div class="container-fluid pt-4 pb-3">
     <div class="container">
       <div class="row">
 
         {{-- Company brief description --}}
         <div class="col-md-3 mb-4">
-          <h2 class="h5 text-dark-rm font-weight-bold mb-3">
+          <h2 class="h5 font-weight-bold mb-3">
             About us
           </h2>
           <div class="mb-2">
@@ -138,25 +126,24 @@
           <div class="h5 mb-3 font-weight-bold">
             Quick links
           </div>
-          <div class="">
+          <div>
             <div class="my-2">
               <a href="/contact-us" class="text-reset text-decoration-none text-underline">
                 Contact us
               </a>
             </div>
-            <div class="">
+            <div>
               <a href="/post" class="text-reset text-decoration-none text-underline">
                 Posts
               </a>
             </div>
-            <div class="">
+            <div>
               <a href="/dashboard" class="text-reset text-decoration-none text-underline">
                 Dashboard
               </a>
             </div>
           </div>
         </div>
-
 
         {{-- Social media --}}
         <div class="col-md-3 mb-5">
@@ -174,8 +161,8 @@
                           @else
                             white
                           @endif
-                          ;
-                    "></i>
+                          ;"
+                ></i>
               </a>
             @endif
             @if ($company->twitter_link)
@@ -205,11 +192,9 @@
         <div class="col-md-3">
           @livewire ('ecomm-website.subscribe-us', ['introMessage' => 'Please enter your email address to get latest updates on our activities.',])
         </div>
-
       </div>
     </div>
   </div>
-
 
   {{--
   | 
@@ -219,7 +204,7 @@
   <hr />
   <div class="text-center pb-2 px-3">
     <div>
-      &copy; 2024 | {{ $company->name }} | All rights reserved
+      &copy; 2025 | {{ $company->name }} | All rights reserved
     </div>
     <div>
       Powered by
@@ -227,6 +212,4 @@
       <i class="fas fa-check-circle ml-2"></i>
     </div>
   </div>
-
-
 </div>

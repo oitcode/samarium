@@ -7,7 +7,7 @@
   </div>
 
   {{-- Toolbar buttons --}}
-  <div class="mt-0 p-2 d-flex justify-content-between border-rm">
+  <div class="mt-0 p-2 d-flex justify-content-between">
     <div>
       {{ $toolbarButtons }}
     </div>

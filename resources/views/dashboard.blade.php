@@ -1,8 +1,6 @@
 {{--
  **
  * Samarium  -  A Laravel Livewire Application For Users
- * @package     Samarium
- * @author      _____
  *
 --}}
 

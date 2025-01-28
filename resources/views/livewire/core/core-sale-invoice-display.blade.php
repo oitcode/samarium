@@ -42,13 +42,11 @@
       <div class="px-2">
         <div>
           {{-- Company Info --}}
-          <div class="d-flex justify-content-center py-3" style="">
+          <div class="d-flex justify-content-center py-3">
             <div>
               <div class="d-flex">
                 <div class="d-flex flex-column justify-content-center mr-5">
-                  @if (true)
                   <img src="{{ asset('storage/' . $company->logo_image_path) }}" style="height: 75px;" class="mr-2">
-                  @endif
                 </div>
                 <div>
                   <div>
@@ -212,7 +210,6 @@
                 </td>
               </tr>
               {{-- TODO --}} 
-              @if (true)
               @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
                 <tr class="border-0 mb-0 p-0">
                   <td class="border-0"></td>
@@ -235,7 +232,6 @@
                   </td>
                 </tr>
               @endforeach
-              @endif
               <tr class="border-0 p-0">
                 <td class="border-0"></td>
                 <td class="border-0"></td>

@@ -9,9 +9,9 @@
 
 @if ($webpage->is_post == 'yes')
   <div class="container">
-  <div class="p-3 bg-danger-rm d-flex flex-column justify-content-center bg-primary-rm">
-    <div class="mb-4-rm border-rm pt-3 py-1 shadow-rm bg-dark-rm text-white-rm o-overlay-rm">
-      <h1 class="h4 font-weight-bold text-white-rm" style="{{--font-family: Mono;--}}">
+  <div class="p-3 d-flex flex-column justify-content-center">
+    <div class="pt-3 py-1">
+      <h1 class="h4 font-weight-bold">
         {{ $webpage->name }}
       </h1>
     </div>
@@ -26,71 +26,51 @@
       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'english')  }}
       2081
     @endif
-
   </div>
 
-  <div class="container bg-danger-rm">
+  <div class="container">
     <div class="d-flex">
-
       {{-- View count --}}
       <div class="mr-4">
         <strong>
           Views
         </strong>
-        <div class="mt-3-rm">
+        <div>
           {{ $webpage->website_views }}
         </div>
       </div>
 
       {{-- Share buttons --}}
-      <div class="m-rm-4">
+      <div>
         <strong>
           Share
         </strong>
-        <div class="mt-3-rm">
-
+        <div>
           <a href="http://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" class="text-decoration-none text-primary">
             <i class="fab fa-facebook fa-2x mr-4"></i>
           </a>
-
           <a href="https://api.whatsapp.com/send?text={{ url()->current() }}" data-action="share/whatsapp/share">
             <i class="fab fa-whatsapp fa-2x mr-4 text-success"></i>
           </a>
-
           <a href="viber://forward?text={{ url()->current() }}">
             <i class="fab fa-viber fa-2x mr-4" style="color: purple;"></i>
           </a>
-
         </div>
       </div>
-
     </div>
   </div>
   </div>
 @else
   <div class="container-fluid mb-0 p-0"
       style= "
-      {{--
-      background-image: @if (\App\CmsTheme::first())
-        url({{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }})
-      @else
-        url({{ asset('img/school-5.jpg') }})
-      @endif
-      ;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-      height: 500px;
-      --}}
       background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
       color: {{ \App\CmsTheme::first()->ascent_text_color }};
   ;">
-    <div class="o-overlay-rm text-white-rm h-100" style="
+    <div class="h-100" style="
       padding-top: 50px;
       padding-bottom: 50px;
     ">
-      <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') border-left-rm border-right-rm @else @endif bg-primary-rm">
+      <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') @else @endif">
       <h1 class="h3 font-weight-bold"
           style="
             color:

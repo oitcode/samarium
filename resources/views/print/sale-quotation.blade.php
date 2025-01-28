@@ -31,13 +31,11 @@
       }
     </style>
 
-
     <!-- Livewire -->
     @livewireStyles
 </head>
 
-<body style="background-color: #ddd;">
-
+<body>
   <div class="container">
     @livewire ('core.core-sale-quotation-display', ['saleQuotation' => $saleQuotation, 'display_toolbar' => false,])
   </div>

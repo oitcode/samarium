@@ -11,8 +11,7 @@
       </div>
     </div>
     <div class="my-3">
-      <div class="p-5-rm text-center border shadow" style="background-color: #eaeaea;">
-
+      <div class="text-center border shadow" style="background-color: #eaeaea;">
         <div class="p-0">
           <div class="bg-danger text-white p-3">
             <i class="fas fa-exclamation-circle mr-1"></i>
@@ -28,11 +27,9 @@
           </div>
         </div>
       </div>
-
       <div class="my-4 text-center text-secondary">
         <i class="fas fa-star"></i>
       </div>
-
     </div>
   </div>
 </div>

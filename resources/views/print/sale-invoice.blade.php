@@ -28,13 +28,11 @@
       }
     </style>
 
-
     <!-- Livewire -->
     @livewireStyles
 </head>
 
 <body>
-
   <div class="container">
     @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $saleInvoice, 'display_toolbar' => false,])
   </div>

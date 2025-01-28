@@ -39,7 +39,7 @@
             @if ($post->creator)
               {{ $post->creator->name }}
             @else
-              <span class="">
+              <span>
                 <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
                 Not set
               </span>
@@ -78,17 +78,15 @@
             @endif
           </td>
           <td class="text-right">
-            @if (true)
-              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
-                <i class="fas fa-eye"></i>
-              </button>
-              <button class="btn btn-danger px-2 py-1" wire:click="deletePost({{ $post }})">
-                <i class="fas fa-trash"></i>
-              </button>
-            @endif
+            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-danger px-2 py-1" wire:click="deletePost({{ $post }})">
+              <i class="fas fa-trash"></i>
+            </button>
             @if ($modes['delete'])
               @if ($deletingPost->webpage_id == $post->webpage_id)
                 <span class="btn btn-danger mr-3" wire:click="confirmDeletePost">
@@ -110,7 +108,6 @@
     <x-slot name="listPaginationLinks">
       {{ $posts->links() }}
     </x-slot>
-
   </x-list-component>
 
 

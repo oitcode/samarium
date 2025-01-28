@@ -8,8 +8,7 @@
 
 @if (has_module('hfn'))
   <div>
-  
-    <nav class="navbar navbar-expand-lg navbar-light-rm bg-light-rm border-bottom bg-warning-rm p-0"
+    <nav class="navbar navbar-expand-lg border-bottom p-0"
         style="
         background-color: orange;
             background-color:
@@ -25,16 +24,13 @@
                 @else
                   white
                 @endif
-            ;
-    ">
-  
-      <a class="navbar-brand p-3 text-reset" href="{{ route('website-home') }}" style="{{--color: #000;--}}">
+            ;"
+    >
+      <a class="navbar-brand p-3 text-reset" href="{{ route('website-home') }}">
         <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 60px;">
         <span class="h6 font-weight-bold ml-2"  style="width: 200 px !important;">
         </span>
       </a>
-
-      @if (true)
       <div class="d-flex">
         @if ($company->fb_link)
           <div class="mr-3">
@@ -46,46 +42,36 @@
         @if ($company->twitter_link)
           <div class="mr-3">
             <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
-              <i class="fab fa-twitter text-white-rm fa-2x mr-2 "></i>
+              <i class="fab fa-twitter fa-2x mr-2 "></i>
             </a>
           </div>
         @endif
         @if ($company->youtube_link)
           <div class="mr-3">
             <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
-              <i class="fab fa-youtube text-white-rm fa-2x mr-2 "></i>
+              <i class="fab fa-youtube fa-2x mr-2 "></i>
             </a>
           </div>
         @endif
         @if ($company->insta_link)
           <div class="mr-3">
             <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
-              <i class="fab fa-instagram text-white-rm fa-2x mr-2 "></i>
+              <i class="fab fa-instagram fa-2x mr-2 "></i>
             </a>
           </div>
         @endif
         @if ($company->tiktok_link)
           <div class="mr-3">
             <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
-              <i class="fab fa-tiktok text-white-rm fa-2x mr-2 "></i>
+              <i class="fab fa-tiktok fa-2x mr-2 "></i>
             </a>
           </div>
         @endif
       </div>
-      @endif
   
       <button class="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   
-        <i class="fas fa-bars fa-2x border-rm p-2-rm" style="
-            {{--
-            background-color:
-                @if (\App\CmsTheme::first())
-                  {{ \App\CmsTheme::first()->footer_bg_color }}
-                @else
-                  orange
-                @endif
-                ;
-                --}}
+        <i class="fas fa-bars fa-2x" style="
             color:
                 @if (\App\CmsTheme::first())
                   {{ \App\CmsTheme::first()->top_header_text_color }}
@@ -95,15 +81,14 @@
             ;
         "></i>
       </button>
-
     
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="{{--background-image: linear-gradient(-135deg, transparent 0%, rgba(0,0,0,0.5) 100%);--}}">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto border-top">
           @if ($cmsNavMenu)
             @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
               @if ($cmsNavMenuItem->type == 'item')
                 <li class="nav-item px-2 py-1 bg-transparent border-bottom">
-                  <a class="nav-link h6 text-reset font-weight-bold-rm mb-0"
+                  <a class="nav-link h6 text-reset mb-0"
                       href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
                     {{ $cmsNavMenuItem->name }}
                   </a>
@@ -118,7 +103,7 @@
                   <div class="dropdown-menu p-0 bg-transparent border-0" aria-labelledby="navbarDropdown-{{ $cmsNavMenuItem->name }}">
                     @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
                       @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
-                        <a class="nav-link-rm dropdown-item border-bottom text-decoration-none py-2"
+                        <a class="dropdown-item border-bottom text-decoration-none py-2"
 
                             style="
                                 color:
@@ -141,7 +126,6 @@
             @endforeach
           @endif
   
-  
           {{--
           |
           | Login links
@@ -150,14 +134,7 @@
           @guest
             <li class="nav-item px-2 py-1 border-bottom">
               <a class="nav-link text-reset" href="{{ route('login') }}">
-                <span class="btn btn-success badge-pill px-3"
-                    {{--
-                    style="
-                        background-color: {{ \App\CmsTheme::first()->top_header_text_color }};
-                        color: {{ \App\CmsTheme::first()->top_header_bg_color }};
-                        "
-                    --}}
-                >
+                <span class="btn btn-success badge-pill px-3">
                   Login
                 </span>
               </a>
@@ -187,7 +164,7 @@
           | Social media  links
           |
           --}}
-          <li class="nav-item p-0 bg-transparent text-center-rm m-0">
+          <li class="nav-item p-0 bg-transparent m-0">
             <div class="nav-link text-reset">
               <div class="px-2 py-1" style="background-color: rgba(0, 0, 0, 0.0);">
                 <div class="d-flex">
@@ -201,28 +178,28 @@
                   @if ($company->twitter_link)
                     <div class="mr-3">
                       <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
-                        <i class="fab fa-twitter text-white-rm fa-2x mr-2 "></i>
+                        <i class="fab fa-twitter fa-2x mr-2 "></i>
                       </a>
                     </div>
                   @endif
                   @if ($company->youtube_link)
                     <div class="mr-3">
                       <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
-                        <i class="fab fa-youtube text-white-rm fa-2x mr-2 "></i>
+                        <i class="fab fa-youtube fa-2x mr-2 "></i>
                       </a>
                     </div>
                   @endif
                   @if ($company->insta_link)
                     <div class="mr-3">
                       <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
-                        <i class="fab fa-instagram text-white-rm fa-2x mr-2 "></i>
+                        <i class="fab fa-instagram fa-2x mr-2 "></i>
                       </a>
                     </div>
                   @endif
                   @if ($company->tiktok_link)
                     <div class="mr-3">
                       <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
-                        <i class="fab fa-tiktok text-white-rm fa-2x mr-2 "></i>
+                        <i class="fab fa-tiktok fa-2x mr-2 "></i>
                       </a>
                     </div>
                   @endif
@@ -230,15 +207,13 @@
               </div>
             </div>
           </li>
-  
         </ul>
       </div>
     </nav>
   </div>
 @else
   <div>
-  
-    <nav class="navbar navbar-expand-lg navbar-light-rm bg-light-rm border-bottom bg-warning-rm p-0"
+    <nav class="navbar navbar-expand-lg border-bottom p-0"
         style="
         background-color: orange;
             background-color:
@@ -254,11 +229,9 @@
                 @else
                   white
                 @endif
-            ;
-    ">
-  
-      @if (true)
-      <a class="navbar-brand p-3 text-reset" href="{{ route('website-home') }}" style="{{--color: #000;--}}">
+            ;"
+    >
+      <a class="navbar-brand p-3 text-reset" href="{{ route('website-home') }}">
         <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 60px;">
         <span class="h6 font-weight-bold ml-2"  style="width: 200 px !important;">
           @if ($company->short_name)
@@ -268,20 +241,10 @@
           @endif
         </span>
       </a>
-      @endif
   
       <button class="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   
-        <i class="fas fa-bars fa-2x border-rm p-2-rm" style="
-            {{--
-            background-color:
-                @if (\App\CmsTheme::first())
-                  {{ \App\CmsTheme::first()->footer_bg_color }}
-                @else
-                  orange
-                @endif
-                ;
-                --}}
+        <i class="fas fa-bars fa-2x" style="
             color:
                 @if (\App\CmsTheme::first())
                   {{ \App\CmsTheme::first()->top_header_text_color }}
@@ -292,13 +255,13 @@
         "></i>
       </button>
     
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="{{--background-image: linear-gradient(-135deg, transparent 0%, rgba(0,0,0,0.5) 100%);--}}">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto border-top">
           @if ($cmsNavMenu)
             @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
               @if ($cmsNavMenuItem->type == 'item')
                 <li class="nav-item px-2 py-1 bg-transparent border-bottom bg-danger">
-                  <a class="nav-link h6 text-reset font-weight-bold-rm mb-0"
+                  <a class="nav-link h6 text-reset mb-0"
                       href="{{ route('website-webpage-' . $cmsNavMenuItem->webpage->permalink) }}">
                     {{ $cmsNavMenuItem->name }}
                   </a>
@@ -324,7 +287,6 @@
             @endforeach
           @endif
   
-  
           {{--
           |
           | Login links
@@ -333,14 +295,7 @@
           @guest
             <li class="nav-item px-2 py-1 border-bottom">
               <a class="nav-link text-reset" href="{{ route('login') }}">
-                <span class="btn btn-success badge-pill px-3"
-                    {{--
-                    style="
-                        background-color: {{ \App\CmsTheme::first()->top_header_text_color }};
-                        color: {{ \App\CmsTheme::first()->top_header_bg_color }};
-                        "
-                    --}}
-                >
+                <span class="btn btn-success badge-pill px-3">
                   Login
                 </span>
               </a>
@@ -370,7 +325,7 @@
           | Social media  links
           |
           --}}
-          <li class="nav-item p-0 bg-transparent text-center-rm m-0">
+          <li class="nav-item p-0 bg-transparent m-0">
             <div class="nav-link text-reset">
               <div class="p-3" style="background-color: rgba(0, 0, 0, 0.0);">
                 <div class="d-flex">
@@ -384,28 +339,28 @@
                   @if ($company->twitter_link)
                     <div class="mr-3">
                       <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
-                        <i class="fab fa-twitter text-white-rm fa-2x mr-2 "></i>
+                        <i class="fab fa-twitter fa-2x mr-2 "></i>
                       </a>
                     </div>
                   @endif
                   @if ($company->youtube_link)
                     <div class="mr-3">
                       <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
-                        <i class="fab fa-youtube text-white-rm fa-2x mr-2 "></i>
+                        <i class="fab fa-youtube fa-2x mr-2 "></i>
                       </a>
                     </div>
                   @endif
                   @if ($company->insta_link)
                     <div class="mr-3">
                       <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
-                        <i class="fab fa-instagram text-white-rm fa-2x mr-2 "></i>
+                        <i class="fab fa-instagram fa-2x mr-2 "></i>
                       </a>
                     </div>
                   @endif
                   @if ($company->tiktok_link)
                     <div class="mr-3">
                       <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
-                        <i class="fab fa-tiktok text-white-rm fa-2x mr-2 "></i>
+                        <i class="fab fa-tiktok fa-2x mr-2 "></i>
                       </a>
                     </div>
                   @endif
@@ -413,7 +368,6 @@
               </div>
             </div>
           </li>
-  
         </ul>
       </div>
     </nav>

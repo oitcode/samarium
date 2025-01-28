@@ -1,7 +1,6 @@
 <div class="card">
   <div class="card-body {{ $cardBg }}">
-
-    <div class="">
+    <div>
       <div class="float-left">
         {{ $title }}
       </div>
@@ -11,10 +10,8 @@
       <div class="clearfix">
       </div>
     </div>
-
     <div class="h3">
       {{ $number }}
     </div>
-
   </div>
 </div>

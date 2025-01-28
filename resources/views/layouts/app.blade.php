@@ -88,7 +88,7 @@
         | Content
         |
         --}}
-        <div class="">
+        <div>
           @yield ('content')
         </div>
 

@@ -4,8 +4,6 @@
   </div>
 
   <div class="card-body p-0">
-
-  {{ $slot }}
-
+    {{ $slot }}
   </div>
 </div>

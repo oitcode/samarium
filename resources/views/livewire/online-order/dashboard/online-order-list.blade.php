@@ -2,7 +2,6 @@
 
 
   <x-list-component>
-
     <x-slot name="listInfo">
       <div class="mb-1 p-3 bg-white border d-flex justify-content-between">
         <div class="pt-2">
@@ -14,7 +13,6 @@
         </div>
         <div class="font-weight-bold h6 d-flex">
           <div class="d-flex">
-            @if (true)
             <div class="d-flex flex-column justify-content-center mr-3 o-heading">
               <i class="fas fa-funnel mr-1"></i>
               Filter
@@ -66,7 +64,6 @@
                 </button>
               </div>
             </div>
-            @endif
           </div>
         </div>
 
@@ -107,7 +104,7 @@
           <td>
             {{ $order->website_order_id }}
           </td>
-          <td class="" style="">
+          <td>
             @if ($order->created_at->isToday())
               <span class="text-success" style="font-weight: bold;">
                 Today
@@ -116,7 +113,7 @@
               {{ $order->created_at->toDateString() }}
             @endif
           </td>
-          <td class="" style="">
+          <td>
             {{ $order->created_at->format('g:i A') }}
           </td>
           <td class="pl-3">
@@ -153,18 +150,15 @@
             @endif
           </td>
           <td class="text-right">
-            @if (true)
-              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
-                <i class="fas fa-eye"></i>
-              </button>
-              <button class="btn btn-danger px-2 py-1" wire:click="">
-                <i class="fas fa-trash"></i>
-              </button>
-            @endif
-
+            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-danger px-2 py-1" wire:click="">
+              <i class="fas fa-trash"></i>
+            </button>
         </tr>
 
         {{-- Show in smaller screens --}}
@@ -182,7 +176,7 @@
               @endif
             <div>
           </td>
-          <td class="">
+          <td>
           </td>
           <td class="pl-3">
             {{ $order->phone }}
@@ -225,7 +219,6 @@
     <x-slot name="listPaginationLinks">
       {{ $websiteOrders->links() }}
     </x-slot>
-
   </x-list-component>
 
 

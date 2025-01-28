@@ -14,22 +14,18 @@
     @endif
   </div>
 
-
   {{-- Show in bigger screen --}}
-  <div class="mb-3 border shadow-sm d-none d-md-block" style="">
-
+  <div class="mb-3 border shadow-sm d-none d-md-block">
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
           <tr class="bg-white">
             <th class="py-2 border-0-rm pl-2" style="width: 200px;">Search Item</th>
-            @if (true)
             <th class="py-2">Category</th>
             <th class="py-2">Item</th>
             <th class="py-2" style="width: 100px;">Price</th>
             <th class="py-2" style="width: 50px;">Qty</th>
             <th class="py-2" style="width: 100px;">Total</th>
-            @endif
           </tr>
         </thead>
   
@@ -39,7 +35,6 @@
               <input class="m-0 w-100 h-100 border-0 shadow-lg-rm py-2 shadow-lg-rm" type="text"
                   wire:model="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
-            @if (true)
             <td class="p-0 h-100">
               <select class="w-100 h-100 custom-control border-0 bg-white" wire:model="search_product_category_id" wire:change="selectProductCategory">
                 <option>---</option>
@@ -79,7 +74,6 @@
                 @endif
               </div>
             </td>
-            @endif
           </tr>
         </tbody>
       </table>
@@ -92,22 +86,14 @@
             <i class="fas fa-plus mr-2"></i>
             Add
           </button>
-  
           <button class="btn btn-lg btn-danger" wire:click="resetInputFields">
             Reset
           </button>
-  
-          <button wire:loading class="btn">
-            <span class="spinner-border text-info mr-3" role="status">
-            </span>
-          </button>
-  
+          @include ('partials.dashboard.spinner-button')
         </div>
 
         @if ($selectedProduct != null)
           <div class="col-md-4" style="height: 50px;">
-
-
             <div class="float-right">
               <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
             </div>
@@ -118,5 +104,6 @@
       </div>
     </div>
   </div>
+
 
 </div>

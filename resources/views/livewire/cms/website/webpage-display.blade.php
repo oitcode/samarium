@@ -70,7 +70,7 @@
               <hr />
               <div class="row">
               @foreach ($gallery->galleryImages as $galleryImage)
-                <div class="col-md-3 mb-3 p-3 border-rm">
+                <div class="col-md-3 mb-3 p-3">
                   <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid">
                 </div>
               @endforeach
@@ -233,7 +233,7 @@
 
   {{-- Show quick contacts team if needed --}}
   @if (count(\App\Team::where('name', 'Quick Contacts')->first()->teamMembers) > 0)
-    <div class="container-fluid my-4 border-top-rm">
+    <div class="container-fluid my-4">
       <div class="container">
         @if (\App\Team::where('name', 'Quick Contacts')->first())
           @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Quick Contacts')->first(),])
@@ -244,19 +244,18 @@
 
   {{-- Show google map share link if needed --}}
   @if (\App\Company::first()->google_map_share_link)
-  <div class="container my-5">
-    <h2 class="h4 font-weight-bold mb-3">
-      Find us in google map
-    </h2>
+    <div class="container my-5">
+      <h2 class="h4 font-weight-bold mb-3">
+        Find us in google map
+      </h2>
 
-    <p class="mb-3">
-      You can view our location in google map.
-    </p>
+      <p class="mb-3">
+        You can view our location in google map.
+      </p>
 
-    <a href="{{ \App\Company::first()->google_map_share_link }}" class="btn-rm btn-light-rm text-primary-rm" target="_blank">View in google map</a>
-  </div>
+      <a href="{{ \App\Company::first()->google_map_share_link }}" target="_blank">View in google map</a>
+    </div>
   @endif
-
 @elseif ($webpage->name == 'Calendar' || $webpage->permalink == '/calendar')
   {{--
   |--------------------------------------------------------------------------
@@ -283,7 +282,6 @@
 --}}
 @else
 
-
   {{--
   |--------------------------------------------------------------------------
   | Display webpage contents for all other pages
@@ -295,65 +293,57 @@
   |
   --}}
   @if (!is_null($webpage->webpageContents) && count($webpage->webpageContents) > 0)
-  
     <div class="row" style="margin: auto;">
       <div class="col-md-8">
         @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
-  
-          <div class="container border-rm border-success-rm p-0 px-2 mb-3" 
+          <div class="container p-0 px-2 mb-3" 
               style="
                   @foreach ($webpageContent->cmsWebpageContentCssOptions as $cssOption)
                       {{ $cssOption->option_name }}: {{ $cssOption->option_value }};
                   @endforeach
               ">
-  
-             <div class="row-rm" style="margin: auto;">
-                 
+             <div>
                @if ($webpageContent->image_path && (! $webpageContent->video_link && ! $webpageContent->title && ! $webpageContent->body))
-                 <div class="col-md-6-rm">
+                 <div>
                    @if ($webpageContent->image_path)
-                     <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
+                     <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid">
                    @endif
                  </div>
                @else
-                 <div class="
-                     @if ($webpageContent->video_link || $webpageContent->image_path)
-                         col-md-6-rm
-                     @else
-                         col-md-8-rm
-                     @endif
-                     p-0 m-0
-                     justify-content-center-rm align-self-center-rm p-0">
+                 <div class=" p-0 m-0">
                    @if ($webpageContent->title)
-                     <h2 class="h1 mt-3-rm mb-4-rm mb-0" style="color: #000; font-family: Arial; font-weight: bold;">
+                     <h2 class="h1 mb-0" style="color: #000; font-family: Arial; font-weight: bold;">
                        {{ $webpageContent->title}}
                      </h2>
                    @endif
                    @if ($webpageContent->body)
-                     <div class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif bg-warning-rm px-3">
+                     <div class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif px-3">
                        {!! $webpageContent->body !!}
                      </div>
                    @endif
                  </div>
                  @if ($webpageContent->image_path)
-                   <div class="col-md-6-rm">
-                     <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid rounded-circle-rm">
+                   <div>
+                     <img src="{{ asset('storage/' . $webpageContent->image_path) }}" class="img-fluid">
                    </div>
                  @endif
                  @if ($webpageContent->video_link)
-                   <div class="col-md-12-rm">
+                   <div>
                       <iframe class="w-100" {{-- width="560" --}} height="315" src="https://www.youtube.com/embed/{{ $webpageContent->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                    </div>
                  @endif
                @endif
              </div>
           </div>
-  
         @endforeach
       </div>
-      <div class="col-md-4 p-4 bg-warning-rm">
-        {{-- Display Webpage question form --}}
-        <div class="sticky-top-rm">
+      <div class="col-md-4 p-4">
+        {{--
+        |
+        | Display Webpage question form
+        |
+        --}}
+        <div>
           @livewire ('cms.website.create-webpage-question', ['webpage' => $webpage,])
         </div>
       </div>
@@ -365,8 +355,8 @@
     |
     --}}
     @if ($webpage->is_post == 'no')
-      <div class="container py-4 d-flex">
-        <h2 class="mt-3 text-secondary">
+      <div class="container py-4 d-flex border shadow-sm bg-light">
+        <h2 class="h5 o-heading mt-3">
           <i class="fas fa-exclamation-circle mr-2 text-danger"></i>
           Content is coming soon.
         </h2>
@@ -374,14 +364,17 @@
     @endif
   @endif
   
-  {{-- Previous, next posts section --}} 
+  {{--
+  |
+  | Previous, next posts section.
+  |
+  --}}
   @if ($webpage->is_post == 'yes')
-    <div class="container-fluid bg-light-rm border pt-4" style="background-color: #eee;">
+    <div class="container-fluid border pt-4" style="background-color: #eee;">
       <div class="container p-3">
         <h2 class="h4 font-weight-bold">
           Related posts
         </h2>
-
         @livewire ('cms.website.related-posts', ['webpage' => $webpage, 'relation' => 'previous',])
       </div>
     </div>

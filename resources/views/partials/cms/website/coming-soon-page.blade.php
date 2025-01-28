@@ -1,4 +1,4 @@
-<div class="bg-primary-rm text-white h-100-rm bg-dark-rm" style="height: 100vh !important; background-image: linear-gradient(to right, #345 , #2ad);">
+<div class="text-white" style="height: 100vh !important; background-image: linear-gradient(to right, #345 , #2ad);">
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center h-100 p-3">
       <h1 class="h2 font-weight-bold mb-5">

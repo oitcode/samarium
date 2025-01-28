@@ -4,9 +4,6 @@
 |
 | Ecomm webpage layout blade file.
 |
-| Author: _______ _________
-|
-|
 | All the webpages of ecomm website extend this blade file. It is a simple
 | layout with a header, content and footer.
 |
