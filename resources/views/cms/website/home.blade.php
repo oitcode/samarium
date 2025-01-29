@@ -66,7 +66,7 @@
     |--------------------------------------------------------------------------
     |
     --}}
-    @if (false && has_module('hfn'))
+    @if (has_module('hfn'))
       <div class="container-fluid p-0 o-fade-in" style="
       @if(\App\CmsTheme::first())
         background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};

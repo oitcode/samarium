@@ -4,8 +4,8 @@
   </small>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0">
-  <a class="navbar-brand p-3 text-reset" href="{{ route('dashboard') }}" style="">
-    <button class="p-3 m-3 border text-white" type="button">
+  <a class="navbar-brand p-3-rm text-reset" href="{{ route('dashboard') }}" style="">
+    <button class="btn p-3 m-3 border text-white" type="button">
       <i class="fas fa-home fa-2x"></i>
     </button>
   </a>
