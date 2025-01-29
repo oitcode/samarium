@@ -1,6 +1,6 @@
 <div class="card">
+
   <div class="card-body">
-  
     <h3 class="h5 text-secondary">
         Create new post category
     </h3>
@@ -14,15 +14,10 @@
     </div>
 
     <div class="mt-4">
-      <button type="submit"
-          class="btn btn-success" wire:click="store">
-        Submit
-      </button>
-      <button type="submit" class="btn btn-danger"
-          wire:click="$dispatch('createPostCategoryCanceled')">
-        Cancel
-      </button>
+      @include ('partials.button-store')
+      @include ('partials.button-cancel', ['clickEmitEventName' => 'createPostCategoryCanceled',])
+      @include ('partials.dashboard.spinner-button')
     </div>
-  
   </div>
+
 </div>

@@ -1,15 +1,10 @@
 <div>
 
-
   <div class="pt-3 pl-3">
     <div class="d-flex justify-content-between">
-
       <div class="mb-4 d-none d-md-block p-0">
-
         {{-- Date selector --}}
         <div class="float-left d-flex">
-
-
           <button class="btn btn-light mr-3 p-0" wire:click="setPreviousDay">
             <i class="far fa-arrow-alt-circle-left fa-2x text-secondary"></i>
           </button>
@@ -19,8 +14,7 @@
           </button>
 
           <div class="d-none d-md-block ml-3">
-
-            <input type="date" wire:model="calendarDate" class="">
+            <input type="date" wire:model="calendarDate">
             <button class="btn btn-light" wire:click="setCalendarDate">
               Go
             </button>
@@ -28,19 +22,19 @@
 
           <span class=" mr-3 px-2 font-weight-bold rounded-lg ml-5 pt-2" style="min-width: 300px;">
             @if (\Carbon\Carbon::today() == \Carbon\Carbon::create($calendarDate))
-              <span class="">
+              <span>
                 TODAY
               </span>
             @elseif (\Carbon\Carbon::yesterday() == \Carbon\Carbon::create($calendarDate))
-              <span class="">
+              <span>
                 YESTERDAY
               </span>
             @elseif (\Carbon\Carbon::tomorrow() == \Carbon\Carbon::create($calendarDate))
-              <span class="">
+              <span>
                 TOMORROW
               </span>
             @else
-              <span class="">
+              <span>
                 {{ Carbon\Carbon::parse($calendarDate)->format('Y F d') }}
                 &nbsp;&nbsp;
                 {{ Carbon\Carbon::parse($calendarDate)->format('l') }}
@@ -49,18 +43,12 @@
           </span>
         </div>
 
-        <div wire:loading>
-          <div class="spinner-border text-info mr-3" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
+        @include ('partials.dashboard.spinner-button')
 
         <div class="clearfix">
         </div>
-
       </div>
     </div>
-
 
     <div class="row" style="margin: auto;">
       <div class="col-md-6 p-0">
@@ -72,19 +60,16 @@
           @foreach ($today['events'] as $event)
             <div class="mb-3 p-2 border rounded-lg py-3">
               <i class="fas fa-calendar mr-1 @if ($event->is_holiday == 'yes') text-danger @else text-primary @endif"></i>
-
               @foreach ($event->calendarGroups as $calendarGroup )
                 <span class="badge badge-primary badge-pill mr-3 px-3">
                   {{ $calendarGroup->name }}
                 </span>
               @endforeach
-
               @if ($event->is_holiday == 'yes')
                 <span class="badge badge-danger badge-pill mr-3 px-3">
                   Holiday
                 </span>
               @endif
-
               <span class="h6 font-weight-bold">
                 {{ $event->title }}
               </span>
@@ -98,6 +83,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

@@ -90,7 +90,6 @@
     <hr />
   </div>
 
-
   {{-- Color --}}
   <div class="cssOptions" id="editColor">
     {{-- Background color --}}
@@ -132,17 +131,12 @@
         </select>
       </div>
     </div>
-
   </div>
 
-  {{-- Save button --}}
   <div>
-    <button class="btn btn-success mr-3" wire:click="store">
-      Save
-    </button>
-    <button class="btn btn-danger mr-3" wire:click="$dispatch('webpageContentEditCssCancel')">
-      Cancel
-    </button>
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'webpageContentEditCssCancel',])
+    @include ('partials.dashboard.spinner-button')
   </div>
 
 </div>

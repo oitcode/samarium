@@ -1,11 +1,10 @@
 <div class="card">
+
   <div class="card-body">
-  
     <h3 class="h5 text-secondary">Add item to menu</h3>
   
-    @if (true)
     <div class="form-group">
-      <label for="">Name</label>
+      <label>Name</label>
       <input type="text"
           class="form-control"
           wire:model="name">
@@ -21,7 +20,6 @@
       </select>
       @error('o_type') <span class="text-danger">{{ $message }}</span>@enderror
     </div>
-    @endif
 
     <div class="form-group">
       <label>Webpage</label>
@@ -38,6 +36,6 @@
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateCmsNavMenuItemMode',])
     </div>
-  
   </div>
+
 </div>

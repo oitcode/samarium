@@ -1,6 +1,6 @@
 <div class="card">
+
   <div class="card-body">
-  
     <h3 class="h5 text-secondary">Create new nav menu</h3>
   
     <div class="form-group">
@@ -12,15 +12,10 @@
     </div>
 
     <div class="mt-4">
-      <button type="submit"
-          class="btn btn-success" wire:click="store">
-        Submit
-      </button>
-      <button type="submit"
-          class="btn btn-danger" wire:click="$dispatch('exitCreateMode')">
-        Cancel
-      </button>
+      @include ('partials.button-store')
+      @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
+      @include ('partials.dashboard.spinner-button')
     </div>
-  
   </div>
+
 </div>

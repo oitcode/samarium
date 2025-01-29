@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
   |
   | Toolbar.
@@ -65,9 +64,7 @@
         </div>
       </div>
     </div>
-
   </div>
-
 
   {{--
      |
@@ -75,24 +72,21 @@
      |
   --}}
   <div class="bg-white border p-3-rm my-3">
-    <div class="">
-      <div class="d-flex justify-content-between p-3">
-        <div>
-          <div class="o-heading">
-              Delete this calendar group
-          </div>
-          <div>
-            Once you delete, it cannot be undone. Please be sure.
-          </div>
+    <div class="d-flex justify-content-between p-3">
+      <div>
+        <div class="o-heading">
+            Delete this calendar group
         </div>
         <div>
-          <button class="btn btn-outline-danger" wire:click="">
-            Delete
-          </button>
+          Once you delete, it cannot be undone. Please be sure.
         </div>
+      </div>
+      <div>
+        <button class="btn btn-outline-danger" wire:click="">
+          Delete
+        </button>
       </div>
     </div>
   </div>
-
 
 </div>

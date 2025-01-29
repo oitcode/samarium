@@ -1,6 +1,5 @@
 <div class="m-3">
 
-
   {{-- Show appropriate content adding component --}}
   @if ($modes['headingMode'])
     @livewire ('cms.dashboard.webpage-content-create-heading', ['webpage' => $webpage,])
@@ -18,7 +17,6 @@
     @livewire ('cms.dashboard.webpage-content-create.youtube-video', ['webpage' => $webpage,])
   @else
     <div class="row">
-
       <div class="col-md-2 border p-3" wire:click="enterMode('headingMode')" role="button">
         <div class="d-flex justify-content-center mb-3">
           <i class="fas fa-heading"></i>
@@ -63,7 +61,6 @@
           Gallery
         </div>
       </div>
-
     </div>
 
     <div class="row">
@@ -85,6 +82,5 @@
       </div>
     </div>
   @endif
-
 
 </div>

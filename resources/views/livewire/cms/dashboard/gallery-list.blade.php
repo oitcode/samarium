@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
     </x-slot>
@@ -21,23 +20,19 @@
         <td>
           {{ $gallery->gallery_id }}
         </td>
-
         <td class="h6 font-weight-bold">
           <strong>
           {{ $gallery->name }}
           </strong>
         </td>
-
         <td>
           {{ count($gallery->galleryImages) }}
         </td>
-
         @if (false)
         <td>
           {{ $gallery->totalDiskSpaceOccupied() }}
         </td>
         @endif
-
         <td class="text-right">
           <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayGallery', { gallery: {{ $gallery }} })">
             <i class="fas fa-pencil-alt"></i>
@@ -57,6 +52,5 @@
       {{ $galleries->links() }}
     </x-slot>
   </x-list-component>
-
 
 </div>

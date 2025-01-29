@@ -1,10 +1,10 @@
 <div class="card">
+
   <div class="card-body">
-  
     <h3 class="h5 text-secondary">Add item to menu dropdown</h3>
   
     <div class="form-group">
-      <label for="">Name</label>
+      <label>Name</label>
       <input type="text"
           class="form-control"
           wire:model="name">
@@ -23,15 +23,10 @@
     </div>
 
     <div class="mt-4">
-      <button type="submit"
-          class="btn btn-success" wire:click="store">
-        Submit
-      </button>
-      <button type="submit"
-          class="btn btn-danger" wire:click="$dispatch('exitCreateCmsNavMenuDropdownItemMode')">
-        Cancel
-      </button>
+      @include ('partials.button-store')
+      @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateCmsNavMenuDropdownItemMode',])
+      @include ('partials.dashboard.spinner-button')
     </div>
-  
   </div>
+
 </div>

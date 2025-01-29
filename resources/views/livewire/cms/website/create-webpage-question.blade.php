@@ -1,4 +1,5 @@
-<div class="border p-3 mb-3" style="{{-- background-color: #eee; --}}">
+<div class="border p-3 mb-3">
+
   <h2 class="h5 font-weight-bold text-primary">
     Any question?
   </h2>
@@ -52,13 +53,14 @@
   <div class="form-group">
     <textarea class="form-control" rows="3" placeholder="Question" wire:model="question_text"></textarea>
     @error('question_text')
-        <span class="text-danger" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
+      <span class="text-danger" role="alert">
+          <strong>{{ $message }}</strong>
+      </span>
     @enderror
   </div>
   <button class="btn btn-primary btn-block py-2" wire:click="store">
     Submit
   </button>
   <br/>
+
 </div>

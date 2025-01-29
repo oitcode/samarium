@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Nav menu">
 
@@ -41,6 +40,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

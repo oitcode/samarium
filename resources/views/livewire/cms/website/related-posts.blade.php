@@ -20,13 +20,10 @@
                 </div>
             </div>
           </div>
-
-
         </div>
       </a>
     </div>
   @endforeach
   </div>
-
 
 </div>

@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Posts">
 
@@ -44,6 +43,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

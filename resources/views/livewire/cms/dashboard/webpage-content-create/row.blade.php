@@ -1,7 +1,7 @@
 <div>
 
   <div class="my-3">
-    <div class="">
+    <div>
       <div class="form-group">
         <label>Num of rows</label>
         <select class="form-control">
@@ -14,7 +14,6 @@
   </div>
 
   <div class="row">
-
     @for ($i = 0; $i < $numOfRows; $i++)
       <div class="col-md-4 p-3">
         <div class="p-3 border">
@@ -36,7 +35,6 @@
         </div>
       </div>
     @endfor
-
   </div>
 
   <div class="p-3">

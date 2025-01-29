@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Gallery">
 
@@ -48,6 +47,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

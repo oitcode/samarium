@@ -1,13 +1,11 @@
 <div class="h-100">
+
   {{-- Show in bigger screens --}}
-  <div class="card mb-3 shadow
-      @if ($seatTable->isBooked()) bg-danger-rm text-white-rm  @else bg-success-rm text-white-rm @endif
-      h-100
-      d-none d-md-block"
+  <div class="card mb-3 shadow h-100 d-none d-md-block"
       wire:click="displayWorkingSeatTable({{ $seatTable->seat_table_id }})"
       role="button"
   >
-    <div class="card-header @if ($seatTable->isBooked()) bg-danger-rm text-white-rm @else bg-success-rm text-white-rm @endif">
+    <div class="card-header">
       <div class="float-left">
         <h2 class="h6 o-heading">
           {{ $seatTable->name }}
@@ -21,7 +19,6 @@
             </span>
           @endif
         </h2>
-
       </div>
       <div class="float-right">
           @if ($seatTable->isBooked())
@@ -38,7 +35,6 @@
       </div>
       <div class="clearfix">
       </div>
-  
     </div>
   
     <div class="card-body p-0">
@@ -46,7 +42,7 @@
       <div class="row" style="margin: auto;">
         <div class="col-md-12">
           <div class="table-responsive">
-            <table class="table {{-- @if ($seatTable->isBooked()) bg-danger @else bg-success @endif --}} text-white-rm">
+            <table class="table">
               <tr class="border-0">
                 <td class="border-0">
                   <i class="fas fa-clock mr-3"></i>
@@ -79,15 +75,12 @@
       </div>
       @else
         <div class="d-flex flex-column justify-content-center p-3 h-100">
-  
           <div class="d-flex justify-content-between">
             <div wire:click="displayWorkingSeatTable({{ $seatTable->seat_table_id }})">
             </div>
           </div>
-  
         </div>
       @endif
-  
     </div>
   </div>
 
@@ -99,7 +92,7 @@
       wire:click="$dispatch('displayWorkingSeatTable', {seatTableId: {{ $seatTable->seat_table_id }} })"
       role="button"
   >
-    <div class="card-header @if ($seatTable->isBooked()) bg-danger-rm @else bg-success text-white @endif">
+    <div class="card-header @if ($seatTable->isBooked()) @else bg-success text-white @endif">
       <div class="float-left">
         <h2 class="badge">
           {{ $seatTable->name }}
@@ -111,7 +104,6 @@
       </div>
       <div class="clearfix">
       </div>
-  
     </div>
   
     <div class="card-body p-0">
@@ -148,8 +140,7 @@
         </div>
       </div>
       @else
-        <div class="">
-  
+        <div>
           <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
             <tr class="border-0">
               <td class="border-0">
@@ -166,7 +157,7 @@
           </table>
         </div>
       @endif
-  
     </div>
   </div>
+
 </div>

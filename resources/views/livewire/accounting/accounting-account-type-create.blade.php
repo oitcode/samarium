@@ -5,7 +5,7 @@
   </h1>
 
   <div class="form-group">
-    <label for="">Name</label>
+    <label>Name</label>
     <input type="text" class="form-control" wire:model="name">
     @error('name') <span class="text-danger">{{ $message }}</span> @enderror
   </div>

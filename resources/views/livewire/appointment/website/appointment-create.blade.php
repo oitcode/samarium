@@ -34,26 +34,25 @@
 
       <div class="row" style="margin: auto;">
         <div class="col-md-6 p-0">
-          <!-- Flash message div -->
+
+          {{--
+          |
+          | Flash message div.
+          |
+          --}}
+
           @if (session()->has('message'))
-            <div class="p-2">
-              <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <i class="fas fa-check-circle mr-3"></i>
-                {{ session('message') }}
-                <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-                  <span class="text-danger" aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            </div>
+            @include ('partials.flash-message', ['message' => session('message'),])
           @endif
-          <div class="my-4-rm py-4 px-2 border-top border-bottom bg-white">
+
+          <div class="py-4 px-2 border-top border-bottom bg-white">
             <h2 class="h6 mb-3">
               Doctor Details:
             </h2>
             <div class="d-flex">
               <div class="mr-4">
                 @if ($teamMember->image_path)
-                  <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $teamMember->image_path) }}" alt="{{ $teamMember->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
+                  <img class="img-fluid" src="{{ asset('storage/' . $teamMember->image_path) }}" alt="{{ $teamMember->name }}" style="max-height: 150px;">
                 @else
                   <div class="py-5">
                     <i class="fas fa-user fa-5x text-secondary"></i>
@@ -72,7 +71,7 @@
             </div>
           </div>
     
-          <div class="py-3 px-2 border-bottom-rm bg-white">
+          <div class="py-3 px-2 bg-white">
             <h2 class="h6">
               <i class="fas fa-calendar text-primary"></i>
               Date
@@ -108,17 +107,18 @@
             </div>
           </div>
 
-          <div class="mt-3-rm py-3 pt-4 px-2 bg-white">
+          <div class="py-3 pt-4 px-2 bg-white">
             <h2 class="h5">
               Patient Details
             </h2>
+
             <div class="form-group">
-              <input type="text" class="form-control" id="" wire:model="applicant_name" placeholder="Name">
+              <input type="text" class="form-control" wire:model="applicant_name" placeholder="Name">
               @error('applicant_name') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" id="" wire:model="applicant_phone" placeholder="Phone">
+              <input type="text" class="form-control" wire:model="applicant_phone" placeholder="Phone">
               @error('applicant_phone') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
     
@@ -126,9 +126,8 @@
               <textarea rows="3" class="form-control" wire:model="applicant_description" placeholder="Description"></textarea>
               @error('applicant_description') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
-    
           </div>
-    
+
           <div class="px-2 mb-4">
             <button class="btn btn-lg btn-block btn btn-primary mr-3 py-4" wire:click="store">Book appointment</button>
           </div>
@@ -141,7 +140,7 @@
           </div>
         </div>
       </div>
-    
     </div>
   </div>
+
 </div>

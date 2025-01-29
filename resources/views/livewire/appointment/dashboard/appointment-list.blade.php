@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       Total : {{ $appointmentCount }}
@@ -45,7 +44,7 @@
             </strong>
           </td>
           <td>
-            <div class="">
+            <div>
               {{ $appointment->applicant_phone }}
             </div>
           </td>
@@ -103,8 +102,6 @@
     <x-slot name="listPaginationLinks">
       {{ $appointments->links() }}
     </x-slot>
-
   </x-list-component>
-
 
 </div>

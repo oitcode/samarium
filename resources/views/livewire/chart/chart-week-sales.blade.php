@@ -1,11 +1,7 @@
 <div class="card shadow-sm h-100">
   <div class="card-body ">
     <h2 class="h4">
-      @if (config('app.site_type') === 'erp')
-        Week Sales
-      @elseif (config('app.site_type') === 'ecs')
-        Week Revenue
-      @endif
+      Week Sales
     </h2>
     <div class="bg-white">
       <canvas id="myChart" width="200" height="200"></canvas>

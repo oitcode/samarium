@@ -1,6 +1,6 @@
 <div class="card">
+
   <div class="card-body">
-  
     <h1 class="h5 mb-4 o-heading">
       @if ($is_post == 'yes')
         Create new post
@@ -10,7 +10,7 @@
     </h1>
   
     <div class="form-group">
-      <label for="">Name *</label>
+      <label>Name *</label>
       <input type="text"
           class="form-control"
           wire:model="name">
@@ -19,7 +19,7 @@
 
     @if ($is_post == 'no')
     <div class="form-group">
-      <label for="">Permalink *</label>
+      <label>Permalink *</label>
       <input type="text"
           class="form-control"
           wire:model="permalink">
@@ -35,6 +35,6 @@
         @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
       @endif
     </div>
-  
   </div>
+
 </div>

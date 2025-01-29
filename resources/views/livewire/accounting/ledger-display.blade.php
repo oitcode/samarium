@@ -19,7 +19,6 @@
           <th>Amount ID</th>
         </tr>
       </thead>
-
       <tbody>
         @foreach ($ledgerEntries as $ledgerEntry)
           <tr>
@@ -36,7 +35,6 @@
               <td>
                 {{ $ledgerEntry->amount }}
               </td>
-
               <td>
               </td>
               <td>
@@ -54,7 +52,6 @@
               </td>
               <td>
               </td>
-
               <td>
                 {{ $ledgerEntry->date }}
               </td>

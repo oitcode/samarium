@@ -1,4 +1,4 @@
-<div class="border bg-white p-3" {{-- style="background-color: #ffe" --}}>
+<div class="border bg-white p-3">
 
   {{-- Top info / Banner --}}
   <div class="border-bottom mb-4">
@@ -7,25 +7,23 @@
     </h1>
     <p>
       For the Year Ending: 
-      2078-79
+      0000-00
     </p>
   </div>
 
   {{-- Accounting year info --}}
   <div class="mb-3">
-
-      <div class="row border-bottom">
-        <div class="col-md-6">
-          <h2 class="h5 bg-primary-rm text-primary">
-            Cash at the beginning of year
-          </h2>
-        </div>
-        <div class="col-md-6">
-          Rs
-          10,000
-        </div>
+    <div class="row border-bottom">
+      <div class="col-md-6">
+        <h2 class="h5 bg-primary-rm text-primary">
+          Cash at the beginning of year
+        </h2>
       </div>
-
+      <div class="col-md-6">
+        Rs
+        000
+      </div>
+    </div>
   </div>
 
   {{-- Operations --}}

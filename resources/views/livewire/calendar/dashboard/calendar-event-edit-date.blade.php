@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="form-group">
      @livewire ('school.calendar-date-picker-nepali', ['emitDate' => 'start_date',], key(rand()))
   </div>
@@ -25,6 +24,5 @@
     @include ('partials.button-cancel', ['clickEmitEventName' => 'calendarEventUpdateDateCancelled',])
     @include ('partials.spinner-border')
   </div>
-
 
 </div>

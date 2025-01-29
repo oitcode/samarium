@@ -1,4 +1,5 @@
 <div>
+
   <h2 class="h4 mb-3">
     Youtube video
   </h2>
@@ -9,7 +10,7 @@
     @error('youtube_video_id') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
-  <div class="">
+  <div>
     <button class="btn btn-success" wire:click="store">
       Save
     </button>
@@ -17,4 +18,5 @@
       Cancel
     </button>
   </div>
+
 </div>

@@ -2,7 +2,6 @@
 
   {{-- Top tool bar --}}
   <div class="mb-3 border bg-white shadow">
-
     <div class="dropdown d-inline mr-0">
       <button class="btn btn-light dropdown-toggle p-3" type="button"
           id="dropdownMenuButtonAccount" data-toggle="dropdown"
@@ -89,15 +88,14 @@
         </button>
       </div>
     </div>
-
-    <button wire:loading class="btn">
-      <div class="spinner-border text-info mr-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </button>
+    @include ('partials.dashboard.spinner-button')
   </div>
 
-  {{-- Use required component as per mode --}}
+  {{--
+     |
+     | Use required component as per mode
+     |
+  --}}
 
   @if ($modes['create'])
     @livewire ('accounting.accounting-account-create')

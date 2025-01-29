@@ -43,7 +43,6 @@
         Rs 0
       </div>
     </div>
-
   </div>
 
   {{-- Liabilities --}}

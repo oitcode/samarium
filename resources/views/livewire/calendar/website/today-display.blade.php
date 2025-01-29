@@ -1,30 +1,5 @@
 <div class="rounded bg-white">
 
-
-  @if (true)
-  <div style="
-    {{--
-    background-color:
-        @if (\App\CmsTheme::first())
-          {{ \App\CmsTheme::first()->footer_bg_color }}
-        @else
-          orange
-        @endif
-        ;
-    color:
-        @if (\App\CmsTheme::first())
-          {{ \App\CmsTheme::first()->footer_text_color }}
-        @else
-          white
-        @endif
-        ;
-        --}}
-  ">
-  </div>
-  @endif
-
-  <div>
-  </div>
   <div class="border">
     <div class="h6 px-2 mb-0 mt-3 mb-2">
       <span class="font-weight-bold badge badge-dark">
@@ -52,22 +27,21 @@
       </div>
     @else
     @endif
-      <div class="px-2 pb-3 flex-grow-1">
-        @if (count($today['events']) > 0)
-          @foreach ($today['events'] as $event)
-            <i class="fas fa-calendar mr-1"></i>
-            <span class="">
-              {{ $event->title }}
-            </span>
-            <br />
-          @endforeach
-        @else
-          <div class="p-0">
-            No calendar events
-          </div>
-        @endif
-      </div>
+    <div class="px-2 pb-3 flex-grow-1">
+      @if (count($today['events']) > 0)
+        @foreach ($today['events'] as $event)
+          <i class="fas fa-calendar mr-1"></i>
+          <span>
+            {{ $event->title }}
+          </span>
+          <br />
+        @endforeach
+      @else
+        <div class="p-0">
+          No calendar events
+        </div>
+      @endif
+    </div>
   </div>
-
 
 </div>

@@ -1,6 +1,5 @@
 <div>
 
-
   <div wire:ignore>
 
     <input id="wcb2" value="{{ $this->paragraph }}" wire:model.live="paragraph" type="hidden">
@@ -18,7 +17,7 @@
     @endscript
   </div>
 
-  <div class="">
+  <div>
     <button class="btn btn-success" wire:click="store">
       Save
     </button>
@@ -26,6 +25,5 @@
       Cancel
     </button>
   </div>
-
 
 </div>

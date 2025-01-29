@@ -1,4 +1,5 @@
 <div>
+
   <h2 class="h4 mb-3">
     Media and text
   </h2>
@@ -24,12 +25,10 @@
     @error('paragraph') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
-  <div class="">
-    <button class="btn btn-success" wire:click="store">
-      Save
-    </button>
-    <button class="btn btn-danger" wire:click="$dispatch('webpageContentCreateMediaAndTextCancelled')">
-      Cancel
-    </button>
+  <div>
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'webpageContentCreateMediaAndTextCancelled',])
+    @include ('partials.dashboard.spinner-button')
   </div>
+
 </div>

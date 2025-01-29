@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Pages">
 
@@ -42,6 +41,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="form-group">
     <select class="form-control-rm" wire:model="is_holiday">
       <option value="yes">Yes</option>
@@ -13,6 +12,5 @@
     @include ('partials.button-cancel', ['clickEmitEventName' => 'calendarEventUpdateIsHolidayCancelled',])
     @include ('partials.spinner-border')
   </div>
-
 
 </div>

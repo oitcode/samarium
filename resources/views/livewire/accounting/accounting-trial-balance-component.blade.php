@@ -26,7 +26,6 @@
           <th>Credit Balance</th>
         </tr>
       </thead>
-
       <tbody>
         @foreach ($abAccounts as $account)
           <tr>
@@ -54,12 +53,10 @@
               @endif
             </td>
           </tr>
-
         @endforeach
       </tbody>
-
       <tfoot>
-        <tr class="bg-primary-rm text-white-rm" style="background-color: #efe;">
+        <tr>
           <th>
             Total
           </th>

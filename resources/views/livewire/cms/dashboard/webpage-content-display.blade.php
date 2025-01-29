@@ -1,9 +1,7 @@
 <div>
 
-
   {{-- Toolbar --}}
   <div class="d-flex justify-content-between">
-  
     {{-- Toolbar body --}}
     <div>
       @if ($modes['delete'])
@@ -49,14 +47,11 @@
     --}}
     <div class="container-fluid bg-white p-0 bg-warning mb-4">
       <div class="py-1 border-top">
-        <div class="">
-          <div>
-            {!! $webpageContent->body !!}
-          </div>
+        <div>
+          {!! $webpageContent->body !!}
         </div>
       </div>
     </div>
   @endif
-
 
 </div>

@@ -6,7 +6,7 @@
 
   <div class="form-group">
     <label>Name *</label>
-    <input type="text" class="form-control" id="" wire:model="name" placeholder="Name">
+    <input type="text" class="form-control" wire:model="name" placeholder="Name">
     @error('name') <span class="text-danger">{{ $message }}</span>@enderror
   </div>
 
@@ -36,11 +36,7 @@
   <div class="py-3">
     @include ('partials.button-store')
     @include ('partials.button-cancel', ['clickEmitEventName' => 'exitGalleryCreateMode',])
-
-    <button wire:loading class="btn">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+    @include ('partials.dashboard.spinner-button')
   </div>
 
 </div>

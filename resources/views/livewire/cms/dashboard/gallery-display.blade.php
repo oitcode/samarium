@@ -44,29 +44,23 @@
         </button>
       @endif
     </div>
-    <div class="">
+    <div>
       <small>
         <span class="text-secondary mr-1">
           Gallery ID:
         </span>
         {{ $gallery->gallery_id }}
-
         &nbsp;&nbsp;&nbsp;&nbsp;
-
         <span class="text-secondary mr-1">
           Published:
         </span>
         {{ $gallery->created_at->toDateString() }}
-
         &nbsp;&nbsp;&nbsp;&nbsp;
-
         <span class="text-secondary mr-1">
           Last Updated:
         </span>
         {{ $gallery->updated_at->toDateString() }}
-
-        <i class="fas fa-refresh fa-2x-rm mx-5" wire:click="$refresh" role="button"></i>
-
+        <i class="fas fa-refresh mx-5" wire:click="$refresh" role="button"></i>
       </small>
     </div>
   </div>
@@ -105,7 +99,6 @@
     @endif
   </div>
 
-
   {{-- Settings --}}
   <div class="bg-white my-3 p-3">
     <h4 class="h5 mb-4">Settings</h4>
@@ -115,23 +108,21 @@
       <div class="font-weight-bold mb-3">
         Show in gallery page
       </div>
+      <div>
+        @if ($gallery->show_in_gallery_page == 'yes')
+          <i class="fas fa-check-circle text-success"></i>
+          Yes
+        @else
+          <i class="fas fa-times-circle text-danger"></i>
+          No
+        @endif
         <div>
-          @if ($gallery->show_in_gallery_page == 'yes')
-            <i class="fas fa-check-circle text-success"></i>
-            Yes
-          @else
-            <i class="fas fa-times-circle text-danger"></i>
-            No
-          @endif
-          <div>
-            <button class="btn text-primary pl-0" wire:click="toggleGalleryPageVisibility">
-              Toggle visibility
-            </button>
-          </div>
+          <button class="btn text-primary pl-0" wire:click="toggleGalleryPageVisibility">
+            Toggle visibility
+          </button>
         </div>
+      </div>
     </div>
-
   </div>
-
 
 </div>

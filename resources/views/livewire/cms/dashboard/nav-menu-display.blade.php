@@ -1,14 +1,12 @@
-<div class="p-2-rm bg-white-rm border-rm">
+<div>
 
   <x-toolbar-classic toolbarTitle="Navigation menu" titleNone="yes">
     @include ('partials.dashboard.spinner-button')
-
     <button class="btn btn-primary border mr-2" wire:click="enterMode('createNavMenuItem')">
       <i class="fas fa-plus-circle mr-2"></i>
       Add item
     </button>
   </x-toolbar-classic>
-
 
   @if ($modes['createNavMenuItem'])
     @livewire ('cms.dashboard.nav-menu-display-nav-menu-item-create', ['cmsNavMenu' => $cmsNavMenu,])
@@ -18,13 +16,11 @@
     @if (count($cmsNavMenu->cmsNavMenuItems) > 0)
       <div class="table-responsive bg-white border">
         <table class="table">
-
           <thead>
             <th class="o-heading">Name</th>
             <th class="o-heading">Webpage</th>
             <th class="o-heading text-right">Action</th>
           </thead>
-
           <tbody>
             @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
               <tr>
@@ -68,7 +64,6 @@
               </tr>
             @endforeach
           </tbody>
-
         </table>
       </div>
     @else
@@ -77,4 +72,5 @@
       </div>
     @endif
   @endif
+
 </div>

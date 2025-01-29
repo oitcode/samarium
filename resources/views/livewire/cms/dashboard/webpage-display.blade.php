@@ -1,6 +1,5 @@
 <div class="p-0">
 
-
 {{--
 *
 * Livewire component: Webpage display in dashboard.
@@ -142,7 +141,6 @@
             </div>
           @endforeach
         @endif
-
       </div>
     </div>
 
@@ -153,15 +151,12 @@
       |
       --}}
       <div class="p-0 pt-3 pt-md-0">
-
         <div>
-          @if (true)
           {{-- Basic details --}}
           <div class="mb-4 bg-white border">
             <div class="table-responsive">
               <table class="table mb-0">
                 <tbody>
-                  @if (true)
                   <tr class="border-0">
                     <th class="border-0"> Created at </th>
                     <td class="border-0"> {{ $webpage->created_at }} </td>
@@ -170,7 +165,6 @@
                     <th class="border-0"> Updated at </th>
                     <td class="border-0"> {{ $webpage->updated_at }} </td>
                   </tr>
-                  @endif
                   <tr>
                     <th class="border-0"> Permalink </th>
                     <td class="border-0"> {{ $webpage->permalink }} </td>
@@ -184,9 +178,7 @@
                         <div class="d-flex justify-content-between">
                           <div>
                             @if ($webpage->visibility == null)
-                              @if (true)
                               <i class="fas fa-exclamation-circle mr-1"></i>
-                              @endif
                               Not set
                             @elseif ($webpage->visibility == 'public')
                               Public
@@ -196,7 +188,6 @@
                               Whoops
                             @endif
                           </div>
-
                           <div>
                             <button class="btn btn-light mx-3" wire:click="enterModeSilent('editVisibilityMode')">
                               <i class="fas fa-pencil-alt"></i>
@@ -238,8 +229,6 @@
               </table>
             </div>
           </div>
-          @endif
-
 
           {{-- Featured Image --}}
           <div class="mb-4 bg-white border">
@@ -263,18 +252,14 @@
             @else
               @if ($webpage->featured_image_path)
                 <div>
-                  <img src="{{ asset('storage/' . $webpage->featured_image_path) }}"
-                      class="img-fluid"
-                      style=""
-                  >
+                  <img src="{{ asset('storage/' . $webpage->featured_image_path) }}" class="img-fluid">
                 </div>
               @else
                 <div class="p-3 form-group mb-0">
-                    <label for="">Featured Image</label>
+                    <label>Featured Image</label>
                     <input type="file" class="form-control" wire:model.live="featured_image">
                     @error('featured_image') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
-
                 <div class="p-3">
                   <button class="btn btn-success" wire:click="addFeaturedImage">
                     Save
@@ -286,7 +271,6 @@
                 </div>
               @endif
             @endif
-
           </div>
 
           @if ($webpage->is_post != 'yes')
@@ -311,7 +295,6 @@
                       None
                     @endif
                   </div>
-
                   <button class="btn btn-light mx-3" wire:click="enterModeSilent('editWebpageCategoryPostpageMode')">
                     <i class="fas fa-plus-circle"></i>
                   </button>
@@ -321,7 +304,7 @@
           </div>
 
           {{-- Team page part --}}
-          <div class="p-2-rm mb-4 bg-white border">
+          <div class="mb-4 bg-white border">
             <h2 class="h6 font-weight-bold py-3 px-3 bg-light">
               Team page
             </h2>
@@ -341,7 +324,6 @@
                       None
                     @endif
                   </div>
-
                   <button class="btn btn-light mx-3" wire:click="enterModeSilent('editTeamTeampageMode')">
                     <i class="fas fa-plus-circle"></i>
                   </button>
@@ -350,14 +332,9 @@
             </div>
           </div>
           @endif
-
-
         </div>
-
       </div>
     </div>
   </div>
-
-
 
 </div>

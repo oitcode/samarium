@@ -1,4 +1,5 @@
 <div class="container-fluid">
+
   <div class="container py-3">
     @if ($galleries != null && count($galleries) > 0)
         @foreach ($galleries as $gallery)
@@ -18,4 +19,5 @@
       </span>
     @endif
   </div>
+
 </div>

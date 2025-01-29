@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
     </x-slot>
@@ -109,6 +108,5 @@
       {{ $posts->links() }}
     </x-slot>
   </x-list-component>
-
 
 </div>

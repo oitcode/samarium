@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="container p-0">
     <div class="row" style="margin: auto;">
       @if ($onlyForm != 'yes')
@@ -53,35 +52,35 @@
           <div>
             @if ($company->fb_link)
               <a href="{{ $company->fb_link }}" target="_blank">
-                <div class="float-left text-primary" style="">
+                <div class="float-left text-primary">
                   <i class="fab fa-facebook mr-3 fa-2x"></i>
                 </div>
               </a>
             @endif
             @if ($company->twitter_link)
               <a href="{{ $company->twitter_link }}" target="_blank">
-                <div class="float-left text-info" style="">
+                <div class="float-left text-info">
                   <i class="fab fa-twitter mr-3 fa-2x"></i>
                 </div>
               </a>
             @endif
             @if ($company->insta_link)
               <a href="{{ $company->insta_link }}" target="_blank">
-                <div class="float-left text-danger" style="">
+                <div class="float-left text-danger">
                   <i class="fab fa-instagram mr-3 fa-2x"></i>
                 </div>
               </a>
             @endif
             @if ($company->youtube_link)
               <a href="{{ $company->youtube_link }}" target="_blank">
-                <div class="float-left text-danger" style="">
+                <div class="float-left text-danger">
                   <i class="fab fa-youtube mr-3 fa-2x"></i>
                 </div>
               </a>
             @endif
             @if ($company->tiktok_link)
               <a href="{{ $company->tiktok_link }}" target="_blank">
-                <div class="float-left text-danger" style="">
+                <div class="float-left text-danger">
                   <i class="fab fa-tiktok mr-3 fa-2x"></i>
                 </div>
               </a>
@@ -151,6 +150,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

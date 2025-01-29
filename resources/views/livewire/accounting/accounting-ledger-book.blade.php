@@ -48,7 +48,6 @@
               <th>Amount</th>
             </tr>
           </thead>
-    
           <tbody>
             @foreach ($selectedAbAccount->ledgerEntries as $ledgerEntry)
               <tr>
@@ -65,7 +64,6 @@
                   <td>
                     {{ $ledgerEntry->amount }}
                   </td>
-    
                   <td>
                   </td>
                   <td>
@@ -83,7 +81,6 @@
                   </td>
                   <td>
                   </td>
-    
                   <td>
                     {{ $ledgerEntry->date }}
                   </td>
@@ -102,7 +99,6 @@
               </tr>
             @endforeach
           </tbody>
-
           <tfoot>
             <tr class="border">
               <th colspan="3">Total</th>
@@ -115,7 +111,6 @@
                 {{ $creditTotal }}
               </td>
             </tr>
-
             <tr class="border">
               <th colspan="3">Opening balance</th>
               <td class="font-weight-bold">

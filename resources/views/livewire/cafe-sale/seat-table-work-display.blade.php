@@ -1,6 +1,5 @@
 <div>
 
-
   @if ($seatTable->isBooked())
     @livewire ('sale.sale-invoice-work', ['saleInvoice' => $seatTable->getCurrentBooking()->saleInvoice,])
   @else
@@ -14,7 +13,6 @@
 
         <div class="card-body">
           <div class="d-flex">
-
             <div class="py-2">
               <button onclick="this.disabled=true;" class="btn btn-success mr-3" style="height: 100px; width: 225px;" wire:click="bookSeatTable">
                 <i class="fas fa-check mr-3"></i>
@@ -29,12 +27,10 @@
                 Delete table
               </button>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   @endif
-
 
 </div>

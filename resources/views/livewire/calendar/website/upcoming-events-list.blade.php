@@ -35,7 +35,7 @@
       <div class="col-md-8">
         <div class="d-flex py-3">
           <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
-            <button class="btn btn-success border dropdown-toggle" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-success border dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Select Calendar Group
             </button>
             <div class="dropdown-menu" aria-labelledby="calendarGroupDropdownMenu">
@@ -44,7 +44,6 @@
               @endforeach
             </div>
           </div>
-
           <div>
             @include ('partials.dashboard.spinner-button')
           </div>
@@ -52,8 +51,6 @@
       </div>
     </div>
   @endif
-
-
 
   @if ($hasEvents)
     @foreach ($monthBook as $day)
@@ -67,7 +64,8 @@
                       orange
                     @endif
                     ;
-        ">
+                    "
+        >
           <div class="h-100" style="background-color: rgba(255, 255, 255, 0.5)">
             <div class="h-100 p-3">
               <div class="h5 font-weight-bold mb-1" style="
@@ -102,7 +100,6 @@
             </div>
           @endif
           @foreach ($day['events'] as $event)
-
             <div class="d-flex">
               <div class="mr-2">
                 <i class="fas fa-calendar text-muted"></i>

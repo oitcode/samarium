@@ -31,7 +31,6 @@
             </span>
           </td>
           <td>
-
             @if ($webpage->creator)
               {{ $webpage->creator->name }}
             @else
@@ -41,7 +40,6 @@
               </span>
             @endif
           </td>
-
           <td>
             Published
             <br/>
@@ -63,17 +61,15 @@
             @endif
           </td>
           <td class="text-right">
-            @if (true)
-              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayWebpage', { webpage: {{ $webpage }} })">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayWebpage', { webpage: {{ $webpage }} })">
-                <i class="fas fa-eye"></i>
-              </button>
-              <button class="btn btn-danger px-2 py-1" wire:click="deleteWebpage({{ $webpage }})">
-                <i class="fas fa-trash"></i>
-              </button>
-            @endif
+            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayWebpage', { webpage: {{ $webpage }} })">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayWebpage', { webpage: {{ $webpage }} })">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-danger px-2 py-1" wire:click="deleteWebpage({{ $webpage }})">
+              <i class="fas fa-trash"></i>
+            </button>
             @if ($modes['delete'])
               @if ($deletingWebpage->webpage_id == $webpage->webpage_id)
                 @if ($modes['cannotDelete'])
@@ -101,8 +97,6 @@
     <x-slot name="listPaginationLinks">
       {{ $webpages->links() }}
     </x-slot>
-
   </x-list-component>
-
 
 </div>

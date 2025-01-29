@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Calendar Group">
 
@@ -42,6 +41,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

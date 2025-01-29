@@ -1,6 +1,6 @@
-<div class="text-secondary-rm py-1">
-  <i class="fas fa-info-circle text-primary-rm mr-2"></i>
-  <span class="text-secondary-rm">
-    v0.4.1
+<div class="py-1">
+  <i class="fas fa-info-circle mr-2"></i>
+  <span>
+    v0.9.1
   </span>
 </div>
