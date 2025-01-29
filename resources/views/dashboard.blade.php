@@ -25,7 +25,7 @@
 
 @section ('content')
 
-  <div class="d-none d-md-block p-0">
+  <div class="p-0">
 
     {{--
     |
