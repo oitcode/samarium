@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="mb-0 p-0">
     @if ($display_toolbar)
 
@@ -155,23 +154,23 @@
             </thead>
             <tbody>
               @foreach ($saleQuotation->saleQuotationItems as $item)
-              <tr>
-                <td style="border: 1px solid black;">
-                  {{ $loop->iteration }}
-                </td>
-                <td style="border: 1px solid black;">
-                  {{ $item->product->name }}
-                </td>
-                <td style="border: 1px solid black;">
-                  {{ $item->quantity }}
-                </td>
-                <td style="border: 1px solid black;">
-                  @php echo number_format( $item->price_per_unit); @endphp
-                </td>
-                <td style="border: 1px solid black;">
-                  @php echo number_format( $item->getTotalAmount() ); @endphp
-                </td>
-              </tr>
+                <tr>
+                  <td style="border: 1px solid black;">
+                    {{ $loop->iteration }}
+                  </td>
+                  <td style="border: 1px solid black;">
+                    {{ $item->product->name }}
+                  </td>
+                  <td style="border: 1px solid black;">
+                    {{ $item->quantity }}
+                  </td>
+                  <td style="border: 1px solid black;">
+                    @php echo number_format( $item->price_per_unit); @endphp
+                  </td>
+                  <td style="border: 1px solid black;">
+                    @php echo number_format( $item->getTotalAmount() ); @endphp
+                  </td>
+                </tr>
               @endforeach
             </tbody>
             <tfoot>
@@ -251,7 +250,6 @@
             </tfoot>
           </table>
         </div>
-        {{-- ./Show in smaller screens --}}
       </div>
     </div>
   </div>
@@ -276,6 +274,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

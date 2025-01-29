@@ -1,12 +1,12 @@
 <div>
+
   @if (! $modes['showForm'])
-  <button class="btn btn-warning-rm mr-3 w-100" style="height: 120px; background-color: orange;"
+  <button class="btn mr-3 w-100" style="height: 120px; background-color: orange;"
       wire:click="enterMode('showForm')">
     <i class="fas fa-shopping-cart mr-3"></i>
     ORDER
   </button>
   @else
-
     <div class="card">
       <div class="card-header p-3">
         <h2 class="text-success">
@@ -37,7 +37,7 @@
 
         <div class="row">
           <div class="col-md-6">
-            <button class="btn btn-warning-rm mr-3 text-white w-100" style="height: 100px; background-color: green; font-weight:
+            <button class="btn mr-3 text-white w-100" style="height: 100px; background-color: green; font-weight:
             bold" wire:click="store">
               <i class="fas fa-shopping-cart mr-3"></i>
               CONFIRM
@@ -53,4 +53,5 @@
       </div>
     </div>
   @endif
+
 </div>

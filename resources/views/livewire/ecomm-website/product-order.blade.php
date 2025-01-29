@@ -12,7 +12,7 @@
 
   <div class="card">
     <div class="card-header p-3">
-      <h2 class="text-success-rm">
+      <h2>
         Order product
       </h2>
       <div class="text-secondary">
@@ -43,7 +43,7 @@
 
       <div class="row">
         <div class="col-md-6">
-          <button class="btn btn-success mr-3 w-100" style="" wire:click="store">
+          <button class="btn btn-success mr-3 w-100" wire:click="store">
             <i class="fas fa-shopping-cart mr-3"></i>
             CONFIRM
           </button>

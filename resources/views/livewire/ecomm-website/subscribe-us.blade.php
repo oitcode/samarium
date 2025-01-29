@@ -1,20 +1,19 @@
 <div>
 
-
-  <div class="text-white-rm border-rm px-3-rm">
+  <div>
     <div class="row">
-      <div class="col-md-12 py-4-rm">
-        <h2 class="h5 font-weight-bold text-center-rm">
+      <div class="col-md-12">
+        <h2 class="h5 font-weight-bold">
           Subscribe us
         </h2>
-        <p class="">
+        <p>
           {{ $introMessage }}
         </p>
 
         <!-- Flash message div -->
         @if (session()->has('subscriptionMessage'))
           <div class="p-2">
-            <div class="alert alert-success-rm alert-dismissible fade show px-0" role="alert">
+            <div class="alert alert-dismissible fade show px-0" role="alert">
               <i class="fas fa-check-circle mr-3"></i>
               {{ session('subscriptionMessage') }}
               <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
@@ -26,15 +25,15 @@
 
         <div class="form-group">
           <input type="text" class="form-control" wire:model="email" placeholder="Enter a valid email address" />
-          @error('email')
-            <div class="my-2 text-white-rm">
+          @error ('email')
+            <div class="my-2m">
               <i class="fas fa-exclamation-circle r-1"></i>
-              <span class="text-white-rm">{{ $message }}</span>
+              <span>{{ $message }}</span>
             </div>
           @enderror
         </div>
-        <div class="mt-4 d-flex justify-content-center-rm">
-          <button class="btn btn-danger-rm shadow border border-light" wire:click="store"
+        <div class="mt-4 d-flex">
+          <button class="btn shadow border border-light" wire:click="store"
               style="
                   @if (\App\CmsTheme::first())
                   background-image:
@@ -56,7 +55,5 @@
       </div>
     </div>
   </div>
-
-
 
 </div>

@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Expense">
 
@@ -53,6 +52,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

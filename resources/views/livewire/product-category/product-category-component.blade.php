@@ -1,5 +1,4 @@
 <div class="p-md-0">
-
   
   <x-base-component moduleName="Product Category">
 
@@ -42,6 +41,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

@@ -1,6 +1,5 @@
 <div>
 
-
   @if ($modes['productCategoryProductList'])
     @livewire ('cafe-menu-product-category-product-list', ['productCategory' => $selectedProductCategory,])
   @else
@@ -44,6 +43,5 @@
       </x-slot>
     </x-list-component>
   @endif
-
 
 </div>

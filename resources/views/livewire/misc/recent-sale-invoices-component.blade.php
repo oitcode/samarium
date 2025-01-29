@@ -1,4 +1,5 @@
 <div class="bg-white">
+
   <div class="table-responsive">
     <table class="table table-hover table-bordered">
       <thead>
@@ -14,7 +15,6 @@
           </th>
         </tr>
       </thead>
-
       <tbody>
         @foreach ($saleInvoices as $saleInvoice)
           <tr>
@@ -39,4 +39,5 @@
       </tbody>
     </table>
   </div>
+
 </div>

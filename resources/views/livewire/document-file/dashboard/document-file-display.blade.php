@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
   |
   | Toolbar
@@ -29,7 +28,6 @@
       <i class="fas fa-cogs mr-3 text-secondary"></i>
       {{ $documentFile->name }}
     </div>
-
     <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
@@ -175,6 +173,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

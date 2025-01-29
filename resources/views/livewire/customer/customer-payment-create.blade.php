@@ -31,7 +31,6 @@
       <select class="w-100 h-100 custom-control"
           wire:model="sale_invoice_payment_type_id">
         <option>---</option>
-
         @foreach ($saleInvoicePaymentTypes as $saleInvoicePaymentType)
           <option value="{{ $saleInvoicePaymentType->sale_invoice_payment_type_id }}">
             {{ $saleInvoicePaymentType->name }}
@@ -42,16 +41,10 @@
     </div>
 
     <div class="py-3 m-0">
-      <div class="row">
-
-        <div class="col-md-8">
-          @include ('partials.button-store')
-          @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCustomerPaymentCreateMode'])
-        </div>
-      </div>
-
+      @include ('partials.button-store')
+      @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCustomerPaymentCreateMode'])
+      @include ('partials.dashboard.spinner-button')
     </div>
   </div>
-
 
 </div>

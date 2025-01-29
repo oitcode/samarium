@@ -1,4 +1,4 @@
-<div class="bg-white-rm">
+<div>
 
   {{--
   |
@@ -214,4 +214,5 @@
       </div>
     </div>
   </div>
+
 </div>

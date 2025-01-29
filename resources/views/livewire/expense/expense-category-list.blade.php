@@ -1,6 +1,6 @@
 <div class="card">
+
   <div class="card-body p-0">
-  
     @if (!is_null($expenseCategories) && count($expenseCategories) > 0)
       <table class="table table-hover table-valign-middle">
         <thead>
@@ -9,7 +9,6 @@
             <th class="text-info">Action</th>
           </tr>
         </thead>
-  
         <tbody>
           @foreach($expenseCategories as $expenseCategory)
           <tr>
@@ -18,7 +17,6 @@
                 {{ $expenseCategory->name }}
               </a>
             </td>
-  
             <td>
               <span class="btn btn-tool btn-sm mr-2" wire:click="$dispatch('displayExpenseCategory', {expenseCategory: {{ $expenseCategory }} })">
                 <i class="fas fa-pencil-alt text-primary"></i>
@@ -36,6 +34,6 @@
         No expense categories.
       </div>
     @endif
-  
   </div>
+
 </div>

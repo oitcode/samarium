@@ -38,21 +38,19 @@
     <div class="row">
       <div class="col-md-8">
         <x-transaction-main-info-component>
-
           <x-slot name="transactionIdName">
             Expense ID
           </x-slot>
           <x-slot name="transactionIdValue">
             {{ $expense->expense_id }}
           </x-slot>
-
           <x-slot name="transactionDateName">
             Expense Date
           </x-slot>
           <x-slot name="transactionDateValue">
             @if ($modes['backDate'])
-              <div class="">
-                <div class="d-flex-rm">
+              <div>
+                <div>
                   <input type="date" wire:model="expense_date">
                   <div class="mt-2">
                     <button class="btn btn-light" wire:click="changeExpenseDate">
@@ -70,7 +68,6 @@
               </div>
             @endif
           </x-slot>
-
           <x-slot name="transactionPartyName">
             Vendor
           </x-slot>
@@ -98,7 +95,6 @@
               @endif
             @endif
           </x-slot>
-
           <x-slot name="transactionPaymentStatusName">
             Payment Status
           </x-slot>
@@ -121,7 +117,6 @@
             </span>
             @endif
           </x-slot>
-
         </x-transaction-main-info-component>
 
         @if ($expense->creation_status != 'created')
@@ -134,17 +129,16 @@
       <div class="col-md-4">
         <div class="border">
           @include ('partials.dashboard.expense-create-make-payment')
-
           <div>
             <div class="p-0 m-0">
               @if (! $modes['paid'])
-              <button
-                  onclick="this.disabled=true;"
-                  class="btn btn-success w-100 py-3 o-heading text-white"
-                  wire:click="finishCreation">
-                <i class="fas fa-check-circle mr-3"></i>
-                Confirm
-              </button>
+                <button
+                    onclick="this.disabled=true;"
+                    class="btn btn-success w-100 py-3 o-heading text-white"
+                    wire:click="finishCreation">
+                  <i class="fas fa-check-circle mr-3"></i>
+                  Confirm
+                </button>
               @else
                 <button
                     onclick="this.disabled=true;"
@@ -164,11 +158,9 @@
             </div>
           </div>
         </div>
-
       </div>
       @endif
     </div>
   @endif
-
 
 </div>

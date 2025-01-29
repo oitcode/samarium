@@ -1,9 +1,8 @@
 <div>
 
-
   {{--
   |
-  | Toolbar.
+  | Toolbar
   |
   --}}
 
@@ -23,6 +22,12 @@
       </x-toolbar-button-component>
     </x-slot>
   </x-toolbar-component>
+
+  {{--
+     |
+     | Customer basic info
+     |
+  --}}
 
   <div class="bg-white border mb-2">
     <div class="table-responsive">
@@ -88,6 +93,7 @@
      | Sales history
      |
   --}}
+
   <div class="mb-2 bg-white border p-2">
     <div class="d-flex justify-content-between">
       <h2 class="h6 o-heading">
@@ -120,7 +126,6 @@
     @endif
   </div>
 
-
   {{--
      |
      | Settlement
@@ -133,10 +138,7 @@
         Settlement
       </h2>
       <div>
-        <button wire:loading class="btn m-0">
-          <span class="spinner-border text-info mr-3" role="status">
-          </span>
-        </button>
+        @include ('partials.dashboard.spinner-button')
         <button class="btn btn-primary
             @if ($modes['customerPaymentCreate'])
             @endif
@@ -156,7 +158,6 @@
     @endif
   </div>
 
-
   {{--
      |
      | Customer notes
@@ -169,11 +170,7 @@
         Notes
       </h2>
       <div>
-        <button wire:loading class="btn m-0">
-          <span class="spinner-border text-info mr-3" role="status">
-          </span>
-        </button>
-
+        @include ('partials.dashboard.spinner-button')
         <button class="btn btn-primary
             @if ($modes['customerPaymentCreate'])
             @endif
@@ -215,6 +212,5 @@
       @endif
     </div>
   </div>
-
 
 </div>

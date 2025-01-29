@@ -1,6 +1,5 @@
 <div class="card shadow-sm">
 
-
   <div class="card-body p-3">
     <h1 class="h5 o-heading mb-4">
       Create file
@@ -32,6 +31,5 @@
       @include ('partials.dashboard.spinner-button')
     </div>
   </div>
-
 
 </div>

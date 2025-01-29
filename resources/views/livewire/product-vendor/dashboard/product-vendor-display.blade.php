@@ -1,9 +1,8 @@
 <div>
 
-
   {{--
   |
-  | Toolbar.
+  | Toolbar
   |
   --}}
 
@@ -28,7 +27,6 @@
     <div class="mb-3 h5 font-weight-bold py-3">
       {{ $productVendor->name }}
     </div>
-
     <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
@@ -39,7 +37,6 @@
         </div>
       </div>
     </div>
-
     <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
@@ -50,7 +47,6 @@
         </div>
       </div>
     </div>
-
     <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
@@ -66,10 +62,10 @@
   {{-- Delete product vendor --}}
   <div class="bg-white border p-3 my-3">
     <div class="col-md-6 p-0 border rounded">
-      <div class="">
+      <div>
         <div class="d-flex justify-content-between p-3">
           <div>
-            <div class="">
+            <div>
               <strong>
                 Delete this product vendor
               </strong>
@@ -82,6 +78,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

@@ -1,11 +1,41 @@
 <div>
 
-
   @if (false)
-  {{-- Show in bigger screens --}}
-  <div class="mt-1 mb-1 py-2 text-secondary py-3-rm d-flex-rm bg-warning-rm d-none d-md-block bg-white">
-    <div class="d-flex">
-      <div class="mt-0 text-secondary py-3-rm mr-3">
+    {{-- Show in bigger screens --}}
+    <div class="mt-1 mb-1 py-2 text-secondary d-none d-md-block bg-white">
+      <div class="d-flex">
+        <div class="mt-0 text-secondary mr-3">
+          <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setNextDay">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+        <div>
+          <input type="date" wire:model="startDate" class="mr-3" />
+          <input type="date" wire:model="endDate" class="mr-3" />
+          <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getExpensesForDateRange">
+            Go
+          </button>
+        </div>
+
+        @include ('partials.dashboard.spinner-button')
+
+        <div class="d-flex justify-content-end flex-grow-1">
+          <div class="pl-2 font-weight-bold pr-3 py-2 bg-white">
+            <span class="text-dark">
+            Rs
+            @php echo number_format( $total, 2 ); @endphp
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{-- Show in smaller screens --}}
+    <div class="mb-3 text-secondary d-md-none">
+      <div class="mt-0 text-secondary mr-3">
         <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
           <i class="fas fa-arrow-left"></i>
         </button>
@@ -16,16 +46,13 @@
       <div>
         <input type="date" wire:model="startDate" class="mr-3" />
         <input type="date" wire:model="endDate" class="mr-3" />
-
         <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getExpensesForDateRange">
           Go
         </button>
       </div>
-
       @include ('partials.dashboard.spinner-button')
-
-      <div class="d-flex justify-content-end flex-grow-1">
-        <div class="pl-2 font-weight-bold pr-3 py-2 bg-white">
+      <div class="d-flex flex-grow-1">
+        <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white">
           <span class="text-dark">
           Rs
           @php echo number_format( $total, 2 ); @endphp
@@ -33,35 +60,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  {{-- Show in smaller screens --}}
-  <div class="mt-2-rm mb-3 text-secondary py-3-rm  bg-warning-rm d-md-none">
-    <div class="mt-0 text-secondary py-3-rm mr-3">
-      <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
-        <i class="fas fa-arrow-left"></i>
-      </button>
-      <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setNextDay">
-        <i class="fas fa-arrow-right"></i>
-      </button>
-    </div>
-    <div>
-      <input type="date" wire:model="startDate" class="mr-3" />
-      <input type="date" wire:model="endDate" class="mr-3" />
-      <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getExpensesForDateRange">
-        Go
-      </button>
-    </div>
-    @include ('partials.dashboard.spinner-button')
-    <div class="d-flex flex-grow-1">
-      <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white">
-        <span class="text-dark">
-        Rs
-        @php echo number_format( $total, 2 ); @endphp
-        </span>
-      </div>
-    </div>
-  </div>
   @endif
 
   <x-list-component>
@@ -117,12 +115,10 @@
               {{ $expense->date }}
             </div>
           </td>
-  
           <td class="font-weight-bold">
             Rs
             @php echo number_format( $expense->amount, 2 ); @endphp
           </td>
-  
           <td>
             <div class="dropdown">
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -152,6 +148,5 @@
   @if ($modes['confirmDeleteExpense'])
     @livewire ('expense-list-expense-delete-confirm', ['expense' => $deletingExpense,])
   @endif
-
 
 </div>

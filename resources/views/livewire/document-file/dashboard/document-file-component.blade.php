@@ -1,11 +1,10 @@
 <div>
-
   
   <x-base-component moduleName="File">
 
     {{--
     |
-    | Toolbar.
+    | Toolbar
     |
     --}}
 
@@ -42,6 +41,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

@@ -1,4 +1,5 @@
 <div>
+
   <h2>
     Login page
   </h2>
@@ -7,4 +8,5 @@
       <option value="{{ $af }}">{{ $af }}</option>
     @endforeach
   </select>
+
 </div>

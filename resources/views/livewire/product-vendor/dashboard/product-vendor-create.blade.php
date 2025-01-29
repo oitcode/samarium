@@ -1,6 +1,5 @@
 <div class="card">
 
-
   <div class="card-body">
     <h1 class="h5 mb-4 o-heading">
       Create product vendor
@@ -20,6 +19,5 @@
       @include ('partials.dashboard.spinner-button')
     </div>
   </div>
-
 
 </div>

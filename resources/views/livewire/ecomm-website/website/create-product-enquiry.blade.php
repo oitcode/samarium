@@ -1,4 +1,5 @@
-<div class="border bg-white-rm p-3 mb-3" style="background-color: #eee;">
+<div class="border p-3 mb-3">
+
   <h2 class="h5 font-weight-bold text-primary">
     Any question?
   </h2>
@@ -21,45 +22,44 @@
           <span class="text-success" aria-hidden="true">&times;</span>
         </button>
       </div>
-
     </div>
   @endif
 
-
   <div class="form-group">
     <input class="form-control" type="text" placeholder="Name" wire:model="writer_name">
-    @error('writer_name')
-        <span class="text-danger" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
+    @error ('writer_name')
+      <span class="text-danger" role="alert">
+          <strong>{{ $message }}</strong>
+      </span>
     @enderror
   </div>
   <div class="form-group">
     <input class="form-control" type="text" placeholder="Email" wire:model="writer_email">
-    @error('writer_email')
-        <span class="text-danger" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
+    @error ('writer_email')
+      <span class="text-danger" role="alert">
+          <strong>{{ $message }}</strong>
+      </span>
     @enderror
   </div>
   <div class="form-group">
     <input class="form-control" type="text" placeholder="Phone" wire:model="writer_phone">
-    @error('writer_phone')
-        <span class="text-danger" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
+    @error ('writer_phone')
+      <span class="text-danger" role="alert">
+          <strong>{{ $message }}</strong>
+      </span>
     @enderror
   </div>
   <div class="form-group">
     <textarea class="form-control" rows="3" placeholder="Question" wire:model="enquiry_text"></textarea>
-    @error('enquiry_text')
-        <span class="text-danger" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
+    @error ('enquiry_text')
+      <span class="text-danger" role="alert">
+          <strong>{{ $message }}</strong>
+      </span>
     @enderror
   </div>
   <button class="btn btn-primary btn-block py-2" wire:click="store">
     Submit
   </button>
   <br/>
+
 </div>

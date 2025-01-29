@@ -1,12 +1,12 @@
 <div class="card">
+
   <div class="card-body">
-  
     <h3 class="h5 mb-3">
       Create company info
     </h3>
   
     <div class="form-group">
-      <label for="">Key</label>
+      <label>Key</label>
       <input type="text"
           class="form-control"
           wire:model="info_key">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-group">
-      <label for="">Value</label>
+      <label>Value</label>
       <input type="text"
           class="form-control"
           wire:model="info_value">
@@ -36,6 +36,6 @@
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'companyInfoCreateCanceled',])
     </div>
-  
   </div>
+
 </div>

@@ -1,13 +1,11 @@
 <div>
 
-
   @if ($saleInvoices != null && count($saleInvoices) > 0)
-
     {{-- Show in bigger screens --}}
     <div class="table-responsive d-none d-md-block bg-white">
       <table class="table table-sm table-hover mb-0">
         <thead>
-          <tr class="text-secondary-rm">
+          <tr>
             <th class="py-2">ID</th>
             <th class="py-2">Date</th>
             <th class="py-2">Customer</th>
@@ -147,6 +145,5 @@
       No sales.
     </div>
   @endif
-
 
 </div>

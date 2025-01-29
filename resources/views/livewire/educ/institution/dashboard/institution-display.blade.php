@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
   |
   | Toolbar
@@ -99,56 +98,55 @@
         </div>
         <div class="table-responsive">
           <table class="table">
-              <tr>
-                <td>
-                  {{ $educInstitution->name }}
-                </td>
-                <td>
-                  <span class="badge badge-success p-2">
-                    Approved
-                  </span>
-                </td>
-                <td>
-                  <button class="btn-light border">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  {{ $educInstitution->name }}
-                </td>
-                <td>
-                  <span class="badge badge-success p-2">
-                    Approved
-                  </span>
-                </td>
-                <td>
-                  <button class="btn-light border">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  {{ $educInstitution->name }}
-                </td>
-                <td>
-                  <span class="badge badge-success p-2">
-                    Approved
-                  </span>
-                </td>
-                <td>
-                  <button class="btn-light border">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                </td>
-              </tr>
+            <tr>
+              <td>
+                {{ $educInstitution->name }}
+              </td>
+              <td>
+                <span class="badge badge-success p-2">
+                  Approved
+                </span>
+              </td>
+              <td>
+                <button class="btn-light border">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{ $educInstitution->name }}
+              </td>
+              <td>
+                <span class="badge badge-success p-2">
+                  Approved
+                </span>
+              </td>
+              <td>
+                <button class="btn-light border">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{ $educInstitution->name }}
+              </td>
+              <td>
+                <span class="badge badge-success p-2">
+                  Approved
+                </span>
+              </td>
+              <td>
+                <button class="btn-light border">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </td>
+            </tr>
           </table>
         </div>
       </div>
     </div>
   </div>
-
 
 </div>

@@ -1,4 +1,5 @@
 <div>
+
   <h1 class="h5">
     {{ $product->name }}
   </h1>
@@ -10,26 +11,19 @@
     </div>
   </div>
 
-  <div class="mt-2-rm mb-3 text-secondary py-3-rm d-flex bg-warning-rm">
-
+  <div class="mb-3 text-secondary d-flex">
     <div>
       <input type="date" wire:model="startDate" class="mr-3" />
       <input type="date" wire:model="endDate" class="mr-3" />
-
       <button class="btn btn-success mr-3" wire:click="getTransactionsForDateRange">
         Go
       </button>
     </div>
-
-    <button wire:loading class="btn">
-      <div class="spinner-border text-info mr-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </button>
+    @include ('partials.dashboard.spinner-button')
   </div>
 
   <div>
-    <div class="d-flex bg-success-rm text-white-rm p-2 mb-3">
+    <div class="d-flex p-2 mb-3">
       <div class="bg-success mr-3">
         &nbsp;
       </div>
@@ -63,36 +57,33 @@
             @endif
           </tr>
         </thead>
-
         <tbody>
           {{-- First show all the purchases --}}
-            @foreach ($purchaseItems as $purchaseItem)
-              @php
-                $balance += $purchaseItem->quantity * $purchaseItem->product->inventory_unit_consumption;
-              @endphp
-
-              <tr>
+          @foreach ($purchaseItems as $purchaseItem)
+            @php
+              $balance += $purchaseItem->quantity * $purchaseItem->product->inventory_unit_consumption;
+            @endphp
+            <tr>
+              <td>
+                {{ $purchaseItem->purchase->purchase_date }}
+              </td>
+              <td>
+                {{ $purchaseItem->purchase->purchase_id }}
+              </td>
+              <td>
+                {{ $purchaseItem->product->name }}
+              </td>
+              <td>
+                {{ $purchaseItem->quantity }}
+              </td>
+              @if ($product->subProducts)
                 <td>
-                  {{ $purchaseItem->purchase->purchase_date }}
+                  {{ $purchaseItem->quantity * $purchaseItem->product->inventory_unit_consumption }}
+                  {{ $purchaseItem->product->inventory_unit }}
                 </td>
-                <td>
-                  {{ $purchaseItem->purchase->purchase_id }}
-                </td>
-                <td>
-                  {{ $purchaseItem->product->name }}
-                </td>
-                <td>
-                  {{ $purchaseItem->quantity }}
-                </td>
-                @if ($product->subProducts)
-                  <td>
-                    {{ $purchaseItem->quantity * $purchaseItem->product->inventory_unit_consumption }}
-                    {{ $purchaseItem->product->inventory_unit }}
-                  </td>
-                @endif
-              </tr>
-
-            @endforeach
+              @endif
+            </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -120,7 +111,6 @@
               @endif
             </tr>
           </thead>
-
           <tbody>
             {{-- Next show all the sales --}}
             @if (count($saleInvoiceItems) > 0)
@@ -149,12 +139,10 @@
                     </td>
                   @endif
                 </tr>
-
               @endforeach
             @endif
           </tbody>
         </table>
-
       </div>
     @else
       <div class="my-3 text-muted">
@@ -162,7 +150,7 @@
         No sales
       </div>
     @endif
-    <div class="d-flex bg-success-rm text-white-rm p-2 mb-3">
+    <div class="d-flex p-2 mb-3">
       <div class="bg-success mr-3">
         &nbsp;
       </div>

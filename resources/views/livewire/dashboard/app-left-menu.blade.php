@@ -1,14 +1,14 @@
 <div class="w-100">
+
   <div class="d-none d-md-block">
-  
     <div>
-    @include ('partials.dashboard.app-left-menu-button',
-        [
-            'btnRoute' => 'dashboard',
-            'iconFaClass' => 'fas fa-tv',
-            'btnText' => 'Dashboard',
-            'bordered' => 'yes',
-        ])
+      @include ('partials.dashboard.app-left-menu-button',
+          [
+              'btnRoute' => 'dashboard',
+              'iconFaClass' => 'fas fa-tv',
+              'btnText' => 'Dashboard',
+              'bordered' => 'yes',
+          ])
     </div>
   
     @if (has_module('product'))
@@ -29,6 +29,7 @@
       @endif
   
       @if ($modes['product'])
+
         {{--
         |
         |
@@ -51,21 +52,18 @@
                   'iconFaClass' => 'fas fa-folder-open',
                   'btnText' => 'Product category',
               ])
-  
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'product-vendor',
                   'iconFaClass' => 'fas fa-users',
                   'btnText' => 'Product vendor',
               ])
-  
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'product-question',
                   'iconFaClass' => 'fas fa-question',
                   'btnText' => 'Product question',
               ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-inventory',
             'iconFaClass' => 'fas fa-dolly',
@@ -75,7 +73,6 @@
   
       @endif
     @endif
-  
   
     @if (has_module('shop'))
       @if ($modes['shop'])
@@ -95,10 +92,11 @@
       @endif
   
       @if ($modes['shop'])
+
         {{--
         |
         |
-        | SHop route buttons
+        | Shop route buttons
         |
         |
         --}}
@@ -109,44 +107,36 @@
                   'iconFaClass' => 'fas fa-dice-d6',
                   'btnText' => 'Sales',
               ])
-  
-  
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'dashboard-purchase',
                   'iconFaClass' => 'fas fa-shopping-cart',
                   'btnText' => 'Purchase',
               ])
-  
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'dashboard-expense',
                   'iconFaClass' => 'fas fa-tools',
                   'btnText' => 'Expense',
               ])
-  
-  
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'customer',
                   'iconFaClass' => 'fas fa-users',
                   'btnText' => 'Customer',
               ])
-  
-          @include ('partials.dashboard.app-left-menu-button', [
+          @include ('partials.dashboard.app-left-menu-button',
+          [
             'btnRoute' => 'dashboard-vendor',
             'iconFaClass' => 'fas fa-users',
             'btnText' => 'Vendors',
           ])
-  
-  
           @include ('partials.dashboard.app-left-menu-button',
               [
                   'btnRoute' => 'online-order',
                   'iconFaClass' => 'fas fa-cloud-download-alt',
                   'btnText' => 'Online order',
               ])
-  
           @if (config('app.has_vat') == true)
             @include ('partials.dashboard.app-left-menu-button', [
               'btnRoute' => 'dashboard-vat',
@@ -154,13 +144,11 @@
               'btnText' => 'VAT',
             ])
           @endif
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-sale-quotation',
             'iconFaClass' => 'fas fa-edit',
             'btnText' => 'Quotation',
           ])
-
           @if (config('app.cmp_type') === 'cafe')
             @include ('partials.dashboard.app-left-menu-button',
                 [
@@ -170,7 +158,6 @@
         </div>
       @endif
     @endif
-  
   
     @if (has_module('cms'))
       @if ($modes['cms'])
@@ -188,6 +175,7 @@
             'btnCheckMode' => 'cms',
         ])
       @endif
+
       @if ($modes['cms'])
         {{--
         |
@@ -203,25 +191,21 @@
             'iconFaClass' => 'fas fa-clone',
             'btnText' => 'Pages',
           ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-cms-post',
             'iconFaClass' => 'fas fa-edit',
             'btnText' => 'Posts',
           ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-cms-gallery',
             'iconFaClass' => 'fas fa-image',
             'btnText' => 'Gallery',
           ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-cms-nav-menu',
             'iconFaClass' => 'fas fa-link',
             'btnText' => 'Nav menu',
           ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-cms-theme',
             'iconFaClass' => 'fas fa-sliders',
@@ -231,9 +215,7 @@
       @endif
     @endif
   
-  
     @if (has_module('calendar'))
-  
       @if ($modes['school'])
         @include ('partials.dashboard.app-left-menu-button-lw', [
             'btnClickMethod' => "exitMode('school')",
@@ -266,7 +248,6 @@
             'iconFaClass' => 'fas fa-calendar',
             'btnText' => 'Calendar',
           ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-calendar-group',
             'iconFaClass' => 'fas fa-users',
@@ -274,14 +255,10 @@
           ])
   
         </div>
-  
       @endif
-  
     @endif
   
-  
     @if (has_module('team'))
-  
       @if ($modes['team'])
         @include ('partials.dashboard.app-left-menu-button-lw', [
             'btnClickMethod' => "exitMode('team')",
@@ -313,21 +290,16 @@
             'iconFaClass' => 'fas fa-users',
             'btnText' => 'Team',
           ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-quick-contacts',
             'iconFaClass' => 'fas fa-users',
             'btnText' => 'Quick contacts',
           ])
         </div>
-  
       @endif
-  
     @endif
 
-
     @if (has_module('crm'))
-  
       @if ($modes['crm'])
         @include ('partials.dashboard.app-left-menu-button-lw', [
             'btnClickMethod' => "exitMode('crm')",
@@ -359,32 +331,26 @@
             'iconFaClass' => 'fas fa-sms',
             'btnText' => 'Contact message',
           ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-appointment',
             'iconFaClass' => 'fas fa-paste',
             'btnText' => 'Appointment',
           ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-newsletter-subscription',
             'iconFaClass' => 'fas fa-envelope',
             'btnText' => 'Newsletter subscription',
           ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-testimonial',
             'iconFaClass' => 'fas fa-sms',
             'btnText' => 'Testimonial',
           ])
         </div>
-  
       @endif
-  
     @endif
   
     @if (has_module('hr'))
-  
       @if ($modes['hr'])
         @include ('partials.dashboard.app-left-menu-button-lw', [
             'btnClickMethod' => "exitMode('hr')",
@@ -418,14 +384,10 @@
             'btnText' => 'Vacancy',
           ])
         </div>
-  
       @endif
-  
     @endif
   
-  
     @if (has_module('project'))
-  
       @if ($modes['project'])
         @include ('partials.dashboard.app-left-menu-button-lw', [
             'btnClickMethod' => "exitMode('project')",
@@ -452,20 +414,16 @@
         |
         --}}
         <div class="mb-3 border-bottom">
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-todo',
             'iconFaClass' => 'fas fa-tasks',
             'btnText' => 'Tasks',
           ])
         </div>
-  
       @endif
-  
     @endif
   
     @if (has_module('document'))
-  
       @if ($modes['document'])
         @include ('partials.dashboard.app-left-menu-button-lw', [
             'btnClickMethod' => "exitMode('document')",
@@ -492,25 +450,19 @@
         |
         --}}
         <div class="mb-3 border-bottom">
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-document-url-link',
             'iconFaClass' => 'fas fa-link',
             'btnText' => 'Link',
           ])
-  
           @include ('partials.dashboard.app-left-menu-button', [
             'btnRoute' => 'dashboard-document-file',
             'iconFaClass' => 'fas fa-file',
             'btnText' => 'File',
           ])
-  
         </div>
-  
       @endif
-  
     @endif
-  
   
     @if ($modes['bgc'])
       {{--
@@ -526,7 +478,6 @@
         'iconFaClass' => 'fas fa-users',
         'btnText' => 'Organizing committee',
       ])
-  
       @include ('partials.dashboard.app-left-menu-button', [
         'btnRoute' => 'dashboard-sponsors',
         'iconFaClass' => 'fas fa-users',
@@ -534,9 +485,7 @@
       ])
     @endif
   
-  
     @if (has_module('report'))
-  
       @if ($modes['report'])
         @include ('partials.dashboard.app-left-menu-button-lw', [
             'btnClickMethod' => "exitMode('report')",
@@ -584,11 +533,8 @@
             'btnText' => 'Report',
           ])
         </div>
-  
       @endif
-  
     @endif
-  
   
     @if (has_module('educ'))
   
@@ -632,15 +578,11 @@
                   'iconFaClass' => 'fas fa-book',
                   'btnText' => 'Program',
               ])
-  
         </div>
-  
       @endif
-
     @endif
 
     @if (has_module('accounting'))
-  
       @if ($modes['accounting'])
         @include ('partials.dashboard.app-left-menu-button-lw', [
             'btnClickMethod' => "exitMode('accounting')",
@@ -675,12 +617,9 @@
                   'btnText' => 'Accounting',
               ])
         </div>
-  
       @endif
-
     @endif
 
-  
     @if ($modes['more'])
       @include ('partials.dashboard.app-left-menu-button-lw', [
           'btnClickMethod' => "exitMode('more')",
@@ -698,7 +637,7 @@
     @endif
   
     @if ($modes['more'])
-  
+
       {{--
       |
       |
@@ -729,8 +668,7 @@
                 'btnText' => 'Settings',
             ])
       </div>
-  
     @endif
-
   </div>
+
 </div>

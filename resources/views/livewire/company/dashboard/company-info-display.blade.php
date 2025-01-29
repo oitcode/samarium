@@ -1,4 +1,5 @@
 <div>
+
   @if (! $modes['editMode'])
     <div class="d-flex justify-content-between bg-white border p-3">
       <div class="mr-3 font-weight-bold">
@@ -19,4 +20,5 @@
   @elseif ($modes['editMode'])
     @livewire ('company.dashboard.company-info-update', ['companyInfo' => $companyInfo,])
   @endif
+
 </div>

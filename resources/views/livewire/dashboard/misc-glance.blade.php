@@ -1,8 +1,7 @@
 <div class="bg-white border">
 
-  @if (true)
   <div class="d-flex justify-content-between">
-    <div class="pt-3 pl-3 border-rm">
+    <div class="pt-3 pl-3">
       <h2 class="h6 font-weight-bold">
         <i class="fas fa-book mr-1"></i>
         Misc
@@ -12,12 +11,9 @@
       <i class="fas fa-cog mr-3 mt-3"></i>
     </div>
   </div>
-  @endif
-
 
   {{-- First row --}}
   <div class="row pb-2" style="margin: auto;">
-
     <div class="col-md-4 p-2 m-0" role="button">
       @include ('partials.misc.glance-card', [
           'bsBgClass' => 'bg-dark',
@@ -47,7 +43,6 @@
           'btnTextSecondary' => '',
       ])
     </div>
-
   </div>
 
 </div>

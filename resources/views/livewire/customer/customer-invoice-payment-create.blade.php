@@ -1,6 +1,5 @@
 <x-box-create title="Receive sale invoice payment">
 
-
   <div class="row">
     <div class="col-md-3">
       <div class="table-responsive">
@@ -98,7 +97,6 @@
   </div>
 
   <div class="bg-light border p-2">
-
     <div class="form-group">
       <label>Amount *</label>
       <input type="text" class="form-control" wire:model="pay_amount">
@@ -116,7 +114,6 @@
       <select class="w-100 h-100 custom-control"
           wire:model="sale_invoice_payment_type_id">
         <option>---</option>
-
         @foreach ($saleInvoicePaymentTypes as $saleInvoicePaymentType)
           <option value="{{ $saleInvoicePaymentType->sale_invoice_payment_type_id }}">
             {{ $saleInvoicePaymentType->name }}
@@ -128,9 +125,9 @@
   </div>
 
   <div class="p-3">
-    <button type="submit" class="btn btn-success" wire:click="store">Submit</button>
-    <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitSaleInvoicePaymentCreateMode')">Cancel</button>
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'exitSaleInvoicePaymentCreateMode',])
+    @include ('partials.dashboard.spinner-button')
   </div>
-
 
 </x-box-create>

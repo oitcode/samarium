@@ -1,27 +1,23 @@
-<div class="p-3-rm border-rm bg-warning-rm">
+<div>
 
   {{-- Breadcrumb --}}
-  <div class="py-1 text-secondary-rm mb-4-rm">
-    <a class="text-primary-rm text-reset"
-        href="{{ route('website-home') }}"
-        style="{{-- color: #000; --}}">
+  <div class="py-1">
+    <a class="text-reset" href="{{ route('website-home') }}">
       Home
     </a>
-
     <i class="fas fa-angle-right  mx-1"></i>
-    <a class="text-primary-rm text-reset"
+    <a class="text-reset"
         href=""
         style="{{-- color: #000; --}}">
       {{ $productCategory->name }}
     </a>
   </div>
-  @if (true)
   <div class="container mt-4 bg-warning p-0">
-    <div class="row-rm m-0 p-0" style="">
-      <div class="col-md-12-rm p-3-rm p-0">
+    <div class="m-0 p-0">
+      <div class="p-0">
         <div class="d-flex justify-content-center h-100" style="background-color: #eaeaea;">
           <div class="d-flex flex-column justify-content-center h-100">
-            <h2 class="text-white-rm mt-3" style="">
+            <h2 class="mt-3">
               {{ $productCategory->name }}
             </h2>
             <p class="text-secondary">
@@ -33,11 +29,9 @@
       </div>
     </div>
   </div>
-  @endif
 
   {{-- Show in bigger screens --}}
-  <div class="d-none-rm d-md-block-rm">
-
+  <div>
     {{-- First deal with its sub product categories --}}
     @if ($productCategory->subProductCategories)
       @foreach ($productCategory->subProductCategories as $subProductCategory)
@@ -46,19 +40,15 @@
     @endif
 
     {{-- Now deal with its products --}}
-    @if (true)
     @if (count($productCategory->products) > 0)
-      @if (true)
       @if ($productCategory->subProductCategories)
-        <div class="my-3 bg-danger-rm py-3" style="{{-- background-color: #eaeaea; color: black; --}}">
+        <div class="my-3 py-3">
           &nbsp;
         </div>
-      @endif
       @endif
 
       <div class="row" wire:key="{{ rand() }}">
         @foreach ($productCategory->products as $product)
-
           {{-- Do not display inactive products --}}
           @if ($product->is_active == 0)
             @continue
@@ -74,7 +64,6 @@
             @continue
           @endif
 
-
           <div class="col-6 col-md-3 mb-4">
             @livewire ('ecomm-website.product-list-display', ['product' => $product,])
           </div>
@@ -85,8 +74,6 @@
         No products
       </div>
     @endif
-    @endif
   </div>
 
-  </div>
 </div>

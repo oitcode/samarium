@@ -1,4 +1,5 @@
 <div>
+
   <div class="container">
     <div class="my-3 text-scondary">
       Displaying
@@ -22,4 +23,5 @@
       </div>
     @endif
   </div>
+
 </div>

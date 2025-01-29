@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       Total : {{ $documentFilesCount }}
@@ -67,6 +66,5 @@
       {{ $documentFiles->links() }}
     </x-slot>
   </x-list-component>
-
 
 </div>

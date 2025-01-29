@@ -53,7 +53,7 @@
     </div>
   </div>
 
-  <div class="p-3-rm mb-3 border">
+  <div class="mb-3 border">
     <div class="table-responsive">
       <table class="table table-sm table-bordered">
         <thead>
@@ -66,29 +66,28 @@
             <th>Pending</th>
           </tr>
         </thead>
-
         <tbody>
           @foreach ($customer->saleInvoices as $saleInvoice)
-          <tr>
-            <td>
-              {{ $saleInvoice->sale_invoice_id }}
-            </td>
-            <td>
-              {{ $saleInvoice->sale_invoice_date }}
-            </td>
-            <td>
-              {{ $saleInvoice->customer->name }}
-            </td>
-            <td>
-              {{ $saleInvoice->getTotalAmount() }}
-            </td>
-            <td>
-              {{ $saleInvoice->getPaidAmount() }}
-            </td>
-            <td>
-              {{ $saleInvoice->getPendingAmount() }}
-            </td>
-          </tr>
+            <tr>
+              <td>
+                {{ $saleInvoice->sale_invoice_id }}
+              </td>
+              <td>
+                {{ $saleInvoice->sale_invoice_date }}
+              </td>
+              <td>
+                {{ $saleInvoice->customer->name }}
+              </td>
+              <td>
+                {{ $saleInvoice->getTotalAmount() }}
+              </td>
+              <td>
+                {{ $saleInvoice->getPaidAmount() }}
+              </td>
+              <td>
+                {{ $saleInvoice->getPendingAmount() }}
+              </td>
+            </tr>
           @endforeach
           <tr>
             <td colspan="3" class="font-weight-bold text-right pr-3">
@@ -105,9 +104,8 @@
             </td>
           <tr>
         </tbody>
-
-
       </table>
     </div>
   </div>
+
 </div>

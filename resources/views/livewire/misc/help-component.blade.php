@@ -4,36 +4,27 @@
     Help
   </x-component-header>
 
-
   {{-- Temporary message --}}
   <div class="mb-3 p-2 bg-white border">
     <h1 class="h5 pt-2 font-weight-bold">
       <i class="fas fa-exclamation-circle mr-1 text-danger"></i>
       Help documentation is coming soon
     </h1>
-
     <div class="text-muted">
       We are creating help documentation for our users. We will soon update the help pages. Please check back in future.
     </div>
   </div>
 
-
   {{-- Block --}}
-  <div class="">
-
-    <div class="">
-      @if (true)
+  <div>
+    <div>
       <div class="bg-light p-3 mb-0">
         <h2 class="h5 font-weight-bold mb-3-rm mb-0">
           CMS
         </h2>
       </div>
-      @endif
-
       <div class="mb-4">
-
         <div class="row-rm" style="margin: auto;">
-
           <div class="col-md-4-rm p-0 bg-warning">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -44,7 +35,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -53,7 +43,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card o-pulled-up">
               <div class="card-body p-2 bg-white-rm o-text-bigger-rm">
@@ -62,7 +51,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card o-pulled-up">
               <div class="card-body p-2 bg-white-rm o-text-bigger-rm">
@@ -71,7 +59,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card o-pulled-up">
               <div class="card-body p-2 bg-white-rm o-text-bigger-rm">
@@ -80,7 +67,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card o-pulled-up">
               <div class="card-body p-2 bg-white-rm o-text-bigger-rm">
@@ -89,28 +75,21 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
 
   {{-- Block --}}
-  <div class="">
-
-    <div class="">
-      @if (true)
+  <div>
+    <div>
       <div class="bg-light p-3 mb-0">
         <h2 class="h5 font-weight-bold mb-3-rm mb-0">
           Product
         </h2>
       </div>
-      @endif
-
       <div class="mb-4">
-
         <div class="row-rm" style="margin: auto;">
-
           <div class="col-md-4-rm p-0 bg-warning">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -119,7 +98,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -128,28 +106,21 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
 
   {{-- Block --}}
-  <div class="">
-
-    <div class="">
-      @if (true)
+  <div>
+    <div>
       <div class="bg-light p-3 mb-0">
         <h2 class="h5 font-weight-bold mb-3-rm mb-0">
           Shop
         </h2>
       </div>
-      @endif
-
       <div class="mb-4">
-
         <div class="row-rm" style="margin: auto;">
-
           <div class="col-md-4-rm p-0 bg-warning">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -158,7 +129,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -167,7 +137,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -176,28 +145,21 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
 
   {{-- Block --}}
-  <div class="">
-
-    <div class="">
-      @if (true)
+  <div>
+    <div>
       <div class="bg-light p-3 mb-0">
         <h2 class="h5 font-weight-bold mb-3-rm mb-0">
           Team
         </h2>
       </div>
-      @endif
-
       <div class="mb-4">
-
         <div class="row-rm" style="margin: auto;">
-
           <div class="col-md-4-rm p-0 bg-warning">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -206,7 +168,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -215,7 +176,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -224,28 +184,21 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
 
   {{-- Block --}}
-  <div class="">
-
-    <div class="">
-      @if (true)
+  <div>
+    <div>
       <div class="bg-light p-3 mb-0">
         <h2 class="h5 font-weight-bold mb-3-rm mb-0">
           Appointment
         </h2>
       </div>
-      @endif
-
       <div class="mb-4">
-
         <div class="row-rm" style="margin: auto;">
-
           <div class="col-md-4-rm p-0 bg-warning">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -254,7 +207,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4-rm p-0">
             <div class="card">
               <div class="card-body p-2 bg-white o-text-bigger-rm">
@@ -263,24 +215,19 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
 
   {{-- Block --}}
-  <div class="">
-    @if (true)
+  <div>
     <div class="bg-light p-2 mb-0">
       <h2 class="h5 font-weight-bold mb-3-rm mb-0">
         Other resources
       </h2>
     </div>
-    @endif
-
-    <div class="">
-
+    <div>
       <div class="m-0">
         <div class="card">
           <div class="card-body p-2 bg-white">
@@ -289,7 +236,6 @@
           </div>
         </div>
       </div>
-
       <div class="m-0">
         <div class="card">
           <div class="card-body p-2 bg-white">
@@ -298,9 +244,7 @@
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
 
 </div>

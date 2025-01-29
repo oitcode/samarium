@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
     </x-slot>
@@ -52,8 +51,6 @@
     <x-slot name="listPaginationLinks">
       {{ $educInstitutions->links() }}
     </x-slot>
-
   </x-list-component>
-
 
 </div>

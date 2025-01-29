@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Inventory">
 
@@ -28,7 +27,7 @@
         <div class="table-responsive bg-white border">
           <table class="table table-sm table-hover mb-0">
             <thead>
-              <tr class="">
+              <tr>
                 <th colspan="2" class="o-heading">Item</th>
                 <th class="o-heading">Inventory Unit</th>
                 <th class="o-heading">Inventory low</th>
@@ -78,7 +77,7 @@
               @else
                 <tr>
                   <td colspan="6">
-                    <p class="font-weight-bold text-muted-rm h4 py-4 text-center" style="color: #fe8d01;">
+                    <p class="font-weight-bold h4 py-4 text-center" style="color: #fe8d01;">
                       <i class="fas fa-exclamation-circle mr-2"></i>
                       No product added to inventory tracking.
                     <p>
@@ -89,9 +88,7 @@
           </table>
         </div>
       @endif
-
     </div>
   </x-base-component>
-
 
 </div>

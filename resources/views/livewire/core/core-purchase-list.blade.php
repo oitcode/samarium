@@ -1,11 +1,11 @@
 <div>
-  @if (!is_null($purchases) && count($purchases) > 0)
 
+  @if (!is_null($purchases) && count($purchases) > 0)
     {{-- Show in bigger screens --}}
     <div class="table-responsive d-none d-md-block bg-white">
       <table class="table mb-0">
         <thead>
-          <tr class="">
+          <tr>
             <th>ID</th>
             <th>Date</th>
             <th>Vendor</th>
@@ -16,7 +16,6 @@
             <th>Action</th>
           </tr>
         </thead>
-
         <tbody>
           @foreach ($purchases as $purchase)
             <tr>
@@ -166,4 +165,5 @@
       No purchases
     </div>
   @endif
+
 </div>

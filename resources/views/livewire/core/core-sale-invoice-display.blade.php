@@ -1,9 +1,8 @@
 <div class="bg-white">
 
-
   {{--
   |
-  | Toolbar.
+  | Toolbar
   |
   --}}
 
@@ -252,24 +251,24 @@
           <table class="table table-hover border-dark shadow-sm mb-0">
             <tbody>
               @foreach ($saleInvoice->saleInvoiceItems as $item)
-              <tr class="font-weight-bold">
-                <td>
-                  <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
-                </td>
-                <td>
-                  {{ $item->product->name }}
-                  <br />
-                  <span class="text-secondary mr-3">
-                    Rs @php echo number_format( $item->price_per_unit); @endphp
-                  </span>
-                  <span class="text-secondary">
-                    Qty: {{ $item->quantity }}
-                  </span>
-                </td>
-                <td class="text-right">
-                  @php echo number_format( $item->getTotalAmount() ); @endphp
-                </td>
-              </tr>
+                <tr class="font-weight-bold">
+                  <td>
+                    <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                  </td>
+                  <td>
+                    {{ $item->product->name }}
+                    <br />
+                    <span class="text-secondary mr-3">
+                      Rs @php echo number_format( $item->price_per_unit); @endphp
+                    </span>
+                    <span class="text-secondary">
+                      Qty: {{ $item->quantity }}
+                    </span>
+                  </td>
+                  <td class="text-right">
+                    @php echo number_format( $item->getTotalAmount() ); @endphp
+                  </td>
+                </tr>
               @endforeach
             </tbody>
           </table>
@@ -318,6 +317,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

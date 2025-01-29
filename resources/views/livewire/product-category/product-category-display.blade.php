@@ -1,9 +1,8 @@
 <div>
 
-
   {{--
   |
-  | Flash message div.
+  | Flash message div
   |
   --}}
 
@@ -13,7 +12,7 @@
 
   {{--
   |
-  | Toolbar.
+  | Toolbar
   |
   --}}
 
@@ -35,7 +34,7 @@
 
   {{-- Product category name --}}
   <div class="bg-white mb-3 border">
-    <div class="">
+    <div>
       <div class="d-flex justify-content-between border-bottom">
         <div class="px-3 py-3 o-heading">
             Product Category Name
@@ -84,7 +83,7 @@
     @else
       <div class="d-flex justify-content-between bg-white p-3">
         {{-- Product image --}}
-        <div class="">
+        <div>
           @if ($productCategory->image_path)
             <img src="{{ asset('storage/' . $productCategory->image_path) }}" class="mr-3" style="width: 200px; height: 200px;">
           @else
@@ -99,7 +98,7 @@
 
   {{-- Number of products --}}
   <div class="bg-white my-3 border">
-    <div class="">
+    <div>
       <div class="d-flex justify-content-between border-bottom">
         <div class="px-3 py-3 o-heading">
           Number of products
@@ -170,6 +169,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

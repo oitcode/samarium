@@ -1,4 +1,5 @@
 <div class="bg-white border p-3">
+
   <div class="mb-3 font-weight-bold">
     Edit company info
   </div>
@@ -15,8 +16,9 @@
     <input type="text" class="form-control" wire:model="info_value">
   </div>
 
-  <div class="p-3-rm">
+  <div>
     @include ('partials.button-store')
     @include ('partials.button-cancel', ['clickEmitEventName' => 'companyInfoUpdateCancelled',])
   </div>
+
 </div>

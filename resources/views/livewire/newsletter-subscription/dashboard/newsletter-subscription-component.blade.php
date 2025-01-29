@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Newsletter subscription">
 
@@ -33,6 +32,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Institution">
 
@@ -40,6 +39,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

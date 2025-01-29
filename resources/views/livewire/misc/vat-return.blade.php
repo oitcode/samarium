@@ -1,14 +1,12 @@
-<div class="card border-0-rm shadow-sm">
-  <div class="card-body p-0 bg-light-rm border-0">
+<div class="card shadow-sm">
 
+  <div class="card-body p-0 border-0">
     <div class="m-3">
       <h2 class="h5 text-dark">
         VAT Return
       </h2>
     </div>
-
     <div class="my-3 text-secondary p-3">
-
       <div class="d-flex justify-content-between">
         <div>
           <div class="text-muted mb-2">
@@ -18,35 +16,25 @@
             <div>
               <input type="date" wire:model="startDate" class="mr-3" />
             </div>
-
             <div>
               <input type="date" wire:model="endDate" class="mr-3" />
             </div>
-
-            <div class="my-2-rm">
+            <div>
               <button class="btn btn-success" wire:click="render">
                 Go
               </button>
             </div>
-
-            <button wire:loading class="btn">
-              <div class="spinner-border text-info mr-3" role="status">
-                <span class="sr-only">Loading...</span>
-              </div>
-            </button>
+            @include ('partials.dashboard.spinner-button')
           </div>
         </div>
-
-        <div class="bg-warning-rm p-3 shadow-sm col-md-3" style="background-color: #ffa;">
+        <div class="p-3 shadow-sm col-md-3" style="background-color: #ffa;">
           <div>
-            <i class="fas fa-exclamation-circle fa-2x-rm mr-2 text-danger"></i>
+            <i class="fas fa-exclamation-circle mr-2 text-danger"></i>
             Please check your local tax regulations. 
           </div>
         </div>
       </div>
-
     </div>
-
     <div>
       <div class="table-responsive border">
         <table class="table mb-0">
@@ -55,14 +43,13 @@
                 {{ config('app.oc_ascent_bg_color', 'bg-success') }}
                 {{ config('app.oc_ascent_text_color', 'text-white') }}
                 "
-                >
+            >
               <th class="w-75">Category</th>
               <th>Bills</th>
               <th>Total</th>
               <th>Vat</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
               <td>
@@ -109,7 +96,6 @@
           </tbody>
         </table>
       </div>
-
       <div class="p-3 mt-3">
         <h2 class="h5">
           Payable
@@ -124,8 +110,7 @@
           @php echo number_format( $salesVat - $purchaseVat - $expenseVat ); @endphp
         </h2>
       </div>
-
     </div>
-
   </div>
+
 </div>

@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       <div class="mb-1 p-3 bg-white border d-flex justify-content-between">
@@ -66,7 +65,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </x-slot>
 
@@ -211,7 +209,6 @@
               </span>
             @endif
           </td>
-
         </tr>
       @endforeach
     </x-slot>
@@ -220,6 +217,5 @@
       {{ $websiteOrders->links() }}
     </x-slot>
   </x-list-component>
-
 
 </div>

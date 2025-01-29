@@ -2,7 +2,7 @@
 
   {{--
   |
-  | Toolbar.
+  | Toolbar
   |
   --}}
 
@@ -25,13 +25,10 @@
 
   <div class="row">
     <div class="col-md-12">
-
       <div class="mb-2">
-
         <div class="table-responsive bg-white">
           <table class="table border mb-0">
             <tbody>
-
               <tr>
                 <td class="o-heading">
                   Date
@@ -40,7 +37,6 @@
                   {{ $websiteOrder->created_at->toDateString() }}
                 </td>
               </tr>
-
               <tr>
                 <td class="o-heading">
                   Time
@@ -49,7 +45,6 @@
                   {{ $websiteOrder->created_at->format('g:i A') }}
                 </td>
               </tr>
-
               <tr>
                 <td class="o-heading">
                   Phone
@@ -58,7 +53,6 @@
                   {{ $websiteOrder->phone }}
                 </td>
               </tr>
-
               <tr>
                 <td class="o-heading">
                   Address
@@ -67,7 +61,6 @@
                   {{ $websiteOrder->address }}
                 </td>
               </tr>
-
               <tr>
                 <td class="o-heading">
                   Status
@@ -94,7 +87,6 @@
                   @endif
                 </td>
               </tr>
-
               <tr>
                 <td class="o-heading">
                   Action
@@ -118,11 +110,9 @@
                   @endif
                 </td>
               </tr>
-
             </tbody>
           </table>
         </div>
-
       </div>
 
       <div class="table-responsive bg-white">
@@ -135,7 +125,6 @@
               <th class="o-heading">Total</th>
             </tr>
           </thead>
-
           <tbody>
             @foreach ($websiteOrder->websiteOrderItems as $item)
               <tr>
@@ -154,7 +143,6 @@
               </tr>
             @endforeach
           </tbody>
-
           <tfoot>
             <tr>
               <th colspan="3" class="o-heading text-right">
@@ -171,6 +159,5 @@
     <div class="col-md-6">
     </div>
   </div>
-
 
 </div>

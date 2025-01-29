@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       Total customers: {{ \App\Customer::count() }}
@@ -45,17 +44,15 @@
             @endif
           </td>
           <td class="text-right">
-            @if (true)
-              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayCustomer', { customerId: {{ $customer->customer_id }} })">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayCustomer', { customerId: {{ $customer->customer_id }} })">
-                <i class="fas fa-eye"></i>
-              </button>
-              <button class="btn btn-danger px-2 py-1" wire:click="">
-                <i class="fas fa-trash"></i>
-              </button>
-            @endif
+            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayCustomer', { customerId: {{ $customer->customer_id }} })">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayCustomer', { customerId: {{ $customer->customer_id }} })">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-danger px-2 py-1" wire:click="">
+              <i class="fas fa-trash"></i>
+            </button>
           </td>
         </tr>
 
@@ -109,8 +106,6 @@
     <x-slot name="listPaginationLinks">
       {{ $customers->links() }}
     </x-slot>
-
   </x-list-component>
-
 
 </div>

@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       Total product vendors: {{ \App\ProductVendor::count() }}
@@ -35,6 +34,5 @@
       {{ $productVendors->links() }}
     </x-slot>
   </x-list-component>
-
 
 </div>

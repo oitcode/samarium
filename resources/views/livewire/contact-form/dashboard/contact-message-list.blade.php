@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       <div class="mb-1 p-3 bg-white border d-flex justify-content-between">
@@ -13,7 +12,6 @@
         </div>
         <div class="font-weight-bold h6 d-flex">
           <div class="d-flex">
-            @if (true)
             <div class="d-flex flex-column justify-content-center mr-3 o-heading">
               <i class="fas fa-funnel mr-1"></i>
               Filter
@@ -59,7 +57,6 @@
                 </button>
               </div>
             </div>
-            @endif
           </div>
         </div>
       </div>
@@ -102,7 +99,6 @@
             {{ $contactMessage->created_at->toDateString() }}
           </td>
           <td>
-            @if (true)
             @if ($contactMessage->status == 'new')
               <span class="badge badge-pill badge-danger">
                 New
@@ -117,7 +113,6 @@
               </span>
             @else
               {{ $contactMessage->status }}
-            @endif
             @endif
           </td>
           <td class="text-right">
@@ -148,8 +143,6 @@
     <x-slot name="listPaginationLinks">
       {{ $contactMessages->links() }}
     </x-slot>
-
   </x-list-component>
-
 
 </div>

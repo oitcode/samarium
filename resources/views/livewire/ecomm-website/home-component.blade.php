@@ -1,164 +1,137 @@
-<div style="">
+<div>
 
-
-  @if (true)
   {{-- Show only in big screens for now --}}
-  <div class="container-fluid bg-light d-none d-md-block py-4" style="{{--background-image: linear-gradient(to right, #a00, #003);--}}">
-  <div class="container pt-4-rm">
-    <div class="row border-rm shadow-rm">
-
-      {{-- Product categories --}}
-      <div class="col-md-3 py-3-rm bg-info-rm">
-        <div class="d-flex flex-column h-100" >
-          <div class="bg-white h-100-rm py-3 flex-grow-1 border rounded" style="">
-            <div class="h4 mb-3 pl-3 font-weight-bold text-white-rm">
-              Product categories
-            </div>
-            @php
-              $ii = 0;
-            @endphp
-            @foreach ($productCategories as $productCategory)
-              @if ($ii >= 5)
-                @break
-              @endif
-              <a
-                  href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-                  class="text-reset-rm text-decoration-none text-dark"
-              >
-                <div class="px-3 py-2 border-top-rm">
-                    <button class="btn btn-outline-danger w-100 text-left-rm">
-                      <span class="h6 font-weight-bold">
-                        {{ $productCategory->name }}
-                      </span>
-                    </button>
-                </div>
-              </a>
+  <div class="container-fluid bg-light d-none d-md-block py-4">
+    <div class="container">
+      <div class="row">
+        {{-- Product categories --}}
+        <div class="col-md-3">
+          <div class="d-flex flex-column h-100" >
+            <div class="bg-white py-3 flex-grow-1 border rounded">
+              <div class="h4 mb-3 pl-3 font-weight-bold">
+                Product categories
+              </div>
               @php
-                $ii++;
+                $ii = 0;
               @endphp
-            @endforeach
-            <div class="p-3 border-top text-center">
-              <a href="#o-all-categories" class="text-dark">
-              <button class="btn btn-danger w-100 text-left-rm">
-                See all categories
-              </button>
-              </a>
+              @foreach ($productCategories as $productCategory)
+                @if ($ii >= 5)
+                  @break
+                @endif
+                <a
+                    href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
+                    class="text-decoration-none text-dark"
+                >
+                  <div class="px-3 py-2">
+                      <button class="btn btn-outline-danger w-100">
+                        <span class="h6 font-weight-bold">
+                          {{ $productCategory->name }}
+                        </span>
+                      </button>
+                  </div>
+                </a>
+                @php
+                  $ii++;
+                @endphp
+              @endforeach
+              <div class="p-3 border-top text-center">
+                <a href="#o-all-categories" class="text-dark">
+                <button class="btn btn-danger w-100">
+                  See all categories
+                </button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-
-      </div>
-
-
-      {{-- Featured products --}}
-      <div class="col-md-9 pt-3 bg-white-rm">
-
-        <div class="d-flex flex-column h-100">
-          <div>
-            <h2 class="h4 bg-white-rm text-dark font-weight-bold p-3-rm py-4-rm mb-4" style="{{--background-color: white; color: gray;--}}">
-              Featured products
-            </h2>
-          </div>
-          <div class="flex-grow-1 bg-white-rm">
-          <div class="row bg-white-rm py-3" style="margin: auto;">
-
-            @foreach (\App\Product::where('featured_product', 'yes')->get() as $product)
-                <div class="col-md-4 bg-danger-rm border-rm border-danger-rm">
-                  <a href="{{ route('website-product-view', [$product->product_id, str_replace(" ", "-", $product->name)]) }}"
-                      class="text-decoration-none">
-                    <div class="card h-100 shadow-rm border-0-rm border-rm border-0">
-      
-                      @if (true)
-                      <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-                          <div class="d-flex justify-content-center bg-warning-rm">
-                              @if ($product->image_path)
-                                <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{
-                                $product->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
-                              @else
-                                <i class="fas fa-ellipsis-h fa-8x text-muted m-5"></i>
-                              @endif
-                          </div>
-      
-                        <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto" style="{{-- background-color: #f5f5f5; --}}">
-                          <div class="p-2">
-                              <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark text-center" style="font-family: Arial;">
-                                {{ ucwords($product->name) }}
-                              </h2>
-                              <div class="mt-0 text-muted h6 font-weight-bold text-center">
-                                @if ($product->selling_price != 0)
-                                  Rs
-                                  @php echo number_format( $product->selling_price ); @endphp
-                                @else
-                                &nbsp;
-                                @endif
+        {{-- Featured products --}}
+        <div class="col-md-9 pt-3">
+          <div class="d-flex flex-column h-100">
+            <div>
+              <h2 class="h4 text-dark font-weight-bold mb-4">
+                Featured products
+              </h2>
+            </div>
+            <div class="flex-grow-1">
+              <div class="row py-3" style="margin: auto;">
+                @foreach (\App\Product::where('featured_product', 'yes')->get() as $product)
+                    <div class="col-md-4">
+                      <a href="{{ route('website-product-view', [$product->product_id, str_replace(" ", "-", $product->name)]) }}"
+                          class="text-decoration-none">
+                        <div class="card h-100 border-0">
+                          <div class="d-flex flex-column justify-content-between h-100">
+                              <div class="d-flex justify-content-center">
+                                  @if ($product->image_path)
+                                    <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{
+                                    $product->name }}" style="max-height: 150px;">
+                                  @else
+                                    <i class="fas fa-ellipsis-h fa-8x text-muted m-5"></i>
+                                  @endif
                               </div>
-      
+                            <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto">
+                              <div class="p-2">
+                                  <h2 class="h6 font-weight-bold mt-2 text-dark text-center" style="font-family: Arial;">
+                                    {{ ucwords($product->name) }}
+                                  </h2>
+                                  <div class="mt-0 text-muted h6 font-weight-bold text-center">
+                                    @if ($product->selling_price != 0)
+                                      Rs
+                                      @php echo number_format( $product->selling_price ); @endphp
+                                    @else
+                                    &nbsp;
+                                    @endif
+                                  </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      @endif
-
-
+                      </a>
                     </div>
-                  </a>
-                </div>
-            @endforeach
-
-          </div>
+                @endforeach
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-  </div>
-  @endif
-
 
   {{-- Show product search --}}
   <div>
-  @if (! $modes['searchResult'])
+    @if (! $modes['searchResult'])
 
-    {{--
-    |
-    |
-    |
-    |
-    | Most viewed products
-    |
-    |
-    |
-    |
-    --}}
-    <div class="container py-5">
-      <h2 class="h4 font-weight-bold mt-2 mb-1">
-        Most viewed
-      </h2>
-      <p class="text-secondary">
-        Our most viewed products
-      </p>
-      <div class="row bg-danger-rm">
-        @foreach (\App\Product::orderBy('website_views', 'desc')->limit('3')->get() as $product)
-          <div class="col-6 col-md-4 bg-danger-rm border-rm border-danger-rm">
-            <a href="{{ route('website-product-view', [$product->product_id, str_replace(" ", "-", $product->name)]) }}"
-                class="text-decoration-none">
-              <div class="card h-100 shadow-rm border-0-rm border-rm border-0">
-      
-                @if (true)
-                <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-                    <div class="d-flex justify-content-center bg-warning-rm">
-                        @if ($product->image_path)
-                          <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $product->image_path) }}" alt="{{
-                          $product->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
-                        @else
-                          <i class="fas fa-ellipsis-h fa-8x text-muted m-5"></i>
-                        @endif
+      {{--
+      |
+      | Most viewed products
+      |
+      --}}
+      <div class="container py-5">
+        <h2 class="h4 font-weight-bold mt-2 mb-1">
+          Most viewed
+        </h2>
+        <p class="text-secondary">
+          Our most viewed products
+        </p>
+        <div class="row">
+          @foreach (\App\Product::orderBy('website_views', 'desc')->limit('3')->get() as $product)
+            <div class="col-6 col-md-4">
+              <a href="{{ route('website-product-view', [$product->product_id, str_replace(" ", "-", $product->name)]) }}"
+                  class="text-decoration-none"
+              >
+                <div class="card h-100 border-0">
+                  <div class="d-flex flex-column justify-content-between h-100">
+                    <div class="d-flex justify-content-center">
+                      @if ($product->image_path)
+                        <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{
+                        $product->name }}" style="max-height: 150px;">
+                      @else
+                        <i class="fas fa-ellipsis-h fa-8x text-muted m-5"></i>
+                      @endif
                     </div>
-      
-                  <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto" style="{{-- background-color: #f5f5f5; --}}">
-                    <div class="p-2">
-                        <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark text-center" style="font-family: Arial;">
+                    <div class="d-flex flex-column justify-content-end flex-grow-1 overflow-auto">
+                      <div class="p-2">
+                        <h2 class="h6 font-weight-bold mt-2 text-dark text-center" style="font-family: Arial;">
                           {{ ucwords($product->name) }}
                         </h2>
                         <div class="mt-0 text-muted h6 font-weight-bold text-center">
@@ -169,103 +142,74 @@
                           &nbsp;
                           @endif
                         </div>
-      
+                      </div>
                     </div>
                   </div>
                 </div>
-                @endif
-
-
-              </div>
-            </a>
-          </div>
-        @endforeach
+              </a>
+            </div>
+          @endforeach
+        </div>
       </div>
-    </div>
 
+      {{--
+      |
+      | Show all product categories
+      |
+      --}}
 
-    {{--
-    |
-    |
-    |
-    |
-    | Show all product categories
-    |
-    |
-    |
-    |
-    --}}
-
-    <div class="container py-5" id="o-all-categories">
-      <h2 class="h4 font-weight-bold mt-2 mb-1">
-        Categories
-      </h2>
-      <p class="text-secondary">
-        Browse our products by category
-      </p>
-      <div class="row bg-danger-rm">
-        @foreach ($productCategories as $productCategory)
-
-          <div class="col-6 col-md-3 my-4">
-            <div class="h-100 shadow-rm">
-              {{-- Show in smaller screens --}}
-              <div class="d-md-none">
-              </div>
-            
-              {{-- Show in bigger screens --}}
-              <div class="d-none-rm d-md-block-rm h-100">
-                <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-                class="text-decoration-none">
-                <div class="card h-100 shadow border-0">
-            
-                  <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-                      <div class="d-flex justify-content-center bg-warning-rm">
-                          @if ($productCategory->image_path)
-                            <img class="img-fluid h-25-rm w-100-rm" src="{{ asset('storage/' . $productCategory->image_path) }}" alt="{{ $productCategory->name }}" style="max-height: 150px; {{--max-width: 100px;--}}">
-                          @else
-                            <i class="fas fa-ellipsis-h fa-4x text-muted m-5"></i>
-                          @endif
-                      </div>
-            
-                    <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto" style="">
-                      <div class="pt-2">
-                          <h2 class="h6 font-weight-bold mt-2 mb-2-rm text-dark text-center py-0 my-0" style="font-family: Arial;">
-                            {{ ucwords($productCategory->name) }}
-                          </h2>
-            
-                      </div>
-                      <div class="py-1 px-2 pb-3 text-muted text-center">
-                        Products:
-                        {{ count($productCategory->products) }}
+      <div class="container py-5" id="o-all-categories">
+        <h2 class="h4 font-weight-bold mt-2 mb-1">
+          Categories
+        </h2>
+        <p class="text-secondary">
+          Browse our products by category
+        </p>
+        <div class="row">
+          @foreach ($productCategories as $productCategory)
+            <div class="col-6 col-md-3 my-4">
+              <div class="h-100">
+                {{-- Show in bigger screens --}}
+                <div class="h-100">
+                  <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
+                      class="text-decoration-none"
+                  >
+                    <div class="card h-100 shadow border-0">
+                      <div class="d-flex flex-column justify-content-between h-100">
+                        <div class="d-flex justify-content-center">
+                            @if ($productCategory->image_path)
+                              <img class="img-fluid" src="{{ asset('storage/' . $productCategory->image_path) }}" alt="{{ $productCategory->name }}" style="max-height: 150px;">
+                            @else
+                              <i class="fas fa-ellipsis-h fa-4x text-muted m-5"></i>
+                            @endif
+                        </div>
+                        <div class="d-flex flex-column justify-content-between flex-grow-1 overflow-auto">
+                          <div class="pt-2">
+                            <h2 class="h6 font-weight-bold mt-2 text-dark text-center py-0 my-0" style="font-family: Arial;">
+                              {{ ucwords($productCategory->name) }}
+                            </h2>
+                          </div>
+                          <div class="py-1 px-2 pb-3 text-muted text-center">
+                            Products:
+                            {{ count($productCategory->products) }}
+                          </div>
+                        </div>
                       </div>
                     </div>
-
-                  </div>
-
+                  </a>
                 </div>
-                </a>
               </div>
             </div>
-          </div>
-
-        @endforeach
+          @endforeach
+        </div>
       </div>
-    </div>
-
-  @else
-  @endif
+    @else
+    @endif
   </div>
-
 
   {{--
   |
-  |
-  |
-  |
   | Testimonials
-  |
-  |
-  |
   |
   --}}
 
@@ -279,6 +223,5 @@
       </div>
     </div>
   @endif
-
 
 </div>
