@@ -36,8 +36,8 @@
 
       {{-- Shop glance --}}
       @if (has_module('shop'))
-        <div class="col-6 col-md-3">
-          <div class="mb-4">
+        <div class="col-12 col-md-3">
+          <div class="mb-2">
             @livewire ('shop.dashboard.shop-glance')
           </div>
         </div>
@@ -45,8 +45,8 @@
 
       {{-- Online order glance --}}
       @if (has_module('shop'))
-        <div class="col-6 col-md-3">
-          <div class="mb-4">
+        <div class="col-12 col-md-3">
+          <div class="mb-2">
             @livewire ('online-order.dashboard.online-order-glance')
           </div>
         </div>
@@ -54,8 +54,8 @@
 
       {{-- Notice glance --}}
       @if (has_module('crm'))
-        <div class="col-6 col-md-3">
-          <div class="mb-4">
+        <div class="col-12 col-md-3">
+          <div class="mb-2">
             @livewire ('cms.dashboard.notice-glance-component')
           </div>
         </div>
@@ -63,8 +63,8 @@
 
       {{-- Contact form glance --}}
 			@if (has_module('crm'))
-        <div class="col-6 col-md-3">
-          <div class="mb-4">
+        <div class="col-12 col-md-3">
+          <div class="mb-2">
             @livewire ('contact-form.dashboard.contact-message-glance-component')
           </div>
         </div>

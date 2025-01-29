@@ -1,68 +1,62 @@
-<div class="bg-dark text-white o-heading-rm py-1 px-3">
+<div class="bg-dark text-white py-1 px-3">
   <small>
-  Admin panel
+  {{ config('app.name') }} > Admin panel
   </small>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0">
-  <a class="navbar-brand p-3-rm text-reset" href="{{ route('dashboard') }}" style="">
+  <a class="navbar-brand text-reset" href="{{ route('dashboard') }}" style="">
     <button class="btn p-3 m-3 border text-white" type="button">
       <i class="fas fa-home fa-2x"></i>
     </button>
   </a>
   <button class="navbar-toggler p-3 m-3 border text-white" style="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="fas fa-list fa-2x"></i>
+    <i class="fas fa-th fa-2x"></i>
   </button>
 
   <div class="collapse navbar-collapse m-0 p-0 mt-4" id="navbarSupportedContent" style="margin-left: 0;">
-    <ul class="navbar-nav m-0 p-0 mr-auto-rm" style="margin: auto;">
+    <ul class="navbar-nav m-0 p-0" style="margin: auto;">
 
       {{-- Product options --}}
       @if (has_module('product'))
-        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
-        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+        <li class="nav-item dropdown bg-light text-dark border">
+        <li class="nav-item dropdown bg-light text-dark border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuProductDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-dice-d6 text-secondry mr-3"></i>
             <span class="font-weight-bold">
             Product
             </span>
           </a>
-          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuProductDropdown">
-
+          <div class="dropdown-menu p-0" aria-labelledby="mobTopMenuProductDropdown">
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('product') }}" style="background-color: #ddd;">
               <i class="fas fa-dice-d6 mr-3"></i>
               Products
             </a>
-
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('product-category') }}" style="background-color: #ddd;">
               <i class="fas fa-list mr-3"></i>
               Product category
             </a>
-
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('product-question') }}" style="background-color: #ddd;">
               <i class="fas fa-question mr-3"></i>
               Product question
             </a>
-
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-inventory') }}" style="background-color: #ddd;">
               <i class="fas fa-dolly mr-3"></i>
               Inventory
             </a>
-
           </div>
         </li>
       @endif
 
-
       {{-- Shop options --}}
       @if (has_module('shop'))
-        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+        <li class="nav-item dropdown bg-light text-dark border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuShopDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-shopping-cart text-secondry mr-3"></i>
             <span class="font-weight-bold">
             Shop
             </span>
           </a>
-          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuShopDropdown">
+          <div class="dropdown-menu p-0" aria-labelledby="mobTopMenuShopDropdown">
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('sale') }}">
               @if (config('app.cmp_type') === 'cafe')
                 <i class="fas fa-skating mr-3"></i>
@@ -72,14 +66,12 @@
                 Sales
               @endif
             </a>
-
             @if (config('app.cmp_type') === 'cafe')
               <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('cafesale') }}">
                 <i class="fas fa-table mr-3"></i>
                 Tables
               </a>
             @endif
-
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-purchase') }}">
               <i class="fas fa-shopping-cart mr-3"></i>
               Purchase
@@ -88,11 +80,7 @@
               <i class="fas fa-wrench mr-3"></i>
               Expense
             </a>
-
-            @if (true)
             <div class="dropdown-divider"></div>
-            @endif
-
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('customer') }}">
               <i class="fas fa-users mr-3"></i>
               Customers
@@ -101,10 +89,7 @@
               <i class="fas fa-users mr-3"></i>
               Vendors
             </a>
-
-            @if (true)
             <div class="dropdown-divider"></div>
-            @endif
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('online-order') }}">
               <i class="fas fa-cloud-download-alt mr-3"></i>
               Weborder
@@ -113,23 +98,20 @@
               <i class="fas fa-edit mr-3"></i>
               Quotation
             </a>
-
           </div>
         </li>
       @endif
 
-
       {{-- CMS options --}}
       @if (has_module('cms'))
-        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+        <li class="nav-item dropdown bg-light text-dark border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCmsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-edit text-secondry mr-3"></i>
             <span class="font-weight-bold">
             CMS
             </span>
           </a>
-          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCmsDropdown">
-
+          <div class="dropdown-menu p-0" aria-labelledby="mobTopMenuCmsDropdown">
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-cms-post') }}">
               <i class="fas fa-edit mr-3"></i>
               Post
@@ -150,70 +132,60 @@
               <i class="fas fa-palette mr-3"></i>
               Appearence
             </a>
-
           </div>
         </li>
       @endif
 
-
       {{-- Calendar options --}}
       @if (has_module('school'))
-        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+        <li class="nav-item dropdown bg-light text-dark border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCalendarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-calendar text-secondry mr-3"></i>
             <span class="font-weight-bold">
             Calendar
             </span>
           </a>
-          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCalendarDropdown">
-
+          <div class="dropdown-menu p-0" aria-labelledby="mobTopMenuCalendarDropdown">
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-school-calendar') }}">
               <i class="fas fa-calendar mr-3"></i>
               Calendar
             </a>
-
           </div>
         </li>
       @endif
 
-
       {{-- Team options --}}
       @if (has_module('team'))
-        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+        <li class="nav-item dropdown bg-light text-dark border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuTeamDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-calendar text-secondry mr-3"></i>
             <span class="font-weight-bold">
             Team
             </span>
           </a>
-          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuTeamDropdown">
-
+          <div class="dropdown-menu p-0" aria-labelledby="mobTopMenuTeamDropdown">
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-team') }}">
               <i class="fas fa-calendar mr-3"></i>
               Team
             </a>
-
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-quick-contacts') }}">
               <i class="fas fa-calendar mr-3"></i>
               Quick contacts
             </a>
-
           </div>
         </li>
       @endif
 
-
       {{-- Report options --}}
       @if (has_module('report'))
-        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+        <li class="nav-item dropdown bg-light text-dark border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuReportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-dice-d6 text-secondry mr-3"></i>
             <span class="font-weight-bold">
             Report
             </span>
           </a>
-          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuReportDropdown">
-
+          <div class="dropdown-menu p-0" aria-labelledby="mobTopMenuReportDropdown">
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('daybook') }}">
               <i class="fas fa-book mr-3"></i>
               Daybook
@@ -226,23 +198,20 @@
               <i class="fas fa-chart-line text-secondary mr-3"></i>
               Report
             </a>
-
           </div>
         </li>
       @endif
 
-
       {{-- CRM options --}}
       @if (has_module('crm'))
-        <li class="nav-item dropdown bg-light text-dark p-3-rm border">
+        <li class="nav-item dropdown bg-light text-dark border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCrmDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-users text-secondry mr-3"></i>
             <span class="font-weight-bold">
             CRM
             </span>
           </a>
-          <div class="dropdown-menu p-0 border-danger-rm" aria-labelledby="mobTopMenuCrmDropdown">
-
+          <div class="dropdown-menu p-0" aria-labelledby="mobTopMenuCrmDropdown">
             <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-contact-form') }}">
               <i class="fas fa-comment mr-3"></i>
               Contact message
@@ -259,7 +228,6 @@
               <i class="fas fa-comment mr-3"></i>
               Testimonial
             </a>
-
           </div>
         </li>
       @endif
@@ -319,7 +287,6 @@
         </div>
       </li>
 
-
       {{-- Logout and other user related options --}}
       @guest
       @else
@@ -354,7 +321,6 @@
           </div>
         </li>
       @endguest
-
     </ul>
   </div>
 </nav>
