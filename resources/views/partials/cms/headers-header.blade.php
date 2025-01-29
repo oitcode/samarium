@@ -4,14 +4,14 @@
         @if (\App\CmsTheme::first())
           {{ \App\CmsTheme::first()->top_header_bg_color }}
         @else
-          orange
+          white
         @endif
         ;
     color:
         @if (\App\CmsTheme::first())
           {{ \App\CmsTheme::first()->top_header_text_color }}
         @else
-          white
+          black
         @endif
     ;"
 >

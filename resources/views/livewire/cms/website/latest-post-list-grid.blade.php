@@ -20,7 +20,7 @@
                   </div>
                   <div>
                     <div class="mb-2">
-                      <span class="p-0 px-1" style="color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
+                      <span class="p-0 px-1" style="@if (\App\CmsTheme::first()) color: {{ \App\CmsTheme::first()->ascent_bg_color }} @else color: #888; @endif">
                         {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($webpage->created_at->toDateString(), 'english')  }}
                         2081
                       </span>

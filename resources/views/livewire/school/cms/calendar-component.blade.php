@@ -37,7 +37,7 @@
                       @if (\App\CmsTheme::first())
                         {{ \App\CmsTheme::first()->ascent_bg_color }}
                       @else
-                        orange
+                        white
                       @endif
                       ;
           ">
@@ -66,7 +66,7 @@
                       @if (\App\CmsTheme::first())
                         {{ \App\CmsTheme::first()->ascent_bg_color }}
                       @else
-                        orange
+                        white
                       @endif
                       ;
                       color:

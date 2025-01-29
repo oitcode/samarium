@@ -63,8 +63,10 @@
 @else
   <div class="container-fluid mb-0 p-0"
       style= "
-      background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
-      color: {{ \App\CmsTheme::first()->ascent_text_color }};
+      @if (\App\CmsTheme::first())
+        background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
+        color: {{ \App\CmsTheme::first()->ascent_text_color }};
+      @endif
   ;">
     <div class="h-100" style="
       padding-top: 50px;
@@ -77,7 +79,7 @@
                   @if (\App\CmsTheme::first())
                     {{ \App\CmsTheme::first()->ascent_text_color }}
                   @else
-                    white
+                    black
                   @endif
           ;">
         {{ $webpage->name }}

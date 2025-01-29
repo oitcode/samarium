@@ -66,17 +66,19 @@
     |--------------------------------------------------------------------------
     |
     --}}
-    @if (has_module('hfn'))
+    @if (false && has_module('hfn'))
       <div class="container-fluid p-0 o-fade-in" style="
       @if(\App\CmsTheme::first())
-      background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
-      color: {{ \App\CmsTheme::first()->ascent_text_color }};
+        background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
+        color: {{ \App\CmsTheme::first()->ascent_text_color }};
       @endif
       ">
         <div class="p-0">
           <div class="row p-0" style="margin: auto;">
             <div class="col-md-6 p-0">
-              <img class="img-fluid" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}">
+              @if (\App\CmsTheme::first())
+                <img class="img-fluid" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}">
+              @endif
             </div>
             <div class="col-md-6 pt-5 px-md-5 pb-5 pb-md-0">
               <div class="d-flex flex-column justify-content-center h-100">

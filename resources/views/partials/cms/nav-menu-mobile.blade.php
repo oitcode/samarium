@@ -10,19 +10,18 @@
   <div>
     <nav class="navbar navbar-expand-lg border-bottom p-0"
         style="
-        background-color: orange;
             background-color:
                 @if (\App\CmsTheme::first())
                   {{ \App\CmsTheme::first()->top_header_bg_color }}
                 @else
-                  orange
+                  white
                 @endif
                 ;
             color:
                 @if (\App\CmsTheme::first())
                   {{ \App\CmsTheme::first()->top_header_text_color }}
                 @else
-                  white
+                  black
                 @endif
             ;"
     >
@@ -76,7 +75,7 @@
                 @if (\App\CmsTheme::first())
                   {{ \App\CmsTheme::first()->top_header_text_color }}
                 @else
-                  white
+                  black
                 @endif
             ;
         "></i>
@@ -114,7 +113,7 @@
                                 @endif;
                             "
                             href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}"
-                            onMouseOver="this.style.background='{{ \App\CmsTheme::first()->top_header_bg_color }}'; this.style.color='{{ \App\CmsTheme::first()->top_header_text_color }}'"
+                            onMouseOver="this.style.background='@if (\App\CmsTheme::first()){{ \App\CmsTheme::first()->top_header_bg_color }} @endif'; this.style.color='@if (\App\CmsTheme::first()){{ \App\CmsTheme::first()->top_header_text_color }} @endif'"
                         >
                           {{ $cmsNavMenuDropdownItem->name }}
                         </a>
@@ -215,19 +214,18 @@
   <div>
     <nav class="navbar navbar-expand-lg border-bottom p-0"
         style="
-        background-color: orange;
             background-color:
                 @if (\App\CmsTheme::first())
                   {{ \App\CmsTheme::first()->top_header_bg_color }}
                 @else
-                  orange
+                  white
                 @endif
                 ;
             color:
                 @if (\App\CmsTheme::first())
                   {{ \App\CmsTheme::first()->top_header_text_color }}
                 @else
-                  white
+                  black
                 @endif
             ;"
     >
@@ -249,7 +247,7 @@
                 @if (\App\CmsTheme::first())
                   {{ \App\CmsTheme::first()->top_header_text_color }}
                 @else
-                  white
+                  black
                 @endif
             ;
         "></i>

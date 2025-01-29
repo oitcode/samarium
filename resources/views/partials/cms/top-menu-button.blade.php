@@ -7,7 +7,7 @@
                 @if (\App\CmsTheme::first())
                   {{ \App\CmsTheme::first()->ascent_bg_color }}
                 @else
-                  orange
+                  #123
                 @endif
               @else
               @endif

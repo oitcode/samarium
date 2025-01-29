@@ -1,18 +1,28 @@
 <div class="dropdown float-left h-100">
   <button class="btn dropdown-toggle p-3 border-0 font-weight-bold rounded-0 m-0"
-      style="background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};color: {{ \App\CmsTheme::first()->nav_menu_text_color }}"
+      style="
+          @if (\App\CmsTheme::first())
+            background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};
+            color: {{ \App\CmsTheme::first()->nav_menu_text_color }};
+          @endif
+          "
       type="button" id="dropdownMenuButton-{{ $cmsNavMenuItem->cms_nav_menu_item_id }}"
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-      onMouseOver="this.style.background='{{ \App\CmsTheme::first()->nav_menu_bg_color }}'; this.style.color='{{ \App\CmsTheme::first()->nav_menu_text_color }}'"
-      >
+      onMouseOver="this.style.background='@if (\App\CmsTheme::first()){{ \App\CmsTheme::first()->nav_menu_bg_color }} @endif'; this.style.color='@if (\App\CmsTheme::first()){{ \App\CmsTheme::first()->nav_menu_text_color }} @endif'"
+  >
     {{ strtoupper($cmsNavMenuItem->name) }}
   </button>
   <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton-{{ $cmsNavMenuItem->cms_nav_menu_item_id }}">
     @foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $cmsNavMenuDropdownItem)
       <a class="dropdown-item"
         href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}"
-        style="background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};
-               color: {{ \App\CmsTheme::first()->nav_menu_text_color }};">
+        style="
+          @if (\App\CmsTheme::first())
+            background-color: {{ \App\CmsTheme::first()->nav_menu_bg_color }};
+            color: {{ \App\CmsTheme::first()->nav_menu_text_color }};
+          @endif
+          "
+      >
         {{ strtoupper($cmsNavMenuDropdownItem->name) }}
       </a>
     @endforeach

@@ -47,14 +47,14 @@
           @if (\App\CmsTheme::first())
             {{ \App\CmsTheme::first()->footer_bg_color }}
           @else
-            orange
+            white
           @endif
           ;
       color:
           @if (\App\CmsTheme::first())
             {{ \App\CmsTheme::first()->footer_text_color }}
           @else
-            white
+            black
           @endif
       ;"
 >

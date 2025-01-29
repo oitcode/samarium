@@ -19,7 +19,8 @@
                     <div class="h6">
                       {{ $notice->name }}
                     </div>
-                    <div style="color: {{ \App\CmsTheme::first()->ascent_bg_color }};">
+              
+                    <div style="@if (\App\CmsTheme::first()) color: {{ \App\CmsTheme::first()->ascent_bg_color }} @else color: #888; @endif;">
                       {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($notice->created_at->toDateString(), 'english')  }}
                       2081
                     </div>

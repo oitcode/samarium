@@ -44,6 +44,9 @@
                           {{ \App\CmsTheme::first()->ascent_bg_color }}
                       );
                       color: {{ \App\CmsTheme::first()->ascent_text_color }};
+                  @else
+                    background-color: #123;
+                    color: white;
                   @endif
                   "
           >

@@ -1,14 +1,16 @@
+<div class="bg-dark text-white o-heading-rm py-1 px-3">
+  <small>
+  Admin panel
+  </small>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-0">
   <a class="navbar-brand p-3 text-reset" href="{{ route('dashboard') }}" style="">
-    <span class="h4 font-weight-bold text-white mr-2" style="">
-      {{ config('app.name') }}
-    </span>
-    <span class="h6 font-weight-bold text-white" style="">
-      Admin panel
-    </span>
+    <button class="p-3 m-3 border text-white" type="button">
+      <i class="fas fa-home fa-2x"></i>
+    </button>
   </a>
-  <button class="navbar-toggler p-3 m-3 border-0 text-white" style="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="fas fa-list fa-2x" style="{{-- color: {{ config('app.oc_select_txt_color') }}; --}}"></i>
+  <button class="navbar-toggler p-3 m-3 border text-white" style="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-list fa-2x"></i>
   </button>
 
   <div class="collapse navbar-collapse m-0 p-0 mt-4" id="navbarSupportedContent" style="margin-left: 0;">
