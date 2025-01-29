@@ -25,17 +25,17 @@
           </h2>
           <div>
             @include ('partials.dashboard.spinner-button')
-            <button class="btn btn-primary m-0 border"
-                wire:click="enterMode('updateLogoImageMode')"
-                style="min-width: 200px;">
-              <i class="fas fa-pencil-alt mr-1"></i>
-              Change logo
-            </button>
+            @if ($company)
+              <button class="btn btn-primary m-0 border"
+                  wire:click="enterMode('updateLogoImageMode')"
+                  style="min-width: 200px;">
+                <i class="fas fa-pencil-alt mr-1"></i>
+                Change logo
+              </button>
+            @endif
           </div>
         </div>
         <div class="form-row mb-3">
-          <div class="col-md-4">
-          </div>
           <div class="col-md-8">
             @if ($company && $company->logo_image_path)
               <div class="d-flex justify-content-between">
@@ -45,7 +45,7 @@
               </div>
             @else
               <div>
-                <button class="btn btn-light" wire:click="enterMode('updateLogoImageMode')">
+                <button class="btn btn-primary" wire:click="enterMode('updateLogoImageMode')">
                   Set
                 </button>
               </div>
@@ -85,13 +85,15 @@
               @error('logo_image') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="mt-3">
-              <button class="btn btn-success" wire:click="updateLogoImage">
-                Update
-              </button>
-              <button class="btn btn-danger" wire:click="exitMode('updateLogoImageFromNewUploadMode')">
-                Cancel
-              </button>
-              @include ('partials.dashboard.spinner-button')
+              @if ($company)
+                <button class="btn btn-success" wire:click="updateLogoImage">
+                  Update
+                </button>
+                <button class="btn btn-danger" wire:click="exitMode('updateLogoImageFromNewUploadMode')">
+                  Cancel
+                </button>
+                @include ('partials.dashboard.spinner-button')
+              @endif
             </div>
           </div>
         @endif
@@ -211,6 +213,7 @@
         </div>
       </div>
 
+      @if ($company)
       <div class="bg-white p-3 mb-4">
         <h2 class="h6 mb-3 o-heading">
           Social Media Links
@@ -333,6 +336,7 @@
           @endif
         </div>
       </div>
+      @endif
     </div>
 
     {{--

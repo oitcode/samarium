@@ -115,6 +115,8 @@ class CompanyComponent extends Component
 
         Company::create($validatedData);
 
+        $this->clearModes();
+
         $this->render();
     }
 
