@@ -4,7 +4,6 @@ namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\CalendarGroup;
 
 class CalendarGroupList extends Component

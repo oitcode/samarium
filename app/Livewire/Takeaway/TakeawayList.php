@@ -4,9 +4,7 @@ namespace App\Livewire\Takeaway;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Traits\ModesTrait;
-
 use App\Takeaway;
 
 class TakeawayList extends Component

@@ -4,7 +4,6 @@ namespace App\Livewire\User;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-
 use App\Traits\ModesTrait;
 
 class UserDisplay extends Component

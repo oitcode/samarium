@@ -4,7 +4,6 @@ namespace App\Livewire\Vacancy\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Vacancy;
 
 class VacancyList extends Component

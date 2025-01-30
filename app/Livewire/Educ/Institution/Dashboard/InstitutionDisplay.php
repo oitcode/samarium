@@ -3,7 +3,6 @@
 namespace App\Livewire\Educ\Institution\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
 
 class InstitutionDisplay extends Component

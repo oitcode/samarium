@@ -3,7 +3,6 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
-
 use App\ProductSpecification;
 
 class ProductEditAddProductSpecification extends Component

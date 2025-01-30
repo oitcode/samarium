@@ -4,9 +4,7 @@ namespace App\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Traits\ModesTrait;
-
 use App\WebsiteOrder;
 
 class OnlineOrderList extends Component

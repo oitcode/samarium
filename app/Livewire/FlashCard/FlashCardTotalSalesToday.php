@@ -3,7 +3,6 @@
 namespace App\Livewire\FlashCard;
 
 use Livewire\Component;
-
 use App\SaleInvoice;
 
 class FlashCardTotalSalesToday extends Component

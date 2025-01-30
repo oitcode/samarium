@@ -3,7 +3,6 @@
 namespace App\Livewire\AppInfo;
 
 use Livewire\Component;
-
 use App\Company;
 
 class LvCompanyInfo extends Component

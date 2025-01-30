@@ -3,7 +3,6 @@
 namespace App\Livewire\Customer;
 
 use Livewire\Component;
-
 use App\Customer;
 
 class CustomerSearch extends Component

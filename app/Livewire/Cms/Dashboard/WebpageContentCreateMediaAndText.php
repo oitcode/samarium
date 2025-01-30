@@ -4,7 +4,6 @@ namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 use App\WebpageContent;
 
 class WebpageContentCreateMediaAndText extends Component

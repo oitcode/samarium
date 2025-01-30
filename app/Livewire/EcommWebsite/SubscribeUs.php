@@ -3,7 +3,6 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
-
 use App\NewsletterSubscription;
 
 use App\Events\NewsletterSubscriptionCreated;

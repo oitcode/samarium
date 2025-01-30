@@ -3,7 +3,6 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
-
 use App\WebpageCategory;
 
 class PostCategoryCreate extends Component

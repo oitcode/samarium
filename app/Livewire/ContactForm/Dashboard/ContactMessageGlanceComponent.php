@@ -3,7 +3,6 @@
 namespace App\Livewire\ContactForm\Dashboard;
 
 use Livewire\Component;
-
 use App\ContactMessage;
 
 class ContactMessageGlanceComponent extends Component

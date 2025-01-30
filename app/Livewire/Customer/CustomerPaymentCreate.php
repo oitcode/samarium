@@ -4,7 +4,6 @@ namespace App\Livewire\Customer;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
-
 use App\SaleInvoice;
 use App\SaleInvoicePayment;
 use App\SaleInvoicePaymentType;

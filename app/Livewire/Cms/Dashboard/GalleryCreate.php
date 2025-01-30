@@ -5,7 +5,6 @@ namespace App\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
-
 use App\Gallery;
 use App\GalleryImage;
 

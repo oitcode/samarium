@@ -3,9 +3,7 @@
 namespace App\Livewire\User;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\User;
 
 class UserComponent extends Component

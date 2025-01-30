@@ -3,7 +3,6 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
-
 use App\Todo;
 
 class TodoGlance extends Component

@@ -4,9 +4,7 @@ namespace App\Livewire\User;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Traits\ModesTrait;
-
 use App\User;
 
 class UserList extends Component

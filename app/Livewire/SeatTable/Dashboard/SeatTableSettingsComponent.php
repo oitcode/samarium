@@ -3,7 +3,6 @@
 namespace App\Livewire\SeatTable\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
 
 class SeatTableSettingsComponent extends Component

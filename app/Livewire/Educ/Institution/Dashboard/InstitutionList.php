@@ -4,7 +4,6 @@ namespace App\Livewire\Educ\Institution\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\EducInstitution;
 
 class InstitutionList extends Component

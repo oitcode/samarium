@@ -3,7 +3,6 @@
 namespace App\Livewire\Vacancy\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
 
 class VacancyDisplay extends Component

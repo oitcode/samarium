@@ -4,7 +4,6 @@ namespace App\Livewire\Vendor;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Vendor;
 
 class VendorList extends Component

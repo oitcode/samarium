@@ -7,9 +7,7 @@ use Livewire\WithPagination;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-
 use App\Traits\ModesTrait;
-
 use App\Expense;
 
 class ExpenseList extends Component

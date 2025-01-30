@@ -6,7 +6,6 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
-
 use App\User;
 
 class UserCreate extends Component

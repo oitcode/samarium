@@ -3,9 +3,7 @@
 namespace App\Livewire\Vendor;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\Purchase;
 
 class VendorDisplay extends Component

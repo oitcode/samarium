@@ -3,7 +3,6 @@
 namespace App\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
-
 use App\OnlineOrder;
 
 class OnlineOrderSearch extends Component

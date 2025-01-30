@@ -3,9 +3,7 @@
 namespace App\Livewire\Dashboard;
 
 use Livewire\Component;
-
 use Illuminate\Support\Facades\Request;
-
 use App\Traits\ModesTrait;
 
 class AppLeftMenu extends Component

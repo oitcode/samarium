@@ -4,9 +4,7 @@ namespace App\Livewire\Appointment\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use Carbon\Carbon;
-
 use App\Appointment;
 
 class AppointmentList extends Component

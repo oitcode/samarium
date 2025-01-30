@@ -4,7 +4,6 @@ namespace App\Livewire\Calendar\Website;
 
 use Livewire\Component;
 use Carbon\Carbon;
-
 use App\SchoolCalendarEvent;
 use App\CalendarGroup;
 

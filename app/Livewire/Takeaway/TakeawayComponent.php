@@ -3,7 +3,6 @@
 namespace App\Livewire\Takeaway;
 
 use Livewire\Component;
-
 use App\Takeaway;
 
 class TakeawayComponent extends Component

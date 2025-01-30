@@ -4,7 +4,6 @@ namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 use App\Product;
 use App\ProductCategory;
 

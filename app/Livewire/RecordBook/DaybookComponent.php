@@ -5,22 +5,18 @@ namespace App\Livewire\RecordBook;
 use Livewire\Component;
 use Carbon\Carbon;
 use Livewire\WithPagination;
-
 use App\Sale;
 use App\SaleInvoice;
 use App\SaleInvoiceItem;
 use App\SeatTableBooking;
 use App\SaleInvoicePaymentType;
 use App\Product;
-
 use App\Purchase;
 use App\PurchaseItem;
 use App\PurchasePaymentType;
-
 use App\Expense;
 use App\ExpenseItem;
 use App\ExpensePaymentType;
-
 
 class DaybookComponent extends Component
 {

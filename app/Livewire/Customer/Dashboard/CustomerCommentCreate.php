@@ -5,7 +5,6 @@ namespace App\Livewire\Customer\Dashboard;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
-
 use App\CustomerComment;
 
 class CustomerCommentCreate extends Component

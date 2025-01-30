@@ -3,7 +3,6 @@
 namespace App\Livewire\Expense;
 
 use Livewire\Component;
-
 use App\Expense;
 
 class ExpenseComponent extends Component

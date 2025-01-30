@@ -3,9 +3,7 @@
 namespace App\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
-
 use App\WebsiteOrder;
-
 use App\Traits\ModesTrait;
 
 class OnlineOrderComponent extends Component

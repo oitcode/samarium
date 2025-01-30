@@ -4,9 +4,7 @@ namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Traits\ModesTrait;
-
 use App\Webpage;
 
 class WebpageList extends Component

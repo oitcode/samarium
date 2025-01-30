@@ -3,7 +3,6 @@
 namespace App\Livewire\Purchase;
 
 use Livewire\Component;
-
 use App\PurchaseItem;
 
 class PurchaseCreateConfirmPurchaseItemDelete extends Component

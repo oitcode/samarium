@@ -3,9 +3,7 @@
 namespace App\Livewire\Purchase;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\Product;
 use App\ProductCategory;
 use App\PurchaseItem;

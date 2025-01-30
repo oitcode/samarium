@@ -3,9 +3,7 @@
 namespace App\Livewire\Sale;
 
 use Livewire\Component;
-
 use Illuminate\Support\Facades\Auth;
-
 use App\SaleInvoice;
 
 class SaleInvoiceCreate extends Component

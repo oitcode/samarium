@@ -3,7 +3,6 @@
 namespace App\Livewire\Vacancy\Website;
 
 use Livewire\Component;
-
 use App\Vacancy;
 
 class VacancyList extends Component

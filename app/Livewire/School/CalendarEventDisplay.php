@@ -3,7 +3,6 @@
 namespace App\Livewire\School;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
 
 class CalendarEventDisplay extends Component

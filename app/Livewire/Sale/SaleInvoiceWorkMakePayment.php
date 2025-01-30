@@ -3,17 +3,14 @@
 namespace App\Livewire\Sale;
 
 use App\Traits\MiscTrait;
-
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
-
 use App\Customer;
 use App\SaleInvoice;
 use App\SaleInvoicePaymentType;
 use App\SaleInvoicePayment;
 use App\SaleInvoiceAddition;
 use App\SaleInvoiceAdditionHeading;
-
 use App\JournalEntry;
 use App\JournalEntryItem;
 use App\AbAccount;

@@ -3,11 +3,8 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\GalleryImage;
-
 
 class MediaSelectImageComponent extends Component
 {

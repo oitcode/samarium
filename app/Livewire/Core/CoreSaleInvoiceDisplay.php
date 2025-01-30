@@ -4,7 +4,6 @@ namespace App\Livewire\Core;
 
 use Livewire\Component;
 use App\Company;
-
 use App\SaleInvoiceAdditionHeading;
 
 class CoreSaleInvoiceDisplay extends Component

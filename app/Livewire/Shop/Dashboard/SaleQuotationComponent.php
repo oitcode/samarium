@@ -3,9 +3,7 @@
 namespace App\Livewire\Shop\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\SaleQuotation;
 
 class SaleQuotationComponent extends Component

@@ -4,7 +4,6 @@ namespace App\Livewire\Report;
 
 use Livewire\Component;
 use Carbon\Carbon;
-
 use App\Purchase;
 use App\PurchaseItem;
 use App\Product;

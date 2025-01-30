@@ -3,7 +3,6 @@
 namespace App\Livewire\Shop\Dashboard;
 
 use Livewire\Component;
-
 use App\SaleInvoice;
 use App\Purchase;
 use App\Expense;

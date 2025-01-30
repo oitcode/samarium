@@ -5,12 +5,9 @@ namespace App\Livewire\School\Cms;
 use Livewire\Component;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-
 use App\Traits\ModesTrait;
-
 use App\SchoolCalendarEvent;
 use App\CalendarGroup;
-
 
 class CalendarComponent extends Component
 {

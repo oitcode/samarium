@@ -4,7 +4,6 @@ namespace App\Livewire\Purchase;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
-
 use App\Purchase;
 
 class PurchaseListPurchaseDeleteConfirm extends Component

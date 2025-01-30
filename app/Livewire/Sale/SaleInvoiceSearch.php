@@ -3,7 +3,6 @@
 namespace App\Livewire\Sale;
 
 use Livewire\Component;
-
 use App\SaleInvoice;
 
 class SaleInvoiceSearch extends Component

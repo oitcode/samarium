@@ -4,7 +4,6 @@ namespace App\Livewire\User\Dashboard;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-
 use App\UserGroup;
 use App\UserUserGroup;
 

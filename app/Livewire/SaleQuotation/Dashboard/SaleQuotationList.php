@@ -4,9 +4,7 @@ namespace App\Livewire\SaleQuotation\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Traits\ModesTrait;
-
 use App\SaleQuotation;
 
 class SaleQuotationList extends Component

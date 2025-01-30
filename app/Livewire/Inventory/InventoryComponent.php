@@ -3,9 +3,7 @@
 namespace App\Livewire\Inventory;
 
 use Livewire\Component;
-
 use App\Product;
-
 use App\Traits\ModesTrait;
 
 class InventoryComponent extends Component

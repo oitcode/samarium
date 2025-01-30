@@ -3,9 +3,7 @@
 namespace App\Livewire\Appointment\Website;
 
 use Livewire\Component;
-
 use Carbon\Carbon;
-
 use App\Company;
 use App\Appointment;
 

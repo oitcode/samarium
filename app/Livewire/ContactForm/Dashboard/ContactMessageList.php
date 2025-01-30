@@ -4,9 +4,7 @@ namespace App\Livewire\ContactForm\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Traits\ModesTrait;
-
 use App\ContactMessage;
 
 class ContactMessageList extends Component

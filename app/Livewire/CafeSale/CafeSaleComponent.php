@@ -3,9 +3,7 @@
 namespace App\Livewire\CafeSale;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\SeatTable;
 
 class CafeSaleComponent extends Component
@@ -17,11 +15,8 @@ class CafeSaleComponent extends Component
 
     public $modes = [
         'workingTableDisplay' => false,
-
         'createSeatTableMode' => false,
-
         'seatTableDisplayXypher' => false,
-
         'editSettingsMode' => false,
     ];
 

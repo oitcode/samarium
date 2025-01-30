@@ -4,7 +4,6 @@ namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use App\Traits\ModesTrait;
-
 use App\WebpageContent;
 
 class WebpageContentDisplay extends Component

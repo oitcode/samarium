@@ -5,7 +5,6 @@ namespace App\Livewire\Report;
 use Livewire\Component;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
-
 use App\SaleInvoice;
 use App\SaleInvoiceItem;
 use App\Product;

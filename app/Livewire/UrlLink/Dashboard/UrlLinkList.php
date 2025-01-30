@@ -4,7 +4,6 @@ namespace App\Livewire\UrlLink\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\UrlLink;
 
 class UrlLinkList extends Component

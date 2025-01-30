@@ -4,7 +4,6 @@ namespace App\Livewire\Company\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 use App\Company;
 use App\CompanyInfo;
 

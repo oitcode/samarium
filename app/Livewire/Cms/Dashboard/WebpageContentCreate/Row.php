@@ -4,9 +4,7 @@ namespace App\Livewire\Cms\Dashboard\WebpageContentCreate;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 use App\Traits\ModesTrait;
-
 use App\WebpageContent;
 
 class Row extends Component

@@ -3,9 +3,7 @@
 namespace App\Livewire\ContactForm\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\ContactMessage;
 
 class ContactFormComponent extends Component

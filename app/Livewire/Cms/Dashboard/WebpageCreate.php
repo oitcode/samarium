@@ -3,9 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
-
 use Illuminate\Support\Facades\Auth;
-
 use App\Webpage;
 
 class WebpageCreate extends Component

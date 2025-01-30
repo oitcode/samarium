@@ -3,7 +3,6 @@
 namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
-
 use App\CalendarGroup;
 
 class CalendarGroupCreate extends Component

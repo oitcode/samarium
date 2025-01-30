@@ -3,9 +3,7 @@
 namespace App\Livewire\Core;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\Company;
 use App\SaleInvoiceAdditionHeading;
 

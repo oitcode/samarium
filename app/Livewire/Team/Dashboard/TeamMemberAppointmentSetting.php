@@ -3,7 +3,6 @@
 namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
 
 class TeamMemberAppointmentSetting extends Component

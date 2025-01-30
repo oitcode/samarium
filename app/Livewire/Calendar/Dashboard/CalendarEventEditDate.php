@@ -4,9 +4,7 @@ namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
 use Carbon\Carbon;
-
 use App\Traits\ModesTrait;
-
 use App\SchoolCalendarEvent;
 
 class CalendarEventEditDate extends Component

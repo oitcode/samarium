@@ -7,7 +7,6 @@ use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
-
 use App\Product;
 use App\ProductCategory;
 

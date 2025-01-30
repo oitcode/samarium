@@ -3,10 +3,8 @@
 namespace App\Livewire\Sale;
 
 use App\Traits\ModesTrait;
-
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
-
 use App\SaleInvoice;
 use App\SaleInvoiceItem;
 use App\SaleInvoiceAdditionHeading;

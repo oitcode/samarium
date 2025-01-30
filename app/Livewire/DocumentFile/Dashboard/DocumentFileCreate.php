@@ -5,7 +5,6 @@ namespace App\Livewire\DocumentFile\Dashboard;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
-
 use App\DocumentFile;
 
 class DocumentFileCreate extends Component

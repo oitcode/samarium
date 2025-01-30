@@ -32,7 +32,6 @@ class WebsiteController extends Controller
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
-
         $product = Product::find($id);
 
         /* Increate product view count. */
@@ -51,7 +50,6 @@ class WebsiteController extends Controller
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
-
         $productCategory = ProductCategory::find($id);
 
         return view('ecomm-website.product-category-product-list')
@@ -71,7 +69,6 @@ class WebsiteController extends Controller
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
-
         $cartItems = session('cartItems');
 
         return view('ecomm-website.checkout')
@@ -98,7 +95,6 @@ class WebsiteController extends Controller
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
-
         $cartItems = session('cartItems');
 
         return view('cms.website.home')
@@ -111,9 +107,7 @@ class WebsiteController extends Controller
     public function webpage()
     {
         $company = Company::first();
-
         $permalink = '/' . request()->path();
-
         $webpage = Webpage::where('permalink', $permalink)->first();
 
         return view('cms.website.webpage')
@@ -198,7 +192,6 @@ class WebsiteController extends Controller
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
-
         $seatTable = SeatTable::find($id);
 
         return view('cafe-sale.seat-table-view')
@@ -211,7 +204,6 @@ class WebsiteController extends Controller
     public function bookAppointment($id)
     {
         $company = Company::first();
-
         $teamMember = TeamMember::find($id);
 
         return view('cms.website.book-appointment')
@@ -222,7 +214,6 @@ class WebsiteController extends Controller
     public function vacancyView($id, $name)
     {
         $company = Company::first();
-
         $vacancy = Vacancy::find($id);
 
         return view('vacancy.website.vacancy-view')
@@ -257,6 +248,7 @@ class WebsiteController extends Controller
     public function pdfDisplayFile($documentFileId)
     {
         $documentFile = DocumentFile::find($documentFileId);
+
         return response()->file('storage/' . $documentFile->file_path);
     }
 }

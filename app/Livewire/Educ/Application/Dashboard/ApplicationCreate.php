@@ -4,7 +4,6 @@ namespace App\Livewire\Educ\Application\Dashboard;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-
 use App\EducInstitution;
 use App\EducInstitutionProgram;
 use App\EducApplication;

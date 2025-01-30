@@ -3,7 +3,6 @@
 namespace App\Livewire\CafeSale;
 
 use Livewire\Component;
-
 use App\SeatTable;
 
 class SeatTableCreate extends Component

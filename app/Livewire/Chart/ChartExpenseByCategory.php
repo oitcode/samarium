@@ -5,7 +5,6 @@ namespace App\Livewire\Chart;
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
-
 use App\Expense;
 
 class ChartExpenseByCategory extends Component

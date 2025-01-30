@@ -4,7 +4,6 @@ namespace App\Livewire\NewsletterSubscription\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\NewsletterSubscription;
 
 class NewsletterSubscriptionList extends Component

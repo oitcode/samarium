@@ -3,13 +3,10 @@
 namespace App\Livewire\Purchase;
 
 use App\Traits\MiscTrait;
-
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
-
 use App\PurchasePaymentType;
 use App\PurchasePayment;
-
 use App\PurchaseAdditionHeading;
 use App\PurchaseAddition;
 

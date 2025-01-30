@@ -3,7 +3,6 @@
 namespace App\Livewire\ProductVendor\Dashboard;
 
 use Livewire\Component;
-
 use App\ProductVendor;
 
 class ProductVendorCreate extends Component

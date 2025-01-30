@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
 use Illuminate\Support\Facades\Auth;
 
 class IsAdmin
@@ -20,7 +19,7 @@ class IsAdmin
         if (Auth::user() &&  Auth::user()->role == 'admin') {
             return $next($request);
         } else {
-            dd ('Whoopsie woops.');
+            return redirect()->back()->with('unauthorised', 'You are not authorized to access this page');
         }
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Livewire\Calendar\Website;
 
 use Livewire\Component;
-
 use App\SchoolCalendarEvent;
 use App\CalendarGroup;
 

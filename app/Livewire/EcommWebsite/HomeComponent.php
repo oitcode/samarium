@@ -3,7 +3,6 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
-
 use App\Company;
 use App\ProductCategory;
 use App\Product;

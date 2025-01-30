@@ -3,9 +3,7 @@
 namespace App\Livewire\Testimonial\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\Testimonial;
 
 class TestimonialComponent extends Component

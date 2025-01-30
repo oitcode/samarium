@@ -3,9 +3,7 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\ProductCategory;
 
 class ProductCategoryComponent extends Component

@@ -3,7 +3,6 @@
 namespace App\Livewire\Purchase;
 
 use Livewire\Component;
-
 use App\Purchase;
 
 class PurchaseSearch extends Component

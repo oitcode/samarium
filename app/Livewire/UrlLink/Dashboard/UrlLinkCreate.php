@@ -4,7 +4,6 @@ namespace App\Livewire\UrlLink\Dashboard;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-
 use App\UrlLink;
 
 class UrlLinkCreate extends Component

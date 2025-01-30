@@ -3,11 +3,9 @@
 namespace App\Livewire\Misc;
 
 use Livewire\Component;
-
 use App\SaleInvoicePaymentType;
 use App\PurchasePaymentType;
 use App\ExpensePaymentType;
-
 use App\SaleInvoiceAdditionHeading;
 use App\PurchaseAdditionHeading;
 use App\ExpenseAdditionHeading;

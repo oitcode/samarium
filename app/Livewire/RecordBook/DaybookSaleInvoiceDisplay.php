@@ -3,9 +3,7 @@
 namespace App\Livewire\RecordBook;
 
 use Livewire\Component;
-
 use App\SaleInvoiceAdditionHeading;
-
 use App\Traits\ModesTrait;
 
 class DaybookSaleInvoiceDisplay extends Component

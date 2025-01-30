@@ -4,7 +4,6 @@ namespace App\Livewire\User\Website;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Hash;
-
 use App\User;
 
 class Signup extends Component

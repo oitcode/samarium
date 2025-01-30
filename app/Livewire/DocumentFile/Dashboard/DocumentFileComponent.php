@@ -3,11 +3,8 @@
 namespace App\Livewire\DocumentFile\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\DocumentFile;
-
 
 class DocumentFileComponent extends Component
 {

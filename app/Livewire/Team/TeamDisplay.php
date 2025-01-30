@@ -3,9 +3,7 @@
 namespace App\Livewire\Team;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\TeamMember;
 
 class TeamDisplay extends Component

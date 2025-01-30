@@ -3,7 +3,6 @@
 namespace App\Livewire\Report;
 
 use Livewire\Component;
-
 use App\SaleInvoice;
 use App\SaleInvoiceItem;
 use App\Product;

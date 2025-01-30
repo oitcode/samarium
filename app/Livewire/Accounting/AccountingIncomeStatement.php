@@ -3,7 +3,6 @@
 namespace App\Livewire\Accounting;
 
 use Livewire\Component;
-
 use App\AbAccount;
 use App\Company;
 
@@ -21,7 +20,6 @@ class AccountingIncomeStatement extends Component
 
     public $grossProfit;
     public $netProfit;
-
 
     public function render()
     {

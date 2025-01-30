@@ -3,7 +3,6 @@
 namespace App\Livewire\Testimonial\Website;
 
 use Livewire\Component;
-
 use App\Testimonial;
 
 class TestimonialList extends Component

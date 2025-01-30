@@ -5,7 +5,6 @@ namespace App\Livewire\School;
 use Livewire\Component;
 use Carbon\Carbon;
 
-
 class CalendarDatePickerNepali extends Component
 {
     public $monthInfo = [

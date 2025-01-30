@@ -3,7 +3,6 @@
 namespace App\Livewire\Accounting;
 
 use Livewire\Component;
-
 use App\AbAccount;
 use App\Company;
 

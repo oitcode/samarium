@@ -4,9 +4,7 @@ namespace App\Livewire\Sale;
 
 use App\Traits\ModesTrait;
 use App\Traits\InventoryTrait;
-
 use Livewire\Component;
-
 use App\Product;
 use App\ProductCategory;
 use App\SaleInvoiceItem;

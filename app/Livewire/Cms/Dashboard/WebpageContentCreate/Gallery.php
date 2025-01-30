@@ -3,7 +3,6 @@
 namespace App\Livewire\Cms\Dashboard\WebpageContentCreate;
 
 use Livewire\Component;
-
 use App\Gallery as CmsGallery;
 use App\WebpageContent;
 

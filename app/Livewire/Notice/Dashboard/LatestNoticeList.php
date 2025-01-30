@@ -3,7 +3,6 @@
 namespace App\Livewire\Notice\Dashboard;
 
 use Livewire\Component;
-
 use App\WebpageCategory;
 
 class LatestNoticeList extends Component

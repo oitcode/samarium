@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-
 use App\DocumentFile;
 
 class DocumentFileController extends Controller
@@ -36,7 +35,7 @@ class DocumentFileController extends Controller
         if (Gate::allows('view-document-file', $documentFile)) {
             return response()->file('storage/' . $documentFile->file_path);
         } else {
-            return 'No way';
+            return 'Not allowed';
         }
     }
 }

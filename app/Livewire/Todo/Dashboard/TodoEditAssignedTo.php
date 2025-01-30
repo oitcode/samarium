@@ -3,7 +3,6 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
-
 use App\User;
 
 class TodoEditAssignedTo extends Component

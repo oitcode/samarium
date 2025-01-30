@@ -5,7 +5,6 @@ namespace App\Livewire\Expense;
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
-
 use App\Expense;
 
 class ExpenseReport extends Component

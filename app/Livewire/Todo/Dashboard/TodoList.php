@@ -3,10 +3,8 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use App\Traits\ModesTrait;
-
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Todo;
 
 class TodoList extends Component

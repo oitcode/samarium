@@ -4,7 +4,6 @@ namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
 use Carbon\Carbon;
-
 use App\SchoolCalendarEvent;
 
 class CalendarGlanceComponent extends Component

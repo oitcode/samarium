@@ -3,9 +3,7 @@
 namespace App\Livewire\UserGroup\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\UserGroup;
 
 class UserGroupComponent extends Component

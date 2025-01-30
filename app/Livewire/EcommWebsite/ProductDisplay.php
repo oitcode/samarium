@@ -3,9 +3,7 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\Product;
 
 class ProductDisplay extends Component

@@ -3,7 +3,6 @@
 namespace App\Livewire\UserGroup\Dashboard;
 
 use Livewire\Component;
-
 use App\UserGroup;
 
 class UserGroupCreate extends Component

@@ -4,9 +4,7 @@ namespace App\Livewire\SaleQuotation\Dashboard;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
-
 use App\Traits\ModesTrait;
-
 use App\SaleQuotation;
 use App\SaleQuotationItem;
 use App\SaleInvoiceAdditionHeading;

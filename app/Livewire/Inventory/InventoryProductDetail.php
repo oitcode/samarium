@@ -6,7 +6,6 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-
 use App\Product;
 use App\SaleInvoice;
 use App\Purchase;

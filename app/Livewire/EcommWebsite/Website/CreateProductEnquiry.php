@@ -3,7 +3,6 @@
 namespace App\Livewire\EcommWebsite\Website;
 
 use Livewire\Component;
-
 use App\ProductEnquiry;
 
 class CreateProductEnquiry extends Component

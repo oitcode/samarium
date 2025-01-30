@@ -3,7 +3,6 @@
 namespace App\Livewire\Product\Website;
 
 use Livewire\Component;
-
 use App\ProductQuestion;
 
 class ProductQuestionCreate extends Component

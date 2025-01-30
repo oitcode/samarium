@@ -4,7 +4,6 @@ namespace App\Livewire\Sale;
 
 use Livewire\Component;
 use App\Traits\ModesTrait;
-
 use App\SaleInvoice;
 
 class SaleInvoiceComponent extends Component

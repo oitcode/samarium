@@ -3,11 +3,9 @@
 namespace App\Livewire\Purchase;
 
 use App\Traits\MiscTrait;
-
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
 use App\Vendor;
 use App\Purchase;
 use App\PurchaseItem;

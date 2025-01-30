@@ -6,9 +6,7 @@ use Livewire\Component;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
-
 use App\Traits\ModesTrait;
-
 use App\Purchase;
 
 class PurchaseList extends Component

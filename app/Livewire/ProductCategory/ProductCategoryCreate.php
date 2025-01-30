@@ -3,9 +3,7 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
-
 use Livewire\WithFileUploads;
-
 use App\ProductCategory;
 
 class ProductCategoryCreate extends Component

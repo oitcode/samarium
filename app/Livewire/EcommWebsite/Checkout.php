@@ -4,7 +4,6 @@ namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
-
 use App\Product;
 use App\WebsiteOrder;
 use App\WebsiteOrderItem;

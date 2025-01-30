@@ -3,9 +3,7 @@
 namespace App\Livewire\Appointment\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\Appointment;
 
 class AppointmentComponent extends Component

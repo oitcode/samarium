@@ -3,18 +3,14 @@
 namespace App\Livewire\Expense;
 
 use App\Traits\MiscTrait;
-
 use Livewire\Component;
-
 use Illuminate\Support\Facades\DB;
-
 use App\Vendor;
 use App\Expense;
 use App\ExpensePaymentType;
 use App\ExpensePayment;
 use App\ExpenseAddition;
 use App\ExpenseAdditionHeading;
-
 use App\JournalEntry;
 use App\JournalEntryItem;
 use App\AbAccount;

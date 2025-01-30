@@ -4,9 +4,7 @@ namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 use App\Traits\ModesTrait;
-
 use App\Webpage;
 use App\WebpageCategory;
 use App\WebpageWebpageCategory;

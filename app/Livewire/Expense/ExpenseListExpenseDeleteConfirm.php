@@ -4,7 +4,6 @@ namespace App\Livewire\Expense;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
-
 use App\Expense;
 
 class ExpenseListExpenseDeleteConfirm extends Component

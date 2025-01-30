@@ -3,9 +3,7 @@
 namespace App\Livewire\Company\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\CompanyInfo;
 
 class CompanyInfoDisplay extends Component

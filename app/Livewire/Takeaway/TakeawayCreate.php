@@ -4,7 +4,6 @@ namespace App\Livewire\Takeaway;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-
 use App\Takeaway;
 use App\SaleInvoice;
 

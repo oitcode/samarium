@@ -4,9 +4,7 @@ namespace App\Livewire\Team;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Traits\ModesTrait;
-
 use App\Team;
 
 class TeamList extends Component

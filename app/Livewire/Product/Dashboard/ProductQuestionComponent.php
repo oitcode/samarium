@@ -3,9 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\ProductQuestion;
 
 class ProductQuestionComponent extends Component

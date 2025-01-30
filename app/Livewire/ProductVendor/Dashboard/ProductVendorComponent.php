@@ -3,9 +3,7 @@
 namespace App\Livewire\ProductVendor\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\ProductVendor;
 
 class ProductVendorComponent extends Component

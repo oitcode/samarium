@@ -4,9 +4,7 @@ namespace App\Livewire\Company\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 use App\Traits\ModesTrait;
-
 use App\Company;
 use App\GalleryImage;
 

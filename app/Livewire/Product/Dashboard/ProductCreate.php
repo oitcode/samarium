@@ -6,7 +6,6 @@ use Livewire\Component;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
-
 use App\Product;
 use App\ProductCategory;
 use App\ProductSpecification;

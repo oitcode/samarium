@@ -3,7 +3,6 @@
 namespace App\Livewire\SaleQuotation\Dashboard;
 
 use Livewire\Component;
-
 use App\SaleQuotation;
 
 class SaleQuotationSearch extends Component

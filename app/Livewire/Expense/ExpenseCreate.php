@@ -5,7 +5,6 @@ namespace App\Livewire\Expense;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
 use App\Expense;
 use App\ExpenseCategory;
 use App\ExpensePaymentType;

@@ -4,7 +4,6 @@ namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\ProductCategory;
 
 class ProductCategoryList extends Component

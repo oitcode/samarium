@@ -3,7 +3,6 @@
 namespace App\Livewire\Customer;
 
 use Livewire\Component;
-
 use App\SaleInvoice;
 
 class CustomerDetail extends Component

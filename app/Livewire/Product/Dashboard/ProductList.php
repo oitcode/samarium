@@ -4,7 +4,6 @@ namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Product;
 
 class ProductList extends Component

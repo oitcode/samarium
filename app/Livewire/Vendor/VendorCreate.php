@@ -4,7 +4,6 @@ namespace App\Livewire\Vendor;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
-
 use App\Vendor;
 use App\AbAccount;
 use App\AbAccountType;

@@ -4,9 +4,7 @@ namespace App\Livewire\School;
 
 use Livewire\Component;
 use Carbon\Carbon;
-
 use App\Traits\ModesTrait;
-
 use App\SchoolCalendarEvent;
 use App\CalendarGroup;
 use App\SchoolCalendarEventCalendarGroup;

@@ -4,7 +4,6 @@ namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
 use App\CalendarGroup;
-
 use App\Traits\ModesTrait;
 
 class CalendarGroupComponent extends Component

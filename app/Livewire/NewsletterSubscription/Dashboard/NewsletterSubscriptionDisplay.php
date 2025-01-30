@@ -3,7 +3,6 @@
 namespace App\Livewire\NewsletterSubscription\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
 
 class NewsletterSubscriptionDisplay extends Component

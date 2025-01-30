@@ -4,9 +4,7 @@ namespace App\Livewire\Team;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 use App\Traits\ModesTrait;
-
 use App\TeamMember;
 
 class TeamDisplayTeamMemberUpdate extends Component

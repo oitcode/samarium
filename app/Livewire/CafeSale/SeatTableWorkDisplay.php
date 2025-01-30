@@ -5,7 +5,6 @@ namespace App\Livewire\CafeSale;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
 use App\SeatTableBooking;
 use App\SaleInvoice;
 use App\SaleInvoiceItem;

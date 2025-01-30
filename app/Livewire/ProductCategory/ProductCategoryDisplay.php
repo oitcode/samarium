@@ -3,7 +3,6 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
 
 class ProductCategoryDisplay extends Component

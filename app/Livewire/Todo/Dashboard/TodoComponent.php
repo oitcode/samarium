@@ -3,9 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use App\Traits\ModesTrait;
-
 use Livewire\Component;
-
 use App\Todo;
 
 class TodoComponent extends Component

@@ -3,7 +3,6 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
-
 use App\WebsiteOrder;
 
 class ProductOrder extends Component

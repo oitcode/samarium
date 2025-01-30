@@ -5,7 +5,6 @@ namespace App\Livewire\DocumentFile\Dashboard;
 use Livewire\Component;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
 use App\Traits\ModesTrait;
 
 class DocumentFileDisplay extends Component

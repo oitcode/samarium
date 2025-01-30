@@ -3,7 +3,6 @@
 namespace App\Livewire\Misc;
 
 use Livewire\Component;
-
 use App\SaleInvoice;
 
 class RecentSaleInvoicesComponent extends Component

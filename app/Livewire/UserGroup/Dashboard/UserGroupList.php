@@ -4,9 +4,7 @@ namespace App\Livewire\UserGroup\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Traits\ModesTrait;
-
 use App\UserGroup;
 
 class UserGroupList extends Component

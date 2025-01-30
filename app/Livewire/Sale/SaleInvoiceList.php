@@ -4,9 +4,7 @@ namespace App\Livewire\Sale;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Traits\ModesTrait;
-
 use App\SaleInvoice;
 
 class SaleInvoiceList extends Component

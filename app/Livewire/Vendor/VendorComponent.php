@@ -3,7 +3,6 @@
 namespace App\Livewire\Vendor;
 
 use Livewire\Component;
-
 use App\Vendor;
 
 class VendorComponent extends Component

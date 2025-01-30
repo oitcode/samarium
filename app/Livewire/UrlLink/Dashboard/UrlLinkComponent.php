@@ -3,9 +3,7 @@
 namespace App\Livewire\UrlLink\Dashboard;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
-
 use App\UrlLink;
 
 class UrlLinkComponent extends Component

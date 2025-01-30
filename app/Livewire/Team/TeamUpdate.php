@@ -4,7 +4,6 @@ namespace App\Livewire\Team;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 use App\Team;
 
 class TeamUpdate extends Component

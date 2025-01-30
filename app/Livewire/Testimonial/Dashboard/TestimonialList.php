@@ -4,7 +4,6 @@ namespace App\Livewire\Testimonial\Dashboard;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
 use App\Testimonial;
 
 class TestimonialList extends Component

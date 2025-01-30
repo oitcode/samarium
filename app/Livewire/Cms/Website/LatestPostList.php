@@ -3,7 +3,6 @@
 namespace App\Livewire\Cms\Website;
 
 use Livewire\Component;
-
 use App\Webpage;
 
 class LatestPostList extends Component

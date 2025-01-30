@@ -4,7 +4,6 @@ namespace App\Livewire\Educ\Institution\Dashboard;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-
 use App\EducInstitution;
 
 class InstitutionCreate extends Component

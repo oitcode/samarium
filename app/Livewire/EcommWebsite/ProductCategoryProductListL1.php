@@ -3,7 +3,6 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
-
 use App\Traits\ModesTrait;
 
 class ProductCategoryProductListL1 extends Component

@@ -4,7 +4,6 @@ namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-
 use App\Todo;
 
 class TodoCreate extends Component
