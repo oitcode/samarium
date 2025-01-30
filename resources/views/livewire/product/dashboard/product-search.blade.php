@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="bg-white border p-3 mb-4">
     <div class="mb-4">
       <h1 class="h5 font-weight-bold">
@@ -19,7 +18,6 @@
     </div>
   </div>
 
-
   @if ($searchDone)
     {{-- Show result count --}}
     <div class="my-3 p-3 border bg-white">
@@ -30,7 +28,6 @@
   {{-- Show search results --}}
   @if ($products != null && count($products) > 0)
     <div class="bg-white border p-3">
-
       @foreach ($products as $product)
         <div class="row py-3">
           <div class="col-md-2">
@@ -51,7 +48,6 @@
           </div>
         </div>
       @endforeach
-
     </div>
   @else
     <div class="bg-white border p-3">
@@ -59,6 +55,5 @@
       No match found.
     </div>
   @endif
-
 
 </div>

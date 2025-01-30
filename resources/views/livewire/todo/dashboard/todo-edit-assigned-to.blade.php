@@ -1,6 +1,5 @@
 <div>
 
-
   <select class="custom-control w-75" wire:model="assigned_to_id">
     @foreach ($users as $user)
       <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -11,6 +10,5 @@
     @include ('partials.button-update')
     @include ('partials.button-cancel', ['clickEmitEventName' => 'todoUpdateAssignedToCancelled',])
   </div>
-
 
 </div>

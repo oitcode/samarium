@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
      |
      | Flash message div
@@ -138,7 +137,7 @@
   </div>
   
   @if ($modes['productSelected'])
-    <div class="d-flex justify-content-between border p-3 bg-white text-white-rm" wire:key="{{ rand() }}">
+    <div class="d-flex justify-content-between border p-3 bg-white" wire:key="{{ rand() }}">
       <div>
         <div class="o-heading">
           Product:
@@ -180,7 +179,7 @@
     @if ($products != null && count($products) > 0)
       <div class="mb-4">
         @foreach ($products as $product)
-          <div class="d-flex justify-content-between border p-3 bg-white text-white-rm" wire:key="{{ rand() }}">
+          <div class="d-flex justify-content-between border p-3 bg-white" wire:key="{{ rand() }}">
             <div>
               {{ $product->name }}
             </div>
@@ -233,6 +232,5 @@
       </div>
     @endif
   </div>
-
 
 </div>

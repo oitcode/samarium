@@ -1,6 +1,6 @@
 <div>
-  {{-- User select Menu --}}
 
+  {{-- User select Menu --}}
   <div>
     <div class="dropdown" wire:key="rand">
       <button class="btn btn-success dropdown-toggle"
@@ -23,14 +23,8 @@
         </button>
       </div>
     </div>
-    <button wire:loading class="btn btn-danger-rm">
-      <div class="spinner-border text-info mr-3" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </button>
+    @include ('partials.dashboard.spinner-button')
   </div>
-
-
 
   @if (
       $modes['daybook'] ||
@@ -38,7 +32,6 @@
       $modes['monthbook'] ||
       $modes['yearbook']
   )
-
     {{-- Previous Next Menu --}}
     <div class="my-3">
       <button class="btn btn-success"
@@ -56,7 +49,6 @@
         <i class="fas fa-arrow-left mr-3"></i>
         Previous
       </button>
-
       <button class="btn btn-success"
           @if ($modes['daybook'])
             wire:click="goToNext('day')"
@@ -93,7 +85,7 @@
           </div>
           {{ $startDate->toDateString() }} {{ $startDate->format('l') }}
         </div>
-        <div class="">
+        <div>
           <div style="color: orange">
             <h2>
               End Date
@@ -126,13 +118,11 @@
             </th>
           <tr>
         </thead>
-
         <tbody>
           @foreach ($book as $line)
             <tr
               @if ($modes['monthbook'])
                 @if ($line['unit']->format('l') == 'Sunday')
-                  class="" 
                   style="background-color: #cec;"
                 @endif
               @endif
@@ -159,7 +149,6 @@
             </tr>
           @endforeach
         </tbody>
-
         <tfoot>
           <tr>
             <th class="font-weight-bold" @if ($modes['weekbook'] || $modes['monthbook']) colspan="2" @endif>

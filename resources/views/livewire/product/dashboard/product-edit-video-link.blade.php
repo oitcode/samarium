@@ -12,8 +12,8 @@
     <div>
       @include ('partials.button-update')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'productUpdateVideoLinkCancelled',])
+      @include ('partials.dashboard.spinner-button')
     </div>
   </div>
-
 
 </div>

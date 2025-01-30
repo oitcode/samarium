@@ -1,4 +1,5 @@
 <div class="card bg-transparent border-0">
+
   <div class="card-header p-0 bg-white">
     <div class="d-flex justify-content-between my-2">
       <div class="d-flex flex-column justify-content-center">
@@ -7,10 +8,7 @@
         </h1>
       </div>
       <div>
-        <div wire:loading class="">
-          <span class="spinner-border text-white" role="status">
-          </span>
-        </div>
+        @include ('partials.dashboard.spinner-button')
       </div>
       @if (true)
       <div class="px-3 mb-2">
@@ -29,19 +27,18 @@
       @endif
     </div>
   </div>
+
   <div class="card-body p-0 border-0">
-
     <div class="table-responsive mb-0">
-      <table class="table table-bordered-rm mb-0">
+      <table class="table mb-0">
         <tbody>
-
           <tr style="height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 h-100 bg-info-rm o-heading border-0 pt-2">
+            <td class="w-50 p-0 h-100 o-heading border-0 pt-2">
               <span class="ml-4">
                 Subtotal
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm o-heading pl-3 pt-2 border-0">
+            <td class="p-0 h-100 o-heading pl-3 pt-2 border-0">
               @php echo number_format( $this->sub_total, 2 ); @endphp
             </td>
           </tr>
@@ -49,12 +46,12 @@
           {{-- Todo: Only vat? Any other taxes? --}}
           @if ($has_vat)
           <tr class="bg-light border-bottom">
-            <td class="w-50 p-0 h-100 bg-info-rm o-heading border-0 pt-2">
+            <td class="w-50 p-0 h-100 o-heading border-0 pt-2">
               <span class="ml-4">
                 Taxable amount
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm o-heading pl-3 pt-2 border-0">
+            <td class="p-0 h-100 o-heading pl-3 pt-2 border-0">
               @php echo number_format( $this->taxable_amount, 2 ); @endphp
             </td>
           </tr>
@@ -67,8 +64,8 @@
             @if (strtolower($key) != 'vat')
               @continue
             @else
-            <tr style="height: 50px;" class="bg-info-rm border-bottom p-0">
-              <td class="w-50 h-100 p-0 o-heading border-0 bg-success-rm">
+            <tr style="height: 50px;" class="border-bottom p-0">
+              <td class="w-50 h-100 p-0 o-heading border-0">
                 <div class="h-100 d-flex flex-column justify-content-center">
                   @if (strtolower($key) == 'vat')
                     <div class="ml-4">
@@ -93,130 +90,126 @@
 
           @if ($has_vat)
           <tr class="bg-light border-bottom">
-            <td class="w-50 p-0 pt-2 bg-info-rm o-heading border-0">
+            <td class="w-50 p-0 pt-2 o-heading border-0">
               <span class="ml-4 d-inline-block">
                 Total
               </span>
             </td>
-            <td class="p-0 h-100 bg-warning-rm text-primary o-heading pl-3 border-0">
+            <td class="p-0 h-100 text-primary o-heading pl-3 border-0">
               @php echo number_format( $this->grand_total, 2 ); @endphp
             </td>
           </tr>
           @endif
-
         </tbody>
       </table>
     </div>
 
     <div>
+      @if (! $modes['multiplePayments'])
+        <div class="table-responsive mb-0" wire:key=" boomboom ">
+          <table class="table table-bordered mb-0">
+            <tbody>
 
-    @if (! $modes['multiplePayments'])
-    <div class="table-responsive mb-0" wire:key=" boomboom ">
-      <table class="table table-bordered mb-0">
-        <tbody>
+              <tr style="height: 50px;" class="border-bottom">
+                <td class="w-50 p-0 pt-2 bg-white p-0 o-heading border-0">
+                  <span class="ml-4 d-inline-block mt-2 mb-3">
+                    @if (true)
+                    Paid Amount
+                    @endif
+                  </span>
+                  <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+                  @error('tender_amount')
+                  <div class="pl-3">
+                    <span class="text-danger">{{ $message }}</span>
+                  </div>
+                  @enderror
+                </td>
+                <td class="p-0 h-100 o-heading border-0">
+                  <input class="w-100 h-100 o-heading border-0 pl-3"
+                      type="text"
+                      style="background-color: #afa; outline: none;"
+                      wire:model="paid_amount" />
+                </td>
+              </tr>
 
-          <tr style="height: 50px;" class="bg-light-rm border-bottom">
-            <td class="w-50 p-0 pt-2 bg-white text-white-rm p-0 o-heading border-0">
-              <span class="ml-4 d-inline-block mt-2 mb-3">
-                @if (true)
-                Paid Amount
-                @endif
-              </span>
-              <i class="fas fa-arrow-alt-circle-right ml-2 fa-2x-rm"></i>
-              @error('tender_amount')
-              <div class="pl-3">
-                <span class="text-danger">{{ $message }}</span>
-              </div>
-              @enderror
-            </td>
-            <td class="p-0 h-100 o-heading border-0">
-              <input class="w-100 h-100 o-heading border-0 pl-3"
-                  type="text"
-                  style="background-color: #afa; outline: none;"
-                  wire:model="paid_amount" />
-            </td>
-          </tr>
+              <tr style="height: 50px;" class="bg-light border-bottom">
+                <td class="w-50 p-0 pt-2 o-heading border-0">
+                  <span class="ml-4">
+                    Payment type
+                  </span>
+                </td>
+                <td class="p-0 h-100 w-50 o-heading border-0">
+                  <select class="w-100 h-100 custom-control border-0 bg-white"
+                      style="outline: none;"
+                      wire:model="purchase_payment_type_id">
+                    <option>---</option>
 
-          <tr style="height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 pt-2 bg-info-rm o-heading border-0">
-              <span class="ml-4">
-                Payment type
-              </span>
-            </td>
-            <td class="p-0 h-100 w-50 o-heading border-0">
-              <select class="w-100 h-100 custom-control border-0 bg-white"
-                  style="outline: none;"
-                  wire:model="purchase_payment_type_id">
-                <option>---</option>
+                    @foreach ($purchasePaymentTypes as $purchasePaymentType)
+                      <option value="{{ $purchasePaymentType->purchase_payment_type_id }}"
+                          wire:key="{{ $purchasePaymentType->purchase_payment_type_id }}">
+                        {{ $purchasePaymentType->name }}
+                      </option>
+                    @endforeach
+                  </select>
+                </td>
+              </tr>
 
-                @foreach ($purchasePaymentTypes as $purchasePaymentType)
-                  <option value="{{ $purchasePaymentType->purchase_payment_type_id }}"
-                      wire:key="{{ $purchasePaymentType->purchase_payment_type_id }}">
-                    {{ $purchasePaymentType->name }}
-                  </option>
-                @endforeach
-              </select>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-    @else
-    <div class="table-responsive mb-0" wire:key=" FOOBARAA ">
-      <table class="table table-bordered mb-0">
-        <tbody>
-          @foreach ($multiPayments as $key => $val)
-            <tr wire:key="inzaghi">
-              <td class="w-50 p-0 bg-info-rm p-0 o-heading">
-                <span class="ml-4">
-                  {{ $key }}
-                </span>
-              </td>
-              <td class="p-0 h-100 w-50 bg-warning o-heading">
-                <input type="text"
-                    class="w-100 h-100 o-heading" 
-                    wire:model.live="multiPayments.{{ $key }}"
-                    wire:keydown.enter="calculateTenderAmount"
-                    wire:change="calculateTenderAmount"
-                >
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-
-    <div class="table-responsive mb-0" wire:key=" FCBAYERN ">
-      <table class="table table-bordered mb-0">
-        <tbody>
-          <tr class="border-0" wire:key="ronaldinho">
-            <td class="w-50 p-0 bg-info-rm p-0 o-heading border-0">
-              <span class="ml-4">
-                Paid amount
-              </span>
-            </td>
-            <td class="border-0">
-              {{ $paid_amount }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    @endif
+            </tbody>
+          </table>
+        </div>
+      @else
+        <div class="table-responsive mb-0" wire:key=" FOOBARAA ">
+          <table class="table table-bordered mb-0">
+            <tbody>
+              @foreach ($multiPayments as $key => $val)
+                <tr wire:key="inzaghi">
+                  <td class="w-50 p-0 p-0 o-heading">
+                    <span class="ml-4">
+                      {{ $key }}
+                    </span>
+                  </td>
+                  <td class="p-0 h-100 w-50 bg-warning o-heading">
+                    <input type="text"
+                        class="w-100 h-100 o-heading" 
+                        wire:model.live="multiPayments.{{ $key }}"
+                        wire:keydown.enter="calculateTenderAmount"
+                        wire:change="calculateTenderAmount"
+                    >
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+        <div class="table-responsive mb-0" wire:key=" FCBAYERN ">
+          <table class="table table-bordered mb-0">
+            <tbody>
+              <tr class="border-0" wire:key="ronaldinho">
+                <td class="w-50 p-0 p-0 o-heading border-0">
+                  <span class="ml-4">
+                    Paid amount
+                  </span>
+                </td>
+                <td class="border-0">
+                  {{ $paid_amount }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      @endif
     </div>
 
     <div class="p-0 m-0 mt-2">
       @if (! $modes['paid'])
       <button
           onclick="this.disabled=true;"
-          class="btn btn-success mr-3-rm w-100 py-3 o-heading text-white"
+          class="btn btn-success w-100 py-3 o-heading text-white"
           wire:click="store"
           >
         <i class="fas fa-check-circle mr-3"></i>
         Confirm
       </button>
-
       <button wire:loading class="btn">
         <span class="spinner-border text-info mr-3" role="status">
         </span>
@@ -231,7 +224,7 @@
         </button>
         <button
             onclick="this.disabled=true;"
-            class="btn btn-lg btn-warning-rm mr-3"
+            class="btn btn-lg mr-3"
             wire:click="finishPayment"
             style="width: 120px; height: 70px; background-color: orange">
           PRINT
@@ -239,4 +232,5 @@
       @endif
     </div>
   </div>
+
 </div>

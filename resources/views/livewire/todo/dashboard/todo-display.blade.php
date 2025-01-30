@@ -28,6 +28,7 @@
      | Task general information
      |
   --}}
+
   <div>
     <div class="mb-0 h5 font-weight-bold border bg-white">
       @if ($modes['updateTitleMode'])
@@ -40,7 +41,7 @@
             {{ $todo->title }}
           </div>
           <div>
-            <button class="btn btn-primary-rm mx-3" wire:click="enterMode('updateTitleMode')">
+            <button class="btn mx-3" wire:click="enterMode('updateTitleMode')">
               Edit
             </button>
           </div>
@@ -48,7 +49,7 @@
       @endif
     </div>
 
-    <div class="mb-2-rm">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-white o-heading">
           Task ID
@@ -59,7 +60,7 @@
       </div>
     </div>
 
-    <div class="mb-2-rm">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-light o-heading">
           Posted Date
@@ -70,7 +71,7 @@
       </div>
     </div>
 
-    <div class="mb-2-rm">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-light o-heading">
           Due Date
@@ -82,7 +83,7 @@
             </div>
           @else
             <div class="d-flex justify-content-between">
-              <div class="">
+              <div>
                 @if ($todo->due_date)
                   {{ $todo->due_date }}
                 @else
@@ -92,7 +93,7 @@
                 @endif
               </div>
               <div>
-                <button class="btn btn-primary-rm" wire:click="enterMode('updateDueDateMode')">
+                <button class="btn" wire:click="enterMode('updateDueDateMode')">
                   Edit
                 </button>
               </div>
@@ -102,7 +103,7 @@
       </div>
     </div>
 
-    <div class="mb-2-rm">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-light o-heading">
           Priority
@@ -114,11 +115,11 @@
             </div>
           @else
             <div class="d-flex justify-content-between">
-              <div class="">
+              <div>
                 {{ $todo->priority }}
               </div>
               <div>
-                <button class="btn btn-primary-rm" wire:click="enterMode('updatePriorityMode')">
+                <button class="btn" wire:click="enterMode('updatePriorityMode')">
                   Edit
                 </button>
               </div>
@@ -128,7 +129,7 @@
       </div>
     </div>
 
-    <div class="mb-2-rm">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-light o-heading">
           Description
@@ -148,7 +149,7 @@
                 @endif
               </div>
               <div>
-                <button class="btn btn-primary-rm" wire:click="enterMode('updateDescriptionMode')">
+                <button class="btn" wire:click="enterMode('updateDescriptionMode')">
                   Edit
                 </button>
               </div>
@@ -189,8 +190,8 @@
             @endif
           </div>
 
-          <div class="">
-            <button class="btn btn-primary-rm" wire:click="enterMode('updateAssignedToMode')">
+          <div>
+            <button class="btn" wire:click="enterMode('updateAssignedToMode')">
               Edit
             </button>
           </div>
@@ -243,8 +244,8 @@
             @endif
           </div>
 
-          <div class="">
-            <button class="btn btn-primary-rm" wire:click="enterMode('updateStatusMode')">
+          <div>
+            <button class="btn" wire:click="enterMode('updateStatusMode')">
               Edit
             </button>
           </div>
@@ -259,8 +260,8 @@
      | Delete task
      |
   --}}
-  <div class="bg-white border p-3-rm my-3">
-    <div class="">
+  <div class="bg-white border my-3">
+    <div>
       <div class="d-flex justify-content-between p-3">
         <div>
           <div class="o-heading">
@@ -287,6 +288,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

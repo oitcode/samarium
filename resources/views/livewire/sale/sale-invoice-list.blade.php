@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       <div class="p-3 bg-white border d-flex justify-content-between">
@@ -233,8 +232,6 @@
     <x-slot name="listPaginationLinks">
       {{ $saleInvoices->links() }}
     </x-slot>
-
   </x-list-component>
-
 
 </div>

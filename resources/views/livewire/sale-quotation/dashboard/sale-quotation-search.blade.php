@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="bg-white border p-3 mb-4">
     <div class="mb-4">
       <h1 class="h5 font-weight-bold">
@@ -18,7 +17,6 @@
       @include ('partials.button-general', ['clickMethod' => "search", 'btnText' => 'Search',])
     </div>
   </div>
-
 
   {{-- Show search results --}}
   <div class="my-3 mt-5">
@@ -50,7 +48,6 @@
           </th>
         </tr>
       </thead>
-
       <tbody class="bg-white">
         @if ($saleQuotations != null && count($saleQuotations) > 0)
           @foreach ($saleQuotations as $saleQuotation)
@@ -89,8 +86,6 @@
         @endif
       </tbody>
     </table>
-
   </div>
-
 
 </div>

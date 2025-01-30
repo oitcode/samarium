@@ -1,4 +1,5 @@
 <div>
+
   <x-glance-card
       bsBgClass="bg-primary"
       btnRoute="sale"
@@ -7,4 +8,5 @@
       btnTextSecondary="{{ $saleInvoiceCount }}"
   >
   </x-glance-card>
+
 </div>

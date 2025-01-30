@@ -1,4 +1,5 @@
 <div>
+
   {{-- Main Info --}}
   <div class="card mb-3 shadow-sm">
     <div class="card-body p-0">
@@ -59,10 +60,9 @@
           <th>Amount</th>
         </tr>
       </thead>
-
       <tbody>
         @foreach ($seatTableBooking->seatTableBookingItems as $item)
-        <tr class="font-weight-bold text-white-rm">
+        <tr class="font-weight-bold">
           <td class="text-secondary"> {{ $loop->iteration }} </td>
           <td>
             <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
@@ -72,7 +72,7 @@
             @php echo number_format( $item->product->selling_price ); @endphp
           </td>
           <td>
-            <span class="badge badge-pill-rm badge-success">
+            <span class="badge badge-success">
               {{ $item->quantity }}
             </span>
           </td>
@@ -82,8 +82,7 @@
         </tr>
         @endforeach
       </tbody>
-
-      <tfoot class="bg-success-rm text-white-rm" {{-- style="background-image: linear-gradient(to right, white, #abc);" --}}>
+      <tfoot>
         <td colspan="4" class="font-weight-bold text-right">
           <strong>
           TOTAL
@@ -93,7 +92,7 @@
           @php echo number_format( $seatTableBooking->getTotalAmount() ); @endphp
         </td>
       </tfoot>
-
     </table>
   </div>
+
 </div>

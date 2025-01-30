@@ -15,12 +15,9 @@
   </div>
 
   <div class="my-3">
-    <button class="btn btn-sm btn-success" wire:click="store">
-      Save
-    </button>
-    <button class="btn btn-sm btn-danger" wire:click="$dispatch('urlLinkEditUserGroupCancel')">
-      Cancel
-    </button>
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'urlLinkEditUserGroupCancel',])
+    @include ('partials.dashboard.spinner-button')
   </div>
 
 </div>

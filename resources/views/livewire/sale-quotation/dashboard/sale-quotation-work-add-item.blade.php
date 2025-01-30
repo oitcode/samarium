@@ -1,8 +1,7 @@
 <div>
 
-
-  <!-- Flash message div -->
-  <div class="">
+  {{-- Flash message div --}}
+  <div>
     @if (session()->has('errorMessage'))
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <i class="fas fa-exclamation-circle mr-3"></i>
@@ -20,7 +19,7 @@
       <table class="table table-sm table-bordered m-0">
         <thead>
           <tr class="bg-white">
-            <th class="py-2 border-0-rm pl-2" style="width: 200px;">Search Item</th>
+            <th class="py-2 pl-2" style="width: 200px;">Search Item</th>
             <th class="py-2">Category</th>
             <th class="py-2">Item</th>
             <th class="py-2" style="width: 100px;">Price</th>
@@ -28,17 +27,15 @@
             <th class="py-2" style="width: 100px;">Total</th>
           </tr>
         </thead>
-  
         <tbody>
           <tr class="p-0 font-weight-bold">
-            <td class="p-2-rm pb-4-rm h-100 bg-white border-0-rm">
-              <input class="m-0 w-100 h-100 border-0 shadow-lg-rm py-2 shadow-lg-rm" type="text"
+            <td class="h-100 bg-white">
+              <input class="m-0 w-100 h-100 border-0 py-2" type="text"
                   wire:model="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
             <td class="p-0 h-100">
               <select class="w-100 h-100 custom-control border-0 bg-white" wire:model="search_product_category_id" wire:change="selectProductCategory">
                 <option>---</option>
-  
                 @foreach ($productCategories as $productCategory)
                   <option value="{{ $productCategory->product_category_id }}">
                     {{ $productCategory->name }}
@@ -49,7 +46,6 @@
             <td class="p-0 h-100">
               <select class="w-100 h-100 custom-control border-0 bg-white" wire:model="product_id" wire:change="selectItem">
                 <option>---</option>
-  
                 @foreach ($products as $product)
                   <option value="{{ $product->product_id }}">
                     {{ $product->name }}
@@ -104,6 +100,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

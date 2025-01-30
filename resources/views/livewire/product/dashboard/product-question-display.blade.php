@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
   |
   | Toolbar.
@@ -104,7 +103,7 @@
       <div>
         <div class="d-flex justify-content-between p-3">
           <div>
-            <div class="">
+            <div>
               <strong>
                 Delete this product question
               </strong>
@@ -117,6 +116,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

@@ -1,9 +1,11 @@
 <div class="p-3">
+
   <div class="mb-3">
     <div class="font-weight-bold">
       Add product Specification
     </div>
   </div>
+
   <div class="form-group">
     <label>Keyword</label>
     <input type="text" class="form-control" wire:model="keyword">
@@ -14,6 +16,7 @@
       </div>
     @enderror
   </div>
+
   <div class="form-group">
     <label>Value</label>
     <input type="text" class="form-control" wire:model="value">
@@ -43,4 +46,5 @@
     @include ('partials.button-cancel', ['clickEmitEventName' => 'productEditAddProductSpecificationModeCancelled',])
     @include ('partials.dashboard.spinner-button')
   </div>
+
 </div>

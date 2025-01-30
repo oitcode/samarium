@@ -1,4 +1,4 @@
-<div class="p-3-rm p-md-none">
+<div class="p-md-none">
 
   {{-- Top toolbar --}}
   <x-toolbar-classic toolbarTitle="Reports">
@@ -25,6 +25,5 @@
       @livewire ('report.report-product-purchase-count')
     </div>
   </div>
-
 
 </div>

@@ -1,4 +1,5 @@
 <div style="width: 1000px !important;">
+
   <div class="modal enter" tabindex="-1" role="dialog" data-backdrop="static" id="takeawayDeleteConfirmModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -42,7 +43,6 @@
               Cancel
             </button>
           </div>
-  
         </div>
       </div>
     </div>
@@ -54,4 +54,5 @@
          $('#takeawayDeleteConfirmModal').modal('show');
       });
   </script>
+
 </div>

@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
   |
   | Toolbar.
@@ -182,7 +181,6 @@
                     @php echo number_format( $saleQuotation->getTotalAmountRaw() ); @endphp
                   </td>
                 </tr>
-  
                 @if ($saleQuotation->creation_status == 'progress')
                 <tr class="border-0 bg-success text-white p-0">
                   <td colspan="
@@ -255,6 +253,5 @@
       @livewire ('sale-quotation.dashboard.sale-quotation-work-confirm-sale-quotation-item-delete', ['deletingSaleQuotationItem' => $deletingSaleQuotationItem,])
     @endif
   </div>
-
 
 </div>

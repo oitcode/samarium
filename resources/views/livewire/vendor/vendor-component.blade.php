@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Vendor">
 
@@ -41,9 +40,7 @@
       @else
         @livewire ('vendor.vendor-list')
       @endif
-
     </div>
   </x-base-component>
-
 
 </div>

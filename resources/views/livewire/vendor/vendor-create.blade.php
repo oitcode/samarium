@@ -1,6 +1,5 @@
 <div class="bg-white p-3">
 
-
   <div class="mb-4">
     <h1 class="h5 o-heading">
       Create Vendor
@@ -37,8 +36,10 @@
     @error('pan_num') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
-  @include ('partials.button-store')
-  @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
-
+  <div>
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
+    @include ('partials.dashboard.spinner-button')
+  </div>
 
 </div>

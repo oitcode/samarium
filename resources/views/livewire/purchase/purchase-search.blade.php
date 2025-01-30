@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="bg-white border p-3 mb-4">
     <div class="mb-4">
       <h1 class="h5 font-weight-bold">
@@ -19,14 +18,12 @@
     </div>
   </div>
 
-
   {{-- Show search results --}}
   <div class="my-3 mt-5">
     <h2 class="h5 font-weight-bold">
       Search results
     </h2>
   </div>
-
 
   {{-- Show in bigger screens --}}
   <div class="table-responsive bg-white">
@@ -45,7 +42,6 @@
           <th>Amount</th>
         </tr>
       </thead>
-
       <tbody>
         @if (!is_null($purchases) && count($purchases) > 0)
           @foreach ($purchases as $purchase)
@@ -115,9 +111,7 @@
           </tr>
         @endif
       </tbody>
-
     </table>
   </div>
-
 
 </div>

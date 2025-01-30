@@ -1,4 +1,5 @@
 <div class="p-3">
+
   <div class="mb-3">
     <div class="font-weight-bold">
       Add product feature
@@ -34,4 +35,5 @@
     @include ('partials.button-cancel', ['clickEmitEventName' => 'productEditAddProductFeatureModeCancelled',])
     @include ('partials.dashboard.spinner-button')
   </div>
+
 </div>

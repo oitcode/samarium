@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Product question">
 
@@ -31,6 +30,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

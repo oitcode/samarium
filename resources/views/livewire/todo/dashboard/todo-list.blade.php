@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       <div class="py-3 px-2 bg-white border d-flex justify-content-between">
@@ -8,7 +7,7 @@
           Total : {{ $todoCount }}
         </div>
         <div class="font-weight-bold h6 d-flex">
-          <div class="d-flex justify-content-between-rm border-rm p-3-rm">
+          <div class="d-flex">
             <div class="d-flex flex-column justify-content-center mr-3 o-heading">
               <i class="fas fa-funnel mr-1"></i>
               Filter
@@ -169,6 +168,5 @@
   @if ($modes['confirmDeleteMode'])
     @livewire ('todo-list-confirm-delete', ['todo' => $deletingTodo,])
   @endif
-
 
 </div>

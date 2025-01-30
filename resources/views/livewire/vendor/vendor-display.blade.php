@@ -24,7 +24,6 @@
   </x-toolbar-component>
 
   <div class="bg-white border">
-
     <div class="table-responsive">
       <table class="table mb-0">
         <tbody>
@@ -82,11 +81,7 @@
         </tbody>
       </table>
     </div>
-
-
-
   </div>
-
 
   {{-- Toolbar --}}
   <div class="my-4">
@@ -100,7 +95,6 @@
         <i class="fas fa-shopping-cart mr-3"></i>
         Purchases
       </button>
-
       <button class="btn
           @if ($modes['settle'])
             btn-success text-white
@@ -110,13 +104,7 @@
         <i class="fas fa-key mr-3"></i>
         Settle
       </button>
-
-      <button wire:loading class="btn m-0"
-          style="height: 100px; width: 225px;">
-        <span class="spinner-border text-info mr-3" role="status">
-        </span>
-      </button>
-
+      @include ('partials.dashboard.spinner-button')
       <div class="clearfix">
       </div>
     </div>
@@ -137,6 +125,5 @@
   @elseif ($modes['purchaseDisplay'])
     @livewire ('core.core-purchase-display', ['purchase' => $displayingPurchase,])
   @endif
-
 
 </div>

@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="bg-white p-3 border my-5 shadow-lg">
     <h1 class="h5 font-weight-bold mb-4 mt-2">
       Write testimonial
@@ -27,7 +26,5 @@
       </button>
     </div>
   </div>
-
-
 
 </div>

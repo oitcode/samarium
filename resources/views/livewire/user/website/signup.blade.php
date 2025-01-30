@@ -9,29 +9,28 @@
   </div>
 
   <div class="form-group">
-    <label for="">Name</label>
+    <label>Name</label>
     <input type="text" class="form-control" wire:model="name">
     @error('name') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
-    <label for="">Email</label>
+    <label>Email</label>
     <input type="email" class="form-control" wire:model="email">
     @error('email') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
-    <label for="">Password</label>
+    <label>Password</label>
     <input type="password" class="form-control" wire:model="password">
     @error('password') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
   <div class="form-group">
-    <label for="">Confirm Password</label>
+    <label>Confirm Password</label>
     <input type="password" class="form-control" wire:model="password_confirm">
     @error('password') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
-  
 
   <div class="py-3">
     @include ('partials.button-general', ['btnText' => 'Signup', 'clickMethod' => 'store',])

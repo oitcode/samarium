@@ -1,13 +1,11 @@
 <div>
 
-
   <div class="bg-white border p-3">
-    <div class="mt-3-rm mb-3 h5 font-weight-bold border-rm bg-light-rm py-3" {{-- style="border-left: 5px solid #05a;" --}}>
+    <div class="mb-3 h5 font-weight-bold py-3">
       <i class="fas fa-cogs mr-3 text-secondary"></i>
       {{ $userGroup->name }}
     </div>
-
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Name
@@ -30,8 +28,7 @@
         </div>
       </div>
     </div>
-
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           User Group ID
@@ -41,8 +38,7 @@
         </div>
       </div>
     </div>
-
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Created Date
@@ -52,13 +48,12 @@
         </div>
       </div>
     </div>
-
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Description
         </div>
-        <div class="col-md-9 border p-3 flex-grow-1-rm">
+        <div class="col-md-9 border p-3">
           @if ($modes['updateDescriptionMode'])
             @livewire ('user-group.dashboard.user-group-edit-description', ['userGroup' => $userGroup,])
           @else
@@ -76,7 +71,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <div class="bg-white border p-3 my-3">
@@ -91,14 +85,12 @@
   </div>
 
   <div class="bg-white border p-3 my-3">
-
-    <div class="col-md-6 p-0 border border-secondary-rm rounded">
-
+    <div class="col-md-6 p-0 border rounded">
       {{-- Delete event --}}
-      <div class="">
+      <div>
         <div class="d-flex justify-content-between p-3">
           <div>
-            <div class="">
+            <div>
               <strong>
                 Delete this user group
               </strong>
@@ -109,10 +101,7 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
-
 
 </div>

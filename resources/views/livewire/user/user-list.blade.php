@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       <div class="d-flex">
@@ -73,6 +72,5 @@
       {{ $users->links() }}
     </x-slot>
   </x-list-component>
-
 
 </div>

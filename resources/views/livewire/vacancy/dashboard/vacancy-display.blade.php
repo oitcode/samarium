@@ -29,7 +29,7 @@
       {{ $vacancy->title }}
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Title
@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Vacancy ID
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Posted Date
@@ -75,7 +75,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Job location
@@ -86,7 +86,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Description
@@ -110,7 +110,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <div class="row" style="margin: auto;">
         <div class="col-md-3 border p-3 bg-light font-weight-bold">
           Status
@@ -120,9 +120,7 @@
         </div>
       </div>
     </div>
-
   </div>
-
 
   {{--
      |
@@ -134,7 +132,7 @@
       <div>
         <div class="d-flex justify-content-between p-3">
           <div>
-            <div class="">
+            <div>
               <strong>
                 Delete this vacancy
               </strong>
@@ -147,6 +145,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

@@ -1,34 +1,28 @@
 <div class="p-3 p-md-0">
 
-
   <div class="mb-3">
-
     <div>
       {{-- Toolbar --}}
       <x-toolbar-classic toolbarTitle="Sales">
         @include ('partials.dashboard.spinner-button')
-
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('create')",
             'btnIconFaClass' => 'fas fa-plus-circle',
             'btnText' => 'New',
             'btnCheckMode' => 'create',
         ])
-
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('list')",
             'btnIconFaClass' => 'fas fa-list',
             'btnText' => 'List',
             'btnCheckMode' => 'list',
         ])
-
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('search')",
             'btnIconFaClass' => 'fas fa-search',
             'btnText' => 'Search',
             'btnCheckMode' => 'search',
         ])
-
         @if ($modes['display'])
           @include ('partials.dashboard.tool-bar-button-pill', [
               'btnClickMethod' => "enterMode('display')",
@@ -37,19 +31,15 @@
               'btnCheckMode' => 'display',
           ])
         @endif
-
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "clearModes",
             'btnIconFaClass' => 'fas fa-times',
             'btnText' => '',
             'btnCheckMode' => '',
         ])
-
       </x-toolbar-classic>
-
     </div>
   </div>
-
 
   {{--
      |
@@ -71,6 +61,5 @@
     @livewire ('sale.takeaway-search')
   @else
   @endif
-
 
 </div>

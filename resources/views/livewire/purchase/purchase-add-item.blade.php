@@ -2,9 +2,8 @@
 
   {{-- Show in bigger screen --}}
   <div class="mb-2 border bg-light shadow-sm d-none d-md-block">
-  
     @if ($errors->all())
-      <div class="p-2 mb-3-rm border text-danger">
+      <div class="p-2 border text-danger">
         @foreach ($errors->all() as $error)
           <div>
             <i class="fas fa-exclamation-circle mr-1"></i>
@@ -17,7 +16,7 @@
     <div class="table-responsive m-0">
       <table class="table table-bordered m-0">
         <thead>
-          <tr class="bg-success-rm text-white-rm">
+          <tr>
             <th class="o-heading">Search Item</th>
             <th class="o-heading">Category</th>
             <th class="o-heading">Item</th>
@@ -27,37 +26,30 @@
             <th class="o-heading" style="width: 100px;">Total</th>
           </tr>
         </thead>
-  
         <tbody>
           <tr class="p-0 font-weight-bold" style="height: 50px;">
             <td class="p-0 h-100">
               <input class="m-0 w-100 h-100 border-0" type="text" wire:model="add_item_name" wire:keydown.enter="updateProductList"/>
             </td>
             <td class="p-0 h-100">
-              @if (true)
               <select class="w-100 h-100 custom-control border-0 bg-white" wire:model="search_product_category_id" wire:change="selectProductCategory">
                 <option>---</option>
-  
                 @foreach ($productCategories as $productCategory)
                   <option value="{{ $productCategory->product_category_id }}">
                     {{ $productCategory->name }}
                   </option>
                 @endforeach
               </select>
-              @endif
             </td>
             <td class="p-0 h-100">
-              @if (true)
               <select class="w-100 h-100 custom-control border-0 bg-white" wire:model="product_id" wire:change="selectItem">
                 <option>---</option>
-  
                 @foreach ($products as $product)
                   <option value="{{ $product->product_id }}">
                     {{ $product->name }}
                   </option>
                 @endforeach
               </select>
-              @endif
             </td>
             <td class="p-0 h-100">
               <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model="quantity" wire:keydown.enter="updateTotal"/>
@@ -90,18 +82,13 @@
             <i class="fas fa-plus mr-2"></i>
             Add
           </button>
-  
-          @if (true)
           <button class="btn btn-lg btn-danger" wire:click="resetInputFields">
             Reset
           </button>
-          @endif
-  
           <button wire:loading class="btn">
             <span class="spinner-border text-info mr-3" role="status">
             </span>
           </button>
-  
         </div>
         @if ($selectedProduct != null)
           <div class="col-md-4" style="height: 50px;">
@@ -113,9 +100,7 @@
           </div>
         @endif
       </div>
-  
     </div>
-  
   </div>
 
   {{-- Show in smaller screen --}}
@@ -129,16 +114,15 @@
       Cancel
     </button>
     @endif
-
     <button wire:loading class="btn">
       <span class="spinner-border text-info mr-3" role="status">
       </span>
     </button>
-
     @if ($modes['showMobForm'])
       <div>
         @include ('partials.mob.purchase-add-item-form')
       </div>
     @endif
   </div>
+
 </div>

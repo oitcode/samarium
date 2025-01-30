@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Team">
 
@@ -51,6 +50,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

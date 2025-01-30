@@ -1,5 +1,4 @@
-<div class="border-rm bg-white-rm">
-
+<div>
 
   @if (!is_null($userGroups) && count($userGroups) > 0)
     {{-- Show in bigger screens --}}
@@ -15,22 +14,18 @@
               <th>Description</th>
             </tr>
           </thead>
-  
           <tbody>
             @foreach($userGroups as $userGroup)
             <tr>
               <td>
                 {{ $userGroup->user_group_id }}
               </td>
-
               <td class="font-weight-bold" wire:click="$dispatch('displayUserGroup', {userGroup: {{ $userGroup }} })" role="button">
                 {{ $userGroup->name }}
               </td>
-
               <td>
                 {{ $userGroup->description }}
               </td>
-
             </tr>
             @endforeach
           </tbody>
@@ -40,10 +35,9 @@
 
     {{-- Show in smaller screens --}}
     <div class="d-md-none">
-
       @foreach ($userGroups as $userGroup)
         <div class="bg-white border px-3">
-          <div class="h4-rm py-4">
+          <div class="py-4">
             <span  wire:click="$dispatch('displayUserGroup', {userGroup: {{ $userGroup }} })" class="h5 text-dark font-weight-bold" role="button">
               {{ \Illuminate\Support\Str::limit($userGroup->name, 60, $end=' ...') }}
             </span>
@@ -56,6 +50,5 @@
       No user groups to display.
     </div>
   @endif
-
 
 </div>

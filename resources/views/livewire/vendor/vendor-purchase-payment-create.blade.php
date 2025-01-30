@@ -1,6 +1,5 @@
 <x-box-create title="Make purchase payment">
 
-
   <div class="row">
     <div class="col-md-3">
       <div class="table-responsive">
@@ -98,7 +97,6 @@
   </div>
 
   <div class="bg-light border p-2">
-
     <div class="form-group">
       <label>Amount *</label>
       <input type="text" class="form-control" wire:model="pay_amount">
@@ -116,7 +114,6 @@
       <select class="w-100 h-100 custom-control"
           wire:model="purchase_payment_type_id">
         <option>---</option>
-
         @foreach ($purchasePaymentTypes as $purchasePaymentType)
           <option value="{{ $purchasePaymentType->purchase_payment_type_id }}">
             {{ $purchasePaymentType->name }}
@@ -128,9 +125,9 @@
   </div>
 
   <div class="p-3">
-    <button type="submit" class="btn btn-success" wire:click="store">Submit</button>
-    <button type="submit" class="btn btn-danger" wire:click="$dispatch('exitPurchasePaymentCreateMode')">Cancel</button>
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'exitPurchasePaymentCreateMode',])
+    @include ('partials.dashboard.spinner-button')
   </div>
-
 
 </x-box-create>

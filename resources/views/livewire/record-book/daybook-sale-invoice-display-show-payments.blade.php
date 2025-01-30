@@ -13,8 +13,7 @@
   <div class="table-responsive shadow">
     <table class="table bg-white">
       <tbody>
-
-        <tr class="bg-success-rm text-white-rm">
+        <tr>
           <td>
             Paid By
           </td>
@@ -26,7 +25,6 @@
             @endif
           </td>
         </tr>
-
         <tr>
           <td>
             Payment ID: 
@@ -35,7 +33,6 @@
             {{ $payment->sale_invoice_payment_id }}
           </td>
         </tr>
-
         <tr>
           <td>
             Date
@@ -44,7 +41,6 @@
             {{ $payment->created_at->toDateString() }}
           </td>
         </tr>
-
         <tr>
           <td>
             Payment type
@@ -56,7 +52,6 @@
             @endif
           </td>
         </tr>
-
         <tr>
           <td>
             Amount
@@ -68,9 +63,9 @@
             @php echo number_format( $payment->amount ); @endphp
           </td>
         </tr>
-
       </tbody>
     </table>
   </div>
   @endforeach
+
 </div>

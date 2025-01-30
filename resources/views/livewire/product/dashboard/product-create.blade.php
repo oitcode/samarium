@@ -1,6 +1,5 @@
 <div class="bg-white p-3">
 
-
   {{-- Top heading bar --}}
   <div class="mb-4">
     <h1 class="h5 o-heading">
@@ -14,7 +13,7 @@
       <div class="card h-100 border-0 pb-0">
         <div class="card-body pl-0 h-100 pb-0">
           <div class="form-group">
-            <label class="h5" for="">Name *</label>
+            <label class="h5">Name *</label>
             <input type="text"
                 class="form-control shadow-sm"
                 wire:model="name">
@@ -33,7 +32,7 @@
             @error ('product_category_id') <span class="text-danger">{{ $message }}</span>@enderror
           </div>
           <div class="form-group">
-            <label class="h5" for="">Selling price *</label>
+            <label class="h5">Selling price *</label>
             <input type="text"
                 class="form-control shadow-sm"
                 wire:model="selling_price">
@@ -85,6 +84,5 @@
     @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateProductMode',])
     @include ('partials.dashboard.spinner-button')
   </div>
-
 
 </div>

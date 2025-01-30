@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="d-flex justify-content-between">
     <div>
       <h2 class="h5 o-heading">
@@ -63,6 +62,5 @@
       </div>
     </div>
   @endforeach
-
 
 </div>

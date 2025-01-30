@@ -1,6 +1,5 @@
 <div class="card">
 
-
   <div class="card-body p-3">
     <h1 class="h5 font-weight-bold mb-4">Upload products from file</h1>
   
@@ -25,7 +24,6 @@
     @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateProductFromCsvMode',])
   
     @if ($previewMode)
-  
       Total Lines {{ $totLines }}
       <br />
   
@@ -54,6 +52,5 @@
       </table>
     @endif
   </div>
-
 
 </div>

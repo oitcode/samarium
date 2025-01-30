@@ -1,6 +1,5 @@
 <div>
 
-
   <select class="custom-control w-75" wire:model="status">
     <option value="pending">Pending</option>
     <option value="progress">Progress</option>
@@ -13,6 +12,5 @@
     @include ('partials.button-update')
     @include ('partials.button-cancel', ['clickEmitEventName' => 'todoUpdateStatusCancelled',])
   </div>
-
 
 </div>

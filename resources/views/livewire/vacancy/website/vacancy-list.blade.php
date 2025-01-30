@@ -11,7 +11,7 @@
     @if (count($vacancies) > 0)
       <div>
         @foreach ($vacancies as $vacancy)
-          <div class="py-4 px-4 mb-4 m-md-0-rm m-3 border shadow-sm bg-white">
+          <div class="py-4 px-4 mb-4 m-3 border shadow-sm bg-white">
             <div class="row">
               <div class="col-md-8">
                 <div class="text-secondary">

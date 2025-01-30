@@ -1,11 +1,8 @@
 <div>
 
-  <div class="">
-
+  <div>
     <div class="row">
-
       <div class="col-md-8">
-
         @if ($purchase->payment_status == 'pending')
           @if (true || $modes['addItem'])
             @livewire ('purchase-add-item', ['purchase' => $purchase,])
@@ -13,14 +10,11 @@
         @endif
 
         <div class="card mb-3">
-        
           <div class="card-body p-0">
-
             {{-- Top info --}}
             <div class="row p-4" style="margin: auto;">
-
               <div class="col-md-3 mb-3">
-                <div class="text-muted-rm mb-1">
+                <div class="mb-1">
                   Vendor
                   OLA
                 </div>
@@ -38,7 +32,7 @@
               </div>
 
               <div class="col-md-3 mb-3">
-                <div class="text-muted-rm mb-1">
+                <div class="mb-1">
                   Purchase ID
                 </div>
                 <div class="h5">
@@ -47,7 +41,7 @@
               </div>
 
               <div class="col-md-3 mb-3">
-                <div class="text-muted-rm mb-1">
+                <div class="mb-1">
                   Purchase Date
                 </div>
                 <div class="h5">
@@ -56,7 +50,7 @@
               </div>
 
               <div class="col-md-3 mb-3">
-                <div class="text-muted-rm mb-1">
+                <div class="mb-1">
                   Created by
                 </div>
                 <div class="h5">
@@ -118,9 +112,7 @@
                  @endif
                 </div>
               </div>
-
             </div>
-
           </div>
         </div>
 
@@ -128,7 +120,7 @@
         <div class="table-responsive border d-none d-md-block">
           <table class="table table-hover mb-0">
             <thead>
-              <tr class="bg-success-rm text-white-rm">
+              <tr>
                 <th>#</th>
                 <th>Item</th>
                 <th>Quantity</th>
@@ -137,18 +129,17 @@
                 <th>Amount</th>
               </tr>
             </thead>
-    
             <tbody class="bg-white">
               @if (count($purchase->purchaseItems) > 0)
                 @foreach ($purchase->purchaseItems as $item)
-                <tr class="font-weight-bold text-white-rm border-bottom">
+                <tr class="font-weight-bold border-bottom">
                   <td class="text-secondary"> {{ $loop->iteration }} </td>
                   <td>
                     <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                     {{ $item->product->name }}
                   </td>
                   <td>
-                    <span class="badge badge-pill-rm badge-success">
+                    <span class="badge badge-success">
                       {{ $item->quantity }}
                     </span>
                   </td>
@@ -165,7 +156,6 @@
                 @endforeach
               @endif
             </tbody>
-    
             <tfoot class="bg-white">
               <tr class="border-0">
                 <td colspan="5" class="font-weight-bold text-right border-0">
@@ -177,7 +167,6 @@
                   @php echo number_format( $purchase->getTotalAmountRaw() ); @endphp
                 </td>
               </tr>
-
               @foreach ($purchase->purchaseAdditions as $purchaseAddition)
                 <tr class="border-0">
                   <td colspan="5" class="font-weight-bold text-right border-0">
@@ -201,22 +190,19 @@
                 </td>
               </tr>
             </tfoot>
-    
           </table>
         </div>
 
         {{-- Show in smaller screens --}}
         <div class="table-responsive border d-md-none">
           <table class="table table-hover border mb-0">
-    
             <tbody class="bg-white">
               @if (count($purchase->purchaseItems) > 0)
                 @foreach ($purchase->purchaseItems as $item)
-                <tr class="font-weight-bold text-white-rm">
+                <tr class="font-weight-bold">
                   <td>
                     <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                   </td>
-
                   <td>
                     {{ $item->product->name }}
                     <div>
@@ -239,7 +225,6 @@
                 @endforeach
               @endif
             </tbody>
-
             <tfoot class="bg-white">
               <tr class="font-weight-bold">
                 <th colspan="2" class="text-right mr-3">
@@ -253,7 +238,6 @@
             </tfoot>
           </table>
         </div>
-
       </div>
     
       <div class="col-md-4">
@@ -263,7 +247,6 @@
           @endif
         </div>
       </div>
-
     </div>
   <div>
 

@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="bg-white p-3 border my-5 shadow-sm">
     <h1 class="h5 font-weight-bold mb-4 mt-2">
       Ask a question
@@ -25,13 +24,10 @@
     </div>
 
     <div class="mb-2">
-      <button class="btn btn-danger p-3" wire:click="store">
-        Submit
-      </button>
+      @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'createProductQuestionCancelled',])
+      @include ('partials.dashboard.spinner-button')
     </div>
   </div>
-
-
 
 </div>

@@ -1,4 +1,5 @@
 <div>
+
   <div class="my-3">
     <input type="text" wire:model="search_sale_invoice_id">
     <button class="btn btn-success" wire:click="search">
@@ -26,7 +27,6 @@
           </th>
         </tr>
       </thead>
-
       @if ($saleInvoice)
         <tbody>
           <tr>
@@ -54,4 +54,5 @@
       @endif
     </table>
   </div>
+
 </div>

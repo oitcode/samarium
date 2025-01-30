@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       Total : {{ $urlLinksCount }}
@@ -58,6 +57,5 @@
       {{ $urlLinks->links() }}
     </x-slot>
   </x-list-component>
-
 
 </div>

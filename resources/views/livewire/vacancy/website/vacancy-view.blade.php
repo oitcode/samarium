@@ -1,9 +1,10 @@
 <div>
-  <div class="container bg-white p-3 border">
 
+  <div class="container bg-white p-3 border">
     <h1 class="h4 font-weight-bold py-2">
       {{ $vacancy->title }}
     </h1>
+
     <div class="text-muted">
       <span class="mr-3">
       Posted on
@@ -26,7 +27,9 @@
     <h2 class="h5 font-weight-bold pt-2 mb-0">
       Location
     </h2>
+
     <hr class="my-2" />
+
     <div class="mb-4">
       {{ $vacancy->job_location }}
     </div>
@@ -37,4 +40,5 @@
       </button>
     </div>
   </div>
+
 </div>

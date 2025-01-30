@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       Total product questions: {{ \App\ProductQuestion::count() }}
@@ -39,26 +38,24 @@
               </span>
             </td>
             <td class="text-right">
-              @if (true)
-                <button class="btn btn-primary px-2 py-1"
-                    wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })">
-                  <i class="fas fa-pencil-alt"></i>
-                </button>
-                <button class="btn btn-success px-2 py-1"
-                    wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })">
-                  <i class="fas fa-eye"></i>
-                </button>
-                <button class="btn btn-danger px-2 py-1" wire:click="">
-                  <i class="fas fa-trash"></i>
-                </button>
-              @endif
+              <button class="btn btn-primary px-2 py-1"
+                  wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn btn-success px-2 py-1"
+                  wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="btn btn-danger px-2 py-1" wire:click="">
+                <i class="fas fa-trash"></i>
+              </button>
             </td>
           </tr>
         @endforeach
       @else
         <tr>
           <td colspan="4">
-            <p class="font-weight-bold text-muted-rm h4 py-4 text-center" style="color: #fe8d01;">
+            <p class="font-weight-bold h4 py-4 text-center" style="color: #fe8d01;">
               <i class="fas fa-exclamation-circle mr-2"></i>
               No product questions yet.
             <p>
@@ -71,6 +68,5 @@
       {{ $productQuestions->links() }}
     </x-slot>
   </x-list-component>
-
 
 </div>

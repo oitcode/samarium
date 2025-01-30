@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
   |
   | Toolbar.
@@ -285,6 +284,5 @@
       ])
     @endif
   @endif
-
 
 </div>

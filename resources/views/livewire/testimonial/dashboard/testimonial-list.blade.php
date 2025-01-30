@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       Total : {{ $testimonialsCount }}
@@ -51,8 +50,6 @@
     <x-slot name="listPaginationLinks">
       {{ $testimonials->links() }}
     </x-slot>
-
   </x-list-component>
-
 
 </div>

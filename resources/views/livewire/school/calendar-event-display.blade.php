@@ -1,8 +1,6 @@
 <div>
 
-
   <div class="bg-white p-3 border">
-
     {{-- Event name --}}
     <div class="my-3">
       <div class="mb-3">
@@ -76,13 +74,12 @@
       </strong>
     </div>
 
-    <div class="col-md-6 p-0 border border-secondary-rm rounded">
-
+    <div class="col-md-6 p-0 border rounded">
       {{-- Delete event --}}
-      <div class="">
+      <div>
         <div class="d-flex justify-content-between p-3">
           <div>
-            <div class="">
+            <div>
               <strong>
                 Delete this event
               </strong>
@@ -91,7 +88,6 @@
               Once you delete, it cannot be undone. Please be sure.
             </div>
           </div>
-
           <div>
             @if ($modes['deleteMode'])
               <button class="btn btn-danger" wire:click="deleteEvent">
@@ -108,12 +104,7 @@
           </div>
         </div>
       </div>
-
-
     </div>
-
-
   </div>
-
 
 </div>

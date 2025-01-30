@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
   |
   | Toolbar.
@@ -87,6 +86,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

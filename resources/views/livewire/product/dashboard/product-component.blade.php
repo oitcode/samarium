@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Product">
 
@@ -55,6 +54,5 @@
 
     </div>
   </x-base-component>
-
 
 </div>

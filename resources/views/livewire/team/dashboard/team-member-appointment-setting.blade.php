@@ -25,11 +25,10 @@
         No availabilities
       </div>
     @endif
-
   </div>
 
   @if (! $modes['addAvailabilityMode'])
-    <div class="bg-white-rm p-2 border-rm mb-3">
+    <div class="p-2 mb-3">
       <button class="btn btn-primary badge-pill" wire:click="enterMode('addAvailabilityMode')">
         <i class="fas fa-plus-circle mr-1"></i>
         Add availablility

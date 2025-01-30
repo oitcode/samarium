@@ -14,6 +14,7 @@
     <div class="py-3">
     @include ('partials.button-store')
     @include ('partials.button-cancel', ['clickEmitEventName' => 'createProductGalleryCancelled',])
+    @include ('partials.dashboard.spinner-button')
     </div>
   </div>
 

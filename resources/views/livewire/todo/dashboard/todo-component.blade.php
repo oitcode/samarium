@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Tasks">
 
@@ -45,9 +44,7 @@
       @if ($modes['deleteMode'])
         @livewire ('todo.dashboard.todo-delete-confirm', ['deletingTodo' => $deletingTodo,])
       @endif
-
     </div>
   </x-base-component>
-
 
 </div>

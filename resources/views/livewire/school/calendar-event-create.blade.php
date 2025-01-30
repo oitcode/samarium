@@ -1,12 +1,10 @@
 <div class="p-3 bg-white border">
 
-
   <div class="d-flex justify-content-start">
     <h1 class="h5 o-heading mb-4">
       Create event
     </h1>
   </div>
-
 
   {{-- Title --}}
   <div class="form-group mb-4">
@@ -20,10 +18,9 @@
   {{-- Single/Multi day setting --}}
   <div class="form-group mb-4">
     <label class="h5 font-weight-bold">Single or Multiple day *</label>
-
     <div>
       @if ($modes['multiDay'])
-        <div class="">
+        <div>
           Multiple days
         </div>
         <div>
@@ -32,7 +29,7 @@
           </button>
         </div>
       @else
-        <div class="">
+        <div>
           Single day
         </div>
         <div>
@@ -43,7 +40,6 @@
       @endif
     </div>
   </div>
-
 
   {{-- Date part --}}
   @if (true || ! $eventCreationDay)
@@ -85,7 +81,6 @@
       @endif
     </div>
 
-
     @if ($modes['multiDay'])
       <div>
         <div class="d-flex mb-2">
@@ -104,7 +99,6 @@
     @endif
   </div>
 
-
   {{-- Is holiday --}}
   <div class="form-group mb-4">
     <label class="h5 font-weight-bold">Is holiday *</label>
@@ -116,15 +110,13 @@
     @error ('is_holiday') <span class="text-danger">{{ $message }}</span> @enderror
   </div>
 
-
   @if ($calendarGroups != null &&  count($calendarGroups) > 0)
     {{-- Calendar group decision --}}
     <div class="form-group mb-4">
       <label class="h5 font-weight-bold">Applicable to *</label>
-
       <div>
         @if ($modes['allCalendarGroups'])
-          <div class="">
+          <div>
             All calendar groups
           </div>
           <div>
@@ -133,7 +125,7 @@
             </button>
           </div>
         @else
-          <div class="">
+          <div>
             Single calendar group
           </div>
           <div>
@@ -160,17 +152,10 @@
     @endif
   @endif
 
-
   <div class="py-3 m-0">
-
     @include ('partials.button-store')
     @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCalendarEventCreate',])
-
-    <button wire:loading class="btn">
-      <span class="spinner-border text-info mr-3" role="status">
-      </span>
-    </button>
+    @include ('partials.dashboard.spinner-button')
   </div>
-
 
 </div>

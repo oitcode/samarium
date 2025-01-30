@@ -1,6 +1,6 @@
 <div class="card shadow-sm">
-  <div class="card-body p-0">
 
+  <div class="card-body p-0">
     <div class="p-2">
       <h2 class="h3">
         Top selling
@@ -20,22 +20,21 @@
               </th>
             </tr>
           </thead>
-
           <tbody class="bg-white">
-              @foreach ($todayItems as $item)
-                <tr>
-                  <td>
-                    {{ $item['product']->name }}
-                  </td>
-                  <td>
-                    {{ $item['quantity'] }}
-                  </td>
-                <tr>
-              @endforeach
+            @foreach ($todayItems as $item)
+              <tr>
+                <td>
+                  {{ $item['product']->name }}
+                </td>
+                <td>
+                  {{ $item['quantity'] }}
+                </td>
+              <tr>
+            @endforeach
           </tbody>
         </table>
       </div>
     @endif
-
   </div>
+
 </div>

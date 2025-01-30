@@ -60,8 +60,6 @@
     <x-slot name="listPaginationLinks">
       {{ $teams->links() }}
     </x-slot>
-
   </x-list-component>
-
 
 </div>

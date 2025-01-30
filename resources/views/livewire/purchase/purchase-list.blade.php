@@ -1,6 +1,5 @@
 <div>
 
-
   @if (false)
   {{-- TODO: Top toolbar of purchase list has to be implemented --}} 
   <div class="mt-1 mb-1 py-2 text-secondary d-none d-md-block bg-white">
@@ -148,17 +147,15 @@
             @endif
           </td>
           <td class="text-right">
-            @if (true)
-              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
-                <i class="fas fa-eye"></i>
-              </button>
-              <button class="btn btn-danger px-2 py-1" wire:click="">
-                <i class="fas fa-trash"></i>
-              </button>
-            @endif
+            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-danger px-2 py-1" wire:click="">
+              <i class="fas fa-trash"></i>
+            </button>
           </td>
         </tr>
 
@@ -243,6 +240,5 @@
   @if ($modes['confirmDeletePurchase'])
     @livewire ('purchase-list-purchase-delete-confirm', ['purchase' => $deletingPurchase,])
   @endif
-
 
 </div>

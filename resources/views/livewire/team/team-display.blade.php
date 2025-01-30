@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
      |
      | Tool bar
@@ -8,9 +7,7 @@
   --}}
 
   <x-toolbar-classic toolbarTitle="{{ $team->name }}">
-
     @include ('partials.dashboard.spinner-button')
-
     @if (! $modes['updateTeamMemberMode'])
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('createTeamMemberMode')",
@@ -18,14 +15,12 @@
           'btnText' => 'Add team member',
           'btnCheckMode' => 'createTeamMemberMode',
       ])
-
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('createTeamMembersFromCsvMode')",
           'btnIconFaClass' => 'fas fa-file',
           'btnText' => 'Upload from csv',
           'btnCheckMode' => 'createTeamMembersFromCsvMode',
       ])
-
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('updateTeamMode')",
           'btnIconFaClass' => 'fas fa-pencil-alt',
@@ -39,18 +34,14 @@
           'btnText' => 'Team member display',
           'btnCheckMode' => 'updateTeamMemberMode',
       ])
-
     @endif
-
     @include ('partials.dashboard.tool-bar-button-pill', [
         'btnClickMethod' => "clearModes",
         'btnIconFaClass' => 'fas fa-times',
         'btnText' => '',
         'btnCheckMode' => '',
     ])
-
   </x-toolbar-classic>
-
 
   {{--
      |
@@ -63,7 +54,6 @@
         'flashMessage' => session('message'),
     ])
   @endif
-
 
   {{--
      |
@@ -91,6 +81,5 @@
       </div>
     </div>
   @endif
-
 
 </div>

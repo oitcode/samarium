@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
   |
   | Flash message div.
@@ -27,7 +26,6 @@
       <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
       </x-toolbar-button-component>
-
        @if ($product->is_active == 0)
          <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductActive">
            Make active
@@ -46,7 +44,6 @@
              Show in website
            </x-toolbar-button-component>
          @endif
-       @else
        @endif
 
        @if ($product->featured_product == 'yes')
@@ -105,6 +102,5 @@
 
   {{-- Delete product --}} 
   @include ('partials.product.product-display.delete-product')
-
 
 </div>

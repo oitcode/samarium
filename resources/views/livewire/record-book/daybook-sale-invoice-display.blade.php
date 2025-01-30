@@ -3,7 +3,7 @@
   <div class="border shadow mb-5">
     <div class="d-flex mb-0 p-2 justify-content-end border bg-white">
       <button class="btn btn-light border rounded-circle" wire:click="$dispatch('exitDisplaySaleInvoiceMode')">
-        <i class="fas fa-times fa-2x-rm"></i>
+        <i class="fas fa-times"></i>
       </button>
     </div>
 
@@ -11,10 +11,7 @@
     <div class="shadow">
       <div class="card mb-0 shadow-sm">
         <div class="card-body p-0">
-
-
-          <div class="row-rm px-4-rm" style="margin: auto;">
-
+          <div style="margin: auto;">
             <div class="table-responsive">
               <table class="table">
                 <tr>
@@ -97,12 +94,12 @@
                                 @php echo number_format( $saleInvoicePayment->amount ); @endphp
                               </div>
                               <div>
-                                <span class="">
+                                <span>
                                   {{ $saleInvoicePayment->saleInvoicePaymentType->name }}
                                 </span>
                               </div>
                               <div>
-                                <span class="">
+                                <span>
                                 {{ $saleInvoicePayment->payment_date }}
                                 </span>
                               </div>
@@ -119,13 +116,11 @@
         </div>
       </div>
 
-      {{-- Items List --}}
-
       {{-- Show in bigger screens --}}
       <div class="table-responsive bg-white mb-0 d-none d-md-block">
-        <table class="table table-sm table-bordered-rm table-hover border-dark shadow-sm mb-0">
+        <table class="table table-sm table-hover border-dark shadow-sm mb-0">
           <thead>
-            <tr class="bg-success-rm text-white-rm">
+            <tr>
               <th>#</th>
               <th>Item</th>
               <th>Price</th>
@@ -133,10 +128,9 @@
               <th>Amount</th>
             </tr>
           </thead>
-
           <tbody>
             @foreach ($saleInvoice->saleInvoiceItems as $item)
-            <tr class="font-weight-bold text-white-rm">
+            <tr class="font-weight-bold">
               <td class="text-secondary"> {{ $loop->iteration }} </td>
               <td>
                 <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
@@ -146,7 +140,7 @@
                 @php echo number_format( $item->price_per_unit); @endphp
               </td>
               <td>
-                <span class="">
+                <span>
                   {{ $item->quantity }}
                 </span>
               </td>
@@ -156,8 +150,7 @@
             </tr>
             @endforeach
           </tbody>
-
-          <tfoot class="bg-success-rm text-white-rm">
+          <tfoot>
             <tr>
               <td colspan="4" class="font-weight-bold text-right pr-4">
                 <strong>
@@ -172,11 +165,9 @@
 
             {{-- Non tax sale invoice additions --}}
             @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
-
               @if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) == 'vat')
                 @continue
               @endif
-
               <tr class="border-0">
                 <td colspan="4" class=" font-weight-bold text-right border-0 pr-4">
                   {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
@@ -185,7 +176,8 @@
                       @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                         text-danger
                       @endif
-                      font-weight-bold border-0 pr-4">
+                      font-weight-bold border-0 pr-4"
+                >
                   Rs
                   @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                 </td>
@@ -208,11 +200,9 @@
 
             {{--Tax sale invoice additions --}}
             @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
-
               @if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->name) != 'vat')
                 @continue
               @endif
-
               <tr class="border-0">
                 <td colspan="4" class="font-weight-bold text-right border-0 pr-4">
                   {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
@@ -222,7 +212,8 @@
                       @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                         text-danger
                       @endif
-                      font-weight-bold border-0">
+                      font-weight-bold border-0"
+                >
                   Rs
                   @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                 </td>
@@ -241,17 +232,15 @@
               </td>
             </tr>
           </tfoot>
-
         </table>
       </div>
 
       {{-- Show in smaller screens --}}
       <div class="table-responsive bg-white mb-0 d-md-none mt-3">
-        <table class="table table-bordered-rm table-hover border-dark shadow-sm mb-0">
-
-          <tbody style="">
+        <table class="table table-hover border-dark shadow-sm mb-0">
+          <tbody>
             @foreach ($saleInvoice->saleInvoiceItems as $item)
-            <tr style="" class="font-weight-bold text-white-rm">
+            <tr class="font-weight-bold">
               <td>
                 <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
               </td>
@@ -261,7 +250,7 @@
                 <span class="mr-3">
                   Rs @php echo number_format( $item->price_per_unit); @endphp
                 </span>
-                <span class="text-secondary" style="">
+                <span class="text-secondary">
                   Qty: {{ $item->quantity }}
                 </span>
               </td>
@@ -271,28 +260,27 @@
             </tr>
             @endforeach
           </tbody>
-
-          <tfoot class="bg-success-rm text-white-rm">
+          <tfoot>
             <tr>
-              <td colspan="2" style="" class="font-weight-bold text-right">
+              <td colspan="2" class="font-weight-bold text-right">
                 <strong>
                 Subtotal
                 </strong>
               </td>
-              <td style="" class="font-weight-bold">
+              <td class="font-weight-bold">
                 Rs
                 @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
               </td>
             </tr>
             @foreach ($saleInvoice->saleInvoiceAdditions as $saleInvoiceAddition)
               <tr class="border-0">
-                <td colspan="2" style=""
+                <td colspan="2"
                     class="
                       font-weight-bold text-right border-0
                     ">
                   {{ $saleInvoiceAddition->saleInvoiceAdditionHeading->name }}
                 </td>
-                <td style=""
+                <td
                     class="
                       @if ($saleInvoiceAddition->saleInvoiceAdditionHeading->effect == 'minus')
                         text-danger
@@ -303,14 +291,13 @@
                 </td>
               </tr>
             @endforeach
-
             <tr class="border-0">
-              <td colspan="2" style="" class="font-weight-bold text-right border-0">
+              <td colspan="2" class="font-weight-bold text-right border-0">
                 <strong>
                 Total
                 </strong>
               </td>
-              <td style="" class="font-weight-bold border-0">
+              <td class="font-weight-bold border-0">
                 Rs
                 @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
               </td>
@@ -318,9 +305,7 @@
           </tfoot>
         </table>
       </div>
-
-      {{-- ./Show in smaller screens --}}
     </div>
-
   </div>
+
 </div>

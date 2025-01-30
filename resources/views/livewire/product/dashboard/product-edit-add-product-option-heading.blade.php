@@ -1,9 +1,11 @@
 <div class="p-3">
+
   <div class="mb-3">
     <div class="font-weight-bold">
       Add product option heading
     </div>
   </div>
+
   <div class="form-group">
     <label>Option Heading</label>
     <input type="text" class="form-control" wire:model="product_option_heading_name">
@@ -20,4 +22,5 @@
     @include ('partials.button-cancel', ['clickEmitEventName' => 'productEditAddProductOptionHeadingModeCancelled',])
     @include ('partials.dashboard.spinner-button')
   </div>
+
 </div>

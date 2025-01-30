@@ -1,20 +1,17 @@
-<div class="border bg-white-rm p-3 mb-3" style="">
+<div class="border p-3 mb-3">
+
   <h2 class="h6 font-weight-bold mb-3">
     Add user to group
   </h2>
 
+  {{--
+  |
+  | Flash message div.
+  |
+  --}}
+
   @if (session()->has('message'))
-    {{-- Flash message div --}}
-    <div class="p-2">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        @if (true)
-        {{ session('message') }}
-        @endif
-        <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-          <span class="text-success" aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
+    @include ('partials.flash-message', ['message' => session('message'),])
   @endif
 
   <div class="form-group">
@@ -32,11 +29,11 @@
         </span>
     @enderror
   </div>
-  <button class="btn btn-primary py-2" wire:click="store">
-    Submit
-  </button>
-  <button class="btn btn-light py-2" wire:click="$dispatch('addUserToGroupCancelled')">
-    Cancel
-  </button>
-  <br/>
+
+  <div>
+    @include ('partials.button-store')
+    @include ('partials.button-cancel', ['clickEmitEventName' => 'addUserToGroupCancelled',])
+    @include ('partials.dashboard.spinner-button')
+  </div>
+
 </div>

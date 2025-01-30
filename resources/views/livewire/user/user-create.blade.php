@@ -1,6 +1,5 @@
 <div class="p-3 border bg-white">
 
-
   <h2 class="h5 o-heading mb-4">
     Create user
   </h2>
@@ -43,6 +42,5 @@
     @include ('partials.button-store')
     @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateUserMode',])
   </div>
-
 
 </div>

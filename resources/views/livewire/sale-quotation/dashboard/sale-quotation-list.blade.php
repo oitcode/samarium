@@ -1,6 +1,5 @@
 <div>
 
-
   <x-list-component>
     <x-slot name="listInfo">
       <div class="d-flex">
@@ -85,7 +84,6 @@
           <td>
             {{ $saleQuotation->sale_quotation_id }}
           </td>
-
           <td>
             <p>
               @if (\Carbon\Carbon::today()->toDateString() == $saleQuotation->created_at->toDateString())
@@ -104,7 +102,6 @@
               {{ $saleQuotation->created_at->format('H:i A') }}
             </p>
           </td>
-
           <td>
             <p class="h5">
               Rs
@@ -140,6 +137,5 @@
   @if ($modes['confirmDelete'])
     @livewire ('sale-quotation-list-confirm-delete', ['saleQuotation' => $deletingSaleQuotation,])
   @endif
-
 
 </div>

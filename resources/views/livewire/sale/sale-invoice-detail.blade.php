@@ -1,10 +1,10 @@
 <x-box-generic title="Sale detail">
+
   <x-menu-bar-horizontal>
     <x-menu-item fa-class="fas fa-print" title="Print" click-method="" />
   </x-menu-bar-horizontal>
 
-  <div class="">
-
+  <div>
     <div class="row p-2 border" style="margin: auto;">
       <div class="col-md-3">
         Sale invoice ID
@@ -50,7 +50,6 @@
         --}}
       </div>
     </div>
-
   </div>
 
   <div>
@@ -66,7 +65,6 @@
             <th>Amount</th>
           </tr>
         </thead>
-
         <tbody>
           @foreach ($saleInvoice->saleInvoiceItems as $saleInvoiceItem)
             <tr>
@@ -78,7 +76,6 @@
             </tr>
           @endforeach
         </tbody>
-
         <tfoot>
           <tr>
             <td colspan="4" class="font-weight-bold">Total</td>

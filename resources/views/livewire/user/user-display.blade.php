@@ -1,6 +1,5 @@
 <div>
 
-
   {{--
   |
   | Toolbar
@@ -140,11 +139,11 @@
             <table class="table">
               <tr>
                 @foreach ($user->userGroups as $userGroup)
-                <td class="py-3">
-                    <span class="badge-pill badge-light p-2 border mb-3 mr-3">
-                    {{ $userGroup->name }}
-                    </span>
-                </td>
+                  <td class="py-3">
+                      <span class="badge-pill badge-light p-2 border mb-3 mr-3">
+                      {{ $userGroup->name }}
+                      </span>
+                  </td>
                 @endforeach
               </tr>
             </table>
@@ -158,6 +157,5 @@
       @endif
     </div>
   </div>
-
 
 </div>

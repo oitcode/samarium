@@ -1,14 +1,12 @@
 <div class="card shadow-sm">
 
-
   <div class="card-body p-3">
-
     <h1>
       Update team
     </h1>
 
     <div class="form-group">
-      <label for="">Name</label>
+      <label>Name</label>
       <input type="text"
           class="form-control"
           wire:model="name">
@@ -16,7 +14,7 @@
     </div>
 
     <div class="form-group">
-      <label for="">Team type</label>
+      <label>Team type</label>
       <select class="form-control" wire:model="team_type">
         <option>---</option>
         <option value="playing_team">Playing Team</option>
@@ -26,7 +24,7 @@
     </div>
 
     <div class="form-group">
-      <label for="">Comment</label>
+      <label>Comment</label>
       <input type="text"
           class="form-control"
           wire:model="comment">
@@ -34,7 +32,7 @@
     </div>
 
     <div class="form-group">
-      <label for="">Logo</label>
+      <label>Logo</label>
       @if ($team->image_path)
         <div class="d-flex justify-content-start mb-3">
           <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
@@ -50,6 +48,5 @@
       @include ('partials.spinner-border')
     </div>
   </div>
-
 
 </div>

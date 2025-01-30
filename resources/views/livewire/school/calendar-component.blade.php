@@ -1,5 +1,4 @@
 <div>
-
   
   <x-base-component moduleName="Calendar">
 
@@ -80,7 +79,6 @@
         </div>
       </div>
 
-
       <div class="border bg-white">
         @if ($displayMonthName)
           <div class="table-responsive border">
@@ -156,9 +154,7 @@
         @endif
       </div>
       @endif
-
     </div>
   </x-base-component>
-
 
 </div>
