@@ -1,3 +1,3 @@
-<tr class="bg-info @isset($bsClass) {{ $bsClass }} @endisset">
+<tr class="@isset($bsClass) {{ $bsClass }} @endisset">
   {{ $slot }}
 </tr>
