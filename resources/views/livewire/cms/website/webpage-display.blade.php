@@ -295,7 +295,7 @@
     <div class="row" style="margin: auto;">
       <div class="col-md-8">
         @foreach ($webpage->webpageContents()->orderBy('position', 'ASC')->get() as $webpageContent)
-          <div class="container p-0 px-2 mb-3" 
+          <div class="mb-3" 
               style="
                   @foreach ($webpageContent->cmsWebpageContentCssOptions as $cssOption)
                       {{ $cssOption->option_name }}: {{ $cssOption->option_value }};
@@ -316,7 +316,7 @@
                      </h2>
                    @endif
                    @if ($webpageContent->body)
-                     <div class="@if ($webpage->is_post == 'yes') text-dark @else text-secondary @endif px-3">
+                     <div class="px-3">
                        {!! $webpageContent->body !!}
                      </div>
                    @endif

@@ -1,8 +1,9 @@
 <div>
 
-  <div class="py-1 mb-3 h5">
+  <div class="mb-3 p-3 bg-white border">
     <a class="text-reset"
         href="{{ route('website-home') }}">
+      <i class="fas fa-home mr-1"></i>
       Home
     </a>
     <i class="fas fa-angle-right mx-1"></i>
@@ -16,7 +17,7 @@
 
   <div class="row mb-3 border p-2 pt-3 bg-white" style="margin: auto;">
     <div class="col-md-8">
-      <div class="row">
+      <div class="row" style="margin: auto;">
         <div class="col-md-6 mb-4">
           <div class="d-flex justify-content-center h-100">
             <div class="d-flex flex-column justify-content-start h-100">
@@ -29,7 +30,7 @@
           </div>
         </div>
         <div class="col-md-6 py-3 pl-3" style="background-color: #eee;">
-          <h1 class="h5 mb-3 font-weight-bold" style="font-weight: bold;">
+          <h1 class="h5 mb-3 o-heading" style="font-weight: bold;">
             {{ strtoupper($product->name) }}
           </h1>
           <div class="mb-3">
@@ -43,13 +44,13 @@
             </span>
           </div>
           @if ($product->selling_price != 0)
-            <h3 class="h5 mb-3 text-danger font-weight-bold" style="font-weight: bold;">
+            <h3 class="h5 mb-3 text-danger o-heading" style="font-weight: bold;">
               Rs
               @php echo number_format( $product->selling_price ); @endphp
             </h3>
           @endif
           <div>
-            <h2 class="h6 font-weight-bold text-secondary">
+            <h2 class="h6 o-heading">
               Product description
             </h2>
             <p class="h6 mb-3">
@@ -58,13 +59,9 @@
           </div>
 
           <div>
-            <button class="btn btn-danger w-100 mb-0 p-3 mb-3"
-                style="font-family: Arial;"
-                wire:click="addItemToCart({{ $product->product_id }})">
-              <span class="h5">
-                <i class="fas fa-shopping-cart mr-1"></i>
-                ADD TO CART
-              </span>
+            <button class="btn btn-danger badge-pill w-100 mb-0 p-3 mb-3 o-heading text-white" wire:click="addItemToCart({{ $product->product_id }})">
+              <i class="fas fa-shopping-cart mr-1"></i>
+              ADD TO CART
             </button>
             @include ('partials.dashboard.spinner-button')
           </div>
@@ -434,10 +431,8 @@
         @livewire ('ecomm-website.website.create-product-enquiry', ['product' => $product,])
         {{-- Share --}}
         <div class="mb-4 p-3" style="background-color: #eee;">
-          <div class="mb-3">
-            <strong>
+          <div class="mb-3 o-heading">
               Share
-            </strong>
           </div>
           <div>
             <a href="http://www.facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" class="text-decoration-none text-primary">

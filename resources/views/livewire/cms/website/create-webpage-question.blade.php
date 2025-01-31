@@ -1,6 +1,6 @@
 <div class="border p-3 mb-3">
 
-  <h2 class="h5 font-weight-bold text-primary">
+  <h2 class="h5 o-heading mb-3">
     Any question?
   </h2>
 
@@ -58,7 +58,23 @@
       </span>
     @enderror
   </div>
-  <button class="btn btn-primary btn-block py-2" wire:click="store">
+  <button class="btn btn-primary btn-block py-2"
+              style="
+                  @if (\App\CmsTheme::first())
+                  background-image:
+                      linear-gradient(
+                          to bottom right,
+                          {{ \App\CmsTheme::first()->ascent_bg_color }},
+                          {{ \App\CmsTheme::first()->ascent_bg_color }}
+                      );
+                      color: {{ \App\CmsTheme::first()->ascent_text_color }};
+                  @else
+                    background-color: #123;
+                    color: white;
+                  @endif
+                  "
+              wire:click="store"
+  >
     Submit
   </button>
   <br/>

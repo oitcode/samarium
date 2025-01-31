@@ -8,7 +8,7 @@
         <div class="col-md-3">
           <div class="d-flex flex-column h-100" >
             <div class="bg-white py-3 flex-grow-1 border rounded">
-              <div class="h4 mb-3 pl-3 font-weight-bold">
+              <div class="h5 mb-3 pl-3 o-heading">
                 Product categories
               </div>
               @php
@@ -23,7 +23,7 @@
                     class="text-decoration-none text-dark"
                 >
                   <div class="px-3 py-2">
-                      <button class="btn btn-outline-danger w-100">
+                      <button class="btn btn-outline-dark w-100">
                         <span class="h6 font-weight-bold">
                           {{ $productCategory->name }}
                         </span>
@@ -49,7 +49,7 @@
         <div class="col-md-9 pt-3">
           <div class="d-flex flex-column h-100">
             <div>
-              <h2 class="h4 text-dark font-weight-bold mb-4">
+              <h2 class="h5 text-dark o-heading mb-4">
                 Featured products
               </h2>
             </div>
@@ -107,7 +107,7 @@
       |
       --}}
       <div class="container py-5">
-        <h2 class="h4 font-weight-bold mt-2 mb-1">
+        <h2 class="h5 o-heading mt-2 mb-1">
           Most viewed
         </h2>
         <p class="text-secondary">
@@ -159,7 +159,7 @@
       --}}
 
       <div class="container py-5" id="o-all-categories">
-        <h2 class="h4 font-weight-bold mt-2 mb-1">
+        <h2 class="h4 o-heading mt-2 mb-1">
           Categories
         </h2>
         <p class="text-secondary">
@@ -216,7 +216,7 @@
   @if (\App\Testimonial::count() > 0)
     <div class="container-fluid py-5 border bg-light">
       <div class="container">
-        <h2 class="h4 font-weight-bold mb-4">
+        <h2 class="h5 o-heading mb-4">
           What our customers say
         </h2>
         @livewire ('testimonial.website.testimonial-list')

@@ -1,6 +1,6 @@
 <div class="border p-3 mb-3">
 
-  <h2 class="h5 font-weight-bold text-primary">
+  <h2 class="h6 o-heading mb-4">
     Any question?
   </h2>
 
@@ -57,9 +57,8 @@
       </span>
     @enderror
   </div>
-  <button class="btn btn-primary btn-block py-2" wire:click="store">
+  <button class="btn btn-outline-primary btn-block py-2" wire:click="store">
     Submit
   </button>
-  <br/>
 
 </div>

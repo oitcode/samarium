@@ -47,7 +47,12 @@
     --}}
     <div class="container-fluid bg-white p-0 bg-warning mb-4">
       <div class="py-1 border-top">
-        <div>
+        <div style="
+                  @foreach ($webpageContent->cmsWebpageContentCssOptions as $cssOption)
+                      {{ $cssOption->option_name }}: {{ $cssOption->option_value }};
+                  @endforeach
+              "
+        >
           {!! $webpageContent->body !!}
         </div>
       </div>

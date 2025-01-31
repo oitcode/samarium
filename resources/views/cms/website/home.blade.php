@@ -68,19 +68,7 @@
               @endif
             </div>
             <div class="col-md-6 pt-5 px-md-5 pb-5 pb-md-0">
-              {{--
-              |--------------------------------------------------------------------------
-              | School component.
-              |--------------------------------------------------------------------------
-              |
-              --}}
-              @if (has_module('school'))
-                <div class="container-fluid o-fade-in" style="@if (\App\CmsTheme::first()) background-color: {{ \App\CmsTheme::first()->ascent_bg_color }}; @endif">
-                  <div class="container my-0 my-md-0 px-md-3 py-4 p-0" style="@if(\App\CmsTheme::first()) background-color: {{ \App\CmsTheme::first()->ascent_bg_color }}; @endif">
-                    @include ('partials.school.school-quick-links-display')
-                  </div>
-                </div>
-              @endif
+              @include ('partials.school.school-quick-links-display')
               <div class="d-flex flex-column justify-content-center h-100">
                 <h1 class="h1">
                   {{ $company->name }}
