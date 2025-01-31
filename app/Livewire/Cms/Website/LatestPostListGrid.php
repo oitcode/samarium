@@ -16,8 +16,6 @@ class LatestPostListGrid extends Component
 
     public function render()
     {
-        // $this->webpages = Webpage::where('is_post', 'yes')->where('visibility', 'public')->orderBy('webpage_id', 'desc')->limit(4)->get();
-
         if ($this->category) {
             $postCategory = WebpageCategory::where('name', $this->category)->first();
             $this->webpages = $postCategory->webpages()->where('visibility', 'public')->orderBy('webpage_id', 'DESC')->get();

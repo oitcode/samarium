@@ -13,7 +13,6 @@ class VendorDisplay extends Component
     public $vendor;
 
     public $paymentMakingPurchase;
-
     public $displayingPurchase = null;
 
     public $modes = [

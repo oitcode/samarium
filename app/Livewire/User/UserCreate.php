@@ -23,12 +23,6 @@ class UserCreate extends Component
 
     public function store()
     {
-        if (false) {
-            if (Gate::denies('create-user')) {
-                die ('Whopsie ... not allowed');
-            }
-        }
-
         $validatedData = $this->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users',

@@ -17,7 +17,6 @@ class UrlLinkDisplay extends Component
     public $modes = [
         'updateUrlMode' => false,
         'updateDescriptionMode' => false,
-
         'editUserGroupMode' => false,
     ];
 

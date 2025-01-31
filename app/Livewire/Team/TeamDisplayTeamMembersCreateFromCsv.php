@@ -98,28 +98,18 @@ class TeamDisplayTeamMembersCreateFromCsv extends Component
     public function importFromFile()
     {
         foreach ($this->lines as $line) {
-            //DB::beginTransaction();
+            $teamMember = new TeamMember;
 
-            //try {
-                $teamMember = new TeamMember;
+            $teamMember->name = $line[0];
+            $teamMember->comment = $line[1];
+            $teamMember->phone = $line[2];
+            $teamMember->email = $line[3];
+            $teamMember->address = $line[4];
 
-                $teamMember->name = $line[0];
-                $teamMember->comment = $line[1];
-                $teamMember->phone = $line[2];
-                $teamMember->email = $line[3];
-                $teamMember->address = $line[4];
+            $teamMember->team_id = $this->team_id;
+            $teamMember->save();
 
-                $teamMember->team_id = $this->team_id;
-                $teamMember->save();
-
-                /* Todo: Store team member image from excel/csv file. */
-
-                //DB::commit();
-            //} catch (\Exception $e) {
-                //DB::rollback();
-            //}
-            
-            // $i++;
+            /* Todo: Store team member image from excel/csv file. */
         }
 
         /* Delete the file */

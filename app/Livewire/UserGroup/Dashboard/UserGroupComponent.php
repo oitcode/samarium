@@ -21,9 +21,7 @@ class UserGroupComponent extends Component
     protected $listeners = [
         'exitCreateUserGroupMode',
         'userGroupCreated',
-
         'displayUserGroup',
-
         'createUserGroupCompleted',
     ];
 

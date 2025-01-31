@@ -18,7 +18,6 @@ class WebpageDisplayWebpageContentCreate extends Component
     public $position;
     public $title;
     public $body; 
-    /* public $value; */
     public $image;
     public $video_link;
 
@@ -28,7 +27,6 @@ class WebpageDisplayWebpageContentCreate extends Component
         'paragraphMode' => false,
         'mediaAndTextMode' => false,
         'galleryMode' => false,
-
         'rowMode' => false,
         'youtubeVideoMode' => false,
     ];
@@ -47,7 +45,6 @@ class WebpageDisplayWebpageContentCreate extends Component
         'webpageContentCreateRowCompleted' => 'webpageContentCreateCompleted',
         'webpageContentCreateYoutubeVideoCompleted' => 'webpageContentCreateCompleted',
         'webpageContentCreateYoutubeVideoCancelled' => 'webpageContentCreateCancelled',
-
         'webpageContentCreateCancelled',
     ];
 
@@ -78,16 +75,8 @@ class WebpageDisplayWebpageContentCreate extends Component
         $validatedData['webpage_id'] = $this->webpage->webpage_id;
 
         /* $validatedData['body'] = $validatedData['value']; */
-
-        //DB::beginTransaction();
-
-        // try {
-            $webpageContent = WebpageContent::create($validatedData);
-            // DB::commit();
-            $this->dispatch('webpageContentAdded');
-        // } catch (\Exception $e) {
-        //     DB::rollback();
-        // }
+        $webpageContent = WebpageContent::create($validatedData);
+        $this->dispatch('webpageContentAdded');
     }
 
     public function getHighestPosition()

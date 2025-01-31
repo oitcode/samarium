@@ -15,14 +15,12 @@ class GalleryDisplay extends Component
     public $modes = [
         'updateGalleryNameMode' => false,
         'addGalleryImagesMode' => false,
-
         'updateShowInGalleryPageMode' => false,
     ];
 
     protected $listeners = [
         'updateGalleryNameCancel',
         'updateGalleryNameCompleted',
-
         'galleryImagesAdded',
         'addGalleryImagesCancelled',
     ];

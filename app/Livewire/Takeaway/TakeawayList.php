@@ -24,12 +24,10 @@ class TakeawayList extends Component
 
     public $modes = [
         'confirmDelete' => false,
-
         'showOnlyPendingMode' => false,
         'showOnlyPartiallyPaidMode' => false,
         'showOnlyPaidMode' => false,
         'showAllMode' => true,
-
         'delete' => false, 
         'cannotDelete' => false, 
     ];

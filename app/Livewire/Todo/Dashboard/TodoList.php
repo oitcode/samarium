@@ -33,14 +33,12 @@ class TodoList extends Component
 
     public $modes = [
         'deleteTodoMode' => false,
-
         'showOnlyPendingMode' => false,
         'showOnlyProgressMode' => false,
         'showOnlyDoneMode' => false,
         'showOnlyDeferredMode' => false,
         'showOnlyCancelledMode' => false,
         'showAllMode' => true,
-
         'delete' => false, 
         'confirmDeleteMode' => false, 
         'cannotDelete' => false, 
@@ -54,7 +52,6 @@ class TodoList extends Component
 
     public function render()
     {
-
         // $this->todoDisplayCount = $this->todoCount;;
         $this->todoDisplayCount = $this->todoCount;;
 
@@ -79,7 +76,6 @@ class TodoList extends Component
 
         // $this->todoCount = count($this->todos);
         $this->todoCount = $todos->count();
-
 
         return view('livewire.todo.dashboard.todo-list')
             ->with('todos', $todos);

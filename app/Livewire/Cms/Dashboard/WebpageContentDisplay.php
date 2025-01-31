@@ -22,7 +22,6 @@ class WebpageContentDisplay extends Component
     protected $listeners = [
         'webpageContentUpdated',
         'exitWebpageContentEditMode',
-
         'webpageContentEditCssCancel',
         'webpageContentEditCssCompleted',
     ];

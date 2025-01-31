@@ -20,12 +20,9 @@ class WebpageDisplay extends Component
 
     public $modes = [
         'createWebpageContent' =>false,
-
-        /* Various edit modes on this webpage */
         'editVisibilityMode' => false,
         'editWebpageCategoryMode' => false,
         'editFeaturedImageMode' => false,
-
         'editWebpageCategoryPostpageMode' => false,
         'editTeamTeampageMode' => false,
     ];
@@ -37,20 +34,14 @@ class WebpageDisplay extends Component
         'webpageContentDeleted' => 'render',
         'webpageContentPositionChanged' => 'render',
         'webpageContentUpdated' => 'render',
-
-        /* */
         'webpageEditVisibilityCancel',
         'webpageEditVisibilityCompleted',
-
         'webpageEditWebpageCategoryCancel',
         'webpageEditWebpageCategoryCompleted',
-
         'webpageEditFeaturedImageCancel',
         'webpageEditFeaturedImageCompleted',
-
         'webpageEditWebpageCategoryPostpageCompleted',
         'webpageEditWebpageCategoryPostpageCancel',
-
         'webpageEditTeamTeampageCompleted',
         'webpageEditTeamTeampageCancel',
     ];

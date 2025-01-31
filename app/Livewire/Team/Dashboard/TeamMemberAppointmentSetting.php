@@ -34,7 +34,6 @@ class TeamMemberAppointmentSetting extends Component
 
     public function render()
     {
-        /* dd ($this->teamMember); */
         $this->availabilities = $this->teamMember->teamMemberAppointmentAvailabilities;
 
         return view('livewire.team.dashboard.team-member-appointment-setting');

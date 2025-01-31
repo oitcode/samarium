@@ -19,7 +19,6 @@ class AccountingCashFlow extends Component
 
     public $grossProfit;
     public $netProfit;
-    /* ./This taken from income statement to calculate retained earnings. */
 
     public function render()
     {
@@ -30,7 +29,6 @@ class AccountingCashFlow extends Component
 
         $this->calculateGrossProfit();
         $this->calculateNetProfit();
-        /* ./Calculate net income/profit */
 
         return view('livewire.accounting.accounting-cash-flow');
     }
@@ -83,5 +81,4 @@ class AccountingCashFlow extends Component
     {
         $this->netProfit = $this->grossProfit - $this->expenseTotal;
     }
-    /* ./This taken from income statement to calculate retained earnings. */
 }

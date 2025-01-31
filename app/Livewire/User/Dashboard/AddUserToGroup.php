@@ -29,7 +29,6 @@ class AddUserToGroup extends Component
         ]);
 
         $validatedData['user_id'] = $this->user->id;
-
         UserUserGroup::create($validatedData);
         $this->dispatch('addUserToGroupCompleted');
     }

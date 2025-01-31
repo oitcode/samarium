@@ -19,7 +19,6 @@ class TeamComponent extends Component
     protected $listeners = [
         'exitCreateMode',
         'teamCreated',
-
         'displayTeam',
     ];
 

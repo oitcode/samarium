@@ -22,7 +22,6 @@ class VacancyComponent extends Component
     protected $listeners = [
         'vacancyCreateCompleted',
         'vacancyCreateCancelled',
-
         'displayVacancy',
         'exitVacancyDisplay',
     ];

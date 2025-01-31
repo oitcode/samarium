@@ -18,11 +18,9 @@ class AccountingComponent extends Component
         'journal' => false,
         'ledger' => false,
         'trialBalance' => false,
-
         'incomeStatement' => false,
         'balanceSheet' => false,
         'cashFlow' => false,
-
         'accountTypeList' => false,
         'accountTypeCreate' => false,
     ];
@@ -31,7 +29,6 @@ class AccountingComponent extends Component
         'abAccountAdded',
         'displayAbAccountLedger',
         'exitCreateMode',
-
         'exitAccountTypeCreateMode',
     ];
 

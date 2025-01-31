@@ -12,18 +12,16 @@ class UserGroupList extends Component
     use WithPagination;
     use ModesTrait;
 
-    /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
 
     public $userGroups;
-
     public $userGroupCount;
-
     public $deletingUserGroup;
 
     public $modes = [
         'delete' => false,
     ];
+
     public function render()
     {
         $this->userGroups = UserGroup::all();

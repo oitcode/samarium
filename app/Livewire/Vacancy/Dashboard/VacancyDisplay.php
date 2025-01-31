@@ -19,7 +19,6 @@ class VacancyDisplay extends Component
     protected $listeners = [
         'vacancyUpdateTitleCancelled',
         'vacancyUpdateTitleCompleted',
-
         'vacancyUpdateDescriptionCancelled',
         'vacancyUpdateDescriptionCompleted',
     ];

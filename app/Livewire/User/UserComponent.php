@@ -21,7 +21,6 @@ class UserComponent extends Component
     protected $listeners = [
         'exitCreateUserMode',
         'userCreated',
-
         'displayUser',
         'exitUserDisplayMode',
     ];

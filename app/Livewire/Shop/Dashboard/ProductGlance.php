@@ -10,7 +10,6 @@ class ProductGlance extends Component
 {
     public $productCount;
     public $productCategoryCount;
-    /* public $inventoryEnabledProductCount; */
 
     public function render()
     {

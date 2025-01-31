@@ -10,7 +10,6 @@ class VacancyList extends Component
 {
     use WithPagination;
 
-    /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
 
     public $vacanciesCount;

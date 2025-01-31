@@ -12,7 +12,6 @@ class UserList extends Component
     use WithPagination;
     use ModesTrait;
 
-    /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
 
     // public $users;

@@ -21,7 +21,6 @@ class UrlLinkComponent extends Component
     protected $listeners = [
         'urlLinkCreateCancelled',
         'urlLinkCreateCompleted',
-
         'displayUrlLink',
         'exitUrlLinkDisplay',
     ];
