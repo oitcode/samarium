@@ -36,7 +36,7 @@
     <x-slot name="listBody">
       @foreach ($saleQuotations as $saleQuotation)
         {{-- Show in bigger screens --}}
-        <tr>
+        <x-table-row-component bsClass="d-none d-md-table-row">
           <td>
             {{ $saleQuotation->sale_quotation_id }}
           </td>
@@ -77,10 +77,10 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
 
         {{-- Show in smaller screens --}} 
-        <tr class="d-md-none">
+        <x-table-row-component bsClass="d-md-none">
           <td>
             {{ $saleQuotation->sale_quotation_id }}
           </td>
@@ -125,7 +125,7 @@
               </div>
             </div>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

@@ -22,7 +22,7 @@
 
     <x-slot name="listBody">
       @foreach ($users as $user)
-        <tr>
+        <x-table-row-component>
           <td>
             {{ $user->id }}
           </td>
@@ -64,7 +64,7 @@
               @endif
             @endif
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

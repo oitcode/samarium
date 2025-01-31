@@ -14,7 +14,7 @@
 
     <x-slot name="listBody">
       @foreach ($vendors as $vendor)
-        <tr>
+        <x-table-row-component>
           <td>
             {{ $vendor->vendor_id }}
           </td>
@@ -40,7 +40,7 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

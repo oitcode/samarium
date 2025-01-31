@@ -98,7 +98,7 @@
 
     <x-slot name="listBody">
       @foreach ($todos as $todo)
-        <tr>
+        <x-table-row-component>
           <td>
             {{ $todo->todo_id }}
           </td>
@@ -156,7 +156,7 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

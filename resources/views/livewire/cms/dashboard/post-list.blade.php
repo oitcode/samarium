@@ -28,7 +28,7 @@
     <x-slot name="listBody">
       @foreach ($posts as $post)
         {{-- Show in bigger screens --}}
-        <tr>
+        <x-table-row-component>
           <td class="h5 font-weight-bold py-4">
             <span class="text-dark">
               {{ \Illuminate\Support\Str::limit($post->name, 60, $end=' ...') }}
@@ -97,7 +97,7 @@
               @endif
             @endif
           </td>
-        </tr>
+        </x-table-row-component>
 
         {{-- Show in smaller screens --}}
         {{-- TODO --}}

@@ -11,7 +11,7 @@
   
     <x-slot name="listBody">
       @foreach ($productVendors as $productVendor)
-        <tr>
+        <x-table-row-component>
           <td wire:click="$dispatch('displayProductVendor', { productVendor: {{ $productVendor }} } )" role="button">
             {{ $productVendor->name }}
           </td>
@@ -26,7 +26,7 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
   

@@ -92,7 +92,7 @@
     <x-slot name="listBody">
       @foreach ($saleInvoices as $saleInvoice)
         {{-- Show in bigger screens --}}
-        <tr class="d-none d-md-table-row">
+        <x-table-row-component bsClass="d-none d-md-table-row">
           <td>
             {{ $saleInvoice->sale_invoice_id }}
           </td>
@@ -157,10 +157,10 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
 
         {{-- Show in smaller screens --}}
-        <tr class="d-md-none">
+        <x-table-row-component bsClass="d-md-none">
           <td>
             {{ $saleInvoice->sale_invoice_id }}
           </td>
@@ -221,7 +221,7 @@
               </div>
             </div>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
 
       @if ($modes['confirmDelete'])

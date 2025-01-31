@@ -19,7 +19,7 @@
 
     <x-slot name="listBody">
       @foreach ($vacancies as $vacancy)
-        <tr>
+        <x-table-row-component>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayVacancy', { vacancy: {{ $vacancy }} })" role="button">
             <span>
               {{ $vacancy->title }}
@@ -39,7 +39,7 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

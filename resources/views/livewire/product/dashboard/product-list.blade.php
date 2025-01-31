@@ -25,7 +25,7 @@
 
     <x-slot name="listBody">
       @foreach ($products as $product)
-        <tr>
+        <x-table-row-component>
           <td>
             {{ $product->product_id }}
           </td>
@@ -57,7 +57,7 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

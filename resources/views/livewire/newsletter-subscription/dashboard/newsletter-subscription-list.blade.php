@@ -19,7 +19,7 @@
 
     <x-slot name="listBody">
       @foreach ($newsletterSubscriptions as $newsletterSubscription)
-        <tr>
+        <x-table-row-component>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayNewsletterSubscription', { newsletterSubscription: {{ $newsletterSubscription }} })" role="button">
             <span>
               {{ $newsletterSubscription->email }}
@@ -39,7 +39,7 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

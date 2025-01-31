@@ -25,7 +25,7 @@
 
     <x-slot name="listBody">
       @foreach ($documentFiles as $documentFile)
-        <tr>
+        <x-table-row-component>
           <td>
           {{ $documentFile->name }}
           </td>
@@ -58,7 +58,7 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

@@ -98,7 +98,7 @@
     <x-slot name="listBody">
       @foreach ($websiteOrders as $order)
         {{-- Show in bigger screens --}}
-        <tr class="d-none d-md-table-row">
+        <x-table-row-component bsClass="d-none d-md-table-row">
           <td>
             {{ $order->website_order_id }}
           </td>
@@ -157,10 +157,10 @@
             <button class="btn btn-danger px-2 py-1" wire:click="">
               <i class="fas fa-trash"></i>
             </button>
-        </tr>
+        </x-table-row-component>
 
         {{-- Show in smaller screens --}}
-        <tr class="d-md-none" role="button" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
+        <x-table-row-component bsClass="d-md-none" role="button" wire:click="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
           <td>
             {{ $order->website_order_id }}
             <div>
@@ -209,7 +209,7 @@
               </span>
             @endif
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

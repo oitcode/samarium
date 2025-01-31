@@ -13,25 +13,25 @@
 
     <x-slot name="listBody">
       @foreach ($calendarGroups as $calendarGroup)
-      <tr>
-        <td>
-          {{ $calendarGroup->calendar_group_id }}
-        </td>
-        <td class="font-weight-bold">
-          {{ $calendarGroup->name }}
-        </td>
-        <td class="text-right">
-          <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })">
-            <i class="fas fa-pencil-alt"></i>
-          </button>
-          <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })">
-            <i class="fas fa-eye"></i>
-          </button>
-          <button class="btn btn-danger px-2 py-1" wire:click="">
-            <i class="fas fa-trash"></i>
-          </button>
-        </td>
-      </tr>
+        <x-table-row-component>
+          <td>
+            {{ $calendarGroup->calendar_group_id }}
+          </td>
+          <td class="font-weight-bold">
+            {{ $calendarGroup->name }}
+          </td>
+          <td class="text-right">
+            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayCalendarGroup', {calendarGroup: {{ $calendarGroup }} })">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn btn-danger px-2 py-1" wire:click="">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

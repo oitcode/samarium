@@ -16,7 +16,7 @@
 
     <x-slot name="listBody">
       @foreach ($galleries as $gallery)
-      <tr>
+      <x-table-row-component>
         <td>
           {{ $gallery->gallery_id }}
         </td>
@@ -44,7 +44,7 @@
             <i class="fas fa-trash"></i>
           </button>
         </td>
-      </tr>
+      </x-table-row-component>
       @endforeach
     </x-slot>
 

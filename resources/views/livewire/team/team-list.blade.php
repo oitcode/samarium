@@ -12,7 +12,7 @@
 
     <x-slot name="listBody">
       @foreach ($teams as $team)
-        <tr>
+        <x-table-row-component>
           <td>
             @if ($team->image_path)
               <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
@@ -53,7 +53,7 @@
               @endif
             @endif
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

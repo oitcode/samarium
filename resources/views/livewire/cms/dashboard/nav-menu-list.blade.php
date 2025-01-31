@@ -15,14 +15,14 @@
       <tbody class="bg-white">
         @if (!is_null($cmsNavMenus) && count($cmsNavMenus) > 0)
           @foreach ($cmsNavMenus as $cmsNavMenu)
-            <tr wire:click="$dispatch('displayCmsNavMenu', {cmsNavMenuId: {{ $cmsNavMenu->cms_nav_menu_id }} })" role="button">
+            <x-table-row-component wire:click="$dispatch('displayCmsNavMenu', {cmsNavMenuId: {{ $cmsNavMenu->cms_nav_menu_id }} })" role="button">
               <td>
                 {{ $cmsNavMenu->name }}
               </td>
               <td>
                 <i class="fas fa-pencil-alt"></i>
               </td>
-            </tr>
+            </x-table-row-component>
           @endforeach
         @else
           <tr>

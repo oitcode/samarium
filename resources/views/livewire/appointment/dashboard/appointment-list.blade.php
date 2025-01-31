@@ -34,7 +34,7 @@
 
     <x-slot name="listBody">
       @foreach ($appointments as $appointment)
-        <tr>
+        <x-table-row-component>
           <td>
             {{ $appointment->appointment_id }}
           </td>
@@ -95,7 +95,7 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

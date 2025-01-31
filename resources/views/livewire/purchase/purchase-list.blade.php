@@ -90,7 +90,7 @@
     <x-slot name="listBody">
       @foreach ($purchases as $purchase)
         {{-- Show in bigger screens --}} 
-        <tr class="d-none d-md-table-row" wire:key="{{ rand() }}">
+        <x-table-row-component bsClass="d-none d-md-table-row" wire:key="{{ rand() }}">
           <td>
             {{ $purchase->purchase_id }}
           </td>
@@ -157,10 +157,10 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
 
         {{-- Show in mobile screens --}}
-        <tr class="d-md-none" wire:key="{{ rand() }}">
+        <x-table-row-component bsClass="d-md-none" wire:key="{{ rand() }}">
           <td>
             {{ $purchase->purchase_id }}
             <div>
@@ -228,7 +228,7 @@
               </div>
             </div>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

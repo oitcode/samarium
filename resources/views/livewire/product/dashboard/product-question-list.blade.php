@@ -23,7 +23,7 @@
     <x-slot name="listBody">
       @if (count($productQuestions) > 0)
         @foreach ($productQuestions as $productQuestion)
-          <tr>
+          <x-table-row-component>
             <td class="h6 font-weight-bold"
                 wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })"
                 role="button">
@@ -50,17 +50,17 @@
                 <i class="fas fa-trash"></i>
               </button>
             </td>
-          </tr>
+          </x-table-row-component>
         @endforeach
       @else
-        <tr>
+        <x-table-row-component>
           <td colspan="4">
             <p class="font-weight-bold h4 py-4 text-center" style="color: #fe8d01;">
               <i class="fas fa-exclamation-circle mr-2"></i>
               No product questions yet.
             <p>
           </td>
-        </tr>
+        </x-table-row-component>
       @endif
     </x-slot>
   

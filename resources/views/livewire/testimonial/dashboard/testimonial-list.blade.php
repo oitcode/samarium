@@ -22,7 +22,7 @@
 
     <x-slot name="listBody">
       @foreach ($testimonials as $testimonial)
-        <tr>
+        <x-table-row-component>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayTestimonial', { testimonial: {{ $testimonial }} })" role="button">
             {{ $testimonial->writer_name }}
           </td>
@@ -43,7 +43,7 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

@@ -77,7 +77,7 @@
     <x-slot name="listBody">
       @foreach ($expenses as $expense)
         {{-- Show in bigger screens --}} 
-        <tr class="d-none d-md-table-row" wire:key="{{ rand() * $expense->expense_id }}">
+        <x-table-row-component bsClass="d-none d-md-table-row" wire:key="{{ rand() * $expense->expense_id }}">
           <td>
             {{ $expense->expense_id }}
           </td>
@@ -105,10 +105,10 @@
               </button>
             @endif
           </td>
-        </tr>
+        </x-table-row-component>
 
         {{-- Show in smaller screens --}}
-        <tr class="d-md-none" wire:key="{{ rand() }}">
+        <x-table-row-component bsClass="d-md-none" wire:key="{{ rand() }}">
           <td>
             {{ $expense->expense_id }}
             <div>
@@ -136,7 +136,7 @@
               </div>
             </div>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

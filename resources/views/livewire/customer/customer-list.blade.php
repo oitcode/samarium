@@ -15,7 +15,7 @@
     <x-slot name="listBody">
       @foreach ($customers as $customer)
         {{-- Show in bigger screens --}}
-        <tr class="d-none d-md-table-row border">
+        <x-table-row-component bsClass="d-none d-md-table-row border">
           <td>
             <span>
               {{ ucwords($customer->name) }}
@@ -54,10 +54,10 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
 
         {{-- Show in smaller screens --}}
-        <tr class="d-md-none border">
+        <x-table-row-component bsClass="d-md-none border">
           <td style="width: 5vw;">
 
             <div class="dropdown">
@@ -99,7 +99,7 @@
               @php echo number_format( $customer->getBalance() ); @endphp
             @endif
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

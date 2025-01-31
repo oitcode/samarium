@@ -22,7 +22,7 @@
 
     <x-slot name="listBody">
       @foreach ($urlLinks as $urlLink)
-        <tr>
+        <x-table-row-component>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayUrlLink', {urlLink: {{ $urlLink }} })" role="button">
             <span>
               {{ $urlLink->url }}
@@ -49,7 +49,7 @@
               <i class="fas fa-trash"></i>
             </button>
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

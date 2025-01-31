@@ -24,7 +24,7 @@
 
     <x-slot name="listBody">
       @foreach ($webpages as $webpage)
-        <tr>
+        <x-table-row-component>
           <td class="h5 font-weight-bold py-4">
             <span>
               {{ $webpage->name }}
@@ -90,7 +90,7 @@
               @endif
             @endif
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 

@@ -85,7 +85,7 @@
 
     <x-slot name="listBody">
       @foreach ($contactMessages as $contactMessage)
-        <tr>
+        <x-table-row-component>
           <td>
             {{ $contactMessage->contact_message_id }}
           </td>
@@ -136,7 +136,7 @@
                 @endif
               @endif
           </td>
-        </tr>
+        </x-table-row-component>
       @endforeach
     </x-slot>
 
