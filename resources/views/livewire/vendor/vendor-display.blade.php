@@ -28,54 +28,101 @@
       <table class="table mb-0">
         <tbody>
           <tr>
-            <th>Name</th>
-            <td>{{ $vendor->name }}</td>
-          </tr>
-          <tr>
-            <th>Email</th>
+            <th class="o-heading">Name</th>
             <td>
-              @if ($vendor->email)
-                {{ $vendor->email}}
+              @if ($modes['updateNameMode'])
+                @livewire ('vendor.dashboard.vendor-edit-name', ['vendor' => $vendor,])
               @else
-                <i class="fas fa-exclamation-circle text-warning mr-1"></i>
-                <span class="text-secondary">
-                Email unknown
+                {{ $vendor->name }}
+              @endif
+            </td>
+            <td class="text-right">
+              @if (! $modes['updateNameMode'])
+                <span class="mx-3" wire:click="enterMode('updateNameMode')" role="button">
+                  Edit
                 </span>
               @endif
             </td>
           </tr>
           <tr>
-            <th>Phone</th>
+            <th class="o-heading">Email</th>
             <td>
-              @if ($vendor->phone)
-                <i class="fas fa-phone text-secondary mr-3"></i>
-                {{ $vendor->phone}}
+              @if ($modes['updateEmailMode'])
+                @livewire ('vendor.dashboard.vendor-edit-email', ['vendor' => $vendor,])
               @else
-                <i class="fas fa-exclamation-circle text-warning mr-1"></i>
-                <span class="text-secondary">
-                Phone unknown
+                @if ($vendor->email)
+                  {{ $vendor->email}}
+                @else
+                  <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
+                  <span class="text-secondary">
+                    Email unknown
+                  </span>
+                @endif
+              @endif
+            </td>
+            <td class="text-right">
+              @if (! $modes['updateEmailMode'])
+                <span class="mx-3" wire:click="enterMode('updateEmailMode')" role="button">
+                  Edit
                 </span>
               @endif
             </td>
           </tr>
           <tr>
-            <th>PAN Num</th>
+            <th class="o-heading">Phone</th>
             <td>
-              @if ($vendor->pan_num)
-                {{ $vendor->pan_num}}
+              @if ($modes['updatePhoneMode'])
+                @livewire ('vendor.dashboard.vendor-edit-phone', ['vendor' => $vendor,])
               @else
-                <i class="fas fa-exclamation-circle text-warning mr-1"></i>
-                <span class="text-secondary">
-                PAN number unknown
+                @if ($vendor->phone)
+                  {{ $vendor->phone}}
+                @else
+                  <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
+                  <span class="text-secondary">
+                    Phone unknown
+                  </span>
+                @endif
+              @endif
+            </td>
+            <td class="text-right">
+              @if (! $modes['updatePhoneMode'])
+                <span class="mx-3" wire:click="enterMode('updatePhoneMode')" role="button">
+                  Edit
                 </span>
               @endif
             </td>
           </tr>
           <tr>
-            <th>Balance</th>
+            <th class="o-heading">PAN Num</th>
+            <td>
+              @if ($modes['updatePanMode'])
+                @livewire ('vendor.dashboard.vendor-edit-pan', ['vendor' => $vendor,])
+              @else
+                @if ($vendor->pan_num)
+                  {{ $vendor->pan_num}}
+                @else
+                  <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
+                  <span class="text-secondary">
+                  PAN number unknown
+                  </span>
+                @endif
+              @endif
+            </td>
+            <td class="text-right">
+              @if (! $modes['updatePanMode'])
+                <span class="mx-3" wire:click="enterMode('updatePanMode')" role="button">
+                  Edit
+                </span>
+              @endif
+            </td>
+          </tr>
+          <tr>
+            <th class="o-heading">Balance</th>
             <td>
               Rs
               @php echo number_format( $vendor->getBalance() ); @endphp
+            </td>
+            <td>
             </td>
           </tr>
         </tbody>

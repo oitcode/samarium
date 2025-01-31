@@ -31,21 +31,45 @@
 
   <div class="bg-white border mb-2">
     <div class="table-responsive">
-      <table class="table">
+      <table class="table mb-0">
         <tbody>
           <tr>
             <th class="o-heading">Name</th>
-            <td>{{ $customer->name }}</td>
+            <td>
+              @if ($modes['updateNameMode'])
+                @livewire ('customer.dashboard.customer-edit-name', ['customer' => $customer,])
+              @else
+                {{ $customer->name }}
+              @endif
+            </td>
+            <td class="text-right">
+              @if (! $modes['updateNameMode'])
+                <span class="mx-3" wire:click="enterMode('updateNameMode')" role="button">
+                  Edit
+                </span>
+              @endif
+            </td>
           </tr>
           <tr>
             <th class="o-heading">Email</th>
             <td>
-              @if ($customer->email)
-                {{ $customer->email}}
+              @if ($modes['updateEmailMode'])
+                @livewire ('customer.dashboard.customer-edit-email', ['customer' => $customer,])
               @else
-                <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
-                <span class="text-secondary">
-                Email unknown
+                @if ($customer->email)
+                  {{ $customer->email}}
+                @else
+                  <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
+                  <span class="text-secondary">
+                    Email unknown
+                  </span>
+                @endif
+              @endif
+            </td>
+            <td class="text-right">
+              @if (! $modes['updateEmailMode'])
+                <span class="mx-3" wire:click="enterMode('updateEmailMode')" role="button">
+                  Edit
                 </span>
               @endif
             </td>
@@ -53,12 +77,23 @@
           <tr>
             <th class="o-heading">Phone</th>
             <td>
-              @if ($customer->phone)
-                {{ $customer->phone}}
+              @if ($modes['updatePhoneMode'])
+                @livewire ('customer.dashboard.customer-edit-phone', ['customer' => $customer,])
               @else
-                <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
-                <span class="text-secondary">
-                Phone unknown
+                @if ($customer->phone)
+                  {{ $customer->phone}}
+                @else
+                  <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
+                  <span class="text-secondary">
+                    Phone unknown
+                  </span>
+                @endif
+              @endif
+            </td>
+            <td class="text-right">
+              @if (! $modes['updatePhoneMode'])
+                <span class="mx-3" wire:click="enterMode('updatePhoneMode')" role="button">
+                  Edit
                 </span>
               @endif
             </td>
@@ -66,12 +101,23 @@
           <tr>
             <th class="o-heading">PAN Num</th>
             <td>
-              @if ($customer->pan_num)
-                {{ $customer->pan_num}}
+              @if ($modes['updatePanMode'])
+                @livewire ('customer.dashboard.customer-edit-pan', ['customer' => $customer,])
               @else
-                <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
-                <span class="text-secondary">
-                PAN number unknown
+                @if ($customer->pan_num)
+                  {{ $customer->pan_num}}
+                @else
+                  <i class="fas fa-exclamation-circle text-secondary mr-1"></i>
+                  <span class="text-secondary">
+                  PAN number unknown
+                  </span>
+                @endif
+              @endif
+            </td>
+            <td class="text-right">
+              @if (! $modes['updatePanMode'])
+                <span class="mx-3" wire:click="enterMode('updatePanMode')" role="button">
+                  Edit
                 </span>
               @endif
             </td>
@@ -81,6 +127,8 @@
             <td>
               Rs
               @php echo number_format( $customer->getBalance() ); @endphp
+            </td>
+            <td>
             </td>
           </tr>
         </tbody>

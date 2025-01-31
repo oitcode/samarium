@@ -13,7 +13,7 @@
     --}}
 
     @if (session()->has('message'))
-      @include ('partials.flash-message-modal', ['message' => session('message'),])
+      @include ('partials.flash-message', ['message' => session('message'),])
     @endif
 
     <div>

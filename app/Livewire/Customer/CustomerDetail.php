@@ -19,11 +19,13 @@ class CustomerDetail extends Component
         'saleInvoicePaymentCreate' => false,
         'ledger' => false,
         'saleInvoiceDisplay' => false,
-
         'customerCommentCreateMode' => false,
         'customerDocumentFileCreateMode' => false,
-
         'educApplicationCreateMode' => false,
+        'updateNameMode' => false,
+        'updateEmailMode' => false,
+        'updatePhoneMode' => false,
+        'updatePanMode' => false,
     ];
 
     protected $listeners = [
@@ -43,6 +45,18 @@ class CustomerDetail extends Component
 
         'educApplicationCreateCancelled',
         'educApplicationCreateCompleted',
+
+        'customerUpdateNameCompleted',
+        'customerUpdateNameCancelled',
+
+        'customerUpdateEmailCompleted',
+        'customerUpdateEmailCancelled',
+
+        'customerUpdatePhoneCompleted',
+        'customerUpdatePhoneCancelled',
+
+        'customerUpdatePanCompleted',
+        'customerUpdatePanCancelled',
     ];
 
 
@@ -143,5 +157,49 @@ class CustomerDetail extends Component
     public function educApplicationCreateCompleted()
     {
         $this->exitMode('educApplicationCreateMode');
+    }
+
+    public function customerUpdateNameCompleted()
+    {
+        session()->flash('message', 'Customer name updated');
+        $this->exitMode('updateNameMode');
+    }
+
+    public function customerUpdateNameCancelled()
+    {
+        $this->exitMode('updateNameMode');
+    }
+
+    public function customerUpdateEmailCompleted()
+    {
+        session()->flash('message', 'Customer email updated');
+        $this->exitMode('updateEmailMode');
+    }
+
+    public function customerUpdateEmailCancelled()
+    {
+        $this->exitMode('updateEmailMode');
+    }
+
+    public function customerUpdatePhoneCompleted()
+    {
+        session()->flash('message', 'Customer phone updated');
+        $this->exitMode('updatePhoneMode');
+    }
+
+    public function customerUpdatePhoneCancelled()
+    {
+        $this->exitMode('updatePhoneMode');
+    }
+
+    public function customerUpdatePanCompleted()
+    {
+        session()->flash('message', 'Customer PAN updated');
+        $this->exitMode('updatePanMode');
+    }
+
+    public function customerUpdatePanCancelled()
+    {
+        $this->exitMode('updatePanMode');
     }
 }

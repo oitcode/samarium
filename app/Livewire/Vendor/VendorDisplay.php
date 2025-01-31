@@ -21,6 +21,10 @@ class VendorDisplay extends Component
         'settle' => false,
         'purchasePaymentCreate' => false,
         'purchaseDisplay' => false,
+        'updateNameMode' => false,
+        'updateEmailMode' => false,
+        'updatePhoneMode' => false,
+        'updatePanMode' => false,
     ];
 
     protected $listeners = [
@@ -30,6 +34,18 @@ class VendorDisplay extends Component
         'exitPurchasePaymentCreateMode',
         'vendorPurchasePaymentMade',
         'displayPurchase',
+
+        'vendorUpdateNameCompleted',
+        'vendorUpdateNameCancelled',
+
+        'vendorUpdateEmailCompleted',
+        'vendorUpdateEmailCancelled',
+
+        'vendorUpdatePhoneCompleted',
+        'vendorUpdatePhoneCancelled',
+
+        'vendorUpdatePanCompleted',
+        'vendorUpdatePanCancelled',
     ];
 
     public function render()
@@ -67,5 +83,49 @@ class VendorDisplay extends Component
         $this->displayingPurchase = $purchase; 
 
         $this->enterMode('purchaseDisplay');
+    }
+
+    public function vendorUpdateNameCompleted()
+    {
+        session()->flash('message', 'Vendor name updated');
+        $this->exitMode('updateNameMode');
+    }
+
+    public function vendorUpdateNameCancelled()
+    {
+        $this->exitMode('updateNameMode');
+    }
+
+    public function vendorUpdateEmailCompleted()
+    {
+        session()->flash('message', 'Vendor email updated');
+        $this->exitMode('updateEmailMode');
+    }
+
+    public function vendorUpdateEmailCancelled()
+    {
+        $this->exitMode('updateEmailMode');
+    }
+
+    public function vendorUpdatePhoneCompleted()
+    {
+        session()->flash('message', 'Vendor phone updated');
+        $this->exitMode('updatePhoneMode');
+    }
+
+    public function vendorUpdatePhoneCancelled()
+    {
+        $this->exitMode('updatePhoneMode');
+    }
+
+    public function vendorUpdatePanCompleted()
+    {
+        session()->flash('message', 'Vendor PAN updated');
+        $this->exitMode('updatePanMode');
+    }
+
+    public function vendorUpdatePanCancelled()
+    {
+        $this->exitMode('updatePanMode');
     }
 }
