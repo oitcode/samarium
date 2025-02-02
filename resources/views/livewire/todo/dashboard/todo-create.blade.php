@@ -1,10 +1,6 @@
-<div class="card shadow-sm">
+<div>
 
-  <div class="card-body p-3">
-    <h1 class="h5 o-heading mb-4">
-      Create todo
-    </h1>
-
+  <x-create-box-component title="Create todo">
     <div class="form-group">
       <label>Title *</label>
       <input type="text"
@@ -26,6 +22,6 @@
       @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
       @include ('partials.dashboard.spinner-button')
     </div>
-  </div>
+  </x-create-box-component>
 
 </div>

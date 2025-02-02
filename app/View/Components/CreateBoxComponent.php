@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class BoxCreate extends Component
+class CreateBoxComponent extends Component
 {
     public $title;
 
@@ -25,6 +25,6 @@ class BoxCreate extends Component
      */
     public function render()
     {
-        return view('components.box-create');
+        return view('components.create-box-component');
     }
 }

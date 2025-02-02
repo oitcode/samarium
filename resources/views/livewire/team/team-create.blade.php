@@ -1,10 +1,6 @@
-<div class="card shadow-sm">
+<div>
 
-  <div class="card-body p-3">
-    <h1 class="h5 o-heading mb-4">
-      Create team
-    </h1>
-
+  <x-create-box-component title="Create team">
     <div class="form-group">
       <label>Name *</label>
       <input type="text"
@@ -65,6 +61,6 @@
       @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
       @include ('partials.spinner-border')
     </div>
-  </div>
+  </x-create-box-component>
 
 </div>

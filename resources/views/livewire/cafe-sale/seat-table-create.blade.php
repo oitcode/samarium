@@ -1,10 +1,6 @@
-<div class="card shadow-sm">
+<div class="">
 
-  <div class="card-body p-3">
-    <h1 class="h5 o-heading">
-      Create Seat Table
-    </h1>
-
+  <x-create-box-component title="Create Seat Table">
     <div class="form-group">
       <label for="">Name</label>
       <input type="text"
@@ -17,6 +13,7 @@
       @include ('partials.button-store')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'seatTableCreateCancelled',])
       @include ('partials.dashboard.spinner-button')
-  </div>
+    </div>
+  </x-create-box-component>
 
 </div>

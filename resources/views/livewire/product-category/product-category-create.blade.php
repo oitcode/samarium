@@ -1,10 +1,6 @@
-<div class="card shadow-sm">
+<div>
 
-  <div class="card-body">
-    <h1 class="h5 mb-4 o-heading">
-      Create product category
-    </h1>
-
+  <x-create-box-component title="Create product category">
     <div class="form-group mb-4">
       <label class="h5">Name *</label>
       <input type="text"
@@ -29,6 +25,6 @@
       @include ('partials.button-cancel', ['clickEmitEventName' => 'productCategoryCreateCancelled',])
       @include ('partials.dashboard.spinner-button')
     </div>
-  </div>
+  </x-create-box-component>
 
 </div>

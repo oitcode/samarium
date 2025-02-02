@@ -1,14 +1,14 @@
 <div class="card">
 
-  <div class="card-body">
-    <h1 class="h5 mb-4 o-heading">
-      @if ($is_post == 'yes')
-        Create new post
-      @else
-        Create new page
-      @endif
-    </h1>
-  
+  @php
+    if ($is_post == 'yes') {
+      $headingTitle = 'Create new post';
+    } else {
+      $headingTitle = 'Create new page';
+    }
+  @endphp
+    
+  <x-create-box-component :title="$headingTitle">
     <div class="form-group">
       <label>Name *</label>
       <input type="text"
@@ -35,6 +35,6 @@
         @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateMode',])
       @endif
     </div>
-  </div>
+  </x-create-box-component>
 
 </div>

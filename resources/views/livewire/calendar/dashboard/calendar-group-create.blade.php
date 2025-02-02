@@ -1,10 +1,6 @@
-<div class="card shadow-sm">
+<div>
 
-  <div class="card-body">
-    <h1 class="h5 o-heading mb-4">
-      Create calendar group
-    </h1>
-
+  <x-create-box-component title="Create calendar group">
     <div class="form-group mb-4">
       <label class="h5">Name *</label>
       <input type="text"
@@ -18,6 +14,6 @@
       @include ('partials.button-cancel', ['clickEmitEventName' => 'calendarGroupCreateCancelled',])
       @include ('partials.spinner-border')
     </div>
-  </div>
+  </x-create-box-component>
 
 </div>

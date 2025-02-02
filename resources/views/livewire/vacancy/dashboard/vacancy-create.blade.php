@@ -1,10 +1,6 @@
-<div class="card shadow-sm">
+<div>
 
-  <div class="card-body p-3">
-    <h1 class="h5 o-heading mb-4">
-      Create vacancy
-    </h1>
-
+  <x-create-box-component title="Create vacancy">
     <div class="form-group">
       <label>Title *</label>
       <input type="text"
@@ -34,6 +30,6 @@
       @include ('partials.button-cancel', ['clickEmitEventName' => 'vacancyCreateCancelled',])
       @include ('partials.dashboard.spinner-button')
     </div>
-  </div>
+  </x-create-box-component>
 
 </div>

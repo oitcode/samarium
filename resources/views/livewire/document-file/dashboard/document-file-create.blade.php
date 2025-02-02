@@ -1,10 +1,6 @@
-<div class="card shadow-sm">
+<div>
 
-  <div class="card-body p-3">
-    <h1 class="h5 o-heading mb-4">
-      Create file
-    </h1>
-
+  <x-create-box-component title="Create file">
     <div class="form-group">
       <label>Name *</label>
       <input type="text" class="form-control" wire:model="name">
@@ -30,6 +26,6 @@
       @include ('partials.button-cancel', ['clickEmitEventName' => 'documentFileCreateCancelled',])
       @include ('partials.dashboard.spinner-button')
     </div>
-  </div>
+  </x-create-box-component>
 
 </div>
