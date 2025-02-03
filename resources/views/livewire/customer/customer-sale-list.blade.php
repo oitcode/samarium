@@ -31,12 +31,15 @@
                 </a>
               </td>
               <td>
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
               </td>
               <td>
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $saleInvoice->getPaidAmount() ); @endphp
               </td>
               <td>
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
               </td>
               <td>
@@ -95,7 +98,7 @@
               </td>
               <td>
                 <div class="font-weight-bold">
-                  Rs
+                  {{ config('app.transaction_currency') }}
                   {{ $saleInvoice->getTotalAmount() }}
                 </div>
                 <div>

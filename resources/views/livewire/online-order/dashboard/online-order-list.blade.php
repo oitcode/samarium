@@ -121,7 +121,7 @@
             {{ \Illuminate\Support\Str::limit($order->address, 15, $end=' ...') }}
           </td>
           <td class="font-weight-bold">
-            Rs
+            {{ config('app.transaction_currency') }}
             @php echo number_format( $order->getTotalAmount() ); @endphp
           </td>
           <td>
@@ -183,7 +183,7 @@
             <div>
           </td>
           <td>
-            Rs
+            {{ config('app.transaction_currency') }}
             @php echo number_format( $order->getTotalAmount() ); @endphp
           </td>
           <td>

@@ -23,7 +23,7 @@
           </td>
           <td>
             <span class="text-muted mr-1">
-              Rs
+              {{ config('app.transaction_currency') }}
             </span>
             <span class="font-weight-bold">
               @php echo number_format( $vendor->getBalance() ); @endphp

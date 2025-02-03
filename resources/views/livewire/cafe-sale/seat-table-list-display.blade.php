@@ -23,7 +23,7 @@
       <div class="float-right">
           @if ($seatTable->isBooked())
             <span class="h6 pt-4">
-            Rs
+            {{ config('app.transaction_currency') }}
             @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
             </span>
           @else
@@ -130,7 +130,7 @@
             <tr class="border-0">
               <td colspan="2" class="border-0">
                 @if ($seatTable->isBooked())
-                  Rs
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
                 @else
                 @endif

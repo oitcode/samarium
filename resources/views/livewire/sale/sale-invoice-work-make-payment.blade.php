@@ -1,7 +1,7 @@
 <div>
 
   <div class="card bg-light">
-    <div class="card-body p-0">
+    <div class="card-body p-0 py-3">
       <div class="table-responsive mb-0 bg-white">
         <table class="table mb-0">
           <tbody>
@@ -12,6 +12,7 @@
                 </span>
               </td>
               <td class="p-0 h-100 o-heading pl-3 border-0 py-2">
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $this->total ); @endphp
               </td>
             </tr>
@@ -21,7 +22,7 @@
               @if (strtolower($key) == 'vat')
                 @continue
               @else
-                <tr class="border-0">
+                <tr class="border-0" wire:key="{{ rand() }}">
                   <td class="w-50 pl-0 o-heading border-0">
                     {{-- Hard code for discount . Temp. Todo permanent design/fix --}} 
                     @if (strtolower($key) == 'discount')
@@ -29,7 +30,7 @@
                         {{ $key }}
                         @if (! $modes['paid'])
                         <select
-                            class="bg-white border border-secondary badge-pill"
+                            class="border border-secondary badge-pill"
                             wire:model.live="discount_percentage"
                             wire:change="calculateDiscount">
                           <option value="--">--</option>
@@ -59,29 +60,35 @@
                     @if (strtolower($key) == 'vat')
                       {{ $val }}
                     @else
-                      @if (strtolower($key) == 'Discount')
+                      @if (strtolower($key) == 'discount')
                         @if ($modes['manualDiscount'])
                           @if (! $modes['paid'])
-                            <input class="w-100 h-100 o-heading pl-3 border-0"
-                                type="text" wire:model.live.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                            <span class="pl-3">
+                              {{ config('app.transaction_currency') }}
+                            </span>
+                            <input class="h-100 o-heading pt-2 mt-1 border-0"
+                                type="text" wire:model="saleInvoiceAdditions.{{ $key }}"
                                 wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
                           @else
-                          <div class="w-100 h-100 o-heading pl-3 border-0">
-                            {{ $saleInvoiceAdditions[$key] }}
-                          <div>
+                            <div class="w-100 h-100 o-heading pl-3 border-0">
+                              {{ config('app.transaction_currency') }}
+                              {{ $saleInvoiceAdditions[$key] }}
+                            <div>
                           @endif
                         @else
-                          <div class="w-100 h-100 o-heading pl-3 pt-2 border-0">
+                          <div class="w-100 h-100 o-heading pl-3 pt-2" wire:click="enterModeSilent('manualDiscount')">
+                            {{ config('app.transaction_currency') }}
                             {{ $saleInvoiceAdditions['Discount'] }}
                           </div>
                         @endif
                       @else
                         @if (! $modes['paid'])
-                        <input class="w-100 h-100 o-heading pl-3 border-0"
-                            type="text" wire:model.live.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
-                            wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
+                          <input class="w-100 h-100 o-heading pl-3 border-0"
+                              type="text" wire:model.live.debounce.500ms="saleInvoiceAdditions.{{ $key }}"
+                              wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
                         @else
                           <div class="w-100 h-100 o-heading pl-3 border-0">
+                            {{ config('app.transaction_currency') }}
                             {{ $saleInvoiceAdditions[$key] }}
                           </div>
                         @endif
@@ -101,6 +108,7 @@
                 </span>
               </td>
               <td class="p-0 h-100 o-heading pl-3 pt-2 border-0">
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $this->taxable_amount ); @endphp
               </td>
             </tr>
@@ -125,6 +133,7 @@
                   @endif
                 </td>
                 <td class="pl-3 h-100 o-heading border-0">
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $val ); @endphp
                 </td>
               </tr>
@@ -138,6 +147,7 @@
                 </span>
               </td>
               <td class="p-0 h-100 o-heading pl-3 border-0">
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $this->grand_total ); @endphp
               </td>
             </tr>
@@ -181,6 +191,11 @@
               <span class="ml-4 d-inline-block mt-2 mb-3">
                 Tender Amount
               </span>
+              <span class="pl-2">
+                (
+                {{ config('app.transaction_currency') }}
+                )
+              </span>
               @error('tender_amount')
               <div class="pl-3">
                 <span class="text-danger">{{ $message }}</span>
@@ -189,7 +204,7 @@
             </td>
             <td class="p-0 h-100 o-heading border-0">
               @if (! $modes['paid'])
-              <input class="w-100 h-100 o-heading pl-3"
+              <input class="w-100 h-100 o-heading pl-2"
                   type="text"
                   wire:model="tender_amount" />
               @else

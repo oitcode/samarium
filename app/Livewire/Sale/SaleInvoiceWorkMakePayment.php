@@ -5,6 +5,7 @@ namespace App\Livewire\Sale;
 use App\Traits\MiscTrait;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use App\Traits\ModesTrait;
 use App\Customer;
 use App\SaleInvoice;
 use App\SaleInvoicePaymentType;
@@ -19,6 +20,7 @@ use App\LedgerEntry;
 class SaleInvoiceWorkMakePayment extends Component
 {
     use MiscTrait;
+    use ModesTrait;
 
     public $saleInvoice;
 
@@ -114,32 +116,6 @@ class SaleInvoiceWorkMakePayment extends Component
     public function updatedMultiPayments()
     {
       $this->calculateTenderAmount();
-    }
-
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        // $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function enterModeSingle($modeName)
-    {
-        $this->modes[$modeName] = true;
     }
 
     public function store()
@@ -270,7 +246,7 @@ class SaleInvoiceWorkMakePayment extends Component
             $this->saleInvoice->save();
             DB::commit();
 
-            $this->enterModeSingle('paid');
+            $this->enterModeSilent('paid');
         } catch (\Exception $e) {
             DB::rollback();
             dd ($e);

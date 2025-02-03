@@ -31,6 +31,7 @@
                 </span>
               </td>
               <td class="p-0 h-100 bg-warning-rm o-heading pl-3 pt-2 border-0">
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $sub_total, 2 ); @endphp
               </td>
             </tr>
@@ -73,6 +74,7 @@
                 </span>
               </td>
               <td class="p-0 h-100 bg-warning-rm text-primary o-heading pl-3 border-0">
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $grand_total, 2 ); @endphp
               </td>
             </tr>
@@ -84,7 +86,9 @@
                   Paid Amount
                   @endif
                 </span>
-                <i class="fas fa-arrow-alt-circle-right ml-2 fa-2x-rm"></i>
+                (
+                {{ config('app.transaction_currency') }}
+                )
                 @error('tender_amount')
                 <div>
                   <span class="text-danger">{{ $message }}</span>

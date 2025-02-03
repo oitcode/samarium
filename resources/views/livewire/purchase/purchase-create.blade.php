@@ -157,17 +157,17 @@
                           {{ $item->product->name }}
                         </td>
                         <td>
-                          <span class="badge badge-success">
-                            {{ $item->quantity }}
-                          </span>
+                          {{ $item->quantity }}
                         </td>
                         <td>
                           {{ $item->unit }}
                         </td>
                         <td>
+                          {{ config('app.transaction_currency') }}
                           @php echo number_format( $item->purchase_price_per_unit, 2 ); @endphp
                         </td>
                         <td>
+                          {{ config('app.transaction_currency') }}
                           @php echo number_format( $item->getTotalAmount(), 2 ); @endphp
                         </td>
                       </tr>
@@ -180,6 +180,7 @@
                         Subtotal
                       </td>
                       <td class="o-heading">
+                        {{ config('app.transaction_currency') }}
                         @php echo number_format( $purchase->getTotalAmountRaw(), 2 ); @endphp
                       </td>
                     </tr>
@@ -192,6 +193,7 @@
                             </strong>
                           </td>
                           <td>
+                            {{ config('app.transaction_currency') }}
                             @php echo number_format( $purchaseAddition->amount, 2 ); @endphp
                           </td>
                         </tr>
@@ -203,6 +205,7 @@
                           </strong>
                         </td>
                         <td> 
+                          {{ config('app.transaction_currency') }}
                           @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
                         </td>
                       </tr>
@@ -242,7 +245,7 @@
                           </div>
                         </td>
                         <td class="font-weight-bold">
-                          Rs
+                          {{ config('app.transaction_currency') }}
                           @php echo number_format( $item->getTotalAmount(), 2 ); @endphp
                         </td>
                         <td>

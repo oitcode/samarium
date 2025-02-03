@@ -26,7 +26,13 @@
               @error ('product_category_id') <span class="text-danger">{{ $message }}</span>@enderror
             </div>
             <div class="form-group">
-              <label class="h5">Selling price *</label>
+              <label class="h5">
+                Selling price
+                (
+                {{ config('app.transaction_currency') }}
+                )
+                *
+              </label>
               <input type="text"
                   class="form-control shadow-sm"
                   wire:model="selling_price">

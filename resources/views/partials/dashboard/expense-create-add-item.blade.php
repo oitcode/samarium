@@ -1,8 +1,7 @@
-<div style="">
+<div>
 
   {{-- Show in bigger screen --}}
-  <div class="mb-2 border bg-light-rm shadow-sm d-none d-md-block">
-  
+  <div class="mb-2 border shadow-sm d-none d-md-block">
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
@@ -12,7 +11,6 @@
             <th class="o-heading py-2" style="width: 100px;">Amount</th>
           </tr>
         </thead>
-  
         <tbody>
           <tr class="p-0 font-weight-bold">
             <td class="p-0 h-100">
@@ -32,7 +30,12 @@
               @endif
             </td>
             <td class="p-0 h-100">
-              <input class="m-0 w-100 h-100 border-0" type="text" wire:model="add_item_amount"/>
+              <div class="d-flex h-100">
+                <div class="h-100 d-flex flex-column justify-content-center pr-2">
+                  {{ config('app.transaction_currency') }}
+                </div>
+                <input class="m-0 w-100 h-100 border-0" type="text" wire:model="add_item_amount"/>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -46,18 +49,13 @@
             <i class="fas fa-plus mr-2"></i>
             Add
           </button>
-  
-          @if (true)
           <button class="btn btn-lg btn-danger" wire:click="resetInputFields">
             Reset
           </button>
-          @endif
-  
           <button wire:loading class="btn">
             <span class="spinner-border text-info mr-3" role="status">
             </span>
           </button>
-  
         </div>
         @if ($selectedProduct != null)
           <div class="col-md-4" style="height: 50px;">
@@ -69,9 +67,7 @@
           </div>
         @endif
       </div>
-  
     </div>
-  
   </div>
 
 </div>

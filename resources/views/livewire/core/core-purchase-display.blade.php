@@ -117,7 +117,7 @@
             <div>
               @foreach ($purchase->purchasePayments as $purchasePayment)
                 <div>
-                  Rs
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $purchasePayment->amount, 2 ); @endphp
                   <span class="badge badge-pill ml-3">
                   {{ $purchasePayment->purchasePaymentType->name }}
@@ -166,9 +166,11 @@
                   {{ $purchaseItem->unit }}
                 </td>
                 <td>
+                  {{ config('app.transaction_currency') }}
                   {{ $purchaseItem->purchase_price_per_unit }}
                 </td>
                 <td>
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $purchaseItem->getTotalAmount(), 2 ); @endphp
                 </td>
               </tr>
@@ -180,6 +182,7 @@
                 Subtotal
               </td>
               <td class="o-heading">
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $purchase->getSubTotal(), 2 ); @endphp
               </td>
             </tr>
@@ -197,6 +200,7 @@
                         text-danger
                       @endif
                       font-weight-bold border-0 p-0 pl-1 pt-2">
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $purchaseAddition->amount, 2 ); @endphp
                 </td>
               </tr>
@@ -206,6 +210,7 @@
                 Total
               </td>
               <td class="o-heading border-0">
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
               </td>
             </tr>

@@ -83,21 +83,21 @@
             <tr>
               <th>Sale</th>
               <td>
-                Rs
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $totalAmount ); @endphp
               </td>
             </tr>
             <tr>
               <th>Purchase</th>
               <td>
-                Rs
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $totalAmountPurchase ); @endphp
               </td>
             </tr>
             <tr>
               <th>Expense</th>
               <td>
-                Rs
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $totalAmountExpense ); @endphp
               </td>
             </tr>
@@ -157,7 +157,7 @@
                   <span class="text-secondary">
                   Total:
                   </span>
-                  Rs
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $weekBook[$i]['totalAmount'] ); @endphp
                 </td>
                 <td>
@@ -168,7 +168,7 @@
                   <span class="text-secondary">
                   Total:
                   </span>
-                  Rs
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $weekBookPurchase[$i]['totalAmount'] ); @endphp
                 </td>
                 <td>
@@ -179,7 +179,7 @@
                   <span class="text-secondary">
                   Total:
                   </span>
-                  Rs
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $weekBookExpense[$i]['totalAmount'] ); @endphp
                 </td>
               <tr>
@@ -240,7 +240,7 @@
               </span>
               <br/>
               {{ $weekBook[$i]['totalBills'] }} bills
-              Rs
+              {{ config('app.transaction_currency') }}
               @php echo number_format( $weekBook[$i]['totalAmount'] ); @endphp
               <br/>
               <span class="text-secondary">
@@ -248,7 +248,7 @@
               </span>
               <br/>
               {{ $weekBookPurchase[$i]['totalBills'] }} bills
-              Rs
+              {{ config('app.transaction_currency') }}
               @php echo number_format( $weekBookPurchase[$i]['totalAmount'] ); @endphp
               <br/>
               <span class="text-secondary">
@@ -256,7 +256,7 @@
               </span>
               <br/>
               {{ $weekBookExpense[$i]['totalBills'] }} bills
-              Rs
+              {{ config('app.transaction_currency') }}
               @php echo number_format( $weekBookExpense[$i]['totalAmount'] ); @endphp
               </td>
             <tr>

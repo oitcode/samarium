@@ -125,7 +125,7 @@
           <tr>
             <th class="o-heading">Balance</th>
             <td>
-              Rs
+              {{ config('app.transaction_currency') }}
               @php echo number_format( $customer->getBalance() ); @endphp
             </td>
             <td>

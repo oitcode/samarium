@@ -2,11 +2,8 @@
 
   {{-- Items grid --}}
   <div class="card mb-3 shadow-sm">
-  
     <div class="card-body p-0">
-  
       {{-- Show in bigger screens --}}
-      @if (true)
       <div class="table-responsive d-none d-md-block">
         <table class="table table-hover border-dark mb-0">
           <thead>
@@ -38,6 +35,7 @@
                   {{ $expenseItem->expenseCategory->name }}
                 </td>
                 <td>
+                  {{ config('app.transaction_currency') }}
                   {{ $expenseItem->amount }}
                 </td>
               </tr>
@@ -55,12 +53,9 @@
               </td>
             </tr>
           @endif
-  
         </table>
       </div>
-      @endif
-
-
     </div>
   </div>
+
 </div>

@@ -22,7 +22,12 @@
             <th class="o-heading">Item</th>
             <th class="o-heading" style="width: 50px;">Qty</th>
             <th class="o-heading">Unit</th>
-            <th class="o-heading" style="width: 110px;">PPU</th>
+            <th class="o-heading" style="width: 110px;">
+            PPU
+            (
+            {{ config('app.transaction_currency') }}
+            )
+            </th>
             <th class="o-heading" style="width: 100px;">Total</th>
           </tr>
         </thead>
@@ -52,7 +57,7 @@
               </select>
             </td>
             <td class="p-0 h-100">
-              <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model="quantity" wire:keydown.enter="updateTotal"/>
+              <input class="w-100-rm h-100 font-weight-bold border-0" type="text" wire:model="quantity" wire:keydown.enter="updateTotal"/>
             </td>
             <td class="p-0">
               <select class="w-100 h-100 custom-control border-0 p-0 bg-white" wire:model="unit" wire:change="">
@@ -62,11 +67,17 @@
                 <option value="l">L</option>
               </select>
             </td>
-            <td class="p-0 h-100">
-              <input class="w-100 h-100 font-weight-bold border-0" type="text" wire:model="purchase_price_per_unit" wire:change="updateTotal"/>
+            <td class="p-0 pl-2 h-100">
+              <div class="d-flex h-100">
+                <div class="h-100 d-flex flex-column justify-content-center pr-2">
+                  {{ config('app.transaction_currency') }}
+                </div>
+                <input class="w-50-rm h-100 font-weight-bold border-0" type="text" wire:model="purchase_price_per_unit" wire:change="updateTotal"/>
+              </div>
             </td>
             <td>
               @if ($selectedProduct)
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $total, 2 ); @endphp
               @endif
             </td>

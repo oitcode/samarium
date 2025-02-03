@@ -62,9 +62,11 @@
                 @endif
               </td>
               <td>
+                {{ config('app.transaction_currency') }}
                 {{ $purchase->getPendingAmount() }}
               </td>
               <td>
+                {{ config('app.transaction_currency') }}
                 {{ $purchase->getTotalAmount() }}
               </td>
               <td>
@@ -117,7 +119,7 @@
               </td>
               <td>
                 <div class="font-weight-bold">
-                Rs
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $purchase->getTotalAmount() ); @endphp
                 </div>
                 <div>

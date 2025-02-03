@@ -56,6 +56,7 @@
             {{ $saleQuotation->created_at->format('H:i A') }}
           </td>
           <td class="font-weight-bold">
+            {{ config('app.transaction_currency') }}
             @if ($saleQuotation->creation_status == 'progress')
               @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
                 @php echo number_format( $saleQuotation->getTotalAmount() * 1.13); @endphp
@@ -104,7 +105,7 @@
           </td>
           <td>
             <p class="h5">
-              Rs
+              {{ config('app.transaction_currency') }}
               @php echo number_format( $saleQuotation->getTotalAmount() ); @endphp
             </p>
           </td>

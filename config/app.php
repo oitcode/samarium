@@ -53,12 +53,23 @@ return [
     |
     */
 
-    'app_menu_dropdown_button_text_color' => 'text-white',
-    'app_menu_normal_button_text_color'   => 'text-white',
-    'app_menu_bg_color'                   => 'bg-dark',
+    'app_menu_dropdown_button_text_color' => 'text-dark',
+    'app_menu_normal_button_text_color'   => 'text-dark',
+    'app_menu_bg_color'                   => 'bg-white',
 
-    'app_top_menu_bg_color'               => 'bg-light',
-    'app_top_menu_text_color'             => 'text-dark',
+    'app_top_menu_bg_color'               => 'bg-primary',
+    'app_top_menu_text_color'             => 'text-white',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Shop module currency
+    |--------------------------------------------------------------------------
+    |
+    | This value determines currency used in shop module.
+    |
+    */
+
+    'transaction_currency_symbol' => '£',
 
     /*
     |--------------------------------------------------------------------------

@@ -4,7 +4,7 @@
   <div class="d-flex">
     <div class="mr-3 font-weight-bold">
       Total:
-      Rs
+      {{ config('app.transaction_currency') }}
       @php echo number_format( $totalPurchaseAmount ); @endphp
     </div>
     <div class="font-weight-bold">
@@ -89,9 +89,11 @@
                     @endforeach
                   </td>
                   <td class="border-rm d-none d-md-table-cell">
+                    {{ config('app.transaction_currency') }}
                     @php echo number_format( $purchase->getPendingAmount() ); @endphp
                   </td>
                   <td class="font-weight-bold">
+                    {{ config('app.transaction_currency') }}
                     @php echo number_format( $purchase->getTotalAmount() ); @endphp
                   </td>
                 </tr>
@@ -150,10 +152,11 @@
                   </div>
                 </td>
                 <td class="border d-none d-md-table-cell">
+                  {{ config('app.transaction_currency') }}
                   {{ $purchase->getPendingAmount() }}
                 </td>
                 <td class="font-weight-bold">
-                  Rs
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $purchase->getTotalAmount() ); @endphp
                 </td>
               </tr>
@@ -186,7 +189,7 @@
                   {{ $key }}
                 </h2>
                 <h2 class="h6">
-                  Rs
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $val ); @endphp
                 </h2>
           </div>
@@ -198,7 +201,7 @@
             Pending
           </h2>
           <h2 class="h6 text-white">
-            Rs
+            {{ config('app.transaction_currency') }}
             @php echo number_format( $netPurchasePendingAmount ); @endphp
           </h2>
         </div>

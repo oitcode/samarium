@@ -155,6 +155,7 @@
           <div class="o-heading">
             Price per unit
           </div>
+          {{ config('app.transaction_currency') }}
           {{ $selectedProduct->selling_price }}
         </div>
         <div class="mr-4">
@@ -162,6 +163,7 @@
             Total
           </div>
           @if ($selectedProduct)
+            {{ config('app.transaction_currency') }}
             @php echo number_format( $total ); @endphp
           @endif
         </div>

@@ -148,6 +148,7 @@
                         {{ $item->product->name }}
                       </td>
                       <td>
+                        {{ config('app.transaction_currency') }}
                         @php echo number_format( $item->price_per_unit ); @endphp
                       </td>
                       <td>
@@ -156,6 +157,7 @@
                         </span>
                       </td>
                       <td>
+                        {{ config('app.transaction_currency') }}
                         @php echo number_format( $item->getTotalAmount() ); @endphp
                       </td>
                     </tr>

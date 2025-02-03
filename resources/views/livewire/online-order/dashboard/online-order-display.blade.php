@@ -135,9 +135,11 @@
                   {{ $item->quantity }}
                 </td>
                 <td>
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $item->product->selling_price ); @endphp
                 </td>
                 <td>
+                  {{ config('app.transaction_currency') }}
                   @php echo number_format( $item->product->selling_price * $item->quantity); @endphp
                 </td>
               </tr>
@@ -149,6 +151,7 @@
                 Grand Total
               </th>
               <td class="o-heading">
+                {{ config('app.transaction_currency') }}
                 @php echo number_format( $websiteOrder->getTotalAmount() ); @endphp
               </td>
             </tr>
