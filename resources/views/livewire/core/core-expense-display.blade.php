@@ -118,7 +118,7 @@
             <div>
               @foreach ($expense->expensePayments as $expensePayment)
                 <div>
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $expensePayment->amount, 2 ); @endphp
                   <span class="badge badge-pill ml-3">
                   {{ $expensePayment->expensePaymentType->name }}
@@ -166,7 +166,7 @@
                   {{ $expenseItem->name }}
                 </td>
                 <td>
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $expenseItem->amount, 2 ); @endphp
                 </td>
               </tr>
@@ -178,7 +178,7 @@
                 Subtotal
               </td>
               <td class="o-heading">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $expense->getSubTotal(), 2 ); @endphp
               </td>
             </tr>
@@ -196,7 +196,7 @@
                         text-danger
                       @endif
                       font-weight-bold border-0 p-0 pl-1 pt-2">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $expenseAddition->amount, 2 ); @endphp
                 </td>
               </tr>
@@ -206,7 +206,7 @@
                 Total
               </td>
               <td class="o-heading border-0">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
               </td>
             </tr>

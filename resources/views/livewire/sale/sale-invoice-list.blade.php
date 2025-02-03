@@ -119,7 +119,7 @@
             @endif
           </td>
           <td class="font-weight-bold">
-            {{ config('app.transaction_currency') }}
+            {{ config('app.transaction_currency_symbol') }}
             @if ($saleInvoice->creation_status == 'progress')
               @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
                 @php echo number_format( $saleInvoice->getTotalAmount() * 1.13); @endphp

@@ -29,7 +29,7 @@
               <label class="h5">
                 Selling price
                 (
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 )
                 *
               </label>

@@ -18,7 +18,7 @@
       </div>
 
       <div class="form-group">
-        <label>Amount ({{ config('app.transaction_currency') }}) *</label>
+        <label>Amount ({{ config('app.transaction_currency_symbol') }}) *</label>
         <input type="text" class="form-control" wire:model="pay_amount">
         @error('pay_amount') <span class="text-danger">{{ $message }}</span> @enderror
       </div>

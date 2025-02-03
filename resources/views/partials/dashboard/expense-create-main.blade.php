@@ -35,7 +35,7 @@
                   {{ $expenseItem->expenseCategory->name }}
                 </td>
                 <td>
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   {{ $expenseItem->amount }}
                 </td>
               </tr>

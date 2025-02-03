@@ -44,7 +44,7 @@
             @endif
           </td>
           <td>
-            {{ config('app.transaction_currency') }}
+            {{ config('app.transaction_currency_symbol') }}
             {{ $product->selling_price }}
           </td>
           <td class="text-right">

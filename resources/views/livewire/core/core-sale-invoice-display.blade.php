@@ -185,11 +185,11 @@
                   {{ $item->quantity }}
                 </td>
                 <td style="border: 1px solid black;">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $item->price_per_unit); @endphp
                 </td>
                 <td style="border: 1px solid black;">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $item->getTotalAmount() ); @endphp
                 </td>
               </tr>
@@ -204,7 +204,7 @@
                 Subtotal
                 </td>
                 <td style="border: 1px solid black;" class="o-heading">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
                 </td>
               </tr>
@@ -227,7 +227,7 @@
                           text-danger
                         @endif
                         font-weight-bold">
-                    {{ config('app.transaction_currency') }}
+                    {{ config('app.transaction_currency_symbol') }}
                     @php echo number_format( $saleInvoiceAddition->amount ); @endphp
                   </td>
                 </tr>
@@ -240,7 +240,7 @@
                   Total
                 </td>
                 <td style="border: 1px solid black;" class="o-heading">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                 </td>
               </tr>

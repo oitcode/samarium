@@ -38,7 +38,7 @@
             <div class="p-0">
               <h2 class="h5 o-heading pt-1">
                 <span class="mr-2">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                 </span>
                 @php echo number_format( $totalSaleAmount ); @endphp
               </h2>
@@ -96,21 +96,21 @@
                 <tr>
                   <th>Sale</th>
                   <td>
-                    {{ config('app.transaction_currency') }}
+                    {{ config('app.transaction_currency_symbol') }}
                     @php echo number_format( $totalSaleAmount ); @endphp
                   </td>
                 </tr>
                 <tr>
                   <th>Purchase</th>
                   <td>
-                    {{ config('app.transaction_currency') }}
+                    {{ config('app.transaction_currency_symbol') }}
                     @php echo number_format( $totalPurchaseAmount ); @endphp
                   </td>
                 </tr>
                 <tr>
                   <th>Expense</th>
                   <td>
-                    {{ config('app.transaction_currency') }}
+                    {{ config('app.transaction_currency_symbol') }}
                     @php echo number_format( $totalExpenseAmount ); @endphp
                   </td>
                 </tr>
@@ -135,7 +135,7 @@
           <div class="d-flex">
             <div class="mr-3 font-weight-bold">
               Total:
-              {{ config('app.transaction_currency') }}
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format( $totalSaleAmount ); @endphp
             </div>
             <div class="font-weight-bold">
@@ -224,11 +224,11 @@
                             @endforeach
                           </td>
                           <td class="d-none d-md-table-cell">
-                            {{ config('app.transaction_currency') }}
+                            {{ config('app.transaction_currency_symbol') }}
                             @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
                           </td>
                           <td class="font-weight-bold">
-                            {{ config('app.transaction_currency') }}
+                            {{ config('app.transaction_currency_symbol') }}
                             @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                           </td>
                         </tr>
@@ -295,7 +295,7 @@
                           {{ $saleInvoice->getPendingAmount() }}
                         </td>
                         <td class="font-weight-bold">
-                          {{ config('app.transaction_currency') }}
+                          {{ config('app.transaction_currency_symbol') }}
                           @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
                         </td>
                       </tr>
@@ -326,7 +326,7 @@
                       {{ $key }}
                     </h2>
                     <h2 class="h6">
-                      {{ config('app.transaction_currency') }}
+                      {{ config('app.transaction_currency_symbol') }}
                       @php echo number_format( $val ); @endphp
                     </h2>
                   </div>
@@ -338,7 +338,7 @@
                     Pending
                   </h2>
                   <h2 class="h6 text-danger">
-                    {{ config('app.transaction_currency') }}
+                    {{ config('app.transaction_currency_symbol') }}
                     @php echo number_format( $netPendingAmount ); @endphp
                   </h2>
                 </div>

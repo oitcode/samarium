@@ -30,28 +30,28 @@
           <tr>
             <th class="text-secondary">Sales</th>
             <td>
-              {{ config('app.transaction_currency') }}
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format( $saleInvoiceTotal ); @endphp
             </td>
           </tr>
           <tr>
             <th class="text-secondary">Purchases</th>
             <td>
-              {{ config('app.transaction_currency') }}
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format( $purchaseTotal ); @endphp
             </td>
           </tr>
           <tr>
             <th class="text-secondary">Expense</th>
             <td>
-              {{ config('app.transaction_currency') }}
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format( $expenseTotal ); @endphp
             </td>
           </tr>
           <tr class="@if ($netTotal >= 0) bg-success text-white @else bg-danger text-white @endif">
             <th>Net</th>
             <td>
-              {{ config('app.transaction_currency') }}
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format( $netTotal ); @endphp
             </td>
           </tr>

@@ -39,7 +39,7 @@
               </span>
             </td>
             <td class="p-0 h-100 o-heading pl-3 pt-2 border-0">
-              {{ config('app.transaction_currency') }}
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format( $this->sub_total, 2 ); @endphp
             </td>
           </tr>
@@ -117,7 +117,7 @@
                     Paid Amount
                   </span>
                   (
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   )
                   @error('tender_amount')
                   <div class="pl-3">

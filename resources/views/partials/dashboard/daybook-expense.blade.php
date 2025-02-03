@@ -5,7 +5,7 @@
     <div class="d-flex">
       <div class="mr-3 font-weight-bold">
         Total:
-        {{ config('app.transaction_currency') }}
+        {{ config('app.transaction_currency_symbol') }}
         @php echo number_format( $totalExpenseAmount ); @endphp
       </div>
       <div class="font-weight-bold">
@@ -53,7 +53,7 @@
                   @endif
                 </td>
                 <td class="font-weight-bold">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $expense->getTotalAmount() ); @endphp
                 </td>
               </tr>
@@ -95,7 +95,7 @@
                 </div>
               </td>
               <td class="font-weight-bold">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $expense->getTotalAmount() ); @endphp
               </td>
             </tr>
@@ -122,7 +122,7 @@
                   {{ $key }}
                 </h2>
                 <h2 class="h6 text-white">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $val ); @endphp
                 </h2>
           </div>
@@ -134,7 +134,7 @@
             Pending
           </h2>
           <h2 class="h6 text-white">
-            {{ config('app.transaction_currency') }}
+            {{ config('app.transaction_currency_symbol') }}
             @php echo number_format( $netExpensePendingAmount ); @endphp
           </h2>
         </div>

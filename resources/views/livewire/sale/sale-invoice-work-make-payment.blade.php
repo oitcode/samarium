@@ -12,7 +12,7 @@
                 </span>
               </td>
               <td class="p-0 h-100 o-heading pl-3 border-0 py-2">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $this->total ); @endphp
               </td>
             </tr>
@@ -64,20 +64,20 @@
                         @if ($modes['manualDiscount'])
                           @if (! $modes['paid'])
                             <span class="pl-3">
-                              {{ config('app.transaction_currency') }}
+                              {{ config('app.transaction_currency_symbol') }}
                             </span>
                             <input class="h-100 o-heading pt-2 mt-1 border-0"
                                 type="text" wire:model="saleInvoiceAdditions.{{ $key }}"
                                 wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
                           @else
                             <div class="w-100 h-100 o-heading pl-3 border-0">
-                              {{ config('app.transaction_currency') }}
+                              {{ config('app.transaction_currency_symbol') }}
                               {{ $saleInvoiceAdditions[$key] }}
                             <div>
                           @endif
                         @else
                           <div class="w-100 h-100 o-heading pl-3 pt-2" wire:click="enterModeSilent('manualDiscount')">
-                            {{ config('app.transaction_currency') }}
+                            {{ config('app.transaction_currency_symbol') }}
                             {{ $saleInvoiceAdditions['Discount'] }}
                           </div>
                         @endif
@@ -88,7 +88,7 @@
                               wire:keydown.enter="updateNumbers" wire:change="updateNumbers" />
                         @else
                           <div class="w-100 h-100 o-heading pl-3 border-0">
-                            {{ config('app.transaction_currency') }}
+                            {{ config('app.transaction_currency_symbol') }}
                             {{ $saleInvoiceAdditions[$key] }}
                           </div>
                         @endif
@@ -108,7 +108,7 @@
                 </span>
               </td>
               <td class="p-0 h-100 o-heading pl-3 pt-2 border-0">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $this->taxable_amount ); @endphp
               </td>
             </tr>
@@ -133,7 +133,7 @@
                   @endif
                 </td>
                 <td class="pl-3 h-100 o-heading border-0">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $val ); @endphp
                 </td>
               </tr>
@@ -147,7 +147,7 @@
                 </span>
               </td>
               <td class="p-0 h-100 o-heading pl-3 border-0">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $this->grand_total ); @endphp
               </td>
             </tr>
@@ -193,7 +193,7 @@
               </span>
               <span class="pl-2">
                 (
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 )
               </span>
               @error('tender_amount')

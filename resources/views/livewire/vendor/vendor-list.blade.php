@@ -23,7 +23,7 @@
           </td>
           <td>
             <span class="text-muted mr-1">
-              {{ config('app.transaction_currency') }}
+              {{ config('app.transaction_currency_symbol') }}
             </span>
             <span class="font-weight-bold">
               @php echo number_format( $vendor->getBalance() ); @endphp

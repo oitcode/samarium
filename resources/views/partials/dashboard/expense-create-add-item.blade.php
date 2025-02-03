@@ -32,7 +32,7 @@
             <td class="p-0 h-100">
               <div class="d-flex h-100">
                 <div class="h-100 d-flex flex-column justify-content-center pr-2">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                 </div>
                 <input class="m-0 w-100 h-100 border-0" type="text" wire:model="add_item_amount"/>
               </div>

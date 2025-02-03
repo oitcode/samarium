@@ -25,7 +25,7 @@
         <div class="d-flex justify-content-end flex-grow-1">
           <div class="pl-2 font-weight-bold pr-3 py-2 bg-white">
             <span class="text-dark">
-            {{ config('app.transaction_currency') }}
+            {{ config('app.transaction_currency_symbol') }}
             @php echo number_format( $total, 2 ); @endphp
             </span>
           </div>
@@ -54,7 +54,7 @@
       <div class="d-flex flex-grow-1">
         <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white">
           <span class="text-dark">
-          {{ config('app.transaction_currency') }}
+          {{ config('app.transaction_currency_symbol') }}
           @php echo number_format( $total, 2 ); @endphp
           </span>
         </div>
@@ -90,7 +90,7 @@
             @endforeach
           </td>
           <td>
-            {{ config('app.transaction_currency') }}
+            {{ config('app.transaction_currency_symbol') }}
             @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
           </td>
           <td class="text-right">
@@ -117,7 +117,7 @@
             </div>
           </td>
           <td class="font-weight-bold">
-            {{ config('app.transaction_currency') }}
+            {{ config('app.transaction_currency_symbol') }}
             @php echo number_format( $expense->amount, 2 ); @endphp
           </td>
           <td>

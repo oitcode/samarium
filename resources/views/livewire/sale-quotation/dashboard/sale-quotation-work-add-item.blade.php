@@ -55,7 +55,7 @@
             </td>
             <td class="p-0">
               <div class="d-flex flex-column justify-content-center h-100 bg-light">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @if ($selectedProduct)
                   @php echo number_format( $selectedProduct->selling_price ); @endphp
                 @endif
@@ -66,7 +66,7 @@
             </td>
             <td class="p-0">
               <div class="d-flex flex-column justify-content-center h-100 bg-white">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @if ($selectedProduct)
                   @php echo number_format( $total ); @endphp
                 @endif

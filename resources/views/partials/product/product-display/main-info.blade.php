@@ -77,7 +77,7 @@
         @livewire ('product.dashboard.product-edit-price', ['product' => $product,])
       @else
         <div>
-          {{ config('app.transaction_currency') }}
+          {{ config('app.transaction_currency_symbol') }}
           {{ $product->selling_price }}
         </div>
       @endif

@@ -25,7 +25,7 @@
             <th class="o-heading" style="width: 110px;">
             PPU
             (
-            {{ config('app.transaction_currency') }}
+            {{ config('app.transaction_currency_symbol') }}
             )
             </th>
             <th class="o-heading" style="width: 100px;">Total</th>
@@ -70,14 +70,14 @@
             <td class="p-0 pl-2 h-100">
               <div class="d-flex h-100">
                 <div class="h-100 d-flex flex-column justify-content-center pr-2">
-                  {{ config('app.transaction_currency') }}
+                  {{ config('app.transaction_currency_symbol') }}
                 </div>
                 <input class="w-50-rm h-100 font-weight-bold border-0" type="text" wire:model="purchase_price_per_unit" wire:change="updateTotal"/>
               </div>
             </td>
             <td>
               @if ($selectedProduct)
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $total, 2 ); @endphp
               @endif
             </td>

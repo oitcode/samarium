@@ -20,7 +20,7 @@
       <label>
         Amount
         (
-        {{ config('app.transaction_currency') }}
+        {{ config('app.transaction_currency_symbol') }}
         )
       </label>
       <input type="text" class="form-control" wire:model="pay_amount">

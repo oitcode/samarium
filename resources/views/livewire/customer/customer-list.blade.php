@@ -33,13 +33,13 @@
           <td>
             @if ($customer->getBalance() > 0)
               <span class="text-muted mr-1">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
               </span>
               <span class="font-weight-bold">
                 @php echo number_format( $customer->getBalance() ); @endphp
               </span>
             @else
-              {{ config('app.transaction_currency') }}
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format( $customer->getBalance() ); @endphp
             @endif
           </td>
@@ -89,13 +89,13 @@
           <td>
             @if ($customer->getBalance() > 0)
               <span class="text-muted mr-1">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
               </span>
               <span class="font-weight-bold">
                 @php echo number_format( $customer->getBalance() ); @endphp
               </span>
             @else
-              {{ config('app.transaction_currency') }}
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format( $customer->getBalance() ); @endphp
             @endif
           </td>

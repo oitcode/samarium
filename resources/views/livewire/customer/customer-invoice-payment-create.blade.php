@@ -17,14 +17,14 @@
             <tr class="border-0">
               <td class="border-0">Total</td>
               <td class="border-0">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
               </td>
             </tr>
             <tr class="border-0">
               <td class="border-0">Pending</td>
               <td class="border-0 text-danger">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
               </td>
             </tr>
@@ -100,7 +100,7 @@
   
     <div class="bg-light border p-2">
       <div class="form-group">
-        <label>Amount ({{ config('app.transaction_currency') }}) *</label>
+        <label>Amount ({{ config('app.transaction_currency_symbol') }}) *</label>
         <input type="text" class="form-control" wire:model="pay_amount">
         @error('pay_amount') <span class="text-danger">{{ $message }}</span> @enderror
       </div>

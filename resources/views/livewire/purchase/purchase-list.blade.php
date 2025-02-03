@@ -25,7 +25,7 @@
       <div class="d-flex justify-content-end flex-grow-1">
         <div class="pl-2 font-weight-bold pr-3 py-2">
           <span class="text-dark">
-          {{ config('app.transaction_currency') }}
+          {{ config('app.transaction_currency_symbol') }}
           @if (is_numeric($total) && ctype_digit((string) $total))
             @php echo number_format( $total ); @endphp
           @else
@@ -61,7 +61,7 @@
     <div class="d-flex justify-content-start flex-grow-1">
       <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white">
         <span class="text-dark">
-        {{ config('app.transaction_currency') }}
+        {{ config('app.transaction_currency_symbol') }}
         @if (is_numeric($total) && ctype_digit((string) $total))
           @php echo number_format( $total ); @endphp
         @else
@@ -133,7 +133,7 @@
             @endif
           </td>
           <td>
-            {{ config('app.transaction_currency') }}
+            {{ config('app.transaction_currency_symbol') }}
             @if (is_int($purchase->getPendingAmount()))
               @php echo number_format( $purchase->getPendingAmount() ); @endphp
             @else
@@ -141,7 +141,7 @@
             @endif
           </td>
           <td>
-            {{ config('app.transaction_currency') }}
+            {{ config('app.transaction_currency_symbol') }}
             @if (is_int($purchase->getTotalAmount()))
               @php echo number_format( $purchase->getTotalAmount() ); @endphp
             @else
@@ -186,7 +186,7 @@
           </td>
           <td>
             <span class="font-weight-bold">
-            {{ config('app.transaction_currency') }}
+            {{ config('app.transaction_currency_symbol') }}
             @if (is_int($purchase->getTotalAmount()))
               @php echo number_format( $purchase->getTotalAmount() ); @endphp
             @else

@@ -69,7 +69,8 @@ return [
     |
     */
 
-    'transaction_currency_symbol' => '£',
+    'transaction_currency' => 'US Dollar',
+    'transaction_currency_symbol' => '$',
 
     /*
     |--------------------------------------------------------------------------

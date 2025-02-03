@@ -16,14 +16,14 @@
             <tr class="border-0">
               <td class="border-0">Total</td>
               <td class="border-0">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $purchase->getTotalAmount() ); @endphp
               </td>
             </tr>
             <tr class="border-0">
               <td class="border-0">Pending</td>
               <td class="border-0 text-danger">
-                {{ config('app.transaction_currency') }}
+                {{ config('app.transaction_currency_symbol') }}
                 @php echo number_format( $purchase->getPendingAmount() ); @endphp
               </td>
             </tr>
@@ -102,7 +102,7 @@
         <label>
           Amount
           (
-          {{ config('app.transaction_currency') }}
+          {{ config('app.transaction_currency_symbol') }}
           )
           *
         </label>
