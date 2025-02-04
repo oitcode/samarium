@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Schema;
 
 class UserTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * Test that user table has a role column.
      *

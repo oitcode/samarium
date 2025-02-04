@@ -10,6 +10,8 @@ use App\Webpage;
 
 class CmsWebsiteTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * Test that all public webpages are accessible in cms website.
      *
@@ -17,6 +19,8 @@ class CmsWebsiteTest extends TestCase
      */
     public function test_all_public_webpages_are_accessible()
     {
+        Webpage::factory()->create();
+
         $publicWebpages = Webpage::where('visibility', 'public')->get();
 
         foreach ($publicWebpages as $publicWebpage) {

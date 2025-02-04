@@ -12,6 +12,8 @@ use App\User;
 
 class WebpageComponentTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * Test that dashboard cms webpage component is accessible.
      *
@@ -19,6 +21,8 @@ class WebpageComponentTest extends TestCase
      */
     public function testDashboardCmsWebpageUrlAccessible()
     {
+        User::factory()->create([]);
+
         $response = $this->actingAs(User::where('role', 'admin')->first())->get('/cms/webpage');
 
         $response->assertStatus(200);
@@ -31,6 +35,8 @@ class WebpageComponentTest extends TestCase
      */
     public function testDashboardCmsWebpageUrlHasLivewireComponent()
     {
+        User::factory()->create([]);
+
         $response = $this->actingAs(User::where('role', 'admin')->first())
             ->get('/cms/webpage')
             ->assertSeeLivewire(\App\Livewire\Cms\Dashboard\WebpageComponent::class);
@@ -60,6 +66,8 @@ class WebpageComponentTest extends TestCase
      */
     public function testDashboardCmsWebpageComponentHasRequiredButtons()
     {
+        User::factory()->create([]);
+
         $response = $this->actingAs(User::where('role', 'admin')->first())->get('/cms/webpage');
 
         $response->assertSee('Create');

@@ -3,14 +3,20 @@
 namespace Tests\Feature\Livewire;
  
 use App\Livewire\Cms\Dashboard\ThemeComponent;
+use App\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-use App\User;
- 
 class ThemeComponentTest extends TestCase
 {
-    public function test_component_exists_on_the_page()
+    use RefreshDatabase;
+
+    #[Test]
+    public function component_exists_on_the_page()
     {
+        User::factory()->create([]);
+
         $user = User::where('role', 'admin')->first();
 
         $this->actingAs($user)
