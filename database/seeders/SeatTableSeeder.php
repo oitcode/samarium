@@ -16,7 +16,7 @@ class SeatTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=1; $i<7; $i++ ) {
+        for ($i = 1; $i < 7; $i++ ) {
             DB::table('seat_table')->insert([
                 'name' => 'Table ' . $i,
 
