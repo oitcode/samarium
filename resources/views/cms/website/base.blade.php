@@ -19,10 +19,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
+    {{--
+    |
+    | CSRF Token
+    |
+    --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Favicon -->
+    {{--
+    |
+    | Favicon
+    |
+    --}}
     @if ($company)
       <link rel="shortcut icon" href="{{ asset('storage/' . $company->logo_image_path) }}">
     @endif
@@ -42,14 +50,26 @@
     --}}
     @yield('fbOgMetaTags')
 
-    <!-- Scripts -->
+    {{--
+    |
+    | Scripts
+    |
+    --}}
     <script src="{{ asset('js/app.js') }}"></script>
 
-    <!-- Fonts -->
+    {{--
+    |
+    | Fonts
+    |
+    --}}
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
+    {{--
+    |
+    | Styles
+    |
+    --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom-style.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/all.css') }}" rel="stylesheet">
@@ -58,7 +78,11 @@
     html, body { overflow-x: hidden; } 
     </style>
 
-    <!-- Livewire -->
+    {{--
+    |
+    | Livewire
+    |
+    --}}
     @livewireStyles
 </head>
 
@@ -72,43 +96,46 @@
       @endif
     </div>
   @else
-  <div class="p-0">
+    <div class="p-0">
 
-    {{--
-    |
-    | Header
-    |
-    --}}
-    @include ('partials.cms.headers-header')
+      {{--
+      |
+      | Header
+      |
+      --}}
+      @include ('partials.cms.headers-header')
 
-    {{--
-    |
-    | Nav menu
-    |
-    --}}
-    @livewire ('cms.website.nav-menu')
+      {{--
+      |
+      | Nav menu
+      |
+      --}}
+      @livewire ('cms.website.nav-menu')
 
-    {{--
-    |
-    | Content
-    |
-    --}}
-    <div class="@if (isset($webpage) && $webpage->is_post == 'yes') @else @endif">
-      @yield ('pageAnnouncer')
-      @yield ('content')
+      {{--
+      |
+      | Content
+      |
+      --}}
+      <div class="@if (isset($webpage) && $webpage->is_post == 'yes') @else @endif">
+        @yield ('pageAnnouncer')
+        @yield ('content')
+      </div>
+
+      {{--
+      |
+      | Footer
+      |
+      --}}
+      @include ('partials.cms.footer')
     </div>
-
-    {{--
-    |
-    | Footer
-    |
-    --}}
-    @include ('partials.cms.footer')
-
-  </div>
   @endif
 
-  <!-- Livewire scripts -->
+  {{--
+  |
+  | Livewire scripts 
+  |
+  --}}
   @livewireScripts
 </body>
 </html>
