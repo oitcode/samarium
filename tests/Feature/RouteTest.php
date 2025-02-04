@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 class RouteTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * A basic feature test example.
      *
