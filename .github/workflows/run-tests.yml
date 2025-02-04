@@ -44,5 +44,11 @@ jobs:
       - name: List Installed Dependencies
         run: composer show -D
 
+      - name: Copy .evn file
+        run: cp .env.example .env
+
+      - name: Generate key
+        run: php artisan key:generate
+
       - name: Execute phpunit
         run: vendor/bin/phpunit
