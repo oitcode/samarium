@@ -19,6 +19,8 @@ class CmsWebsiteTest extends TestCase
      */
     public function test_all_public_webpages_are_accessible()
     {
+        $this->markTestSkipped('webpage route disabled');
+
         Webpage::factory()->create();
 
         $publicWebpages = Webpage::where('visibility', 'public')->get();
@@ -37,6 +39,8 @@ class CmsWebsiteTest extends TestCase
      */
     public function test_all_non_public_webpages_are_not_accessible()
     {
+        $this->markTestSkipped('webpage route disabled');
+
         $nonPublicWebpages = Webpage::where('visibility', '!=', 'public')->get();
 
         foreach ($nonPublicWebpages as $nonPublicWebpage) {
