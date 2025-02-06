@@ -124,7 +124,7 @@ class SaleInvoiceWork extends Component
             } else if ($direction == 'out') {
                 $baseProduct->stock_count -= $diffQty;
             } else {
-                dd('Whoops! Inventory update gone wrong!');
+                // Todo
             }
 
             $baseProduct->save();
@@ -134,7 +134,7 @@ class SaleInvoiceWork extends Component
             } else if ($direction == 'out') {
                 $product->stock_count -= $quantity; 
             } else {
-                dd('Whoops! Inventory update gone wrong!');
+                // Todo
             }
 
             $product->save();

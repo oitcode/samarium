@@ -310,7 +310,7 @@ class SaleInvoiceWorkMakePayment extends Component
                     $this->taxable_amount -= $val;
                 }
             } else {
-                dd('Sale invoice addition heading configurations gone wrong! Contact your service provider.');
+                // Todo
             }
         }
     }
@@ -357,7 +357,7 @@ class SaleInvoiceWorkMakePayment extends Component
 
             $this->tender_amount = $tenderAmount;
         } else {
-            dd('Whoops!');
+            // Todo
         }
     }
 

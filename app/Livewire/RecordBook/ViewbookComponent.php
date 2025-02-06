@@ -120,7 +120,7 @@ class ViewbookComponent extends Component
         } else if ($this->modes['yearbook']) {
             $this->endDate = $this->startDate->copy()->endOfYear();
         } else {
-            dd('Whoops');
+            // Todo
         }
 
         $saleInvoices = SaleInvoice::whereDate('sale_invoice_date', '>=',  $this->startDate)
@@ -225,7 +225,7 @@ class ViewbookComponent extends Component
             $this->startDate->subYear();
             $this->endDate = $this->startDate->copy()->endOfYear();
         } else {
-            dd('Whoops');
+            // Todo
         }
     }
 
@@ -244,7 +244,7 @@ class ViewbookComponent extends Component
             $this->startDate->addYear();
             $this->endDate = $this->startDate->copy()->endOfYear();
         } else {
-            dd('Whoops');
+            // Todo
         }
     }
 

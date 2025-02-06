@@ -125,7 +125,7 @@ class ExpenseWorkMakePayment extends Component
                     $this->taxable_amount -= $val;
                 }
             } else {
-                dd('Expense addition heading configurations gone wrong! Contact your service provider.');
+                // Todo
             }
         }
     }

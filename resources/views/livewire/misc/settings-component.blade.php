@@ -1,8 +1,8 @@
 <div>
 
-  <x-component-header>
+  <div class="h5 o-heading py-3 pt-4">
     Settings
-  </x-component-header>
+  </div>
 
   <div class="mb-3 p-2 bg-white border">
     <h1 class="h5 font-weight-bold pt-2">

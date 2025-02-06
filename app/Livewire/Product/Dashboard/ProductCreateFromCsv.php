@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Product\Dashboard;
 
-// use App\Traits\ModesTrait;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
@@ -13,7 +12,6 @@ use App\ProductCategory;
 class ProductCreateFromCsv extends Component
 {
     use WithFileUploads;
-    // use ModesTrait;
 
     public $product_category_id;
 
@@ -25,11 +23,6 @@ class ProductCreateFromCsv extends Component
     public $lines = [];
     public $totLines;
     public $filePath;
-
-    // public $modes = [
-    //     'startMode' => true,
-    //     'previewMode' => false,
-    // ];
 
     public function render()
     {
@@ -48,10 +41,6 @@ class ProductCreateFromCsv extends Component
 
         $this->filePath = $this->products_file->store('csvImports');
         $contents = Storage::get($this->filePath);
-
-        // $contents = Encoding::toUTF8($contents);
-        // dd($contents);
-        // $lines = preg_split("/\r?\n|\r/", $contents);
 
         $lines = explode("\n", $contents);
 
@@ -104,49 +93,40 @@ class ProductCreateFromCsv extends Component
     public function importFromFile()
     {
         foreach ($this->lines as $line) {
-            //DB::beginTransaction();
+            if (! $line[0]) {
+                /* Skip if blank product name */
+                continue;
+            }
 
-            //try {
-                if (! $line[0]) {
-                    /* Skip if blank product name */
-                    continue;
-                    // Again
-                }
+            if (Product::where('name', $line[0])->first()) {
+                /* Skip if product already exists. */
+                continue;
+            }
 
-                if (Product::where('name', $line[0])->first()) {
-                    /* Skip if product already exists. */
-                    continue;
-                }
+            $product = new Product;
 
-                $product = new Product;
+            $product->name = $line[0];
+            $product->description = $line[2];
+            $product->selling_price = $line[3];
 
-                $product->name = $line[0];
-                $product->description = $line[2];
-                $product->selling_price = $line[3];
+            /* Set the product category */
+            if (ProductCategory::where('name', $line[1])->first()) {
+                $product->product_category_id = ProductCategory::where('name', $line[1])->first()->product_category_id;
+            } else {
+                $productCategory = new ProductCategory;
 
-                /* Set the product category */
-                if (ProductCategory::where('name', $line[1])->first()) {
-                    $product->product_category_id = ProductCategory::where('name', $line[1])->first()->product_category_id;
-                } else {
-                    $productCategory = new ProductCategory;
+                $productCategory->name = $line[1];
+                $productCategory->does_sell = 'yes';
+                $productCategory->save();
 
-                    $productCategory->name = $line[1];
-                    $productCategory->does_sell = 'yes';
-                    $productCategory->save();
+                $productCategory->refresh();
+                $product->product_category_id = $productCategory->product_category_id;
+            }
 
-                    $productCategory->refresh();
-                    $product->product_category_id = $productCategory->product_category_id;
-                }
+            $product->featured_product = 'no';
+            $product->save();
 
-                $product->featured_product = 'no';
-                $product->save();
-
-                /* Todo: Store product image from excel/csv file. */
-
-                //DB::commit();
-            // } catch (\Exception $e) {
-            //     DB::rollback();
-            // }
+            /* Todo: Store product image from excel/csv file. */
         }
 
         /* Delete the file */

@@ -40,12 +40,8 @@ class TeamDisplayTeamMembersCreateFromCsv extends Component
          * TODO: Can be done without storing the file?
          */
 
-        $this->filePath = $this->members_file->store('csvImports', 'utf-8');
+        $this->filePath = $this->members_file->store('csvImports');
         $contents = Storage::get($this->filePath);
-
-        // $contents = Encoding::toUTF8($contents);
-        // dd($contents);
-        // $lines = preg_split("/\r?\n|\r/", $contents);
 
         $lines = explode("\n", $contents);
 
@@ -97,6 +93,11 @@ class TeamDisplayTeamMembersCreateFromCsv extends Component
 
     public function importFromFile()
     {
+        $team = Team::find($this->team_id);
+
+        $maxPosition = $team->getMaxPosition();
+        $maxPosition++;
+
         foreach ($this->lines as $line) {
             $teamMember = new TeamMember;
 
@@ -107,6 +108,7 @@ class TeamDisplayTeamMembersCreateFromCsv extends Component
             $teamMember->address = $line[4];
 
             $teamMember->team_id = $this->team_id;
+            $teamMember->position = $maxPosition++;
             $teamMember->save();
 
             /* Todo: Store team member image from excel/csv file. */
