@@ -113,21 +113,43 @@ Now open your web browser and visit
 
 Below are some screenshots.
 
-![screenshot](screenshots/screenshot-login-1.png)
-![screenshot](screenshots/screenshot-product-list-1.png)
-![screenshot](screenshots/screenshot-product-category-list-1.png)
-![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
-![screenshot](screenshots/screenshot-sale-invoice-display-progress-1.png)
-![screenshot](screenshots/screenshot-sale-invoice-display-finished-1.png)
-![screenshot](screenshots/screenshot-purchase-list-1.png)
-![screenshot](screenshots/screenshot-purchase-display-finished-1.png)
-![screenshot](screenshots/screenshot-expense-list-1.png)
-![screenshot](screenshots/screenshot-expense-display-finished-1.png)
-![screenshot](screenshots/screenshot-customer-display-1.png)
-![screenshot](screenshots/screenshot-page-list-1.png)
-![screenshot](screenshots/screenshot-post-list-1.png)
+Login | Change password | User profile
+---|----|---
+![screenshot](screenshots/screenshot-login-1.png) | ![screenshot](screenshots/screenshot-change-password-1.png) | ![screenshot](screenshots/screenshot-user-profile-1.png)
 
-### GIFs
+Dashboard | Settings
+---|----|---
+![screenshot](screenshots/screenshot-dashboard-1.png) | ![screenshot](screenshots/screenshot-settings-1.png)
+
+Product | Product Category
+---|----|---
+![screenshot](screenshots/screenshot-product-list-1.png) | ![screenshot](screenshots/screenshot-product-category-list-1.png)
+
+Sale invoice list | Sale invoice create | Sale invoice final
+---|----|---
+![screenshot](screenshots/screenshot-sale-invoice-list-1.png) | ![screenshot](screenshots/screenshot-sale-invoice-display-progress-1.png) | ![screenshot](screenshots/screenshot-sale-invoice-display-finished-1.png)
+
+Purchase list | Purchase create | Purchase final
+---|----|---
+![screenshot](screenshots/screenshot-purchase-list-1.png) | ![screenshot](screenshots/screenshot-purchase-display-progress-1.png) | ![screenshot](screenshots/screenshot-purchase-display-finished-1.png)
+
+Expense list | Expense create | Expense final
+---|----|---
+![screenshot](screenshots/screenshot-expense-list-1.png) | ![screenshot](screenshots/screenshot-expense-display-progress-1.png) | ![screenshot](screenshots/screenshot-expense-display-finished-1.png)
+
+Customer | Vendor
+---|---
+![screenshot](screenshots/screenshot-customer-display-1.png) | ![screenshot](screenshots/screenshot-vendor-display-1.png)
+
+Daybook | Weekbook
+---|----|---
+![screenshot](screenshots/screenshot-daybook-1.png) | ![screenshot](screenshots/screenshot-weekbook-1.png)
+
+Webpage list | Post list
+---|----|---
+![screenshot](screenshots/screenshot-page-list-1.png) | ![screenshot](screenshots/screenshot-post-list-1.png)
+
+## GIFs
 
 ![screenshot](screenshots/create-webpage-1.gif)
 
