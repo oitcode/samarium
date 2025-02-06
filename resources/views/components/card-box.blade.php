@@ -1,13 +1,11 @@
 <div class="card">
   <div class="card-body {{ $cardBg }}">
-    <div>
-      <div class="float-left">
+    <div class="d-flex justify-content-between">
+      <div>
         {{ $title }}
       </div>
-      <div class="float-right">
+      <div>
         <i class="{{ $faClass }}"></i>
-      </div>
-      <div class="clearfix">
       </div>
     </div>
     <div class="h3">

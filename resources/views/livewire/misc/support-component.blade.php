@@ -15,8 +15,6 @@
         'btnCheckMode' => 'list',
     ])
     @include ('partials.dashboard.spinner-button')
-    <div class="clearfix">
-    </div>
   </div>
 
   {{-- Use the required component as per mode --}}

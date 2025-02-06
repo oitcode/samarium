@@ -23,7 +23,6 @@ class ExpenseCreate extends Component
     public $createNew = true;
 
     /* Add item related */
-    public $selectedProduct = null;
     public $expenseCategories;
 
     /* Make payment related */

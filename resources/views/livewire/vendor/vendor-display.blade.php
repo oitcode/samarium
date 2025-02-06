@@ -152,8 +152,6 @@
         Settle
       </button>
       @include ('partials.dashboard.spinner-button')
-      <div class="clearfix">
-      </div>
     </div>
   </div>
 

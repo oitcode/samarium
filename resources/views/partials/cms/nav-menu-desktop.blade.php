@@ -6,7 +6,7 @@
 |
 --}}
 
-<div class="text-right w-100">
+<div class="d-flex w-100">
 
   {{-- Top menu buttons. --}}
   @if ($cmsNavMenu)
@@ -37,6 +37,4 @@
     @endforeach
   @endif
 
-  <div class="clearfix">
-  </div>
 </div>

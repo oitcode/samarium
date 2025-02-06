@@ -13,50 +13,49 @@
   <div class="p-0">
     {{-- Show in bigger screens --}}
     @if (! $modes['displaySaleInvoice'])
-    <div class="mb-3 d-none d-md-block p-3 bg-white border">
-      <div class="float-left d-flex">
-        <i class="fas fa-arrow-alt-circle-left fa-2x mr-3" wire:click="setPreviousDay" role="button"></i>
-        <i class="fas fa-arrow-alt-circle-right fa-2x mr-3" wire:click="setNextDay" role="button"></i>
-        <div class="d-none d-md-block ml-5">
-          <i class="fas fa-calendar mr-2"></i>
-          {{ Carbon\Carbon::parse($daybookDate)->format('Y F d') }}
-          &nbsp;&nbsp;
-          {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
-          <input type="date" wire:model="daybookDate" class="ml-5">
-          <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="render">
-            Go
-          </button>
-        </div>
-      </div>
-
-      @include ('partials.dashboard.spinner-button')
-
-      @if (! $modes['displaySaleInvoice'])
-      <div class="float-right">
-        <div class="card bg-white text-dark">
-          <div class="card-body p-2">
-            <div class="p-0">
-              <h2 class="h5 o-heading pt-1">
-                <span class="mr-2">
-                  {{ config('app.transaction_currency_symbol') }}
-                </span>
-                @php echo number_format( $totalSaleAmount ); @endphp
-              </h2>
+      <div class="mb-3 d-none d-md-block p-3 bg-white border">
+        <div class="d-flex">
+          <div class="d-flex">
+            <i class="fas fa-arrow-alt-circle-left fa-2x mr-3" wire:click="setPreviousDay" role="button"></i>
+            <i class="fas fa-arrow-alt-circle-right fa-2x mr-3" wire:click="setNextDay" role="button"></i>
+            <div class="d-none d-md-block ml-5">
+              <i class="fas fa-calendar mr-2"></i>
+              {{ Carbon\Carbon::parse($daybookDate)->format('Y F d') }}
+              &nbsp;&nbsp;
+              {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
+              <input type="date" wire:model="daybookDate" class="ml-5">
+              <button class="btn btn-success mx-3" wire:click="render">
+                Go
+              </button>
             </div>
           </div>
+
+          @if (! $modes['displaySaleInvoice'])
+            <div class="float-left-rm px-2 pt-2 ml-5-rm">
+              Bills: {{ $todaySaleInvoiceCount }}
+            </div>
+          @endif
+
+          @include ('partials.dashboard.spinner-button')
+
+          @if (! $modes['displaySaleInvoice'])
+            <div class="flex-grow-1 d-flex justify-content-end">
+              <div class="card bg-white text-dark">
+                <div class="card-body p-2">
+                  <div class="p-0">
+                    <h2 class="h5 o-heading pt-1">
+                      <span class="mr-2">
+                        {{ config('app.transaction_currency_symbol') }}
+                      </span>
+                      @php echo number_format( $totalSaleAmount ); @endphp
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @endif
         </div>
       </div>
-      @endif
-
-      @if (! $modes['displaySaleInvoice'])
-        <div class="float-left px-2 pt-2 ml-5">
-          Bills: {{ $todaySaleInvoiceCount }}
-        </div>
-      @endif
-
-      <div class="clearfix">
-      </div>
-    </div>
     @endif
 
     {{-- Show in smaller screens --}}

@@ -27,7 +27,7 @@
 
       <div class="mb-4 d-none d-md-block p-0">
         {{-- Date selector --}}
-        <div class="float-left d-flex">
+        <div class="d-flex">
           <button class="btn btn-light mr-4 p-0" wire:click="setPreviousDay">
             <i class="far fa-arrow-alt-circle-left fa-2x text-secondary"></i>
           </button>
@@ -40,9 +40,7 @@
               Go
             </button>
           </div>
-        </div>
-        @include ('partials.dashboard.spinner-button')
-        <div class="clearfix">
+          @include ('partials.dashboard.spinner-button')
         </div>
       </div>
     </div>

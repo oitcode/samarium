@@ -78,8 +78,8 @@
     </div>
   
     <div class="p-2 m-0 bg-white">
-      <div class="row">
-        <div class="col-md-8">
+      <div class="row" style="margin: auto;">
+        <div class="col-md-8 p-0">
           <button class="btn btn-lg btn-success mr-3" wire:click="addItemToSaleQuotation">
             <i class="fas fa-plus mr-2"></i>
             Add
@@ -92,10 +92,10 @@
 
         @if ($selectedProduct != null)
           <div class="col-md-4" style="height: 50px;">
-            <div class="float-right">
-              <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
-            </div>
-            <div class="clearfix">
+            <div class="d-flex justify-content-end">
+              <div>
+                <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
+              </div>
             </div>
           </div>
         @endif

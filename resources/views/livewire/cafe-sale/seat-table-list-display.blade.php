@@ -6,35 +6,32 @@
       role="button"
   >
     <div class="card-header">
-      <div class="float-left">
-        <h2 class="h6 o-heading">
-          {{ $seatTable->name }}
-          @if ($seatTable->isBooked())
-            <span class="badge badge-danger badge-pill ml-2">
-              Booked
-            </span>
-          @else
-            <span class="badge badge-success badge-pill ml-2">
-              Open
-            </span>
-          @endif
-        </h2>
+      <div class="d-flex justify-content-between">
+        <div>
+          <h2 class="h6 o-heading">
+            {{ $seatTable->name }}
+            @if ($seatTable->isBooked())
+              <span class="badge badge-danger badge-pill ml-2">
+                Booked
+              </span>
+            @else
+              <span class="badge badge-success badge-pill ml-2">
+                Open
+              </span>
+            @endif
+          </h2>
+        </div>
+        <div>
+            @if ($seatTable->isBooked())
+              <span class="h6 pt-4">
+                {{ config('app.transaction_currency_symbol') }}
+                @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
+              </span>
+            @else
+            @endif
+        </div>
       </div>
-      <div class="float-right">
-          @if ($seatTable->isBooked())
-            <span class="h6 pt-4">
-            {{ config('app.transaction_currency_symbol') }}
-            @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
-            </span>
-          @else
-          @endif
-      </div>
-      <div wire:loading class="float-right">
-        <span class="spinner-border text-white mr-3" role="status">
-        </span>
-      </div>
-      <div class="clearfix">
-      </div>
+      @include ('partials.dashboard.spinner-button')
     </div>
   
     <div class="card-body p-0">
@@ -93,52 +90,49 @@
       role="button"
   >
     <div class="card-header @if ($seatTable->isBooked()) @else bg-success text-white @endif">
-      <div class="float-left">
-        <h2 class="badge">
-          {{ $seatTable->name }}
-        </h2>
-      </div>
-      <div wire:loading class="float-right">
-        <span class="spinner-border text-white mr-3" role="status">
-        </span>
-      </div>
-      <div class="clearfix">
+      <div class="d-flex">
+        <div>
+          <h2 class="badge">
+            {{ $seatTable->name }}
+          </h2>
+        </div>
+        @include ('partials.dashboard.spinner-button')
       </div>
     </div>
   
     <div class="card-body p-0">
       @if ($seatTable->getCurrentBooking())
-      <div class="row" style="margin: auto;">
-        <div class="col-md-12">
-          <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
-            <tr class="border-0">
-              <td class="border-0">
-                @if ($seatTable->getCurrentBooking())
-                  {{ $seatTable->getCurrentBooking()->created_at->format('h:i') }}
-                @else
-                  NA
-                @endif
-              </td>
-              <td class="font-weight-bold border-0">
-                @if ($seatTable->isBooked())
-                  {{ $seatTable->getCurrentBookingTotalItems() }}
-                @else
-                  NA
-                @endif
-              </td>
-            </tr>
-            <tr class="border-0">
-              <td colspan="2" class="border-0">
-                @if ($seatTable->isBooked())
-                  {{ config('app.transaction_currency_symbol') }}
-                  @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
-                @else
-                @endif
-              </td>
-            </tr>
-          </table>
+        <div class="row" style="margin: auto;">
+          <div class="col-md-12">
+            <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">
+              <tr class="border-0">
+                <td class="border-0">
+                  @if ($seatTable->getCurrentBooking())
+                    {{ $seatTable->getCurrentBooking()->created_at->format('h:i') }}
+                  @else
+                    NA
+                  @endif
+                </td>
+                <td class="font-weight-bold border-0">
+                  @if ($seatTable->isBooked())
+                    {{ $seatTable->getCurrentBookingTotalItems() }}
+                  @else
+                    NA
+                  @endif
+                </td>
+              </tr>
+              <tr class="border-0">
+                <td colspan="2" class="border-0">
+                  @if ($seatTable->isBooked())
+                    {{ config('app.transaction_currency_symbol') }}
+                    @php echo number_format( $seatTable->getCurrentBookingTotalAmount() ); @endphp
+                  @else
+                  @endif
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
-      </div>
       @else
         <div>
           <table class="table @if ($seatTable->isBooked()) bg-danger @else bg-success @endif text-white">

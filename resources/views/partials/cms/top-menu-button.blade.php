@@ -1,4 +1,4 @@
-<div class="float-left">
+<div>
   <a href="{{ route($btnRoute) }}"
       class="btn font-weight-bold p-3 rounded-0"
       style="

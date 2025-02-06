@@ -103,10 +103,10 @@
         </div>
         @if ($selectedProduct != null)
           <div class="col-md-4" style="height: 50px;">
-            <div class="float-right">
-              <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
-            </div>
-            <div class="clearfix">
+            <div class="d-flex justify-content-end">
+              <div>
+                <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
+              </div>
             </div>
           </div>
         @endif

@@ -8,16 +8,14 @@
   {{-- Top Menu --}}
   {{-- Show in bigger screens --}}
   <div class="mb-1 d-none d-md-block bg-white p-3">
-    <div class="float-left mr-5">
-    </div>
-    <div class="d-flex float-left my-3 p-3">
+    <div class="d-flex">
       <button class="btn m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
         <i class="fas fa-arrow-alt-circle-left fa-2x"></i>
       </button>
       <button class="btn mx-0 p-0 badge-pill bg-white" wire:click="goToNextWeek">
         <i class="fas fa-arrow-alt-circle-right fa-2x"></i>
       </button>
-      <div class="mr-3 ml-5">
+      <div class="mr-3 mx-5">
         <i class="fas fa-calendar mr-2"></i>
         {{ Carbon\Carbon::parse($startDay)->format('Y F d') }}
         <br />
@@ -33,18 +31,11 @@
       </div>
       <div>
         <input type="date" wire:model="weekStartDate" class="ml-5">
-        <button class="btn
-            {{ config('app.oc_ascent_bg_color', 'bg-success') }}
-            "
-            wire:click="setStartOfWeek">
+        <button class="btn {{ config('app.oc_ascent_bg_color', 'bg-success') }}" wire:click="setStartOfWeek">
           Go
         </button>
       </div>
-    </div>
-    <div class="h-100 float-left d-flex flex-column justify-content-center">
       @include ('partials.dashboard.spinner-button')
-    </div>
-    <div class="clearfix">
     </div>
   </div>
 

@@ -50,7 +50,6 @@
             @endif
           </tr>
         </thead>
-  
         <tbody>
           <tr class="p-0 font-weight-bold" style="height: 50px;">
             <td class="h-100 bg-white p-0">
@@ -72,7 +71,6 @@
             <td class="p-0 h-100">
               <select class="w-100 h-100 custom-control border-0 bg-white" wire:model="product_id" wire:change="selectItem">
                 <option>---</option>
-  
                 @foreach ($products as $product)
                   <option value="{{ $product->product_id }}">
                     {{ $product->name }}
@@ -107,28 +105,26 @@
       <div class="row">
         <div class="col-md-8">
           @if (false)
-          <button class="mr-3" wire:click="addItemToSaleInvoice">
-            <i class="fas fa-plus mr-2"></i>
-            Add
-          </button>
+            <button class="mr-3" wire:click="addItemToSaleInvoice">
+              <i class="fas fa-plus mr-2"></i>
+              Add
+            </button>
           @endif
-  
           <button class="bg-white border-0 text-primary font-weight-bold" wire:click="resetInputFields">
             <i class="fas fa-refresh"></i>
             @if (false)
-            Reset
+              Reset
             @endif
           </button>
-  
           @include ('partials.dashboard.spinner-button')
         </div>
 
         @if ($selectedProduct != null)
           <div class="col-md-4" style="height: 50px;">
-            <div class="float-right">
-              <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
-            </div>
-            <div class="clearfix">
+            <div class="d-flex justify-content-end">
+              <div>
+                <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
+              </div>
             </div>
           </div>
         @endif
