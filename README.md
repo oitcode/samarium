@@ -118,11 +118,11 @@ Login | Change password | User profile
 ![screenshot](screenshots/screenshot-login-1.png) | ![screenshot](screenshots/screenshot-change-password-1.png) | ![screenshot](screenshots/screenshot-user-profile-1.png)
 
 Dashboard | Settings
----|----|---
+---|----
 ![screenshot](screenshots/screenshot-dashboard-1.png) | ![screenshot](screenshots/screenshot-settings-1.png)
 
 Product | Product Category
----|----|---
+---|----
 ![screenshot](screenshots/screenshot-product-list-1.png) | ![screenshot](screenshots/screenshot-product-category-list-1.png)
 
 Sale invoice list | Sale invoice create | Sale invoice final
@@ -142,11 +142,11 @@ Customer | Vendor
 ![screenshot](screenshots/screenshot-customer-display-1.png) | ![screenshot](screenshots/screenshot-vendor-display-1.png)
 
 Daybook | Weekbook
----|----|---
+---|----
 ![screenshot](screenshots/screenshot-daybook-1.png) | ![screenshot](screenshots/screenshot-weekbook-1.png)
 
 Webpage list | Post list
----|----|---
+---|----
 ![screenshot](screenshots/screenshot-page-list-1.png) | ![screenshot](screenshots/screenshot-post-list-1.png)
 
 ## GIFs
