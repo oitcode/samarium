@@ -53,6 +53,7 @@ Route::get('/dashboard/team', 'TeamController@index')                         ->
 Route::get('/dashboard/help', 'HelpController@index')                         ->name('dashboard-help');
 Route::get('/dashboard/users', 'UsersController@index')                       ->name('dashboard-users');
 Route::get('/dashboard/user-group', 'UserGroupController@index')              ->name('dashboard-user-group');
+Route::get('/dashboard/own-profile', 'UserOwnProfileController@index')        ->name('dashboard-user-own-profile');
 Route::get('/dashboard/contact-form', 'ContactFormController@index')          ->name('dashboard-contact-form');
 Route::get('/dashboard/appointment', 'AppointmentController@index')           ->name('dashboard-appointment');
 Route::get('/dashboard/vacancy', 'VacancyController@index')                   ->name('dashboard-vacancy');

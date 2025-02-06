@@ -19,6 +19,10 @@
       </div>
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdownMenu">
+      <a class="dropdown-item" href="{{ route('dashboard-user-own-profile') }}">
+        <i class="fas fa-user-circle text-secondary mr-2"></i>
+        User profile
+      </a>
       <a class="dropdown-item" href="{{ route('dashboard-change-password') }}">
         <i class="fas fa-key text-secondary mr-2"></i>
         Change password
