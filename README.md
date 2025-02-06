@@ -119,7 +119,7 @@ Login | Change password | User profile
 
 Dashboard | Settings
 ---|----
-![screenshot](screenshots/screenshot-dashboard-1.png) | ![screenshot](screenshots/screenshot-settings-1.png)
+![screenshot](dashboard-screenshot-1.png) | ![screenshot](screenshots/screenshot-settings-1.png)
 
 Product | Product Category
 ---|----
