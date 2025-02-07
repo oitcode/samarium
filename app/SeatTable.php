@@ -163,7 +163,7 @@ class SeatTable extends Model
             } else if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'minus') {
                 $grandTotal -= $saleInvoiceAddition->amount;
             } else {
-                dd('Sale Invoice Additions Heading COnfiguration gone wrong! Contact your service provider.');
+                // Todo
             }
         }
 

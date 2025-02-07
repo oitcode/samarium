@@ -74,7 +74,7 @@ class InventoryProductDetail extends Component
          */
          $openingStockDate = substr($this->product->opening_stock_timestamp, 0, 10);
          if ($validatedData['startDate'] < $openingStockDate) {
-             dd ('Start date too early');
+             // Todo
          }
 
         /* Return if start date and end date are not aligned. */

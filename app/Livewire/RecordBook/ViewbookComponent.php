@@ -176,7 +176,7 @@ class ViewbookComponent extends Component
                 $day = $day->addMonth();
             }
         } else {
-          dd ('Whoops');
+          // Todo
         }
     }
 

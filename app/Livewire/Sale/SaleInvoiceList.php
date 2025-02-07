@@ -48,7 +48,7 @@ class SaleInvoiceList extends Component
         } else if ($this->modes['showOnlyPaidMode']) {
             $saleInvoices = SaleInvoice::where('payment_status', 'paid')->orderBy('sale_invoice_id', 'desc');
         } else {
-            dd ('Error');
+            // Todo
         }
 
         $this->totalSaleInvoiceCount = $saleInvoices->count();

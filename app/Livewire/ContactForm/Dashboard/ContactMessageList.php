@@ -40,7 +40,7 @@ class ContactMessageList extends Component
         } else if ($this->modes['showOnlyDoneMode']) {
             $contactMessages = ContactMessage::where('status', 'done')->orderBy('contact_message_id', 'desc')->paginate(5);
         } else {
-            dd ('Whoops');
+            // Todo
         }
 
         $this->contactMessageCount = count($contactMessages);

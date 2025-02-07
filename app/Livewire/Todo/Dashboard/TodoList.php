@@ -71,7 +71,7 @@ class TodoList extends Component
         } else if ($this->modes['showOnlyCancelledMode']) {
             $todos = Todo::where('status', 'cancelled')->orderBy('todo_id', 'desc')->paginate(5);
         } else {
-            dd ('Whoops');
+            // Todo
         }
 
         // $this->todoCount = count($this->todos);

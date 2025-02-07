@@ -63,8 +63,6 @@ class WebpageDisplayWebpageContentCreate extends Component
             'video_link' => 'nullable',
         ]);
 
-        /* dd ($validatedData['body']);  */
-
         $validatedData['position'] = $this->getHighestPosition();
 
         if ($this->image) {
@@ -92,7 +90,7 @@ class WebpageDisplayWebpageContentCreate extends Component
 
     public function updatedValue($value)
     {
-      /* dd ($value); */
+      //
     }
 
     public function webpageContentCreateCompleted()

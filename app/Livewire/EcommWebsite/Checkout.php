@@ -78,7 +78,6 @@ class Checkout extends Component
             }
         } catch (\Exception $e) {
             DB::rollback();
-            dd ($e);
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
     }

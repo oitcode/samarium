@@ -113,8 +113,6 @@ class WebpageContentEditCss extends Component
             'animation' => 'nullable',
         ]);
 
-        /* dd ($validatedData); */
-
         if ($validatedData['margin_top']) {
             $this->addCssOption('margin-top', $validatedData['margin_top']);
         }

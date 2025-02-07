@@ -313,7 +313,6 @@ class ExpenseCreate extends Component
             $this->enterMode('paid');
         } catch (\Exception $e) {
             DB::rollback();
-            dd ($e);
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
     }

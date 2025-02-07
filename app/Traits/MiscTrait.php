@@ -114,7 +114,7 @@ trait MiscTrait
 
             $journalEntryItem->save();
         } else {
-          dd('Whoops');
+          // Todo
         }
 
         $this->makeLedgerEntry($journalEntry);
@@ -131,13 +131,13 @@ trait MiscTrait
             } else if ($journalEntryItem->type == 'credit') {
                 $creditCount++;
             } else {
-                dd('Whoops');
+                // Todo
             }
         }
 
         $multiSide = '';
         if ($debitCount > 1 && $creditCount > 1) {
-            dd('Whoops');
+            // Todo
         } else if ($debitCount > 1) {
             $multiSide = 'debit';
         } else if ($creditCount > 1) {
@@ -166,7 +166,7 @@ trait MiscTrait
                 } else if ($jei->type == 'debit') {
                     $ledgerEntry->particulars = 'By ' . $jei->abAccount->name . ' A/c';
                 } else {
-                    dd('Whoops');
+                    // Todo
                 }
 
                 $ledgerEntry->related_ab_account_id = $jei->abAccount->ab_account_id;
@@ -235,7 +235,7 @@ trait MiscTrait
             $vendorName = $purchase->vendor->name;
             $this->makeJournalEntryItem($journalEntry, $vendorName, $purchase->getPendingAmount(), 'credit');
         } else {
-          dd('Whoops');
+          // Todo
         }
 
         $this->makeLedgerEntry($journalEntry);

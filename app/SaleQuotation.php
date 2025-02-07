@@ -90,7 +90,7 @@ class SaleQuotation extends Model
             } else if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'minus') {
                 $total -= $saleInvoiceAddition->amount;
             } else {
-              die ('Whoops!');
+              // Todo
             }
         }
         */

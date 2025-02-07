@@ -110,7 +110,7 @@ class Expense extends Model
             } else if (strtolower($expenseAddition->expenseAdditionHeading->effect) == 'minus') {
               $total -= $expenseAddition->amount;
             } else {
-                dd('Whoops; Expense addition heading configuration gone wrong!');
+                // Todo
             }
         }
 

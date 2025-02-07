@@ -130,7 +130,6 @@ class SeatTableWorkDisplay extends Component
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
-            dd ($e);
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
     }
@@ -165,7 +164,6 @@ class SeatTableWorkDisplay extends Component
             $this->dispatch('updatePaymentComponent');
         } catch (\Exception $e) {
             DB::rollback();
-            dd ($e);
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
 

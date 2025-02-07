@@ -44,7 +44,6 @@ class ProductCategoryProductList extends Component
         }
 
         $this->dispatch('itemAddedToCart');
-        dd ('Okla');
     }
 
     public function displaySubProductCategory(ProductCategory $subProductCategory)

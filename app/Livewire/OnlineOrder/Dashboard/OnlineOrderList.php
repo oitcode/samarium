@@ -44,7 +44,7 @@ class OnlineOrderList extends Component
         } else if ($this->modes['showOnlyRejectedMode']) {
             $websiteOrders = WebsiteOrder::where('status', 'rejected')->paginate(5);
         } else {
-            dd ('Whoops');
+            // Todo
         }
 
         return view('livewire.online-order.dashboard.online-order-list')

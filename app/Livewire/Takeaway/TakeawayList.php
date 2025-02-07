@@ -65,7 +65,7 @@ class TakeawayList extends Component
             $this->totalTakeawayCount = $takeaways->count();
             $takeaways  = $takeaways->paginate(5);
         } else {
-            dd ('Whoops');
+            // Todo
         }
 
         $this->todayTakeawayCount = Takeaway::whereDate('created_at', date('Y-m-d'))->count();

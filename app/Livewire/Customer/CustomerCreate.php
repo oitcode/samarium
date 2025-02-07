@@ -50,7 +50,6 @@ class CustomerCreate extends Component
             $this->dispatch('customerCreated');
         } catch (\Exception $e) {
             DB::rollback();
-            dd ($e);
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
     }

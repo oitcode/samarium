@@ -52,7 +52,6 @@ class CustomerPaymentCreate extends Component
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
-            dd ($e);
             session()->flash('errorDbTransaction', 'Some error in DB transaction.');
         }
 

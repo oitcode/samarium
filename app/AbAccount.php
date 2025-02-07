@@ -93,7 +93,7 @@ class AbAccount extends Model
             } else if ($ledgerEntry->type == 'credit') {
                 $balance -= $ledgerEntry->amount;
             } else {
-                dd('Whoops');
+                // Todo
             }
         }
 
@@ -107,7 +107,7 @@ class AbAccount extends Model
         } else if ($this->getLedgerBalance() < 0) {
             return false;
         } else {
-            dd('Whoops');
+            // Todo
         }
     }
 
@@ -118,7 +118,7 @@ class AbAccount extends Model
         } else if ($this->getLedgerBalance() < 0) {
             return true;
         } else {
-            dd('Whoops');
+            // Todo
         }
     }
 

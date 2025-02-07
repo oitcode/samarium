@@ -108,7 +108,7 @@ class Purchase extends Model
             } else if (strtolower($purchaseAddition->purchaseAdditionHeading->effect) == 'minus') {
                 $total -= $purchaseAddition->amount;
             } else {
-              die ('Whoops!');
+              // Todo
             }
         }
 

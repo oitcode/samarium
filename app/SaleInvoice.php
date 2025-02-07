@@ -128,7 +128,7 @@ class SaleInvoice extends Model
             } else if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'minus') {
                 $total -= $saleInvoiceAddition->amount;
             } else {
-              die ('Whoops!');
+              // Todo
             }
         }
 
@@ -187,7 +187,7 @@ class SaleInvoice extends Model
             } else if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'minus') {
                 $total -= $saleInvoiceAddition->amount;
             } else {
-                dd('Sale Invoice Additions Configuration gone wrong! Contact your service provider.');
+                // Todo
             }
         }
 
@@ -208,7 +208,7 @@ class SaleInvoice extends Model
             } else if (strtolower($saleInvoiceAddition->saleInvoiceAdditionHeading->effect) == 'minus') {
                 $total -= $saleInvoiceAddition->amount;
             } else {
-                dd('Sale Invoice Additions Configuration gone wrong! Contact your service provider.');
+                // Todo
             }
         }
 
