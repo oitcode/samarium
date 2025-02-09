@@ -8,6 +8,8 @@ use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * Test that login page is available.
      *
