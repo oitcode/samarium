@@ -1,42 +1,37 @@
 <div>
 
-  {{--
-  |
-  | Toolbar.
-  |
-  --}}
-
-  <x-toolbar-component>
-    <x-slot name="toolbarInfo">
-      Expense
-      <i class="fas fa-angle-right mx-2"></i>
-      {{ $expense->expense_id }}
-    </x-slot>
-    <x-slot name="toolbarButtons">
-      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
-        <i class="fas fa-refresh"></i>
-      </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="">
-        <i class="fas fa-envelope"></i>
-        Email
-      </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="">
-        <i class="fas fa-print"></i>
-        Print
-      </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitExpenseDisplayMode')">
-        <i class="fas fa-times"></i>
-        Close
-      </x-toolbar-button-component>
-    </x-slot>
-  </x-toolbar-component>
-
   @if ($expense->creation_status == 'created')
-    @livewire ('core.core-expense-display', ['expense' => $expense, 'display_toolbar' => false,])
+    @livewire ('core.core-expense-display', ['expense' => $expense, 'exitDispatchEvent' => 'exitCreateMode',])
   @else
-    {{-- Top info --}}
-    <div class="row">
-      <div class="col-md-8">
+    <x-transaction-create-component>
+      <x-slot name="topToolbar">
+        <x-toolbar-component>
+          <x-slot name="toolbarInfo">
+            Expense
+            <i class="fas fa-angle-right mx-2"></i>
+            {{ $expense->expense_id }}
+          </x-slot>
+          <x-slot name="toolbarButtons">
+            <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+              <i class="fas fa-refresh"></i>
+            </x-toolbar-button-component>
+            <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="">
+              <i class="fas fa-envelope"></i>
+              Email
+            </x-toolbar-button-component>
+            <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="">
+              <i class="fas fa-print"></i>
+              Print
+            </x-toolbar-button-component>
+            <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitExpenseDisplayMode')">
+              <i class="fas fa-times"></i>
+              Close
+            </x-toolbar-button-component>
+          </x-slot>
+        </x-toolbar-component>
+      </x-slot>
+
+      <x-slot name="transactionMainInfo">
         <x-transaction-main-info-component>
           <x-slot name="transactionIdName">
             Expense ID
@@ -79,7 +74,6 @@
               <div class="d-flex">
                 <select class="w-75" wire:model="vendor_id">
                   <option>---</option>
-
                   @foreach ($vendors as $vendor)
                     <option value="{{ $vendor->vendor_id }}">
                       {{ $vendor->name }}
@@ -100,67 +94,60 @@
           </x-slot>
           <x-slot name="transactionPaymentStatusValue">
             @if ( $expense->payment_status == 'paid')
-            <span class="badge badge-pill badge-success">
-            Paid
-            </span>
+              <span class="badge badge-pill badge-success">
+                Paid
+              </span>
             @elseif ( $expense->payment_status == 'partially_paid')
-            <span class="badge badge-pill badge-warning">
-            Partial
-            </span>
+              <span class="badge badge-pill badge-warning">
+                Partial
+              </span>
             @elseif ( $expense->payment_status == 'pending')
-            <span class="badge badge-pill badge-danger">
-            Pending
-            </span>
+              <span class="badge badge-pill badge-danger">
+                Pending
+              </span>
             @else
-            <span class="badge badge-pill badge-secondary">
-              {{ $expense->payment_status }}
-            </span>
+              <span class="badge badge-pill badge-secondary">
+                {{ $expense->payment_status }}
+              </span>
             @endif
           </x-slot>
         </x-transaction-main-info-component>
+      </x-slot>
 
-        @if ($expense->creation_status != 'created')
-          @include ('partials.dashboard.expense-create-add-item')
-        @endif
+      <x-slot name="transactionAddItem">
+        @include ('partials.dashboard.expense-create-add-item')
+      </x-slot>
+
+      <x-slot name="transactionItemList">
         @include ('partials.dashboard.expense-create-main')
-      </div>
+      </x-slot>
 
-      @if (! $modes['paid'])
-      <div class="col-md-4">
-        <div class="border">
+      <x-slot name="transactionTotalBreakdown">
+      </x-slot>
+
+      <x-slot name="transactionPayment">
+        @if (! $modes['paid'])
           @include ('partials.dashboard.expense-create-make-payment')
           <div>
             <div class="p-0 m-0">
               @if (! $modes['paid'])
-                <button
-                    onclick="this.disabled=true;"
-                    class="btn btn-success w-100 py-3 o-heading text-white"
-                    wire:click="finishCreation">
+                <button onclick="this.disabled=true;" class="btn btn-success w-100 py-3 o-heading text-white" wire:click="finishCreation">
                   <i class="fas fa-check-circle mr-3"></i>
                   Confirm
                 </button>
               @else
-                <button
-                    onclick="this.disabled=true;"
-                    class="btn btn-lg btn-success"
-                    wire:click="finishPayment"
-                    >
+                <button onclick="this.disabled=true;" class="btn btn-lg btn-success" wire:click="finishPayment">
                   FINISH
                 </button>
-                <button
-                    onclick="this.disabled=true;"
-                    class="btn btn-lg"
-                    wire:click="finishPayment"
-                    style="background-color: orange">
+                <button onclick="this.disabled=true;" class="btn btn-lg" wire:click="finishPayment" style="background-color: orange">
                   PRINT
                 </button>
               @endif
             </div>
           </div>
-        </div>
-      </div>
-      @endif
-    </div>
+        @endif
+      </x-slot>
+    </x-transaction-create-component>
   @endif
 
 </div>

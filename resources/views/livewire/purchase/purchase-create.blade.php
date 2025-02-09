@@ -1,42 +1,37 @@
 <div>
 
-  {{--
-  |
-  | Toolbar.
-  |
-  --}}
-
-  <x-toolbar-component>
-    <x-slot name="toolbarInfo">
-      Purchase
-      <i class="fas fa-angle-right mx-2"></i>
-      {{ $purchase->purchase_id }}
-    </x-slot>
-    <x-slot name="toolbarButtons">
-      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
-        <i class="fas fa-refresh"></i>
-      </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="">
-        <i class="fas fa-envelope"></i>
-        Email
-      </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="">
-        <i class="fas fa-print"></i>
-        Print
-      </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitPurchaseDisplayMode')">
-        <i class="fas fa-times"></i>
-        Close
-      </x-toolbar-button-component>
-    </x-slot>
-  </x-toolbar-component>
-
   @if ($purchase->creation_status == 'created')
-    @livewire ('core.core-purchase-display', ['purchase' => $purchase, 'display_toolbar' => false,])
+    @livewire ('core.core-purchase-display', ['purchase' => $purchase, 'exitDispatchEvent' => 'exitPurchaseCreate',])
   @else
-    <div class="row">
-      <div class="col-md-8">
-        {{-- Top info --}}
+    <x-transaction-create-component>
+      <x-slot name="topToolbar">
+        <x-toolbar-component>
+          <x-slot name="toolbarInfo">
+            Purchase
+            <i class="fas fa-angle-right mx-2"></i>
+            {{ $purchase->purchase_id }}
+          </x-slot>
+          <x-slot name="toolbarButtons">
+            <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+              <i class="fas fa-refresh"></i>
+            </x-toolbar-button-component>
+            <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="">
+              <i class="fas fa-envelope"></i>
+              Email
+            </x-toolbar-button-component>
+            <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="">
+              <i class="fas fa-print"></i>
+              Print
+            </x-toolbar-button-component>
+            <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitPurchaseDisplayMode')">
+              <i class="fas fa-times"></i>
+              Close
+            </x-toolbar-button-component>
+          </x-slot>
+        </x-toolbar-component>
+      </x-slot>
+
+      <x-slot name="transactionMainInfo">
         <x-transaction-main-info-component>
           <x-slot name="transactionIdName">
             Purchase ID
@@ -79,7 +74,6 @@
                 <div class="d-flex">
                   <select class="custom-control w-75" wire:model="vendor_id">
                     <option>---</option>
-
                     @foreach ($vendors as $vendor)
                       <option value="{{ $vendor->vendor_id }}">
                         {{ $vendor->name }}
@@ -100,31 +94,31 @@
           </x-slot>
           <x-slot name="transactionPaymentStatusValue">
             @if ( $purchase->payment_status == 'paid')
-            <span class="badge badge-pill badge-success">
-            Paid
-            </span>
+              <span class="badge badge-pill badge-success">
+                Paid
+              </span>
             @elseif ( $purchase->payment_status == 'partially_paid')
-            <span class="badge badge-pill badge-warning">
-            Partial
-            </span>
+              <span class="badge badge-pill badge-warning">
+                Partial
+              </span>
             @elseif ( $purchase->payment_status == 'pending')
-            <span class="badge badge-pill badge-danger">
-            Pending
-            </span>
+              <span class="badge badge-pill badge-danger">
+                Pending
+              </span>
             @else
-            <span class="badge badge-pill badge-secondary">
-              {{ $purchase->payment_status }}
-            </span>
+              <span class="badge badge-pill badge-secondary">
+                {{ $purchase->payment_status }}
+              </span>
             @endif
           </x-slot>
         </x-transaction-main-info-component>
+      </x-slot>
 
-        @if (! $modes['paid'])
-          @if (true || $modes['addItem'])
-            @livewire ('purchase.purchase-add-item', ['purchase' => $purchase,])
-          @endif
-        @endif
+      <x-slot name="transactionAddItem">
+        @livewire ('purchase.purchase-add-item', ['purchase' => $purchase,])
+      </x-slot>
 
+      <x-slot name="transactionItemList">
         <div class="card mb-0">
           <div class="card-body p-0">
             @if (count($purchase->purchaseItems) > 0)
@@ -184,32 +178,6 @@
                         @php echo number_format( $purchase->getTotalAmountRaw(), 2 ); @endphp
                       </td>
                     </tr>
-                    @if ($modes['paid'])
-                      @foreach ($purchase->purchaseAdditions as $purchaseAddition)
-                        <tr>
-                          <td colspan="6" class="font-weight-bold text-right">
-                            <strong>
-                            {{ $purchaseAddition->purchaseAdditionHeading->name }}
-                            </strong>
-                          </td>
-                          <td>
-                            {{ config('app.transaction_currency_symbol') }}
-                            @php echo number_format( $purchaseAddition->amount, 2 ); @endphp
-                          </td>
-                        </tr>
-                      @endforeach
-                      <tr>
-                        <td colspan="6" class="font-weight-bold text-right">
-                          <strong>
-                          Total
-                          </strong>
-                        </td>
-                        <td> 
-                          {{ config('app.transaction_currency_symbol') }}
-                          @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
-                        </td>
-                      </tr>
-                    @endif
                   </tfoot>
                 </table>
               </div>
@@ -269,23 +237,25 @@
             @endif
           </div>
         </div>
-      </div>
-    
-      <div class="col-md-4">
-        <div>
-          @if (! $modes['paid'])
-            @livewire ('purchase.purchase-make-payment', ['purchase' => $purchase,])
-          @endif
-        </div>
-      </div>
-    </div>
+      </x-slot>
 
-    {{-- Purchase item delete confirm --}}
-    @if ($modes['deletingPurchaseItemMode'])
-      @livewire ('purchase-create-confirm-purchase-item-delete', [
-          'purchaseItem' => $deletingPurchaseItem,
-      ])
-    @endif
+      <x-slot name="transactionTotalBreakdown">
+        {{-- Todo --}}
+      </x-slot>
+
+      <x-slot name="transactionPayment">
+        @if (! $modes['paid'])
+          @livewire ('purchase.purchase-make-payment', ['purchase' => $purchase,])
+        @endif
+      </x-slot>
+
+      {{-- Purchase item delete confirm --}}
+      @if ($modes['deletingPurchaseItemMode'])
+        @livewire ('purchase-create-confirm-purchase-item-delete', [
+            'purchaseItem' => $deletingPurchaseItem,
+        ])
+      @endif
+    </x-transaction-create-component>
   @endif
 
 </div>

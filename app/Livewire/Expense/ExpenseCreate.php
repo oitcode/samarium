@@ -191,6 +191,8 @@ class ExpenseCreate extends Component
         $this->taxable_amount = $this->sub_total;
 
         $this->calculateGrandTotal();
+
+        $this->expense = $this->expense->fresh();
     }
 
     public function calculateGrandTotal()
