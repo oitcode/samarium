@@ -124,7 +124,7 @@
         </button>
       </div>
     </div>
-    @if ($modes['updateProductDescriptionMode'])
+    @if ($modes['updateProductImageMode'])
       @livewire ('product.dashboard.product-edit-image', ['product' => $product,])
     @else
       <div class="my-4">

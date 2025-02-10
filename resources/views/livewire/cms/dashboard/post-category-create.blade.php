@@ -1,10 +1,6 @@
-<div class="card">
+<div>
 
-  <div class="card-body">
-    <h3 class="h5 text-secondary">
-        Create new post category
-    </h3>
-  
+  <x-create-box-component title="Create post category">
     <div class="form-group">
       <label for="">Name</label>
       <input type="text"
@@ -18,6 +14,6 @@
       @include ('partials.button-cancel', ['clickEmitEventName' => 'createPostCategoryCanceled',])
       @include ('partials.dashboard.spinner-button')
     </div>
-  </div>
+  </x-create-box-component>
 
 </div>

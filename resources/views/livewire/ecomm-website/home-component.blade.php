@@ -57,7 +57,7 @@
               <div class="row py-3" style="margin: auto;">
                 @foreach (\App\Product::where('featured_product', 'yes')->get() as $product)
                     <div class="col-md-4">
-                      <a href="{{ route('website-product-view', [$product->product_id, str_replace(" ", "-", $product->name)]) }}"
+                      <a href="{{ route('website-product-view', [$product->product_id, str_replace(' ', '-', $product->name)]) }}"
                           class="text-decoration-none">
                         <div class="card h-100 border-0">
                           <div class="d-flex flex-column justify-content-between h-100">

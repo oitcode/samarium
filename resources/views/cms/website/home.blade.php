@@ -36,6 +36,29 @@
 @if ($company)
   @section ('content')
 
+
+
+
+    <div class="container">
+      @foreach (\App\Product::all() as $product)
+        @livewire ('product.website.product-listing-display', ['product' => $product,], key(rand()),)
+      @endforeach
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {{--
     |--------------------------------------------------------------------------
     | Carousal component.

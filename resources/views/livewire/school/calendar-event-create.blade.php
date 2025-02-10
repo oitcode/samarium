@@ -3,7 +3,7 @@
   <x-create-box-component title="Create event">
     {{-- Title --}}
     <div class="form-group mb-4">
-      <label class="h5 font-weight-bold">Title *</label>
+      <label class="h6 o-heading">Title *</label>
       <input type="text"
           class="form-control bg-light rounded-lg"
           wire:model="title">
@@ -11,24 +11,33 @@
     </div>
 
     {{-- Single/Multi day setting --}}
-    <div class="form-group mb-4">
-      <label class="h5 font-weight-bold">Single or Multiple day *</label>
-      <div>
+    <div class="mb-3">
+      <div class="d-flex">
+        <div class="mr-4">
+          <label class="h6 o-heading">Single or Multiple day *</label>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div>
+          @if ($modes['multiDay'])
+            <div>
+              Multiple days
+            </div>
+          @else
+            <div>
+              Single day
+            </div>
+          @endif
+        </div>
         @if ($modes['multiDay'])
           <div>
-            Multiple days
-          </div>
-          <div>
-            <button class="btn text-primary pl-0" wire:click="exitMode('multiDay')">
+            <button class="btn btn-primary" wire:click="exitMode('multiDay')">
               Make Single day
             </button>
           </div>
         @else
           <div>
-            Single day
-          </div>
-          <div>
-            <button class="btn text-primary pl-0" wire:click="enterMode('multiDay')">
+            <button class="btn btn-primary" wire:click="enterMode('multiDay')">
               Make Multiple day
             </button>
           </div>
@@ -39,7 +48,7 @@
     {{-- Date part --}}
     @if (true || ! $eventCreationDay)
     <div>
-      <label class="h5 font-weight-bold">Date *</label>
+      <label class="h6 o-heading">Date *</label>
     </div>
     @endif
 
@@ -47,7 +56,7 @@
       <div class="mr-5">
         @if ($modes['multiDay'])
           <div class="d-flex mb-2">
-            <span class="mr-2 font-weight-bold">Start Date:</span>
+            <span class="mr-2 o-heading">Start Date:</span>
             @if ($start_date)
               {{ $selectedStartDay }}
             @else
@@ -72,14 +81,16 @@
           </div>
         @endif
         @if (true || ! $eventCreationDay)
-          @livewire ('school.calendar-date-picker-nepali', ['emitDate' => 'start_date',], key(rand()))
+          <div class="p-2 border" wire:key="{{ rand() }}" wire:ignore>
+            @livewire ('school.calendar-date-picker-nepali', ['emitDate' => 'start_date',], key(rand()))
+          </div>
         @endif
       </div>
 
       @if ($modes['multiDay'])
         <div>
           <div class="d-flex mb-2">
-            <span class="mr-2 font-weight-bold">End Date: </span>
+            <span class="mr-2 o-heading">End Date: </span>
               @if ($end_date)
                 {{ $selectedEndDay }}
               @else
@@ -89,14 +100,16 @@
                 </div>
               @endif
           </div>
-          @livewire ('school.calendar-date-picker-nepali', ['emitDate' => 'end_date',], key(rand()))
+          <div class="p-2 border">
+            @livewire ('school.calendar-date-picker-nepali', ['emitDate' => 'end_date',], key(rand()))
+          </div>
         </div>
       @endif
     </div>
 
     {{-- Is holiday --}}
     <div class="form-group mb-4">
-      <label class="h5 font-weight-bold">Is holiday *</label>
+      <label class="h6 o-heading">Is holiday *</label>
       <select class="form-control" wire:model="is_holiday">
         <option>---</option>
         <option value="no">No</option>
@@ -107,25 +120,34 @@
 
     @if ($calendarGroups != null &&  count($calendarGroups) > 0)
       {{-- Calendar group decision --}}
-      <div class="form-group mb-4">
-        <label class="h5 font-weight-bold">Applicable to *</label>
-        <div>
+      <div class="mb-3">
+        <div class="d-flex">
+          <div class="mr-4">
+            <label class="h6 o-heading">Applicable to *</label>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            @if ($modes['allCalendarGroups'])
+              <div>
+                All calendar groups
+              </div>
+            @else
+              <div>
+                Single calendar group
+              </div>
+            @endif
+          </div>
           @if ($modes['allCalendarGroups'])
             <div>
-              All calendar groups
-            </div>
-            <div>
-              <button class="btn text-primary pl-0" wire:click="exitMode('allCalendarGroups')">
+              <button class="btn btn-primary" wire:click="exitMode('allCalendarGroups')">
                 Make for a single group
               </button>
             </div>
           @else
             <div>
-              Single calendar group
-            </div>
-            <div>
-              <button class="btn text-primary pl-0" wire:click="enterMode('allCalendarGroups')">
-                Make for all group
+              <button class="btn btn-primary" wire:click="enterMode('allCalendarGroups')">
+                Make for all groups
               </button>
             </div>
           @endif
@@ -135,7 +157,7 @@
       @if (! $modes['allCalendarGroups'])
         {{-- Calendar group --}}
         <div class="form-group mb-4">
-          <label class="h5 font-weight-bold">Calendar group *</label>
+          <label class="h6 o-heading">Calendar group *</label>
           <select class="form-control" wire:model="calendar_group_id">
             <option>---</option>
             @foreach ($calendarGroups as $calendarGroup)

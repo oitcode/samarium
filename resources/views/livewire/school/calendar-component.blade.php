@@ -19,16 +19,6 @@
             'btnCheckMode' => 'eventCreate',
         ])
       @endif
-
-      @if ($modes['displayCalendarEventMode'] || $modes['eventCreate'])
-        @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "clearModes",
-            'btnIconFaClass' => 'fas fa-times',
-            'btnText' => '',
-            'btnCheckMode' => '',
-            'btnBsColor' =>'bg-danger text-white',
-        ])
-      @endif
     </x-slot>
 
     <div>

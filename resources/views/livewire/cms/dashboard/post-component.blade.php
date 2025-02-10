@@ -13,6 +13,13 @@
 
       @if ($modes['listPostMode'] || !array_search(true, $modes))
       @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('createPostCategoryMode')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'Create post category',
+          'btnCheckMode' => 'createPostCategoryMode',
+          'btnBsColor' => 'btn-light',
+      ])
+      @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "enterMode('createPostMode')",
           'btnIconFaClass' => 'fas fa-plus-circle',
           'btnText' => 'Create',
