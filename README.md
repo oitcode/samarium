@@ -39,6 +39,9 @@ composer
 npm
 ```
 
+Note: Using nodejs version >= 17 may result in error. For now please use nodejs version 16 or lower. Use compatible npm
+version as well. Need permanent fix.
+
 ### Step by step instructions
 
 Perform below steps to get the application running.
