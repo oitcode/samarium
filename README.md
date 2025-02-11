@@ -34,6 +34,7 @@ Below applications must be installed in the system.
 ```
 php >= 8.2
 mysql >= 8.0
+node <= 16
 composer
 npm
 ```
