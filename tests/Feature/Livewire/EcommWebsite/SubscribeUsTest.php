@@ -87,7 +87,7 @@ class SubscribeUsTest extends TestCase
         Event::assertDispatched(NewsletterSubscriptionCreated::class);
     }
 
-    public function test_event_is__not_dispatched_when_subscription_fails(): void
+    public function test_event_is_not_dispatched_when_subscription_fails(): void
     {
         Event::fake();
 
