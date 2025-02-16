@@ -2,6 +2,7 @@
 
 namespace App\Livewire\EcommWebsite;
 
+use Illuminate\View\View;
 use Livewire\Component;
 use App\NewsletterSubscription;
 
@@ -9,16 +10,16 @@ use App\Events\NewsletterSubscriptionCreated;
 
 class SubscribeUs extends Component
 {
-    public $email;
+    public string $email;
 
-    public $introMessage = 'Please enter your email address to get regular updates on our products. ';
+    public string $introMessage = 'Please enter your email address to get regular updates on our products. ';
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.ecomm-website.subscribe-us');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'email' => 'required|email|unique:newsletter_subscription',
@@ -35,7 +36,7 @@ class SubscribeUs extends Component
         session()->flash('subscriptionMessage', 'Congratulations! Your subscription is added.');
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->email = '';
     }

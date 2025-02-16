@@ -5,16 +5,13 @@ namespace Tests\Feature\Livewire\EcommWebsite;
 use App\Events\NewsletterSubscriptionCreated;
 use App\Livewire\EcommWebsite\SubscribeUs;
 use App\NewsletterSubscription;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\User;
 use Illuminate\Support\Facades\Event;
 use Livewire\Livewire;
 use Tests\TestCase;
 
 class SubscribeUsTest extends TestCase
 {
-    Use RefreshDatabase;
-
     public function test_renders_sucessfully(): void
     {
         Livewire::test(SubscribeUs::class)
@@ -55,21 +52,25 @@ class SubscribeUsTest extends TestCase
 
     public function test_subscription_succeeds_when_email_is_provided(): void
     {
+        $user = User::factory()->create();
+
         Livewire::test(SubscribeUs::class)
-            ->set('email', 'johndoe@example.com')
+            ->set('email', $user->email)
             ->call('store')
             ->assertHasNoErrors()
             ->assertSee('Congratulations! Your subscription is added.');
 
         $this->assertDatabaseHas('newsletter_subscription', [
-            'email' => 'johndoe@example.com',
+            'email' => $user->email,
         ]);
     }
 
     public function test_fields_are_reset_after_subscribing_to_the_newsletter(): void
     {
+        $user = User::factory()->create();
+
         Livewire::test(SubscribeUs::class)
-            ->set('email', 'johndoe@example.com')
+            ->set('email', $user->email)
             ->call('store')
             ->assertHasNoErrors()
             ->assertSet('email', '');
@@ -77,10 +78,12 @@ class SubscribeUsTest extends TestCase
 
     public function test_event_is_dispatched_when_subscription_succeeds(): void
     {
+        $user = User::factory()->create();
+
         Event::fake();
 
         Livewire::test(SubscribeUs::class)
-            ->set('email', 'johndoe@example.com')
+            ->set('email', $user->email)
             ->call('store')
             ->assertHasNoErrors();
 
