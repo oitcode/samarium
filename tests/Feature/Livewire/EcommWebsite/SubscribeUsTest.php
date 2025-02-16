@@ -4,9 +4,11 @@ namespace Tests\Feature\Livewire\EcommWebsite;
 
 use App\Events\NewsletterSubscriptionCreated;
 use App\Livewire\EcommWebsite\SubscribeUs;
+use App\Mail\NewsletterSubscriptionCreatedNotificationEmail;
 use App\NewsletterSubscription;
 use App\User;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -99,5 +101,19 @@ class SubscribeUsTest extends TestCase
             ->assertHasErrors(['email']);
 
         Event::assertNotDispatched(NewsletterSubscriptionCreated::class);
+    }
+
+    public function test_email_is_sent_when_subscription_succeeds(): void
+    {
+        $user = User::factory()->create();
+
+        Mail::fake();
+
+        Livewire::test(SubscribeUs::class)
+            ->set('email', $user->email)
+            ->call('store')
+            ->assertHasNoErrors();
+
+        Mail::assertSent(NewsletterSubscriptionCreatedNotificationEmail::class);
     }
 }
