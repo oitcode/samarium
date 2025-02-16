@@ -18,6 +18,7 @@ class NewsletterSubscriptionFactory extends Factory
     {
         return [
             'email' => fake()->email(),
+            'status' => 'active'
         ];
     }
 }
