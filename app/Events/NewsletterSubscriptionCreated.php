@@ -16,7 +16,7 @@ class NewsletterSubscriptionCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $newsletterSubscription;
+    public NewsletterSubscription $newsletterSubscription;
 
     /**
      * Create a new event instance.
@@ -24,17 +24,5 @@ class NewsletterSubscriptionCreated
     public function __construct($newsletterSubscription)
     {
         $this->newsletterSubscription = $newsletterSubscription;
-    }
-
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
-     */
-    public function broadcastOn(): array
-    {
-        return [
-            new PrivateChannel('channel-name'),
-        ];
     }
 }
