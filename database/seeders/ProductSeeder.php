@@ -39,20 +39,18 @@ class ProductSeeder extends Seeder
 
     public function createProductCategory($name)
     {
-        $productCategoryId = DB::table('product_category')->insertGetId([
+        return DB::table('product_category')->insertGetId([
             'name' => $name,
             'image_path' => 'products/vLsdEadcSoTXEzMjLOw5Bp0dWpN8lygkqGadYQj2.png',
 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-
-        return $productCategoryId;
     }
 
     public function createProductsForACategory($productCategoryId)
     {
-        $faker = Faker\Factory::create();
+        $faker = \Faker\Factory::create();
 
         for ($i=0; $i<6; $i++) {
             DB::table('product')->insert([

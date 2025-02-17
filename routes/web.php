@@ -89,13 +89,13 @@ if (config('app.site_type') === 'erp') {
     Route::get('/', 'WebsiteController@cmsHome') ->name('website-home');
 }
 
-if (Schema::hasTable('webpage')) {
+/*if (Schema::hasTable('webpage')) {
     $webpages = Webpage::where('visibility', 'public')->get();
 
     foreach ($webpages as $webpage) {
         Route::get($webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-' . $webpage->permalink);
     }
-}
+}*/
 
 Route::get('/user/profile', 'WebsiteController@userProfile')->middleware(['auth', 'verified',])  ->name('website-user-profile');
 Route::get('/product/category/{id}/{name}', 'WebsiteController@productCategoryProductList')      ->name('website-product-category-product-list');

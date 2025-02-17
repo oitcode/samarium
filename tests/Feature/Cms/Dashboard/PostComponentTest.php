@@ -12,6 +12,8 @@ use App\User;
 
 class PostComponentTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * Test that dashboard cms post component is accessible.
      *
@@ -19,6 +21,8 @@ class PostComponentTest extends TestCase
      */
     public function testPostComponentUrlAccessible()
     {
+        User::factory()->create([]);
+
         $response = $this->actingAs(User::where('role', 'admin')->first())->get('/cms/post');
 
         $response->assertStatus(200);
@@ -31,6 +35,8 @@ class PostComponentTest extends TestCase
      */
     public function testPostUrlHasLivewireComponent()
     {
+        User::factory()->create([]);
+
         $response = $this->actingAs(User::where('role', 'admin')->first())
             ->get('/cms/post')
             ->assertSeeLivewire(\App\Livewire\Cms\Dashboard\PostComponent::class);
@@ -62,6 +68,8 @@ class PostComponentTest extends TestCase
      */
     public function testPostComponentHasRequiredButtons()
     {
+        User::factory()->create([]);
+
         $response = $this->actingAs(User::where('role', 'admin')->first())->get('/cms/post');
 
         $response->assertSee('Create');
