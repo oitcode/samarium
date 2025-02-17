@@ -7,6 +7,7 @@ use App\Livewire\EcommWebsite\SubscribeUs;
 use App\Mail\NewsletterSubscriptionCreatedNotificationEmail;
 use App\NewsletterSubscription;
 use App\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Livewire;
@@ -14,6 +15,8 @@ use Tests\TestCase;
 
 class SubscribeUsTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_renders_sucessfully(): void
     {
         Livewire::test(SubscribeUs::class)
