@@ -4,8 +4,6 @@ namespace Tests\Feature\Livewire\User;
 
 use App\Livewire\User\UserCreate;
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
