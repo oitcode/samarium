@@ -1,4 +1,4 @@
-@extends (config('app.site_type') === 'erp' ? 'ecomm-website.base' : 'cms.website.base' )
+@extends ('cms.website.base')
 
 @section ('content')
   <div class="container p-3">

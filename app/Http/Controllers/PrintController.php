@@ -33,7 +33,7 @@ class PrintController extends Controller
     {
         $saleInvoice = SaleInvoice::find($saleInvoiceId);
 
-        return view('print.sale-invoice')
+        return view('dashboard.print.sale-invoice')
             ->with('saleInvoice', $saleInvoice);
     }
 
@@ -41,7 +41,7 @@ class PrintController extends Controller
     {
         $saleQuotation = SaleQuotation::find($saleQuotationId);
 
-        return view('print.sale-quotation')
+        return view('dashboard.print.sale-quotation')
             ->with('saleQuotation', $saleQuotation);
     }
 }

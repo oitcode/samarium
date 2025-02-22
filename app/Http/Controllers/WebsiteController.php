@@ -194,7 +194,7 @@ class WebsiteController extends Controller
         $company = Company::first();
         $seatTable = SeatTable::find($id);
 
-        return view('cafe-sale.seat-table-view')
+        return view('website.cafe-sale.seat-table-view')
             ->with('seatTable', $seatTable)
             ->with('company', $company)
             ->with('productCategories', $productCategories)
@@ -216,7 +216,7 @@ class WebsiteController extends Controller
         $company = Company::first();
         $vacancy = Vacancy::find($id);
 
-        return view('vacancy.website.vacancy-view')
+        return view('website.vacancy.vacancy-view')
             ->with('vacancy', $vacancy)
             ->with('company', $company);
     }
@@ -225,7 +225,7 @@ class WebsiteController extends Controller
     {
         $company = Company::first();
 
-        return view('user.website.signup')
+        return view('website.user.signup')
             ->with('company', $company);
     }
 
@@ -233,7 +233,7 @@ class WebsiteController extends Controller
     {
         $company = Company::first();
 
-        return view('user.website.profile')
+        return view('website.user.profile')
             ->with('company', $company);
     }
 
@@ -241,7 +241,7 @@ class WebsiteController extends Controller
     {
         $company = Company::first();
 
-        return view('testimonial.website.testimonial-create')
+        return view('website.testimonial.testimonial-create')
             ->with('company', $company);
     }
 
