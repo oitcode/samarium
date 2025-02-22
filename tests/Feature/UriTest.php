@@ -8,6 +8,8 @@ use Tests\TestCase;
 
 class UriTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function testUrisAreAvailable()
     {
         $response = $this->get('/');
