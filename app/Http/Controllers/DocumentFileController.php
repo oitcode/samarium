@@ -25,7 +25,7 @@ class DocumentFileController extends Controller
      */
     public function index()
     {
-        return view('document-file.dashboard.document-file');
+        return view('dashboard.document-file');
     }
 
     public function pdfDisplayFile($documentFileId)

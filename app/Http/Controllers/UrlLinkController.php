@@ -23,6 +23,6 @@ class UrlLinkController extends Controller
      */
     public function index()
     {
-        return view('url-link.dashboard.url-link');
+        return view('dashboard.url-link');
     }
 }

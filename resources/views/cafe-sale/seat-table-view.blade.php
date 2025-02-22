@@ -1,7 +1,7 @@
-@extends ('ecomm-website.base')
+@extends ('cms.website.base')
 
 @section ('pageTitleTag')
-  <title>{{ $seatTable->name }} {{ env ('CMP_NAME', 'Foobiz') }}</title>
+  <title>{{ $seatTable->name }} {{ env ('CMP_NAME', '') }}</title>
 @endsection
 
 @section ('googleAnalyticsTag')
@@ -12,11 +12,11 @@
 @endsection
 
 @section ('fbOgMetaTags')
-<meta property="og:url"                content="{{ Request::url() }}" />
-<meta property="og:type"               content="article" />
-<meta property="og:title"              content="{{ $seatTable->name }}" />
-<meta property="og:description"        content="{{ $seatTable->name }}" />
-<meta property="og:image"              content="{{ asset('storage/' . $company->logo_image_path) }}" />
+  <meta property="og:url"                content="{{ Request::url() }}" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="{{ $seatTable->name }}" />
+  <meta property="og:description"        content="{{ $seatTable->name }}" />
+  <meta property="og:image"              content="{{ asset('storage/' . $company->logo_image_path) }}" />
 @endsection
 
 @section ('content')

@@ -23,6 +23,6 @@ class EducInstitutionController extends Controller
      */
     public function index()
     {
-        return view('educ.dashboard.institution');
+        return view('dashboard.institution');
     }
 }

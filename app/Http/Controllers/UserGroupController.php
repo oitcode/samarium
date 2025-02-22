@@ -23,6 +23,6 @@ class UserGroupController extends Controller
      */
     public function index()
     {
-        return view('user-group.dashboard.user-group');
+        return view('dashboard.user-group');
     }
 }

@@ -23,6 +23,6 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        return view('appointment.dashboard.appointment');
+        return view('dashboard.appointment');
     }
 }
