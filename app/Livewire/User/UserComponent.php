@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User;
 
+use Illuminate\View\View;
 use Livewire\Component;
 use App\Traits\ModesTrait;
 use App\User;
@@ -10,7 +11,7 @@ class UserComponent extends Component
 {
     use ModesTrait;
 
-    public $displayingUser;
+    public User | null $displayingUser;
 
     public $modes = [
         'createUserMode' => false,
@@ -25,28 +26,28 @@ class UserComponent extends Component
         'exitUserDisplayMode',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.user-component');
     }
 
-    public function userCreated()
+    public function userCreated(): void
     {
         $this->exitMode('createUserMode');
     }
 
-    public function exitCreateUserMode()
+    public function exitCreateUserMode(): void
     {
         $this->exitMode('createUserMode');
     }
 
-    public function displayUser(User $user)
+    public function displayUser(User $user): void
     {
         $this->displayingUser = $user;
         $this->enterMode('displayUserMode');
     }
 
-    public function exitUserDisplayMode()
+    public function exitUserDisplayMode(): void
     {
         $this->displayingUser = null;
         $this->clearModes();

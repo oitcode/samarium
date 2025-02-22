@@ -2,6 +2,8 @@
 
 namespace App\Livewire\User;
 
+use App\User;
+use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\ModesTrait;
@@ -19,12 +21,12 @@ class UserDisplay extends Component
         'addUserToGroupCompleted',
     ];
 
-    public $userWebpageCount;
-    public $userPostCount;
+    public int $userWebpageCount;
+    public int $userPostCount;
 
-    public $user;
+    public User $user;
 
-    public function render()
+    public function render(): View
     {
         $this->userWebpageCount = $this->user->webpages()->where('is_post', '!=', 'yes')->count();
         $this->userPostCount = $this->user->webpages()->where('is_post', 'yes')->count();
@@ -32,17 +34,17 @@ class UserDisplay extends Component
         return view('livewire.user.user-display');
     }
 
-    public function addUserToGroupCancelled()
+    public function addUserToGroupCancelled(): void
     {
         $this->exitMode('addUserToGroupMode');
     }
 
-    public function addUserToGroupCompleted()
+    public function addUserToGroupCompleted(): void
     {
         $this->exitMode('addUserToGroupMode');
     }
 
-    public function closeThisComponent()
+    public function closeThisComponent(): void
     {
         $this->dispatch('exitUserDisplayMode');
     }
