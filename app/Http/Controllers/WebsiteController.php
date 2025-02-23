@@ -38,7 +38,7 @@ class WebsiteController extends Controller
         $product->website_views = $product->website_views + 1;
         $product->save();
 
-        return view('ecomm-website.product-view')
+        return view('website.ecommerce.product-view')
             ->with('product', $product)
             ->with('company', $company)
             ->with('productCategories', $productCategories)
@@ -52,7 +52,7 @@ class WebsiteController extends Controller
         $company = Company::first();
         $productCategory = ProductCategory::find($id);
 
-        return view('ecomm-website.product-category-product-list')
+        return view('website.ecommerce.product-category-product-list')
             ->with('productCategory', $productCategory)
             ->with('company', $company)
             ->with('productCategories', $productCategories)
@@ -71,7 +71,7 @@ class WebsiteController extends Controller
         $company = Company::first();
         $cartItems = session('cartItems');
 
-        return view('ecomm-website.checkout')
+        return view('website.ecommerce.checkout')
             ->with('company', $company)
             ->with('productCategories', $productCategories)
             ->with('products', $products)
@@ -97,7 +97,7 @@ class WebsiteController extends Controller
         $company = Company::first();
         $cartItems = session('cartItems');
 
-        return view('cms.website.home')
+        return view('website.cms.home')
             ->with('company', $company)
             ->with('productCategories', $productCategories)
             ->with('products', $products)
@@ -110,7 +110,7 @@ class WebsiteController extends Controller
         $permalink = '/' . request()->path();
         $webpage = Webpage::where('permalink', $permalink)->first();
 
-        return view('cms.website.webpage')
+        return view('website.cms.webpage')
             ->with('company', $company)
             ->with('webpage', $webpage);
     }
@@ -206,7 +206,7 @@ class WebsiteController extends Controller
         $company = Company::first();
         $teamMember = TeamMember::find($id);
 
-        return view('cms.website.book-appointment')
+        return view('website.appointment.book-appointment')
             ->with('teamMember', $teamMember)
             ->with('company', $company);
     }

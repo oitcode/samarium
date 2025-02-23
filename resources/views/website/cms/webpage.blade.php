@@ -1,4 +1,4 @@
-@extends ('cms.website.base')
+@extends ('website.cms.base')
 
 @if (config('app.site_type') !== 'erp')
   @section ('googleAnalyticsTag')

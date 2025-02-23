@@ -1,4 +1,4 @@
-@extends (config('app.site_type') === 'erp' ? 'ecomm-website.base' : 'cms.website.base' )
+@extends ('website.cms.base')
 
 @section ('pageTitleTag')
   <title>{{ $product->name }} {{ env ('CMP_NAME', 'Foobiz') }}</title>

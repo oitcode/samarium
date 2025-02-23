@@ -1,4 +1,4 @@
-@extends ('cms.website.base')
+@extends ('website.cms.base')
 
 @section ('pageTitleTag')
   <title>{{ $seatTable->name }} {{ env ('CMP_NAME', '') }}</title>
