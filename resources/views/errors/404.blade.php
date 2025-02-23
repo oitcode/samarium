@@ -35,14 +35,13 @@
 </head>
 
 <body style="height: 100% !important;">
-
   <div class="d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center">
         <div class="mb-3 text-center">
           <div class="mb-3">
             @if (\App\Company::first())
               <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
-                  class="img-fluid-rm"
+                  class=""
                   alt="{{ \App\Company::first()->name }} logo"
                   style="height: 75px !important;">
             @else
@@ -51,7 +50,6 @@
           </div>
         </div>
 
-
         {{-- Main error message display. --}}
         <div>
           <h1 class="h1 font-weight-bold text-center">
@@ -59,16 +57,12 @@
           </h1>
         </div>
 
-
         {{-- Error message brief description. --}}
         <div class="text-muted p-3 text-center">
           Content you are looking for could not be found.
           Please go to <a href="/">home</a> page.
         </div>
-
-
     </div>
   </div>
-
 </body>
 </html>

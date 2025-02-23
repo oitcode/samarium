@@ -20,7 +20,7 @@ Newsletter subscription | Get newsletter subscription request from website visit
 Task Manager | Create and manage tasks.
 Users  | Create and manage users.
 
-![screenshot](dashboard-screenshot-1.png)
+![screenshot](screenshots/dashboard-screenshot-1.png)
 
 ## Installation
 

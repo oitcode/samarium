@@ -6,23 +6,20 @@
 |
 --}}
 
-
 <div class="d-flex justify-content-center bg-light text-dark p-3 pt-5 pt-md-3">
   <div>
-    <h1 class="bg-danger-rm">
-      <strong>OIT CMS</strong>
+    <h1>
+      <strong>Samarium ERP</strong>
     </h1>
-    <p class="text-muted-rm">
-      CMS | Ecommerce
+    <p>
+      ERP| CMS | Ecommerce
     </p>
   </div>
 </div>
 
-<div class="d-flex justify-content-center h-100 p-3-rm">
+<div class="d-flex justify-content-center h-100">
   <div class="d-flex flex-column justify-content-center h-100">
-
-    <div class="my-3-rm p-3">
-
+    <div class="p-3">
       <div class="p-3 text-center border shadow" style="background-color: #eaeaea;">
 
         {{--
@@ -44,11 +41,10 @@
         |
         --}}
         <h3 class="h5 font-weight-bold">
-          <a href="./dashboard" class="btn btn-success badge-pill-rm px-3">
+          <a href="./dashboard" class="btn btn-success px-3">
             Visit dashboard
           </a>
         </h3>
-
       </div>
 
       {{--
@@ -61,7 +57,6 @@
           {{ date('Y M d') }}
         </h3>
       </div>
-
     </div>
   </div>
 </div>
