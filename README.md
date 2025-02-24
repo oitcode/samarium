@@ -1,4 +1,6 @@
+<div align="center">
 # Samarium
+</div>
 
 <div align="center">
   <img src="screenshots/samarium-logo-1.png" alt="Samarium ERP logo">
@@ -9,6 +11,8 @@
 <div align="center">
   <img src="https://img.shields.io/badge/Version-0.9.2-blue" alt="Version">  <img src="https://img.shields.io/badge/PHP-^8.2-474A8A" alt="PHP"> <img src="https://img.shields.io/badge/Laravel-^11.0-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Livewire-^3.0-AA3B62" alt="Livewire"> <img src="https://img.shields.io/badge/Bootstrap-^4.0-AA2BE2" alt="Bootstrap"> <img src="https://img.shields.io/badge/License-MIT-7b2" alt="License">
 </div>
+
+<hr />
 
 Open source ERP built with Laravel and Livewire.
 
