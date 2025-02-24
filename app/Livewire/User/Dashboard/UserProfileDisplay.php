@@ -2,12 +2,13 @@
 
 namespace App\Livewire\User\Dashboard;
 
+use App\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
 class UserProfileDisplay extends Component
 {
-    public $user;
+    public User | null $user;
 
     public function render()
     {

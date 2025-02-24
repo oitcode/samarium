@@ -12,14 +12,14 @@ class UserList extends Component
     use WithPagination;
     use ModesTrait;
 
-    protected $paginationTheme = 'bootstrap';
+    protected string $paginationTheme = 'bootstrap';
 
     // public $users;
 
-    public $usersCount;
-    public $adminUsersCount;
+    public int $usersCount;
+    public int $adminUsersCount;
 
-    public $deletingUser;
+    public User | null $deletingUser;
 
     public $modes = [
         'delete' => false,
@@ -35,20 +35,20 @@ class UserList extends Component
             ->with('users', $users);
     }
 
-    public function deleteUser(User $user)
+    public function deleteUser(User $user): void
     {
         $this->deletingUser = $user;
 
         $this->enterMode('delete');
     }
 
-    public function deleteUserCancel()
+    public function deleteUserCancel(): void
     {
         $this->deletingUser = null;
         $this->exitMode('delete');
     }
 
-    public function confirmDeleteUser()
+    public function confirmDeleteUser(): void
     {
         // Todo: Add delete functionality later.
         //       For now we cannot delete user!
