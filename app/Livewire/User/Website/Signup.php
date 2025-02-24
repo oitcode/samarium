@@ -3,12 +3,18 @@
 namespace App\Livewire\User\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class Signup extends Component
 {
-    public function render()
+    public string | null $name;
+    public string | null $email;
+    public string | null $password;
+    public string | null $password_confirm;
+
+    public function render(): View
     {
         return view('livewire.user.website.signup');
     }
