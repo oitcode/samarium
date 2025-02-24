@@ -11,7 +11,7 @@ use Tests\TestCase;
 
 class UserDisplayTest extends TestCase
 {
-    public function test_add_user_to_group_mode_on_add_user_to_group_cancelled(): void
+    public function test_add_user_to_group_mode_false_on_add_user_to_group_cancelled(): void
     {
         $user = User::where('role', 'admin')->first();
 
@@ -21,7 +21,7 @@ class UserDisplayTest extends TestCase
             ->assertSet('modes.addUserToGroupMode', false);
     }
 
-    public function test_add_user_to_group_mode_on_add_user_to_group_completed(): void
+    public function test_add_user_to_group_mode_false_on_add_user_to_group_completed(): void
     {
         $user = User::where('role', 'admin')->first();
 

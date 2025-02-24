@@ -21,7 +21,7 @@ class UserComponentTest extends TestCase
             ->assertStatus(200);
     }
 
-    public function test_exit_create_user_mode_on_user_created()
+    public function test_exit_create_user_mode_on_user_created(): void
     {
         Livewire::test(UserComponent::class)
             ->set('modes.createUserMode', true)
@@ -29,7 +29,7 @@ class UserComponentTest extends TestCase
             ->assertSet('modes.createUserMode', false);
     }
 
-    public function test_exit_create_user_mode_on_exit_create_user_mode()
+    public function test_exit_create_user_mode_on_exit_create_user_mode(): void
     {
         Livewire::test(UserComponent::class)
             ->set('modes.createUserMode', true)
@@ -37,7 +37,7 @@ class UserComponentTest extends TestCase
             ->assertSet('modes.createUserMode', false);
     }
 
-    public function test_display_user_on_display_user()
+    public function test_display_user_on_enter_display_user_mode(): void
     {
         $user = User::where('role', 'admin')->first();
 
@@ -47,7 +47,7 @@ class UserComponentTest extends TestCase
             ->assertSet('modes.displayUserMode', true);
     }
 
-    public function test_exit_user_display_mode_on_exit_user_display_mode()
+    public function test_exit_user_display_mode_on_exit_user_display_mode(): void
     {
         Livewire::test(UserComponent::class)
             ->set('modes.displayUserMode', true)

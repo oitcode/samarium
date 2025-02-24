@@ -11,7 +11,7 @@ use Tests\TestCase;
 
 class UserCreateTest extends TestCase
 {
-    public function test_can_create_create_a_new_user(): void
+    public function test_can_create_a_new_user(): void
     {
         $user = User::where('role', 'admin')->first();
         $email = fake()->email;
@@ -103,7 +103,7 @@ class UserCreateTest extends TestCase
         $this->deleteCreatedUser($email);
     }
 
-    public function test_user_created_event_is_dispatched_after_store_the_user(): void
+    public function test_user_created_event_is_dispatched_after_create_new_user(): void
     {
         Event::fake();
 

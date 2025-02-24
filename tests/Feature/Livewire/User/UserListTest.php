@@ -17,7 +17,7 @@ class UserListTest extends TestCase
             ->assertSet('modes.delete', true);
     }
 
-    public function test_exit_user_delete_mode_on_delete_user_cancel(): void
+    public function test_exit_user_delete_mode_false_on_delete_user_cancel(): void
     {
         $user = User::where('role', 'admin')->first();
 
@@ -28,7 +28,7 @@ class UserListTest extends TestCase
             ->assertSet('modes.delete', false);
     }
 
-    public function test_exit_user_delete_mode_on_confirm_delete_user(): void
+    public function test_exit_user_delete_mode_false_on_confirm_delete_user(): void
     {
         $user = User::where('role', 'admin')->first();
 
