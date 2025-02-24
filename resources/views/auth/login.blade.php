@@ -176,7 +176,7 @@
         <div class="px-3 my-4">
           <div class="text-center text-muted">
             <small>
-              v0.9.2
+              v0.9.3
             </small>
           </div>
         </div>
