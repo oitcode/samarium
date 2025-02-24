@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class SaleQuotationController extends Controller
 {
@@ -21,7 +22,7 @@ class SaleQuotationController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.sale-quotation');
     }

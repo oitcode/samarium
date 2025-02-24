@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Gate;
 use App\DocumentFile;
 
@@ -19,16 +20,16 @@ class DocumentFileController extends Controller
     }
 
     /**
-     * Show the appointment component.
+     * Show the dashboard document file view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.document-file');
     }
 
-    public function pdfDisplayFile($documentFileId)
+    public function pdfDisplayFile($documentFileId): View
     {
         $documentFile = DocumentFile::find($documentFileId);
 

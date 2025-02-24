@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class EducInstitutionController extends Controller
 {
@@ -17,11 +18,11 @@ class EducInstitutionController extends Controller
     }
 
     /**
-     * Show the institution component.
+     * Show the dashboard institution view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.institution');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ProductVendorController extends Controller
 {
@@ -17,11 +18,11 @@ class ProductVendorController extends Controller
     }
 
     /**
-     * Show the dashboard product vendor page.
+     * Show the dashboard product vendor view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.product-vendor');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ReportController extends Controller
 {
@@ -17,11 +18,11 @@ class ReportController extends Controller
     }
 
     /**
-     * Show the report page.
+     * Show the dashboard report view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.report');
     }

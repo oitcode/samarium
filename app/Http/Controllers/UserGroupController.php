@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class UserGroupController extends Controller
 {
@@ -17,11 +18,11 @@ class UserGroupController extends Controller
     }
 
     /**
-     * Show the user group.
+     * Show the dashboard user group view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.user-group');
     }

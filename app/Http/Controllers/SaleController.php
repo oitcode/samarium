@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use App\SeatTable;
 
 class SaleController extends Controller
@@ -18,11 +19,11 @@ class SaleController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the dashboard seat table view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         $seatTable = SeatTable::first();
 
@@ -30,12 +31,22 @@ class SaleController extends Controller
             ->with('seatTable' , $seatTable);
     }
 
-    public function takeaway()
+    /**
+     * Show the dashboard takeaway view.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function takeaway(): View
     {
         return view('dashboard.takeaway');
     }
 
-    public function saleInvoice()
+    /**
+     * Show the dashboard sale invoice view.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function saleInvoice(): View
     {
         return view('dashboard.sale-invoice');
     }

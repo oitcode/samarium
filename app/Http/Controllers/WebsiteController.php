@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\View\View;
 use App\Product;
 use App\ProductCategory;
 use App\Company;
@@ -15,7 +15,7 @@ use App\DocumentFile;
 
 class WebsiteController extends Controller
 {
-    public function homePage()
+    public function homePage(): View
     {
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
@@ -27,7 +27,7 @@ class WebsiteController extends Controller
             ->with('products', $products);
     }
 
-    public function productView($id, $name)
+    public function productView($id, $name): View
     {
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
@@ -45,7 +45,7 @@ class WebsiteController extends Controller
             ->with('products', $products);
     }
 
-    public function productCategoryProductList($id, $name)
+    public function productCategoryProductList($id, $name): View
     {
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
@@ -64,7 +64,7 @@ class WebsiteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function checkout()
+    public function checkout(): View
     {
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
@@ -90,7 +90,7 @@ class WebsiteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function cmsHome()
+    public function cmsHome(): View
     {
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
@@ -104,7 +104,7 @@ class WebsiteController extends Controller
             ->with('cartItems', $cartItems);
     }
 
-    public function webpage()
+    public function webpage(): View
     {
         $company = Company::first();
         $permalink = '/' . request()->path();
@@ -115,79 +115,7 @@ class WebsiteController extends Controller
             ->with('webpage', $webpage);
     }
 
-    public function aboutUs()
-    {
-        $products = Product::all();
-        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
-        $company = Company::first();
-
-        return view('collection.about-us')
-            ->with('company', $company)
-            ->with('productCategories', $productCategories)
-            ->with('products', $products);
-    }
-
-    public function contactUs()
-    {
-        $products = Product::all();
-        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
-        $company = Company::first();
-
-        return view('collection.about-us')
-            ->with('company', $company)
-            ->with('productCategories', $productCategories)
-            ->with('products', $products);
-    }
-
-    public function careers()
-    {
-        $products = Product::all();
-        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
-        $company = Company::first();
-
-        return view('collection.careers')
-            ->with('company', $company)
-            ->with('productCategories', $productCategories)
-            ->with('products', $products);
-    }
-
-    public function payments()
-    {
-        $products = Product::all();
-        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
-        $company = Company::first();
-
-        return view('collection.payments')
-            ->with('company', $company)
-            ->with('productCategories', $productCategories)
-            ->with('products', $products);
-    }
-
-    public function shipping()
-    {
-        $products = Product::all();
-        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
-        $company = Company::first();
-
-        return view('collection.shipping')
-            ->with('company', $company)
-            ->with('productCategories', $productCategories)
-            ->with('products', $products);
-    }
-
-    public function ecommCollectionWebpageDisplay(Request $request)
-    {
-        $products = Product::all();
-        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
-        $company = Company::first();
-
-        return view('collection.' . $request->path())
-            ->with('company', $company)
-            ->with('productCategories', $productCategories)
-            ->with('products', $products);
-    }
-
-    public function seatTableView($id, $name)
+    public function seatTableView($id, $name): View
     {
         $products = Product::all();
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
@@ -201,7 +129,7 @@ class WebsiteController extends Controller
             ->with('products', $products);
     }
 
-    public function bookAppointment($id)
+    public function bookAppointment($id): View
     {
         $company = Company::first();
         $teamMember = TeamMember::find($id);
@@ -211,7 +139,7 @@ class WebsiteController extends Controller
             ->with('company', $company);
     }
 
-    public function vacancyView($id, $name)
+    public function vacancyView($id, $name): View
     {
         $company = Company::first();
         $vacancy = Vacancy::find($id);
@@ -221,7 +149,7 @@ class WebsiteController extends Controller
             ->with('company', $company);
     }
 
-    public function userSignup()
+    public function userSignup(): View
     {
         $company = Company::first();
 
@@ -229,7 +157,7 @@ class WebsiteController extends Controller
             ->with('company', $company);
     }
 
-    public function userProfile()
+    public function userProfile(): View
     {
         $company = Company::first();
 
@@ -237,7 +165,7 @@ class WebsiteController extends Controller
             ->with('company', $company);
     }
 
-    public function writeTestimonial()
+    public function writeTestimonial(): View
     {
         $company = Company::first();
 

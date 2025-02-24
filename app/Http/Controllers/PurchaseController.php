@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PurchaseController extends Controller
 {
@@ -17,11 +18,11 @@ class PurchaseController extends Controller
     }
 
     /**
-     * Show the purchase component.
+     * Show the dashboard purchase view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.purchase');
     }

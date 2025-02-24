@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ContactFormController extends Controller
 {
@@ -17,11 +18,11 @@ class ContactFormController extends Controller
     }
 
     /**
-     * Show the application dashboard contact form component.
+     * Show the dashboard contact form view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.contact-form');
     }

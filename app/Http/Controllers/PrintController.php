@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\View\View;
 use App\SaleInvoice;
 use App\SaleQuotation;
 
@@ -20,16 +20,11 @@ class PrintController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the sale invoice print view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('dashboard.product-category');
-    }
-
-    public function printSaleInvoice($saleInvoiceId)
+    public function printSaleInvoice($saleInvoiceId): View
     {
         $saleInvoice = SaleInvoice::find($saleInvoiceId);
 
@@ -37,7 +32,12 @@ class PrintController extends Controller
             ->with('saleInvoice', $saleInvoice);
     }
 
-    public function printSaleQuotation($saleQuotationId)
+    /**
+     * Show the sale quotation print view.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function printSaleQuotation($saleQuotationId): View
     {
         $saleQuotation = SaleQuotation::find($saleQuotationId);
 

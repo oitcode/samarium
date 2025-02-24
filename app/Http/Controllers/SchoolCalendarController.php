@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class SchoolCalendarController extends Controller
 {
@@ -17,11 +18,11 @@ class SchoolCalendarController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the dashboard calendar view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.school-calendar');
     }

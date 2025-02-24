@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class AppointmentController extends Controller
 {
@@ -17,11 +18,11 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Show the appointment component.
+     * Show the dashboard appointment view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.appointment');
     }

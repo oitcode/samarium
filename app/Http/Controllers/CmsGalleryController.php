@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CmsGalleryController extends Controller
 {
@@ -17,11 +18,11 @@ class CmsGalleryController extends Controller
     }
 
     /**
-     * Show the dashboard cms gallery apge.
+     * Show the dashboard gallery view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.cms.gallery');
     }

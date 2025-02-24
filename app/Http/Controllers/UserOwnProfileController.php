@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class UserOwnProfileController extends Controller
 {
@@ -17,11 +18,11 @@ class UserOwnProfileController extends Controller
     }
 
     /**
-     * Show user's own profile.
+     * Show the dashboard user own profile view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.user-profile');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class TodoController extends Controller
 {
@@ -17,11 +18,11 @@ class TodoController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the dashboard todo (tasks) view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.todo');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class VacancyController extends Controller
 {
@@ -17,11 +18,11 @@ class VacancyController extends Controller
     }
 
     /**
-     * Show the dashboard vacancy page.
+     * Show the dashboard vacancy view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.vacancy');
     }

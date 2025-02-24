@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class BgcController extends Controller
 {
@@ -17,11 +18,11 @@ class BgcController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the dashboard bgc view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.bgc.quick-contacts');
     }
@@ -31,7 +32,7 @@ class BgcController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function quickContacts()
+    public function quickContacts(): View
     {
         return view('dashboard.bgc.quick-contacts');
     }
@@ -41,7 +42,7 @@ class BgcController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function organizingCommittee()
+    public function organizingCommittee(): View
     {
         return view('dashboard.bgc.organizing-committee');
     }
@@ -51,7 +52,7 @@ class BgcController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function sponsors()
+    public function sponsors(): View
     {
         return view('dashboard.bgc.sponsors');
     }

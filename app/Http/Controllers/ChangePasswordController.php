@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ChangePasswordController extends Controller
 {
@@ -17,11 +18,11 @@ class ChangePasswordController extends Controller
     }
 
     /**
-     * Show the change password page.
+     * Show the dashboard change password view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.change-password');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ExpenseController extends Controller
 {
@@ -17,11 +18,11 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Show the dashboard extra curricular page.
+     * Show the dashboard expense view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.expense');
     }

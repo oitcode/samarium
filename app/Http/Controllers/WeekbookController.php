@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class WeekbookController extends Controller
 {
@@ -17,7 +18,7 @@ class WeekbookController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the dashboard weekbook view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

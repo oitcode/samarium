@@ -11,11 +11,12 @@
 ##
 ##  1. Check if php dependencies are installed. If not installed then install them.
 ##  2. Check if composer and npm are installed. If not installed then install them.
-##  2. Create required database and grant access to the database.
-##  3. Download and install composer dependencies.
-##  4. Download and install npm dependencies.
-##  5. Run migrations.
-##  6. Generate application key.
+##  3. Create required database and grant access to the database.
+##  4. Download and install composer dependencies.
+##  5. Download and install npm dependencies.
+##  6. Run migrations.
+##  7. Generate application key.
+##  8. Create storage links.
 ##
 ##  Thank you for trying out this application! 
 ##

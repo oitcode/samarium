@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class InventoryController extends Controller
 {
@@ -17,11 +18,11 @@ class InventoryController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the dashboard inventory view.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(): View
     {
         return view('dashboard.inventory');
     }

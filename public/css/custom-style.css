@@ -1,19 +1,8 @@
-.nb-bg1 {
-    background-image: url("../img/hero-3.jpg");
-}
-
-.o-overlaid {
-    background-image: url("../img/img-1.jpg");
-}
-
 .o-overlay {
    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .o-top-page-banner {
-    /*
-    background-image: url("../img/hero-1.webp");
-    */
     background-image: linear-gradient(to right, #05a, #fff);
     background-size: stretch;
     background-repeat: no-repeat;
@@ -193,9 +182,7 @@ animation-play-state:paused;
     font-size: 1.3rem;
 }
 
-
 .o-pulled-up:hover {
-    /* animation:pull-up 1s linear; */
 }
 
 @keyframes pull-up{
@@ -212,9 +199,5 @@ animation-play-state:paused;
 }
 
 .o-flipper:hover {
-    /*
-    position: relative !important;
-    bottom: 10px !important;
-    */
     background-color: #ddf;
 }
