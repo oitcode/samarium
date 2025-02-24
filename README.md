@@ -34,13 +34,10 @@ Below applications must be installed in the system.
 ```
 php >= 8.2
 mysql >= 8.0
-node <= 16
+nodejs
 composer
 npm
 ```
-
-Note: Using nodejs version >= 17 may result in error. For now please use nodejs version 16 or lower. Use compatible npm
-version as well. Need permanent fix.
 
 ### Step by step instructions
 
@@ -123,7 +120,7 @@ Login | Change password | User profile
 
 Dashboard | Settings
 ---|----
-![screenshot](dashboard-screenshot-1.png) | ![screenshot](screenshots/screenshot-settings-1.png)
+![screenshot](screenshots/dashboard-screenshot-1.png) | ![screenshot](screenshots/screenshot-settings-1.png)
 
 Product | Product Category
 ---|----
