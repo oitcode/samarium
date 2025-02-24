@@ -1,6 +1,6 @@
 # Samarium
 
-<div align="center">
+<div>
 <img src="screenshots/samarium-logo-1.png" alt="Samarium ERP logo">
 </div>
 
