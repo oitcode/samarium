@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User;
 
+use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
@@ -10,18 +11,18 @@ use App\User;
 
 class UserCreate extends Component
 {
-    public $name;
-    public $email;
-    public $role;
-    public $password;
-    public $password_confirm;
+    public string | null $name;
+    public string | null $email;
+    public string | null $role;
+    public string | null $password;
+    public string | null $password_confirm;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.user-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required|string',
