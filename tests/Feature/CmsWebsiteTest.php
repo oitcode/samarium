@@ -15,7 +15,7 @@ class CmsWebsiteTest extends TestCase
      *
      * @return void
      */
-    public function testAllPublicWebpagesAreAccessible()
+    public function test_all_public_webpages_are_accessible()
     {
         $publicWebpages = Webpage::where('visibility', 'public')->get();
 
@@ -31,7 +31,7 @@ class CmsWebsiteTest extends TestCase
      *
      * @return void
      */
-    public function testAllNonPublicWebpagesAreNotAccessible()
+    public function test_all_non_public_webpages_are_not_accessible()
     {
         $nonPublicWebpages = Webpage::where('visibility', '!=', 'public')->get();
 

@@ -15,7 +15,7 @@ class UserTest extends TestCase
      *
      * @return void
      */
-    public function testUserTableHasARoleColumn()
+    public function test_user_table_has_a_role_column()
     {
         $this->assertTrue(Schema::hasColumn('users', 'role'));
     }

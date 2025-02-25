@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class UriTest extends TestCase
 {
-    public function testUrisAreAvailable()
+    public function test_uris_are_available()
     {
         $response = $this->get('/');
 

@@ -14,7 +14,7 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function testLoginPageIsAvailable()
+    public function test_login_page_is_available()
     {
         $response = $this->get('/login');
 

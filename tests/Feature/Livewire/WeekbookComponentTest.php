@@ -9,8 +9,7 @@ use App\User;
  
 class WeekbookComponentTest extends TestCase
 {
-    /** @test */
-    public function component_exists_on_the_page()
+    public function test_component_exists_on_the_page()
     {
         $user = User::where('role', 'admin')->first();
 

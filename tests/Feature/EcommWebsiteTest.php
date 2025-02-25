@@ -16,7 +16,7 @@ class EcommWebsiteTest extends TestCase
      *
      * @return void
      */
-    public function testProductDisplayPageWorks()
+    public function test_product_display_page_works()
     {
         $product = Product::first();
 
@@ -25,7 +25,7 @@ class EcommWebsiteTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testProductCategoryListDisplayPageWorks()
+    public function test_product_category_list_display_page_works()
     {
         $productCategory = ProductCategory::first();
 

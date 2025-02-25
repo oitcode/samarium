@@ -15,14 +15,14 @@ class RouteTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function test_example()
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
     }
 
-    public function testAllRoutesAreAvailable()
+    public function test_all_routes_are_available()
     {
         $response = $this->get('/');
 
