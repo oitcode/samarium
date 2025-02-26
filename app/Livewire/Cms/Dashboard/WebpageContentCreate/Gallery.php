@@ -11,9 +11,11 @@ class Gallery extends Component
     public $webpage;
 
     public $gallery_id;
+    public $galleries;
 
     public function render()
     {
+        $this->galleries = CmsGallery::all();
         return view('livewire.cms.dashboard.webpage-content-create.gallery');
     }
 

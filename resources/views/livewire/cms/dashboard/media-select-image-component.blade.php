@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="row">
-          @foreach (\App\GalleryImage::all() as $galleryImage)
+          @foreach ($galleryImages as $galleryImage)
             <div class="col-md-3 p-3">
               @if ($modes['imageSelectedMode'])
                 @if ($imageSelected->gallery_image_id == $galleryImage->gallery_image_id)

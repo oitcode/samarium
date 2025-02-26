@@ -13,6 +13,7 @@ class ProductCategoryList extends Component
     // public $productCategories;
     public $products = null;
     public $selectedProductCategory;
+    public $totalProductCategoryCount;
 
     public $search_product_category;
 
@@ -26,6 +27,7 @@ class ProductCategoryList extends Component
 
     public function render()
     {
+        $this->totalProductCategoryCount = ProductCategory::count();
         $productCategories = ProductCategory::orderBy('name', 'ASC')->paginate(5);
 
         return view('livewire.product-category.product-category-list')

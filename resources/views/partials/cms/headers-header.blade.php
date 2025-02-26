@@ -1,15 +1,15 @@
 <div class="p-0 px-0" 
   style="
     background-color:
-        @if (\App\CmsTheme::first())
-          {{ \App\CmsTheme::first()->top_header_bg_color }}
+        @if ($cmsTheme)
+          {{ $cmsTheme->top_header_bg_color }}
         @else
           white
         @endif
         ;
     color:
-        @if (\App\CmsTheme::first())
-          {{ \App\CmsTheme::first()->top_header_text_color }}
+        @if ($cmsTheme)
+          {{ $cmsTheme->top_header_text_color }}
         @else
           black
         @endif

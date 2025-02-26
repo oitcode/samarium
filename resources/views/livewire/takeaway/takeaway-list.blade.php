@@ -123,7 +123,7 @@
             </td>
             <td class="d-none d-md-table-cell">
               @if ($takeaway->saleInvoice->creation_status == 'progress')
-                @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
+                @if ($hasVat)
                   @php echo number_format( $takeaway->getPendingAmount() * 1.13); @endphp
                 @else
                   @php echo number_format( $takeaway->getPendingAmount() ); @endphp
@@ -134,7 +134,7 @@
             </td>
             <td class="font-weight-bold">
               @if ($takeaway->saleInvoice->creation_status == 'progress')
-                @if (\App\SaleInvoiceAdditionHeading::where('name', 'vat')->first())
+                @if ($hasVat)
                   @php echo number_format( $takeaway->getTotalAmount() * 1.13); @endphp
                 @else
                   @php echo number_format( $takeaway->getTotalAmount() ); @endphp

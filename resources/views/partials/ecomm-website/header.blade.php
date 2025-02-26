@@ -1,7 +1,7 @@
-<div class="sticky-top-rm bg-danger text-white border-bottom-rm p-0 px-0">
+<div class="bg-danger text-white p-0 px-0">
 
   {{-- Show in bigger screens --}}
-  <div class="container-fluid p-0 bg-danger-rm d-none d-md-block">
+  <div class="container-fluid p-0 d-none d-md-block">
       <div class="container-fluid" style="background-color: rgba(0, 0, 0, 0.3);">
         <div class="container py-2 pl-4">
           <div class="d-flex justify-content-between">
@@ -33,7 +33,7 @@
                         onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
                     >
-                      <i class="fas fa-power-off mr-2 text-warning-rm"></i>
+                      <i class="fas fa-power-off mr-2"></i>
                       Logout
                     </a>
 
@@ -54,27 +54,27 @@
                 <div class="px-3" style="">
                   @if ($company->fb_link)
                     <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">
-                      <i class="fab fa-facebook fa-3x-rm mr-3"></i>
+                      <i class="fab fa-facebook mr-3"></i>
                     </a>
                   @endif
                   @if ($company->twitter_link)
                     <a href="{{ $company->twitter_link }}" class="text-reset" target="_blank">
-                      <i class="fab fa-twitter fa-3x-rm mr-3"></i>
+                      <i class="fab fa-twitter mr-3"></i>
                     </a>
                   @endif
                   @if ($company->insta_link)
                     <a href="{{ $company->insta_link }}" class="text-reset" target="_blank">
-                      <i class="fab fa-instagram fa-3x-rm mr-3"></i>
+                      <i class="fab fa-instagram mr-3"></i>
                     </a>
                   @endif
                   @if ($company->youtube_link)
                     <a href="{{ $company->youtube_link }}" class="text-reset" target="_blank">
-                      <i class="fab fa-youtube fa-3x-rm mr-3"></i>
+                      <i class="fab fa-youtube mr-3"></i>
                     </a>
                   @endif
                   @if ($company->tiktok_link)
                     <a href="{{ $company->tiktok_link }}" class="text-reset" target="_blank">
-                      <i class="fab fa-tiktok fa-3x-rm mr-3"></i>
+                      <i class="fab fa-tiktok mr-3"></i>
                     </a>
                   @endif
                 </div>
@@ -85,29 +85,26 @@
       </div>
 
     <div class="container py-0">
-      <div class="d-flex justify-content-between h-100-rm bg-info-rm pl-2 py-0">
-
-
+      <div class="d-flex justify-content-between pl-2 py-0">
         <a href="{{ route('website-home') }}" class="text-decoration-none">
-        <div class="d-flex bg-danger-rm">
-          <div class="mr-3 d-flex-rm flex-column-rm justify-content-center-rm">
+        <div class="d-flex">
+          <div class="mr-3">
               @if (true)
-              <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid-rm mt-4-rm" style="max-width: 75px; max-height: 75px;">
+              <img src="{{ asset('storage/' . $company->logo_image_path) }}" style="max-width: 75px; max-height: 75px;">
               @endif
           </div>
         </div>
         </a>
 
-        <div class="flex-grow-1 d-flex justify-content-center-rm bg-info-rm">
-          <div class="d-flex flex-column justify-content-center flex-grow-1 bg-success-rm px-4-rm">
-
+        <div class="flex-grow-1 d-flex">
+          <div class="d-flex flex-column justify-content-center flex-grow-1">
             <div class="d-flex">
-              <div class="d-flex flex-column justify-content-center h5-rm font-weight-bold-rm mr-3 m-0 p-0 bg-danger-rm" style="font-family: Mono;">
+              <div class="d-flex flex-column justify-content-center mr-3 m-0 p-0" style="font-family: Mono;">
                 <div class="h4 font-weight-bold mb-0">
                   {{ $company->name }}
                 </div>
               </div>
-              <div class="w-100 bg-warning-rm">
+              <div class="w-100">
                 <div class="input-group mr-sm-2">
                     <input type="text" class="form-control" id="" placeholder="Search for a product or category">
                     <div class="input-group-append">
@@ -118,17 +115,15 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
   
-        <div class="px-5 h-100-rm mt-3-rm bg-primary-rm border-rm border-left-primary text-white-rm">
+        <div class="px-5 border-left-primary">
           {{-- Shopping cart badge (checkout link) --}}
-          <div class="d-flex flex-column justify-content-center h-100 bg-danger-rm text-white-rm p-5-rm o-darker">
+          <div class="d-flex flex-column justify-content-center h-100 o-darker">
             @livewire ('ecomm-website.shopping-cart-badge')
           </div>
         </div>
-  
       </div>
     </div>
 
@@ -137,28 +132,16 @@
       <div class="container" style="font-weight: bold;">
       </div>
     </div>
-
   </div>
-
 
   {{-- Show in smaller screens --}}
   <nav class="navbar navbar-expand-lg navbar-danger bg-danger m-0 p-0 d-md-none" style="">
   
     <button class="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  
-      <i class="fas fa-bars fa-2x border-rm p-2-rm" style="
-          {{--
-          background-color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->footer_bg_color }}
-              @else
-                orange
-              @endif
-              ;
-              --}}
+      <i class="fas fa-bars fa-2x" style="
           color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->footer_text_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->footer_text_color }}
               @else
                 white
               @endif
@@ -170,8 +153,6 @@
       <img src="{{ asset('storage/' . $company->logo_image_path) }}" class="img-fluid" style="height: 50px;">
     </a>
   
-  
-    @if (true)
     <div class="d-flex">
       <div class="pl-3">
         <a class="text-reset text-decoration-none" href="{{ route('login') }}">
@@ -185,15 +166,10 @@
         @livewire ('ecomm-website.shopping-cart-badge')
       </div>
     </div>
-    @endif
-  
   
     <div class="collapse navbar-collapse m-0 p-0 mt-4" id="navbarSupportedContent" style="margin-left: 0;">
-      <ul class="navbar-nav m-0 p-0 mr-auto-rm" style="margin: auto;">
-  
-  
+      <ul class="navbar-nav m-0 p-0" style="margin: auto;">
         {{-- Common things --}}
-  
         @guest
           <li class="nav-item border bg-light text-dark p-3">
             <a class="nav-link text-dark" href="{{ route('login') }}">
@@ -231,12 +207,11 @@
             </a>
           </li>
         @endguest
-  
       </ul>
     </div>
   </nav>
 
-  <div class="container-fluid p-0 bg-warning-rm d-md-none">
+  <div class="container-fluid p-0 d-md-none">
     <div class="p-2" style="background-image: linear-gradient(to bottom right, #eee, #ddd);">
       <div class="input-group mr-sm-2">
           <input type="text" class="form-control py-4" id="" placeholder="Search for a product or category">

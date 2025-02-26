@@ -7,7 +7,7 @@
   <div class="form-group">
     <label>Select Gallery</label>
     <select class="form-control" wire:model="gallery_id">
-      @foreach (\App\Gallery::all() as $gallery)
+      @foreach ($galleries as $gallery)
         <option value="{{ $gallery->gallery_id }}">{{ $gallery->name }}</option>
       @endforeach
     </select>

@@ -35,14 +35,14 @@
         <div class="mt-4 d-flex">
           <button class="btn shadow border border-light" wire:click="store"
               style="
-                  @if (\App\CmsTheme::first())
-                  background-image:
-                      linear-gradient(
-                          to bottom right,
-                          {{ \App\CmsTheme::first()->ascent_bg_color }},
-                          {{ \App\CmsTheme::first()->ascent_bg_color }}
-                      );
-                      color: {{ \App\CmsTheme::first()->ascent_text_color }};
+                  @if ($cmsTheme)
+                    background-image:
+                        linear-gradient(
+                            to bottom right,
+                            {{ $cmsTheme->ascent_bg_color }},
+                            {{ $cmsTheme->ascent_bg_color }}
+                        );
+                        color: {{ $cmsTheme->ascent_text_color }};
                   @else
                     background-color: #123;
                     color: white;

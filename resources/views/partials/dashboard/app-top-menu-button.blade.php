@@ -4,8 +4,8 @@
       style="
         background-color:
          @if(Route::current()->getName() == $btnRoute)
-          @if (\App\CmsTheme::first())
-            {{ \App\CmsTheme::first()->ascent_bg_color }}
+          @if ($cmsTheme)
+            {{ $cmsTheme->ascent_bg_color }}
           @else
             orange
           @endif
@@ -15,8 +15,8 @@
          @endif
         color:
          @if(Route::current()->getName() == $btnRoute)
-          @if (\App\CmsTheme::first())
-            {{ \App\CmsTheme::first()->ascent_text_color }}
+          @if ($cmsTheme)
+            {{ $cmsTheme->ascent_text_color }}
           @else
             white
           @endif

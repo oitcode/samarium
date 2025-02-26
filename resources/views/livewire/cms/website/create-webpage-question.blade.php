@@ -22,7 +22,6 @@
           <span class="text-success" aria-hidden="true">&times;</span>
         </button>
       </div>
-
     </div>
   @endif
 
@@ -60,14 +59,14 @@
   </div>
   <button class="btn btn-primary btn-block py-2"
               style="
-                  @if (\App\CmsTheme::first())
+                  @if ($cmsTheme)
                   background-image:
                       linear-gradient(
                           to bottom right,
-                          {{ \App\CmsTheme::first()->ascent_bg_color }},
-                          {{ \App\CmsTheme::first()->ascent_bg_color }}
+                          {{ $cmsTheme->ascent_bg_color }},
+                          {{ $cmsTheme->ascent_bg_color }}
                       );
-                      color: {{ \App\CmsTheme::first()->ascent_text_color }};
+                      color: {{ $cmsTheme->ascent_text_color }};
                   @else
                     background-color: #123;
                     color: white;

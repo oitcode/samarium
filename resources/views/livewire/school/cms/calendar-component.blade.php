@@ -24,8 +24,8 @@
       <div class="row border" style="margin: auto;">
         <div class="col-6 border-0 w-50 p-0" style="
                   background-color:
-                    @if (\App\CmsTheme::first())
-                      {{ \App\CmsTheme::first()->ascent_bg_color }}
+                    @if ($cmsTheme)
+                      {{ $cmsTheme->ascent_bg_color }}
                     @else
                       white
                     @endif
@@ -34,8 +34,8 @@
           <div class="h-100 p-3" style="background-color: rgba(0, 0, 0, 0.5)">
             <div class="h5 font-weight-bold mb-1" style="
                     color:
-                    @if (\App\CmsTheme::first())
-                      {{ \App\CmsTheme::first()->ascent_text_color }}
+                    @if ($cmsTheme)
+                      {{ $cmsTheme->ascent_text_color }}
                     @else
                       black
                     @endif
@@ -53,15 +53,15 @@
 
         <div class="col-6 border-0 py-3"   style="
                   background-color:
-                    @if (\App\CmsTheme::first())
-                      {{ \App\CmsTheme::first()->ascent_bg_color }}
+                    @if ($cmsTheme)
+                      {{ $cmsTheme->ascent_bg_color }}
                     @else
                       white
                     @endif
                     ;
                     color:
-                    @if (\App\CmsTheme::first())
-                      {{ \App\CmsTheme::first()->ascent_text_color }}
+                    @if ($cmsTheme)
+                      {{ $cmsTheme->ascent_text_color }}
                     @else
                       black
                     @endif
@@ -88,12 +88,12 @@
   <div class="border bg-white p-0">
     @if ($displayMonthName)
       <div class="d-flex justify-content-between"
-            style="background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;
-                color:@if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_text_color }} @else @endif ; "
+            style="background-color: @if ($cmsTheme) {{ $cmsTheme->ascent_bg_color }} @else @endif ;
+                color:@if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else @endif ; "
       >
         <h3 class="h3 font-weight-bold text-center py-4 mb-0 pl-2"
-            style="background-color: @if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_bg_color }} @else @endif ;
-                color:@if (\App\CmsTheme::first()) {{ \App\CmsTheme::first()->ascent_text_color }} @else @endif ; 
+            style="background-color: @if ($cmsTheme) {{ $cmsTheme->ascent_bg_color }} @else @endif ;
+                color:@if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else @endif ; 
             ">
           <span class="mr-2">
             {{ $displayMonthName }}

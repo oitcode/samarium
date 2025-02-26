@@ -18,6 +18,7 @@ class TakeawayList extends Component
 
     public $todayTakeawayCount;
     public $totalTakeawayCount;
+    public $hasVat;
      
     /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
@@ -39,6 +40,11 @@ class TakeawayList extends Component
 
     public function render()
     {
+        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
+            $this->hasVat = true;
+        } else {
+            $this->hasVat = false;
+        }
 
         if ($this->modes['showAllMode']) {
             $takeaways = Takeaway::orderBy('takeaway_id', 'desc')->paginate(5);

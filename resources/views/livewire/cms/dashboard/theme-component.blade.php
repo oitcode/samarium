@@ -14,7 +14,7 @@
 
     <div>
       {{-- Top header color --}}
-      @if (\App\CmsTheme::first())
+      @if ($cmsTheme)
       @else
         <div class="form-group">
           <label>Theme name</label>
@@ -198,9 +198,9 @@
             Featured image
           </h2>
           <div class="form-group mt-4 mb-3">
-            @if (\App\CmsTheme::first() && \App\CmsTheme::first()->hero_image_path)
+            @if ($cmsTheme && $cmsTheme->hero_image_path)
               <div class="d-flex justify-content-start mb-3">
-                <img src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}" class="img-fluid" style="height: 50px;">
+                <img src="{{ asset('storage/' . $cmsTheme->hero_image_path) }}" class="img-fluid" style="height: 50px;">
               </div>
               <div>
                 <button class="btn btn-light" wire:click="enterMode('updateFeaturedImageMode')">
@@ -264,7 +264,7 @@
 
         <div class="bg-white border p-2">
           <div class="my-3 mt-4">
-            @if (\App\CmsTheme::first())
+            @if ($cmsTheme)
               @include ('partials.button-update')
             @else
               @include ('partials.button-store')

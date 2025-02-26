@@ -90,11 +90,11 @@
           </div>
 
           <div class="my-4">
-            <a href="/contact-us" class="text-reset-rm text-decoration-none">Contact us</a>
+            <a href="/contact-us" class="text-decoration-none">Contact us</a>
             <br/>
-            <a href="/post" class="text-reset-rm text-decoration-none">Blog</a>
+            <a href="/post" class="text-decoration-none">Blog</a>
             <br/>
-            <a href="/write-testimonial" class="text-reset-rm text-decoration-none">Feedback</a>
+            <a href="/write-testimonial" class="text-decoration-none">Feedback</a>
           </div>
         </div>
 
@@ -108,7 +108,7 @@
             Follow us
           </h2>
           @endif
-          <div class="d-flex justify-content-center-rm mt-0">
+          <div class="d-flex mt-0">
             @if ($company->fb_link)
               <div class="mr-3">
                 <a href="{{ $company->fb_link }}" target="_blank">
@@ -156,14 +156,14 @@
   </div>
 
 @if ($company->companyInfos()->where('info_key', 'Associated with')->first())
-    <div class="container-fluid mb-5-rm border-top border-bottom">
+    <div class="container-fluid border-top border-bottom">
       <div class="container">
-        <h2 class="h5 font-weight-bold my-4 text-center-rm">
+        <h2 class="h5 font-weight-bold my-4">
           {{ $company->companyInfos()->where('info_key', 'Associated with')->first()->info_key }}
         </h2>
         <div class="row" style="margin: auto;">
           @foreach ($company->companyInfos()->where('info_key', 'Associated with')->get() as $companyInfo)
-            <div class="col-6 col-md-3 font-weight-bold border-rm p-3 mb-0" style="font-family: Mono;">
+            <div class="col-6 col-md-3 font-weight-bold p-3 mb-0" style="font-family: Mono;">
               <div class="d-flex flex-column justify-content-between">
                 <div class="flex-grow-1">
                   <div class="d-flex flex-column justify-content-center h-100">
@@ -188,10 +188,10 @@
     <h2 class="h5 text-dark font-weight-bold mb-3">
       Product categories
     </h2>
-    <div class="d-sm-flex-rm justify-content-center-rm" style="">
+    <div>
       @foreach (\App\ProductCategory::where('does_sell', 'yes')->get() as $productCategory)
         <a href="{{ route('website-product-category-product-list', [$productCategory->product_category_id, $productCategory->name]) }}"
-            class="text-secondary text-decoration-none text-reset h5-rm mr-3">
+            class="text-secondary text-decoration-none text-reset mr-3">
           {{ $productCategory->name }}
         </a>
       @endforeach
@@ -200,7 +200,7 @@
   </div>
 
 
-  <div class="container-fluid bg-info-rm border py-2 pb-2 text-white-rm" style="{{--background-color: #101530;--}}">
+  <div class="container-fluid border py-2 pb-2" style="{{--background-color: #101530;--}}">
     <div class="container">
       <div class="d-flex justify-content-center">
         <div class="" style="color: #aaa;">

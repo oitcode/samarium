@@ -13,6 +13,7 @@ class CustomerList extends Component
     // public $customers;
 
     public $total;
+    public $customersCount;
 
     public $customerSearch = [
         'name' => null,
@@ -29,6 +30,7 @@ class CustomerList extends Component
     public function render()
     {
         $customers = Customer::orderBy('customer_id', 'DESC')->paginate(5);
+        $this->customersCount = Customer::count();
 
         return view('livewire.customer.customer-list')
             ->with('customers', $customers);

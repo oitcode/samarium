@@ -12,15 +12,15 @@
     <div class="row" style="margin: auto;">
       <div class="col-md-4 p-0" style="
           background-color:
-            @if (\App\CmsTheme::first())
-              {{ \App\CmsTheme::first()->ascent_bg_color }}
+            @if ($cmsTheme)
+              {{ $cmsTheme->ascent_bg_color }}
             @else
               orange
             @endif
             ;
           color:
-            @if (\App\CmsTheme::first())
-              {{ \App\CmsTheme::first()->ascent_text_color }}
+            @if ($cmsTheme)
+              {{ $cmsTheme->ascent_text_color }}
             @else
               white
             @endif
@@ -58,8 +58,8 @@
       <div class="row border" style="margin: auto; " wire:key="{{ rand() }}">
         <div class="col-4 border-0 w-50 p-0 " style="
                   background-color:
-                    @if (\App\CmsTheme::first())
-                      {{ \App\CmsTheme::first()->ascent_bg_color }}
+                    @if ($cmsTheme)
+                      {{ $cmsTheme->ascent_bg_color }}
                     @else
                       orange
                     @endif
@@ -70,8 +70,8 @@
             <div class="h-100 p-3">
               <div class="h5 font-weight-bold mb-1" style="
                       color:
-                      @if (\App\CmsTheme::first())
-                        {{ \App\CmsTheme::first()->ascent_bg_color }}
+                      @if ($cmsTheme)
+                        {{ $cmsTheme->ascent_bg_color }}
                       @else
                         black
                       @endif

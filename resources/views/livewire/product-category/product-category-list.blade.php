@@ -5,7 +5,7 @@
   @else
     <x-list-component>
       <x-slot name="listInfo">
-        Total product categories: {{ \App\ProductCategory::count() }}
+        Total product categories: {{ $totalProductCategoryCount }}
       </x-slot>
     
       <x-slot name="listHeadingRow">

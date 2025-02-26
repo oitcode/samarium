@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-between font-weight-bold-rm">
     <div class="mr-3 border-right pr-3">
       <i class="fas fa-tv mr-1"></i>
-      {{ \App\Company::first()->name }}
+      {{ $comspany->name }}
     </div>
     <div class="mr-3 border-right pr-3">
       Terminal: Counter

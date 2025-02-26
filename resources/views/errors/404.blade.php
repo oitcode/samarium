@@ -39,10 +39,10 @@
     <div class="d-flex flex-column justify-content-center">
         <div class="mb-3 text-center">
           <div class="mb-3">
-            @if (\App\Company::first())
-              <img src="{{ asset('storage/' . \App\Company::first()->logo_image_path) }}"
+            @if ($company)
+              <img src="{{ asset('storage/' . $company->logo_image_path) }}"
                   class=""
-                  alt="{{ \App\Company::first()->name }} logo"
+                  alt="{{ $company->name }} logo"
                   style="height: 75px !important;">
             @else
               <i class="fas fa-check-circle mr-1"></i>

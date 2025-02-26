@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\SaleInvoice;
+use App\SaleInvoiceAdditionHeading;
 
 class SaleInvoiceList extends Component
 {
@@ -14,6 +15,7 @@ class SaleInvoiceList extends Component
 
     public $todaySaleInvoiceCount;
     public $totalSaleInvoiceCount;
+    public $hasVat;
 
     /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
@@ -39,6 +41,12 @@ class SaleInvoiceList extends Component
 
     public function render()
     {
+        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
+            $this->hasVat = true;
+        } else {
+            $this->hasVat = false;
+        }
+
         if ($this->modes['showAllMode']) {
             $saleInvoices = SaleInvoice::orderBy('sale_invoice_id', 'desc');
         } else if ($this->modes['showOnlyPendingMode']) {

@@ -11,7 +11,7 @@
     <x-slot name="toolbar">
       @include ('partials.dashboard.spinner-button')
 
-      @if (\App\CmsNavMenu::first())
+      @if ($displayingCmsNavMenu)
       @else
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('create')",

@@ -2,7 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      Total calendar groups: {{ \App\CalendarGroup::count() }}
+      Total calendar groups: {{ $totalCalendarGroupCount }}
     </x-slot>
 
     <x-slot name="listHeadingRow">

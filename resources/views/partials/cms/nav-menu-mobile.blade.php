@@ -10,15 +10,15 @@
   <nav class="navbar navbar-expand-lg border-bottom p-0"
       style="
           background-color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->top_header_bg_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->top_header_bg_color }}
               @else
                 white
               @endif
               ;
           color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->top_header_text_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->top_header_text_color }}
               @else
                 black
               @endif
@@ -70,8 +70,8 @@
     <button class="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars fa-2x" style="
           color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->top_header_text_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->top_header_text_color }}
               @else
                 black
               @endif
@@ -104,14 +104,14 @@
 
                           style="
                               color:
-                              @if (\App\CmsTheme::first())
-                                {{ \App\CmsTheme::first()->top_header_text_color }}
+                              @if ($cmsTheme)
+                                {{ $cmsTheme->top_header_text_color }}
                               @else
                                 white
                               @endif;
                           "
                           href="{{ route('website-webpage-' . $cmsNavMenuDropdownItem->webpage->permalink) }}"
-                          onMouseOver="this.style.background='@if (\App\CmsTheme::first()){{ \App\CmsTheme::first()->top_header_bg_color }} @endif'; this.style.color='@if (\App\CmsTheme::first()){{ \App\CmsTheme::first()->top_header_text_color }} @endif'"
+                          onMouseOver="this.style.background='@if ($cmsTheme){{ $cmsTheme->top_header_bg_color }} @endif'; this.style.color='@if ($cmsTheme){{ $cmsTheme->top_header_text_color }} @endif'"
                       >
                         {{ $cmsNavMenuDropdownItem->name }}
                       </a>

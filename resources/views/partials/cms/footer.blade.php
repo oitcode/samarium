@@ -44,15 +44,15 @@
 <div class="border-top"
      style="
       background-color:
-          @if (\App\CmsTheme::first())
-            {{ \App\CmsTheme::first()->footer_bg_color }}
+          @if ($cmsTheme)
+            {{ $cmsTheme->footer_bg_color }}
           @else
             white
           @endif
           ;
       color:
-          @if (\App\CmsTheme::first())
-            {{ \App\CmsTheme::first()->footer_text_color }}
+          @if ($cmsTheme)
+            {{ $cmsTheme->footer_text_color }}
           @else
             black
           @endif
@@ -156,8 +156,8 @@
                 <i class="fab fa-facebook fa-2x mr-2 "
                     style="
                       color:
-                          @if (\App\CmsTheme::first())
-                            {{ \App\CmsTheme::first()->footer_text_color }}
+                          @if ($cmsTheme)
+                            {{ $cmsTheme->footer_text_color }}
                           @else
                             white
                           @endif

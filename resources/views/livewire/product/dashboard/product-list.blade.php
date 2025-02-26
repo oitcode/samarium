@@ -2,7 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      Total products: {{ \App\Product::count() }}
+      Total products: {{ $totalProductCount }}
     </x-slot>
 
     <x-slot name="listHeadingRow">

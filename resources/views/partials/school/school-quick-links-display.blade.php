@@ -9,15 +9,15 @@ Quick links to pages that are most relevant to school.
     <div class="col-4 col-md-3 bg-danger-rm text-white-rm border-rm p-0"
         style="
           background-color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_bg_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->ascent_bg_color }}
               @else
                 orange
               @endif
               ;
           color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_text_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->ascent_text_color }}
               @else
                 white
               @endif
@@ -37,15 +37,15 @@ Quick links to pages that are most relevant to school.
     <div class="col-4 col-md-3 bg-danger-rm text-white-rm border-rm p-0"
         style="
           background-color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_bg_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->ascent_bg_color }}
               @else
                 orange
               @endif
               ;
           color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_text_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->ascent_text_color }}
               @else
                 white
               @endif
@@ -66,15 +66,15 @@ Quick links to pages that are most relevant to school.
     <div class="col-4 col-md-3 bg-danger-rm-rm text-white-rm border-rm p-0 d-none d-md-block"
         style="
           background-color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_bg_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->ascent_bg_color }}
               @else
                 orange
               @endif
               ;
           color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_text_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->ascent_text_color }}
               @else
                 white
               @endif
@@ -95,15 +95,15 @@ Quick links to pages that are most relevant to school.
     <div class="col-4 col-md-3 bg-danger-rm text-white-rm border-rm p-0"
         style="
           background-color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_bg_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->ascent_bg_color }}
               @else
                 orange
               @endif
               ;
           color:
-              @if (\App\CmsTheme::first())
-                {{ \App\CmsTheme::first()->ascent_text_color }}
+              @if ($cmsTheme)
+                {{ $cmsTheme->ascent_text_color }}
               @else
                 white
               @endif

@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\SaleQuotation;
+use App\SaleInvoiceAdditionHeading;
 
 class SaleQuotationList extends Component
 {
@@ -16,6 +17,7 @@ class SaleQuotationList extends Component
 
     public $todaySaleQuotationCount;
     public $totalSaleQuotationCount;
+    public $hasVat;
      
     /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
@@ -34,6 +36,12 @@ class SaleQuotationList extends Component
         $saleQuotations = SaleQuotation::orderBy('sale_quotation_id', 'desc')->paginate(5);
         $this->totalSaleQuotationCount = SaleQuotation::count();
         $this->todaySaleQuotationCount = SaleQuotation::whereDate('created_at', date('Y-m-d'))->count();
+
+        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
+            $this->hasVat = true;
+        } else {
+            $this->hasVat = false;
+        }
 
         return view('livewire.sale-quotation.dashboard.sale-quotation-list')
             ->with('saleQuotations', $saleQuotations);

@@ -11,6 +11,7 @@ class MediaSelectImageComponent extends Component
     use ModesTrait;
 
     public $imageSelected;
+    public $galleryImages;
 
     public $modes = [
         'imageSelectedMode' => false,
@@ -18,6 +19,7 @@ class MediaSelectImageComponent extends Component
 
     public function render()
     {
+        $this->galleryImages = GalleryImage::all();
         return view('livewire.cms.dashboard.media-select-image-component');
     }
 
