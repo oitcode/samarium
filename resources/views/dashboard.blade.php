@@ -24,16 +24,13 @@
 @extends ('layouts.app')
 
 @section ('content')
-
   <div class="p-0">
-
     {{--
     |
     | Upper part
     |
     --}}
     <div class="row mb-5 pt-3">
-
       {{-- Shop glance --}}
       @if (has_module('shop'))
         <div class="col-12 col-md-3">
@@ -69,9 +66,7 @@
           </div>
         </div>
       @endif
-
     </div>
-
 
     {{--
     |
@@ -84,6 +79,23 @@
       @endif
     </div>
 
+    {{--
+    |
+    | Show create company message if company does not exist.
+    |
+    | TODO: Make it more user friendly and intuitive to create
+    |       a company if company does not exist.
+    |
+    --}}
+    @if (! $company)
+      <div class="my-4 p-3 border bg-white">
+        <i class="fas fa-exclamation-circle text-danger mr-1"></i>
+        It seems you have not created company yet. Please create company.
+        <br />
+        <i class="fas fa-exclamation-circle text-danger mr-1"></i>
+        Please got to More > Company from the left menu to create company.
+      </div>
+    @endif
   </div>
 
 @endsection

@@ -35,29 +35,11 @@
 
 @if ($company)
   @section ('content')
-
-
-
-
     <div class="container">
       @foreach (\App\Product::all() as $product)
         @livewire ('product.website.product-listing-display', ['product' => $product,], key(rand()),)
       @endforeach
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     {{--
     |--------------------------------------------------------------------------
@@ -66,9 +48,9 @@
     |
     --}}
     @if (false)
-    @livewire ('carousal-component')
+      {{-- TODO: Need a better implementation --}}
+      @livewire ('carousal-component')
     @endif
-    
     
     {{--
     |--------------------------------------------------------------------------
@@ -76,7 +58,7 @@
     |--------------------------------------------------------------------------
     |
     --}}
-    @if (has_module('hfn'))
+    @if (has_module('hfn') && \App\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first())
       <div class="container-fluid p-0 o-fade-in" style="
       @if(\App\CmsTheme::first())
         background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
@@ -236,6 +218,6 @@
         </div>
       @endif
     @endif
-  
+
   @endsection
 @endif
