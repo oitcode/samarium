@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
 use App\Company;
 use App\CmsTheme;
 
@@ -26,10 +27,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $company = Company::first();
-        $cmsTheme = CmsTheme::first();
+        if (Schema::hasTable('company')) {
+            $company = Company::first();
+            View::share('company', $company);
+        }
 
-        View::share('company', $company);
-        View::share('cmsTheme', $cmsTheme);
+        if (Schema::hasTable('cms_theme')) {
+            $cmsTheme = CmsTheme::first();
+            View::share('cmsTheme', $cmsTheme);
+        }
     }
 }
