@@ -20,20 +20,11 @@ class DaybookSaleInvoiceDisplay extends Component
 
     public function mount()
     {
-        $this->has_vat = $this->hasVat();
+        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
     }
 
     public function render()
     {
         return view('livewire.record-book.daybook-sale-invoice-display');
-    }
-
-    public function hasVat()
-    {
-        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

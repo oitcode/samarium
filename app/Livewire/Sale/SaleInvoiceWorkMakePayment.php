@@ -77,7 +77,7 @@ class SaleInvoiceWorkMakePayment extends Component
 
     public function mount()
     {
-        $this->has_vat = $this->hasVat();
+        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
         $this->saleInvoicePaymentTypes = SaleInvoicePaymentType::all();
 
@@ -452,14 +452,5 @@ class SaleInvoiceWorkMakePayment extends Component
         }
 
         $this->calculateGrandTotal();
-    }
-
-    public function hasVat()
-    {
-        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

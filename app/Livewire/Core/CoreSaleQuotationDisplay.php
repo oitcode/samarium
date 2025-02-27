@@ -26,17 +26,8 @@ class CoreSaleQuotationDisplay extends Component
     {
         $this->company = Company::first();
 
-        $this->has_vat = $this->hasVat();
+        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
         return view('livewire.core.core-sale-quotation-display');
-    }
-
-    public function hasVat()
-    {
-        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

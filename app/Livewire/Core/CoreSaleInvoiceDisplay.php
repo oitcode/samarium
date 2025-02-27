@@ -24,7 +24,7 @@ class CoreSaleInvoiceDisplay extends Component
     {
         $this->company = Company::first();
 
-        $this->has_vat = $this->hasVat();
+        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
         return view('livewire.core.core-sale-invoice-display');
     }
@@ -48,14 +48,5 @@ class CoreSaleInvoiceDisplay extends Component
     public function exitMode($modeName)
     {
         $this->modes[$modeName] = false;
-    }
-
-    public function hasVat()
-    {
-        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

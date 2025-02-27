@@ -43,7 +43,7 @@ class PurchaseMakePayment extends Component
 
     public function render()
     {
-        $this->has_vat = $this->hasVat();
+        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
         foreach (PurchaseAdditionHeading::all() as $purchaseAddition) {
             $this->purchaseAdditions += [$purchaseAddition->name => 0];
@@ -168,15 +168,6 @@ class PurchaseMakePayment extends Component
     public function updatedPurchaesAdditions()
     {
         $this->updateNumbers();
-    }
-
-    public function hasVat()
-    {
-        if (PurchaseAdditionHeading::where('name', 'vat')->first()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public function updateNumbers()

@@ -90,7 +90,7 @@ class ExpenseCreate extends Component
             $this->expenseAdditions += [$expenseAddition->name => 0];
         }
 
-        $this->has_vat = $this->hasVat();
+        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
         $this->sub_total = $this->expense->getSubTotal();
 
@@ -204,15 +204,6 @@ class ExpenseCreate extends Component
             $this->grand_total = $this->taxable_amount + $this->expenseAdditions['VAT'] ;
         } else {
             $this->grand_total = $this->taxable_amount;
-        }
-    }
-
-    public function hasVat()
-    {
-        if (ExpenseAdditionHeading::where('name', 'vat')->first()) {
-            return true;
-        } else {
-            return false;
         }
     }
 

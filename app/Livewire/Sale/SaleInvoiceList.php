@@ -41,11 +41,7 @@ class SaleInvoiceList extends Component
 
     public function render()
     {
-        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
-            $this->hasVat = true;
-        } else {
-            $this->hasVat = false;
-        }
+        $this->hasVat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
         if ($this->modes['showAllMode']) {
             $saleInvoices = SaleInvoice::orderBy('sale_invoice_id', 'desc');

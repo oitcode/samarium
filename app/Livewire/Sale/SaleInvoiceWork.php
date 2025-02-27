@@ -42,7 +42,7 @@ class SaleInvoiceWork extends Component
 
     public function render()
     {
-        $this->has_vat = $this->hasVat();
+        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
         $this->sale_invoice_date = $this->saleInvoice->sale_invoice_date;
         $this->customers = Customer::all();
 
@@ -101,15 +101,6 @@ class SaleInvoiceWork extends Component
     {
         $this->dispatch('makePaymentPleaseUpdate');
         $this->render();
-    }
-
-    public function hasVat()
-    {
-        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public function updateInventory($product, $quantity, $direction)

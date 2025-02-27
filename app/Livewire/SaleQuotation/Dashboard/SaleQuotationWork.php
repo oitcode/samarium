@@ -39,7 +39,7 @@ class SaleQuotationWork extends Component
 
     public function render()
     {
-        $this->has_vat = $this->hasVat();
+        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
         $this->sale_quotation_date = $this->saleQuotation->sale_quotation_date;
         $this->customers = Customer::all();
 
@@ -88,15 +88,6 @@ class SaleQuotationWork extends Component
     public function itemAddedToSaleQuotation()
     {
         $this->render();
-    }
-
-    public function hasVat()
-    {
-        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public function changeSaleQuotationDate()

@@ -37,11 +37,7 @@ class SaleQuotationList extends Component
         $this->totalSaleQuotationCount = SaleQuotation::count();
         $this->todaySaleQuotationCount = SaleQuotation::whereDate('created_at', date('Y-m-d'))->count();
 
-        if (SaleInvoiceAdditionHeading::where('name', 'vat')->first()) {
-            $this->hasVat = true;
-        } else {
-            $this->hasVat = false;
-        }
+        $this->hasVat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
         return view('livewire.sale-quotation.dashboard.sale-quotation-list')
             ->with('saleQuotations', $saleQuotations);
