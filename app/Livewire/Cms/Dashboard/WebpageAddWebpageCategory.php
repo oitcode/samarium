@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\WebpageCategory;
 use App\WebpageWebpageCategory;
 
-class WebpageEditWebpageCategory extends Component
+class WebpageAddWebpageCategory extends Component
 {
     public $webpage;
 
@@ -18,10 +18,10 @@ class WebpageEditWebpageCategory extends Component
     {
         $this->webpageCategories = WebpageCategory::all();
 
-        return view('livewire.cms.dashboard.webpage-edit-webpage-category');
+        return view('livewire.cms.dashboard.webpage-add-webpage-category');
     }
 
-    public function addWebpageCategoryToWebpage()
+    public function store()
     {
         $validatedData = $this->validate([
             'webpage_category_id' => 'required',

@@ -201,7 +201,7 @@
                     <th class="border-0"> Category </th>
                     <td class="border-0">
                       @if ($modes['editWebpageCategoryMode'])
-                        @livewire ('cms.dashboard.webpage-edit-webpage-category', ['webpage' => $webpage,])
+                        @livewire ('cms.dashboard.webpage-add-webpage-category', ['webpage' => $webpage,])
                       @else
                         <div class="d-flex justify-content-between">
                           <div>
