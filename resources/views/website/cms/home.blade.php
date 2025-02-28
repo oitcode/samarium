@@ -35,12 +35,6 @@
 
 @if ($company)
   @section ('content')
-    <div class="container">
-      @foreach (\App\Product::all() as $product)
-        @livewire ('product.website.product-listing-display', ['product' => $product,], key(rand()),)
-      @endforeach
-    </div>
-
     {{--
     |--------------------------------------------------------------------------
     | Carousal component.
@@ -60,16 +54,16 @@
     --}}
     @if (has_module('hfn') && \App\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first())
       <div class="container-fluid p-0 o-fade-in" style="
-      @if(\App\CmsTheme::first())
-        background-color: {{ \App\CmsTheme::first()->ascent_bg_color }};
-        color: {{ \App\CmsTheme::first()->ascent_text_color }};
+      @if($cmsTheme)
+        background-color: {{ $cmsTheme->ascent_bg_color }};
+        color: {{ $cmsTheme->ascent_text_color }};
       @endif
       ">
         <div class="p-0">
           <div class="row p-0" style="margin: auto;">
             <div class="col-md-6 p-0">
-              @if (\App\CmsTheme::first())
-                <img class="img-fluid" src="{{ asset('storage/' . \App\CmsTheme::first()->hero_image_path) }}">
+              @if ($cmsTheme)
+                <img class="img-fluid" src="{{ asset('storage/' . $cmsTheme->hero_image_path) }}">
               @endif
             </div>
             <div class="col-md-6 pt-5 px-md-5 pb-5 pb-md-0">
@@ -84,15 +78,15 @@
     
                 <div style="
                         background-color:
-                          @if (\App\CmsTheme::first())
-                            {{ \App\CmsTheme::first()->ascent_bg_color }}
+                          @if ($cmsTheme)
+                            {{ $cmsTheme->ascent_bg_color }}
                           @else
                             orange
                           @endif
                           ;
                         color:
-                          @if (\App\CmsTheme::first())
-                            {{ \App\CmsTheme::first()->ascent_text_color }}
+                          @if ($cmsTheme)
+                            {{ $cmsTheme->ascent_text_color }}
                           @else
                             white
                           @endif
@@ -103,8 +97,8 @@
                         class="btn btn-block py-3"
                         style="
                         color:
-                          @if (\App\CmsTheme::first())
-                            {{ \App\CmsTheme::first()->ascent_text_color }}
+                          @if ($cmsTheme)
+                            {{ $cmsTheme->ascent_text_color }}
                           @else
                             white
                           @endif
@@ -163,7 +157,7 @@
     
                   <div class="col-6 mb-1 p-0 pr-1 border bg-danger"> <a href="{{ route('website-webpage-' . $webpage->permalink) }}">
                       <div style="
-                        background-image: @if (\App\CmsTheme::first())
+                        background-image: @if ($cmsTheme)
                           url({{ asset('storage/' . $webpage->featured_image_path) }})
                         @else
                           url({{ asset('img/school-5.jpg') }})
