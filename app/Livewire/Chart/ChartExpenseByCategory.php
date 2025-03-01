@@ -3,6 +3,7 @@
 namespace App\Livewire\Chart;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 use App\Expense;
@@ -24,7 +25,7 @@ class ChartExpenseByCategory extends Component
     }
     */
 
-    public function render()
+    public function render(): View
     {
         $this->getExpensesForDateRange();
         $this->getExpenseByCategory();
@@ -33,7 +34,7 @@ class ChartExpenseByCategory extends Component
         return view('livewire.chart.chart-expense-by-category');
     }
 
-    public function getExpensesForDateRange()
+    public function getExpensesForDateRange(): void
     {
         /* Todo: Validation */
         $validatedData = $this->validate([
@@ -78,7 +79,7 @@ class ChartExpenseByCategory extends Component
         $this->expenses = $expenses;
     }
 
-    public function calculateTotal()
+    public function calculateTotal(): void
     {
         $this->total = 0;
 
@@ -89,7 +90,7 @@ class ChartExpenseByCategory extends Component
         }
     }
 
-    public function getExpenseByCategory()
+    public function getExpenseByCategory(): void
     {
         $this->expenseByCategory = array();
 

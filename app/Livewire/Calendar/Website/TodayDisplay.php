@@ -3,6 +3,7 @@
 namespace App\Livewire\Calendar\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use App\SchoolCalendarEvent;
 use App\CalendarGroup;
@@ -19,21 +20,21 @@ class TodayDisplay extends Component
         'calendarGroupSelected' => 'render',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->calendarGroups = CalendarGroup::all();
 
         // $this->selectedCalendarGroup = CalendarGroup::first();
     }
 
-    public function render()
+    public function render(): View
     {
         $this->populateToday();
 
         return view('livewire.calendar.website.today-display');
     }
 
-    public function populateToday()
+    public function populateToday(): void
     {
         $day = Carbon::today();
 
@@ -52,7 +53,7 @@ class TodayDisplay extends Component
         }
     }
 
-    public function checkIfDayIsHoliday($day)
+    public function checkIfDayIsHoliday($day): bool
     {
         $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
             ->whereDate('end_date', '>=', $day->toDateString())
@@ -80,7 +81,7 @@ class TodayDisplay extends Component
         }
     }
 
-    public function getEventsForTheDay($day)
+    public function getEventsForTheDay($day) // Todo: Type hint return type
     {
         $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
             ->whereDate('end_date', '>=', $day->toDateString())

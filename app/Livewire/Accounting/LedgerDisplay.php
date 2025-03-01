@@ -3,6 +3,7 @@
 namespace App\Livewire\Accounting;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\LedgerEntry;
 
 class LedgerDisplay extends Component
@@ -11,7 +12,7 @@ class LedgerDisplay extends Component
 
     public $ledgerEntries;
 
-    public function render()
+    public function render(): View
     {
         $this->ledgerEntries = $this->abAccount->ledgerEntries;
 

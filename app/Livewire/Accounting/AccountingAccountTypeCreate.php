@@ -3,6 +3,7 @@
 namespace App\Livewire\Accounting;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\AbAccountType;
 
 class AccountingAccountTypeCreate extends Component
@@ -12,14 +13,14 @@ class AccountingAccountTypeCreate extends Component
     public $name;
     public $parent_ab_account_type_id;
 
-    public function render()
+    public function render(): View
     {
         $this->abAccountTypes = AbAccountType::all();
 
         return view('livewire.accounting.accounting-account-type-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

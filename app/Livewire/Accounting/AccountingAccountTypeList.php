@@ -3,13 +3,14 @@
 namespace App\Livewire\Accounting;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\AbAccountType;
 
 class AccountingAccountTypeList extends Component
 {
     public $abAccountTypes;
 
-    public function render()
+    public function render(): View
     {
         $this->abAccountTypes = AbAccountType::all();
 

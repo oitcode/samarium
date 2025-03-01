@@ -3,6 +3,7 @@
 namespace App\Livewire\Appointment\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use Carbon\Carbon;
 use App\Appointment;
@@ -16,7 +17,7 @@ class AppointmentList extends Component
     public $appointmentCount;
     public $appointmentTodayCount;
 
-    public function render()
+    public function render(): View
     {
         $appointments = Appointment::orderBy('appointment_date_time', 'DESC')->paginate(5);
         $this->appointmentCount = Appointment::count();

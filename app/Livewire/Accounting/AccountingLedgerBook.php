@@ -3,6 +3,7 @@
 namespace App\Livewire\Accounting;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\AbAccount;
 
 class AccountingLedgerBook extends Component
@@ -16,14 +17,14 @@ class AccountingLedgerBook extends Component
 
     public $selected_account_id;
 
-    public function render()
+    public function render(): View
     {
         $this->abAccounts = AbAccount::all();
 
         return view('livewire.accounting.accounting-ledger-book');
     }
 
-    public function selectAbAccount()
+    public function selectAbAccount(): void
     {
         $validatedData = $this->validate([
             'selected_account_id' => 'required|integer',
@@ -38,7 +39,7 @@ class AccountingLedgerBook extends Component
         $this->getClosingBalance();
     }
 
-    public function getDebitTotal($abAccount)
+    public function getDebitTotal($abAccount): int | float
     {
         $total = 0;
 
@@ -51,7 +52,7 @@ class AccountingLedgerBook extends Component
         return $total;
     }
 
-    public function getCreditTotal($abAccount)
+    public function getCreditTotal($abAccount): int | float
     {
         $total = 0;
 
@@ -64,7 +65,7 @@ class AccountingLedgerBook extends Component
         return $total;
     }
 
-    public function getClosingBalance()
+    public function getClosingBalance(): void
     {
         $this->closingBalance = $this->debitTotal - $this->creditTotal;
     }

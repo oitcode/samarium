@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Company;
 use App\ContactMessage;
 
@@ -17,13 +18,13 @@ class ContactComponent extends Component
 
     public $onlyForm = 'no';
 
-    public function render()
+    public function render(): View
     {
         $this->company = Company::first();
         return view('livewire.cms.website.contact-component');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'sender_name' => 'nullable',
@@ -40,7 +41,7 @@ class ContactComponent extends Component
         session()->flash('message', 'Contact message received. Thanks!');
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->sender_name = '';
         $this->sender_email = '';

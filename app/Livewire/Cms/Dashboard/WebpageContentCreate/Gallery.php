@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard\WebpageContentCreate;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Gallery as CmsGallery;
 use App\WebpageContent;
 
@@ -13,13 +14,13 @@ class Gallery extends Component
     public $gallery_id;
     public $galleries;
 
-    public function render()
+    public function render(): View
     {
         $this->galleries = CmsGallery::all();
         return view('livewire.cms.dashboard.webpage-content-create.gallery');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             /* Todo: Validate that this id actually exists. */
@@ -40,7 +41,7 @@ class Gallery extends Component
     }
 
     /* Prepare the content */
-    public function prepareContent($validatedData)
+    public function prepareContent($validatedData): string
     {
         $gallery = CmsGallery::find($validatedData['gallery_id']);
 

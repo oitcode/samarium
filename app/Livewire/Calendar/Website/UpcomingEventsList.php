@@ -3,6 +3,7 @@
 namespace App\Livewire\Calendar\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\SchoolCalendarEvent;
 use App\CalendarGroup;
 
@@ -23,7 +24,7 @@ class UpcomingEventsList extends Component
     public $calendarGroups;
     public $selectedCalendarGroup = null;
 
-    public function mount()
+    public function mount(): void
     {
         $this->calendarGroups = CalendarGroup::all();
         $this->selectedCalendarGroup = CalendarGroup::first();
@@ -42,12 +43,12 @@ class UpcomingEventsList extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.calendar.website.upcoming-events-list');
     }
 
-    public function selectCalendarGroup(CalendarGroup $calendarGroup)
+    public function selectCalendarGroup(CalendarGroup $calendarGroup): void
     {
         $this->selectedCalendarGroup = $calendarGroup;
 
@@ -59,7 +60,7 @@ class UpcomingEventsList extends Component
             ->get();
     }
 
-    public function populateMonthBook()
+    public function populateMonthBook(): void
     {
         // $monthStartDate = $this->monthInfo2081[$this->displayMonthName][0];
         // $monthEndDate = $this->monthInfo2081[$this->displayMonthName][1];
@@ -88,7 +89,7 @@ class UpcomingEventsList extends Component
         $this->hasEvents = $this->checkIfAnyEvents();
     }
 
-    public function checkIfDayIsHoliday($day)
+    public function checkIfDayIsHoliday($day): bool
     {
         $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
             ->whereDate('end_date', '>=', $day->toDateString())
@@ -116,7 +117,7 @@ class UpcomingEventsList extends Component
         }
     }
 
-    public function getEventsForTheDay($day)
+    public function getEventsForTheDay($day) // Todo: Type hint return type
     {
         $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
             ->whereDate('end_date', '>=', $day->toDateString())
@@ -139,7 +140,7 @@ class UpcomingEventsList extends Component
         return $calendarGroupEvent;
     }
 
-    public function checkIfAnyEvents()
+    public function checkIfAnyEvents(): bool
     {
         foreach ($this->monthBook as $day) {
             if ($day['events']) {

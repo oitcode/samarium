@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
 use App\CmsTheme;
@@ -39,7 +40,7 @@ class ThemeComponent extends Component
         'mediaImageSelected',
     ];
 
-    public function render()
+    public function render(): View
     {
         if (CmsTheme::first()) {
             $cmsTheme = CmsTheme::first();
@@ -59,7 +60,7 @@ class ThemeComponent extends Component
         return view('livewire.cms.dashboard.theme-component');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -85,7 +86,7 @@ class ThemeComponent extends Component
         session()->flash('message', 'Theme created');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -117,7 +118,7 @@ class ThemeComponent extends Component
         session()->flash('message', 'Theme updated');
     }
 
-    public function mediaImageSelected(GalleryImage $galleryImage)
+    public function mediaImageSelected(GalleryImage $galleryImage): void
     {
         $this->selectedMediaImage = $galleryImage;
         $this->enterModeSilent('mediaFromLibrarySelected');

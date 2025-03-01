@@ -3,10 +3,14 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\Webpage;
 
 class WebpageComponent extends Component
 {
+    use ModesTrait;
+
     public $displayingWebpage = null;
 
     public $modes = [
@@ -22,52 +26,31 @@ class WebpageComponent extends Component
         'exitWebpageDisplayMode',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function webpageAdded()
+    public function webpageAdded(): void
     {
         session()->flash('message', 'Webpage created');
         $this->exitMode('create');
         $this->enterMode('list');
     }
 
-    public function exitCreateMode()
+    public function exitCreateMode(): void
     {
         $this->exitMode('create');
     }
 
-    public function displayWebpage(Webpage $webpage)
+    public function displayWebpage(Webpage $webpage): void
     {
         $this->displayingWebpage = $webpage;
 
         $this->enterMode('display');
     }
 
-    public function exitWebpageDisplayMode()
+    public function exitWebpageDisplayMode(): void
     {
         $this->displayingWebpage = null;
         $this->clearModes();

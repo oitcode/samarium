@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\WebpageContent;
 
@@ -26,12 +27,12 @@ class WebpageContentDisplay extends Component
         'webpageContentEditCssCompleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-content-display');
     }
 
-    public function deleteContent()
+    public function deleteContent(): void
     {
         foreach ($this->webpageContent->cmsWebpageContentCssOptions as $cmsWebpageContentCssOption) {
             $cmsWebpageContentCssOption->delete();
@@ -42,7 +43,7 @@ class WebpageContentDisplay extends Component
         $this->dispatch('webpageContentDeleted');
     }
 
-    public function moveUp()
+    public function moveUp(): void
     {
         /* Skip for first item */
         if ($this->webpageContent->position == $this->webpageContent->webpage->webpageContents()->orderBy('position', 'asc')->first()->position) {
@@ -61,7 +62,7 @@ class WebpageContentDisplay extends Component
         $this->dispatch('webpageContentPositionChanged');
     }
 
-    public function moveDown()
+    public function moveDown(): void
     {
         /* Skip for last item */
         if ($this->webpageContent->position == $this->webpageContent->webpage->webpageContents()->orderBy('position', 'desc')->first()->position) {
@@ -80,7 +81,7 @@ class WebpageContentDisplay extends Component
         $this->dispatch('webpageContentPositionChanged');
     }
 
-    public function getNextItem(WebpageContent $webpageContent)
+    public function getNextItem(WebpageContent $webpageContent): WebpageContent
     {
         $nextItem = $webpageContent->webpage
             ->webpageContents()->where('position', '>', $webpageContent->position)
@@ -90,7 +91,7 @@ class WebpageContentDisplay extends Component
         return $nextItem;
     }
 
-    public function getPreviousItem(WebpageContent $webpageContent)
+    public function getPreviousItem(WebpageContent $webpageContent): WebpageContent
     {
         $previousItem = $webpageContent->webpage
             ->webpageContents()->where('position', '<', $webpageContent->position)
@@ -100,22 +101,22 @@ class WebpageContentDisplay extends Component
         return $previousItem;
     }
 
-    public function webpageContentUpdated()
+    public function webpageContentUpdated(): void
     {
         $this->exitMode('edit');
     }
 
-    public function exitWebpageContentEditMode()
+    public function exitWebpageContentEditMode(): void
     {
         $this->exitMode('edit');
     }
 
-    public function webpageContentEditCssCancel()
+    public function webpageContentEditCssCancel(): void
     {
         $this->exitMode('css');
     }
 
-    public function webpageContentEditCssCompleted()
+    public function webpageContentEditCssCompleted(): void
     {
         $this->exitMode('css');
     }

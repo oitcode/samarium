@@ -3,6 +3,7 @@
 namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use App\SchoolCalendarEvent;
 
@@ -13,31 +14,31 @@ class CalendarGlanceComponent extends Component
     public $calendarEvents;
     public $today;
 
-    public function mount()
+    public function mount(): void
     {
         $this->calendarDate = date('Y-m-d');
     }
 
-    public function render()
+    public function render(): View
     {
         $this->populateCalendarDateBook();
 
         return view('livewire.calendar.dashboard.calendar-glance-component');
     }
 
-    public function setPreviousDay()
+    public function setPreviousDay(): void
     {
         $this->calendarDate = Carbon::create($this->calendarDate)->subDay()->toDateString();
         $this->dispatch('changeDate', $this->calendarDate);
     }
 
-    public function setNextDay()
+    public function setNextDay(): void
     {
         $this->calendarDate = Carbon::create($this->calendarDate)->addDay()->toDateString();
         $this->dispatch('changeDate', $this->calendarDate);
     }
 
-    public function setCalendarDate()
+    public function setCalendarDate(): void
     {
         $validatedData = $this->validate([
             'calendarDate' => 'required|date',
@@ -47,7 +48,7 @@ class CalendarGlanceComponent extends Component
         $this->dispatch('changeDate', $this->calendarDate);
     }
 
-    public function populateCalendarDateBook()
+    public function populateCalendarDateBook(): void
     {
         $day = Carbon::parse($this->calendarDate);
 
@@ -68,7 +69,7 @@ class CalendarGlanceComponent extends Component
         */
     }
 
-    public function checkIfDayIsHoliday($day)
+    public function checkIfDayIsHoliday($day): bool
     {
         $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
             ->whereDate('end_date', '>=', $day->toDateString())
@@ -82,7 +83,7 @@ class CalendarGlanceComponent extends Component
         }
     }
 
-    public function getEventsForTheDay($day)
+    public function getEventsForTheDay($day) // Todo: type hint return type
     {
         $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
             ->whereDate('end_date', '>=', $day->toDateString())

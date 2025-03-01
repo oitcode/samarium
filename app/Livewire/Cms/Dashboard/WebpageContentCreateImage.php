@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\WebpageContent;
 
@@ -14,12 +15,12 @@ class WebpageContentCreateImage extends Component
 
     public $image;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-content-create-image');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'image' => 'required|image',
@@ -43,7 +44,7 @@ class WebpageContentCreateImage extends Component
     }
 
     /* Prepare the content */
-    public function prepareContent($validatedData)
+    public function prepareContent($validatedData): string
     {
         $content = '
             <div class="container">

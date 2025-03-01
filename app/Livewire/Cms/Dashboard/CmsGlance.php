@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Webpage;
 use App\Gallery;
 
@@ -12,7 +13,7 @@ class CmsGlance extends Component
     public $postCount;
     public $galleryCount;
 
-    public function render()
+    public function render(): View
     {
         $this->webpageCount = Webpage::where('is_post', 'no')->get()->count();
         $this->postCount = Webpage::where('is_post', 'yes')->get()->count();

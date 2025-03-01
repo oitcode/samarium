@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Webpage;
 use App\WebpageCategory;
 
@@ -12,7 +13,7 @@ class PostList extends Component
 
     public $category = null;
 
-    public function render()
+    public function render(): View
     {
         if ($this->category) {
             $postCategory = WebpageCategory::where('name', $this->category)->first();

@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard\WebpageContentCreate;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\WebpageContent;
 
 class YoutubeVideo extends Component
@@ -11,12 +12,12 @@ class YoutubeVideo extends Component
 
     public $youtube_video_id;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-content-create.youtube-video');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'youtube_video_id' => 'required',
@@ -36,7 +37,7 @@ class YoutubeVideo extends Component
     }
 
     /* Prepare the content */
-    public function prepareContent($validatedData)
+    public function prepareContent($validatedData): string
     {
         $content = '<div>';
         $content = $content . '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . $validatedData['youtube_video_id'] . '"> </iframe>';

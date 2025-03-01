@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\GalleryImage;
 
@@ -25,30 +26,30 @@ class GalleryDisplay extends Component
         'addGalleryImagesCancelled',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.gallery-display');
     }
 
-    public function deleteImageFromGallery(GalleryImage $galleryImage)
+    public function deleteImageFromGallery(GalleryImage $galleryImage): void
     {
         $galleryImage->delete();
         $this->gallery = $this->gallery->fresh();
         $this->render();
     }
 
-    public function updateGalleryNameCancel()
+    public function updateGalleryNameCancel(): void
     {
         $this->exitMode('updateGalleryNameMode');
     }
 
-    public function updateGalleryNameCompleted()
+    public function updateGalleryNameCompleted(): void
     {
         session()->flash('message', 'Gallery name updated');
         $this->exitMode('updateGalleryNameMode');
     }
 
-    public function movePositionUp(GalleryImage $galleryImage)
+    public function movePositionUp(GalleryImage $galleryImage): void
     {
         $previousImage = $this->getPreviousImage($galleryImage);
 
@@ -64,7 +65,7 @@ class GalleryDisplay extends Component
         }
     }
 
-    public function movePositionDown(GalleryImage $galleryImage)
+    public function movePositionDown(GalleryImage $galleryImage): void
     {
         $nextImage = $this->getNextImage($galleryImage);
 
@@ -80,7 +81,7 @@ class GalleryDisplay extends Component
         }
     }
 
-    public function getPreviousImage(GalleryImage $galleryImage)
+    public function getPreviousImage(GalleryImage $galleryImage): void
     {
         $previousItem = $galleryImage->gallery
             ->galleryImages()->where('position', '<', $galleryImage->position)
@@ -90,7 +91,7 @@ class GalleryDisplay extends Component
         return $previousItem;
     }
 
-    public function getNextImage(GalleryImage $galleryImage)
+    public function getNextImage(GalleryImage $galleryImage): void
     {
         $nextItem = $galleryImage->gallery
             ->galleryImages()->where('position', '>', $galleryImage->position)
@@ -100,17 +101,17 @@ class GalleryDisplay extends Component
         return $nextItem;
     }
 
-    public function galleryImagesAdded()
+    public function galleryImagesAdded(): void
     {
         $this->exitMode('addGalleryImagesMode');
     }
 
-    public function addGalleryImagesCancelled()
+    public function addGalleryImagesCancelled(): void
     {
         $this->exitMode('addGalleryImagesMode');
     }
 
-    public function toggleGalleryPageVisibility()
+    public function toggleGalleryPageVisibility(): void
     {
         if ($this->gallery->show_in_gallery_page == 'yes') {
             $this->gallery->show_in_gallery_page = 'no';

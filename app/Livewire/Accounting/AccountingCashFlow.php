@@ -3,6 +3,7 @@
 namespace App\Livewire\Accounting;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\AbAccountType;
 use App\AbAccount;
 
@@ -20,7 +21,7 @@ class AccountingCashFlow extends Component
     public $grossProfit;
     public $netProfit;
 
-    public function render()
+    public function render(): View
     {
         /* Calculate net income/profit */
         $this->populateRevenue();
@@ -34,7 +35,7 @@ class AccountingCashFlow extends Component
     }
 
     /* This taken from income statement to calculate retained earnings. */
-    public function populateRevenue()
+    public function populateRevenue(): void
     {
         $total = 0;
 
@@ -48,7 +49,7 @@ class AccountingCashFlow extends Component
         $this->revenueItems[] = $salesRevenue;
     }
 
-    public function populateCogs()
+    public function populateCogs(): void
     {
         $purchaseAbAccount = AbAccount::where('name', 'purchase')->first();
 
@@ -60,7 +61,7 @@ class AccountingCashFlow extends Component
         $this->cogsItems[] = $purchaseCogs;
     }
 
-    public function populateExpense()
+    public function populateExpense(): void
     {
         $expenseAbAccount = AbAccount::where('name', 'expense')->first();
 
@@ -72,12 +73,12 @@ class AccountingCashFlow extends Component
         $this->expenseItems[] = $expense;
     }
 
-    public function calculateGrossProfit()
+    public function calculateGrossProfit(): void
     {
         $this->grossProfit = $this->revenueTotal - $this->cogsTotal;
     }
 
-    public function calculateNetProfit()
+    public function calculateNetProfit(): void
     {
         $this->netProfit = $this->grossProfit - $this->expenseTotal;
     }

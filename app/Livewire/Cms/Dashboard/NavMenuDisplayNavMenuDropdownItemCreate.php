@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Webpage;
 use App\CmsNavMenuDropdownItem;
 
@@ -15,14 +16,14 @@ class NavMenuDisplayNavMenuDropdownItemCreate extends Component
     public $name;
     public $webpage_id;
 
-    public function render()
+    public function render(): View
     {
         $this->webpages = Webpage::all();
 
         return view('livewire.cms.dashboard.nav-menu-display-nav-menu-dropdown-item-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -41,7 +42,7 @@ class NavMenuDisplayNavMenuDropdownItemCreate extends Component
         $this->dispatch('cmsNavMenuDropdownItemAdded');
     }
 
-    public function getHighestMenuDropdownItemOrder()
+    public function getHighestMenuDropdownItemOrder(): int
     {
         if ($this->cmsNavMenuItem->cmsNavMenuDropdownItems) {
             return $this->cmsNavMenuItem->cmsNavMenuDropdownItems()->max('order');

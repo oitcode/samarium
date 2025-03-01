@@ -3,6 +3,7 @@
 namespace App\Livewire\CafeSale;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\SeatTable;
 
 class SeatTableList extends Component
@@ -13,7 +14,7 @@ class SeatTableList extends Component
         'seatTableDeleted' => 'render',
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->seatTables = SeatTable::all();
 

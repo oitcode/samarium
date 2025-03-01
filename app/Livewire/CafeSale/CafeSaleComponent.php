@@ -3,6 +3,7 @@
 namespace App\Livewire\CafeSale;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\SeatTable;
 
@@ -28,12 +29,12 @@ class CafeSaleComponent extends Component
         'exitSaleInvoiceWorkMode',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cafe-sale.cafe-sale-component');
     }
 
-    public function displayWorkingSeatTable($seat_table_id)
+    public function displayWorkingSeatTable($seat_table_id): void
     {
         $seatTable = SeatTable::findOrFail($seat_table_id);
 
@@ -41,17 +42,17 @@ class CafeSaleComponent extends Component
         $this->enterMode('workingTableDisplay');
     }
 
-    public function seatTableCreateCompleted()
+    public function seatTableCreateCompleted(): void
     {
         $this->exitMode('createSeatTableMode');
     }
 
-    public function seatTableCreateCancelled()
+    public function seatTableCreateCancelled(): void
     {
         $this->exitMode('createSeatTableMode');
     }
 
-    public function  displaySeatTableXypher($seat_table_id)
+    public function  displaySeatTableXypher($seat_table_id): void
     {
         $seatTable = SeatTable::findOrFail($seat_table_id);
 
@@ -59,7 +60,7 @@ class CafeSaleComponent extends Component
         $this->enterMode('seatTableDisplayXypher');
     }
 
-    public function exitSaleInvoiceWorkMode()
+    public function exitSaleInvoiceWorkMode(): void
     {
         $this->displayingSaleInvoice = null;
         $this->clearModes();

@@ -3,6 +3,7 @@
 namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class CalendarEventEditIsHoliday extends Component
 {
@@ -10,17 +11,17 @@ class CalendarEventEditIsHoliday extends Component
 
     public $is_holiday;
 
-    public function mount()
+    public function mount(): void
     {
         $this->is_holiday = $this->calendarEvent->is_holiday;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.calendar.dashboard.calendar-event-edit-is-holiday');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'is_holiday' => 'required',

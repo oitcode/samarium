@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\Webpage;
 
@@ -12,12 +13,12 @@ class WebpageCreate extends Component
     public $permalink;
     public $is_post = 'no';
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required|unique:webpage,name',

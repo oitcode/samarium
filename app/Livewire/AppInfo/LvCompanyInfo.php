@@ -3,13 +3,14 @@
 namespace App\Livewire\AppInfo;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Company;
 
 class LvCompanyInfo extends Component
 {
     public $company;
 
-    public function render()
+    public function render(): View
     {
         $this->company = Company::first();
 

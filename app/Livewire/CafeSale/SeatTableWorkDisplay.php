@@ -3,14 +3,18 @@
 namespace App\Livewire\CafeSale;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Traits\ModesTrait;
 use App\SeatTableBooking;
 use App\SaleInvoice;
 use App\SaleInvoiceItem;
 
 class SeatTableWorkDisplay extends Component
 {
+    use ModesTrait;
+
     public $seatTable;
 
     public $deletingSaleInvoiceItem = null; 
@@ -29,33 +33,12 @@ class SeatTableWorkDisplay extends Component
         'exitDeleteSaleInvoiceItem',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cafe-sale.seat-table-work-display');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function bookSeatTable()
+    public function bookSeatTable(): void
     {
         /*
          * --------------------------------------------------------------------
@@ -76,7 +59,6 @@ class SeatTableWorkDisplay extends Component
 
         $seatTableBooking->save();
 
-
         /* Create a sale invoice */
         $saleInvoice = new SaleInvoice;
 
@@ -92,23 +74,23 @@ class SeatTableWorkDisplay extends Component
         $this->render();
     }
 
-    public function exitAddItemMode()
+    public function exitAddItemMode(): void
     {
         $this->exitMode('addItem');
     }
 
-    public function exitMakePaymentMode()
+    public function exitMakePaymentMode(): void
     {
         $this->exitMode('makePayment');
     }
 
-    public function itemAddedToBooking()
+    public function itemAddedToBooking(): void
     {
         $this->dispatch('makePaymentPleaseUpdate');
         $this->render();
     }
 
-    public function closeTable()
+    public function closeTable(): void
     {
         $currentBooking = $this->seatTable->getCurrentBooking();
         $saleInvoice = $currentBooking->saleInvoice;
@@ -134,7 +116,7 @@ class SeatTableWorkDisplay extends Component
         }
     }
 
-    public function confirmRemoveItemFromCurrentBooking($saleInvoiceItemId)
+    public function confirmRemoveItemFromCurrentBooking($saleInvoiceItemId): void
     {
         $saleInvoiceItem = SaleInvoiceItem::find($saleInvoiceItemId);
 
@@ -142,7 +124,7 @@ class SeatTableWorkDisplay extends Component
         $this->enterMode('confirmRemoveSaleInvoiceItem');
     }
 
-    public function removeItemFromCurrentBooking($saleInvoiceItemId)
+    public function removeItemFromCurrentBooking($saleInvoiceItemId): void
     {
         $saleInvoiceItem = SaleInvoiceItem::find($saleInvoiceItemId);
 
@@ -172,18 +154,18 @@ class SeatTableWorkDisplay extends Component
         $this->render();
     }
 
-    public function exitDeleteSaleInvoiceItem()
+    public function exitDeleteSaleInvoiceItem(): void
     {
         $this->deletingSaleInvoiceItem = null;
         $this->exitMode('confirmRemoveSaleInvoiceItem');
     }
 
-    public function enterMultiMode($modeName)
+    public function enterMultiMode($modeName): void
     {
         $this->modes[$modeName] = true;
     }
 
-    public function updateInventory($product, $quantity, $direction)
+    public function updateInventory($product, $quantity, $direction): void
     {
         if ($product->baseProduct) {
             $baseProduct = $product->baseProduct;
@@ -211,7 +193,7 @@ class SeatTableWorkDisplay extends Component
         }
     }
 
-    public function deleteSeatTable()
+    public function deleteSeatTable(): void
     {
         $this->seatTable->delete();
         $this->dispatch('seatTableDeleted');

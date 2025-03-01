@@ -3,6 +3,7 @@
 namespace App\Livewire\Appointment\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Company;
 use App\Appointment;
@@ -23,13 +24,13 @@ class AppointmentCreate extends Component
     public $requestedDay;
     public $availableTimes;
 
-    public function render()
+    public function render(): View
     {
         $this->company = Company::first();
         return view('livewire.appointment.website.appointment-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'appointment_date' => 'required',
@@ -62,7 +63,7 @@ class AppointmentCreate extends Component
         session()->flash('message', 'Appointment booked');
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->appointment_date = '';
         $this->appointment_time = '';
@@ -71,7 +72,7 @@ class AppointmentCreate extends Component
         $this->applicant_description = '';
     }
 
-    public function getAvailableTimesForDay($day)
+    public function getAvailableTimesForDay($day): array
     {
         $appointmentAvailabilities = $this->teamMember->teamMemberAppointmentAvailabilities()->where('day', $day)->get();
 
@@ -98,7 +99,7 @@ class AppointmentCreate extends Component
         return $availableTimes;
     }
 
-    public function fillAvailableTimes()
+    public function fillAvailableTimes(): void
     {
         $yearMonthDay = explode('-', $this->appointment_date);
         $dateTime = Carbon::create($yearMonthDay[0], $yearMonthDay[1], $yearMonthDay[2], '00', '00', '00');
@@ -106,7 +107,7 @@ class AppointmentCreate extends Component
         $this->availableTimes = $this->getAvailableTimesForDay($day);
     }
 
-    public function updatedAppointmentDate()
+    public function updatedAppointmentDate(): void
     {
         $this->fillAvailableTimes();
     }

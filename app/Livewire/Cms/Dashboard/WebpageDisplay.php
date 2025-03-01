@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
 use App\Webpage;
@@ -46,17 +47,17 @@ class WebpageDisplay extends Component
         'webpageEditTeamTeampageCancel',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-display');
     }
 
-    public function exitCreateWebpageContent()
+    public function exitCreateWebpageContent(): void
     {
         $this->exitMode('createWebpageContent');
     }
 
-    public function addFeaturedImage()
+    public function addFeaturedImage(): void
     {
         $validatedData = $this->validate([
             'featured_image' => 'required|image',
@@ -69,37 +70,37 @@ class WebpageDisplay extends Component
         $this->render();
     }
 
-    public function webpageEditVisibilityCancel()
+    public function webpageEditVisibilityCancel(): void
     {
         $this->exitMode('editVisibilityMode');
     }
 
-    public function webpageEditVisibilityCompleted()
+    public function webpageEditVisibilityCompleted(): void
     {
         $this->exitMode('editVisibilityMode');
     }
 
-    public function webpageEditWebpageCategoryCancel()
+    public function webpageEditWebpageCategoryCancel(): void
     {
         $this->exitMode('editWebpageCategoryMode');
     }
 
-    public function webpageEditWebpageCategoryCompleted()
+    public function webpageEditWebpageCategoryCompleted(): void
     {
         $this->exitMode('editWebpageCategoryMode');
     }
 
-    public function webpageEditFeaturedImageCancel()
+    public function webpageEditFeaturedImageCancel(): void
     {
         $this->exitMode('editFeaturedImageMode');
     }
 
-    public function webpageEditFeaturedImageCompleted()
+    public function webpageEditFeaturedImageCompleted(): void
     {
         $this->exitMode('editFeaturedImageMode');
     }
 
-    public function removeFeaturedImage()
+    public function removeFeaturedImage(): void
     {
         $this->webpage->featured_image_path = null;
         $this->webpage->update();
@@ -107,7 +108,7 @@ class WebpageDisplay extends Component
         $this->render();
     }
 
-    public function makeWebpageFeaturedWebpage()
+    public function makeWebpageFeaturedWebpage(): void
     {
         $this->webpage->featured_webpage = 'yes';
         $this->webpage->update();
@@ -115,7 +116,7 @@ class WebpageDisplay extends Component
         $this->render();
     }
 
-    public function makeWebpageFeaturedWebpageUndo()
+    public function makeWebpageFeaturedWebpageUndo(): void
     {
         $this->webpage->featured_webpage = 'no';
         $this->webpage->update();
@@ -123,27 +124,27 @@ class WebpageDisplay extends Component
         $this->render();
     }
 
-    public function webpageEditWebpageCategoryPostpageCompleted()
+    public function webpageEditWebpageCategoryPostpageCompleted(): void
     {
         $this->exitMode('editWebpageCategoryPostpageMode');
     }
 
-    public function webpageEditWebpageCategoryPostpageCancel()
+    public function webpageEditWebpageCategoryPostpageCancel(): void
     {
         $this->exitMode('editWebpageCategoryPostpageMode');
     }
 
-    public function webpageEditTeamTeampageCompleted()
+    public function webpageEditTeamTeampageCompleted(): void
     {
         $this->exitMode('editTeamTeampageMode');
     }
 
-    public function webpageEditTeamTeampageCancel()
+    public function webpageEditTeamTeampageCancel(): void
     {
         $this->exitMode('editTeamTeampageMode');
     }
 
-    public function removePostCategory(WebpageCategory $webpageCategory, Webpage $webpage)
+    public function removePostCategory(WebpageCategory $webpageCategory, Webpage $webpage): void
     {
         $webpageWebpageCategory = WebpageWebpageCategory::where('webpage_id', $webpage->webpage_id)
                                   ->where('webpage_category_id', $webpageCategory->webpage_category_id)
@@ -154,7 +155,7 @@ class WebpageDisplay extends Component
         $this->render();
     }
 
-    public function closeThisComponent()
+    public function closeThisComponent(): void
     {
         $this->dispatch('exitWebpageDisplayMode');
     }

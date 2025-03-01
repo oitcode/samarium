@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Webpage;
@@ -23,7 +24,7 @@ class PostList extends Component
         'delete' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         $posts = Webpage::where('is_post', 'yes')->orderBy('webpage_id', 'DESC')->paginate(5);
         $this->totalPostCount = Webpage::where('is_post', 'yes')->count();
@@ -32,20 +33,20 @@ class PostList extends Component
             ->with('posts', $posts);
     }
 
-    public function deletePost(Webpage $post)
+    public function deletePost(Webpage $post): void
     {
         $this->deletingPost = $post;
 
         $this->enterMode('delete');
     }
 
-    public function deletePostCancel()
+    public function deletePostCancel(): void
     {
         $this->deletingPost = null;
         $this->exitMode('delete');
     }
 
-    public function confirmDeletePost()
+    public function confirmDeletePost(): void
     {
         foreach ($this->deletingPost->webpageContents as $webpageContent) {
             foreach ($webpageContent->cmsWebpageContentCssOptions as $option) {

@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\CmsWebpageContentCssOption;
 
 class WebpageContentEditCss extends Component
@@ -24,7 +25,7 @@ class WebpageContentEditCss extends Component
     public $bg_color;
     public $text_color;
 
-    public function mount()
+    public function mount(): void
     {
         /* Margin */
         $marginTopOption = $this->webpageContent->cmsWebpageContentCssOptions()->where('option_name', 'margin-top')->first();
@@ -46,7 +47,6 @@ class WebpageContentEditCss extends Component
         if ($marginRightOption) {
             $this->margin_right = $marginLeftOption->option_value;
         }
-
 
         /* Padding */
         $paddingTopOption = $this->webpageContent->cmsWebpageContentCssOptions()->where('option_name', 'padding-top')->first();
@@ -89,12 +89,12 @@ class WebpageContentEditCss extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-content-edit-css');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'margin_top' => 'nullable',
@@ -154,7 +154,7 @@ class WebpageContentEditCss extends Component
         $this->dispatch('webpageContentEditCssCompleted');
     }
 
-    public function addCssOption($optionName, $optionValue)
+    public function addCssOption($optionName, $optionValue): void
     {
         $cmsWebpageContentCssOption = $this->webpageContent->cmsWebpageContentCssOptions()->where('option_name', $optionName)->first();
 

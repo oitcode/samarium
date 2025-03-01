@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\CmsNavMenuItem;
 
 class NavMenuDisplay extends Component
@@ -23,7 +24,7 @@ class NavMenuDisplay extends Component
         'exitCreateCmsNavMenuDropdownItemMode',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.nav-menu-display');
     }
@@ -49,17 +50,17 @@ class NavMenuDisplay extends Component
         $this->modes[$modeName] = false;
     }
 
-    public function cmsNavMenuItemAdded()
+    public function cmsNavMenuItemAdded(): void
     {
         $this->exitMode('createNavMenuItem');
     }
 
-    public function exitCreateCmsNavMenuItemMode()
+    public function exitCreateCmsNavMenuItemMode(): void
     {
         $this->exitMode('createNavMenuItem');
     }
 
-    public function moveUp(CmsNavMenuItem $cmsNavMenuItem)
+    public function moveUp(CmsNavMenuItem $cmsNavMenuItem): void
     {
         /* Skip for first item */
         if ($cmsNavMenuItem->order == 1) {
@@ -78,7 +79,7 @@ class NavMenuDisplay extends Component
         $this->render();
     }
 
-    public function moveDown(CmsNavMenuItem $cmsNavMenuItem)
+    public function moveDown(CmsNavMenuItem $cmsNavMenuItem): void
     {
         /* Skip for last item */
         if ($cmsNavMenuItem->order == $cmsNavMenuItem->cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'desc')->first()->order) {
@@ -97,7 +98,7 @@ class NavMenuDisplay extends Component
         $this->render();
     }
 
-    public function getBeforeItem(CmsNavMenuItem $cmsNavMenuItem)
+    public function getBeforeItem(CmsNavMenuItem $cmsNavMenuItem): CmsNavMenuItem
     {
         $beforeItem = $cmsNavMenuItem->cmsNavMenu
             ->cmsNavMenuItems()->where('order', '<', $cmsNavMenuItem->order)
@@ -107,7 +108,7 @@ class NavMenuDisplay extends Component
         return $beforeItem;
     }
 
-    public function getNextItem(CmsNavMenuItem $cmsNavMenuItem)
+    public function getNextItem(CmsNavMenuItem $cmsNavMenuItem): CmsNavMenuItem
     {
         $nextItem = $cmsNavMenuItem->cmsNavMenu
             ->cmsNavMenuItems()->where('order', '>', $cmsNavMenuItem->order)
@@ -117,19 +118,19 @@ class NavMenuDisplay extends Component
         return $nextItem;
     }
 
-    public function exitCreateCmsNavMenuDropdownItemMode()
+    public function exitCreateCmsNavMenuDropdownItemMode(): void
     {
         $this->editingDropdown = null;
         $this->exitMode('createNavMenuDropdownItem');
     }
 
-    public function editDropdown(CmsNavMenuItem $cmsNavMenuItem)
+    public function editDropdown(CmsNavMenuItem $cmsNavMenuItem): void
     {
         $this->editingDropdown = $cmsNavMenuItem;
         $this->enterMode('createNavMenuDropdownItem');
     }
 
-    public function deleteCmsNavMenuItem(CmsNavMenuItem $cmsNavMenuItem)
+    public function deleteCmsNavMenuItem(CmsNavMenuItem $cmsNavMenuItem): void
     {
         if ($cmsNavMenuItem->type == 'dropdown') {
             foreach ($cmsNavMenuItem->cmsNavMenuDropdownItems as $item) {

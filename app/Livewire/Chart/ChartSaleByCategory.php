@@ -3,6 +3,7 @@
 namespace App\Livewire\Chart;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use App\SaleInvoice;
 use App\SaleInvoiceItem;
@@ -14,19 +15,19 @@ class ChartSaleByCategory extends Component
 
     public $saleByCategory;
 
-    public function mount()
+    public function mount(): void
     {
         $this->startDay = Carbon::now()->startOfWeek(Carbon::SUNDAY);
     }
 
-    public function render()
+    public function render(): View
     {
         $this->populateSaleByCategory();
 
         return view('livewire.chart.chart-sale-by-category');
     }
 
-    public function populateSaleByCategory()
+    public function populateSaleByCategory(): void
     {
         $this->saleByCategory = array();
 
@@ -55,7 +56,7 @@ class ChartSaleByCategory extends Component
         });
     }
 
-    public function categoryInSaleByCategory(ProductCategory $productCategory)
+    public function categoryInSaleByCategory(ProductCategory $productCategory): bool
     {
         foreach ($this->saleByCategory as $item) {
             if ($item['productCategory']->product_category_id == $productCategory->product_category_id) {
@@ -66,7 +67,7 @@ class ChartSaleByCategory extends Component
         return false;
     }
 
-    public function updateSaleByCategoryCount(SaleInvoiceItem $saleInvoiceItem)
+    public function updateSaleByCategoryCount(SaleInvoiceItem $saleInvoiceItem): void
     {
         for ($i=0; $i < count($this->saleByCategory); $i++) {
             if ($this->saleByCategory[$i]['productCategory']->product_category_id
@@ -78,7 +79,7 @@ class ChartSaleByCategory extends Component
         }
     }
 
-    public function addToSaleByCategoryCount(SaleInvoiceItem $saleInvoiceItem)
+    public function addToSaleByCategoryCount(SaleInvoiceItem $saleInvoiceItem): void
     {
         $line = array();
 

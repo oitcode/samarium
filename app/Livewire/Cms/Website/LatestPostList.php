@@ -3,13 +3,14 @@
 namespace App\Livewire\Cms\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Webpage;
 
 class LatestPostList extends Component
 {
     public $webpages;
 
-    public function render()
+    public function render(): View
     {
         $this->webpages = Webpage::where('is_post', 'yes')
                               ->where('visibility', 'public')

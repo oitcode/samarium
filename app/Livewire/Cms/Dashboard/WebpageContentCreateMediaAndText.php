@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\WebpageContent;
 
@@ -17,12 +18,12 @@ class WebpageContentCreateMediaAndText extends Component
 
     public $image_position = 'right';
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-content-create-media-and-text');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'image' => 'required|image',
@@ -48,7 +49,7 @@ class WebpageContentCreateMediaAndText extends Component
     }
 
     /* Prepare the content */
-    public function prepareContent($validatedData)
+    public function prepareContent($validatedData): string
     {
         if ($this->image_position == 'left') {
             $content = '

@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\WebpageQuestion;
 
 class CreateWebpageQuestion extends Component
@@ -14,12 +15,12 @@ class CreateWebpageQuestion extends Component
     public $writer_phone; 
     public $question_text; 
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.website.create-webpage-question');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'writer_name' => 'nullable',
@@ -35,7 +36,7 @@ class CreateWebpageQuestion extends Component
         session()->flash('message', 'Enquiry sumbmitted');
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->writer_name = '';
         $this->writer_email = '';

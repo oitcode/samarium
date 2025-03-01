@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Webpage;
 
 class RelatedPosts extends Component
@@ -13,14 +14,14 @@ class RelatedPosts extends Component
 
     public $relatedPosts;
 
-    public function render()
+    public function render(): View
     {
         $this->populateRelatedPosts();
 
         return view('livewire.cms.website.related-posts');
     }
 
-    public function populateRelatedPosts()
+    public function populateRelatedPosts(): void
     {
         if ($this->relation == 'previous') {
             $posts = Webpage::where('is_post', 'yes')

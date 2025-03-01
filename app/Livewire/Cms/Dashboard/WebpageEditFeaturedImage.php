@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 
 class WebpageEditFeaturedImage extends Component
@@ -13,12 +14,12 @@ class WebpageEditFeaturedImage extends Component
 
     public $new_featured_image;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-edit-featured-image');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'new_featured_image' => 'required|image',

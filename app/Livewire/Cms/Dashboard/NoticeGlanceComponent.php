@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Webpage;
 use App\WebpageCategory;
 
@@ -11,7 +12,7 @@ class NoticeGlanceComponent extends Component
     public $noticeCount;
     public $todayNoticeCount;
 
-    public function render()
+    public function render(): View
     {
         $this->noticeCount = $this->getTotalNoticeCount();
         $this->todayNoticeCount = $this->getTodayNoticeCount();
@@ -19,7 +20,7 @@ class NoticeGlanceComponent extends Component
         return view('livewire.cms.dashboard.notice-glance-component');
     }
 
-    public function getTotalNoticeCount()
+    public function getTotalNoticeCount(): int
     {
         $total = 0;
 
@@ -32,7 +33,7 @@ class NoticeGlanceComponent extends Component
         return $total;
     }
 
-    public function getTodayNoticeCount()
+    public function getTodayNoticeCount(): int
     {
         $total = 0;
 

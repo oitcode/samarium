@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Gallery;
 
@@ -38,51 +39,51 @@ class GalleryComponent extends Component
         'displayMode' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.gallery-component');
     }
 
-    public function enterCreateMode()
+    public function enterCreateMode(): void
     {
         $this->createMode = true;
     }
 
-    public function galleryAdded()
+    public function galleryAdded(): void
     {
         session()->flash('message', 'Gallery created');
         $this->modes['createMode'] = false;
     }
 
-    public function enterUpdateMode()
+    public function enterUpdateMode(): void
     {
         $this->updateMode = true;
     }
 
-    public function exitUpdateMode()
+    public function exitUpdateMode(): void
     {
         $this->updatingGallery = null;
         $this->exitMode('updateMode');
     }
 
-    public function updateGallery(Gallery $gallery)
+    public function updateGallery(Gallery $gallery): void
     {
         $this->updatingGallery = $gallery;
         $this->enterMode('updateMode');
     }
 
-    public function enterDeleteMode()
+    public function enterDeleteMode(): void
     {
         $this->deleteMode = true;
     }
 
-    public function exitDeleteMode()
+    public function exitDeleteMode(): void
     {
         $this->deletingGallery = null;
         $this->deleteMode = false;
     }
 
-    public function deleteGallery(Gallery $gallery)
+    public function deleteGallery(Gallery $gallery): void
     {
         foreach ($gallery->galleryImages as $galleryImage) {
             $galleryImage->delete();
@@ -93,36 +94,36 @@ class GalleryComponent extends Component
         $this->dispatch('updateList');
     }
 
-    public function confirmDeleteGallery(Gallery $gallery)
+    public function confirmDeleteGallery(Gallery $gallery): void
     {
         $this->deletingGallery = $gallery;
         $this->enterDeleteMode();
     }
 
-    public function enterDisplayMode()
+    public function enterDisplayMode(): void
     {
         $this->displayMode = true;
     }
 
-    public function exitDisplayMode()
+    public function exitDisplayMode(): void
     {
         $this->displayingGallery = null;
         $this->displayMode = true;
     }
 
-    public function displayGallery(Gallery $gallery)
+    public function displayGallery(Gallery $gallery): void
     {
         $this->displayingGallery = $gallery;
         $this->enterMode('displayMode');
     }
 
-    public function exitGalleryDisplayMode()
+    public function exitGalleryDisplayMode(): void
     {
         $this->displayingGallery = null;
         $this->clearModes();
     }
 
-    public function exitGalleryCreateMode()
+    public function exitGalleryCreateMode(): void
     {
         $this->clearModes();
     }

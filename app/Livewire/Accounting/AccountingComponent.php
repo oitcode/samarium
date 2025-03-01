@@ -3,6 +3,7 @@
 namespace App\Livewire\Accounting;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\AbAccount;
 use App\Traits\ModesTrait;
 
@@ -32,17 +33,17 @@ class AccountingComponent extends Component
         'exitAccountTypeCreateMode',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.accounting.accounting-component');
     }
 
-    public function abAccountAdded()
+    public function abAccountAdded(): void
     {
         $this->exitMode('create');
     }
 
-    public function displayAbAccountLedger($abAccountId)
+    public function displayAbAccountLedger($abAccountId): void
     {
         $abAccount = AbAccount::find($abAccountId);
 
@@ -51,12 +52,12 @@ class AccountingComponent extends Component
         $this->enterMode('displayLedger');
     }
 
-    public function exitCreateMode()
+    public function exitCreateMode(): void
     {
         $this->exitMode('create');
     }
 
-    public function exitAccountTypeCreateMode()
+    public function exitAccountTypeCreateMode(): void
     {
         $this->exitMode('accountTypeCreate');
     }

@@ -10,17 +10,17 @@ class GalleryUpdateName extends Component
 
     public $name;
 
-    public function mount()
+    public function mount(): void
     {
         $this->name = $this->gallery->name;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.gallery-update-name');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

@@ -3,13 +3,14 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\CmsNavMenu;
 
 class NavMenuList extends Component
 {
     public $cmsNavMenus;
 
-    public function render()
+    public function render(): View
     {
         $this->cmsNavMenus = CmsNavMenu::all();
 

@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
 use App\Gallery;
@@ -16,12 +17,12 @@ class GalleryAddImage extends Component
 
     public $images = [];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.gallery-add-image');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'images.*' => 'image'

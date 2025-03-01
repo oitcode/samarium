@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Webpage;
@@ -23,7 +24,7 @@ class WebpageList extends Component
         'cannotDelete' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         $webpages = Webpage::where('is_post', 'no')->orderBy('webpage_id', 'DESC')->paginate(5);
 
@@ -31,7 +32,7 @@ class WebpageList extends Component
             ->with('webpages', $webpages);
     }
 
-    public function deleteWebpage(Webpage $webpage)
+    public function deleteWebpage(Webpage $webpage): void
     {
         $this->deletingWebpage = $webpage;
 
@@ -42,13 +43,13 @@ class WebpageList extends Component
         }
     }
 
-    public function deleteWebpageCancel()
+    public function deleteWebpageCancel(): void
     {
         $this->deletingWebpage = null;
         $this->exitMode('delete');
     }
 
-    public function confirmDeleteWebpage()
+    public function confirmDeleteWebpage(): void
     {
         foreach ($this->deletingWebpage->webpageContents as $webpageContent) {
             $webpageContent->delete();

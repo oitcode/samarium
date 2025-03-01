@@ -3,6 +3,7 @@
 namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\CalendarGroup;
 use App\Traits\ModesTrait;
 
@@ -25,29 +26,29 @@ class CalendarGroupComponent extends Component
         'calendarGroupDisplayCancelled',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.calendar.dashboard.calendar-group-component');
     }
 
-    public function calendarGroupCreateCompleted()
+    public function calendarGroupCreateCompleted(): void
     {
         session()->flash('message', 'Calendar group created.');
         $this->exitMode('createCalendarGroupMode');
     }
 
-    public function calendarGroupCreateCancelled()
+    public function calendarGroupCreateCancelled(): void
     {
         $this->exitMode('createCalendarGroupMode');
     }
 
-    public function displayCalendarGroup(CalendarGroup $calendarGroup)
+    public function displayCalendarGroup(CalendarGroup $calendarGroup): void
     {
         $this->displayingCalendarGroup = $calendarGroup;
         $this->enterMode('displayCalendarGroupMode');
     }
 
-    public function calendarGroupDisplayCancelled()
+    public function calendarGroupDisplayCancelled(): void
     {
         $this->displayingCalendarGroup = null;
         $this->exitMode('displayCalendarGroupMode');

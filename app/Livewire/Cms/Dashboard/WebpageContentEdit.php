@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\WebpageContent;
 
@@ -16,18 +17,18 @@ class WebpageContentEdit extends Component
     public $body;
     public $image;
 
-    public function mount()
+    public function mount(): void
     {
         $this->title = $this->webpageContent->title;
         $this->body = $this->webpageContent->body;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-content-edit');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'title' => 'nullable',

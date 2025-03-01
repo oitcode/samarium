@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\GalleryImage;
 
@@ -18,7 +19,7 @@ class GalleryUpdate extends Component
 
     public $new_images = [];
 
-    public function render()
+    public function render(): View
     {
         $this->name = $this->gallery->name;
         $this->description = $this->gallery->description;
@@ -27,7 +28,7 @@ class GalleryUpdate extends Component
         return view('livewire.cms.dashboard.gallery-update');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -50,7 +51,7 @@ class GalleryUpdate extends Component
         $this->dispatch('exitUpdate');
     }
 
-    public function deleteImageFromGallery(GalleryImage $galleryImage)
+    public function deleteImageFromGallery(GalleryImage $galleryImage): void
     {
         $galleryImage->delete();
         $this->gallery = $this->gallery->fresh();

@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Webpage;
 
@@ -30,39 +31,39 @@ class PostComponent extends Component
         'webpageAdded',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.post-component');
     }
 
-    public function exitCreatePostMode()
+    public function exitCreatePostMode(): void
     {
         $this->exitMode('createPostMode');
     }
 
-    public function displayPost(Webpage $post)
+    public function displayPost(Webpage $post): void
     {
         $this->displayingPost = $post;
         $this->enterMode('displayPostMode');
     }
 
-    public function createPostCategoryCanceled()
+    public function createPostCategoryCanceled(): void
     {
         $this->exitMode('createPostCategoryMode');
     }
 
-    public function createPostCategoryCompleted()
+    public function createPostCategoryCompleted(): void
     {
         $this->exitMode('createPostCategoryMode');
         session()->flash('message', 'Post category created');
     }
 
-    public function exitWebpageDisplayMode()
+    public function exitWebpageDisplayMode(): void
     {
         $this->clearModes();
     }
 
-    public function webpageAdded($webpageId)
+    public function webpageAdded($webpageId): void
     {
         $webpage = Webpage::find($webpageId);
 

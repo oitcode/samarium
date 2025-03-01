@@ -3,6 +3,7 @@
 namespace App\Livewire\Chart;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 
 use App\SaleInvoice;
@@ -11,14 +12,14 @@ class ChartWeekSales extends Component
 {
     public $weekSales = array();
 
-    public function render()
+    public function render(): View
     {
         $this->populateWeekSales();
 
         return view('livewire.chart.chart-week-sales');
     }
 
-    public function populateWeekSales()
+    public function populateWeekSales(): void
     {
         $this->weekSales = array();
 
@@ -33,7 +34,7 @@ class ChartWeekSales extends Component
         }
     }
 
-    public function getTotalAmountOfDay($day)
+    public function getTotalAmountOfDay($day): void
     {
         $saleInvoices = SaleInvoice::where('sale_invoice_date', $day->format('Y-m-d'))->get();
 

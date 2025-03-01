@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\WebpageContent;
 
 class WebpageContentCreateHeading extends Component
@@ -11,12 +12,12 @@ class WebpageContentCreateHeading extends Component
 
     public $heading;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-content-create-heading');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'heading' => 'required',

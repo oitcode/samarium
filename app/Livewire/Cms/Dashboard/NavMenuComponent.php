@@ -3,10 +3,14 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\CmsNavMenu;
 
 class NavMenuComponent extends Component
 {
+    use ModesTrait;
+
     public $displayingCmsNavMenu;
 
     public $modes = [
@@ -21,7 +25,7 @@ class NavMenuComponent extends Component
         'displayCmsNavMenu',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         if (CmsNavMenu::first()) {
             $this->displayingCmsNavMenu = CmsNavMenu::first();
@@ -29,44 +33,23 @@ class NavMenuComponent extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.nav-menu-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function cmsNavMenuAdded()
+    public function cmsNavMenuAdded(): void
     {
         session()->flash('message', 'Nav menu created');
         $this->exitMode('create');
     }
 
-    public function exitCreateMode()
+    public function exitCreateMode(): void
     {
         $this->exitMode('create');
     }
 
-    public function displayCmsNavMenu($cmsNavMenuId)
+    public function displayCmsNavMenu($cmsNavMenuId): void
     {
         $cmsNavMenu = CmsNavMenu::find($cmsNavMenuId);
 

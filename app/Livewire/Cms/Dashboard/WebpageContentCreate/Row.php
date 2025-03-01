@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard\WebpageContentCreate;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
 use App\WebpageContent;
@@ -19,7 +20,7 @@ class Row extends Component
 
     public $numOfRows = 3;
 
-    public function mount()
+    public function mount(): void
     {
         for ($i = 0; $i < $this->numOfRows; $i++) {
             $this->contents[] = [
@@ -30,12 +31,12 @@ class Row extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-content-create.row');
     }
 
-    public function store()
+    public function store(): void
     {
         /* Todo: Validation */
         // $validatedData = $this->validate([
@@ -55,7 +56,7 @@ class Row extends Component
     }
 
     /* Prepare the content */
-    public function prepareContent()
+    public function prepareContent(): string
     {
 
         $content = '<div class="row">';

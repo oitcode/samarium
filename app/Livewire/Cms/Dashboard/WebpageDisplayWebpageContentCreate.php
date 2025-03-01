@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait; 
@@ -48,12 +49,12 @@ class WebpageDisplayWebpageContentCreate extends Component
         'webpageContentCreateCancelled',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.cms.dashboard.webpage-display-webpage-content-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'title' => 'nullable',
@@ -77,7 +78,7 @@ class WebpageDisplayWebpageContentCreate extends Component
         $this->dispatch('webpageContentAdded');
     }
 
-    public function getHighestPosition()
+    public function getHighestPosition(): int
     {
         $position = 0;
 
@@ -88,17 +89,17 @@ class WebpageDisplayWebpageContentCreate extends Component
         return $position;
     }
 
-    public function updatedValue($value)
+    public function updatedValue($value): void
     {
       //
     }
 
-    public function webpageContentCreateCompleted()
+    public function webpageContentCreateCompleted(): void
     {
         $this->dispatch('webpageContentAdded');
     }
 
-    public function webpageContentCreateCancelled()
+    public function webpageContentCreateCancelled(): void
     {
         $this->dispatch('webpageContentCreateCancelledL2');
     }

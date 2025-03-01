@@ -3,6 +3,7 @@
 namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Team;
 use App\WebpageTeam;
 
@@ -14,14 +15,14 @@ class WebpageEditTeamTeampage extends Component
 
     public $team_id;
 
-    public function render()
+    public function render(): View
     {
         $this->teams = Team::all();
 
         return view('livewire.cms.dashboard.webpage-edit-team-teampage');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'team_id' => 'required',

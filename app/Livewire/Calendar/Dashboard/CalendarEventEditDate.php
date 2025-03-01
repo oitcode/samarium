@@ -3,6 +3,7 @@
 namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Traits\ModesTrait;
 use App\SchoolCalendarEvent;
@@ -24,12 +25,12 @@ class CalendarEventEditDate extends Component
         'dateSelected',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.calendar.dashboard.calendar-event-edit-date');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'start_date' => 'required|date',
@@ -44,7 +45,7 @@ class CalendarEventEditDate extends Component
         $this->dispatch('calendarEventUpdateDateCompleted');
     }
 
-    public function dateSelected($day, $nepaliMonth, $emitDate)
+    public function dateSelected($day, $nepaliMonth, $emitDate): void
     {
         if ($emitDate == 'start_date') {
             $this->start_date = $day[2];

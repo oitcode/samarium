@@ -3,6 +3,7 @@
 namespace App\Livewire\Accounting;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\AbAccountType;
 use App\AbAccount;
 
@@ -25,7 +26,7 @@ class AccountingBalanceSheet extends Component
     public $netProfit;
     /* This taken from income statement to calculate retained earnings. */
 
-    public function render()
+    public function render(): View
     {
         $this->calculateAssetTotal();
         $this->calculateLiabilitiesTotal();
@@ -34,7 +35,7 @@ class AccountingBalanceSheet extends Component
         return view('livewire.accounting.accounting-balance-sheet');
     }
 
-    public function calculateAssetTotal()
+    public function calculateAssetTotal(): void
     {
         $total = 0;
 
@@ -47,7 +48,7 @@ class AccountingBalanceSheet extends Component
         $this->assetTotal = $total;
     }
 
-    public function calculateLiabilitiesTotal()
+    public function calculateLiabilitiesTotal(): void
     {
         $total = 0;
 
@@ -60,7 +61,7 @@ class AccountingBalanceSheet extends Component
         $this->liabilityTotal = $total;
     }
 
-    public function calculateEquityTotal()
+    public function calculateEquityTotal(): void
     {
         /* TODO: 
          *
@@ -95,7 +96,7 @@ class AccountingBalanceSheet extends Component
     }
 
     /* This taken from income statement to calculate retained earnings. */
-    public function populateRevenue()
+    public function populateRevenue(): void
     {
         $total = 0;
 
@@ -109,7 +110,7 @@ class AccountingBalanceSheet extends Component
         $this->revenueItems[] = $salesRevenue;
     }
 
-    public function populateCogs()
+    public function populateCogs(): void
     {
         $purchaseAbAccount = AbAccount::where('name', 'purchase')->first();
 
@@ -121,7 +122,7 @@ class AccountingBalanceSheet extends Component
         $this->cogsItems[] = $purchaseCogs;
     }
 
-    public function populateExpense()
+    public function populateExpense(): void
     {
         $expenseAbAccount = AbAccount::where('name', 'expense')->first();
 
@@ -133,12 +134,12 @@ class AccountingBalanceSheet extends Component
         $this->expenseItems[] = $expense;
     }
 
-    public function calculateGrossProfit()
+    public function calculateGrossProfit(): void
     {
         $this->grossProfit = $this->revenueTotal - $this->cogsTotal;
     }
 
-    public function calculateNetProfit()
+    public function calculateNetProfit(): void
     {
         $this->netProfit = $this->grossProfit - $this->expenseTotal;
     }
