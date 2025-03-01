@@ -3,10 +3,14 @@
 namespace App\Livewire\Vendor;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\Vendor;
 
 class VendorComponent extends Component
 {
+    use ModesTrait;
+    
     public $displayingVendor = null;
 
     public $modes = [
@@ -27,52 +31,31 @@ class VendorComponent extends Component
         'exitVendorDisplayMode',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.vendor.vendor-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function exitCreateMode()
+    public function exitCreateMode(): void
     {
         $this->exitMode('create');
     }
 
-    public function displayVendor(Vendor $vendor)
+    public function displayVendor(Vendor $vendor): void
     {
         $this->displayingVendor = $vendor;
 
         $this->enterMode('display');
     }
 
-    public function ackVendorCreated()
+    public function ackVendorCreated(): void
     {
         session()->flash('message', 'Vendor created');
 
         $this->exitMode('create');
     }
 
-    public function exitVendorDisplayMode()
+    public function exitVendorDisplayMode(): void
     {
         $this->displayingVendor = null;
         $this->clearModes();

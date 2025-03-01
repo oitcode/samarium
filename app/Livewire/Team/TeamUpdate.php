@@ -3,6 +3,7 @@
 namespace App\Livewire\Team;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Team;
 
@@ -24,12 +25,12 @@ class TeamUpdate extends Component
         $this->team_type = $this->team->team_type;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.team.team-update');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

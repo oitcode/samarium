@@ -2,11 +2,11 @@
 
 namespace App\Livewire\User;
 
-use App\User;
-use Illuminate\View\View;
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\ModesTrait;
+use App\User;
 
 class UserDisplay extends Component
 {

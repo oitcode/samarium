@@ -3,6 +3,7 @@
 namespace App\Livewire\Vendor\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class VendorEditName extends Component
 {
@@ -10,17 +11,17 @@ class VendorEditName extends Component
 
     public $name;
 
-    public function mount()
+    public function mount(): void
     {
         $this->name = $this->vendor->name;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.vendor.dashboard.vendor-edit-name');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

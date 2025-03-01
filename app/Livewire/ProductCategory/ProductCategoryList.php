@@ -3,11 +3,14 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use Livewire\WithPagination;
 use App\ProductCategory;
 
 class ProductCategoryList extends Component
 {
+    use ModesTrait;
     use WithPagination;
 
     // public $productCategories;
@@ -21,11 +24,7 @@ class ProductCategoryList extends Component
         'productCategoryProductList' => false,
     ];
 
-    public function mount()
-    {
-    }
-
-    public function render()
+    public function render(): View
     {
         $this->totalProductCategoryCount = ProductCategory::count();
         $productCategories = ProductCategory::orderBy('name', 'ASC')->paginate(5);
@@ -34,34 +33,13 @@ class ProductCategoryList extends Component
             ->with('productCategories', $productCategories);
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function selectCategory($productCategoryId)
+    public function selectCategory($productCategoryId): void
     {
         $this->selectedProductCategory = ProductCategory::find($productCategoryId);
         $this->enterMode('productCategoryProductList');
     }
 
-    public function searchProductCategory()
+    public function searchProductCategory(): void
     {
         $validatedData = $this->validate([
             'search_product_category' => 'required',

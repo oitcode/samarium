@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\ProductQuestion;
 use App\ProductAnswer;
@@ -118,154 +119,154 @@ class ProductDisplay extends Component
         'productVendorLinkCancelled',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-display');
     }
 
-    public function productUpdateNameCancelled()
+    public function productUpdateNameCancelled(): void
     {
         $this->exitMode('updateProductNameMode');
     }
 
-    public function productUpdateNameCompleted()
+    public function productUpdateNameCompleted(): void
     {
         session()->flash('message', 'Product updated');
         $this->exitMode('updateProductNameMode');
     }
 
-    public function productUpdateDescriptionCancelled()
+    public function productUpdateDescriptionCancelled(): void
     {
         $this->exitMode('updateProductDescriptionMode');
     }
 
-    public function productUpdateDescriptionCompleted()
+    public function productUpdateDescriptionCompleted(): void
     {
         session()->flash('message', 'Product updated');
         $this->exitMode('updateProductDescriptionMode');
     }
 
-    public function productUpdatePriceCancelled()
+    public function productUpdatePriceCancelled(): void
     {
         $this->exitMode('updateProductPriceMode');
     }
 
-    public function productUpdatePriceCompleted()
+    public function productUpdatePriceCompleted(): void
     {
         session()->flash('message', 'Product updated');
         $this->exitMode('updateProductPriceMode');
     }
 
-    public function productUpdateImageCancelled()
+    public function productUpdateImageCancelled(): void
     {
         $this->exitMode('updateProductImageMode');
     }
 
-    public function productUpdateImageCompleted()
+    public function productUpdateImageCompleted(): void
     {
         session()->flash('message', 'Product updated');
         $this->exitMode('updateProductImageMode');
     }
 
-    public function makeProductInactive()
+    public function makeProductInactive(): void
     {
         $this->product->is_active = 0;
         $this->product->save();
         session()->flash('message', 'Product made inactive.');
     }
 
-    public function makeProductActive()
+    public function makeProductActive(): void
     {
         $this->product->is_active = 1;
         $this->product->save();
         session()->flash('message', 'Product made active.');
     }
 
-    public function makeProductNotVisibleInFrontEnd()
+    public function makeProductNotVisibleInFrontEnd(): void
     {
         $this->product->show_in_front_end = 'no';
         $this->product->save();
         session()->flash('message', 'Product website visibility turned off.');
     }
 
-    public function makeProductVisibleInFrontEnd()
+    public function makeProductVisibleInFrontEnd(): void
     {
         $this->product->show_in_front_end = 'yes';
         $this->product->save();
         session()->flash('message', 'Product website visibility turned on.');
     }
 
-    public function productEditAddProductSpecificationModeCompleted()
+    public function productEditAddProductSpecificationModeCompleted(): void
     {
         $this->exitMode('updateProductAddProductSpecificationMode');
         session()->flash('addSpecMessage', 'Product specification added');
     }
 
-    public function productEditAddProductSpecificationModeCancelled()
+    public function productEditAddProductSpecificationModeCancelled(): void
     {
         $this->exitMode('updateProductAddProductSpecificationMode');
     }
 
-    public function productEditAddProductSpecificationHeadingModeCompleted()
+    public function productEditAddProductSpecificationHeadingModeCompleted(): void
     {
         $this->exitMode('updateProductAddProductSpecificationHeadingMode');
         session()->flash('addSpecMessage', 'Product specification heading added');
     }
 
-    public function productEditAddProductSpecificationHeadingModeCancelled()
+    public function productEditAddProductSpecificationHeadingModeCancelled(): void
     {
         $this->exitMode('updateProductAddProductSpecificationHeadingMode');
     }
 
-    public function productEditAddProductFeatureModeCompleted()
+    public function productEditAddProductFeatureModeCompleted(): void
     {
         $this->exitMode('updateProductAddProductFeatureMode');
         session()->flash('addFeatureMessage', 'Product feature added');
     }
 
-    public function productEditAddProductFeatureModeCancelled()
+    public function productEditAddProductFeatureModeCancelled(): void
     {
         $this->exitMode('updateProductAddProductFeatureMode');
     }
 
-    public function productEditAddProductFeatureHeadingModeCompleted()
+    public function productEditAddProductFeatureHeadingModeCompleted(): void
     {
         $this->exitMode('updateProductAddProductFeatureHeadingMode');
         session()->flash('addFeatureMessage', 'Product feature heading added');
     }
 
-    public function productEditAddProductFeatureHeadingModeCancelled()
+    public function productEditAddProductFeatureHeadingModeCancelled(): void
     {
         $this->exitMode('updateProductAddProductFeatureHeadingMode');
     }
 
-    public function createProductGalleryCompleted()
+    public function createProductGalleryCompleted(): void
     {
         $this->exitMode('createProductGalleryMode');
     }
 
-    public function createProductGalleryCancelled()
+    public function createProductGalleryCancelled(): void
     {
         $this->exitMode('createProductGalleryMode');
     }
 
-    public function productUpdateVideoLinkCompleted()
+    public function productUpdateVideoLinkCompleted(): void
     {
         $this->exitMode('updateProductVideoMode');
     }
 
-    public function productUpdateVideoLinkCancelled()
+    public function productUpdateVideoLinkCancelled(): void
     {
         $this->exitMode('updateProductVideoMode');
     }
 
-    public function answerQuestion(ProductQuestion $productQuestion)
+    public function answerQuestion(ProductQuestion $productQuestion): void
     {
         $this->answeringProductQuestion = $productQuestion;
         $this->enterMode('createProductAnswerMode');
     }
 
-    public function createProductAnswerCompleted()
+    public function createProductAnswerCompleted(): void
     {
         $this->answeringProductQuestion = null;
         $this->exitMode('createProductAnswerMode');
@@ -273,93 +274,93 @@ class ProductDisplay extends Component
         session()->flash('message', 'Product Answer added');
     }
 
-    public function createProductAnswerCancelled()
+    public function createProductAnswerCancelled(): void
     {
         $this->answeringProductQuestion = null;
         $this->exitMode('createProductAnswerMode');
     }
 
-    public function makeProductFeaturedProduct()
+    public function makeProductFeaturedProduct(): void
     {
         $this->product->featured_product = 'yes';
         $this->product->save();
         session()->flash('message', 'Product marked as featured product.');
     }
 
-    public function makeProductFeaturedProductUndo()
+    public function makeProductFeaturedProductUndo(): void
     {
         $this->product->featured_product = 'no';
         $this->product->save();
         session()->flash('message', 'Product removed from featured product.');
     }
 
-    public function updateProductSpecificationKeyword(ProductSpecification $productSpecification)
+    public function updateProductSpecificationKeyword(ProductSpecification $productSpecification): void
     {
         $this->enterMode('updateProductUpdateProductSpecificationKeyword');
         $this->updatingProductSpecification = $productSpecification;
     }
 
-    public function productSpecificationUpdateKeywordCancelled()
+    public function productSpecificationUpdateKeywordCancelled(): void
     {
         $this->updatingProductSpecification = null;
         $this->exitMode('updateProductUpdateProductSpecificationKeyword');
     }
 
-    public function productSpecificationUpdateKeywordCompleted()
+    public function productSpecificationUpdateKeywordCompleted(): void
     {
         $this->updatingProductSpecification = null;
         $this->exitMode('updateProductUpdateProductSpecificationKeyword');
     }
 
-    public function updateProductSpecificationValue(ProductSpecification $productSpecification)
+    public function updateProductSpecificationValue(ProductSpecification $productSpecification): void
     {
         $this->enterMode('updateProductUpdateProductSpecificationValue');
         $this->updatingProductSpecification = $productSpecification;
     }
 
-    public function productSpecificationUpdateValueCancelled()
+    public function productSpecificationUpdateValueCancelled(): void
     {
         $this->updatingProductSpecification = null;
         $this->exitMode('updateProductUpdateProductSpecificationValue');
     }
 
-    public function productSpecificationUpdateValueCompleted()
+    public function productSpecificationUpdateValueCompleted(): void
     {
         $this->updatingProductSpecification = null;
         $this->exitMode('updateProductUpdateProductSpecificationValue');
     }
 
-    public function updateProductFeature(ProductFeature $productFeature)
+    public function updateProductFeature(ProductFeature $productFeature): void
     {
         $this->enterMode('updateProductUpdateProductFeature');
         $this->updatingProductFeature = $productFeature;
     }
 
-    public function productFeatureUpdateCancelled()
+    public function productFeatureUpdateCancelled(): void
     {
         $this->updatingProductFeature = null;
         $this->exitMode('updateProductUpdateProductFeature');
     }
 
-    public function productFeatureUpdateCompleted()
+    public function productFeatureUpdateCompleted(): void
     {
         $this->updatingProductFeature = null;
         $this->exitMode('updateProductUpdateProductFeature');
     }
 
-    public function deleteProductSpecification(ProductSpecification $productSpecification)
+    public function deleteProductSpecification(ProductSpecification $productSpecification): void
     {
         $this->deletingProductSpecification = $productSpecification; 
         $this->enterMode('deleteProductSpecificationMode');
     }
 
-    public function cancelDeleteProductSpecification()
+    public function cancelDeleteProductSpecification(): void
     {
         $this->deletingProductSpecification = null;
         $this->exitMode('deleteProductSpecificationMode');
     }
 
-    public function confirmDeleteProductSpecification(ProductSpecification $productSpecification)
+    public function confirmDeleteProductSpecification(ProductSpecification $productSpecification): void
     {
         $this->deletingProductSpecification->delete();
         $this->deletingProductSpecification = null;
@@ -367,19 +368,19 @@ class ProductDisplay extends Component
         $this->product->refresh();
     }
 
-    public function deleteProductFeature(ProductFeature $productFeature)
+    public function deleteProductFeature(ProductFeature $productFeature): void
     {
         $this->deletingProductFeature = $productFeature; 
         $this->enterMode('deleteProductFeatureMode');
     }
 
-    public function cancelDeleteProductFeature()
+    public function cancelDeleteProductFeature(): void
     {
         $this->deletingProductFeature = null;
         $this->exitMode('deleteProductFeatureMode');
     }
 
-    public function confirmDeleteProductFeature(ProductFeature $productFeature)
+    public function confirmDeleteProductFeature(ProductFeature $productFeature): void
     {
         $this->deletingProductFeature->delete();
         $this->deletingProductFeature = null;
@@ -387,50 +388,50 @@ class ProductDisplay extends Component
         $this->product->refresh();
     }
 
-    public function productEditAddProductOptionHeadingModeCancelled()
+    public function productEditAddProductOptionHeadingModeCancelled(): void
     {
         $this->exitMode('updateProductAddProductOptionHeadingMode');
     }
 
-    public function productEditAddProductOptionHeadingModeCompleted()
+    public function productEditAddProductOptionHeadingModeCompleted(): void
     {
         $this->exitMode('updateProductAddProductOptionHeadingMode');
         session()->flash('addProductOptionMessage', 'Product option heading added');
     }
 
-    public function productEditAddProductOptionModeCancelled()
+    public function productEditAddProductOptionModeCancelled(): void
     {
         $this->exitMode('updateProductAddProductOptionMode');
     }
 
-    public function productEditAddProductOptionModeCompleted()
+    public function productEditAddProductOptionModeCompleted(): void
     {
         $this->exitMode('updateProductAddProductOptionMode');
         session()->flash('addProductOptionMessage', 'Product option dded');
     }
 
-    public function productUpdateCategoryCompleted()
+    public function productUpdateCategoryCompleted(): void
     {
         $this->exitMode('updateProductCategoryMode');
         session()->flash('editProductCategoryMessage', 'Product category updated');
     }
 
-    public function productUpdateCategoryCancelled()
+    public function productUpdateCategoryCancelled(): void
     {
         $this->exitMode('updateProductCategoryMode');
     }
 
-    public function productVendorLinkCompleted()
+    public function productVendorLinkCompleted(): void
     {
         $this->exitMode('linkProductVendorMode');
     }
 
-    public function productVendorLinkCancelled()
+    public function productVendorLinkCancelled(): void
     {
         $this->exitMode('linkProductVendorMode');
     }
 
-    public function deleteProduct()
+    public function deleteProduct(): void
     {
         $this->enterMode('delete');
 
@@ -442,7 +443,7 @@ class ProductDisplay extends Component
 
     }
 
-    public function deleteProductConfirm()
+    public function deleteProductConfirm() // TODO: Type hint return type
     {
         $this->product->delete();
 
@@ -457,7 +458,7 @@ class ProductDisplay extends Component
 
     }
 
-    public function closeThisComponent()
+    public function closeThisComponent(): void
     {
         $this->dispatch('exitProductDisplayMode');
     }

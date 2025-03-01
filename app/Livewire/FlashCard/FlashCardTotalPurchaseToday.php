@@ -3,6 +3,7 @@
 namespace App\Livewire\FlashCard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Purchase;
 
 class FlashCardTotalPurchaseToday extends Component
@@ -16,14 +17,14 @@ class FlashCardTotalPurchaseToday extends Component
         'changeDate',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         if ($this->transactionsDate == null) {
             $this->transactionsDate = date('Y-m-d');
         }
     }
 
-    public function render()
+    public function render(): View
     {
         $this->count = Purchase::whereDate('purchase_date', $this->transactionsDate)->count();
 
@@ -32,7 +33,7 @@ class FlashCardTotalPurchaseToday extends Component
         return view('livewire.flash-card.flash-card-total-purchase-today');
     }
 
-    public function calculateTodayPurchaseTotalAmount()
+    public function calculateTodayPurchaseTotalAmount(): void
     {
         $total = 0;
 
@@ -43,7 +44,7 @@ class FlashCardTotalPurchaseToday extends Component
         $this->todayPurchaseTotalAmount = $total;
     }
 
-    public function changeDate($transactionsDate)
+    public function changeDate($transactionsDate): void
     {
         $this->transactionsDate = $transactionsDate;
         $this->render();

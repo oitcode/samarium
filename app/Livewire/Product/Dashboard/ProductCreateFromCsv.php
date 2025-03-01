@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
@@ -24,12 +25,12 @@ class ProductCreateFromCsv extends Component
     public $totLines;
     public $filePath;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-create-from-csv');
     }
 
-    public function preview()
+    public function preview(): void
     {
         $validatedData = $this->validate([
             'products_file' => 'required|file|max:1024',
@@ -69,28 +70,28 @@ class ProductCreateFromCsv extends Component
         $this->enterPreviewMode();
     }
 
-    public function enterStartMode()
+    public function enterStartMode(): void
     {
         $this->startMode = true;
     }
 
-    public function exitStartMode()
+    public function exitStartMode(): void
     {
         $this->startMode = false;
     }
 
-    public function enterPreviewMode()
+    public function enterPreviewMode(): void
     {
         $this->exitStartMode();
         $this->previewMode = true;
     }
 
-    public function exitPreviewMode()
+    public function exitPreviewMode(): void
     {
         $this->previewMode = false;
     }
 
-    public function importFromFile()
+    public function importFromFile(): void
     {
         foreach ($this->lines as $line) {
             if (! $line[0]) {

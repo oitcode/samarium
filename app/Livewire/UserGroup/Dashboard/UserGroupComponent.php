@@ -3,6 +3,7 @@
 namespace App\Livewire\UserGroup\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\UserGroup;
 
@@ -25,23 +26,23 @@ class UserGroupComponent extends Component
         'createUserGroupCompleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user-group.dashboard.user-group-component');
     }
 
-    public function exitCreateUserGroupMode()
+    public function exitCreateUserGroupMode(): void
     {
         $this->exitMode('createUserGroupMode');
     }
 
-    public function createUserGroupCompleted()
+    public function createUserGroupCompleted(): void
     {
         session()->flash('message', 'User group created');
         $this->exitMode('createUserGroupMode');
     }
 
-    public function displayUserGroup(UserGroup $userGroup)
+    public function displayUserGroup(UserGroup $userGroup): void
     {
         $this->displayingUserGroup = $userGroup;
         $this->enterMode('displayUserGroupMode');

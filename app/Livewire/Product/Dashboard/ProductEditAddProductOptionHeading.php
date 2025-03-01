@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductOptionHeading;
 
 class ProductEditAddProductOptionHeading extends Component
@@ -11,12 +12,12 @@ class ProductEditAddProductOptionHeading extends Component
 
     public $product_option_heading_name;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-edit-add-product-option-heading');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData= $this->validate([
              'product_option_heading_name' => 'required|string',

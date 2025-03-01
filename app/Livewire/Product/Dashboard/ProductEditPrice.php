@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class ProductEditPrice extends Component
 {
@@ -10,17 +11,17 @@ class ProductEditPrice extends Component
 
     public $price;
 
-    public function mount()
+    public function mount(): void
     {
         $this->price = $this->product->selling_price;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-edit-price');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'price' => 'required|integer',

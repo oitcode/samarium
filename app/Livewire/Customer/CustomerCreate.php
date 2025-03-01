@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Customer;
 use App\AbAccount;
@@ -16,12 +17,12 @@ class CustomerCreate extends Component
     public $address;
     public $pan_num;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.customer.customer-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

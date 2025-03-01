@@ -3,6 +3,7 @@
 namespace App\Livewire\ContactForm\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ContactMessage;
 
 class ContactMessageGlanceComponent extends Component
@@ -10,7 +11,7 @@ class ContactMessageGlanceComponent extends Component
     public $contactMessageCount;
     public $newContactMessageCount;
 
-    public function render()
+    public function render(): View
     {
         $this->contactMessageCount = ContactMessage::count();
         $this->newContactMessageCount = ContactMessage::where('status', 'new')->count();

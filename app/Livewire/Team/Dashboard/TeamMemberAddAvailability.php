@@ -3,6 +3,7 @@
 namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\TeamMemberAppointmentAvailability;
 
@@ -14,12 +15,12 @@ class TeamMemberAddAvailability extends Component
     public $start_time;
     public $end_time;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.team.dashboard.team-member-add-availability');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'available_day' => 'required',
@@ -40,7 +41,7 @@ class TeamMemberAddAvailability extends Component
         $this->dispatch('addAvailabilityCompleted');
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->available_day = '';
         $this->start_time = '';

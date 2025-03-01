@@ -3,6 +3,7 @@
 namespace App\Livewire\RecordBook;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\SaleInvoiceAdditionHeading;
 use App\Traits\ModesTrait;
 
@@ -18,12 +19,12 @@ class DaybookSaleInvoiceDisplay extends Component
         'showPayments' => false,
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.record-book.daybook-sale-invoice-display');
     }

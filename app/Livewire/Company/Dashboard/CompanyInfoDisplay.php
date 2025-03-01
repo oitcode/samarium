@@ -3,6 +3,7 @@
 namespace App\Livewire\Company\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\CompanyInfo;
 
@@ -21,22 +22,22 @@ class CompanyInfoDisplay extends Component
         'companyInfoUpdateCompleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.company.dashboard.company-info-display');
     }
 
-    public function companyInfoUpdateCancelled()
+    public function companyInfoUpdateCancelled(): void
     {
         $this->exitMode('editMode');
     }
 
-    public function companyInfoUpdateCompleted()
+    public function companyInfoUpdateCompleted(): void
     {
         $this->exitMode('editMode');
     }
 
-    public function deleteCompanyInfo(CompanyInfo $companyInfo)
+    public function deleteCompanyInfo(CompanyInfo $companyInfo): void
     {
         $companyInfo->delete();
         $this->dispatch('companyInfoDeleted');

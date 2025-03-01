@@ -3,6 +3,7 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\WebsiteOrder;
 
 class ProductOrder extends Component
@@ -12,12 +13,12 @@ class ProductOrder extends Component
     public $phone;
     public $address;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.ecomm-website.product-order');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'phone' => 'required',
@@ -32,7 +33,7 @@ class ProductOrder extends Component
         $this->resetInputFields();
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->phone = '';
         $this->address = '';

@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductFeature;
 
 class ProductEditAddProductFeature extends Component
@@ -14,14 +15,14 @@ class ProductEditAddProductFeature extends Component
 
     public $productFeatureHeadings;
 
-    public function render()
+    public function render(): View
     {
         $this->productFeatureHeadings = $this->product->productFeatureHeadings;
 
         return view('livewire.product.dashboard.product-edit-add-product-feature');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData= $this->validate([
              'feature' => 'required|string',

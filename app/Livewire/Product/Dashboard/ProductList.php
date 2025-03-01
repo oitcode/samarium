@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Product;
 
@@ -13,7 +14,7 @@ class ProductList extends Component
     // public $products;
     public $totalProductCount; 
 
-    public function render()
+    public function render(): View
     {
         $products = Product::orderBy('product_id', 'desc')->paginate(5);
         $this->totalProductCount = Product::count();

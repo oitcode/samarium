@@ -2,8 +2,8 @@
 
 namespace App\Livewire\User;
 
-use Illuminate\View\View;
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;

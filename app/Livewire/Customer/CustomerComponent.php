@@ -3,10 +3,14 @@
 namespace App\Livewire\Customer;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\Customer;
 
 class CustomerComponent extends Component
 {
+    use ModesTrait;
+
     public $displayingCustomer;
 
     public $modes = [
@@ -30,7 +34,7 @@ class CustomerComponent extends Component
     public $totalCustomers;
     public $totalDebtors;
 
-    public function render()
+    public function render(): View
     {
         $this->totalCustomers = Customer::count();
 
@@ -44,28 +48,7 @@ class CustomerComponent extends Component
         return view('livewire.customer.customer-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function displayCustomer($customerId)
+    public function displayCustomer($customerId): void
     {
         $customer = Customer::findOrFail($customerId);
 
@@ -73,19 +56,19 @@ class CustomerComponent extends Component
         $this->enterMode('display');
     }
 
-    public function exitCreateMode()
+    public function exitCreateMode(): void
     {
         $this->exitMode('create');
     }
 
-    public function ackCustomerCreated()
+    public function ackCustomerCreated(): void
     {
         session()->flash('message', 'Customer created');
 
         $this->exitMode('create');
     }
 
-    public function exitCustomerDisplayMode()
+    public function exitCustomerDisplayMode(): void
     {
         $this->displayingCustomer = null;
         $this->clearModes();

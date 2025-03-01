@@ -3,18 +3,19 @@
 namespace App\Livewire\Purchase;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\PurchaseItem;
 
 class PurchaseCreateConfirmPurchaseItemDelete extends Component
 {
     public $purchaseItem;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.purchase.purchase-create-confirm-purchase-item-delete');
     }
 
-    public function deletePurchaseItem(PurchaseItem $purchaseItem)
+    public function deletePurchaseItem(PurchaseItem $purchaseItem): void
     {
         $product = $purchaseItem->product;
         $quantity = $purchaseItem->quantity;
@@ -27,7 +28,7 @@ class PurchaseCreateConfirmPurchaseItemDelete extends Component
         $this->dispatch('purchaseItemDeleted');
     }
 
-    public function updateInventory($product, $quantity, $direction)
+    public function updateInventory($product, $quantity, $direction): void
     {
         if ($product->baseProduct) {
             $baseProduct = $product->baseProduct;

@@ -3,12 +3,13 @@
 namespace App\Livewire\SaleQuotation\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\SaleQuotation;
 
 class SaleQuotationCreate extends Component
 {
-    public function render()
+    public function render(): View
     {
         $saleQuotation = $this->startSaleQuotation();
 
@@ -16,7 +17,7 @@ class SaleQuotationCreate extends Component
             ->with('saleQuotation', $saleQuotation);
     }
 
-    public function startSaleQuotation()
+    public function startSaleQuotation(): SaleQuotation
     {
         $saleQuotation = new SaleQuotation;
 

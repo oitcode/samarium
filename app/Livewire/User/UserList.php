@@ -3,6 +3,7 @@
 namespace App\Livewire\User;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\User;
@@ -25,7 +26,7 @@ class UserList extends Component
         'delete' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         $users = User::orderBy('id', 'DESC')->paginate(5);
         $this->usersCount = User::count();

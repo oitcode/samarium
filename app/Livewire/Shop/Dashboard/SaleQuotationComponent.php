@@ -3,6 +3,7 @@
 namespace App\Livewire\Shop\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\SaleQuotation;
 
@@ -25,12 +26,12 @@ class SaleQuotationComponent extends Component
         'exitSaleQuotationDisplayMode',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.shop.dashboard.sale-quotation-component');
     }
 
-    public function displaySaleQuotation($saleQuotationId)
+    public function displaySaleQuotation($saleQuotationId): void
     {
         $saleQuotation = SaleQuotation::find($saleQuotationId);
 
@@ -38,7 +39,7 @@ class SaleQuotationComponent extends Component
         $this->enterMode('displaySaleQuotationMode');
     }
 
-    public function exitSaleQuotationWork()
+    public function exitSaleQuotationWork(): void
     {
         $this->displayingSaleQuotation = null;
 
@@ -46,7 +47,7 @@ class SaleQuotationComponent extends Component
         $this->exitMode('displaySaleQuotationMode');
     }
 
-    public function exitSaleQuotationDisplayMode()
+    public function exitSaleQuotationDisplayMode(): void
     {
         $this->displayingOnlineOrder = null;
         $this->clearModes();

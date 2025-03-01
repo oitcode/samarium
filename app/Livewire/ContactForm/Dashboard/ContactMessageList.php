@@ -3,6 +3,7 @@
 namespace App\Livewire\ContactForm\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\ContactMessage;
@@ -27,7 +28,7 @@ class ContactMessageList extends Component
         'showAllMode' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         $contactMessages = null;
 
@@ -49,24 +50,23 @@ class ContactMessageList extends Component
             ->with('contactMessages', $contactMessages);
     }
 
-    public function deleteContactMessage(ContactMessage $contactMessage)
+    public function deleteContactMessage(ContactMessage $contactMessage): void
     {
         $this->deletingContactMessage = $contactMessage;
         $this->enterMode('deleteContactMessageMode');
     }
 
-    public function deleteContactMessageCancel()
+    public function deleteContactMessageCancel(): void
     {
         $this->deletingContactMessage = null;
         $this->exitMode('deleteContactMessageMode');
     }
 
-    public function confirmDeleteContactMessage()
+    public function confirmDeleteContactMessage(): void
     {
         $this->deletingContactMessage->delete();
 
         $this->deletingContactMessage = null; 
         $this->exitMode('deleteContactMessageMode');
-
     }
 }

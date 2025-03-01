@@ -3,6 +3,7 @@
 namespace App\Livewire\School;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Traits\ModesTrait;
 use App\SchoolCalendarEvent;
@@ -77,7 +78,7 @@ class CalendarComponent extends Component
         'calendarEventDeleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         if ($this->displayMonthName == '') {
         } else {
@@ -87,12 +88,12 @@ class CalendarComponent extends Component
         return view('livewire.school.calendar-component');
     }
 
-    public function selectMonth($monthName)
+    public function selectMonth($monthName): void
     {
         $this->displayMonthName = $monthName;
     }
 
-    public function populateMonthBook()
+    public function populateMonthBook(): void
     {
         $monthStartDate = $this->monthInfo2081[$this->displayMonthName][0];
         $monthEndDate = $this->monthInfo2081[$this->displayMonthName][1];
@@ -119,24 +120,24 @@ class CalendarComponent extends Component
         }
     }
 
-    public function exitCalendarEventCreate()
+    public function exitCalendarEventCreate(): void
     {
         $this->exitMode('eventCreate');
     }
 
-    public function calendarEventCreated()
+    public function calendarEventCreated(): void
     {
         $this->exitMode('eventCreate');
     }
 
-    public function addEventForADate($day)
+    public function addEventForADate($day): void
     {
         $this->eventCreationDay = $day;
 
         $this->enterMode('eventCreate');
     }
 
-    public function checkIfDayIsHoliday($day)
+    public function checkIfDayIsHoliday($day): bool
     {
         $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
             ->whereDate('end_date', '>=', $day->toDateString())
@@ -150,7 +151,7 @@ class CalendarComponent extends Component
         }
     }
 
-    public function getEventsForTheDay($day)
+    public function getEventsForTheDay($day) // TODO: Type hinting of return type
     {
         $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
             ->whereDate('end_date', '>=', $day->toDateString())
@@ -159,13 +160,13 @@ class CalendarComponent extends Component
         return $events;
     }
 
-    public function displayCalendarEvent(SchoolCalendarEvent $event)
+    public function displayCalendarEvent(SchoolCalendarEvent $event): void
     {
         $this->displayingCalendarEvent = $event;
         $this->enterMode('displayCalendarEventMode');
     }
 
-    public function calendarEventDeleted()
+    public function calendarEventDeleted(): void
     {
         $this->exitMode('displayCalendarEventMode');
     }

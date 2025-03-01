@@ -3,6 +3,7 @@
 namespace App\Livewire\SaleQuotation\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\SaleQuotation;
 
 class SaleQuotationSearch extends Component
@@ -11,12 +12,12 @@ class SaleQuotationSearch extends Component
 
     public $saleQuotations;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.sale-quotation.dashboard.sale-quotation-search');
     }
 
-    public function search()
+    public function search(): void
     {
         $validatedData = $this->validate([
             'customer_search_name' => 'required',

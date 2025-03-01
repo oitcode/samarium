@@ -3,6 +3,7 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 
 class ProductCategoryDisplay extends Component
@@ -24,32 +25,32 @@ class ProductCategoryDisplay extends Component
         'productCategoryUpdateImageCompleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product-category.product-category-display');
     }
 
-    public function productCategoryUpdateNameCompleted()
+    public function productCategoryUpdateNameCompleted(): void
     {
         $this->exitMode('updateProductCategoryNameMode');
     }
 
-    public function productCategoryUpdateNameCancelled()
+    public function productCategoryUpdateNameCancelled(): void
     {
         $this->exitMode('updateProductCategoryNameMode');
     }
 
-    public function productCategoryUpdateImageCompleted()
+    public function productCategoryUpdateImageCompleted(): void
     {
         $this->exitMode('updateProductCategoryImageMode');
     }
 
-    public function productCategoryUpdateImageCancelled()
+    public function productCategoryUpdateImageCancelled(): void
     {
         $this->exitMode('updateProductCategoryImageMode');
     }
 
-    public function toggleProductCategorySellability()
+    public function toggleProductCategorySellability(): void
     {
         if ($this->productCategory->does_sell == 'yes') {
             $this->productCategory->does_sell = 'no';
@@ -61,7 +62,7 @@ class ProductCategoryDisplay extends Component
         $this->render();
     }
 
-    public function closeThisComponent()
+    public function closeThisComponent(): void
     {
         $this->dispatch('exitProductCategoryDisplayMode');
     }

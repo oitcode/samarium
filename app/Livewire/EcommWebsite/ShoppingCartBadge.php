@@ -3,6 +3,7 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Product;
 
 class ShoppingCartBadge extends Component
@@ -13,7 +14,7 @@ class ShoppingCartBadge extends Component
         'itemAddedToCart',
     ];
 
-    public function render()
+    public function render(): View
     {
         $total = 0;
 
@@ -26,7 +27,7 @@ class ShoppingCartBadge extends Component
         return view('livewire.ecomm-website.shopping-cart-badge');
     }
 
-    public function getCartTotal()
+    public function getCartTotal(): int|float
     {
         $total = 0;
 

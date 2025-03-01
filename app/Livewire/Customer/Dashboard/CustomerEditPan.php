@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class CustomerEditPan extends Component
 {
@@ -10,17 +11,17 @@ class CustomerEditPan extends Component
 
     public $pan_num;
 
-    public function mount()
+    public function mount(): void
     {
         $this->pan_num = $this->customer->pan_num;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.customer.dashboard.customer-edit-pan');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'pan_num' => 'required',

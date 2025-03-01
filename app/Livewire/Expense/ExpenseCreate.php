@@ -3,8 +3,10 @@
 namespace App\Livewire\Expense;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Traits\ModesTrait;
 use App\Expense;
 use App\ExpenseCategory;
 use App\ExpensePaymentType;
@@ -12,12 +14,12 @@ use App\ExpensePayment;
 use App\ExpenseAdditionHeading;
 use App\ExpenseItem;
 use App\ExpenseAddition;
-
 use App\Vendor;
-
 
 class ExpenseCreate extends Component
 {
+    use ModesTrait;
+
     public $expense = null;
 
     public $createNew = true;
@@ -62,7 +64,7 @@ class ExpenseCreate extends Component
         'backDate' => false,
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->vendors = Vendor::all();
 
@@ -103,7 +105,7 @@ class ExpenseCreate extends Component
         $this->expense_date = $this->expense->date;
     }
 
-    public function render()
+    public function render(): View
     {
         /*
          * Todo: Why is this needed?
@@ -126,33 +128,7 @@ class ExpenseCreate extends Component
         return view('livewire.expense.expense-create');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function enterModeSilent($modeName)
-    {
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function addItemToExpense()
+    public function addItemToExpense(): void
     {
         $validatedData = $this->validate([
             'add_item_name' => 'required',
@@ -174,14 +150,14 @@ class ExpenseCreate extends Component
         $this->updateNumbers();
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->add_item_name = '';
         $this->add_item_expense_category_id = '';
         $this->add_item_amount = '';
     }
 
-    public function updateNumbers()
+    public function updateNumbers(): void
     {
         /* Todo: Why need to get fresh instance? */
         $this->expense = $this->expense->fresh();
@@ -195,7 +171,7 @@ class ExpenseCreate extends Component
         $this->expense = $this->expense->fresh();
     }
 
-    public function calculateGrandTotal()
+    public function calculateGrandTotal(): void
     {
         /* Todo: Any validation needed ? */
 
@@ -207,7 +183,7 @@ class ExpenseCreate extends Component
         }
     }
 
-    public function calculateTaxableAmount()
+    public function calculateTaxableAmount(): void
     {
         /* TODO
         $validatedData = $this->validate([
@@ -239,12 +215,12 @@ class ExpenseCreate extends Component
         }
     }
 
-    public function updatedExpenseAdditions()
+    public function updatedExpenseAdditions(): void
     {
         $this->updateNumbers();
     }
 
-    public function finishCreation()
+    public function finishCreation(): void
     {
         $validatedData = $this->validate([
             'tender_amount' => 'required',
@@ -310,7 +286,7 @@ class ExpenseCreate extends Component
         }
     }
 
-    public function linkVendorToExpense()
+    public function linkVendorToExpense(): void
     {
         $validatedData = $this->validate([
             'vendor_id' => 'required|integer',
@@ -323,7 +299,7 @@ class ExpenseCreate extends Component
         $this->modes['vendorSelected'] = true;
     }
 
-    public function changeExpenseDate()
+    public function changeExpenseDate(): void
     {
         $validatedData = $this->validate([
             'expense_date' => 'required|date',

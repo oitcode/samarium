@@ -3,11 +3,15 @@
 namespace App\Livewire\RecordBook;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use Carbon\Carbon;
 use App\SaleInvoice;
 
 class ViewbookComponent extends Component
 {
+    use ModesTrait;
+    
     public $modes = [
         'daybook' => false,
         'weekbook' => false,
@@ -23,7 +27,7 @@ class ViewbookComponent extends Component
 
     public $book = array();
 
-    public function render()
+    public function render(): View
     {
         if ($this->startDate && $this->endDate) {
             $this->totalAmount = $this->getTotalAmount($this->startDate->format('Y-m-d'), $this->endDate->format('Y-m-d'));
@@ -33,28 +37,7 @@ class ViewbookComponent extends Component
         return view('livewire.record-book.viewbook-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function enterDaybookMode()
+    public function enterDaybookMode(): void
     {
         $this->unitName = 'Time';
 
@@ -64,7 +47,7 @@ class ViewbookComponent extends Component
         $this->enterMode('daybook');
     }
 
-    public function enterWeekbookMode()
+    public function enterWeekbookMode(): void
     {
         $this->unitName = 'Date';
 
@@ -74,7 +57,7 @@ class ViewbookComponent extends Component
         $this->enterMode('weekbook');
     }
 
-    public function enterMonthbookMode()
+    public function enterMonthbookMode(): void
     {
         $this->unitName = 'Date';
 
@@ -84,7 +67,7 @@ class ViewbookComponent extends Component
         $this->enterMode('monthbook');
     }
 
-    public function enterYearbookMode()
+    public function enterYearbookMode(): void
     {
         $this->unitName = 'Month';
 
@@ -94,7 +77,7 @@ class ViewbookComponent extends Component
         $this->enterMode('yearbook');
     }
 
-    public function getTotalAmount($startDate, $endDate)
+    public function getTotalAmount($startDate, $endDate): int|float
     {
         $saleInvoices = SaleInvoice::whereDate('sale_invoice_date', '>=',  $startDate)
             ->whereDate('sale_invoice_date', '<=',  $endDate)
@@ -109,7 +92,7 @@ class ViewbookComponent extends Component
         return $total;
     }
 
-    public function populateBook()
+    public function populateBook(): void
     {
         if ($this->modes['daybook']) {
             $this->endDate = $this->startDate->copy();
@@ -180,7 +163,7 @@ class ViewbookComponent extends Component
         }
     }
 
-    public function getTotalAmountOfDay($day)
+    public function getTotalAmountOfDay($day): int|float
     {
         $saleInvoices = SaleInvoice::where('sale_invoice_date', $day->format('Y-m-d'))->get();
 
@@ -193,7 +176,7 @@ class ViewbookComponent extends Component
         return $total;
     }
 
-    public function getTotalAmountOfMonth($firstDayOfMonth)
+    public function getTotalAmountOfMonth($firstDayOfMonth): int|float
     {
         $lastDayOfMonth = $firstDayOfMonth->copy()->endOfMonth();
 
@@ -210,7 +193,7 @@ class ViewbookComponent extends Component
         return $total;
     }
 
-    public function goToPrevious($unit)
+    public function goToPrevious($unit): void
     {
         if ($unit == 'day') {
             $this->startDate->subDay();
@@ -229,7 +212,7 @@ class ViewbookComponent extends Component
         }
     }
 
-    public function goToNext($unit)
+    public function goToNext($unit): void
     {
         if ($unit == 'day') {
             $this->startDate->addDay();
@@ -248,7 +231,7 @@ class ViewbookComponent extends Component
         }
     }
 
-    public function inMode()
+    public function inMode(): bool
     {
         return in_array(true, $this->modes) ;
     }

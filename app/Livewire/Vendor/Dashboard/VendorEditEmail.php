@@ -3,6 +3,7 @@
 namespace App\Livewire\Vendor\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class VendorEditEmail extends Component
 {
@@ -10,17 +11,17 @@ class VendorEditEmail extends Component
 
     public $email;
 
-    public function mount()
+    public function mount(): void
     {
         $this->email = $this->vendor->email;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.vendor.dashboard.vendor-edit-email');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'email' => 'required',

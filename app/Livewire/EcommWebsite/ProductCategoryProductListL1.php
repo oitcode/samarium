@@ -3,6 +3,7 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 
 class ProductCategoryProductListL1 extends Component
@@ -15,7 +16,7 @@ class ProductCategoryProductListL1 extends Component
         'openUpMode' => false,
     ];
 
-    public function render()
+    public function render(): void
     {
         return view('livewire.ecomm-website.product-category-product-list-l1');
     }

@@ -3,6 +3,7 @@
 namespace App\Livewire\SaleQuotation\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
 use App\SaleQuotation;
@@ -37,7 +38,7 @@ class SaleQuotationWork extends Component
         'exitDeleteSaleQuotationItem',
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
         $this->sale_quotation_date = $this->saleQuotation->sale_quotation_date;
@@ -46,7 +47,7 @@ class SaleQuotationWork extends Component
         return view('livewire.sale-quotation.dashboard.sale-quotation-work');
     }
 
-    public function confirmRemoveItemFromSaleQuotation($saleQuotationItemId)
+    public function confirmRemoveItemFromSaleQuotation($saleQuotationItemId): void
     {
         $saleQuotationItem = SaleQuotationItem::find($saleQuotationItemId);
 
@@ -54,7 +55,7 @@ class SaleQuotationWork extends Component
         $this->modes['confirmRemoveSaleQuotationItem'] = true;
     }
 
-    public function removeItemFromSaleQuotation($saleQuotationItemId)
+    public function removeItemFromSaleQuotation($saleQuotationItemId): void
     {
         $saleQuotationItem = SaleQuotationItem::find($saleQuotationItemId);
 
@@ -79,18 +80,18 @@ class SaleQuotationWork extends Component
         $this->render();
     }
 
-    public function exitDeleteSaleQuotationItem()
+    public function exitDeleteSaleQuotationItem(): void
     {
         $this->deletingSaleQuotationItem = null;
         $this->exitMode('confirmRemoveSaleQuotationItem');
     }
 
-    public function itemAddedToSaleQuotation()
+    public function itemAddedToSaleQuotation(): void
     {
         $this->render();
     }
 
-    public function changeSaleQuotationDate()
+    public function changeSaleQuotationDate(): void
     {
         $validatedData = $this->validate([
             'sale_quotation_date' => 'required|date',
@@ -105,7 +106,7 @@ class SaleQuotationWork extends Component
         $this->render();
     }
 
-    public function linkCustomerToSaleQuotation()
+    public function linkCustomerToSaleQuotation(): void
     {
         $validatedData = $this->validate([
             'customer_id' => 'required|integer',

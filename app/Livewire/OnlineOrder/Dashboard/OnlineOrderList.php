@@ -3,6 +3,7 @@
 namespace App\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\WebsiteOrder;
@@ -28,7 +29,7 @@ class OnlineOrderList extends Component
         'showAllMode' => true,
     ];
 
-    public function render()
+    public function render(): View
     {
         $websiteOrders = WebsiteOrder::orderBy('website_order_id', 'desc')->paginate(5);
         $this->setOrderCounts();
@@ -51,12 +52,12 @@ class OnlineOrderList extends Component
             ->with('websiteOrders', $websiteOrders);
     }
 
-    public function getNewOrderCount()
+    public function getNewOrderCount(): int
     {
         return count(WebsiteOrder::where('status', 'new')->get());
     }
 
-    public function updateStatus(WebsiteOrder $order, $statusNow, $statusNext)
+    public function updateStatus(WebsiteOrder $order, $statusNow, $statusNext): void
     {
         $order->status = $statusNext;
         $order->save();
@@ -64,7 +65,7 @@ class OnlineOrderList extends Component
         $this->render();
     }
 
-    public function setOrderCounts()
+    public function setOrderCounts(): void
     {
         $this->newOrderCount = count(WebsiteOrder::where('status', 'new')->get());
         $this->todayOrderCount = count(WebsiteOrder::whereDate('created_at', date('Y-m-d'))->get());

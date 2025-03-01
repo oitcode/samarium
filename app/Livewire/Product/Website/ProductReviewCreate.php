@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductReview;
 
 class ProductReviewCreate extends Component
@@ -14,12 +15,12 @@ class ProductReviewCreate extends Component
     public $rating;
     public $review_text;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.website.product-review-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'writer_name' => 'nullable',

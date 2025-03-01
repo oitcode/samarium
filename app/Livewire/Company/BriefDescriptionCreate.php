@@ -3,6 +3,7 @@
 namespace App\Livewire\Company;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class BriefDescriptionCreate extends Component
 {
@@ -10,12 +11,12 @@ class BriefDescriptionCreate extends Component
 
     public $brief_description;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.company.brief-description-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'brief_description' => 'required',

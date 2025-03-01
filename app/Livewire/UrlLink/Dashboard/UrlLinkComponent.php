@@ -3,6 +3,7 @@
 namespace App\Livewire\UrlLink\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\UrlLink;
 
@@ -25,28 +26,28 @@ class UrlLinkComponent extends Component
         'exitUrlLinkDisplay',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.url-link.dashboard.url-link-component');
     }
 
-    public function urlLinkCreateCancelled()
+    public function urlLinkCreateCancelled(): void
     {
         $this->exitMode('create');
     }
 
-    public function urlLinkCreateCompleted()
+    public function urlLinkCreateCompleted(): void
     {
         $this->exitMode('create');
     }
 
-    public function displayUrlLink(UrlLink $urlLink)
+    public function displayUrlLink(UrlLink $urlLink): void
     {
         $this->displayingUrlLink = $urlLink;
         $this->enterMode('display');
     }
 
-    public function exitUrlLinkDisplay()
+    public function exitUrlLinkDisplay(): void
     {
         $this->displayingUrlLink = null;
         $this->exitMode('display');

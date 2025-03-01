@@ -3,6 +3,7 @@
 namespace App\Livewire\Purchase;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Purchase;
 
 class PurchaseSearch extends Component
@@ -11,12 +12,12 @@ class PurchaseSearch extends Component
 
     public $purchases;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.purchase.purchase-search');
     }
 
-    public function search()
+    public function search(): void
     {
         $validatedData = $this->validate([
             'vendor_search_name' => 'required',

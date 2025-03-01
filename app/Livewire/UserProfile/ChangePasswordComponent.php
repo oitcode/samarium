@@ -3,6 +3,7 @@
 namespace App\Livewire\UserProfile;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -12,12 +13,12 @@ class ChangePasswordComponent extends Component
     public $newPassword;
     public $newPasswordConfirm;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user-profile.change-password-component');
     }
 
-    public function change()
+    public function change(): void
     {
         $validatedData = $this->validate([
             'currentPassword' => [
@@ -41,7 +42,7 @@ class ChangePasswordComponent extends Component
         session()->flash('passwordChangeMessage', 'Password Changed');
     }
 
-    public function resetInput()
+    public function resetInput(): void
     {
         $this->currentPassword = '';
         $this->newPassword = '';

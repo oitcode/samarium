@@ -3,15 +3,18 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
+use App\Traits\ModesTrait;
 use App\Product;
 use App\ProductCategory;
 use App\ProductSpecification;
 
 class ProductCreate extends Component
 {
+    use ModesTrait;
     use WithFileUploads;
 
     public $name;
@@ -45,7 +48,7 @@ class ProductCreate extends Component
         'subProduct' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->productCategories = ProductCategory::all();
         $this->baseProducts = Product::where('is_base_product', true)->get();
@@ -53,28 +56,7 @@ class ProductCreate extends Component
         return view('livewire.product.dashboard.product-create');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -177,7 +159,7 @@ class ProductCreate extends Component
         $this->dispatch('productAdded');
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->name = '';
         $this->product_category_id = '';
@@ -187,21 +169,21 @@ class ProductCreate extends Component
         $this->image = null;
     }
 
-    public function makeStockApplicable()
+    public function makeStockApplicable(): void
     {
         $this->stock_applicable = 'yes';
 
         $this->enterMode('stockApplicable');
     }
 
-    public function makeStockNotApplicable()
+    public function makeStockNotApplicable(): void
     {
         $this->stock_applicable = 'no';
 
         $this->exitMode('stockApplicable');
     }
 
-    public function updatedProductType()
+    public function updatedProductType(): void
     {
         if ($this->product_type == 'base') {
             $this->modes['baseProduct'] = true;
@@ -215,7 +197,7 @@ class ProductCreate extends Component
         }
     }
 
-    public function addSpecification()
+    public function addSpecification(): void
     {
         $this->productSpecifications[] = ['', ''];
     }

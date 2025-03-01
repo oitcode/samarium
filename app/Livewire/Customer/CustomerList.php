@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Customer;
 
@@ -22,12 +23,12 @@ class CustomerList extends Component
         'address' => null,
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->total = Customer::count();
     }
 
-    public function render()
+    public function render(): View
     {
         $customers = Customer::orderBy('customer_id', 'DESC')->paginate(5);
         $this->customersCount = Customer::count();
@@ -36,7 +37,7 @@ class CustomerList extends Component
             ->with('customers', $customers);
     }
 
-    public function search()
+    public function search(): void
     {
         $this->customers = new Customer;
 
@@ -51,7 +52,7 @@ class CustomerList extends Component
         $this->customers = $this->customers->get();
     }
 
-    public function getCreditors()
+    public function getCreditors(): void
     {
         $customers = Customer::all();
 

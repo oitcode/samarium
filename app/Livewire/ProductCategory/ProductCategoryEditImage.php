@@ -3,6 +3,7 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 
 class ProductCategoryEditImage extends Component
@@ -13,12 +14,12 @@ class ProductCategoryEditImage extends Component
 
     public $image;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product-category.product-category-edit-image');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'image' => 'required|image',

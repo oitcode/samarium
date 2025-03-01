@@ -3,13 +3,14 @@
 namespace App\Livewire\Notice\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\WebpageCategory;
 
 class LatestNoticeList extends Component
 {
     public $notices;
 
-    public function render()
+    public function render(): View
     {
         if (WebpageCategory::where('name', 'notice')->first()) {
             $this->notices = WebpageCategory::where('name', 'notice')->first()->webPages()

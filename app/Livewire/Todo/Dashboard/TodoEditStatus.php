@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class TodoEditStatus extends Component
 {
@@ -10,17 +11,17 @@ class TodoEditStatus extends Component
 
     public $status;
 
-    public function mount()
+    public function mount(): void
     {
         $this->status = $this->todo->status;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.todo.dashboard.todo-edit-status');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'status' => 'required',

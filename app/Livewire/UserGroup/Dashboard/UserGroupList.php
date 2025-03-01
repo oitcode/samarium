@@ -3,6 +3,7 @@
 namespace App\Livewire\UserGroup\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\UserGroup;
@@ -22,7 +23,7 @@ class UserGroupList extends Component
         'delete' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->userGroups = UserGroup::all();
         $this->userGroupCount = UserGroup::count();

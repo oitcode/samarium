@@ -19,7 +19,7 @@ class Signup extends Component
         return view('livewire.user.website.signup');
     }
 
-    public function store()
+    public function store() // TODO: Type hinting of return type
     {
         $validatedData = $this->validate([
             'name' => 'required|string',

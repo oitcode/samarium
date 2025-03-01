@@ -3,6 +3,7 @@
 namespace App\Livewire\DocumentFile\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Traits\ModesTrait;
@@ -27,7 +28,7 @@ class DocumentFileDisplay extends Component
         'documentFileEditUserGroupCompleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         if (Gate::allows('view-document-file', $this->documentFile)) {
             return view('livewire.document-file.dashboard.document-file-display');
@@ -36,12 +37,12 @@ class DocumentFileDisplay extends Component
         }
     }
 
-    public function documentFileEditUserGroupCancel()
+    public function documentFileEditUserGroupCancel(): void
     {
         $this->exitMode('editUserGroupMode');
     }
 
-    public function documentFileEditUserGroupCompleted()
+    public function documentFileEditUserGroupCompleted(): void
     {
         $this->exitMode('editUserGroupMode');
     }

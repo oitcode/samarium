@@ -3,6 +3,7 @@
 namespace App\Livewire\Sale;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\SaleInvoice;
@@ -39,7 +40,7 @@ class SaleInvoiceList extends Component
         'saleInvoiceDeleted' => 'ackSaleInvoiceDeleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->hasVat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
@@ -64,20 +65,20 @@ class SaleInvoiceList extends Component
             ->with('saleInvoices', $saleInvoices);
     }
 
-    public function confirmDeleteSaleInvoice(SaleInvoice $saleInvoice)
+    public function confirmDeleteSaleInvoice(SaleInvoice $saleInvoice): void
     {
         $this->deletingSaleInvoice= $saleInvoice;
 
         $this->enterMode('confirmDelete');
     }
 
-    public function exitConfirmSaleInvoiceDelete()
+    public function exitConfirmSaleInvoiceDelete(): void
     {
         $this->deletingSaleInvoice = null;
         $this->exitMode('confirmDelete');
     }
 
-    public function ackSaleInvoiceDeleted()
+    public function ackSaleInvoiceDeleted(): void
     {
         $this->deletingSaleInvoice = null;
         $this->exitMode('confirmDelete');

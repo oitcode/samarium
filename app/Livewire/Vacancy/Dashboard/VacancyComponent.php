@@ -3,6 +3,7 @@
 namespace App\Livewire\Vacancy\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Vacancy;
 
@@ -26,29 +27,29 @@ class VacancyComponent extends Component
         'exitVacancyDisplay',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.vacancy.dashboard.vacancy-component');
     }
 
-    public function vacancyCreateCompleted()
+    public function vacancyCreateCompleted(): void
     {
         $this->exitMode('createMode');
     }
 
-    public function vacancyCreateCancelled()
+    public function vacancyCreateCancelled(): void
     {
         $this->exitMode('createMode');
     }
 
-    public function displayVacancy(Vacancy $vacancy)
+    public function displayVacancy(Vacancy $vacancy): void
     {
         $this->displayingVacancy = $vacancy;
 
         $this->enterMode('displayMode');
     }
 
-    public function exitVacancyDisplay()
+    public function exitVacancyDisplay(): void
     {
         $this->displayingVacancy = null;
         $this->exitMode('displayMode');

@@ -3,6 +3,7 @@
 namespace App\Livewire\Takeaway;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Takeaway;
@@ -38,7 +39,7 @@ class TakeawayList extends Component
         'takeawayDeleted' => 'ackTakeawayDeleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->hasVat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
@@ -76,20 +77,20 @@ class TakeawayList extends Component
             ->with('takeaways', $takeaways);
     }
 
-    public function confirmDeleteTakeaway(Takeaway $takeaway)
+    public function confirmDeleteTakeaway(Takeaway $takeaway): void
     {
         $this->deletingTakeaway = $takeaway;
 
         $this->enterMode('confirmDelete');
     }
 
-    public function exitConfirmTakeawayDelete()
+    public function exitConfirmTakeawayDelete(): void
     {
         $this->deletingTakeaway = null;
         $this->exitMode('confirmDelete');
     }
 
-    public function ackTakeawayDeleted()
+    public function ackTakeawayDeleted(): void
     {
         $this->deletingExpense = null;
         $this->exitMode('confirmDelete');

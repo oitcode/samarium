@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class TodoEditDueDate extends Component
 {
@@ -10,17 +11,17 @@ class TodoEditDueDate extends Component
 
     public $due_date;
 
-    public function mount()
+    public function mount(): void
     {
         $this->due_date = $this->todo->due_date;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.todo.dashboard.todo-edit-due-date');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'due_date' => 'required|date',

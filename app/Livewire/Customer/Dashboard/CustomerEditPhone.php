@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class CustomerEditPhone extends Component
 {
@@ -10,17 +11,17 @@ class CustomerEditPhone extends Component
 
     public $phone;
 
-    public function mount()
+    public function mount(): void
     {
         $this->phone = $this->customer->phone;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.customer.dashboard.customer-edit-phone');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'phone' => 'required',

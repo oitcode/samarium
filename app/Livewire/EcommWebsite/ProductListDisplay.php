@@ -3,18 +3,19 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Product;
 
 class ProductListDisplay extends Component
 {
     public $product;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.ecomm-website.product-list-display');
     }
 
-    public function addItemToCart($productId)
+    public function addItemToCart($productId): void
     {
         $product = Product::findOrFail($productId);
 

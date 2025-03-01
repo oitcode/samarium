@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class ProductSpecificationValueEdit extends Component
 {
@@ -10,17 +11,17 @@ class ProductSpecificationValueEdit extends Component
 
     public $spec_value;
 
-    public function mount()
+    public function mount(): void
     {
         $this->spec_value = $this->productSpecification->spec_value;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-specification-value-edit');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'spec_value' => 'required|string',

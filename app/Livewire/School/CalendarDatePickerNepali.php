@@ -3,6 +3,7 @@
 namespace App\Livewire\School;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 
 class CalendarDatePickerNepali extends Component
@@ -72,14 +73,14 @@ class CalendarDatePickerNepali extends Component
         'dpSelectDate' => 'selectDate',
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->populateMonthBookDayWise();
 
         return view('livewire.school.calendar-date-picker-nepali');
     }
 
-    public function populateMonthBook()
+    public function populateMonthBook(): void
     {
         $monthStartDate = $this->monthInfo2081[$this->displayMonthName][0];
         $monthEndDate = $this->monthInfo2081[$this->displayMonthName][1];
@@ -104,7 +105,7 @@ class CalendarDatePickerNepali extends Component
         }
     }
 
-    public function populateMonthBookDayWise()
+    public function populateMonthBookDayWise(): void
     {
         $monthStartDate = $this->monthInfo2081[$this->displayMonthName][0];
         $monthEndDate = $this->monthInfo2081[$this->displayMonthName][1];
@@ -208,7 +209,7 @@ class CalendarDatePickerNepali extends Component
         $this->saturday = $saturday;
     }
 
-    public function selectPreviousMonth()
+    public function selectPreviousMonth(): void
     {
         $monthInfo2081 = array_reverse($this->monthInfo2081, true);
 
@@ -226,7 +227,7 @@ class CalendarDatePickerNepali extends Component
         }
     }
 
-    public function selectNextMonth()
+    public function selectNextMonth(): void
     {
         $flag = false;
 
@@ -242,13 +243,13 @@ class CalendarDatePickerNepali extends Component
         }
     }
 
-    public function selectDate($d)
+    public function selectDate($d): void
     {
         //$day = json_decode($d);
         $this->dispatch('dateSelected', $d, $this->displayMonthName, $this->emitDate);
     }
 
-    public function selectMonth($monthName)
+    public function selectMonth($monthName): void
     {
         $this->displayMonthName = $monthName;
     }

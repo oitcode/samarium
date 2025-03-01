@@ -3,12 +3,16 @@
 namespace App\Livewire\Expense;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 use App\Expense;
 
 class ExpenseReport extends Component
 {
+    use ModesTrait;
+    
     public $expenses = null;
 
     public $startDate = null;
@@ -21,12 +25,12 @@ class ExpenseReport extends Component
         'showChart' => true,
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->startDate = date('Y-m-d');
     }
 
-    public function render()
+    public function render(): View
     {
         $this->getExpensesForDateRange();
         $this->getExpenseByCategory();
@@ -35,34 +39,13 @@ class ExpenseReport extends Component
         return view('livewire.expense.expense-report');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function enableChartAndGoOn()
+    public function enableChartAndGoOn(): void
     {
         $this->enterMode('showChart');
         $this->getExpensesForDateRange();
     }
 
-    public function getExpensesForDateRange()
+    public function getExpensesForDateRange(): void
     {
         /* Todo: Validation */
         $validatedData = $this->validate([
@@ -107,7 +90,7 @@ class ExpenseReport extends Component
         $this->expenses = $expenses;
     }
 
-    public function calculateTotal()
+    public function calculateTotal(): void
     {
         $this->total = 0;
 
@@ -118,7 +101,7 @@ class ExpenseReport extends Component
         }
     }
 
-    public function getExpenseByCategory()
+    public function getExpenseByCategory(): void
     {
         $this->expenseByCategory = array();
 

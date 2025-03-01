@@ -3,6 +3,7 @@
 namespace App\Livewire\Sale;
 
 use App\Traits\ModesTrait;
+use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use App\SaleInvoice;
@@ -40,7 +41,7 @@ class SaleInvoiceWork extends Component
         'completeTheTransaction',
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
         $this->sale_invoice_date = $this->saleInvoice->sale_invoice_date;
@@ -49,12 +50,12 @@ class SaleInvoiceWork extends Component
         return view('livewire.sale.sale-invoice-work');
     }
 
-    public function exitMakePaymentMode()
+    public function exitMakePaymentMode(): void
     {
         $this->exitMode('makePayment');
     }
 
-    public function confirmRemoveItemFromSaleInvoice($saleInvoiceItemId)
+    public function confirmRemoveItemFromSaleInvoice($saleInvoiceItemId): void
     {
         $saleInvoiceItem = SaleInvoiceItem::find($saleInvoiceItemId);
 
@@ -62,7 +63,7 @@ class SaleInvoiceWork extends Component
         $this->modes['confirmRemoveSaleInvoiceItem'] = true;
     }
 
-    public function removeItemFromSaleInvoice($saleInvoiceItemId)
+    public function removeItemFromSaleInvoice($saleInvoiceItemId): void
     {
         $saleInvoiceItem = SaleInvoiceItem::find($saleInvoiceItemId);
 
@@ -91,19 +92,19 @@ class SaleInvoiceWork extends Component
         $this->render();
     }
 
-    public function exitDeleteSaleInvoiceItem()
+    public function exitDeleteSaleInvoiceItem(): void
     {
         $this->deletingSaleInvoiceItem = null;
         $this->exitMode('confirmRemoveSaleInvoiceItem');
     }
 
-    public function itemAddedToSaleInvoice()
+    public function itemAddedToSaleInvoice(): void
     {
         $this->dispatch('makePaymentPleaseUpdate');
         $this->render();
     }
 
-    public function updateInventory($product, $quantity, $direction)
+    public function updateInventory($product, $quantity, $direction): void
     {
         if ($product->baseProduct) {
             $baseProduct = $product->baseProduct;
@@ -131,7 +132,7 @@ class SaleInvoiceWork extends Component
         }
     }
 
-    public function changeSaleInvoiceDate()
+    public function changeSaleInvoiceDate(): void
     {
         $validatedData = $this->validate([
             'sale_invoice_date' => 'required|date',
@@ -146,7 +147,7 @@ class SaleInvoiceWork extends Component
         $this->render();
     }
 
-    public function linkCustomerToSaleInvoice()
+    public function linkCustomerToSaleInvoice(): void
     {
         $validatedData = $this->validate([
             'customer_id' => 'required|integer',
@@ -159,12 +160,12 @@ class SaleInvoiceWork extends Component
         $this->modes['customerSelected'] = true;
     }
 
-    public function closeThisComponent()
+    public function closeThisComponent(): void
     {
         $this->dispatch('exitSaleInvoiceWorkMode');
     }
 
-    public function completeTheTransaction()
+    public function completeTheTransaction(): void
     {
         $this->saleInvoice = $this->saleInvoice->fresh();
         $this->render();

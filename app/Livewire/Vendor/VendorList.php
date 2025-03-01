@@ -3,6 +3,7 @@
 namespace App\Livewire\Vendor;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Vendor;
 
@@ -13,7 +14,7 @@ class VendorList extends Component
     // public $vendors;
     public $totalVendorCount;
 
-    public function render()
+    public function render(): View
     {
         $vendors = Vendor::orderBy('vendor_id', 'DESC')->paginate(5);
         $this->totalVendorCount = Vendor::count();

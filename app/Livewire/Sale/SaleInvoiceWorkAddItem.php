@@ -3,6 +3,7 @@
 namespace App\Livewire\Sale;
 
 use App\Traits\ModesTrait;
+use Illuminate\View\View;
 use App\Traits\InventoryTrait;
 use Livewire\Component;
 use App\Product;
@@ -38,7 +39,7 @@ class SaleInvoiceWorkAddItem extends Component
     ];
 
 
-    public function mount()
+    public function mount(): void
     {
         // $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
         //     ->where('is_base_product', false)
@@ -46,7 +47,7 @@ class SaleInvoiceWorkAddItem extends Component
         //     ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         $this->productCategories = ProductCategory::where('does_sell', 'yes')
             ->orderBy('name', 'ASC')
@@ -55,7 +56,7 @@ class SaleInvoiceWorkAddItem extends Component
         return view('livewire.sale.sale-invoice-work-add-item');
     }
 
-    public function addItemToSaleInvoice()
+    public function addItemToSaleInvoice(): void
     {
         if (! $this->selectedProduct) {
             return;
@@ -112,7 +113,7 @@ class SaleInvoiceWorkAddItem extends Component
         }
     }
 
-    public function updateProductList()
+    public function updateProductList(): void
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
             ->where('is_base_product', false)
@@ -120,7 +121,7 @@ class SaleInvoiceWorkAddItem extends Component
             ->get();
     }
 
-    public function selectItem()
+    public function selectItem(): void
     {
         $product = Product::find($this->product_id);
 
@@ -131,7 +132,7 @@ class SaleInvoiceWorkAddItem extends Component
         $this->selectedProduct = $product;
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->add_item_name = '';
         $this->product_id = '';
@@ -148,12 +149,12 @@ class SaleInvoiceWorkAddItem extends Component
         // $this->products = Product::all();
     }
 
-    public function updateTotal()
+    public function updateTotal(): void
     {
         $this->total = $this->selectedProduct->selling_price * $this->quantity;
     }
 
-    public function selectProductCategory()
+    public function selectProductCategory(): void
     {
         $validatedData = $this->validate([
             'search_product_category_id' => 'required|integer',
@@ -169,7 +170,7 @@ class SaleInvoiceWorkAddItem extends Component
                 ->get();
     }
 
-    public function checkExistingItemsForProduct($saleInvoice, $productId)
+    public function checkExistingItemsForProduct($saleInvoice, $productId): SaleInvoiceItem|null
     {
         foreach ($saleInvoice->saleInvoiceItems as $saleInvoiceItem) {
             if ($saleInvoiceItem->product_id == $productId) {
@@ -180,7 +181,7 @@ class SaleInvoiceWorkAddItem extends Component
         return null;
     }
 
-    public function updateSaleInvoiceTotalAmount($saleInvoice, $saleInvoiceItem, $quantity)
+    public function updateSaleInvoiceTotalAmount($saleInvoice, $saleInvoiceItem, $quantity): void
     {
         $product = $saleInvoiceItem->product;
 
@@ -188,17 +189,17 @@ class SaleInvoiceWorkAddItem extends Component
         $saleInvoice->save();
     }
 
-    public function showAddItemFormMob()
+    public function showAddItemFormMob(): void
     {
         $this->enterMode('showMobForm');
     }
 
-    public function hideAddItemFormMob()
+    public function hideAddItemFormMob(): void
     {
         $this->exitMode('showMobForm');
     }
 
-    public function selectItemNew(Product $product)
+    public function selectItemNew(Product $product): void
     {
         $this->product_id = $product->product_id;
         $this->selectedProduct = $product;

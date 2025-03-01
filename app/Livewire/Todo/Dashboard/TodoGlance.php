@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Todo;
 
 class TodoGlance extends Component
@@ -10,7 +11,7 @@ class TodoGlance extends Component
     public $totalTodo;
     public $todos;
 
-    public function render()
+    public function render(): View
     {
         $this->totalTodo = Todo::count();
         $this->todos = Todo::orderBy('todo_id', 'desc')->limit(5)->get();

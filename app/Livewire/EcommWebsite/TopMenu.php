@@ -3,6 +3,7 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 
 use App\ProductCategory;
@@ -18,12 +19,12 @@ class TopMenu extends Component
         'showMobileMenuMode' => false,
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->productCategories = ProductCategory::where('does_sell', 'yes')->limit(5)->get();
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->modes['showMobileMenuMode']) {
             $this->productCategories = ProductCategory::where('does_sell', 'yes')->get();
@@ -32,14 +33,14 @@ class TopMenu extends Component
         return view('livewire.ecomm-website.top-menu');
     }
 
-    public function showAllCategories()
+    public function showAllCategories(): void
     {
         $this->productCategories = ProductCategory::where('does_sell', 'yes')->orderBy('name')->get();
 
         $this->enterMode('showAllCategoriesMode');
     }
 
-    public function closeFullMenu()
+    public function closeFullMenu(): void
     {
         $this->productCategories = ProductCategory::where('does_sell', 'yes')->limit(5)->get();
         $this-> exitMode('showAllCategoriesMode');

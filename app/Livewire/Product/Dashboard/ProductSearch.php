@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Product;
 
 class ProductSearch extends Component
@@ -12,12 +13,12 @@ class ProductSearch extends Component
     public $products;
     public $searchDone = false;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-search');
     }
 
-    public function search()
+    public function search(): void
     {
         $validatedData = $this->validate([
             'product_search_name' => 'required',

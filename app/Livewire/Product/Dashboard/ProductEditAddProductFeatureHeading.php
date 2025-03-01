@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductFeatureHeading;
 
 class ProductEditAddProductFeatureHeading extends Component
@@ -11,12 +12,12 @@ class ProductEditAddProductFeatureHeading extends Component
 
     public $feature_heading;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-edit-add-product-feature-heading');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData= $this->validate([
              'feature_heading' => 'required|string',

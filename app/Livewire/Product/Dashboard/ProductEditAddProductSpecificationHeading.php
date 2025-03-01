@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductSpecificationHeading;
 
 class ProductEditAddProductSpecificationHeading extends Component
@@ -11,12 +12,12 @@ class ProductEditAddProductSpecificationHeading extends Component
 
     public $specification_heading;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-edit-add-product-specification-heading');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData= $this->validate([
              'specification_heading' => 'required|string',

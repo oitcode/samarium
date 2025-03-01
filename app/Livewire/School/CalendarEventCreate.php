@@ -3,6 +3,7 @@
 namespace App\Livewire\School;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Traits\ModesTrait;
 use App\SchoolCalendarEvent;
@@ -81,7 +82,7 @@ class CalendarEventCreate extends Component
         'dateSelected',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         if ($this->eventCreationDay) {
             $this->start_date = $this->eventCreationDay;
@@ -94,12 +95,12 @@ class CalendarEventCreate extends Component
         $this->calendarGroups = CalendarGroup::all();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.school.calendar-event-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'title' => 'required',
@@ -132,7 +133,7 @@ class CalendarEventCreate extends Component
         $this->dispatch('calendarEventCreated');
     }
 
-    public function dateSelected($day, $nepaliMonth, $emitDate)
+    public function dateSelected($day, $nepaliMonth, $emitDate): void
     {
         if ($emitDate == 'start_date') {
             $this->start_date = $day[2];
@@ -149,12 +150,12 @@ class CalendarEventCreate extends Component
         }
     }
 
-    public function convertNepaliToEnglishDate()
+    public function convertNepaliToEnglishDate(): void
     {
         
     }
 
-    public function convertEnglishToNepaliDate($englishDate)
+    public function convertEnglishToNepaliDate($englishDate): string
     {
         $nepaliYear = '';
         $nepaliMonth = '';

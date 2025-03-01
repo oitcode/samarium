@@ -3,6 +3,7 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Product;
 use App\ProductCategory;
@@ -19,12 +20,12 @@ class ProductCategoryProductList extends Component
         'displaySubProductCategoryMode' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.ecomm-website.product-category-product-list');
     }
 
-    public function addItemToCart($productId)
+    public function addItemToCart($productId): void
     {
         $product = Product::findOrFail($productId);
 
@@ -46,7 +47,7 @@ class ProductCategoryProductList extends Component
         $this->dispatch('itemAddedToCart');
     }
 
-    public function displaySubProductCategory(ProductCategory $subProductCategory)
+    public function displaySubProductCategory(ProductCategory $subProductCategory): void
     {
         $this->displayingSubProductCategory = $subProductCategory;
         $this->enterMode('displaySubProductCategoryMode');

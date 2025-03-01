@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 
 class TodoDisplay extends Component
@@ -44,18 +45,18 @@ class TodoDisplay extends Component
         'todoUpdateAssignedToCompleted',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->todo_status = $this->todo->status;
         $this->title = $this->todo->title;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.todo.dashboard.todo-display');
     }
 
-    public function changeStatus()
+    public function changeStatus(): void
     {
         /* Todo: Validation */
 
@@ -67,7 +68,7 @@ class TodoDisplay extends Component
         session()->flash('message', 'Status updated');
     }
 
-    public function updateTitle()
+    public function updateTitle(): void
     {
         /* Todo: Validation */
 
@@ -79,37 +80,37 @@ class TodoDisplay extends Component
         session()->flash('message', 'Title updated');
     }
 
-    public function todoUpdateTitleCancelled()
+    public function todoUpdateTitleCancelled(): void
     {
         $this->exitMode('updateTitleMode');
     }
 
-    public function todoUpdateTitleCompleted()
+    public function todoUpdateTitleCompleted(): void
     {
         $this->exitMode('updateTitleMode');
     }
 
-    public function todoUpdateDescriptionCancelled()
+    public function todoUpdateDescriptionCancelled(): void
     {
         $this->exitMode('updateDescriptionMode');
     }
 
-    public function todoUpdateDescriptionCompleted()
+    public function todoUpdateDescriptionCompleted(): void
     {
         $this->exitMode('updateDescriptionMode');
     }
 
-    public function todoUpdateStatusCancelled()
+    public function todoUpdateStatusCancelled(): void
     {
         $this->exitMode('updateStatusMode');
     }
 
-    public function todoUpdateStatusCompleted()
+    public function todoUpdateStatusCompleted(): void
     {
         $this->exitMode('updateStatusMode');
     }
 
-    public function deleteTodo()
+    public function deleteTodo() // TODO: Type hinting of return type
     {
         $this->todo->delete();
 
@@ -123,32 +124,32 @@ class TodoDisplay extends Component
         return redirect()->to('/dashboard/todo');
     }
 
-    public function todoUpdatePriorityCancelled()
+    public function todoUpdatePriorityCancelled(): void
     {
         $this->exitMode('updatePriorityMode');
     }
 
-    public function todoUpdatePriorityCompleted()
+    public function todoUpdatePriorityCompleted(): void
     {
         $this->exitMode('updatePriorityMode');
     }
 
-    public function todoUpdateDueDateCancelled()
+    public function todoUpdateDueDateCancelled(): void
     {
         $this->exitMode('updateDueDateMode');
     }
 
-    public function todoUpdateDueDateCompleted()
+    public function todoUpdateDueDateCompleted(): void
     {
         $this->exitMode('updateDueDateMode');
     }
 
-    public function todoUpdateAssignedToCancelled()
+    public function todoUpdateAssignedToCancelled(): void
     {
         $this->exitMode('updateAssignedToMode');
     }
 
-    public function todoUpdateAssignedToCompleted()
+    public function todoUpdateAssignedToCompleted(): void
     {
         $this->exitMode('updateAssignedToMode');
     }

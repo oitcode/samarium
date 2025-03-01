@@ -3,6 +3,7 @@
 namespace App\Livewire\UrlLink\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\UrlLink;
 
@@ -14,7 +15,7 @@ class UrlLinkList extends Component
 
     public $urlLinksCount;
 
-    public function render()
+    public function render(): View
     {
         $urlLinks = UrlLink::orderBy('url_link_id', 'DESC')->paginate(5);
         $this->urlLinksCount = UrlLink::count();

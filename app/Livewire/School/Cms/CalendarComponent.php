@@ -3,6 +3,7 @@
 namespace App\Livewire\School\Cms;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use App\Traits\ModesTrait;
@@ -75,7 +76,7 @@ class CalendarComponent extends Component
         'eventCreate' => false,
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->calendarGroups = CalendarGroup::all();
 
@@ -84,7 +85,7 @@ class CalendarComponent extends Component
         $this->selectedCalendarGroup = CalendarGroup::first();
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->displayMonthName) {
             $this->populateMonthBook();
@@ -95,7 +96,7 @@ class CalendarComponent extends Component
         return view('livewire.school.cms.calendar-component');
     }
 
-    public function getTodaysNepaliMonth()
+    public function getTodaysNepaliMonth(): string|null
     {
         $today = Carbon::today();
 
@@ -114,12 +115,12 @@ class CalendarComponent extends Component
         return null;
     }
 
-    public function selectMonth($monthName)
+    public function selectMonth($monthName): void
     {
         $this->displayMonthName = $monthName;
     }
 
-    public function populateToday()
+    public function populateToday(): void
     {
         $day = Carbon::today();
 
@@ -138,7 +139,7 @@ class CalendarComponent extends Component
         }
     }
 
-    public function populateMonthBook()
+    public function populateMonthBook(): void
     {
         $monthStartDate = $this->monthInfo2081[$this->displayMonthName][0];
         $monthEndDate = $this->monthInfo2081[$this->displayMonthName][1];
@@ -165,7 +166,7 @@ class CalendarComponent extends Component
         }
     }
 
-    public function checkIfDayIsHoliday($day)
+    public function checkIfDayIsHoliday($day): bool
     {
         $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
             ->whereDate('end_date', '>=', $day->toDateString())
@@ -193,7 +194,7 @@ class CalendarComponent extends Component
         }
     }
 
-    public function getEventsForTheDay($day)
+    public function getEventsForTheDay($day) // TODO: Type hinting of return type
     {
         $events = SchoolCalendarEvent::whereDate('start_date' , '<=', $day->toDateString())
             ->whereDate('end_date', '>=', $day->toDateString())
@@ -216,7 +217,7 @@ class CalendarComponent extends Component
         return $calendarGroupEvent;
     }
 
-    public function selectCalendarGroup(CalendarGroup $calendarGroup)
+    public function selectCalendarGroup(CalendarGroup $calendarGroup): void
     {
         $this->selectedCalendarGroup = $calendarGroup;
         $this->dispatch('calendarGroupSelected');

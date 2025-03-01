@@ -3,6 +3,7 @@
 namespace App\Livewire\Vacancy\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Vacancy;
 
 class VacancyCreate extends Component
@@ -11,12 +12,12 @@ class VacancyCreate extends Component
     public $description;
     public $job_location;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.vacancy.dashboard.vacancy-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'title' => 'required',

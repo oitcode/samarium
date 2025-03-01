@@ -3,6 +3,7 @@
 namespace App\Livewire\Team;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Team;
@@ -33,11 +34,7 @@ class TeamList extends Component
     public $team_search_name;
     public $searchResultTeams;
 
-    public function mount()
-    {
-    }
-
-    public function render()
+    public function render(): View
     {
         $teams = Team::paginate(5);
         $this->teamsCount = Team::count();
@@ -46,7 +43,7 @@ class TeamList extends Component
             ->with('teams', $teams);
     }
 
-    public function search()
+    public function search(): void
     {
         $validatedData = $this->validate([
             'team_search_name' => 'required',
@@ -58,7 +55,7 @@ class TeamList extends Component
         
     }
 
-    public function deleteTeam(Team $team)
+    public function deleteTeam(Team $team): void
     {
         $this->deletingTeam = $team;
 
@@ -69,13 +66,13 @@ class TeamList extends Component
         }
     }
 
-    public function deleteTeamCancel()
+    public function deleteTeamCancel(): void
     {
         $this->deletingTeam = null;
         $this->exitMode('delete');
     }
 
-    public function confirmDeleteTeam()
+    public function confirmDeleteTeam(): void
     {
         /* Todo: Delete team members and other things
                  before deletng the team itself.

@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
 use App\GalleryImage;
@@ -16,12 +17,12 @@ class ProductGalleryCreate extends Component
 
     public $images = [];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-gallery-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             /* TODO: Show proper validation message */

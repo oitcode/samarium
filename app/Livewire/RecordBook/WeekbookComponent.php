@@ -3,6 +3,7 @@
 namespace App\Livewire\RecordBook;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use App\SaleInvoice;
 use App\Purchase;
@@ -22,12 +23,12 @@ class WeekbookComponent extends Component
     public $weekBookExpense = array();
     public $totalAmountExpense = array();
 
-    public function mount()
+    public function mount(): void
     {
         $this->startDay = Carbon::now()->startOfWeek(Carbon::SUNDAY);
     }
 
-    public function render()
+    public function render(): View
     {
         $this->populateWeekBook();
         $this->totalAmount = $this->getTotalAmount();
@@ -41,17 +42,17 @@ class WeekbookComponent extends Component
         return view('livewire.record-book.weekbook-component');
     }
 
-    public function goToPreviousWeek()
+    public function goToPreviousWeek(): void
     {
         $this->startDay->subWeek();
     }
 
-    public function goToNextWeek()
+    public function goToNextWeek(): void
     {
         $this->startDay->addWeek();
     }
 
-    public function populateWeekBook()
+    public function populateWeekBook(): void
     {
         $this->weekBook = array();
 
@@ -68,7 +69,7 @@ class WeekbookComponent extends Component
         }
     }
 
-    public function populateWeekBookPurchase()
+    public function populateWeekBookPurchase(): void
     {
         $this->weekBookPurchase = array();
 
@@ -85,7 +86,7 @@ class WeekbookComponent extends Component
         }
     }
 
-    public function populateWeekBookExpense()
+    public function populateWeekBookExpense(): void
     {
         $this->weekBookExpense = array();
 
@@ -102,7 +103,7 @@ class WeekbookComponent extends Component
         }
     }
 
-    public function getTotalAmountOfDay($day)
+    public function getTotalAmountOfDay($day): int|float
     {
         $saleInvoices = SaleInvoice::where('sale_invoice_date', $day->format('Y-m-d'))->get();
 
@@ -115,12 +116,12 @@ class WeekbookComponent extends Component
         return $total;
     }
 
-    public function getTotalBillsOfDay($day)
+    public function getTotalBillsOfDay($day): int
     {
         return count(SaleInvoice::where('sale_invoice_date', $day->format('Y-m-d'))->get());
     }
 
-    public function getTotalPurchaseAmountOfDay($day)
+    public function getTotalPurchaseAmountOfDay($day): int|float
     {
         $purchases = Purchase::where('purchase_date', $day->format('Y-m-d'))->get();
 
@@ -133,12 +134,12 @@ class WeekbookComponent extends Component
         return $total;
     }
 
-    public function getTotalPurchaseBillsOfDay($day)
+    public function getTotalPurchaseBillsOfDay($day): int
     {
         return count(Purchase::where('purchase_date', $day->format('Y-m-d'))->get());
     }
 
-    public function getTotalExpenseAmountOfDay($day)
+    public function getTotalExpenseAmountOfDay($day): int|float
     {
         $expenses = Expense::where('date', $day->format('Y-m-d'))->get();
 
@@ -151,12 +152,12 @@ class WeekbookComponent extends Component
         return $total;
     }
 
-    public function getTotalExpenseBillsOfDay($day)
+    public function getTotalExpenseBillsOfDay($day): int
     {
         return count(Expense::where('date', $day->format('Y-m-d'))->get());
     }
 
-    public function getTotalAmount()
+    public function getTotalAmount(): int|float
     {
         $total = 0;
 
@@ -171,7 +172,7 @@ class WeekbookComponent extends Component
         return $total;
     }
 
-    public function getTotalAmountPurchase()
+    public function getTotalAmountPurchase(): int|float
     {
         $total = 0;
 
@@ -186,7 +187,7 @@ class WeekbookComponent extends Component
         return $total;
     }
 
-    public function getTotalAmountExpense()
+    public function getTotalAmountExpense(): int|float
     {
         $total = 0;
 
@@ -201,7 +202,7 @@ class WeekbookComponent extends Component
         return $total;
     }
 
-    public function setStartOfWeek()
+    public function setStartOfWeek(): void
     {
         $validatedData = $this->validate([
             'weekStartDate' => 'required|date',

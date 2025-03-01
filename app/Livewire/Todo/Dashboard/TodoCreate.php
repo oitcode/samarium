@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\Todo;
 
@@ -11,12 +12,12 @@ class TodoCreate extends Component
     public $title;
     public $description;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.todo.dashboard.todo-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'title' => 'required|string|max:254',

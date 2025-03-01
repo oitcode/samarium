@@ -3,6 +3,7 @@
 namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class TeamMemberEditEmail extends Component
 {
@@ -10,17 +11,17 @@ class TeamMemberEditEmail extends Component
 
     public $email;
 
-    public function mount()
+    public function mount(): void
     {
         $this->email = $this->teamMember->email;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.team.dashboard.team-member-edit-email');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'email' => 'required',

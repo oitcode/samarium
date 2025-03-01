@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\SaleInvoice;
 use App\SaleInvoicePayment;
@@ -18,7 +19,7 @@ class CustomerPaymentCreate extends Component
     public $deposited_by;
     public $sale_invoice_payment_type_id;
 
-    public function render()
+    public function render(): View
     {
         $this->payment_date = date('Y-m-d');
         $this->saleInvoicePaymentTypes = SaleInvoicePaymentType::all();
@@ -26,7 +27,7 @@ class CustomerPaymentCreate extends Component
         return view('livewire.customer.customer-payment-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'pay_amount' => 'required|integer',
@@ -61,7 +62,7 @@ class CustomerPaymentCreate extends Component
         $this->dispatch('customerPaymentMade', amountRemaining: $amountRemaining);
     }
 
-    public function receiveSaleInvoicePayment($saleInvoice, $amountAvailable, $depositedBy)
+    public function receiveSaleInvoicePayment($saleInvoice, $amountAvailable, $depositedBy): int|float
     {
         $retval = 0;
 

@@ -3,18 +3,19 @@
 namespace App\Livewire\ProductVendor\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductVendor;
 
 class ProductVendorCreate extends Component
 {
     public $name;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product-vendor.dashboard.product-vendor-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

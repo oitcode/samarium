@@ -3,6 +3,7 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class ProductCategoryEditName extends Component
 {
@@ -10,17 +11,17 @@ class ProductCategoryEditName extends Component
 
     public $name;
 
-    public function mount()
+    public function mount(): void
     {
         $this->name = $this->productCategory->name;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product-category.product-category-edit-name');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

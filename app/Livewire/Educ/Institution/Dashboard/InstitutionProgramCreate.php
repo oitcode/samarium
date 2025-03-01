@@ -3,6 +3,7 @@
 namespace App\Livewire\Educ\Institution\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\EducInstitutionProgram;
 
@@ -13,12 +14,12 @@ class InstitutionProgramCreate extends Component
     public $name;
     public $program_type;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.educ.institution.dashboard.institution-program-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

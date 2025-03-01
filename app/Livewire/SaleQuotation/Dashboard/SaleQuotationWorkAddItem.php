@@ -3,6 +3,7 @@
 namespace App\Livewire\SaleQuotation\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Product;
 use App\ProductCategory;
@@ -33,7 +34,7 @@ class SaleQuotationWorkAddItem extends Component
         'showMobForm' => false,
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
             ->where('is_base_product', false)
@@ -41,7 +42,7 @@ class SaleQuotationWorkAddItem extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         $this->productCategories = ProductCategory::where('does_sell', 'yes')
             ->orderBy('name', 'ASC')
@@ -50,7 +51,7 @@ class SaleQuotationWorkAddItem extends Component
         return view('livewire.sale-quotation.dashboard.sale-quotation-work-add-item');
     }
 
-    public function addItemToSaleQuotation()
+    public function addItemToSaleQuotation(): void
     {
         if (! $this->selectedProduct) {
             return;
@@ -95,7 +96,7 @@ class SaleQuotationWorkAddItem extends Component
         }
     }
 
-    public function updateProductList()
+    public function updateProductList(): void
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')
             ->where('is_base_product', false)
@@ -103,7 +104,7 @@ class SaleQuotationWorkAddItem extends Component
             ->get();
     }
 
-    public function selectItem()
+    public function selectItem(): void
     {
         $product = Product::find($this->product_id);
 
@@ -114,7 +115,7 @@ class SaleQuotationWorkAddItem extends Component
         $this->selectedProduct = $product;
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->add_item_name = '';
         $this->product_id = '';
@@ -128,12 +129,12 @@ class SaleQuotationWorkAddItem extends Component
         $this->products = Product::all();
     }
 
-    public function updateTotal()
+    public function updateTotal(): void
     {
         $this->total = $this->price * $this->quantity;
     }
 
-    public function selectProductCategory()
+    public function selectProductCategory(): void
     {
         $validatedData = $this->validate([
             'search_product_category_id' => 'required|integer',
@@ -149,7 +150,7 @@ class SaleQuotationWorkAddItem extends Component
                 ->get();
     }
 
-    public function checkExistingItemsForProduct($saleQuotation, $productId)
+    public function checkExistingItemsForProduct($saleQuotation, $productId): SaleQuotationItem|null 
     {
         foreach ($saleQuotation->saleQuotationItems as $saleQuotationItem) {
             if ($saleQuotationItem->product_id == $productId) {
@@ -160,7 +161,7 @@ class SaleQuotationWorkAddItem extends Component
         return null;
     }
 
-    public function updateSaleQuotationTotalAmount($saleQuotation, $saleQuotationItem, $quantity)
+    public function updateSaleQuotationTotalAmount($saleQuotation, $saleQuotationItem, $quantity): void
     {
         $product = $saleQuotationItem->product;
 
@@ -168,12 +169,12 @@ class SaleQuotationWorkAddItem extends Component
         $saleQuotation->save();
     }
 
-    public function showAddItemFormMob()
+    public function showAddItemFormMob(): void
     {
         $this->enterMode('showMobForm');
     }
 
-    public function hideAddItemFormMob()
+    public function hideAddItemFormMob(): void
     {
         $this->exitMode('showMobForm');
     }

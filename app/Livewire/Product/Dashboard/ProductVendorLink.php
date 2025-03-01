@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductVendor;
 
 class ProductVendorLink extends Component
@@ -13,14 +14,14 @@ class ProductVendorLink extends Component
 
     public $product_vendor_id;
 
-    public function render()
+    public function render(): View
     {
         $this->productVendors = ProductVendor::all();
 
         return view('livewire.product.dashboard.product-vendor-link');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'product_vendor_id' => 'integer',

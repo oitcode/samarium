@@ -3,6 +3,7 @@
 namespace App\Livewire\Expense;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
@@ -32,12 +33,12 @@ class ExpenseList extends Component
         'deleteExpenseFromList',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->startDate = date('Y-m-d');
     }
 
-    public function render()
+    public function render(): View
     {
         $this->getExpensesForDateRange();
         $this->calculateTotal();
@@ -48,7 +49,7 @@ class ExpenseList extends Component
             ->with('expenses', $expenses);
     }
 
-    public function calculateTotal()
+    public function calculateTotal(): void
     {
         $this->total = 0;
 
@@ -59,7 +60,7 @@ class ExpenseList extends Component
         }
     }
 
-    public function getExpensesForDateRange()
+    public function getExpensesForDateRange(): void
     {
         /* Todo: Validation */
         $validatedData = $this->validate([
@@ -104,33 +105,33 @@ class ExpenseList extends Component
         $this->expenses = $expenses;
     }
 
-    public function enterConfirmDeleteExpenseMode(Expense $expense)
+    public function enterConfirmDeleteExpenseMode(Expense $expense): void
     {
         $this->deletingExpense = $expense;
 
         $this->enterMode('confirmDeleteExpense');
     }
 
-    public function exitConfirmExpenseDelete()
+    public function exitConfirmExpenseDelete(): void
     {
         $this->deletingExpense = null;
 
         $this->exitMode('confirmDeleteExpense');
     }
 
-    public function ackExpenseDeleted()
+    public function ackExpenseDeleted(): void
     {
         $this->deletingExpense = null;
         $this->exitMode('confirmDeleteExpense');
         $this->getExpensesForDateRange();
     }
 
-    public function setPreviousDay()
+    public function setPreviousDay(): void
     {
         $this->startDate = Carbon::create($this->startDate)->subDay()->toDateString();
     }
 
-    public function setNextDay()
+    public function setNextDay(): void
     {
         $this->startDate = Carbon::create($this->startDate)->addDay()->toDateString();
     }
@@ -141,7 +142,7 @@ class ExpenseList extends Component
      *
      *
      */
-    public function deleteExpenseFromList(Expense $expense)
+    public function deleteExpenseFromList(Expense $expense): void
     {
         DB::beginTransaction();
 

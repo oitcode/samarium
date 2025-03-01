@@ -3,6 +3,7 @@
 namespace App\Livewire\Team;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
 use App\TeamMember;
@@ -34,12 +35,12 @@ class TeamDisplayTeamMemberCreate extends Component
         'mediaImageSelected',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.team.team-display-team-member-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -73,7 +74,7 @@ class TeamDisplayTeamMemberCreate extends Component
         $this->dispatch('teamMemberCreated');
     }
 
-    public function mediaImageSelected(GalleryImage $galleryImage)
+    public function mediaImageSelected(GalleryImage $galleryImage): void
     {
         $this->selectedMediaImage = $galleryImage;
         $this->enterModeSilent('mediaFromLibrarySelected');

@@ -3,6 +3,7 @@
 namespace App\Livewire\ContactForm\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\ContactMessage;
 
@@ -25,18 +26,18 @@ class ContactFormComponent extends Component
         'exitContactMessageDisplay'
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.contact-form.dashboard.contact-form-component');
     }
 
-    public function displayContactMessage(ContactMessage $contactMessage)
+    public function displayContactMessage(ContactMessage $contactMessage): void
     {
         $this->displayingContactMessage = $contactMessage;
         $this->enterMode('displayContactMessageMode');
     }
 
-    public function exitContactMessageDisplay()
+    public function exitContactMessageDisplay(): void
     {
         $this->displayingContactMessage = null;
         $this->exitMode('displayContactMessageMode');

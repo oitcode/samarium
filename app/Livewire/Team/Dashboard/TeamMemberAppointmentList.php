@@ -3,6 +3,7 @@
 namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class TeamMemberAppointmentList extends Component
 {
@@ -10,7 +11,7 @@ class TeamMemberAppointmentList extends Component
 
     public $teamMemberAppointments;
 
-    public function render()
+    public function render(): View
     {
         $this->teamMemberAppointments = $this->teamMember->appointments;
 

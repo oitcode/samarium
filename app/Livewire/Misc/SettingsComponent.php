@@ -3,6 +3,8 @@
 namespace App\Livewire\Misc;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\SaleInvoicePaymentType;
 use App\PurchasePaymentType;
 use App\ExpensePaymentType;
@@ -12,6 +14,8 @@ use App\ExpenseAdditionHeading;
 
 class SettingsComponent extends Component
 {
+    use ModesTrait;
+    
     public $saleInvoicePaymentTypes;
     public $purchasePaymentTypes;
     public $expensePaymentTypes;
@@ -46,7 +50,7 @@ class SettingsComponent extends Component
         'createExpenseAdditionHeading' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->saleInvoicePaymentTypes = SaleInvoicePaymentType::all();
         $this->purchasePaymentTypes = PurchasePaymentType::all();
@@ -59,39 +63,18 @@ class SettingsComponent extends Component
         return view('livewire.misc.settings-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
     /* Enter and exit multimodes */
-    public function enterMultiMode($modeName)
+    public function enterMultiMode($modeName): void
     {
         $this->multiModes[$modeName] = true;
     }
 
-    public function exitMultiMode($modeName)
+    public function exitMultiMode($modeName): void
     {
         $this->multiModes[$modeName] = false;
     }
 
-    public function storeSaleInvoicePaymentType()
+    public function storeSaleInvoicePaymentType(): void
     {
         $validatedData = $this->validate([
             'new_sale_invoice_payment_type_name' => 'required',
@@ -104,7 +87,7 @@ class SettingsComponent extends Component
         $this->exitMultiMode('createSaleInvoicePaymentType');
     }
 
-    public function storePurchasePaymentType()
+    public function storePurchasePaymentType(): void
     {
         $validatedData = $this->validate([
             'new_purchase_payment_type_name' => 'required',
@@ -117,7 +100,7 @@ class SettingsComponent extends Component
         $this->exitMultiMode('createPurchasePaymentType');
     }
 
-    public function storeExpensePaymentType()
+    public function storeExpensePaymentType(): void
     {
         $validatedData = $this->validate([
             'new_expense_payment_type_name' => 'required',
@@ -130,7 +113,7 @@ class SettingsComponent extends Component
         $this->exitMultiMode('createExpensePaymentType');
     }
 
-    public function storeSaleInvoiceAdditionHeading()
+    public function storeSaleInvoiceAdditionHeading(): void
     {
         $validatedData = $this->validate([
             'new_sale_invoice_addition_heading_name' => 'required',
@@ -145,7 +128,7 @@ class SettingsComponent extends Component
         $this->exitMultiMode('createSaleInvoiceAdditionHeading');
     }
 
-    public function storePurchaseAdditionHeading()
+    public function storePurchaseAdditionHeading(): void
     {
         $validatedData = $this->validate([
             'new_purchase_addition_heading_name' => 'required',
@@ -160,7 +143,7 @@ class SettingsComponent extends Component
         $this->exitMultiMode('createPurchaseAdditionHeading');
     }
 
-    public function storeExpenseAdditionHeading()
+    public function storeExpenseAdditionHeading(): void
     {
         $validatedData = $this->validate([
             'new_expense_addition_heading_name' => 'required',

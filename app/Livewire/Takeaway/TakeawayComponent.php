@@ -3,10 +3,14 @@
 namespace App\Livewire\Takeaway;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\Takeaway;
 
 class TakeawayComponent extends Component
 {
+    use ModesTrait;
+    
     public $displayingTakeaway = null;
 
     public $modes = [
@@ -21,33 +25,12 @@ class TakeawayComponent extends Component
         'exitTakeawayWork',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.sale.takeaway-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function displayTakeaway($takeawayId)
+    public function displayTakeaway($takeawayId): void
     {
         $takeaway = Takeaway::find($takeawayId);
 
@@ -55,7 +38,7 @@ class TakeawayComponent extends Component
         $this->enterMode('display');
     }
 
-    public function exitTakeawayWork()
+    public function exitTakeawayWork(): void
     {
         $this->displayingTakeaway = null;
 

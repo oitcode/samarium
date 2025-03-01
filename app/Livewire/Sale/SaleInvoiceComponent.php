@@ -3,6 +3,7 @@
 namespace App\Livewire\Sale;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\SaleInvoice;
 
@@ -27,12 +28,12 @@ class SaleInvoiceComponent extends Component
         'exitSaleInvoiceDisplay',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.sale.sale-invoice-component');
     }
 
-    public function displaySaleInvoice($saleInvoiceId)
+    public function displaySaleInvoice($saleInvoiceId): void
     {
         $saleInvoice = SaleInvoice::find($saleInvoiceId);
 
@@ -40,7 +41,7 @@ class SaleInvoiceComponent extends Component
         $this->enterMode('display');
     }
 
-    public function exitSaleInvoiceWork()
+    public function exitSaleInvoiceWork(): void
     {
         $this->displayingSaleInvoice = null;
 
@@ -48,13 +49,13 @@ class SaleInvoiceComponent extends Component
         $this->exitMode('display');
     }
 
-    public function exitSaleInvoiceWorkMode()
+    public function exitSaleInvoiceWorkMode(): void
     {
         $this->displayingSaleInvoice = null;
         $this->clearModes();
     }
 
-    public function exitSaleInvoiceDisplay()
+    public function exitSaleInvoiceDisplay(): void
     {
         $this->displayingSaleInvoice = null;
         $this->clearModes();

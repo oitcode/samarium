@@ -3,6 +3,7 @@
 namespace App\Livewire\Report;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use App\SaleInvoice;
@@ -23,7 +24,7 @@ class ReportProductSalesCount extends Component
     public $search_product_category_id;
     public $search_product_id;
 
-    public function mount()
+    public function mount(): void
     {
         $this->productCategories = ProductCategory::all();
         $this->products = Product::all(); 
@@ -31,12 +32,12 @@ class ReportProductSalesCount extends Component
         $this->startDate = date('Y-m-d');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.report.report-product-sales-count');
     }
 
-    public function getSaleItemQuantity($saleInvoices)
+    public function getSaleItemQuantity($saleInvoices): void
     {
         $this->todayItems = array();
 
@@ -61,7 +62,7 @@ class ReportProductSalesCount extends Component
         });
     }
 
-    public function getSaleInvoiceItemQuantity($saleInvoiceItems)
+    public function getSaleInvoiceItemQuantity($saleInvoiceItems): void
     {
         $this->todayItems = array();
 
@@ -84,7 +85,7 @@ class ReportProductSalesCount extends Component
         });
     }
 
-    public function itemInTodayItems(Product $product)
+    public function itemInTodayItems(Product $product): bool
     {
         foreach ($this->todayItems as $item) {
             if ($item['product']->product_id == $product->product_id) {
@@ -95,7 +96,7 @@ class ReportProductSalesCount extends Component
         return false;
     }
 
-    public function updateTodayItemsCount(SaleInvoiceItem $saleInvoiceItem)
+    public function updateTodayItemsCount(SaleInvoiceItem $saleInvoiceItem): void
     {
         for ($i=0; $i < count($this->todayItems); $i++) {
             if ($this->todayItems[$i]['product']->product_id == $saleInvoiceItem->product->product_id) {
@@ -105,7 +106,7 @@ class ReportProductSalesCount extends Component
         }
     }
 
-    public function addToTodayItemsCount(SaleInvoiceItem $saleInvoiceItem)
+    public function addToTodayItemsCount(SaleInvoiceItem $saleInvoiceItem): void
     {
         $line = array();
 
@@ -115,7 +116,7 @@ class ReportProductSalesCount extends Component
         $this->todayItems[] = $line;
     }
 
-    public function getSaleInvoicesForDateRange()
+    public function getSaleInvoicesForDateRange() // TODO: Type hinting of return type
     {
         /* Todo: Validation */
         $validatedData = $this->validate([
@@ -156,7 +157,7 @@ class ReportProductSalesCount extends Component
         return $saleInvoices;
     }
 
-    public function getCount()
+    public function getCount(): void
     {
         if (!$this->endDate) {
             $this->endDate = $this->startDate;
@@ -194,7 +195,7 @@ class ReportProductSalesCount extends Component
         }
     }
 
-    public function updateProducts()
+    public function updateProducts(): void
     {
         /* Todo: Fix this! This line should be removed */
         $this->todayItems = array();

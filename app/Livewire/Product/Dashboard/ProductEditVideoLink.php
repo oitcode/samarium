@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class ProductEditVideoLink extends Component
 {
@@ -10,12 +11,12 @@ class ProductEditVideoLink extends Component
 
     public $video_link;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-edit-video-link');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'video_link' => 'required',

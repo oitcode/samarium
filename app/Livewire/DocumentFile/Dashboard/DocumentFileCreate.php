@@ -3,6 +3,7 @@
 namespace App\Livewire\DocumentFile\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use App\DocumentFile;
@@ -15,12 +16,12 @@ class DocumentFileCreate extends Component
     public $document_file;
     public $description;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.document-file.dashboard.document-file-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

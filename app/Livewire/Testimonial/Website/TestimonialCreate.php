@@ -3,6 +3,7 @@
 namespace App\Livewire\Testimonial\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Testimonial;
 
 class TestimonialCreate extends Component
@@ -11,12 +12,12 @@ class TestimonialCreate extends Component
     public $writer_info;
     public $body;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.testimonial.website.testimonial-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'writer_name' => 'nullable',
@@ -29,7 +30,7 @@ class TestimonialCreate extends Component
         $this->resetInputFields();
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->writer_name = '';
         $this->writer_info = '';

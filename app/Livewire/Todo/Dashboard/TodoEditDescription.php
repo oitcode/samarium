@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class TodoEditDescription extends Component
 {
@@ -15,12 +16,12 @@ class TodoEditDescription extends Component
         $this->description = $this->todo->description;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.todo.dashboard.todo-edit-description');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'description' => 'required',

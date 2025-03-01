@@ -3,6 +3,7 @@
 namespace App\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\WebsiteOrder;
 use App\Traits\ModesTrait;
 
@@ -23,33 +24,12 @@ class OnlineOrderComponent extends Component
 
     public $displayingOnlineOrder = null;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.online-order.dashboard.online-order-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function displayOnlineOrder($onlineOrderId)
+    public function displayOnlineOrder($onlineOrderId): void
     {
         $onlineOrder = WebsiteOrder::findOrFail($onlineOrderId);
 
@@ -57,7 +37,7 @@ class OnlineOrderComponent extends Component
         $this->enterMode('onlineOrderDisplay');
     }
 
-    public function exitOnlineOrderDisplayMode()
+    public function exitOnlineOrderDisplayMode(): void
     {
         $this->displayingSaleQuotation = null;
         $this->clearModes();

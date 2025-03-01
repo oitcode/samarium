@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductQuestion;
 
 class ProductQuestionCreate extends Component
@@ -14,12 +15,12 @@ class ProductQuestionCreate extends Component
     public $rating;
     public $question_text;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.website.product-question-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'writer_name' => 'nullable',

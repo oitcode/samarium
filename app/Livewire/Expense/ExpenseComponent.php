@@ -3,10 +3,14 @@
 namespace App\Livewire\Expense;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\Expense;
 
 class ExpenseComponent extends Component
 {
+    use ModesTrait;
+
     public $displayingExpense = null;
 
     public $modes = [
@@ -29,71 +33,50 @@ class ExpenseComponent extends Component
         'exitExpenseDisplayMode',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.expense.expense-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function exitCreateMode()
+    public function exitCreateMode(): void
     {
         $this->exitMode('create');
     }
 
-    public function expenseCreated()
+    public function expenseCreated(): void
     {
         session()->flash('message', 'Expense added');
 
         $this->exitMode('create');
     }
 
-    public function expenseCategoryCreated()
+    public function expenseCategoryCreated(): void
     {
         session()->flash('message', 'Expense category added');
 
         $this->exitMode('createCategory');
     }
 
-    public function exitCategoryCreateMode()
+    public function exitCategoryCreateMode(): void
     {
         $this->exitMode('createCategory');
     }
 
-    public function displayExpense(Expense $expense)
+    public function displayExpense(Expense $expense): void
     {
         $this->displayingExpense = $expense;
 
         $this->enterMode('display');
     }
 
-    public function exitDisplayExpenseMode()
+    public function exitDisplayExpenseMode(): void
     {
         $this->displayingExpense = null;
         $this->exitMode('display');
         $this->enterMode('list');
     }
 
-    public function exitExpenseDisplayMode()
+    public function exitExpenseDisplayMode(): void
     {
         $this->displayingExpense = null;
         $this->exitMode('display');

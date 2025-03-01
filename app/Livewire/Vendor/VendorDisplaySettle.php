@@ -3,6 +3,7 @@
 namespace App\Livewire\Vendor;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\PurchasePaymentType;
 use App\PurchasePayment;
@@ -18,7 +19,7 @@ class VendorDisplaySettle extends Component
     public $deposited_by;
     public $purchase_payment_type_id;
 
-    public function render()
+    public function render(): View
     {
         $this->payment_date = date('Y-m-d');
         $this->purchasePaymentTypes = PurchasePaymentType::all();
@@ -26,7 +27,7 @@ class VendorDisplaySettle extends Component
         return view('livewire.vendor.vendor-display-settle');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'pay_amount' => 'required|integer',
@@ -62,7 +63,7 @@ class VendorDisplaySettle extends Component
         $this->dispatch('vendorSettlementMade', amountRemaining: $amountRemaining);
     }
 
-    public function makePurchasePayment($purchase, $amountAvailable, $depositedBy)
+    public function makePurchasePayment($purchase, $amountAvailable, $depositedBy): int|float
     {
         $retval = 0;
 

@@ -3,6 +3,7 @@
 namespace App\Livewire\Report;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Purchase;
 use App\PurchaseItem;
@@ -15,12 +16,12 @@ class ReportProductPurchaseCount extends Component
 
     public $todayItems = array();
 
-    public function mount()
+    public function mount(): void
     {
         $this->startDate = date('Y-m-d');
     }
 
-    public function render()
+    public function render(): View
     {
         $purchases = $this->getPurchasesForDateRange();
 
@@ -29,7 +30,7 @@ class ReportProductPurchaseCount extends Component
         return view('livewire.report.report-product-purchase-count');
     }
 
-    public function getPurchaseItemQuantity($purchases)
+    public function getPurchaseItemQuantity($purchases): void
     {
         $this->todayItems = array();
 
@@ -54,7 +55,7 @@ class ReportProductPurchaseCount extends Component
         });
     }
 
-    public function itemInTodayItems(Product $product)
+    public function itemInTodayItems(Product $product): bool
     {
         foreach ($this->todayItems as $item) {
             if ($item['product']->product_id == $product->product_id) {
@@ -65,7 +66,7 @@ class ReportProductPurchaseCount extends Component
         return false;
     }
 
-    public function updateTodayItemsCount(PurchaseItem $purchaseItem)
+    public function updateTodayItemsCount(PurchaseItem $purchaseItem): void
     {
         for ($i=0; $i < count($this->todayItems); $i++) {
             if ($this->todayItems[$i]['product']->product_id == $purchaseItem->product->product_id) {
@@ -75,7 +76,7 @@ class ReportProductPurchaseCount extends Component
         }
     }
 
-    public function addToTodayItemsCount(PurchaseItem $purchaseItem)
+    public function addToTodayItemsCount(PurchaseItem $purchaseItem): void
     {
         $line = array();
 
@@ -84,7 +85,8 @@ class ReportProductPurchaseCount extends Component
 
         $this->todayItems[] = $line;
     }
-    public function getPurchasesForDateRange()
+
+    public function getPurchasesForDateRange() // TODO: Type hinting of return type
     {
         /* Todo: Validation */
         $validatedData = $this->validate([

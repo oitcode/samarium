@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class CustomerEditName extends Component
 {
@@ -10,17 +11,17 @@ class CustomerEditName extends Component
 
     public $name;
 
-    public function mount()
+    public function mount(): void
     {
         $this->name = $this->customer->name;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.customer.dashboard.customer-edit-name');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

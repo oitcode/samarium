@@ -3,6 +3,7 @@
 namespace App\Livewire\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Request;
 use App\Traits\ModesTrait;
 
@@ -27,7 +28,7 @@ class AppLeftMenu extends Component
         'more' => false,
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $uri = Request::getPathInfo();
 
@@ -108,7 +109,7 @@ class AppLeftMenu extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.dashboard.app-left-menu');
     }

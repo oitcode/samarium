@@ -3,6 +3,7 @@
 namespace App\Livewire\Company\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Company;
 use App\CompanyInfo;
@@ -17,12 +18,12 @@ class CompanyInfoCreate extends Component
     public $info_value;
     public $image;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.company.dashboard.company-info-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'info_key' => 'required|string|max:100',

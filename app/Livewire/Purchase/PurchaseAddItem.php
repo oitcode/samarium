@@ -3,6 +3,7 @@
 namespace App\Livewire\Purchase;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Product;
 use App\ProductCategory;
@@ -11,6 +12,8 @@ use App\Purchase;
 
 class PurchaseAddItem extends Component
 {
+    use ModesTrait;
+    
     public $purchase;
 
     /* Search options */
@@ -34,41 +37,19 @@ class PurchaseAddItem extends Component
         'showMobForm' => false,
     ];
 
-
-    public function mount()
+    public function mount(): void
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')->get();
     }
 
-    public function render()
+    public function render(): View
     {
         $this->productCategories = ProductCategory::all();
 
         return view('livewire.purchase.purchase-add-item');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function addItemToPurchase()
+    public function addItemToPurchase(): void
     {
         /* Todo: Validation */
         if (! $this->selectedProduct) {
@@ -124,12 +105,12 @@ class PurchaseAddItem extends Component
         }
     }
 
-    public function updateProductList()
+    public function updateProductList(): void
     {
         $this->products = Product::where('name', 'like', '%'.$this->add_item_name.'%')->get();
     }
 
-    public function selectItem()
+    public function selectItem(): void
     {
         $product = Product::find($this->product_id);
 
@@ -142,7 +123,7 @@ class PurchaseAddItem extends Component
         $this->selectedProduct = $product;
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->add_item_name = '';
         $this->product_id = '';
@@ -158,12 +139,12 @@ class PurchaseAddItem extends Component
         $this->products = Product::all();
     }
 
-    public function updateTotal()
+    public function updateTotal(): void
     {
         $this->total = $this->purchase_price_per_unit * $this->quantity;
     }
 
-    public function selectProductCategory()
+    public function selectProductCategory(): void
     {
         $validatedData = $this->validate([
             'search_product_category_id' => 'required|integer',
@@ -175,7 +156,7 @@ class PurchaseAddItem extends Component
         $this->products = ProductCategory::find($validatedData['search_product_category_id'])->products;
     }
 
-    public function checkExistingItemsForProduct($purchase, $productId)
+    public function checkExistingItemsForProduct($purchase, $productId): PurchaseItem|null
     {
         foreach ($purchase->purchaseItems as $purchaseItem) {
             if ($purchaseItem->product_id == $productId) {
@@ -186,7 +167,7 @@ class PurchaseAddItem extends Component
         return null;
     }
 
-    public function updatePurchaseItemTotalAmount($purchase, $purchaseItem, $quantity)
+    public function updatePurchaseItemTotalAmount($purchase, $purchaseItem, $quantity): void
     {
         $product = $purchaseItem->product;
 
@@ -194,17 +175,17 @@ class PurchaseAddItem extends Component
         $purchaseItem->save();
     }
 
-    public function showAddItemFormMob()
+    public function showAddItemFormMob(): void
     {
         $this->enterMode('showMobForm');
     }
 
-    public function hideAddItemFormMob()
+    public function hideAddItemFormMob(): void
     {
         $this->exitMode('showMobForm');
     }
 
-    public function doInventoryUpdate($product, $quantity, $direction)
+    public function doInventoryUpdate($product, $quantity, $direction): void
     {
         if ($product->baseProduct) {
             $baseProduct = $product->baseProduct;

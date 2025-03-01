@@ -3,6 +3,7 @@
 namespace App\Livewire\DocumentFile\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,7 @@ class DocumentFileList extends Component
 
     public $documentFilesCount;
 
-    public function render()
+    public function render(): View
     {
         $dfs = new Collection;
 

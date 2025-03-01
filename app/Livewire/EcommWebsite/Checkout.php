@@ -3,6 +3,7 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\WebsiteOrder;
@@ -16,7 +17,7 @@ class Checkout extends Component
     public $address;
     public $cartTotalAmount;
 
-    public function render()
+    public function render(): View
     {
         $cartItemsProduct = array();
 
@@ -41,7 +42,7 @@ class Checkout extends Component
         }
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'phone' => 'required|regex:/^[0-9]{10}$/',
@@ -82,13 +83,13 @@ class Checkout extends Component
         }
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->phone = '';
         $this->address = '';
     }
 
-    public function calculateCartTotalAmount()
+    public function calculateCartTotalAmount(): int|float
     {
         $total = 0;
 

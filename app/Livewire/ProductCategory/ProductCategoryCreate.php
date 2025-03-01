@@ -3,6 +3,7 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\ProductCategory;
 
@@ -16,14 +17,14 @@ class ProductCategoryCreate extends Component
 
     public $productCategories;
 
-    public function render()
+    public function render(): View
     {
         $this->productCategories = ProductCategory::all();
 
         return view('livewire.product-category.product-category-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -44,7 +45,7 @@ class ProductCategoryCreate extends Component
         $this->dispatch('productCategoryCreateCompleted');
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->name = '';
         $this->image = null;

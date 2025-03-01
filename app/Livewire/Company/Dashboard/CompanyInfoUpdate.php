@@ -11,18 +11,18 @@ class CompanyInfoUpdate extends Component
     public $info_key;
     public $info_value;
 
-    public function mount()
+    public function mount(): void
     {
         $this->info_key = $this->companyInfo->info_key;
         $this->info_value = $this->companyInfo->info_value;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.company.dashboard.company-info-update');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'info_key' => 'required',

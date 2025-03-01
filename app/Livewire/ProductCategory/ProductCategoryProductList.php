@@ -3,6 +3,7 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Product;
 use App\ProductCategory;
@@ -27,12 +28,12 @@ class ProductCategoryProductList extends Component
         'updateProductCategoryCompleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product-category.product-category-product-list');
     }
 
-    public function deleteProduct(Product $product)
+    public function deleteProduct(Product $product): void
     {
         $this->deletingProduct = $product;
 
@@ -43,13 +44,13 @@ class ProductCategoryProductList extends Component
         }
     }
 
-    public function deleteProductCancel()
+    public function deleteProductCancel(): void
     {
         $this->deletingProduct = null;
         $this->exitMode('delete');
     }
 
-    public function confirmDeleteProduct()
+    public function confirmDeleteProduct(): void
     {
         $this->deletingProduct->delete();
 
@@ -59,18 +60,18 @@ class ProductCategoryProductList extends Component
         $this->exitMode('delete');
     }
 
-    public function updateProductCategoryCancelled()
+    public function updateProductCategoryCancelled(): void
     {
         $this->exitMode('updateProductCategoryMode');
     }
 
-    public function updateProductCategoryCompleted()
+    public function updateProductCategoryCompleted(): void
     {
         session()->flash('message', 'Product category updated');
         $this->exitMode('updateProductCategoryMode');
     }
 
-    public function deleteProductCategory(ProductCategory $productCategory)
+    public function deleteProductCategory(ProductCategory $productCategory): void
     {
         $productCategory->delete();
         $this->dispatch('productCategoryDeleted');

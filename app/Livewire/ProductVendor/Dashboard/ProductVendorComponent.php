@@ -3,6 +3,7 @@
 namespace App\Livewire\ProductVendor\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\ProductVendor;
 
@@ -26,28 +27,28 @@ class ProductVendorComponent extends Component
         'exitProductVendorDisplay',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product-vendor.dashboard.product-vendor-component');
     }
 
-    public function productVendorCreateCompleted()
+    public function productVendorCreateCompleted(): void
     {
         $this->exitMode('create');
     }
 
-    public function productVendorCreateCancelled()
+    public function productVendorCreateCancelled(): void
     {
         $this->exitMode('create');
     }
 
-    public function displayProductVendor(ProductVendor $productVendor)
+    public function displayProductVendor(ProductVendor $productVendor): void
     {
         $this->displayingProductVendor = $productVendor;
         $this->enterMode('display');
     }
 
-    public function exitProductVendorDisplay()
+    public function exitProductVendorDisplay(): void
     {
         $this->displayingProductVendor = null;
         $this->exitMode('display');

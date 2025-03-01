@@ -3,6 +3,7 @@
 namespace App\Livewire\Purchase;
 
 use App\Traits\MiscTrait;
+use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -49,7 +50,7 @@ class PurchaseCreate extends Component
     public $paid_amount;
     public $purchase_payment_type_id;
 
-    public function mount()
+    public function mount(): void
     {
         if ($this->createNew == true) {
             $this->purchase = $this->startPurchase();
@@ -62,7 +63,7 @@ class PurchaseCreate extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         $this->purchasePaymentTypes = PurchasePaymentType::all();
         $this->vendors = Vendor::all();
@@ -70,33 +71,7 @@ class PurchaseCreate extends Component
         return view('livewire.purchase.purchase-create');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function enterModeSilent($modeName)
-    {
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function startPurchase()
+    public function startPurchase(): Purchase
     {
         $purchase = new Purchase;
 
@@ -112,7 +87,7 @@ class PurchaseCreate extends Component
         return $purchase;
     }
 
-    public function savePayment()
+    public function savePayment(): void
     {
         $validatedData = $this->validate([
             'paid_amount' => 'required|integer',
@@ -146,7 +121,7 @@ class PurchaseCreate extends Component
         }
     }
 
-    public function linkPurchaseToVendor()
+    public function linkPurchaseToVendor(): void
     {
         $validatedData = $this->validate([
             'vendor_id' => 'required|integer',
@@ -159,13 +134,13 @@ class PurchaseCreate extends Component
         // $this->render();
     }
 
-    public function exitMakePaymentMode()
+    public function exitMakePaymentMode(): void
     {
         $this->modes['payment'] = false;
         $this->enterMode('paid');
     }
 
-    public function linkVendorToPurchase()
+    public function linkVendorToPurchase(): void
     {
         $validatedData = $this->validate([
             'vendor_id' => 'required|integer',
@@ -178,7 +153,7 @@ class PurchaseCreate extends Component
         $this->modes['vendorSelected'] = true;
     }
 
-    public function confirmRemoveItemFromPurchase($purchaseItemId)
+    public function confirmRemoveItemFromPurchase($purchaseItemId): void
     {
         $purchaseItem = PurchaseItem::find($purchaseItemId);
 
@@ -186,20 +161,20 @@ class PurchaseCreate extends Component
         $this->modes['deletingPurchaseItemMode'] = true;
     }
 
-    public function exitConfirmPurchaseItemDelete()
+    public function exitConfirmPurchaseItemDelete(): void
     {
         $this->deletingPurchaseItem = null;
         $this->modes['deletingPurchaseItemMode'] = false;
     }
 
-    public function ackPurchaseItemDeleted()
+    public function ackPurchaseItemDeleted(): void
     {
         $this->exitConfirmPurchaseItemDelete();
 
         $this->purchase = $this->purchase->fresh();
     }
 
-    public function changePurchaseDate()
+    public function changePurchaseDate(): void
     {
         $validatedData = $this->validate([
             'purchase_date' => 'required|date',

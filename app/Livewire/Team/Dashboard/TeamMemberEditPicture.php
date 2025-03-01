@@ -3,6 +3,7 @@
 namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 
 class TeamMemberEditPicture extends Component
@@ -13,12 +14,12 @@ class TeamMemberEditPicture extends Component
 
     public $image;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.team.dashboard.team-member-edit-picture');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'image' => 'required|image',

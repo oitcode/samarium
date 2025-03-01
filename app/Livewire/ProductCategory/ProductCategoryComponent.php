@@ -3,6 +3,7 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\ProductCategory;
 
@@ -28,37 +29,37 @@ class ProductCategoryComponent extends Component
         'exitProductCategoryDisplayMode',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product-category.product-category-component');
     }
 
-    public function productCategoryCreateCancelled()
+    public function productCategoryCreateCancelled(): void
     {
         $this->exitMode('create');
     }
 
-    public function productCategoryCreateCompleted()
+    public function productCategoryCreateCompleted(): void
     {
         session()->flash('message', 'Product category created.');
         $this->exitMode('create');
     }
 
-    public function displayProductCategory(ProductCategory $productCategory)
+    public function displayProductCategory(ProductCategory $productCategory): void
     {
         $this->displayingProductCategory = $productCategory;
 
         $this->enterMode('display');
     }
 
-    public function productCategoryDisplayCancelled()
+    public function productCategoryDisplayCancelled(): void
     {
         $this->displayingProductCategory = null;
 
         $this->exitMode('display');
     }
 
-    public function exitProductCategoryDisplayMode()
+    public function exitProductCategoryDisplayMode(): void
     {
         $this->productCategoryDisplayCancelled();
     }

@@ -3,6 +3,7 @@
 namespace App\Livewire\Inventory;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
@@ -24,12 +25,12 @@ class InventoryProductDetail extends Component
 
     public $startingBalance;
 
-    public function mount()
+    public function mount(): void
     {
         $this->startDate = date('Y-m-d');
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->product->stock_applicable == 'no') {
             return '<div>Stock not enabled for this product</div>';
@@ -58,7 +59,7 @@ class InventoryProductDetail extends Component
         return view('livewire.inventory.inventory-product-detail');
     }
 
-    public function getTransactionsForDateRange()
+    public function getTransactionsForDateRange(): void
     {
         /* Todo: Validation */
         $validatedData = $this->validate([
@@ -94,7 +95,7 @@ class InventoryProductDetail extends Component
         $this->arrangeItems();
     }
 
-    public function getSaleInvoiceItemsForDateRange()
+    public function getSaleInvoiceItemsForDateRange(): void
     {
         $saleInvoiceItems = new Collection;
 
@@ -124,7 +125,7 @@ class InventoryProductDetail extends Component
         $this->saleInvoiceItems = $saleInvoiceItems;
     }
 
-    public function getPurchaseItemsForDateRange()
+    public function getPurchaseItemsForDateRange(): void
     {
         $purchaseItems = new Collection;
 
@@ -154,7 +155,7 @@ class InventoryProductDetail extends Component
         $this->purchaseItems = $purchaseItems;
     }
 
-    public function getStartingBalance($startDate)
+    public function getStartingBalance($startDate): int|float
     {
         $saleInvoiceItems = new Collection;
         $purchaseItems = new Collection;

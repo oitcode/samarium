@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductSpecification;
 
 class ProductEditAddProductSpecification extends Component
@@ -15,14 +16,14 @@ class ProductEditAddProductSpecification extends Component
 
     public $productSpecificationHeadings;
 
-    public function render()
+    public function render(): View
     {
         $this->productSpecificationHeadings = $this->product->productSpecificationHeadings;
 
         return view('livewire.product.dashboard.product-edit-add-product-specification');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData= $this->validate([
              'keyword' => 'required|string',

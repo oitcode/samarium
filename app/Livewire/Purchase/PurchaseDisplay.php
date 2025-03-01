@@ -3,6 +3,7 @@
 namespace App\Livewire\Purchase;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class PurchaseDisplay extends Component
 {
@@ -17,12 +18,12 @@ class PurchaseDisplay extends Component
         'itemAddedToPurchase' => 'render',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.purchase.purchase-display');
     }
 
-    public function exitMakePaymentMode()
+    public function exitMakePaymentMode(): void
     {
         $this->modes['payment'] = false;
     }

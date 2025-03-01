@@ -3,18 +3,19 @@
 namespace App\Livewire\Takeaway;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Takeaway;
 
 class TakeawayListConfirmDelete extends Component
 {
     public $takeaway;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.sale.takeaway-list-confirm-delete');
     }
 
-    public function deleteTakeaway(Takeaway $takeaway)
+    public function deleteTakeaway(Takeaway $takeaway): void
     {
         $saleInvoice = $takeaway->saleInvoice;
 
@@ -41,7 +42,7 @@ class TakeawayListConfirmDelete extends Component
         $this->dispatch('takeawayDeleted');
     }
 
-    public function updateInventory($saleInvoiceItem)
+    public function updateInventory($saleInvoiceItem): void
     {
         $product = $saleInvoiceItem->product;
 

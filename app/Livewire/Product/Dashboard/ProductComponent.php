@@ -3,11 +3,15 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\ProductCategory;
 use App\Product;
 
 class ProductComponent extends Component
 {
+    use ModesTrait;
+    
     public $products = null;
     public $productCategories;
 
@@ -51,7 +55,7 @@ class ProductComponent extends Component
         'exitCreateProductFromCsvMode',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->productCategories = ProductCategory::orderBy('name')->get();
 
@@ -59,34 +63,12 @@ class ProductComponent extends Component
         $this->totalProductCategories = ProductCategory::count();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-component');
     }
 
-
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function search()
+    public function search(): void
     {
         $this->products = new Product;
 
@@ -97,7 +79,7 @@ class ProductComponent extends Component
         $this->products = $this->products->get();
     }
 
-    public function selectCategory($productCategoryId)
+    public function selectCategory($productCategoryId): void
     {
         // $this->clearModes();
 
@@ -106,12 +88,12 @@ class ProductComponent extends Component
         $this->products = $productCategory->products;
     }
 
-    public function showFullMenuList()
+    public function showFullMenuList(): void
     {
         $this->enterMode('showFullMenuList');
     }
 
-    public function ackProductCategoryAdded()
+    public function ackProductCategoryAdded(): void
     {
         /* Todo: Can this line be removed? */
         $this->productCategories = ProductCategory::all();
@@ -122,7 +104,7 @@ class ProductComponent extends Component
         $this->mount();
     }
 
-    public function ackProductAdded()
+    public function ackProductAdded(): void
     {
         session()->flash('message', 'Product added');
 
@@ -131,7 +113,7 @@ class ProductComponent extends Component
         $this->mount();
     }
 
-    public function updateProduct($productId)
+    public function updateProduct($productId): void
     {
         $product = Product::findOrFail($productId);
 
@@ -139,59 +121,58 @@ class ProductComponent extends Component
         $this->enterMode('updateProduct');
     }
 
-    public function exitUpdateProductMode()
+    public function exitUpdateProductMode(): void
     {
         $this->updatingProduct = null;
 
         $this->exitMode('updateProduct');
     }
 
-    public function updateProductCategory($productCategoryId)
+    public function updateProductCategory($productCategoryId): void
     {
         $this->updatingProductCategory = ProductCategory::findOrFail($productCategoryId);
 
         $this->enterMode('updateProductCategory');
     }
 
-    public function exitUpdateProductCategoryMode()
+    public function exitUpdateProductCategoryMode(): void
     {
         $this->updatingProductCategory = null;
 
         $this->exitMode('updateProductCategory');
     }
 
-    public function exitCreateProductMode()
+    public function exitCreateProductMode(): void
     {
         $this->exitMode('createProduct');
     }
 
-    public function exitCreateProductCategoryMode()
+    public function exitCreateProductCategoryMode(): void
     {
         $this->exitMode('createProductCategory');
     }
 
-    public function displayProduct($productId)
+    public function displayProduct($productId): void
     {
         $this->displayingProduct = Product::find($productId);
 
         $this->enterMode('displayProduct');
     }
 
-    public function exitProductDisplayMode()
+    public function exitProductDisplayMode(): void
     {
         $this->displayingProduct = null;
         $this->exitMode('displayProduct');
         $this->enterMode('list');
     }
 
-    public function exitCreateProductFromCsvMode()
+    public function exitCreateProductFromCsvMode(): void
     {
         $this->exitMode('createProductFromCsvMode');
     }
 
-    public function ackProductCategoryDeleted()
+    public function ackProductCategoryDeleted(): void
     {
         $this->clearModes();
     }
-
 }

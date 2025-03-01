@@ -3,6 +3,7 @@
 namespace App\Livewire\SaleQuotation\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\SaleQuotation;
@@ -31,7 +32,7 @@ class SaleQuotationList extends Component
         'saleQuotationDeleted' => 'ackSaleQuotationDeleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         $saleQuotations = SaleQuotation::orderBy('sale_quotation_id', 'desc')->paginate(5);
         $this->totalSaleQuotationCount = SaleQuotation::count();
@@ -43,20 +44,20 @@ class SaleQuotationList extends Component
             ->with('saleQuotations', $saleQuotations);
     }
 
-    public function confirmDeleteSaleQuotation(SaleQuotation $saleQuotation)
+    public function confirmDeleteSaleQuotation(SaleQuotation $saleQuotation): void
     {
         $this->deletingSaleQuotation = $saleQuotation;
 
         $this->enterMode('confirmDelete');
     }
 
-    public function exitConfirmSaleQuotationDelete()
+    public function exitConfirmSaleQuotationDelete(): void
     {
         $this->deletingSaleQuotation = null;
         $this->exitMode('confirmDelete');
     }
 
-    public function ackSaleQuotationDeleted()
+    public function ackSaleQuotationDeleted(): void
     {
         $this->deletingSaleQuotation = null;
         $this->exitMode('confirmDelete');

@@ -3,6 +3,7 @@
 namespace App\Livewire\Expense;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Expense;
 
@@ -10,12 +11,12 @@ class ExpenseListExpenseDeleteConfirm extends Component
 {
     public $expense;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.expense.expense-list-expense-delete-confirm');
     }
 
-    public function deleteExpense(Expense $expense)
+    public function deleteExpense(Expense $expense): void
     {
 
         $this->dispatch('deleteExpenseFromList', $expense);

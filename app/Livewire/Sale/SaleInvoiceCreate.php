@@ -3,12 +3,13 @@
 namespace App\Livewire\Sale;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\SaleInvoice;
 
 class SaleInvoiceCreate extends Component
 {
-    public function render()
+    public function render(): View
     {
         $saleInvoice = $this->startSaleInvoice();
 
@@ -16,7 +17,7 @@ class SaleInvoiceCreate extends Component
             ->with('saleInvoice', $saleInvoice);
     }
 
-    public function startSaleInvoice()
+    public function startSaleInvoice(): SaleInvoice
     {
         $saleInvoice = new SaleInvoice;
 

@@ -3,6 +3,7 @@
 namespace App\Livewire\Report;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\SaleInvoice;
 use App\Purchase;
 use App\Expense;
@@ -21,13 +22,13 @@ class ReportTransactionComponent extends Component
     public $expenseTotal = 0;
     public $netTotal = 0;
 
-    public function mount()
+    public function mount(): void
     {
         $this->startDate = date('Y-m-d');
         $this->endDate = date('Y-m-d');
     }
 
-    public function render()
+    public function render(): View
     {
         $this->getSaleInvoicesForDateRange();
         $this->getPurchasesForDateRange();
@@ -41,7 +42,7 @@ class ReportTransactionComponent extends Component
         return view('livewire.report.report-transaction-component');
     }
 
-    public function calculateSaleInvoiceTotal()
+    public function calculateSaleInvoiceTotal(): void
     {
         $total = 0;
 
@@ -52,7 +53,7 @@ class ReportTransactionComponent extends Component
         $this->saleInvoiceTotal = $total;
     }
 
-    public function calculatePurchaseTotal()
+    public function calculatePurchaseTotal(): void
     {
         $total = 0;
 
@@ -63,7 +64,7 @@ class ReportTransactionComponent extends Component
         $this->purchaseTotal = $total;
     }
 
-    public function calculateExpenseTotal()
+    public function calculateExpenseTotal(): void
     {
         $total = 0;
 
@@ -74,7 +75,7 @@ class ReportTransactionComponent extends Component
         $this->expenseTotal = $total;
     }
 
-    public function getPurchasesForDateRange()
+    public function getPurchasesForDateRange(): void
     {
         /* Todo: Validation */
         $validatedData = $this->validate([
@@ -115,7 +116,7 @@ class ReportTransactionComponent extends Component
         $this->purchases = $purchases;
     }
 
-    public function getSaleInvoicesForDateRange()
+    public function getSaleInvoicesForDateRange(): void
     {
         /* Todo: Validation */
         $validatedData = $this->validate([
@@ -156,7 +157,7 @@ class ReportTransactionComponent extends Component
         $this->saleInvoices = $saleInvoices;
     }
 
-    public function getExpensesForDateRange()
+    public function getExpensesForDateRange(): void
     {
         /* Todo: Validation */
         $validatedData = $this->validate([
@@ -197,7 +198,7 @@ class ReportTransactionComponent extends Component
         $this->expenses = $expenses;
     }
 
-    public function calculateNetTotal()
+    public function calculateNetTotal(): void
     {
         $this->netTotal = $this->saleInvoiceTotal - ($this->purchaseTotal + $this->expenseTotal);
     }

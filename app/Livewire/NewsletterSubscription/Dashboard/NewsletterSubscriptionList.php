@@ -3,6 +3,7 @@
 namespace App\Livewire\NewsletterSubscription\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\NewsletterSubscription;
 
@@ -13,7 +14,7 @@ class NewsletterSubscriptionList extends Component
     // public $newsletterSubscriptions;
     public $newsletterSubscriptionsCount;
 
-    public function render()
+    public function render(): View
     {
         $newsletterSubscriptions = NewsletterSubscription::orderBy('newsletter_subscription_id', 'DESC')->paginate(5);
         $this->newsletterSubscriptionsCount = NewsletterSubscription::count();

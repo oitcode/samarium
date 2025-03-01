@@ -3,6 +3,7 @@
 namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 
 class TeamMemberAppointmentSetting extends Component
@@ -32,19 +33,19 @@ class TeamMemberAppointmentSetting extends Component
         'addAvailabilityCompleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->availabilities = $this->teamMember->teamMemberAppointmentAvailabilities;
 
         return view('livewire.team.dashboard.team-member-appointment-setting');
     }
 
-    public function addAvailabilityCancelled()
+    public function addAvailabilityCancelled(): void
     {
         $this->exitMode('addAvailabilityMode');
     }
 
-    public function addAvailabilityCompleted()
+    public function addAvailabilityCompleted(): void
     {
         $this->exitMode('addAvailabilityMode');
     }

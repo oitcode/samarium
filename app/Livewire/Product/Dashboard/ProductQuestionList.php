@@ -3,8 +3,8 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
-
 use App\ProductQuestion;
 
 class ProductQuestionList extends Component
@@ -14,7 +14,7 @@ class ProductQuestionList extends Component
     // public $productQuestions;
     public $totalProductQuestionCount;
 
-    public function render()
+    public function render(): View
     {
         $productQuestions = ProductQuestion::orderBy('product_question_id', 'desc')->paginate(5);
         $this->totalProductQuestionCount = ProductQuestion::count();

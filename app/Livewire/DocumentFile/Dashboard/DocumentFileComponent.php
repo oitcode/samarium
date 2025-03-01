@@ -3,6 +3,7 @@
 namespace App\Livewire\DocumentFile\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\DocumentFile;
 
@@ -33,34 +34,34 @@ class DocumentFileComponent extends Component
         'exitDocumentFileDisplay',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.document-file.dashboard.document-file-component');
     }
 
-    public function documentFileCreateCancelled()
+    public function documentFileCreateCancelled(): void
     {
         $this->exitMode('create');
     }
 
-    public function documentFileCreateCompleted()
+    public function documentFileCreateCompleted(): void
     {
         $this->exitMode('create');
     }
 
-    public function pdfDisplayDocumentFile(DocumentFile $documentFile)
+    public function pdfDisplayDocumentFile(DocumentFile $documentFile): void
     {
         $this->pdfDisplayingDocumentFile = $documentFile;
         $this->enterMode('pdfDisplay');
     }
 
-    public function displayDocumentFile(DocumentFile $documentFile)
+    public function displayDocumentFile(DocumentFile $documentFile): void
     {
         $this->displayingDocumentFile = $documentFile;
         $this->enterMode('display');
     }
 
-    public function exitDocumentFileDisplay()
+    public function exitDocumentFileDisplay(): void
     {
         $this->displayingDocumentFile = null;
         $this->exitMode('display');

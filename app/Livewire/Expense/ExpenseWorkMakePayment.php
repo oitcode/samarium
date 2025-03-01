@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Expense;
 
-use App\Traits\MiscTrait;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use App\Traits\MiscTrait;
 use App\Vendor;
 use App\Expense;
 use App\ExpensePaymentType;
@@ -15,7 +15,6 @@ use App\JournalEntry;
 use App\JournalEntryItem;
 use App\AbAccount;
 use App\LedgerEntry;
-
 
 class ExpenseWorkMakePayment extends Component
 {
@@ -69,7 +68,7 @@ class ExpenseWorkMakePayment extends Component
       'updatePaymentComponent' => 'mount',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
@@ -100,12 +99,12 @@ class ExpenseWorkMakePayment extends Component
         $this->vendors = Vendor::all();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.expense.expense-work-make-payment');
     }
 
-    public function calculateTaxableAmount()
+    public function calculateTaxableAmount(): void
     {
         $this->taxable_amount = $this->total;
 
@@ -130,12 +129,12 @@ class ExpenseWorkMakePayment extends Component
         }
     }
 
-    public function calculateExpenseVat()
+    public function calculateExpenseVat(): int
     {
         return ceil(0.13 * $this->taxable_amount);
     }
 
-    public function calculateGrandTotal()
+    public function calculateGrandTotal(): void
     {
         /* Todo: Any validation needed ? */
 

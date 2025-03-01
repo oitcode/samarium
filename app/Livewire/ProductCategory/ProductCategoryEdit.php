@@ -3,6 +3,7 @@
 namespace App\Livewire\ProductCategory;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Product;
 use App\ProductCategory;
@@ -17,18 +18,18 @@ class ProductCategoryEdit extends Component
     public $image;
     public $does_sell;
 
-    public function mount()
+    public function mount(): void
     {
         $this->name = $this->productCategory->name;
         $this->does_sell = $this->productCategory->does_sell;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product-category-edit');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

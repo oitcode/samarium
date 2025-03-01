@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductCategory;
 
 class ProductEditCategory extends Component
@@ -13,14 +14,14 @@ class ProductEditCategory extends Component
 
     public $product_category_id;
 
-    public function render()
+    public function render(): View
     {
         $this->productCategories = ProductCategory::all();
 
         return view('livewire.product.dashboard.product-edit-category');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'product_category_id' => 'required|integer',

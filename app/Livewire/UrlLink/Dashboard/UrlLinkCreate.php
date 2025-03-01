@@ -3,6 +3,7 @@
 namespace App\Livewire\UrlLink\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\UrlLink;
 
@@ -11,12 +12,12 @@ class UrlLinkCreate extends Component
     public $url;
     public $description;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.url-link.dashboard.url-link-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'url' => 'required',

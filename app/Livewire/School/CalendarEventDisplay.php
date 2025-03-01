@@ -3,6 +3,7 @@
 namespace App\Livewire\School;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 
 class CalendarEventDisplay extends Component
@@ -30,42 +31,42 @@ class CalendarEventDisplay extends Component
         'calendarEventUpdateDateCompleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.school.calendar-event-display');
     }
 
-    public function calendarEventUpdateNameCancelled()
+    public function calendarEventUpdateNameCancelled(): void
     {
         $this->exitMode('editNameMode');
     }
 
-    public function calendarEventUpdateNameCompleted()
+    public function calendarEventUpdateNameCompleted(): void
     {
         $this->exitMode('editNameMode');
     }
 
-    public function calendarEventUpdateIsHolidayCancelled()
+    public function calendarEventUpdateIsHolidayCancelled(): void
     {
         $this->exitMode('editIsHolidayMode');
     }
 
-    public function calendarEventUpdateIsHolidayCompleted()
+    public function calendarEventUpdateIsHolidayCompleted(): void
     {
         $this->exitMode('editIsHolidayMode');
     }
 
-    public function calendarEventUpdateDateCancelled()
+    public function calendarEventUpdateDateCancelled(): void
     {
         $this->exitMode('editDateMode');
     }
 
-    public function calendarEventUpdateDateCompleted()
+    public function calendarEventUpdateDateCompleted(): void
     {
         $this->exitMode('editDateMode');
     }
 
-    public function deleteEvent()
+    public function deleteEvent() // TODO: Type hinting of return type
     {
         $this->calendarEvent->delete();
 

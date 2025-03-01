@@ -3,6 +3,7 @@
 namespace App\Livewire\Educ\Institution\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\EducInstitution;
 
@@ -12,7 +13,7 @@ class InstitutionList extends Component
 
     // public $educInstitutions;
 
-    public function render()
+    public function render(): View
     {
         $educInstitutions = EducInstitution::orderBy('educ_institution_id', 'DESC')->paginate(1);
 

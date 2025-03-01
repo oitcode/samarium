@@ -3,6 +3,7 @@
 namespace App\Livewire\Vacancy\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class VacancyEditDescription extends Component
 {
@@ -10,17 +11,17 @@ class VacancyEditDescription extends Component
 
     public $description;
 
-    public function mount()
+    public function mount(): void
     {
         $this->description = $this->vacancy->description;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.vacancy.dashboard.vacancy-edit-description');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'description' => 'required',

@@ -3,6 +3,7 @@
 namespace App\Livewire\RecordBook;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class DaybookBookingDisplay extends Component
 {
@@ -12,12 +13,12 @@ class DaybookBookingDisplay extends Component
         'displayingBookingChanged',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.record-book.daybook-booking-display');
     }
 
-    public function displayingBookingChanged($seatTableBooking)
+    public function displayingBookingChanged($seatTableBooking): void
     {
         $this->seatTableBooking = $seatTableBooking;
     }

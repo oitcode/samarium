@@ -3,6 +3,7 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Product;
 
@@ -26,12 +27,12 @@ class ProductDisplay extends Component
         'createProductQuestionCancelled',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.ecomm-website.product-display');
     }
 
-    public function addItemToCart($productId)
+    public function addItemToCart($productId): void
     {
         $product = Product::findOrFail($productId);
 
@@ -53,22 +54,22 @@ class ProductDisplay extends Component
         $this->dispatch('itemAddedToCart');
     }
 
-    public function createProductReviewCancelled()
+    public function createProductReviewCancelled(): void
     {
         $this->exitMode('createProductReviewMode');
     }
 
-    public function createProductReviewCompleted()
+    public function createProductReviewCompleted(): void
     {
         $this->exitMode('createProductReviewMode');
     }
 
-    public function createProductQuestionCancelled()
+    public function createProductQuestionCancelled(): void
     {
         $this->exitMode('createProductQuestionMode');
     }
 
-    public function createProductQuestionCompleted()
+    public function createProductQuestionCompleted(): void
     {
         $this->exitMode('createProductQuestionMode');
     }

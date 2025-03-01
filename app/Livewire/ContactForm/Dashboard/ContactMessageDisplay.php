@@ -3,6 +3,7 @@
 namespace App\Livewire\ContactForm\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 
 class ContactMessageDisplay extends Component
@@ -17,12 +18,12 @@ class ContactMessageDisplay extends Component
         'updateStatus' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.contact-form.dashboard.contact-message-display');
     }
 
-    public function changeStatus()
+    public function changeStatus(): void
     {
         /* Todo: Validation */
 

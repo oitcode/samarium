@@ -3,13 +3,14 @@
 namespace App\Livewire\Testimonial\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Testimonial;
 
 class TestimonialList extends Component
 {
     public $testimonials;
 
-    public function render()
+    public function render(): View
     {
         $this->testimonials = Testimonial::all();
 

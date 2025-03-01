@@ -3,6 +3,7 @@
 namespace App\Livewire\EcommWebsite\Website;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductEnquiry;
 
 class CreateProductEnquiry extends Component
@@ -14,12 +15,12 @@ class CreateProductEnquiry extends Component
     public $writer_phone; 
     public $enquiry_text; 
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.ecomm-website.website.create-product-enquiry');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'writer_name' => 'nullable',
@@ -35,7 +36,7 @@ class CreateProductEnquiry extends Component
         session()->flash('message', 'Enquiry sumbmitted');
     }
 
-    public function resetInputFields()
+    public function resetInputFields(): void
     {
         $this->writer_name = '';
         $this->writer_email = '';

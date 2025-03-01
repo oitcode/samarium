@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Customer;
 
 class CustomerSearch extends Component
@@ -11,12 +12,12 @@ class CustomerSearch extends Component
 
     public $customers;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.customer.customer-search');
     }
 
-    public function search()
+    public function search(): void
     {
         $validatedData = $this->validate([
             'customer_search_name' => 'required',

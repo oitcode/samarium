@@ -3,6 +3,7 @@
 namespace App\Livewire\Company\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
 use App\Company;
@@ -67,7 +68,7 @@ class CompanyComponent extends Component
         'googleMapShareLinkEditCompleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->company = Company::first();
 
@@ -90,7 +91,7 @@ class CompanyComponent extends Component
         return view('livewire.company.dashboard.company-component');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -118,7 +119,7 @@ class CompanyComponent extends Component
         $this->render();
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -155,80 +156,80 @@ class CompanyComponent extends Component
         $this->render();
     }
 
-    public function selectImageFromLibrary(GalleryImage $galleryImage)
+    public function selectImageFromLibrary(GalleryImage $galleryImage): void
     {
         $this->imageSelectedFromLibrary = $galleryImage;
         $this->enterModeSilent('imageFromLibraryIsSelectedMode');
     }
 
-    public function updateLogoImageFromLibrary(GalleryImage $galleryImage)
+    public function updateLogoImageFromLibrary(GalleryImage $galleryImage): void
     {
         $this->company->logo_image_path = $galleryImage->image_path;
         $this->company->save();
         $this->clearModes();
     }
 
-    public function mediaImageSelected(GalleryImage $galleryImage)
+    public function mediaImageSelected(GalleryImage $galleryImage): void
     {
         $this->selectedMediaImage = $galleryImage;
         $this->enterModeSilent('mediaFromLibrarySelected');
     }
 
-    public function companyInfoCreateCompleted()
+    public function companyInfoCreateCompleted(): void
     {
         $this->exitMode('companyInfoCreateMode');
     }
 
-    public function companyInfoCreateCanceled()
+    public function companyInfoCreateCanceled(): void
     {
         $this->exitMode('companyInfoCreateMode');
     }
 
-    public function briefDescriptionCreateCancelled()
+    public function briefDescriptionCreateCancelled(): void
     {
         $this->exitMode('briefDescriptionCreateMode');
     }
 
-    public function briefDescriptionCreateCompleted()
+    public function briefDescriptionCreateCompleted(): void
     {
         session()->flash('message', 'Brief desription added.');
         $this->exitMode('briefDescriptionCreateMode');
     }
 
-    public function briefDescriptionEditCancelled()
+    public function briefDescriptionEditCancelled(): void
     {
         $this->exitMode('briefDescriptionUpdateMode');
     }
 
-    public function briefDescriptionEditCompleted()
+    public function briefDescriptionEditCompleted(): void
     {
         session()->flash('message', 'Brief desription updated.');
         $this->exitMode('briefDescriptionUpdateMode');
     }
 
-    public function googleMapShareLinkCreateCancelled()
+    public function googleMapShareLinkCreateCancelled(): void
     {
         $this->exitMode('googleMapShareLinkCreateMode');
     }
 
-    public function googleMapShareLinkCreateCompleted()
+    public function googleMapShareLinkCreateCompleted(): void
     {
         session()->flash('message', 'Google map share link added.');
         $this->exitMode('googleMapShareLinkCreateMode');
     }
 
-    public function googleMapShareLinkEditCancelled()
+    public function googleMapShareLinkEditCancelled(): void
     {
         $this->exitMode('googleMapShareLinkUpdateMode');
     }
 
-    public function googleMapShareLinkEditCompleted()
+    public function googleMapShareLinkEditCompleted(): void
     {
         session()->flash('message', 'Google map share link updated.');
         $this->exitMode('googleMapShareLinkUpdateMode');
     }
 
-    public function updateLogoImage()
+    public function updateLogoImage(): void
     {
         if ($this->modes['updateLogoImageFromNewUploadMode']) {
             $validatedData = $this->validate([

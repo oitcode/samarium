@@ -3,6 +3,7 @@
 namespace App\Livewire\Educ\Application\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\EducInstitution;
 use App\EducInstitutionProgram;
@@ -18,14 +19,14 @@ class ApplicationCreate extends Component
     public $educInstitutions;
     public $selectedEducInstitution = null;
 
-    public function render()
+    public function render(): View
     {
         $this->educInstitutions = EducInstitution::all();
 
         return view('livewire.educ.application.dashboard.application-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'educ_institution_program_id' => 'required',
@@ -41,7 +42,7 @@ class ApplicationCreate extends Component
         $this->dispatch('educApplicationCreateCompleted');
     }
 
-    public function selectEducInstitution()
+    public function selectEducInstitution(): void
     {
         $this->selectedEducInstitution = EducInstitution::find($this->educ_institution_id);
     }

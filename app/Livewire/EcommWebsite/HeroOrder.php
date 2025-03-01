@@ -3,10 +3,14 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\WebsiteOrder;
 
 class HeroOrder extends Component
 {
+    use ModesTrait;
+
     public $phone;
     public $address;
 
@@ -14,33 +18,12 @@ class HeroOrder extends Component
         'showForm' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.ecomm-website.hero-order');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'phone' => 'required',

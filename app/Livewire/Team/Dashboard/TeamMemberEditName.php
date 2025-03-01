@@ -3,6 +3,7 @@
 namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class TeamMemberEditName extends Component
 {
@@ -10,17 +11,17 @@ class TeamMemberEditName extends Component
 
     public $name;
 
-    public function mount()
+    public function mount(): void
     {
         $this->name = $this->teamMember->name;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.team.dashboard.team-member-edit-name');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',

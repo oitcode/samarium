@@ -3,6 +3,7 @@
 namespace App\Livewire\Team;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
 use App\TeamMember;
@@ -41,7 +42,7 @@ class TeamDisplayTeamMemberUpdate extends Component
         'teamMemberUpdatePictureCompleted',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->name = $this->teamMember->name;
         $this->phone = $this->teamMember->phone;
@@ -49,12 +50,12 @@ class TeamDisplayTeamMemberUpdate extends Component
         $this->comment = $this->teamMember->comment;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.team.team-display-team-member-update');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -74,42 +75,42 @@ class TeamDisplayTeamMemberUpdate extends Component
         $this->dispatch('teamMemberUpdated');
     }
 
-    public function teamMemberUpdateNameCancelled()
+    public function teamMemberUpdateNameCancelled(): void
     {
         $this->exitMode('editNameMode');
     }
 
-    public function teamMemberUpdateNameCompleted()
+    public function teamMemberUpdateNameCompleted(): void
     {
         $this->exitMode('editNameMode');
     }
 
-    public function teamMemberUpdatePhoneCancelled()
+    public function teamMemberUpdatePhoneCancelled(): void
     {
         $this->exitMode('editPhoneMode');
     }
 
-    public function teamMemberUpdatePhoneCompleted()
+    public function teamMemberUpdatePhoneCompleted(): void
     {
         $this->exitMode('editPhoneMode');
     }
 
-    public function teamMemberUpdateEmailCancelled()
+    public function teamMemberUpdateEmailCancelled(): void
     {
         $this->exitMode('editEmailMode');
     }
 
-    public function teamMemberUpdateEmailCompleted()
+    public function teamMemberUpdateEmailCompleted(): void
     {
         $this->exitMode('editEmailMode');
     }
 
-    public function teamMemberUpdatePictureCancelled()
+    public function teamMemberUpdatePictureCancelled(): void
     {
         $this->exitMode('editPictureMode');
     }
 
-    public function teamMemberUpdatePictureCompleted()
+    public function teamMemberUpdatePictureCompleted(): void
     {
         $this->exitMode('editPictureMode');
     }

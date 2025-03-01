@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductOption;
 
 class ProductEditAddProductOption extends Component
@@ -14,14 +15,14 @@ class ProductEditAddProductOption extends Component
 
     public $productOptionHeadings;
 
-    public function render()
+    public function render(): View
     {
         $this->productOptionHeadings = $this->product->productOptionHeadings;
 
         return view('livewire.product.dashboard.product-edit-add-product-option');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData= $this->validate([
              'product_option_name' => 'required|string',

@@ -3,6 +3,7 @@
 namespace App\Livewire\Vacancy\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Vacancy;
 
@@ -17,12 +18,12 @@ class VacancyList extends Component
     /* Protected because Livewire does not allow public when using pagination. */
     // protected $vacancies;
 
-    public function mount()
+    public function mount(): void
     {
         //$this->vacancies = Vacancy::paginate(5);
     }
 
-    public function render()
+    public function render(): View
     {
         $this->vacanciesCount = Vacancy::count();
 

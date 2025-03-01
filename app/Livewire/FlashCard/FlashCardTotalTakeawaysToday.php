@@ -3,6 +3,7 @@
 namespace App\Livewire\FlashCard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Takeaway;
 
 class FlashCardTotalTakeawaysToday extends Component
@@ -10,7 +11,7 @@ class FlashCardTotalTakeawaysToday extends Component
     public $count;
     public $todayTakeawaysTotalAmount;
 
-    public function render()
+    public function render(): View
     {
         $this->count = Takeaway::whereDate('created_at', date('Y-m-d'))->count();
 
@@ -19,7 +20,7 @@ class FlashCardTotalTakeawaysToday extends Component
         return view('livewire.flash-card.flash-card-total-takeaways-today');
     }
 
-    public function calculateTodayTakeawaysTotalAmount()
+    public function calculateTodayTakeawaysTotalAmount(): void
     {
         $total = 0;
 

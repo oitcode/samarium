@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use App\Traits\ModesTrait;
+use Illuminate\View\View;
 use Livewire\Component;
 use App\Todo;
 
@@ -35,49 +36,49 @@ class TodoComponent extends Component
         'exitTodoDisplay',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.todo.dashboard.todo-component');
     }
 
-    public function updateTodo(Todo $todo)
+    public function updateTodo(Todo $todo): void
     {
         $this->updatingTodo = $todo;
         $this->enterMode('updateMode');
     }
 
-    public function deleteTodo(Todo $todo)
+    public function deleteTodo(Todo $todo): void
     {
         $todo->delete();
         $this->exitMode('deleteMode');
         $this->dispatch('updateList');
     }
 
-    public function confirmDeleteTodo(Todo $todo)
+    public function confirmDeleteTodo(Todo $todo): void
     {
         $this->enterMode('deleteMode');
         $this->deletingTodo = $todo;
     }
 
-    public function finishCreate()
+    public function finishCreate(): void
     {
         session()->flash('message', 'Todo created');
         $this->exitMode('createMode');
         $this->dispatch('updateList');
     }
 
-    public function exitCreateMode()
+    public function exitCreateMode(): void
     {
         $this->exitMode('createMode');
     }
 
-    public function displayTodo(Todo $todo)
+    public function displayTodo(Todo $todo): void
     {
         $this->displayingTodo = $todo;
         $this->enterMode('displayMode');
     }
 
-    public function exitTodoDisplay()
+    public function exitTodoDisplay(): void
     {
         $this->displayingTodo = null;
         $this->exitMode('displayMode');

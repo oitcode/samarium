@@ -3,8 +3,10 @@
 namespace App\Livewire\Purchase;
 
 use App\Traits\MiscTrait;
+use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use App\Traits\ModesTrait;
 use App\PurchasePaymentType;
 use App\PurchasePayment;
 use App\PurchaseAdditionHeading;
@@ -12,6 +14,7 @@ use App\PurchaseAddition;
 
 class PurchaseMakePayment extends Component
 {
+    use ModesTrait;
     use MiscTrait;
 
     public $purchase;
@@ -41,7 +44,7 @@ class PurchaseMakePayment extends Component
         'itemAddedToPurchase' => 'render',
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
@@ -59,28 +62,7 @@ class PurchaseMakePayment extends Component
         return view('livewire.purchase.purchase-make-payment');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        // $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'grand_total' => 'required|regex:/^\d+(\.\d{1,2})?$/',
@@ -155,29 +137,29 @@ class PurchaseMakePayment extends Component
 
     }
 
-    public function finishPayment()
+    public function finishPayment(): void
     {
         $this->dispatch('exitMakePaymentMode');
     }
 
-    public function updatedVat()
+    public function updatedVat(): void
     {
         $this->updateNumbers();
     }
 
-    public function updatedPurchaesAdditions()
+    public function updatedPurchaesAdditions(): void
     {
         $this->updateNumbers();
     }
 
-    public function updateNumbers()
+    public function updateNumbers(): void
     {
         $this->taxable_amount = $this->sub_total;
 
         $this->calculateGrandTotal();
     }
 
-    public function calculateGrandTotal()
+    public function calculateGrandTotal(): void
     {
         /* Todo: Any validation needed ? */
 

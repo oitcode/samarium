@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class TodoEditPriority extends Component
 {
@@ -10,17 +11,17 @@ class TodoEditPriority extends Component
 
     public $priority;
 
-    public function mount()
+    public function mount(): void
     {
         $this->priority = $this->todo->priority;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.todo.dashboard.todo-edit-priority');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'priority' => 'required',

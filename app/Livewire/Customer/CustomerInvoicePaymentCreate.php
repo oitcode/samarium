@@ -3,6 +3,7 @@
 namespace App\Livewire\Customer;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\SaleInvoicePayment;
 use App\SaleInvoicePaymentType;
@@ -18,7 +19,7 @@ class CustomerInvoicePaymentCreate extends Component
 
     public $saleInvoicePaymentTypes;
 
-    public function render()
+    public function render(): View
     {
         $this->payment_date = date('Y-m-d');
         $this->saleInvoicePaymentTypes = SaleInvoicePaymentType::all();
@@ -26,7 +27,7 @@ class CustomerInvoicePaymentCreate extends Component
         return view('livewire.customer.customer-invoice-payment-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'deposited_by' => 'nullable',

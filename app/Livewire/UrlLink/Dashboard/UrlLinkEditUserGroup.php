@@ -3,6 +3,7 @@
 namespace App\Livewire\UrlLink\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\UserGroup;
 use App\UrlLinkUserGroup;
 
@@ -14,14 +15,14 @@ class UrlLinkEditUserGroup extends Component
 
     public $user_group_id;
 
-    public function render()
+    public function render(): View
     {
         $this->userGroups = UserGroup::all();
 
         return view('livewire.url-link.dashboard.url-link-edit-user-group');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'user_group_id' => 'required',

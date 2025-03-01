@@ -3,6 +3,7 @@
 namespace App\Livewire\Team;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\TeamMember;
 
@@ -35,54 +36,54 @@ class TeamDisplay extends Component
         'teamMemberUpdated',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.team.team-display');
     }
 
-    public function exitCreateTeamMemberMode()
+    public function exitCreateTeamMemberMode(): void
     {
         $this->exitMode('createTeamMemberMode');
     }
 
-    public function teamMemberCreated()
+    public function teamMemberCreated(): void
     {
         $this->exitMode('createTeamMemberMode');
     }
 
-    public function exitAddNewTeamMembersFromFileMode()
+    public function exitAddNewTeamMembersFromFileMode(): void
     {
         $this->exitMode('createTeamMembersFromCsvMode');
     }
 
-    public function exitUpdateTeamMode()
+    public function exitUpdateTeamMode(): void
     {
         $this->exitMode('updateTeamMode');
     }
 
-    public function teamUpdated()
+    public function teamUpdated(): void
     {
         $this->exitMode('updateTeamMode');
     }
 
-    public function updateTeamMember(TeamMember $teamMember)
+    public function updateTeamMember(TeamMember $teamMember): void
     {
         $this->updatingTeamMember = $teamMember;
         $this->enterMode('updateTeamMemberMode');
     }
 
-    public function exitUpdateTeamMemberMode()
+    public function exitUpdateTeamMemberMode(): void
     {
         $this->updatingTeamMember = null;
         $this->exitMode('updateTeamMemberMode');
     }
 
-    public function teamMemberUpdated()
+    public function teamMemberUpdated(): void
     {
         $this->exitUpdateTeamMemberMode();
     }
 
-    public function changePositionUp(TeamMember $teamMember)
+    public function changePositionUp(TeamMember $teamMember): void
     {
         $previousTeamMember = $this->team->teamMembers()
             ->where('position', '<', $teamMember->position)
@@ -102,7 +103,7 @@ class TeamDisplay extends Component
         $this->render();
     }
 
-    public function changePositionDown(TeamMember $teamMember)
+    public function changePositionDown(TeamMember $teamMember): void
     {
         $nextTeamMember = $this->team->teamMembers()
             ->where('position', '>', $teamMember->position)
@@ -122,19 +123,19 @@ class TeamDisplay extends Component
         $this->render();
     }
 
-    public function deleteTeamMember(TeamMember $teamMember)
+    public function deleteTeamMember(TeamMember $teamMember): void
     {
         $this->deletingTeamMember = $teamMember;
         $this->enterMode('deleteTeamMemberMode');
     }
 
-    public function deleteTeamMemberCancel()
+    public function deleteTeamMemberCancel(): void
     {
         $this->deletingTeamMember = null;
         $this->exitMode('deleteTeamMemberMode');
     }
 
-    public function confirmDeleteTeamMember()
+    public function confirmDeleteTeamMember(): void
     {
         $this->deletingTeamMember->delete();
 

@@ -3,6 +3,7 @@
 namespace App\Livewire\Team;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Team;
 use App\Traits\ModesTrait;
 
@@ -24,23 +25,23 @@ class TeamComponent extends Component
 
     public $displayingTeam = null;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.team.team-component');
     }
 
-    public function exitCreateMode()
+    public function exitCreateMode(): void
     {
         $this->exitMode('createMode');
     }
 
-    public function displayTeam(Team $team)
+    public function displayTeam(Team $team): void
     {
         $this->displayingTeam = $team;
         $this->enterMode('displayMode');
     }
 
-    public function teamCreated()
+    public function teamCreated(): void
     {
         session()->flash('message', 'Team created');
         $this->exitMode('createMode');

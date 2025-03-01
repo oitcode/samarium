@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use App\Traits\ModesTrait;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Todo;
@@ -50,7 +51,7 @@ class TodoList extends Component
         'exitConfirmDelete',
     ];
 
-    public function render()
+    public function render(): View
     {
         // $this->todoDisplayCount = $this->todoCount;;
         $this->todoDisplayCount = $this->todoCount;;
@@ -81,12 +82,12 @@ class TodoList extends Component
             ->with('todos', $todos);
     }
 
-    public function toggleSearchToolBox()
+    public function toggleSearchToolBox(): void
     {
         $this->searchToolBoxShow = !$this->searchToolBoxShow;
     }
 
-    public function search()
+    public function search(): void
     {
         /* Retreive all records if empty search */
         $emptySearch = true;
@@ -137,7 +138,7 @@ class TodoList extends Component
     }
     */
 
-    public function deleteInstance($todoId)
+    public function deleteInstance($todoId): void
     {
         $todo = Todo::find($todoId);
 
@@ -149,26 +150,26 @@ class TodoList extends Component
         $this->mount();
     }
 
-    public function exitConfirmDelete()
+    public function exitConfirmDelete(): void
     {
         $this->deletingTodo = null;
         $this->exitMode('confirmDeleteMode');
     }
 
-    public function deleteTodo(Todo $todo)
+    public function deleteTodo(Todo $todo): void
     {
         $this->deletingTodo = $todo;
 
         $this->enterMode('delete');
     }
 
-    public function deleteTodoCancel()
+    public function deleteTodoCancel(): void
     {
         $this->deletingTodo = null;
         $this->exitMode('delete');
     }
 
-    public function confirmDeleteTodo()
+    public function confirmDeleteTodo(): void
     {
         $this->deletingTodo->delete();
 

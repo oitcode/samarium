@@ -3,6 +3,7 @@
 namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class TodoEditTitle extends Component
 {
@@ -10,17 +11,17 @@ class TodoEditTitle extends Component
 
     public $title;
 
-    public function mount()
+    public function mount(): void
     {
         $this->title = $this->todo->title;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.todo.dashboard.todo-edit-title');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'title' => 'required',

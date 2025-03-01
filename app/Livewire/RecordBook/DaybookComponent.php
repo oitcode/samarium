@@ -3,6 +3,8 @@
 namespace App\Livewire\RecordBook;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use Carbon\Carbon;
 use Livewire\WithPagination;
 use App\Sale;
@@ -20,6 +22,7 @@ use App\ExpensePaymentType;
 
 class DaybookComponent extends Component
 {
+    use ModesTrait;
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
@@ -68,12 +71,12 @@ class DaybookComponent extends Component
         'exitDisplaySaleInvoiceMode',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->daybookDate = date('Y-m-d');
     }
 
-    public function render()
+    public function render(): View
     {
         /*
          *
@@ -157,40 +160,19 @@ class DaybookComponent extends Component
             ->with('expenses', $expenses);
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function setPreviousDay()
+    public function setPreviousDay(): void
     {
         $this->clearModes();
         $this->daybookDate = Carbon::create($this->daybookDate)->subDay()->toDateString();
     }
 
-    public function setNextDay()
+    public function setNextDay(): void
     {
         $this->clearModes();
         $this->daybookDate = Carbon::create($this->daybookDate)->addDay()->toDateString();
     }
 
-    public function getTotalAmount($saleInvoices)
+    public function getTotalAmount($saleInvoices): int|float
     {
         $total = 0;
 
@@ -201,7 +183,7 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function getTotalCashAmount()
+    public function getTotalCashAmount(): int|float
     {
         $total = 0;
 
@@ -212,7 +194,7 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function getTotalCreditAmount()
+    public function getTotalCreditAmount(): int|float
     {
         $total = 0;
 
@@ -223,7 +205,7 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function getTotalBookingAmount()
+    public function getTotalBookingAmount(): int|float
     {
         $total = 0;
 
@@ -234,7 +216,7 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function displaySaleInvoice(SaleInvoice $saleInoice)
+    public function displaySaleInvoice(SaleInvoice $saleInoice): void
     {
         $this->displayingSaleInvoice = $saleInoice;
         if ($this->modes['displaySaleInvoice']) {
@@ -244,7 +226,7 @@ class DaybookComponent extends Component
         }
     }
 
-    public function getTotalSaleAmount($saleInvoices)
+    public function getTotalSaleAmount($saleInvoices): int|float
     {
         $total = 0;
 
@@ -255,7 +237,7 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function getTotalPurchaseAmount($purchases)
+    public function getTotalPurchaseAmount($purchases): int|float
     {
         $total = 0;
 
@@ -266,7 +248,7 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function getTotalExpenseAmount($expenses)
+    public function getTotalExpenseAmount($expenses): int|float
     {
         $total = 0;
 
@@ -277,13 +259,13 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function exitDisplaySaleInvoiceMode()
+    public function exitDisplaySaleInvoiceMode(): void
     {
         $this->displayingSaleInvoice = null;
         $this->exitMode('displaySaleInvoice');
     }
 
-    public function getPaymentTotalByType($saleInvoices, $paymentTypeId)
+    public function getPaymentTotalByType($saleInvoices, $paymentTypeId): int|float
     {
         $paymentType = SaleInvoicePaymentType::find($paymentTypeId);
 
@@ -300,7 +282,7 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function getPurchasePaymentTotalByType($purchases, $purchasePaymentTypeId)
+    public function getPurchasePaymentTotalByType($purchases, $purchasePaymentTypeId): int|float
     {
         $purchasePaymentType = PurchasePaymentType::find($purchasePaymentTypeId);
 
@@ -317,7 +299,7 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function getExpensePaymentTotalByType($expenses, $expensePaymentTypeId)
+    public function getExpensePaymentTotalByType($expenses, $expensePaymentTypeId): int|float
     {
         $expensePaymentType = ExpensePaymentType::find($expensePaymentTypeId);
 
@@ -334,7 +316,7 @@ class DaybookComponent extends Component
         return $total;
     }
 
-    public function cmpTodayItems($a, $b)
+    public function cmpTodayItems($a, $b): int
     {
         if ($a['quantity'] < $b['quantity']) {
             return -1;
@@ -345,7 +327,7 @@ class DaybookComponent extends Component
         }
     }
 
-    public function getSaleItemQuantity($saleInvoices)
+    public function getSaleItemQuantity($saleInvoices): void
     {
         $this->todayItems = array();
 
@@ -370,7 +352,7 @@ class DaybookComponent extends Component
         });
     }
 
-    public function getPurchaseItemQuantity($purchases)
+    public function getPurchaseItemQuantity($purchases): void
     {
         $this->todayPurchaseItems = array();
 
@@ -395,7 +377,7 @@ class DaybookComponent extends Component
         });
     }
 
-    public function itemInTodayItems(Product $product)
+    public function itemInTodayItems(Product $product): bool
     {
         foreach ($this->todayItems as $item) {
             if ($item['product']->product_id == $product->product_id) {
@@ -406,7 +388,7 @@ class DaybookComponent extends Component
         return false;
     }
 
-    public function itemInTodayPurchaseItems(Product $product)
+    public function itemInTodayPurchaseItems(Product $product): bool
     {
         foreach ($this->todayPurchaseItems as $item) {
             if ($item['product']->product_id == $product->product_id) {
@@ -417,7 +399,7 @@ class DaybookComponent extends Component
         return false;
     }
 
-    public function updateTodayItemsCount(SaleInvoiceItem $saleInvoiceItem)
+    public function updateTodayItemsCount(SaleInvoiceItem $saleInvoiceItem): void
     {
         for ($i=0; $i < count($this->todayItems); $i++) {
             if ($this->todayItems[$i]['product']->product_id == $saleInvoiceItem->product->product_id) {
@@ -427,7 +409,7 @@ class DaybookComponent extends Component
         }
     }
 
-    public function updateTodayPurchaseItemsCount(PurchaseItem $purchaseItem)
+    public function updateTodayPurchaseItemsCount(PurchaseItem $purchaseItem): void
     {
         for ($i=0; $i < count($this->todayPurchaseItems); $i++) {
             if ($this->todayPurchaseItems[$i]['product']->product_id == $purchaseItem->product->product_id) {
@@ -437,7 +419,7 @@ class DaybookComponent extends Component
         }
     }
 
-    public function updateTodayExpenseItemsCount(PurchaseItem $expenseItem)
+    public function updateTodayExpenseItemsCount(PurchaseItem $expenseItem): void
     {
         for ($i=0; $i < count($this->todayExpenseItems); $i++) {
             if ($this->todayExpenseItems[$i]['product']->product_id == $expenseItem->product->product_id) {
@@ -447,7 +429,7 @@ class DaybookComponent extends Component
         }
     }
 
-    public function addToTodayItemsCount(SaleInvoiceItem $saleInvoiceItem)
+    public function addToTodayItemsCount(SaleInvoiceItem $saleInvoiceItem): void
     {
         $line = array();
 
@@ -457,7 +439,7 @@ class DaybookComponent extends Component
         $this->todayItems[] = $line;
     }
 
-    public function addToTodayPurchaseItemsCount(PurchaseItem $purchaseItem)
+    public function addToTodayPurchaseItemsCount(PurchaseItem $purchaseItem): void
     {
         $line = array();
 
@@ -467,7 +449,7 @@ class DaybookComponent extends Component
         $this->todayPurchaseItems[] = $line;
     }
 
-    public function addToTodayExpenseItemsCount(ExpenseItem $expenseItem)
+    public function addToTodayExpenseItemsCount(ExpenseItem $expenseItem): void
     {
         $line = array();
 
@@ -477,7 +459,7 @@ class DaybookComponent extends Component
         $this->todayExpenseItems[] = $line;
     }
 
-    public function calculateNetPendingAmount($saleInvoices)
+    public function calculateNetPendingAmount($saleInvoices): void
     {
         $pendingAmount = 0;
 
@@ -488,7 +470,7 @@ class DaybookComponent extends Component
         $this->netPendingAmount = $pendingAmount;
     }
 
-    public function calculateNetPurchasePendingAmount($purchases)
+    public function calculateNetPurchasePendingAmount($purchases): void
     {
         $pendingAmount = 0;
 

@@ -3,6 +3,7 @@
 namespace App\Livewire\Report;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\SaleInvoice;
 use App\SaleInvoiceItem;
 use App\Product;
@@ -11,7 +12,7 @@ class TableTopSellingProductsDay extends Component
 {
     public $todayItems = array();
 
-    public function render()
+    public function render(): View
     {
         $saleInvoices = SaleInvoice::where('sale_invoice_date', date('Y-m-d'))
             ->orderBy('sale_invoice_id', 'desc')->paginate(100);
@@ -21,7 +22,7 @@ class TableTopSellingProductsDay extends Component
         return view('livewire.report.table-top-selling-products-day');
     }
 
-    public function getSaleItemQuantity($saleInvoices)
+    public function getSaleItemQuantity($saleInvoices): void
     {
         $this->todayItems = array();
 
@@ -46,7 +47,7 @@ class TableTopSellingProductsDay extends Component
         });
     }
 
-    public function itemInTodayItems(Product $product)
+    public function itemInTodayItems(Product $product): bool
     {
         foreach ($this->todayItems as $item) {
             if ($item['product']->product_id == $product->product_id) {
@@ -57,7 +58,7 @@ class TableTopSellingProductsDay extends Component
         return false;
     }
 
-    public function updateTodayItemsCount(SaleInvoiceItem $saleInvoiceItem)
+    public function updateTodayItemsCount(SaleInvoiceItem $saleInvoiceItem): void
     {
         for ($i=0; $i < count($this->todayItems); $i++) {
             if ($this->todayItems[$i]['product']->product_id == $saleInvoiceItem->product->product_id) {
@@ -67,7 +68,7 @@ class TableTopSellingProductsDay extends Component
         }
     }
 
-    public function addToTodayItemsCount(SaleInvoiceItem $saleInvoiceItem)
+    public function addToTodayItemsCount(SaleInvoiceItem $saleInvoiceItem): void
     {
         $line = array();
 

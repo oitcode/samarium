@@ -3,6 +3,7 @@
 namespace App\Livewire\Misc;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 
 class SupportComponent extends Component
@@ -15,7 +16,7 @@ class SupportComponent extends Component
         'display' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.misc.support-component');
     }

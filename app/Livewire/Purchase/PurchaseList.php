@@ -3,6 +3,7 @@
 namespace App\Livewire\Purchase;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
@@ -31,12 +32,12 @@ class PurchaseList extends Component
         'exitConfirmPurchaseDelete',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->startDate = date('Y-m-d');
     }
 
-    public function render()
+    public function render(): View
     {
         // $this->getPurchasesForDateRange();
         // $this->calculateTotal();
@@ -47,7 +48,7 @@ class PurchaseList extends Component
             ->with('purchases', $purchases);
     }
 
-    public function calculateTotal()
+    public function calculateTotal(): void
     {
         $total = 0;
 
@@ -58,7 +59,7 @@ class PurchaseList extends Component
         $this->total = $total;
     }
 
-    public function getPurchasesForDateRange()
+    public function getPurchasesForDateRange(): void
     {
         /* Todo: Validation */
         $validatedData = $this->validate([
@@ -99,33 +100,33 @@ class PurchaseList extends Component
         $this->purchases = $purchases;
     }
 
-    public function enterConfirmDeletePurchaseMode(Purchase $purchase)
+    public function enterConfirmDeletePurchaseMode(Purchase $purchase): void
     {
         $this->deletingPurchase = $purchase;
 
         $this->enterMode('confirmDeletePurchase');
     }
 
-    public function exitConfirmPurchaseDelete()
+    public function exitConfirmPurchaseDelete(): void
     {
         $this->deletingPurchase = null;
 
         $this->exitMode('confirmDeletePurchase');
     }
 
-    public function ackPurchaseDeleted()
+    public function ackPurchaseDeleted(): void
     {
         $this->deletingPurchase = null;
         $this->exitMode('confirmDeletePurchase');
         $this->getPurchasesForDateRange();
     }
 
-    public function setPreviousDay()
+    public function setPreviousDay(): void
     {
         $this->startDate = Carbon::create($this->startDate)->subDay()->toDateString();
     }
 
-    public function setNextDay()
+    public function setNextDay(): void
     {
         $this->startDate = Carbon::create($this->startDate)->addDay()->toDateString();
     }

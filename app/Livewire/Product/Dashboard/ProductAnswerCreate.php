@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\ProductAnswer;
 
 class ProductAnswerCreate extends Component
@@ -11,12 +12,12 @@ class ProductAnswerCreate extends Component
 
     public $answer_text;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-answer-create');
     }
 
-    public function store()
+    public function store(): void
     {
         $validatedData = $this->validate([
             'answer_text' => 'required',

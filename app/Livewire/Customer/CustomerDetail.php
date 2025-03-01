@@ -3,10 +3,14 @@
 namespace App\Livewire\Customer;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\SaleInvoice;
 
 class CustomerDetail extends Component
 {
+    use ModesTrait;
+
     public $customer;
 
     public $paymentReceivingSaleInvoice;
@@ -60,43 +64,22 @@ class CustomerDetail extends Component
     ];
 
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.customer.customer-detail');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function customerPaymentMade($amountRemaining)
+    public function customerPaymentMade($amountRemaining): void
     {
         $this->clearModes();
     }
 
-    public function customerSiPaymentMade()
+    public function customerSiPaymentMade(): void
     {
         $this->exitMode('saleInvoicePaymentCreate');
     }
 
-    public function receiveSaleInvoicePayment($saleInvoiceId)
+    public function receiveSaleInvoicePayment($saleInvoiceId): void
     {
         $saleInvoice = SaleInvoice::findOrFail($saleInvoiceId);
 
@@ -105,100 +88,100 @@ class CustomerDetail extends Component
         $this->enterMode('saleInvoicePaymentCreate');
     }
 
-    public function exitCustomerPaymentCreateMode()
+    public function exitCustomerPaymentCreateMode(): void
     {
         $this->exitMode('customerPaymentCreate');
     }
 
-    public function exitSaleInvoicePaymentCreateMode()
+    public function exitSaleInvoicePaymentCreateMode(): void
     {
         $this->paymentReceivingSaleInvoice = null;
         $this->exitMode('saleInvoicePaymentCreate');
     }
 
-    public function displaySaleInvoice(SaleInvoice $saleInvoice)
+    public function displaySaleInvoice(SaleInvoice $saleInvoice): void
     {
         $this->displayingSaleInvoice = $saleInvoice; 
 
         $this->enterMode('saleInvoiceDisplay');
     }
 
-    public function exitSaleInvoiceDisplayMode()
+    public function exitSaleInvoiceDisplayMode(): void
     {
         $this->exitMode('saleInvoiceDisplay');
         $this->enterMode('salesHistory');
     }
 
-    public function customerCommentCreateCancelled()
+    public function customerCommentCreateCancelled(): void
     {
         $this->exitMode('customerCommentCreateMode');
     }
 
-    public function customerCommentCreateCompleted()
+    public function customerCommentCreateCompleted(): void
     {
         $this->exitMode('customerCommentCreateMode');
     }
 
-    public function customerDocumentFileCreateCancelled()
+    public function customerDocumentFileCreateCancelled(): void
     {
         $this->exitMode('customerDocumentFileCreateMode');
     }
 
-    public function customerDocumentFileCreateCompleted()
+    public function customerDocumentFileCreateCompleted(): void
     {
         $this->exitMode('customerDocumentFileCreateMode');
     }
 
-    public function educApplicationCreateCancelled()
+    public function educApplicationCreateCancelled(): void
     {
         $this->exitMode('educApplicationCreateMode');
     }
 
-    public function educApplicationCreateCompleted()
+    public function educApplicationCreateCompleted(): void
     {
         $this->exitMode('educApplicationCreateMode');
     }
 
-    public function customerUpdateNameCompleted()
+    public function customerUpdateNameCompleted(): void
     {
         session()->flash('message', 'Customer name updated');
         $this->exitMode('updateNameMode');
     }
 
-    public function customerUpdateNameCancelled()
+    public function customerUpdateNameCancelled(): void
     {
         $this->exitMode('updateNameMode');
     }
 
-    public function customerUpdateEmailCompleted()
+    public function customerUpdateEmailCompleted(): void
     {
         session()->flash('message', 'Customer email updated');
         $this->exitMode('updateEmailMode');
     }
 
-    public function customerUpdateEmailCancelled()
+    public function customerUpdateEmailCancelled(): void
     {
         $this->exitMode('updateEmailMode');
     }
 
-    public function customerUpdatePhoneCompleted()
+    public function customerUpdatePhoneCompleted(): void
     {
         session()->flash('message', 'Customer phone updated');
         $this->exitMode('updatePhoneMode');
     }
 
-    public function customerUpdatePhoneCancelled()
+    public function customerUpdatePhoneCancelled(): void
     {
         $this->exitMode('updatePhoneMode');
     }
 
-    public function customerUpdatePanCompleted()
+    public function customerUpdatePanCompleted(): void
     {
         session()->flash('message', 'Customer PAN updated');
         $this->exitMode('updatePanMode');
     }
 
-    public function customerUpdatePanCancelled()
+    public function customerUpdatePanCancelled(): void
     {
         $this->exitMode('updatePanMode');
     }

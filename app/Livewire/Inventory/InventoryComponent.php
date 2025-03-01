@@ -3,6 +3,7 @@
 namespace App\Livewire\Inventory;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Product;
 use App\Traits\ModesTrait;
 
@@ -19,14 +20,14 @@ class InventoryComponent extends Component
         'productList' => false,
     ];
 
-    public function render()
+    public function render(): View
     {
         $this->products = Product::where('base_product_id', null)->where('stock_applicable', 'yes')->get();
 
         return view('livewire.inventory.inventory-component');
     }
 
-    public function displayProductDetail(Product $product)
+    public function displayProductDetail(Product $product): void
     {
         $this->displayingProduct = $product;
 

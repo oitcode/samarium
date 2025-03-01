@@ -3,6 +3,7 @@
 namespace App\Livewire\Purchase;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Purchase;
 
@@ -10,12 +11,12 @@ class PurchaseListPurchaseDeleteConfirm extends Component
 {
     public $purchase;
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.purchase.purchase-list-purchase-delete-confirm');
     }
 
-    public function deletePurchase(Purchase $purchase)
+    public function deletePurchase(Purchase $purchase): void
     {
         DB::beginTransaction();
 
@@ -54,7 +55,7 @@ class PurchaseListPurchaseDeleteConfirm extends Component
         $this->dispatch('purchaseDeleted');
     }
 
-    public function updateInventory($product, $quantity, $direction)
+    public function updateInventory($product, $quantity, $direction): void
     {
         if ($product->baseProduct) {
             $baseProduct = $product->baseProduct;

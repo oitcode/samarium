@@ -3,6 +3,7 @@
 namespace App\Livewire\Sale;
 
 use App\Traits\MiscTrait;
+use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
@@ -75,7 +76,7 @@ class SaleInvoiceWorkMakePayment extends Component
       'updatePaymentComponent' => 'mount',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
@@ -102,23 +103,23 @@ class SaleInvoiceWorkMakePayment extends Component
         $this->customers = Customer::all();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.sale.sale-invoice-work-make-payment');
     }
 
-    public function updatedSaleInvoiceAdditions()
+    public function updatedSaleInvoiceAdditions(): void
     {
       $this->updateNumbers();
       $this->calculateGrandTotal();
     }
 
-    public function updatedMultiPayments()
+    public function updatedMultiPayments(): void
     {
       $this->calculateTenderAmount();
     }
 
-    public function store()
+    public function store(): void
     {
         if ($this->modes['multiplePayments']) {
             // TODO
@@ -253,12 +254,12 @@ class SaleInvoiceWorkMakePayment extends Component
         }
     }
 
-    public function finishPayment()
+    public function finishPayment(): void
     {
         $this->dispatch('completeTheTransaction');
     }
 
-    public function fetchCustomerData()
+    public function fetchCustomerData(): void
     {
         $customer = Customer::where('phone', $this->customer_phone)->first();
 
@@ -270,7 +271,7 @@ class SaleInvoiceWorkMakePayment extends Component
         }
     }
 
-    public function calculateGrandTotal()
+    public function calculateGrandTotal(): void
     {
         /* Todo: Any validation needed ? */
 
@@ -282,7 +283,7 @@ class SaleInvoiceWorkMakePayment extends Component
         }
     }
 
-    public function calculateTaxableAmount()
+    public function calculateTaxableAmount(): void
     {
         /* TODO
         $validatedData = $this->validate([
@@ -314,7 +315,7 @@ class SaleInvoiceWorkMakePayment extends Component
         }
     }
 
-    public function createPersonalAccount($name)
+    public function createPersonalAccount($name) // TODO: Type hinting of return type
     {
         $abAccount = new AbAccount;
 
@@ -325,7 +326,7 @@ class SaleInvoiceWorkMakePayment extends Component
         return $abAccount->getKey();
     }
 
-    public function enterMultiplePaymentsMode()
+    public function enterMultiplePaymentsMode(): void
     {
         foreach (SaleInvoicePaymentType::all() as $saleInvoicePaymentType) {
             $this->multiPayments[$saleInvoicePaymentType->name] = 0;
@@ -336,14 +337,14 @@ class SaleInvoiceWorkMakePayment extends Component
         $this->calculateTenderAmount();
     }
 
-    public function exitMultiplePaymentsMode()
+    public function exitMultiplePaymentsMode(): void
     {
         $this->multiplePayments = array();
         $this->tender_amount = '';
         $this->exitMode('multiplePayments');
     }
 
-    public function calculateTenderAmount()
+    public function calculateTenderAmount(): void
     {
         if ($this->modes['multiplePayments']) {
             $tenderAmount = 0;
@@ -360,7 +361,7 @@ class SaleInvoiceWorkMakePayment extends Component
         }
     }
 
-    public function makeMultiplePayments($saleInvoice)
+    public function makeMultiplePayments($saleInvoice): void
     {
         $remainingAmount = $this->grand_total;
 
@@ -420,7 +421,7 @@ class SaleInvoiceWorkMakePayment extends Component
         }
     }
 
-    public function calculateDiscount()
+    public function calculateDiscount(): void
     {
         if ($this->discount_percentage == 'manual') {
             $this->enterMode('manualDiscount');
@@ -438,12 +439,12 @@ class SaleInvoiceWorkMakePayment extends Component
         }
     }
 
-    public function calculateSaleInvoiceVat()
+    public function calculateSaleInvoiceVat(): int
     {
         return ceil(0.13 * $this->taxable_amount);
     }
 
-    public function updateNumbers()
+    public function updateNumbers(): void
     {
         $this->calculateTaxableAmount();
 

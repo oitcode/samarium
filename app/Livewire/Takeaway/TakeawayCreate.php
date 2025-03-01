@@ -3,13 +3,14 @@
 namespace App\Livewire\Takeaway;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\Takeaway;
 use App\SaleInvoice;
 
 class TakeawayCreate extends Component
 {
-    public function render()
+    public function render(): View
     {
         $takeaway = $this->startTakeaway();
 
@@ -17,7 +18,7 @@ class TakeawayCreate extends Component
             ->with('takeaway', $takeaway);
     }
 
-    public function startTakeaway()
+    public function startTakeaway(): void
     {
         $takeaway = new Takeaway;
         $takeaway->status = 'open';

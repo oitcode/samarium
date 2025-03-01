@@ -3,12 +3,16 @@
 namespace App\Livewire\EcommWebsite;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\Company;
 use App\ProductCategory;
 use App\Product;
 
 class HomeComponent extends Component
 {
+    use ModesTrait;
+
     public $modes = [
         'searchResult' => false,
     ];
@@ -23,7 +27,7 @@ class HomeComponent extends Component
 
     public $search_name;
 
-    public function render()
+    public function render(): View
     {
         $this->company = Company::first();
 
@@ -32,28 +36,7 @@ class HomeComponent extends Component
         return view('livewire.ecomm-website.home-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function search()
+    public function search(): void
     {
         $validatedData = $this->validate([
             'search_name' => 'required',

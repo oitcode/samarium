@@ -3,6 +3,7 @@
 namespace App\Livewire\Educ\Institution\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 
 class InstitutionDisplay extends Component
@@ -20,17 +21,17 @@ class InstitutionDisplay extends Component
         'educInstitutionProgramCreateCompleted',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.educ.institution.dashboard.institution-display');
     }
 
-    public function educInstitutionProgramCreateCancelled()
+    public function educInstitutionProgramCreateCancelled(): void
     {
         $this->exitMode('createEducInstitutionProgramMode');
     }
 
-    public function educInstitutionProgramCreateCompleted()
+    public function educInstitutionProgramCreateCompleted(): void
     {
         $this->exitMode('createEducInstitutionProgramMode');
     }

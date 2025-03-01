@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class ProductSpecificationKeywordEdit extends Component
 {
@@ -10,17 +11,17 @@ class ProductSpecificationKeywordEdit extends Component
 
     public $spec_heading;
 
-    public function mount()
+    public function mount(): void
     {
         $this->spec_heading = $this->productSpecification->spec_heading;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-specification-keyword-edit');
     }
 
-    public function update()
+    public function update(): void
     {
         $validatedData = $this->validate([
             'spec_heading' => 'required|string',

@@ -3,6 +3,7 @@
 namespace App\Livewire\Testimonial\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Testimonial;
 
@@ -13,7 +14,7 @@ class TestimonialList extends Component
     // public $testimonials;
     public $testimonialsCount;
 
-    public function render()
+    public function render(): View
     {
         $this->testimonialsCount = Testimonial::count();
 

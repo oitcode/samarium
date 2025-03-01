@@ -3,14 +3,12 @@
 namespace App\Livewire\Core;
 
 use Livewire\Component;
-use App\Traits\ModesTrait;
+use Illuminate\View\View;
 use App\Company;
 use App\SaleInvoiceAdditionHeading;
 
 class CoreSaleQuotationDisplay extends Component
 {
-    use ModesTrait;
-
     public $saleQuotation;
 
     public $company;
@@ -18,11 +16,7 @@ class CoreSaleQuotationDisplay extends Component
     public $has_vat;
     public $display_toolbar = true;
 
-    public $modes = [
-        'showPayments' => false,
-    ];
-
-    public function render()
+    public function render(): View
     {
         $this->company = Company::first();
 

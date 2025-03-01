@@ -3,6 +3,7 @@
 namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\ProductQuestion;
 
@@ -24,18 +25,18 @@ class ProductQuestionComponent extends Component
         'exitProductQuestionDisplay',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.dashboard.product-question-component');
     }
 
-    public function displayProductQuestion(ProductQuestion $productQuestion)
+    public function displayProductQuestion(ProductQuestion $productQuestion): void
     {
         $this->displayingProductQuestion = $productQuestion;
         $this->enterMode('display');
     }
 
-    public function exitProductQuestionDisplay()
+    public function exitProductQuestionDisplay(): void
     {
         $this->displayingProductQuestion = null;
         $this->exitMode('display');

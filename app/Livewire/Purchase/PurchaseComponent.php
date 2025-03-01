@@ -3,10 +3,14 @@
 namespace App\Livewire\Purchase;
 
 use Livewire\Component;
+use Illuminate\View\View;
+use App\Traits\ModesTrait;
 use App\Purchase;
 
 class PurchaseComponent extends Component
 {
+    use ModesTrait;
+    
     public $displayingPurchase = null;
 
     public $modes = [
@@ -26,40 +30,19 @@ class PurchaseComponent extends Component
         'exitPurchaseDisplayMode',
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.purchase.purchase-component');
     }
 
-    /* Clear modes */
-    public function clearModes()
-    {
-        foreach ($this->modes as $key => $val) {
-            $this->modes[$key] = false;
-        }
-    }
-
-    /* Enter and exit mode */
-    public function enterMode($modeName)
-    {
-        $this->clearModes();
-
-        $this->modes[$modeName] = true;
-    }
-
-    public function exitMode($modeName)
-    {
-        $this->modes[$modeName] = false;
-    }
-
-    public function displayPurchase($purchaseId)
+    public function displayPurchase($purchaseId): void
     {
         $purchase = Purchase::find($purchaseId);
         $this->displayingPurchase = $purchase;
         $this->enterMode('display');
     }
 
-    public function exitPurchaseDisplay()
+    public function exitPurchaseDisplay(): void
     {
         $this->displayingPurchase = null;
 
@@ -67,12 +50,12 @@ class PurchaseComponent extends Component
         $this->enterMode('list');
     }
 
-    public function exitPurchaseCreate()
+    public function exitPurchaseCreate(): void
     {
         $this->exitMode('create');
     }
 
-    public function exitPurchaseDisplayMode()
+    public function exitPurchaseDisplayMode(): void
     {
         $this->exitPurchaseDisplay();
     }

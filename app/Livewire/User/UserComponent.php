@@ -2,8 +2,8 @@
 
 namespace App\Livewire\User;
 
-use Illuminate\View\View;
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\User;
 
