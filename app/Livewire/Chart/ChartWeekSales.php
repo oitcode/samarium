@@ -34,7 +34,7 @@ class ChartWeekSales extends Component
         }
     }
 
-    public function getTotalAmountOfDay($day): void
+    public function getTotalAmountOfDay($day): int
     {
         $saleInvoices = SaleInvoice::where('sale_invoice_date', $day->format('Y-m-d'))->get();
 
