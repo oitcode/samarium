@@ -99,3 +99,5 @@ Route::get('/book-appointment/{id}', 'WebsiteController@bookAppointment')       
 Route::get('/vacancy/{id}/{name}', 'WebsiteController@vacancyView')                              ->name('website-vacancy-view');
 Route::get('/user/signup', 'WebsiteController@userSignup')                                       ->name('website-user-signup');
 Route::get('/document/file/display/{id}', 'WebsiteController@pdfDisplayFile')                    ->name('website-document-file-pdf-display');
+
+Route::fallback('FallbackController');
