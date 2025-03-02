@@ -89,14 +89,6 @@ if (config('app.site_type') === 'erp') {
     Route::get('/', 'WebsiteController@cmsHome') ->name('website-home');
 }
 
-if (Schema::hasTable('webpage')) {
-    $webpages = Webpage::where('visibility', 'public')->get();
-
-    foreach ($webpages as $webpage) {
-        Route::get($webpage->permalink, 'WebsiteController@webpage')->name('website-webpage-' . $webpage->permalink);
-    }
-}
-
 Route::get('/user/profile', 'WebsiteController@userProfile')->middleware(['auth', 'verified',])  ->name('website-user-profile');
 Route::get('/product/category/{id}/{name}', 'WebsiteController@productCategoryProductList')      ->name('website-product-category-product-list');
 Route::get('/product/{id}/{name}', 'WebsiteController@productView')                              ->name('website-product-view');
@@ -107,3 +99,5 @@ Route::get('/book-appointment/{id}', 'WebsiteController@bookAppointment')       
 Route::get('/vacancy/{id}/{name}', 'WebsiteController@vacancyView')                              ->name('website-vacancy-view');
 Route::get('/user/signup', 'WebsiteController@userSignup')                                       ->name('website-user-signup');
 Route::get('/document/file/display/{id}', 'WebsiteController@pdfDisplayFile')                    ->name('website-document-file-pdf-display');
+
+Route::fallback('FallbackController');

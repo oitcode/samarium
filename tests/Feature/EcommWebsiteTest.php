@@ -11,6 +11,8 @@ use App\ProductCategory;
 
 class EcommWebsiteTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * A basic feature test example.
      *
@@ -18,6 +20,8 @@ class EcommWebsiteTest extends TestCase
      */
     public function test_product_display_page_works()
     {
+        Product::factory()->create();
+
         $product = Product::first();
 
         $response = $this->get('/product/' . $product->product_id . '/' . $product->name);
@@ -27,6 +31,8 @@ class EcommWebsiteTest extends TestCase
 
     public function test_product_category_list_display_page_works()
     {
+        Product::factory()->create();
+
         $productCategory = ProductCategory::first();
 
         $response = $this->get('/product/category/' . $productCategory->product_category_id . '/' . $productCategory->name);
