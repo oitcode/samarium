@@ -12,10 +12,10 @@ class CalendarEventEditDate extends Component
 {
     use ModesTrait;
 
-    public $calendarEvent;
+    public SchoolCalendarEvent $calendarEvent;
 
-    public $start_date;
-    public $end_date;
+    public string $start_date;
+    public string $end_date;
 
     public $modes = [
         'multiDay' => false,

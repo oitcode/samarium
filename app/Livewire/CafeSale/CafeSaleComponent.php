@@ -11,8 +11,8 @@ class CafeSaleComponent extends Component
 {
     use ModesTrait;
 
-    public $workingSeatTable = null;
-    public $displayingSeatTable = null;
+    public ?SeatTable $workingSeatTable = null;
+    public ?SeatTable $displayingSeatTable = null;
 
     public $modes = [
         'workingTableDisplay' => false,

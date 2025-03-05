@@ -7,22 +7,21 @@ use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Company;
 use App\Appointment;
+use App\TeamMember;
 
 class AppointmentCreate extends Component
 {
-    public $company;
+    public Company $company;
 
-    public $teamMember;
+    public TeamMember $teamMember;
 
-    public $appointment_date;
-    public $appointment_time;
+    public string $appointment_date;
+    public string $appointment_time;
+    public string $applicant_name;
+    public string $applicant_phone;
+    public string $applicant_description;
 
-    public $applicant_name;
-    public $applicant_phone;
-    public $applicant_description;
-
-    public $requestedDay;
-    public $availableTimes;
+    public array $availableTimes;
 
     public function render(): View
     {
@@ -48,13 +47,10 @@ class AppointmentCreate extends Component
         $appointment = new Appointment;
 
         $appointment->team_member_id = $this->teamMember->team_member_id;
-
         $appointment->appointment_date_time = $dateTime;
-
         $appointment->applicant_name = $this->applicant_name;
         $appointment->applicant_phone = $this->applicant_phone;
         $appointment->applicant_description = $this->applicant_description;
-
         $appointment->status = 'requested';
 
         $appointment->save();

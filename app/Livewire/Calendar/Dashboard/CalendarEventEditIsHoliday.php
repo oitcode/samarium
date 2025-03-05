@@ -4,12 +4,13 @@ namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
+use App\SchoolCalendarEvent;
 
 class CalendarEventEditIsHoliday extends Component
 {
-    public $calendarEvent;
+    public SchoolCalendarEvent $calendarEvent;
 
-    public $is_holiday;
+    public string $is_holiday;
 
     public function mount(): void
     {

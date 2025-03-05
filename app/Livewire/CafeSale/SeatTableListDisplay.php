@@ -8,7 +8,7 @@ use App\SeatTable;
 
 class SeatTableListDisplay extends Component
 {
-    public $seatTable;
+    public SeatTable $seatTable;
 
     public function render(): View
     {

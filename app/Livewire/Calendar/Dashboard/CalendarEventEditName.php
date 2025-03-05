@@ -4,12 +4,13 @@ namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
+use App\SchoolCalendarEvent;
 
 class CalendarEventEditName extends Component
 {
-    public $calendarEvent;
+    public SchoolCalendarEvent $calendarEvent;
 
-    public $name;
+    public string $name;
 
     public function mount(): void
     {

@@ -4,6 +4,7 @@ namespace App\Livewire\Accounting;
 
 use Livewire\Component;
 use Illuminate\View\View;
+use Illuminate\Support\Collection;
 use App\AbAccount;
 use App\AbAccountType;
 
@@ -12,7 +13,7 @@ class AccountingAccountCreate extends Component
     public string $name;
     public int $ab_account_type_id;
     public string $increase_type;
-    public $abAccountTypes;
+    public Collection $abAccountTypes;
 
     public function render(): View
     {

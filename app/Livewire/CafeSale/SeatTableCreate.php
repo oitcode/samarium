@@ -8,7 +8,7 @@ use App\SeatTable;
 
 class SeatTableCreate extends Component
 {
-    public $name;
+    public string $name;
     public $image;
 
     public function render(): View

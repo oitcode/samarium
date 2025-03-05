@@ -11,9 +11,9 @@ class AppointmentComponent extends Component
 {
     use ModesTrait;
 
-    public $displayingAppointment;
-    public $updatingAppointment;
-    public $deletingAppointment;
+    public ?Appointment $displayingAppointment;
+    public ?Appointment $updatingAppointment;
+    public ?Appointment $deletingAppointment;
 
     public $modes = [
         'createAppointmentMode' => false,

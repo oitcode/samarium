@@ -15,9 +15,9 @@ class SeatTableWorkDisplay extends Component
 {
     use ModesTrait;
 
-    public $seatTable;
+    public SeatTable $seatTable;
 
-    public $deletingSaleInvoiceItem = null; 
+    public ?SaleInvoiceItem $deletingSaleInvoiceItem = null; 
 
     public $modes = [
         'addItem' => true,

@@ -4,10 +4,11 @@ namespace App\Livewire\Appointment\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
+use App\Appointment;
 
 class AppointmentDisplay extends Component
 {
-    public $appointment;
+    public Appointment $appointment;
 
     public function render(): View
     {

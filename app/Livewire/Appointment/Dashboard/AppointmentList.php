@@ -3,8 +3,9 @@
 namespace App\Livewire\Appointment\Dashboard;
 
 use Livewire\Component;
-use Illuminate\View\View;
 use Livewire\WithPagination;
+use Illuminate\View\View;
+use Illuminate\Support\Collection;
 use Carbon\Carbon;
 use App\Appointment;
 
@@ -14,8 +15,8 @@ class AppointmentList extends Component
 
     // public $appointments;
 
-    public $appointmentCount;
-    public $appointmentTodayCount;
+    public int $appointmentCount;
+    public int $appointmentTodayCount;
 
     public function render(): View
     {
