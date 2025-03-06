@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User;
 
+use Illuminate\Http\Request;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
@@ -49,10 +50,21 @@ class UserList extends Component
         $this->exitMode('delete');
     }
 
-    public function confirmDeleteUser(): void
+    public function confirmDeleteUser(Request $request): void
     {
-        // Todo: Add delete functionality later.
-        //       For now we cannot delete user!
+        if ($request->user()->cannot('delete', $this->deletingUser)) {
+            session()->flash('error', 'ERROR! Admin users cannot be deleted.');
+            $this->exitMode('delete');
+            return;
+        }
+
+        try {
+            $this->deletingUser->delete();
+            session()->flash('success', "SUCCESS! User: {$this->deletingUser?->name} deleted successfully.");
+        } catch (\Exception $e) {
+            session()->flash('error', 'ERROR! Something went wrong, please try again later.');
+        }
+
         $this->exitMode('delete');
     }
 }
