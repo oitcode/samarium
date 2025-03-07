@@ -1,5 +1,13 @@
 <div>
 
+  @session('error')
+    <x-alert-component id="alert-error" type="danger" :message="session('error')" />
+  @endsession
+
+  @session('success')
+    <x-alert-component id="alert-success" type="success" :message="session('success')" />
+  @endsession
+
   <x-list-component>
     <x-slot name="listInfo">
       <div class="d-flex">
