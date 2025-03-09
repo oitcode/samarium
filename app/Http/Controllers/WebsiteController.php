@@ -96,12 +96,15 @@ class WebsiteController extends Controller
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
         $cartItems = session('cartItems');
+        $featuredWebpages = Webpage::whereHas('webpageCategories', function ($query) { $query->where('name', 'featured');})
+                                ->where('visibility', 'public')->orderBy('webpage_id', 'desc')->limit('4')->get();
 
         return view('website.cms.home')
             ->with('company', $company)
             ->with('productCategories', $productCategories)
             ->with('products', $products)
-            ->with('cartItems', $cartItems);
+            ->with('cartItems', $cartItems)
+            ->with('featuredWebpages', $featuredWebpages);
     }
 
     public function webpage(): View

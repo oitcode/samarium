@@ -1,25 +1,25 @@
 {{--
 
-Quick links to pages that are most relevant to school.
+Quick links to relevant webpages.
 
 --}}
 
-<div class="bg-white-rm">
-  <div class="row p-3-rm" style="margin: auto;">
-    <div class="col-4 col-md-3 bg-danger-rm text-white-rm border-rm p-0"
+<div>
+  <div class="row" style="margin: auto;">
+    <div class="col-4 col-md-3 p-0"
         style="
           background-color:
               @if ($cmsTheme)
                 {{ $cmsTheme->ascent_bg_color }}
               @else
-                orange
+                white
               @endif
               ;
           color:
               @if ($cmsTheme)
                 {{ $cmsTheme->ascent_text_color }}
               @else
-                white
+                #123
               @endif
           ;
     ">
@@ -34,20 +34,20 @@ Quick links to pages that are most relevant to school.
         </div>
       </a>
     </div>
-    <div class="col-4 col-md-3 bg-danger-rm text-white-rm border-rm p-0"
+    <div class="col-4 col-md-3 p-0"
         style="
           background-color:
               @if ($cmsTheme)
                 {{ $cmsTheme->ascent_bg_color }}
               @else
-                orange
+                white
               @endif
               ;
           color:
               @if ($cmsTheme)
                 {{ $cmsTheme->ascent_text_color }}
               @else
-                white
+                #123
               @endif
           ;
     ">
@@ -62,21 +62,20 @@ Quick links to pages that are most relevant to school.
         </div>
       </a>
     </div>
-    @if (true)
-    <div class="col-4 col-md-3 bg-danger-rm-rm text-white-rm border-rm p-0 d-none d-md-block"
+    <div class="col-4 col-md-3 p-0 d-none d-md-block"
         style="
           background-color:
               @if ($cmsTheme)
                 {{ $cmsTheme->ascent_bg_color }}
               @else
-                orange
+                white
               @endif
               ;
           color:
               @if ($cmsTheme)
                 {{ $cmsTheme->ascent_text_color }}
               @else
-                white
+                #123
               @endif
           ;
     ">
@@ -91,21 +90,20 @@ Quick links to pages that are most relevant to school.
         </div>
       </a>
     </div>
-    @endif
-    <div class="col-4 col-md-3 bg-danger-rm text-white-rm border-rm p-0"
+    <div class="col-4 col-md-3 p-0"
         style="
           background-color:
               @if ($cmsTheme)
                 {{ $cmsTheme->ascent_bg_color }}
               @else
-                orange
+                white
               @endif
               ;
           color:
               @if ($cmsTheme)
                 {{ $cmsTheme->ascent_text_color }}
               @else
-                white
+                #123
               @endif
           ;
     ">
