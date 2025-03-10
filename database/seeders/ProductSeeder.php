@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -29,9 +28,6 @@ class ProductSeeder extends Seeder
         $this->createProductsForACategory($productCategoryId);
 
         $productCategoryId = $this->createProductCategory('Chelsea');
-        $this->createProductsForACategory($productCategoryId);
-
-        $productCategoryId = $this->createProductCategory('Nepal');
         $this->createProductsForACategory($productCategoryId);
 
         /* Create products */
