@@ -9,7 +9,7 @@
 <hr />
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Version-0.9.3-blue" alt="Version">  <img src="https://img.shields.io/badge/PHP-^8.2-474A8A" alt="PHP"> <img src="https://img.shields.io/badge/Laravel-^11.0-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Livewire-^3.0-AA3B62" alt="Livewire"> <img src="https://img.shields.io/badge/Bootstrap-^4.0-AA2BE2" alt="Bootstrap"> <img src="https://img.shields.io/badge/License-MIT-7b2" alt="License">
+  <img src="https://img.shields.io/badge/Version-0.9.4-blue" alt="Version">  <img src="https://img.shields.io/badge/PHP-^8.2-474A8A" alt="PHP"> <img src="https://img.shields.io/badge/Laravel-^11.0-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Livewire-^3.0-AA3B62" alt="Livewire"> <img src="https://img.shields.io/badge/Bootstrap-^4.0-AA2BE2" alt="Bootstrap"> <img src="https://img.shields.io/badge/License-MIT-7b2" alt="License">
 </div>
 
 <hr />
@@ -105,14 +105,14 @@ php artisan key:generate
 php artisan storage:link
 ```
 
-## Creating first user
+## Database seeding
 
-To use the dashboard, you need a username and password.
-Use below seeder file to create first user. This will create
-an admin user. After that you can create other users from
-dashboard.
+`php artisan db:seed`
 
-`php artisan db:seed --class=UserSeeder`
+Please use the database seeding to setup a minimal working dashboard
+and website. Seeder files will create first admin user, basic webpages
+of a typical website, and few other things. Please check seeder
+files in `database/seeder` if you want to see what database seeding is done.
  
 ## Running the app
 
