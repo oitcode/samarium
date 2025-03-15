@@ -109,10 +109,12 @@ php artisan storage:link
 
 `php artisan db:seed`
 
-Please use the database seeding to setup a minimal working dashboard
-and website. Seeder files will create first admin user, basic webpages
-of a typical website, and few other things. Please check seeder
-files in `database/seeder` if you want to see what database seeding is done.
+Please use the database seeding to setup a minimal working dashboard and
+website. Seeder files will create first admin user, basic webpages
+of a typical website - Webpage like About us, Calendar, Noticeboard,
+Gallery and Contact us are created - and few other things. Please
+check seeder files in `database/seeder` if you want to see what
+database seeding is done.
  
 ## Running the app
 
@@ -127,19 +129,15 @@ Now open your web browser and visit
 Below are some screenshots.
 
 ![screenshot](screenshots/dashboard-screenshot-1.png)
-![screenshot](screenshots/screenshot-login-1.png)
 ![screenshot](screenshots/screenshot-product-list-1.png)
-![screenshot](screenshots/screenshot-product-category-list-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-display-progress-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-display-finished-1.png)
 ![screenshot](screenshots/screenshot-purchase-list-1.png)
-![screenshot](screenshots/screenshot-expense-list-1.png)
 ![screenshot](screenshots/screenshot-customer-display-1.png)
-![screenshot](screenshots/screenshot-vendor-display-1.png)
 ![screenshot](screenshots/screenshot-daybook-1.png)
 ![screenshot](screenshots/screenshot-page-list-1.png)
-![screenshot](screenshots/screenshot-post-list-1.png)
+![screenshot](screenshots/screenshot-website-homepage-1.png)
 
 ## GIFs
 
