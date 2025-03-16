@@ -27,6 +27,48 @@ class WebsiteController extends Controller
             ->with('products', $products);
     }
 
+    public function productSearch(Request $request): View
+    {
+        $productCategoryId = $request->input('product_category_id');
+        $cityProductSpecificationValue = $request->input('city_product_specification_value');
+        $buyTypeProductSpecificationValue = $request->input('buy_type_product_specification_value');
+        $featuredProduct = $request->input('featured_product');
+
+        $productSearchResults = Product::limit(100);
+
+        if ($productCategoryId != '---') {
+            $productSearchResults = $productSearchResults->whereHas('productCategory', function ($query) use ($productCategoryId) { $query->where('product_category_id', $productCategoryId);});
+        }
+
+        if ($cityProductSpecificationValue != '---') {
+            $productSearchResults = $productSearchResults->whereHas('productSpecifications', function ($query) use ($cityProductSpecificationValue) {
+                    $query->where('spec_value', $cityProductSpecificationValue);
+                });
+        }
+
+        if ($buyTypeProductSpecificationValue != '---') {
+            $productSearchResults = $productSearchResults->whereHas('productSpecifications', function ($query) use ($buyTypeProductSpecificationValue) {
+                    $query->where('spec_value', $buyTypeProductSpecificationValue);
+                });
+        }
+
+        if ($featuredProduct != '---') {
+            $productSearchResults = $productSearchResults->where('featured_product', $featuredProduct);
+        }
+
+        $productSearchResults = $productSearchResults->get();
+
+        $products = Product::all();
+        $productCategories = ProductCategory::where('does_sell', 'yes')->get();
+        $company = Company::first();
+
+        return view('website.ecommerce.product-search-results')
+            ->with('productSearchResults', $productSearchResults)
+            ->with('company', $company)
+            ->with('productCategories', $productCategories)
+            ->with('products', $products);
+    }
+
     public function productView($id, $name): View
     {
         $products = Product::all();

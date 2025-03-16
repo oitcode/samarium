@@ -100,6 +100,7 @@ if (Schema::hasTable('webpage')) {
 Route::get('/user/profile', 'WebsiteController@userProfile')->middleware(['auth', 'verified',])  ->name('website-user-profile');
 Route::get('/product/category/{id}/{name}', 'WebsiteController@productCategoryProductList')      ->name('website-product-category-product-list');
 Route::get('/product/{id}/{name}', 'WebsiteController@productView')                              ->name('website-product-view');
+Route::get('/product/search', 'WebsiteController@productSearch')                                 ->name('website-product-search');
 Route::get('/checkout', 'WebsiteController@checkout')                                            ->name('website-checkout');
 Route::get('/write-testimonial', 'WebsiteController@writeTestimonial')                           ->name('website-write-testimonial');
 Route::get('/o/table/{id}/{name}', 'WebsiteController@seatTableView')                            ->name('website-seat-table-view');

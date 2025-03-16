@@ -13,4 +13,10 @@ class ProductListingDisplay extends Component
     {
         return view('livewire.product.website.product-listing-display');
     }
+
+    public function getCity()
+    {
+        if ($product->productSpecifications()->where('spec_heading', 'city')->first()) {
+        };
+    }
 }
