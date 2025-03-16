@@ -21,7 +21,7 @@ class WebsiteController extends Controller
         $productCategories = ProductCategory::where('does_sell', 'yes')->get();
         $company = Company::first();
 
-        return view('ecomm-website.home')
+        return view('website.ecommerce.home')
             ->with('company', $company)
             ->with('productCategories', $productCategories)
             ->with('products', $products);
