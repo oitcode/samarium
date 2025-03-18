@@ -26,6 +26,7 @@ class WebpageDisplay extends Component
         if (
                 $this->webpage->webpageCategoriesPostpage()->count() > 0 ||
                 $this->webpage->webpageTeams()->count() > 0 ||
+                $this->webpage->webpageProductCategories()->count() > 0 ||
                 $this->webpage->name == 'Gallery' ||
                 $this->webpage->name == 'Downloads' ||
                 $this->webpage->name == 'Products' ||

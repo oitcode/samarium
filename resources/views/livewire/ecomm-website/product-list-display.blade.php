@@ -17,19 +17,9 @@
               <h2 class="h6 font-weight-bold mt-2 mb-2 text-dark" style="font-family: Arial;">
                 {{ ucwords($product->name) }}
               </h2>
-              <div class="mb-1">
-                <i class="far fa-star" style="color: orange;"></i>
-                <i class="far fa-star" style="color: orange;"></i>
-                <i class="far fa-star" style="color: orange;"></i>
-                <i class="far fa-star" style="color: orange;"></i>
-                <i class="far fa-star" style="color: orange;"></i>
-                <span class="mx-1 text-muted">
-                  (0) reviews
-                </span>
-              </div>
               @if ($product->selling_price != 0)
                 <div class="65 text-muted text-left mt-3" style="font-weight: bold;">
-                  Rs.
+                  {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $product->selling_price ); @endphp
                 </div>
               @else
@@ -37,13 +27,15 @@
                   &nbsp;
                 </div>
               @endif
-              <div class="text-danger mt-3">
-                <span class="btn btn-light p-1 px-3" wire:click.prevent="addItemToCart({{ $product->product_id }})">
-                  <i class="fas fa-plus-circle mr-1"></i>
-                  Cart
-                </span>
-                @include ('partials.dashboard.spinner-button')
-              </div>
+              @if (config('app.cart_enabled') == true)
+                <div class="text-danger mt-3">
+                  <span class="btn btn-light p-1 px-3" wire:click.prevent="addItemToCart({{ $product->product_id }})">
+                    <i class="fas fa-plus-circle mr-1"></i>
+                    Cart
+                  </span>
+                  @include ('partials.dashboard.spinner-button')
+                </div>
+              @endif
             </div>
           </div>
         </div>

@@ -26,6 +26,7 @@ class WebpageDisplay extends Component
         'editFeaturedImageMode' => false,
         'editWebpageCategoryPostpageMode' => false,
         'editTeamTeampageMode' => false,
+        'editWebpageProductCategoryMode' => false,
     ];
 
     protected $listeners = [
@@ -45,6 +46,8 @@ class WebpageDisplay extends Component
         'webpageEditWebpageCategoryPostpageCancel',
         'webpageEditTeamTeampageCompleted',
         'webpageEditTeamTeampageCancel',
+        'webpageEditProductCategoryCancel',
+        'webpageEditProductCategoryCompleted',
     ];
 
     public function render(): View
@@ -142,6 +145,16 @@ class WebpageDisplay extends Component
     public function webpageEditTeamTeampageCancel(): void
     {
         $this->exitMode('editTeamTeampageMode');
+    }
+
+    public function webpageEditProductCategoryCancel(): void
+    {
+        $this->exitMode('editWebpageProductCategoryMode');
+    }
+
+    public function webpageEditProductCategoryCompleted(): void
+    {
+        $this->exitMode('editWebpageProductCategoryMode');
     }
 
     public function removePostCategory(WebpageCategory $webpageCategory, Webpage $webpage): void

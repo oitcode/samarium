@@ -57,4 +57,13 @@ class ProductCategory extends Model
     {
         return $this->belongsTo('App\ProductCategory', 'parent_product_category_id', 'product_category_id');
     }
+
+    /*
+     * webpage table.
+     *
+     */
+    public function webPages()
+    {
+        return $this->belongsToMany('App\Webpage', 'webpage__product_category', 'product_category_id', 'webpage_id');
+    }
 }

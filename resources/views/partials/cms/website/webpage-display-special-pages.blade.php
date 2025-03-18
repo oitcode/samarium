@@ -34,6 +34,31 @@
       @endif
     @endforeach
   </div>
+@elseif ($webpage->webpageProductCategories()->count() > 0) 
+  {{--
+  |--------------------------------------------------------------------------
+  | Product category page
+  |--------------------------------------------------------------------------
+  |
+  | Product category pages are pages which show products of a specific
+  | product category. It is a special page.
+  |
+  --}}
+  <div class="my-4">
+    @foreach ($webpage->webpageProductCategories as $productCategory)
+      @if (count($productCategory->products))
+        <div class="container">
+          <div class="row my-4" style="margin: auto;">
+            @foreach ($productCategory->products as $product)
+              <div class="col-md-4 p-3">
+                @livewire ('ecomm-website.product-list-display', ['product' => $product,])
+              </div>
+            @endforeach
+          </div>
+        </div>
+      @endif
+    @endforeach
+  </div>
 @elseif ($webpage->name == 'Gallery')
   {{--
   |--------------------------------------------------------------------------

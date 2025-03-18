@@ -331,6 +331,35 @@
               @endif
             </div>
           </div>
+
+          {{-- Team page part --}}
+          <div class="mb-4 bg-white border">
+            <h2 class="h6 font-weight-bold py-3 px-3 bg-light">
+              Product category page
+            </h2>
+            <div class="px-3">
+              @if ($modes['editWebpageProductCategoryMode'])
+                @livewire ('cms.dashboard.webpage-edit-product-category-page', ['webpage' => $webpage,])
+              @else
+                <div class="d-flex justify-content-between">
+                  <div>
+                    @if (count($webpage->webpageProductCategories) > 0)
+                      @foreach ($webpage->webpageProductCategories as $productCategory)
+                        <span class="badge badge-primary mr-3">
+                          {{ $productCategory->name }}
+                        </span>
+                      @endforeach
+                    @else
+                      None
+                    @endif
+                  </div>
+                  <button class="btn btn-light mx-3" wire:click="enterModeSilent('editWebpageProductCategoryMode')">
+                    <i class="fas fa-plus-circle"></i>
+                  </button>
+                </div>
+              @endif
+            </div>
+          </div>
           @endif
         </div>
       </div>

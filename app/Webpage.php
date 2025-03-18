@@ -68,6 +68,15 @@ class Webpage extends Model
     }
 
     /*
+     * product_category table. (product category page)
+     *
+     */
+    public function webpageProductCategories()
+    {
+        return $this->belongsToMany('App\ProductCategory', 'webpage__product_category', 'webpage_id', 'product_category_id');
+    }
+
+    /*
      * nav_menu_item table.
      *
      */
