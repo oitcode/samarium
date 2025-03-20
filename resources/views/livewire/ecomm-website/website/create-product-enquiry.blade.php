@@ -57,7 +57,7 @@
       </span>
     @enderror
   </div>
-  <button class="btn btn-outline-primary btn-block py-2" wire:click="store">
+  <button class="btn btn-outline-primary btn-block badge-pill py-2" wire:click="store">
     Submit
   </button>
 
