@@ -22,7 +22,7 @@ class ProductFilter extends Component
 
     public function prepareFilters()
     {
-        $this->productCategories = ProductCategory::all();
+        $this->productCategories = ProductCategory::where('does_sell', 'yes')->get();
 
         $this->cityProductSpecifications = ProductSpecification::where('spec_heading', 'City')->get();
         $this->cityProductSpecifications = $this->cityProductSpecifications->unique('spec_value');
