@@ -16,7 +16,7 @@ class ProductCategoryProductListL1 extends Component
         'openUpMode' => false,
     ];
 
-    public function render(): void
+    public function render(): View
     {
         return view('livewire.ecomm-website.product-category-product-list-l1');
     }
