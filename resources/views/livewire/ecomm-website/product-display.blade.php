@@ -17,10 +17,25 @@
 
   <div class="row mb-3 border p-2 pt-3 bg-white-rm" style="margin: auto; background-color: #fff;">
     <div class="col-md-8">
-      {{-- Stats --}}
-      <div class="mb-3 border bg-white">
+      <div class="d-flex justify-content-between">
         <div>
-          <div class="p-3">
+          <h1 class="h5 mb-3 o-heading" style="font-weight: bold;">
+            {{ strtoupper($product->name) }}
+          </h1>
+        </div>
+        <div>
+          @if ($product->selling_price != 0)
+            <h1 class="h5 mb-3 o-heading text-danger" style="font-weight: bold;">
+              Rs
+              @php echo number_format( $product->selling_price ); @endphp
+            </h1>
+          @endif
+        </div>
+      </div>
+      {{-- Stats --}}
+      <div class="mb-3 border-rm bg-white">
+        <div>
+          <div class="py-1-rm">
             <span class="o-heading">
               Posted on:
             </span>
@@ -35,7 +50,7 @@
       </div>
       <div class="row" style="margin: auto;">
         <div class="col-md-12 mb-4 p-0 border shadow">
-          <div class="d-flex justify-content-center h-100">
+          <div class="d-flex justify-content-center h-100-rm">
             <div class="d-flex flex-column justify-content-start h-100">
               @if ($product->image_path)
                 <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 500px;">
@@ -44,19 +59,27 @@
               @endif
             </div>
           </div>
+      @if ($product->gallery)
+        {{-- Product gallery --}}
+        <div class="mb-4-rm p-3 border bg-white">
+          <div>
+            <div class="mb-3 o-heading">
+                Gallery
+            </div>
+            <div class="px-3">
+              <div class="row">
+              @foreach ($product->gallery->galleryImages as $galleryImage)
+                <div class="col-3 mb-3 p-3">
+                  <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid">
+                </div>
+              @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      @endif
         </div>
         <div class="col-md-12 py-3 pl-3 border bg-white">
-          <h1 class="h5 mb-3 o-heading" style="font-weight: bold;">
-            {{ strtoupper($product->name) }}
-          </h1>
-          @if ($product->selling_price != 0)
-            <hr />
-            <h3 class="h5 mb-3 text-danger-rm o-heading" style="font-weight: bold;">
-              Rs
-              @php echo number_format( $product->selling_price ); @endphp
-            </h3>
-            <hr />
-          @endif
           <div>
             <h2 class="h6 o-heading">
               Product description
@@ -65,15 +88,15 @@
               {{ $product->description }}
             </p>
           </div>
-
-          <div>
-            <button class="btn btn-danger badge-pill w-100 mb-0 p-3 mb-3 o-heading text-white" wire:click="addItemToCart({{ $product->product_id }})">
-              <i class="fas fa-shopping-cart mr-1"></i>
-              ADD TO CART
-            </button>
-            @include ('partials.dashboard.spinner-button')
-          </div>
         </div>
+      </div>
+
+      <div class="my-3">
+        <button class="btn btn-danger badge-pill w-100 mb-0 p-3 mb-3 o-heading text-white" wire:click="addItemToCart({{ $product->product_id }})">
+          <i class="fas fa-shopping-cart mr-1"></i>
+          ADD TO CART
+        </button>
+        @include ('partials.dashboard.spinner-button')
       </div>
 
       {{-- Product vendor --}}
@@ -89,25 +112,6 @@
       @endif
 
 
-      @if ($product->gallery)
-        {{-- Product gallery --}}
-        <div class="my-4 p-3 border bg-white">
-          <div>
-            <div class="mb-3 o-heading">
-                Gallery
-            </div>
-            <div class="px-3">
-              <div class="row">
-              @foreach ($product->gallery->galleryImages as $galleryImage)
-                <div class="col-md-3 mb-3 p-3">
-                  <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid">
-                </div>
-              @endforeach
-              </div>
-            </div>
-          </div>
-        </div>
-      @endif
 
       {{-- Product specification --}}
       @if (count($product->productSpecifications) > 0)
