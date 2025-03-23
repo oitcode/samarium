@@ -17,7 +17,7 @@
 
   <div class="row mb-3 border p-2 pt-3 bg-white-rm" style="margin: auto; background-color: #fff;">
     <div class="col-md-8">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex flex-column justify-content-between-rm">
         <div>
           <h1 class="h5 mb-3 o-heading" style="font-weight: bold;">
             {{ strtoupper($product->name) }}
