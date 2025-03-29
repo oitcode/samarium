@@ -31,6 +31,14 @@ class WebpageSeeder extends Seeder
         ]);
 
         DB::table('webpage')->insert([
+            'name' => 'Products',
+            'permalink' => '/products',
+            'visibility' => 'public',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('webpage')->insert([
             'name' => 'Calendar',
             'permalink' => '/calendar',
             'visibility' => 'public',
