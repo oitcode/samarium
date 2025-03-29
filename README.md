@@ -141,6 +141,8 @@ Below are some screenshots.
 
 ## GIFs
 
+![screenshot](screenshots/screenshot-gif-product-1.gif)
+
 ![screenshot](screenshots/create-webpage-1.gif)
 
 ![screenshot](screenshots/create-post-1.gif)
