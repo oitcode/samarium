@@ -1,7 +1,7 @@
 <div class="h-100">
 
   {{-- Show in bigger screens --}}
-  <div class="card mb-3 shadow h-100 d-none d-md-block"
+  <div class="card mb-3 shadow h-100 d-none-rm d-md-block-rm"
       wire:click="displayWorkingSeatTable({{ $seatTable->seat_table_id }})"
       role="button"
   >
@@ -81,6 +81,7 @@
     </div>
   </div>
 
+  @if (false)
   {{-- Show in smaller screens --}}
   <div class="card mb-0 shadow
       @if ($seatTable->isBooked()) bg-danger text-white  @else bg-success text-white @endif
@@ -156,5 +157,6 @@
       @endif
     </div>
   </div>
+  @endif
 
 </div>
