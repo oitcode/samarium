@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
+use App\SeatTable;
 use App\SeatTableBooking;
 use App\SaleInvoice;
 use App\SaleInvoiceItem;
