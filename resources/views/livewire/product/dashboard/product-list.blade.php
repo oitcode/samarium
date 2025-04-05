@@ -48,15 +48,22 @@
             {{ $product->selling_price }}
           </td>
           <td class="text-right">
-            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
+            <button class="btn btn-primary d-none d-md-inline-block px-2 py-1" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
               <i class="fas fa-pencil-alt"></i>
             </button>
-            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
+            <button class="btn btn-success d-none d-md-inline-block px-2 py-1" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
               <i class="fas fa-eye"></i>
             </button>
-            <button class="btn btn-danger px-2 py-1" wire:click="">
+            <button class="btn btn-danger d-none d-md-inline-block px-2 py-1" wire:click="">
               <i class="fas fa-trash"></i>
             </button>
+            <div class="d-md-none">
+              <x-list-dropdown-component toolbarButtonDropdownId="productListProductDropdown-{{ $product->product_id }}">
+                <x-toolbar-dropdown-item-component clickMethod="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
+                  View
+                </x-toolbar-dropdown-item-component>
+              </x-list-dropdown-component>
+            </div>
           </td>
         </x-table-row-component>
       @endforeach

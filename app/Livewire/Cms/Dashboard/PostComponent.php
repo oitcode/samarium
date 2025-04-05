@@ -18,6 +18,7 @@ class PostComponent extends Component
         'listPostMode' => true,
         'displayPostMode' => false,
         'createPostCategoryMode' => false,
+        'search' =>false,
     ];
 
     protected $listeners = [

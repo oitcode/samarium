@@ -17,7 +17,13 @@
           'btnText' => 'New',
           'btnCheckMode' => 'create',
       ])
-      </x-slot>
+
+      <x-toolbar-dropdown-component toolbarButtonDropdownId="productVendorToolbarDropdown">
+        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+          Search
+        </x-toolbar-dropdown-item-component>
+      </x-toolbar-dropdown-button>
+    </x-slot>
 
     <div>
 
@@ -31,6 +37,8 @@
         @livewire ('product-vendor.dashboard.product-vendor-create')
       @elseif ($modes['list'])
         @livewire ('product-vendor.dashboard.product-vendor-list')
+      @elseif ($modes['search'])
+        @livewire ('product-vendor.dashboard.product-vendor-search')
       @elseif ($modes['display'])
         @livewire ('product-vendor.dashboard.product-vendor-display', ['productVendor' => $displayingProductVendor,])
       @else

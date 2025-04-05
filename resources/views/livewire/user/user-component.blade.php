@@ -16,6 +16,12 @@
           'btnCheckMode' => 'createUserMode',
       ])
     @endif
+
+    <x-toolbar-dropdown-component toolbarButtonDropdownId="userToolbarDropdown">
+      <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+        Search
+      </x-toolbar-dropdown-item-component>
+    </x-toolbar-dropdown-button>
   </x-toolbar-classic>
 
   {{--

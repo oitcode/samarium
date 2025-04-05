@@ -1,4 +1,4 @@
-<div>
+<div class="">
 
   @if ($modes['productCategoryProductList'])
     @livewire ('cafe-menu-product-category-product-list', ['productCategory' => $selectedProductCategory,])
@@ -15,7 +15,7 @@
       </x-slot>
     
       <x-slot name="listBody">
-        @foreach ($productCategories as $productCategory)
+        @foreach ($oproductCategories as $productCategory)
           <x-table-row-component>
             <td wire:click="$dispatch('displayProductCategory', { productCategory: {{ $productCategory }} } )" role="button">
                 {{ $productCategory->name }}
@@ -39,7 +39,7 @@
       </x-slot>
     
       <x-slot name="listPaginationLinks">
-        {{ $productCategories->links() }}
+        {{ $oproductCategories->links() }}
       </x-slot>
     </x-list-component>
   @endif

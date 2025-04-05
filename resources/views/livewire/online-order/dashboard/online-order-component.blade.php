@@ -10,6 +10,12 @@
 
     <x-slot name="toolbar">
       @include ('partials.dashboard.spinner-button')
+
+      <x-toolbar-dropdown-component toolbarButtonDropdownId="onlineOrderToolbarDropdown">
+        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+          Search
+        </x-toolbar-dropdown-item-component>
+      </x-toolbar-dropdown-button>
     </x-slot>
 
     <div>

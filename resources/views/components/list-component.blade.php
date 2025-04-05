@@ -3,8 +3,8 @@
    | Info div
    |
 --}}
-<div class="d-flex justify-content-between bg-white mt-1 p-2">
-  <div class="d-flex flex-column justify-content-center">
+<div class="d-flex justify-content-between bg-white mt-1-rm p-2 py-3">
+  <div class="d-flex flex-column justify-content-center o-heading pl-2">
     {{ $listInfo }}
   </div>
 </div>

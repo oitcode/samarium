@@ -19,6 +19,12 @@
             'btnCheckMode' => 'create',
         ])
       @endif
+
+      <x-toolbar-dropdown-component toolbarButtonDropdownId="webpageToolbarDropdown">
+        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+          Search
+        </x-toolbar-dropdown-item-component>
+      </x-toolbar-dropdown-button>
     </x-slot>
 
     <div>
@@ -35,6 +41,8 @@
         @livewire ('cms.dashboard.webpage-display', ['webpage' => $displayingWebpage,])
       @elseif ($modes['list'])
         @livewire ('cms.dashboard.webpage-list')
+      @elseif ($modes['search'])
+        @livewire ('webpage.dashboard.webpage-search')
       @else
         @livewire ('cms.dashboard.webpage-list')
       @endif

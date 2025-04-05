@@ -17,6 +17,7 @@ class WebpageComponent extends Component
         'create' =>false,
         'display' =>false,
         'list' => true,
+        'search' => false,
     ];
 
     protected $listeners = [

@@ -18,6 +18,7 @@ class ProductVendorComponent extends Component
         'list' => false,
         'display' => false,
         'delete' => false,
+        'search' => false,
     ];
 
     protected $listeners = [

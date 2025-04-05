@@ -23,7 +23,7 @@
       {{ $product->name }}
     </x-slot>
     <x-slot name="toolbarButtons">
-      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+      <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
       </x-toolbar-button-component>
        @if ($product->is_active == 0)
@@ -31,16 +31,16 @@
            Make active
          </x-toolbar-button-component>
        @elseif ($product->is_active == 1)
-         <x-toolbar-button-component btnBsClass="btn-dark" btnClickMethod="makeProductInactive">
+         <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductInactive">
            Make inactive
          </x-toolbar-button-component>
 
          @if ($product->show_in_front_end == 'yes')
-           <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="makeProductNotVisibleInFrontEnd">
+           <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductNotVisibleInFrontEnd">
              Hide in website
            </x-toolbar-button-component>
          @else
-           <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="makeProductVisibleInFrontEnd">
+           <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductVisibleInFrontEnd">
              Show in website
            </x-toolbar-button-component>
          @endif
@@ -51,7 +51,7 @@
            Remove from featured product
          </x-toolbar-button-component>
        @else
-         <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="makeProductFeaturedProduct">
+         <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductFeaturedProduct">
            Mark as featured product
          </x-toolbar-button-component>
        @endif

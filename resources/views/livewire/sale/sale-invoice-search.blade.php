@@ -29,7 +29,7 @@
       </thead>
       @if ($saleInvoice)
         <tbody>
-          <tr>
+          <tr wire:click="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })" role="button">
             <td>
               {{ $saleInvoice->sale_invoice_id }}
             </td>

@@ -19,6 +19,12 @@
             'btnCheckMode' => 'eventCreate',
         ])
       @endif
+
+      <x-toolbar-dropdown-component toolbarButtonDropdownId="calendarToolbarDropdown">
+        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+          Search
+        </x-toolbar-dropdown-item-component>
+      </x-toolbar-dropdown-button>
     </x-slot>
 
     <div>

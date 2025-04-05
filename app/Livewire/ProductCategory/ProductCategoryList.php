@@ -13,7 +13,7 @@ class ProductCategoryList extends Component
     use ModesTrait;
     use WithPagination;
 
-    // public $productCategories;
+    protected $productCategories;
     public $products = null;
     public $selectedProductCategory;
     public $totalProductCategoryCount;
@@ -24,13 +24,17 @@ class ProductCategoryList extends Component
         'productCategoryProductList' => false,
     ];
 
+    public function mount(): void
+    {
+        $this->productCategories = ProductCategory::orderBy('name', 'ASC')->paginate(5);
+    }
+
     public function render(): View
     {
         $this->totalProductCategoryCount = ProductCategory::count();
-        $productCategories = ProductCategory::orderBy('name', 'ASC')->paginate(5);
 
         return view('livewire.product-category.product-category-list')
-            ->with('productCategories', $productCategories);
+            ->with('oproductCategories', $this->productCategories);
     }
 
     public function selectCategory($productCategoryId): void

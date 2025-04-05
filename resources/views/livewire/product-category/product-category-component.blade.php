@@ -19,6 +19,12 @@
             'btnCheckMode' => 'create',
         ])
       @endif
+
+      <x-toolbar-dropdown-component toolbarButtonDropdownId="productCategoryToolbarDropdown">
+        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+          Search
+        </x-toolbar-dropdown-item-component>
+      </x-toolbar-dropdown-button>
     </x-slot>
 
     <div>
@@ -33,6 +39,8 @@
         @livewire ('product-category.product-category-create')
       @elseif ($modes['list'])
         @livewire ('product-category.product-category-list')
+      @elseif ($modes['search'])
+        @livewire ('product-category.dashboard.product-category-search')
       @elseif ($modes['display'])
         @livewire ('product-category.product-category-display', ['productCategory' => $displayingProductCategory,])
       @else

@@ -17,6 +17,12 @@
           'btnText' => 'Create',
           'btnCheckMode' => 'create',
       ])
+
+      <x-toolbar-dropdown-component toolbarButtonDropdownId="urlLinkToolbarDropdown">
+        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+          Search
+        </x-toolbar-dropdown-item-component>
+      </x-toolbar-dropdown-button>
     </x-slot>
 
     <div>

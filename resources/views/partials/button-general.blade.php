@@ -1,18 +1,4 @@
-<button type="submit"
-    class="btn
-        @isset ($btnColor)
-           btn-light
-        @else
-        @endisset
-        px-3 py-3
-    "
-    wire:click="{{ $clickMethod }}"
-    style="
-        @isset ($btnColor)
-        @else
-          background-color: {{ config('app.oc_select_color', '#000050') }}; color: white;
-        @endisset
-    ;">
+<button type="submit" class="btn btn-primary px-3-rm py-3-rm" wire:click="{{ $clickMethod }}">
   <strong>
     {{ $btnText }}
   </strong>
