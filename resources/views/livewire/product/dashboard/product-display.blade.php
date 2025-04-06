@@ -23,40 +23,41 @@
       {{ $product->name }}
     </x-slot>
     <x-slot name="toolbarButtons">
-      <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="$refresh">
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
       </x-toolbar-button-component>
        @if ($product->is_active == 0)
-         <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductActive">
+         <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="makeProductActive">
            Make active
          </x-toolbar-button-component>
        @elseif ($product->is_active == 1)
-         <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductInactive">
+         <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="makeProductInactive">
            Make inactive
          </x-toolbar-button-component>
 
          @if ($product->show_in_front_end == 'yes')
-           <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductNotVisibleInFrontEnd">
+           <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="makeProductNotVisibleInFrontEnd">
              Hide in website
            </x-toolbar-button-component>
          @else
-           <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductVisibleInFrontEnd">
+           <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="makeProductVisibleInFrontEnd">
              Show in website
            </x-toolbar-button-component>
          @endif
        @endif
 
        @if ($product->featured_product == 'yes')
-         <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductFeaturedProductUndo">
+         <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="makeProductFeaturedProductUndo">
            Remove from featured product
          </x-toolbar-button-component>
        @else
-         <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="makeProductFeaturedProduct">
+         <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="makeProductFeaturedProduct">
            Mark as featured product
          </x-toolbar-button-component>
        @endif
 
-      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="closeThisComponent">
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="closeThisComponent">
+        <i class="fas fa-times-circle text-danger mr-1"></i>
         Close
       </x-toolbar-button-component>
     </x-slot>

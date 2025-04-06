@@ -16,16 +16,16 @@
       <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
       </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="enterModeSilent('addItem')">
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="enterModeSilent('addItem')">
         <i class="fas fa-plus-circle mr-1"></i>
         Add item
       </x-toolbar-button-component>
-      <a href="{{ route('dashboard-print-sale-quotation', $saleQuotation->sale_quotation_id) }}" class="btn btn-primary p-3" target="_blank">
+      <a href="{{ route('dashboard-print-sale-quotation', $saleQuotation->sale_quotation_id) }}" class="btn btn-light px-3 border" target="_blank">
         <i class="fas fa-print mr-1"></i>
         Print
       </a>
-      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitSaleQuotationDisplayMode')">
-        <i class="fas fa-times"></i>
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$dispatch('exitSaleQuotationDisplayMode')">
+        <i class="fas fa-times-circle text-danger mr-1"></i>
         Close
       </x-toolbar-button-component>
     </x-slot>
@@ -45,7 +45,7 @@
           <div class="row p-0" style="margin: auto;">
             <div class="col-md-4 d-flex">
               <div class="mb-4">
-                <div class="mb-1 h6 font-weight-bold">
+                <div class="mb-1 h6 o-heading">
                   Quotation ID
                 </div>
                 <div class="h6">
@@ -56,7 +56,7 @@
 
             <div class="col-md-4 d-flex">
               <div>
-                <div class="mb-1 h6 font-weight-bold">
+                <div class="mb-1 h6 o-heading">
                   Quotation Date
                 </div>
                 @if ($modes['backDate'])
@@ -82,7 +82,7 @@
             </div>
   
             <div class="col-md-4 mb-3 border-left border-right">
-              <div class="mb-1 h6 font-weight-bold">
+              <div class="mb-1 h6 o-heading">
                 Customer
               </div>
               <div class="d-flex">
@@ -121,7 +121,7 @@
           <div class="table-responsive d-none d-md-block">
             <table class="table table-hover border-dark mb-0">
               <thead>
-                <tr>
+                <tr class="o-heading">
                   <th>--</th>
                   <th>#</th>
                   <th>Item</th>
@@ -134,7 +134,7 @@
                 @if ($saleQuotation)
                   @if (count($saleQuotation->saleQuotationItems) > 0)
                     @foreach ($saleQuotation->saleQuotationItems as $item)
-                    <tr class="font-weight-bold">
+                    <tr>
                       @if ($saleQuotation->creation_status == 'progress')
                         <td>
                           <a href="" wire:click.prevent="confirmRemoveItemFromSaleQuotation({{ $item->sale_quotation_item_id }})">
@@ -142,7 +142,7 @@
                           </a>
                         </td>
                       @endif
-                      <td class="text-secondary"> {{ $loop->iteration }} </td>
+                      <td> {{ $loop->iteration }} </td>
                       <td>
                         <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
                         {{ $item->product->name }}
@@ -174,29 +174,31 @@
                         4
                       @endif
                       "
-                      class="font-weight-bold text-right pr-4 py-1">
+                      class="o-heading text-right pr-4 py-1">
                     <strong>
                     Subtotal
                     </strong>
                   </td>
-                  <td class="font-weight-bold py-1">
+                  <td class="o-heading py-1">
+                    {{ config('app.transaction_currency_symbol') }}
                     @php echo number_format( $saleQuotation->getTotalAmountRaw() ); @endphp
                   </td>
                 </tr>
                 @if ($saleQuotation->creation_status == 'progress')
-                <tr class="border-0 bg-success text-white p-0">
+                <tr class="border-0 bg-light text-dark p-0">
                   <td colspan="
                       @if ($saleQuotation->creation_status == 'progress')
                         5
                       @else
                         4
                       @endif"
-                      class="font-weight-bold text-right border-0 pr-4 py-2">
+                      class="o-heading text-right border-0 pr-4 py-2">
                     <strong>
                     Total
                     </strong>
                   </td>
-                  <td class="font-weight-bold border-0 py-2">
+                  <td class="o-heading border-0 py-2">
+                    {{ config('app.transaction_currency_symbol') }}
                     @php echo number_format( $saleQuotation->getTotalAmount() ); @endphp
                   </td>
                 </tr>
@@ -211,7 +213,7 @@
               @if ($saleQuotation)
                 @if (count($saleQuotation->saleQuotationItems) > 0)
                   @foreach ($saleQuotation->saleQuotationItems as $item)
-                  <tr class="font-weight-bold">
+                  <tr class="o-heading">
                     <td>
                       <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                     </td>
@@ -221,7 +223,7 @@
                       <span class="mr-3">
                         Rs @php echo number_format( $item->product->selling_price ); @endphp
                       </span>
-                      <span class="text-secondary">
+                      <span>
                         Qty: {{ $item->quantity }}
                       </span>
                     </td>

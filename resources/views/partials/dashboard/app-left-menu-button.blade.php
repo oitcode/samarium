@@ -1,4 +1,4 @@
-<div>
+<div class="mx-3">
   <a href="{{ route($btnRoute) }}"
       class="btn
         w-100 h-100 py-3 font-weight-bold text-left rounded-0
@@ -7,7 +7,7 @@
         "
       style="
         @if(Route::current()->getName() == $btnRoute)
-          background-color: rgba(0, 0, 0, 0.3);
+          background-color: rgba(100, 150, 250, 0.5);
         @else
         @endif
       "

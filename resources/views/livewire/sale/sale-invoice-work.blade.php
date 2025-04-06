@@ -28,16 +28,16 @@
             <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
               <i class="fas fa-refresh"></i>
             </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-primary" btnClickMethod="">
+            <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="">
               <i class="fas fa-envelope"></i>
               Email
             </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-success" btnClickMethod="">
+            <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="">
               <i class="fas fa-print"></i>
               Print
             </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="closeThisComponent">
-              <i class="fas fa-times"></i>
+            <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="closeThisComponent">
+              <i class="fas fa-times-circle text-danger mr-1"></i>
               Close
             </x-toolbar-button-component>
           </x-slot>

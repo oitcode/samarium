@@ -19,8 +19,8 @@
       <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="">
         <i class="fas fa-ellipsis-h"></i>
       </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="closeThisComponent">
-        <i class="fas fa-times"></i>
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="closeThisComponent">
+        <i class="fas fa-times-circle text-danger mr-1"></i>
         Close
       </x-toolbar-button-component>
     </x-slot>

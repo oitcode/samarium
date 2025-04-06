@@ -23,10 +23,13 @@
       {{ $productCategory->name }}
     </x-slot>
     <x-slot name="toolbarButtons">
+      @if (env('APP_DEBUG') == true)
       <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
       </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="closeThisComponent">
+      @endif
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="closeThisComponent">
+        <i class="fas fa-times-circle text-danger mr-1"></i>
         Close
       </x-toolbar-button-component>
     </x-slot>

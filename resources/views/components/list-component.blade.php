@@ -17,7 +17,7 @@
 <div class="table-responsive p-2 bg-white border ">
   <table class="table table-hover shadow-sm border mb-0">
     <thead>
-      <tr class="{{ config('app.app_menu_bg_color') }} {{ config('app.app_menu_normal_button_text_color') }} p-4 o-heading">
+      <tr class="{{ config('app.app_menu_bg_color') }}-rm {{ config('app.app_menu_normal_button_text_color') }}-rm bg-light text-dark p-4 o-heading">
         {{ $listHeadingRow }}
       </tr>
     </thead>

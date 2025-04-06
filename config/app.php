@@ -58,7 +58,7 @@ return [
     'app_menu_bg_color'                   => 'bg-dark',
 
     'app_top_menu_bg_color'               => 'bg-white',
-    'app_top_menu_text_color'             => 'text-dark',
+    'app_top_menu_text_color'             => 'text-primary',
 
     /*
     |--------------------------------------------------------------------------
@@ -71,6 +71,28 @@ return [
 
     'transaction_currency' => 'US Dollar',
     'transaction_currency_symbol' => '$',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Footer blade file path
+    |--------------------------------------------------------------------------
+    |
+    | Specifiy the blade file for footer of website.
+    |
+    */
+
+    'footer_blade_file' => 'partials.cms.footer',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Ecommerce options
+    |--------------------------------------------------------------------------
+    |
+    | Specifiy various ecommerce options of the website.
+    |
+    */
+
+    'cart_enabled' => false,
 
     /*
     |--------------------------------------------------------------------------

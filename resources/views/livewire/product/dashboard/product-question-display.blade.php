@@ -16,8 +16,8 @@
       <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
         <i class="fas fa-refresh"></i>
       </x-toolbar-button-component>
-      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('exitProductQuestionDisplay')">
-        <i class="fas fa-times"></i>
+      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$dispatch('exitProductQuestionDisplay')">
+        <i class="fas fa-times-circle text-danger mr-1"></i>
         Close
       </x-toolbar-button-component>
     </x-slot>
