@@ -77,15 +77,12 @@
             @endif
           </td>
           <td class="text-right">
-            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
-              <i class="fas fa-pencil-alt"></i>
-            </button>
-            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayPost', { post: {{ $post }} })">
-              <i class="fas fa-eye"></i>
-            </button>
-            <button class="btn btn-danger px-2 py-1" wire:click="deletePost({{ $post }})">
-              <i class="fas fa-trash"></i>
-            </button>
+            <x-list-edit-button-component clickMethod="$dispatch('displayPost', { postId: {{ $post->webpage_id }} })">
+            </x-list-edit-button-component>
+            <x-list-view-button-component clickMethod="$dispatch('displayPost', { postId: {{ $post->webpage_id }} })">
+            </x-list-view-button-component>
+            <x-list-delete-button-component clickMethod="deleteWebpage({{ $post }})">
+            </x-list-delete-button-component>
             @if ($modes['delete'])
               @if ($deletingPost->webpage_id == $post->webpage_id)
                 <span class="btn btn-danger mr-3" wire:click="confirmDeletePost">

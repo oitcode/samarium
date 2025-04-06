@@ -83,7 +83,7 @@
               @else
                 <tr>
                   <td colspan="6">
-                    <p class="font-weight-bold h4 py-4 text-center" style="color: #fe8d01;">
+                    <p class="font-weight-bold h6 py-4 text-center text-secondary" style="color: #fe8d01;">
                       <i class="fas fa-exclamation-circle mr-2"></i>
                       No product added to inventory tracking.
                     <p>

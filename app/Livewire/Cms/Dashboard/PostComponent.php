@@ -42,9 +42,9 @@ class PostComponent extends Component
         $this->exitMode('createPostMode');
     }
 
-    public function displayPost(Webpage $post): void
+    public function displayPost(int $postId): void
     {
-        $this->displayingPost = $post;
+        $this->displayingPost = Webpage::find($postId);
         $this->enterMode('displayPostMode');
     }
 

@@ -116,15 +116,12 @@
             @endif
           </td>
           <td class="text-right">
-              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayContactMessage', { contactMessage: {{ $contactMessage }} })">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayContactMessage', { contactMessage: {{ $contactMessage }} })">
-                <i class="fas fa-eye"></i>
-              </button>
-              <button class="btn btn-danger px-2 py-1" wire:click="deleteContactMessage({{ $contactMessage }})">
-                <i class="fas fa-trash"></i>
-              </button>
+              <x-list-edit-button-component clickMethod="$dispatch('displayContactMessage', { contactMessageId: {{ $contactMessage->contact_message_id }} })">
+              </x-list-edit-button-component>
+              <x-list-view-button-component clickMethod="$dispatch('displayContactMessage', { contactMessageId: {{ $contactMessage->contact_message_id }} })">
+              </x-list-view-button-component>
+              <x-list-delete-button-component clickMethod="deleteContactMessage({{ $contactMessage }})">
+              </x-list-delete-button-component>
               @if ($modes['deleteContactMessageMode'])
                 @if ($deletingContactMessage->contact_message_id == $contactMessage->contact_message_id)
                   <span class="btn btn-danger mx-3" wire:click="confirmDeleteContactMessage">

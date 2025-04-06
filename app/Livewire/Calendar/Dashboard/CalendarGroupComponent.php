@@ -42,9 +42,9 @@ class CalendarGroupComponent extends Component
         $this->exitMode('createCalendarGroupMode');
     }
 
-    public function displayCalendarGroup(CalendarGroup $calendarGroup): void
+    public function displayCalendarGroup(int $calendarGroupId): void
     {
-        $this->displayingCalendarGroup = $calendarGroup;
+        $this->displayingCalendarGroup = CalendarGroup::find($calendarGroupId);
         $this->enterMode('displayCalendarGroupMode');
     }
 

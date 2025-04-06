@@ -95,15 +95,12 @@
           </td>
           <td class="text-right">
             @if (true)
-              <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-              <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayExpense', {expense: {{ $expense }} })">
-                <i class="fas fa-eye"></i>
-              </button>
-              <button class="btn btn-danger px-2 py-1" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
-                <i class="fas fa-trash"></i>
-              </button>
+            <x-list-edit-button-component clickMethod="$dispatch('displayExpense', {expense: {{ $expense }} })">
+            </x-list-edit-button-component>
+            <x-list-view-button-component clickMethod="$dispatch('displayExpense', {expense: {{ $expense }} })">
+            </x-list-view-button-component>
+            <x-list-delete-button-component clickMethod="">
+            </x-list-delete-button-component>
             @endif
           </td>
         </x-table-row-component>

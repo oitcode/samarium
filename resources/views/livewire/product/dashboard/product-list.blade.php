@@ -48,13 +48,13 @@
             {{ $product->selling_price }}
           </td>
           <td class="text-right">
-            <button class="btn btn-primary d-none d-md-inline-block px-2 py-1" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
+            <button class="btn btn-light text-primary d-none d-md-inline-block px-2 py-1" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
               <i class="fas fa-pencil-alt"></i>
             </button>
-            <button class="btn btn-success d-none d-md-inline-block px-2 py-1" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
+            <button class="btn btn-light text-success d-none d-md-inline-block px-2 py-1" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
               <i class="fas fa-eye"></i>
             </button>
-            <button class="btn btn-danger d-none d-md-inline-block px-2 py-1" wire:click="">
+            <button class="btn btn-light text-danger d-none d-md-inline-block px-2 py-1" wire:click="">
               <i class="fas fa-trash"></i>
             </button>
             <div class="d-md-none">

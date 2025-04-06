@@ -29,7 +29,8 @@
           <i class="fas fa-file-excel-o mr-1"></i>
           Excel
         </x-toolbar-button-component>
-        <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="$dispatch('{{ $exitDispatchEvent }}')">
+        <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$dispatch('{{ $exitDispatchEvent }}')">
+          <i class="fas fa-times-circle text-danger mr-1"></i>
           Close
         </x-toolbar-button-component>
       </x-slot>

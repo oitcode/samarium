@@ -52,15 +52,12 @@
             @endif
           </td>
           <td class="text-right">
-            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayUser', {user: {{ $user }} })">
-              <i class="fas fa-pencil-alt"></i>
-            </button>
-            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayUser', {user: {{ $user }} })">
-              <i class="fas fa-eye"></i>
-            </button>
-            <button class="btn btn-danger px-2 py-1" wire:click="deleteUser({{ $user }})">
-              <i class="fas fa-trash"></i>
-            </button>
+            <x-list-edit-button-component clickMethod="$dispatch('displayUser', {userId: {{ $user->id }} })">
+            </x-list-edit-button-component>
+            <x-list-view-button-component clickMethod="$dispatch('displayUser', {userId: {{ $user->id }} })">
+            </x-list-view-button-component>
+            <x-list-delete-button-component clickMethod="deleteUser({{ $user }})">
+            </x-list-delete-button-component>
             @if ($modes['delete'])
               @if ($deletingUser->id == $user->id)
                 <span class="btn btn-danger mr-3" wire:click="confirmDeleteUser">

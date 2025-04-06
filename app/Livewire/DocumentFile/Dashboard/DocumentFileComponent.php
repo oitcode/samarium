@@ -55,9 +55,9 @@ class DocumentFileComponent extends Component
         $this->enterMode('pdfDisplay');
     }
 
-    public function displayDocumentFile(DocumentFile $documentFile): void
+    public function displayDocumentFile(int $documentFileId): void
     {
-        $this->displayingDocumentFile = $documentFile;
+        $this->displayingDocumentFile = DocumentFile::find($documentFileId);
         $this->enterMode('display');
     }
 

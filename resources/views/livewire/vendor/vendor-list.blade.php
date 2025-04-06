@@ -30,15 +30,12 @@
             </span>
           </td>
           <td class="text-right">
-            <button class="btn btn-primary px-2 py-1" wire:click="$dispatch('displayVendor', { vendor: {{ $vendor }} })">
-              <i class="fas fa-pencil-alt"></i>
-            </button>
-            <button class="btn btn-success px-2 py-1" wire:click="$dispatch('displayVendor', { vendor: {{ $vendor }} })">
-              <i class="fas fa-eye"></i>
-            </button>
-            <button class="btn btn-danger px-2 py-1" wire:click="">
-              <i class="fas fa-trash"></i>
-            </button>
+            <x-list-edit-button-component clickMethod="$dispatch('displayVendor', { vendorId: {{ $vendor->vendor_id }} })">
+            </x-list-edit-button-component>
+            <x-list-view-button-component clickMethod="$dispatch('displayVendor', { vendorId: {{ $vendor->vendor_id }} })">
+            </x-list-view-button-component>
+            <x-list-delete-button-component clickMethod="">
+            </x-list-delete-button-component>
           </td>
         </x-table-row-component>
       @endforeach

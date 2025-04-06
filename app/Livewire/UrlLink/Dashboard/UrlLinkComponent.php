@@ -41,9 +41,9 @@ class UrlLinkComponent extends Component
         $this->exitMode('create');
     }
 
-    public function displayUrlLink(UrlLink $urlLink): void
+    public function displayUrlLink(int $urlLinkId): void
     {
-        $this->displayingUrlLink = $urlLink;
+        $this->displayingUrlLink = UrlLink::find($urlLinkId);
         $this->enterMode('display');
     }
 

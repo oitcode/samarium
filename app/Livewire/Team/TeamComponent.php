@@ -35,9 +35,9 @@ class TeamComponent extends Component
         $this->exitMode('createMode');
     }
 
-    public function displayTeam(Team $team): void
+    public function displayTeam(int $teamId): void
     {
-        $this->displayingTeam = $team;
+        $this->displayingTeam = Team::find($teamId);
         $this->enterMode('displayMode');
     }
 

@@ -42,9 +42,9 @@ class VacancyComponent extends Component
         $this->exitMode('createMode');
     }
 
-    public function displayVacancy(Vacancy $vacancy): void
+    public function displayVacancy(int $vacancyId): void
     {
-        $this->displayingVacancy = $vacancy;
+        $this->displayingVacancy = Vacancy::find($vacancyId);
 
         $this->enterMode('displayMode');
     }

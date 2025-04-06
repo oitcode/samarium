@@ -31,9 +31,9 @@ class AppointmentComponent extends Component
         return view('livewire.appointment.dashboard.appointment-component');
     }
 
-    public function displayAppointment(Appointment $appointment): void
+    public function displayAppointment(int $appointmentId): void
     {
-        $this->displayingAppointment = $appointment;  
+        $this->displayingAppointment = Appointment::find($appointmentId);  
         $this->enterMode('displayAppointmentMode');
     }
 

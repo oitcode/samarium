@@ -10,7 +10,7 @@
     <x-slot name="toolbarInfo">
       Calendar group
       <i class="fas fa-angle-right mx-2"></i>
-      {{ $calendarGroup->calendar_group_id }}
+      {{ $calendarGroup->name }}
     </x-slot>
     <x-slot name="toolbarButtons">
       <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
@@ -30,20 +30,20 @@
   --}}
 
   <div>
-    <div class="mb-2 h5 font-weight-bold border bg-white">
+    <div class="mb-0 h5 font-weight-bold border bg-white">
       <div class="d-flex justify-content-between py-3">
         <div class="pl-3 d-flex flex-column justify-content-center o-heading">
           {{ $calendarGroup->name }}
         </div>
         <div>
-          <button class="btn btn-outline-primary mx-3" wire:click="">
+          <button class="btn btn-light mx-3" wire:click="">
             Edit
           </button>
         </div>
       </div>
     </div>
 
-    <div class="mb-2">
+    <div class="mb-0">
       <div class="row" style="margin: auto;">
         <div class="col-md-2 border p-3 bg-white o-heading">
           Calendar group ID

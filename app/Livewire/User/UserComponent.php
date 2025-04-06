@@ -41,9 +41,9 @@ class UserComponent extends Component
         $this->exitMode('createUserMode');
     }
 
-    public function displayUser(User $user): void
+    public function displayUser(int $userId): void
     {
-        $this->displayingUser = $user;
+        $this->displayingUser = User::find($userId);
         $this->enterMode('displayUserMode');
     }
 

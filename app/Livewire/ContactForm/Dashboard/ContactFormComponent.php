@@ -31,9 +31,9 @@ class ContactFormComponent extends Component
         return view('livewire.contact-form.dashboard.contact-form-component');
     }
 
-    public function displayContactMessage(ContactMessage $contactMessage): void
+    public function displayContactMessage(int $contactMessageId): void
     {
-        $this->displayingContactMessage = $contactMessage;
+        $this->displayingContactMessage = ContactMessage::find($contactMessageId);
         $this->enterMode('displayContactMessageMode');
     }
 

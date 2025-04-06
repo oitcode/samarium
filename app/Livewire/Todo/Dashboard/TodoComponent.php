@@ -72,9 +72,9 @@ class TodoComponent extends Component
         $this->exitMode('createMode');
     }
 
-    public function displayTodo(Todo $todo): void
+    public function displayTodo(int $todoId): void
     {
-        $this->displayingTodo = $todo;
+        $this->displayingTodo = Todo::find($todoId);
         $this->enterMode('displayMode');
     }
 

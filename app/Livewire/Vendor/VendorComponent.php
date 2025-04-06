@@ -41,9 +41,10 @@ class VendorComponent extends Component
         $this->exitMode('create');
     }
 
-    public function displayVendor(Vendor $vendor): void
+    public function displayVendor($vendorId): void
     {
-        $this->displayingVendor = $vendor;
+        // $this->displayingVendor = $vendor;
+        $this->displayingVendor = Vendor::find($vendorId);
 
         $this->enterMode('display');
     }

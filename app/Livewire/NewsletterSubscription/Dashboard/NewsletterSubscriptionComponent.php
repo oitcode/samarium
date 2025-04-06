@@ -31,9 +31,9 @@ class NewsletterSubscriptionComponent extends Component
         return view('livewire.newsletter-subscription.dashboard.newsletter-subscription-component');
     }
 
-    public function displayNewsletterSubscription(NewsletterSubscription $newsletterSubscription): void
+    public function displayNewsletterSubscription(int $newsletterSubscriptionId): void
     {
-        $this->displayingNewsletterSubscription = $newsletterSubscription;
+        $this->displayingNewsletterSubscription = NewsletterSubscription::find($newsletterSubscriptionId);
 
         $this->enterMode('displayMode');
     }
