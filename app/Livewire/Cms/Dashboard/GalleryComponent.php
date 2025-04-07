@@ -111,9 +111,9 @@ class GalleryComponent extends Component
         $this->displayMode = true;
     }
 
-    public function displayGallery(Gallery $gallery): void
+    public function displayGallery(int $galleryId): void
     {
-        $this->displayingGallery = $gallery;
+        $this->displayingGallery = Gallery::find($galleryId);
         $this->enterMode('displayMode');
     }
 

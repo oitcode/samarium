@@ -30,9 +30,9 @@ class ProductQuestionComponent extends Component
         return view('livewire.product.dashboard.product-question-component');
     }
 
-    public function displayProductQuestion(ProductQuestion $productQuestion): void
+    public function displayProductQuestion(int $productQuestionId): void
     {
-        $this->displayingProductQuestion = $productQuestion;
+        $this->displayingProductQuestion = ProductQuestion::find($productQuestionId);
         $this->enterMode('display');
     }
 

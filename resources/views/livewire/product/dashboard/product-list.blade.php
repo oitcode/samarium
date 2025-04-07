@@ -48,15 +48,12 @@
             {{ $product->selling_price }}
           </td>
           <td class="text-right">
-            <button class="btn btn-light text-primary d-none d-md-inline-block px-2 py-1" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
-              <i class="fas fa-pencil-alt"></i>
-            </button>
-            <button class="btn btn-light text-success d-none d-md-inline-block px-2 py-1" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
-              <i class="fas fa-eye"></i>
-            </button>
-            <button class="btn btn-light text-danger d-none d-md-inline-block px-2 py-1" wire:click="">
-              <i class="fas fa-trash"></i>
-            </button>
+            <x-list-edit-button-component clickMethod="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
+            </x-list-edit-button-component>
+            <x-list-view-button-component clickMethod="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
+            </x-list-view-button-component>
+            <x-list-delete-button-component clickMethod="">
+            </x-list-delete-button-component>
             <div class="d-md-none">
               <x-list-dropdown-component toolbarButtonDropdownId="productListProductDropdown-{{ $product->product_id }}">
                 <x-toolbar-dropdown-item-component clickMethod="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">

@@ -95,9 +95,6 @@
             @endif
           </td>
         </x-table-row-component>
-
-        {{-- Show in smaller screens --}}
-        {{-- TODO --}}
       @endforeach
     </x-slot>
 

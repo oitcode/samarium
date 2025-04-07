@@ -45,9 +45,9 @@ class ProductCategoryComponent extends Component
         $this->exitMode('create');
     }
 
-    public function displayProductCategory(ProductCategory $productCategory): void
+    public function displayProductCategory(int $productCategoryId): void
     {
-        $this->displayingProductCategory = $productCategory;
+        $this->displayingProductCategory = ProductCategory::find($productCategoryId);
 
         $this->enterMode('display');
     }

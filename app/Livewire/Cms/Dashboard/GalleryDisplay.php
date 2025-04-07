@@ -81,7 +81,7 @@ class GalleryDisplay extends Component
         }
     }
 
-    public function getPreviousImage(GalleryImage $galleryImage): void
+    public function getPreviousImage(GalleryImage $galleryImage): GalleryImage
     {
         $previousItem = $galleryImage->gallery
             ->galleryImages()->where('position', '<', $galleryImage->position)
@@ -91,7 +91,7 @@ class GalleryDisplay extends Component
         return $previousItem;
     }
 
-    public function getNextImage(GalleryImage $galleryImage): void
+    public function getNextImage(GalleryImage $galleryImage): GalleryImage
     {
         $nextItem = $galleryImage->gallery
             ->galleryImages()->where('position', '>', $galleryImage->position)
