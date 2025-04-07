@@ -95,9 +95,9 @@
           </td>
           <td class="text-right">
             @if (true)
-            <x-list-edit-button-component clickMethod="$dispatch('displayExpense', {expense: {{ $expense }} })">
+            <x-list-edit-button-component clickMethod="$dispatch('displayExpense', {expenseId: {{ $expense->expense_id }} })">
             </x-list-edit-button-component>
-            <x-list-view-button-component clickMethod="$dispatch('displayExpense', {expense: {{ $expense }} })">
+            <x-list-view-button-component clickMethod="$dispatch('displayExpense', {expenseId: {{ $expense->expense_id }} })">
             </x-list-view-button-component>
             <x-list-delete-button-component clickMethod="">
             </x-list-delete-button-component>

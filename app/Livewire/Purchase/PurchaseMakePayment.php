@@ -10,6 +10,7 @@ use App\Traits\ModesTrait;
 use App\PurchasePaymentType;
 use App\PurchasePayment;
 use App\PurchaseAdditionHeading;
+use App\SaleInvoiceAdditionHeading;
 use App\PurchaseAddition;
 
 class PurchaseMakePayment extends Component

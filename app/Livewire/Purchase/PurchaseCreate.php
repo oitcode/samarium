@@ -12,10 +12,12 @@ use App\Purchase;
 use App\PurchaseItem;
 use App\PurchasePaymentType;
 use App\PurchasePayment;
+use App\Traits\ModesTrait;
 
 class PurchaseCreate extends Component
 {
     use MiscTrait;
+    use ModesTrait;
 
     public $purchase;
     public $vendor_id;

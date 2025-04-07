@@ -12,6 +12,7 @@ use App\ExpenseCategory;
 use App\ExpensePaymentType;
 use App\ExpensePayment;
 use App\ExpenseAdditionHeading;
+use App\SaleInvoiceAdditionHeading;
 use App\ExpenseItem;
 use App\ExpenseAddition;
 use App\Vendor;

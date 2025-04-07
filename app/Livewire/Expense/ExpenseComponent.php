@@ -62,9 +62,9 @@ class ExpenseComponent extends Component
         $this->exitMode('createCategory');
     }
 
-    public function displayExpense(Expense $expense): void
+    public function displayExpense(int $expenseId): void
     {
-        $this->displayingExpense = $expense;
+        $this->displayingExpense = Expense::find($expenseId);
 
         $this->enterMode('display');
     }
