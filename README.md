@@ -14,7 +14,7 @@
 
 <hr />
 
-Open source ERP built with Laravel and Livewire.
+## Open source ERP built with Laravel and Livewire.
 
 ![screenshot](screenshots/dashboard-screenshot-1.png)
 
