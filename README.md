@@ -131,21 +131,17 @@ Below are some screenshots.
 ![screenshot](screenshots/dashboard-screenshot-1.png)
 ![screenshot](screenshots/screenshot-product-list-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
-![screenshot](screenshots/screenshot-sale-invoice-display-progress-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-display-finished-1.png)
-![screenshot](screenshots/screenshot-purchase-list-1.png)
-![screenshot](screenshots/screenshot-customer-display-1.png)
-![screenshot](screenshots/screenshot-daybook-1.png)
-![screenshot](screenshots/screenshot-page-list-1.png)
-![screenshot](screenshots/screenshot-website-homepage-1.png)
 
 ## GIFs
 
+<!--
 ![screenshot](screenshots/screenshot-gif-product-1.gif)
 
 ![screenshot](screenshots/create-webpage-1.gif)
 
 ![screenshot](screenshots/create-post-1.gif)
+-->
 
 ## Configuration
 
