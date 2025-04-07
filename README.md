@@ -16,6 +16,8 @@
 
 Open source ERP built with Laravel and Livewire.
 
+![screenshot](screenshots/dashboard-screenshot-1.png)
+
 ## Features
 
 Feature | Description
@@ -32,7 +34,6 @@ Newsletter subscription | Get newsletter subscription request from website visit
 Task Manager | Create and manage tasks.
 Users  | Create and manage users.
 
-![screenshot](screenshots/dashboard-screenshot-1.png)
 
 ## Installation
 
@@ -133,9 +134,9 @@ Below are some screenshots.
 ![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-display-finished-1.png)
 
+<!--
 ## GIFs
 
-<!--
 ![screenshot](screenshots/screenshot-gif-product-1.gif)
 
 ![screenshot](screenshots/create-webpage-1.gif)
