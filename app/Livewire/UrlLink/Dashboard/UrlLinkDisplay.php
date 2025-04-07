@@ -26,7 +26,7 @@ class UrlLinkDisplay extends Component
         'urlLinkEditUserGroupCompleted',
     ];
 
-    public function render(): View
+    public function render(): mixed
     {
         if (Gate::allows('view-url-link', $this->urlLink)) {
             return view('livewire.url-link.dashboard.url-link-display');

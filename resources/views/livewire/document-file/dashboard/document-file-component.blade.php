@@ -11,18 +11,20 @@
     <x-slot name="toolbar">
       @include ('partials.dashboard.spinner-button')
 
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('create')",
-          'btnIconFaClass' => 'fas fa-plus-circle',
-          'btnText' => 'Create',
-          'btnCheckMode' => 'create',
-      ])
+      @if (! array_search(true, $modes) || $modes['list'])
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('create')",
+            'btnIconFaClass' => 'fas fa-plus-circle',
+            'btnText' => 'Create',
+            'btnCheckMode' => 'create',
+        ])
 
-      <x-toolbar-dropdown-component toolbarButtonDropdownId="documentFileToolbarDropdown">
-        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
-          Search
-        </x-toolbar-dropdown-item-component>
-      </x-toolbar-dropdown-button>
+        <x-toolbar-dropdown-component toolbarButtonDropdownId="documentFileToolbarDropdown">
+          <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+            Search
+          </x-toolbar-dropdown-item-component>
+        </x-toolbar-dropdown-button>
+      @endif
     </x-slot>
 
     <div>

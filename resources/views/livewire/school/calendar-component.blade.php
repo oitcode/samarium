@@ -20,11 +20,13 @@
         ])
       @endif
 
-      <x-toolbar-dropdown-component toolbarButtonDropdownId="calendarToolbarDropdown">
-        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
-          Search
-        </x-toolbar-dropdown-item-component>
-      </x-toolbar-dropdown-button>
+      @if (! array_search(true, $modes))
+        <x-toolbar-dropdown-component toolbarButtonDropdownId="calendarToolbarDropdown">
+          <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+            Search
+          </x-toolbar-dropdown-item-component>
+        </x-toolbar-dropdown-button>
+      @endif
     </x-slot>
 
     <div>

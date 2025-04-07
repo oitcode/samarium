@@ -29,7 +29,7 @@ class DocumentFileController extends Controller
         return view('dashboard.document-file');
     }
 
-    public function pdfDisplayFile($documentFileId): View
+    public function pdfDisplayFile($documentFileId): mixed
     {
         $documentFile = DocumentFile::find($documentFileId);
 

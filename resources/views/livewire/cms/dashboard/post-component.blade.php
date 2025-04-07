@@ -20,14 +20,16 @@
       ])
       @endif
 
-      <x-toolbar-dropdown-component toolbarButtonDropdownId="postToolbarDropdown">
-        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
-          Search
-        </x-toolbar-dropdown-item-component>
-        <x-toolbar-dropdown-item-component clickMethod="enterMode('createPostCategoryMode')">
-          Create post category
-        </x-toolbar-dropdown-item-component>
-      </x-toolbar-dropdown-button>
+      @if ($modes['listPostMode'] || !array_search(true, $modes))
+        <x-toolbar-dropdown-component toolbarButtonDropdownId="postToolbarDropdown">
+          <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+            Search
+          </x-toolbar-dropdown-item-component>
+          <x-toolbar-dropdown-item-component clickMethod="enterMode('createPostCategoryMode')">
+            Create post category
+          </x-toolbar-dropdown-item-component>
+        </x-toolbar-dropdown-button>
+      @endif
     </x-slot>
 
     <div>

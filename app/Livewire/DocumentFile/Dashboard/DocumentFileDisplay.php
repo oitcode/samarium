@@ -28,7 +28,7 @@ class DocumentFileDisplay extends Component
         'documentFileEditUserGroupCompleted',
     ];
 
-    public function render(): View
+    public function render(): mixed
     {
         if (Gate::allows('view-document-file', $this->documentFile)) {
             return view('livewire.document-file.dashboard.document-file-display');

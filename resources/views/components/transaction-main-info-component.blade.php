@@ -1,4 +1,4 @@
-<div class="row p-0 mb-2 py-2 bg-white" style="margin: auto;">
+<div class="row p-0 mb-2-rm py-2 bg-white" style="margin: auto;">
 
   <div class="col-md-3">
     <div class="mb-1 h6 o-heading">

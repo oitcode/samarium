@@ -11,20 +11,22 @@
     <x-slot name="toolbar">
       @include ('partials.dashboard.spinner-button')
 
-      @if (! $modes['displayMode'] || ! array_search(true, $modes))
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('createMode')",
-          'btnIconFaClass' => 'fas fa-plus-circle',
-          'btnText' => 'Create',
-          'btnCheckMode' => 'createMode',
-      ])
+      @if ($modes['listMode'] || !array_search(true, $modes))
+        @include ('partials.dashboard.tool-bar-button-pill', [
+            'btnClickMethod' => "enterMode('createMode')",
+            'btnIconFaClass' => 'fas fa-plus-circle',
+            'btnText' => 'Create',
+            'btnCheckMode' => 'createMode',
+        ])
       @endif
 
-      <x-toolbar-dropdown-component toolbarButtonDropdownId="postToolbarDropdown">
-        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
-          Search
-        </x-toolbar-dropdown-item-component>
-      </x-toolbar-dropdown-button>
+      @if ($modes['listMode'] || !array_search(true, $modes))
+        <x-toolbar-dropdown-component toolbarButtonDropdownId="postToolbarDropdown">
+          <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+            Search
+          </x-toolbar-dropdown-item-component>
+        </x-toolbar-dropdown-button>
+      @endif
     </x-slot>
 
     <div>

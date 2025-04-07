@@ -13,7 +13,7 @@
         Add feature heading
       </button>
 
-      <button class="btn btn-primary"
+      <button class="btn btn-light"
           style="min-width: 200px;"
           wire:click="enterMode('updateProductAddProductFeatureMode')">
         <i class="fas fa-plus-circle mr-1"></i>

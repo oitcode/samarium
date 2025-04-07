@@ -13,7 +13,7 @@
         Add specification heading
       </button>
 
-      <button class="btn btn-primary"
+      <button class="btn btn-light"
           style="min-width: 200px;"
           wire:click="enterMode('updateProductAddProductSpecificationMode')">
         <i class="fas fa-plus-circle mr-1"></i>
@@ -61,16 +61,20 @@
                     @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       @livewire ('product.dashboard.product-specification-keyword-edit', ['productSpecification' => $productSpecification,])
                     @else
-                      {{ $productSpecification->spec_heading}}
-                      <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>
+                      <div class="d-flex justify-content-between">
+                        {{ $productSpecification->spec_heading}}
+                        <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
+                          <i class="fas fa-edit text-muted"></i>
+                        </button>
+                      </div>
                     @endif
                   @else
-                    {{ $productSpecification->spec_heading}}
-                    <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    <div class="d-flex justify-content-between">
+                      {{ $productSpecification->spec_heading}}
+                      <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
+                        <i class="fas fa-edit text-muted"></i>
+                      </button>
+                    </div>
                   @endif
                 </th>
                 <td class="border-dark-rm" style="width: 200px;">
@@ -78,19 +82,23 @@
                     @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       @livewire ('product.dashboard.product-specification-value-edit', ['productSpecification' => $productSpecification,])
                     @else
-                      {{ $productSpecification->spec_value }}
-                      <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>
+                      <div class="d-flex justify-content-between">
+                        {{ $productSpecification->spec_value }}
+                        <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
+                          <i class="fas fa-edit text-muted"></i>
+                        </button>
+                      </div>
                     @endif
                   @else
-                    {{ $productSpecification->spec_value }}
-                    <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    <div class="d-flex justify-content-between">
+                      {{ $productSpecification->spec_value }}
+                      <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
+                        <i class="fas fa-edit text-muted"></i>
+                      </button>
+                    </div>
                   @endif
                 </td>
-                <td class="border-dark-rm" style="width: 200px;">
+                <td class="border-dark-rm text-right" style="width: 200px;">
                   @if ($modes['deleteProductSpecificationMode'])
                     @if ($deletingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       <button class="btn btn-danger" wire:click="confirmDeleteProductSpecification({{ $productSpecification }})">
@@ -135,16 +143,20 @@
                     @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       @livewire ('product.dashboard.product-specification-keyword-edit', ['productSpecification' => $productSpecification,])
                     @else
-                      {{ $productSpecification->spec_heading}}
-                      <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>
+                      <div class="d-flex justify-content-between">
+                        {{ $productSpecification->spec_heading}}
+                        <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
+                          <i class="fas fa-edit text-muted"></i>
+                        </button>
+                      </div>
                     @endif
                   @else
-                    {{ $productSpecification->spec_heading}}
-                    <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    <div class="d-flex justify-content-between">
+                      {{ $productSpecification->spec_heading}}
+                      <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
+                        <i class="fas fa-edit text-muted"></i>
+                      </button>
+                    </div>
                   @endif
                 </th>
                 <td class="border-dark-rm" style="width: 200px;">
@@ -152,19 +164,23 @@
                     @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       @livewire ('product.dashboard.product-specification-value-edit', ['productSpecification' => $productSpecification,])
                     @else
-                      {{ $productSpecification->spec_value }}
-                      <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>
+                      <div class="d-flex justify-content-between">
+                        {{ $productSpecification->spec_value }}
+                        <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
+                          <i class="fas fa-edit text-muted"></i>
+                        </button>
+                      </div>
                     @endif
                   @else
-                    {{ $productSpecification->spec_value }}
-                    <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    <div class="d-flex justify-content-between">
+                      {{ $productSpecification->spec_value }}
+                      <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
+                        <i class="fas fa-edit text-muted"></i>
+                      </button>
+                    </div>
                   @endif
                 </td>
-                <td class="border-dark-rm" style="width: 200px;">
+                <td class="border-dark-rm text-right" style="width: 200px;">
                   @if ($modes['deleteProductSpecificationMode'])
                     @if ($deletingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       <button class="btn btn-danger" wire:click="confirmDeleteProductSpecification({{ $productSpecification }})">

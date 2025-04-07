@@ -1,4 +1,4 @@
-<div>
+<div class="p-3 bg-white">
 
   {{--
      |
@@ -17,7 +17,7 @@
      | Show in bigger screen
      |
   --}}
-  <div class="mb-2 border shadow-sm d-none d-md-block">
+  <div class="mb-2-rm border shadow-sm-rm d-none d-md-block">
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
@@ -52,9 +52,9 @@
         </thead>
         <tbody>
           <tr class="p-0 font-weight-bold" style="height: 50px;">
-            <td class="h-100 bg-white p-0">
-              <input class="m-0 w-100 h-100 border-0 py-2" type="text" style="background-color: #afa;"
-                  wire:model="add_item_name" wire:keydown.enter="updateProductList"/>
+            <td class="h-100 bg-white p-2-rm p-0">
+              <input class="form-control m-0 w-100 h-100 border-0-rm py-2" type="text" style="background-color: #fff;"
+                  wire:model="add_item_name" wire:keydown.enter="updateProductList" autofocus/>
             </td>
             @if (false)
             <td class="p-0 h-100">

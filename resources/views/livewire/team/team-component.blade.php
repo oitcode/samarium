@@ -29,11 +29,13 @@
         ])
       @endif
 
-      <x-toolbar-dropdown-component toolbarButtonDropdownId="teamToolbarDropdown">
-        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
-          Search
-        </x-toolbar-dropdown-item-component>
-      </x-toolbar-dropdown-button>
+      @if (! array_search(true, $modes) || $modes['listMode'])
+        <x-toolbar-dropdown-component toolbarButtonDropdownId="teamToolbarDropdown">
+          <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+            Search
+          </x-toolbar-dropdown-item-component>
+        </x-toolbar-dropdown-button>
+      @endif
     </x-slot>
 
     <div>

@@ -11,11 +11,13 @@
     <x-slot name="toolbar">
       @include ('partials.dashboard.spinner-button')
 
-      <x-toolbar-dropdown-component toolbarButtonDropdownId="newsletterSubscriptionToolbarDropdown">
-        <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
-          Search
-        </x-toolbar-dropdown-item-component>
-      </x-toolbar-dropdown-button>
+      @if (! array_search(true, $modes) || $modes['listMode'])
+        <x-toolbar-dropdown-component toolbarButtonDropdownId="newsletterSubscriptionToolbarDropdown">
+          <x-toolbar-dropdown-item-component clickMethod="enterMode('search')">
+            Search
+          </x-toolbar-dropdown-item-component>
+        </x-toolbar-dropdown-button>
+      @endif
     </x-slot>
 
     <div>

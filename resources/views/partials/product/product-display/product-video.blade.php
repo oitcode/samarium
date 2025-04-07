@@ -9,7 +9,7 @@
         </span>
       </button>
 
-      <button class="btn btn-primary m-0 border"
+      <button class="btn btn-light m-0 border"
           style="min-width: 200px;"
           wire:click="enterMode('updateProductVideoMode')">
         <i class="fas fa-plus-circle mr-1"></i>

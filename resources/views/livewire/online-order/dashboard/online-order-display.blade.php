@@ -93,13 +93,13 @@
                 </td>
                 <td>
                   @if ($websiteOrder->status == 'new')
-                    <button class="btn btn-success mr-3" wire:click="acceptOrder">
-                      <i class="fas fa-check-circle mr-2"></i>
+                    <button class="btn btn-light mr-3" wire:click="acceptOrder">
+                      <i class="fas fa-check-circle text-success mr-2"></i>
                       Accept
                     </button>
 
-                    <button class="btn btn-danger mr-3" wire:click="rejectOrder">
-                      <i class="fas fa-times-circle mr-2"></i>
+                    <button class="btn btn-light mr-3" wire:click="rejectOrder">
+                      <i class="fas fa-times-circle text-danger mr-2"></i>
                       Reject
                     </button>
                   @elseif ($websiteOrder->status == 'open')

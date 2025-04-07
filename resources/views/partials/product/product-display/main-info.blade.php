@@ -1,4 +1,4 @@
-<div class="p-3 bg-white">
+<div class="p-1 bg-white">
   <div class="row" style="margin: auto;">
     <div class="col-md-9">
       <div class="row bg-white py-0 pt-3 border-bottom-rm" style="margin: auto;">
@@ -20,14 +20,14 @@
           @endif
         </div>
         <div class="col-md-6 text-right">
-          <button class="btn btn-listh text-primary" wire:click="enterMode('updateProductNameMode')">
-            <i class="fas fa-pencil-alt mr-1"></i>
+          <button class="btn btn-light " wire:click="enterMode('updateProductNameMode')">
+            <i class="fas fa-edit text-muted mr-1"></i>
           </button>
         </div>
       </div>
 
-      <div class="row bg-white py-3 my-3 border rounded" style="margin: auto;">
-        <div class="col-md-3 o-heading">
+      <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
+        <div class="col-md-3 o-heading p-0">
           Category
         </div>
         <div class="col-md-6">
@@ -42,14 +42,14 @@
           @endif
         </div>
         <div class="col-md-3 text-right">
-          <button class="btn btn-listh text-primary" wire:click="enterMode('updateProductCategoryMode')">
-            <i class="fas fa-pencil-alt mr-1"></i>
+          <button class="btn btn-light " wire:click="enterMode('updateProductCategoryMode')">
+            <i class="fas fa-edit text-muted mr-1"></i>
           </button>
         </div>
       </div>
 
-      <div class="row bg-white py-3 my-3 border rounded" style="margin: auto;">
-        <div class="col-md-3 o-heading">
+      <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
+        <div class="col-md-3 o-heading p-0">
           Description
         </div>
         <div class="col-md-6">
@@ -62,14 +62,14 @@
           @endif
         </div>
         <div class="col-md-3 text-right">
-          <button class="btn btn-listh text-primary" wire:click="enterMode('updateProductDescriptionMode')">
-            <i class="fas fa-pencil-alt mr-1"></i>
+          <button class="btn btn-light " wire:click="enterMode('updateProductDescriptionMode')">
+            <i class="fas fa-edit text-muted mr-1"></i>
           </button>
         </div>
       </div>
 
-      <div class="row bg-white py-3 my-3 border rounded" style="margin: auto;">
-        <div class="col-md-3 o-heading">
+      <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
+        <div class="col-md-3 o-heading p-0">
           Price
         </div>
         <div class="col-md-6">
@@ -83,8 +83,8 @@
           @endif
         </div>
         <div class="col-md-3 text-right">
-          <button class="btn btn-listh text-primary" wire:click="enterMode('updateProductPriceMode')">
-            <i class="fas fa-pencil-alt mr-1"></i>
+          <button class="btn btn-light " wire:click="enterMode('updateProductPriceMode')">
+            <i class="fas fa-edit text-muted mr-1"></i>
           </button>
         </div>
       </div>
@@ -114,14 +114,14 @@
       </div>
 
       {{-- Product image --}}
-      <div class="mb-2 bg-white border p-3 h-100">
+      <div class="mb-2 bg-white border-rm p-3 h-100">
         <div class="d-flex justify-content-between">
           <div class="o-heading">
             Image
           </div>
           <div>
-            <button class="btn btn-listh text-primary" wire:click="enterMode('updateProductImageMode')">
-              <i class="fas fa-pencil-alt mr-1"></i>
+            <button class="btn btn-light " wire:click="enterMode('updateProductImageMode')">
+              <i class="fas fa-edit text-muted mr-1"></i>
             </button>
           </div>
         </div>

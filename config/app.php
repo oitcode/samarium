@@ -58,7 +58,7 @@ return [
     'app_menu_bg_color'                   => 'bg-dark',
 
     'app_top_menu_bg_color'               => 'bg-white',
-    'app_top_menu_text_color'             => 'text-primary',
+    'app_top_menu_text_color'             => 'text-dark',
 
     /*
     |--------------------------------------------------------------------------

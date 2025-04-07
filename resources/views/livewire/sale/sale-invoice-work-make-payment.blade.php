@@ -157,7 +157,7 @@
     </div>
   </div>
 
-  <div class="mt-2 p-3 bg-light">
+  <div class="mt-2-rm p-3 bg-light">
     <div class="d-flex justify-content-between">
       <div class="d-flex flex-column justify-content-center">
         <h2 class="h4 o-heading pl-2">
