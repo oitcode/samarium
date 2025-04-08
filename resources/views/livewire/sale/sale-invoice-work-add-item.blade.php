@@ -1,4 +1,4 @@
-<div class="p-3 bg-white">
+<div>
 
   {{--
      |
@@ -17,7 +17,7 @@
      | Show in bigger screen
      |
   --}}
-  <div class="mb-2-rm border shadow-sm-rm d-none d-md-block">
+  <div class="mb-2 border shadow-sm-rm d-none d-md-block">
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
         <thead>
@@ -54,7 +54,7 @@
           <tr class="p-0 font-weight-bold" style="height: 50px;">
             <td class="h-100 bg-white p-2-rm p-0">
               <input class="form-control m-0 w-100 h-100 border-0-rm py-2" type="text" style="background-color: #fff;"
-                  wire:model="add_item_name" wire:keydown.enter="updateProductList" autofocus/>
+                  wire:model="add_item_name" wire:keydown.enter="updateProductList" placeholder="Search by product name" autofocus/>
             </td>
             @if (false)
             <td class="p-0 h-100">
@@ -133,7 +133,7 @@
   </div>
   
   @if ($modes['productSelected'])
-    <div class="d-flex justify-content-between border p-3 bg-white" wire:key="{{ rand() }}">
+    <div class="d-flex justify-content-between border p-3 bg-white mb-2" wire:key="{{ rand() }}">
       <div>
         <div class="o-heading">
           Product:
