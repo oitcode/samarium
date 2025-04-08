@@ -180,10 +180,6 @@ Improve documentation | You can help by improving the documentation.
 
 If you find any issue in this application, you can help by raising an issue here in our github repo.
 
-## Support
-
-Please star this repository to show your support if you find this project useful and/or interesting.
-
 ## License
 
 [MIT license](https://opensource.org/licenses/MIT)
