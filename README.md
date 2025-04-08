@@ -16,7 +16,7 @@
 
 ## Open source ERP built with Laravel and Livewire.
 
-![screenshot](screenshots/dashboard-screenshot-1.png)
+![screenshot](screenshots/screenshot-sale-invoice-create-1.gif)
 
 ## Features
 
