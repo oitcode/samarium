@@ -11,6 +11,7 @@ class CustomerSearch extends Component
     public $customer_search_name;
 
     public $customers;
+    public $searchDone = false;
 
     public function render(): View
     {
@@ -26,5 +27,7 @@ class CustomerSearch extends Component
         $customers = Customer::where('name', 'like', '%'.$validatedData['customer_search_name'].'%')->get();
 
         $this->customers = $customers;
+
+        $this->searchDone = true;
     }
 }

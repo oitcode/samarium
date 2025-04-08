@@ -11,6 +11,7 @@ class VendorSearch extends Component
     public $vendor_search_name;
 
     public $vendors;
+    public $searchDone;
 
     public function render(): View
     {
@@ -26,5 +27,7 @@ class VendorSearch extends Component
         $vendors = Vendor::where('name', 'like', '%'.$validatedData['vendor_search_name'].'%')->get();
 
         $this->vendors = $vendors;
+
+        $this->searchDone = true;
     }
 }

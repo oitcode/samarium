@@ -2,8 +2,8 @@
 
   <div class="bg-white border p-3 mb-4">
     <div class="mb-4">
-      <h1 class="h5 font-weight-bold">
-        Vendor search
+      <h1 class="h6 o-heading">
+        Customer search
       </h1>
     </div>
     <div class="my-4">
@@ -18,31 +18,57 @@
     </div>
   </div>
 
-  {{-- Show search results --}}
-  @if ($vendors != null && count($vendors) > 0)
-    <div class="bg-white border p-3">
-      @foreach ($vendors as $vendor)
-        <div class="row py-3">
-          <div class="col-md-2">
-            @if ($vendor->image_path)
-              <img src="{{ asset('storage/' . $product->image_path) }}" class="mr-3" style="width: 35px; height: 35px;">
-            @else
-              <i class="fas fa-dice-d6 fa-2x text-secondary" style="width: 35px; height: 35px;"></i>
-            @endif
-          </div>
-          <div class="col-md-4" wire:click="$dispatch('displayVendor', {vendor: {{ $vendor->vendor_id }} })" role="button">
-            <strong>
+  @if ($searchDone)
+  <x-list-component>
+    <x-slot name="listInfo">
+      Total: {{ count($vendors) }}
+    </x-slot>
+
+    <x-slot name="listHeadingRow">
+      <th>
+        Customer ID
+      </th>
+      <th>
+        Customer
+      </th>
+      <th class="text-right">
+        Action
+      </th>
+    </x-slot>
+
+    <x-slot name="listBody">
+      @if ($vendors != null && count($vendors) > 0)
+        @foreach ($vendors as $vendor)
+          <x-table-row-component wire:key="{{ $vendor->vendor_id }}">
+            <td>
+              {{ $vendor->vendor_id }}
+            </td>
+            <td class="h6">
               {{ $vendor->name }}
-            </strong>
-          </div>
-        </div>
-      @endforeach
-    </div>
-  @else
-    <div class="bg-white border p-3">
-      <i class="fas fa-exclamantion-circle mr-1"></i>
-      No match found.
-    </div>
+            </td>
+            <td class="text-right">
+              <x-list-edit-button-component clickMethod="$dispatch('displayVendor', { vendorId : {{ $vendor->vendor_id }} })">
+              </x-list-edit-button-component>
+              <x-list-view-button-component clickMethod="$dispatch('displayVendor', { vendorId : {{ $vendor->vendor_id }} })">
+              </x-list-view-button-component>
+              <x-list-delete-button-component clickMethod="">
+              </x-list-delete-button-component>
+            </td>
+          </x-table-row-component>
+        @endforeach
+      @else
+        <td>
+          No results
+        </td>
+      @endif
+    </x-slot>
+
+    <x-slot name="listPaginationLinks">
+    @if (false)
+      {{ $products->links() }}
+    @endif
+    </x-slot>
+  </x-list-component>
   @endif
 
 </div>

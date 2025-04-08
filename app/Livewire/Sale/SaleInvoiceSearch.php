@@ -11,6 +11,7 @@ class SaleInvoiceSearch extends Component
     public $saleInvoice;
 
     public $search_sale_invoice_id;
+    public $search_customer_name;
 
     public function render(): View
     {

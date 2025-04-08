@@ -11,6 +11,7 @@ class PurchaseSearch extends Component
     public $vendor_search_name;
 
     public $purchases;
+    public $searchDone = false;
 
     public function render(): View
     {
@@ -28,5 +29,8 @@ class PurchaseSearch extends Component
         })->orderBy('purchase_id', 'desc')->get();
 
         $this->purchases = $purchases;
+
+        $this->searchDone = true;
     }
+
 }
