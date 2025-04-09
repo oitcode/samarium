@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CmsNavMenuSeeder::class);
         $this->call(CmsThemeSeeder::class);
         $this->call(AccountingSeeder::class);
+        $this->call(PaymentTypesSeeder::class);
         $this->call(TeamSeeder::class);
     }
 }

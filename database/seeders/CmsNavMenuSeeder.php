@@ -39,7 +39,7 @@ class CmsNavMenuSeeder extends Seeder
             'cms_nav_menu_id' => $cmsNavMenuId,
             'order' => 2,
             'type' => 'item',
-            'webpage_id' => $aboutUsWebpage->webpage_id,
+            'webpage_id' => $productsWebpage->webpage_id,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
