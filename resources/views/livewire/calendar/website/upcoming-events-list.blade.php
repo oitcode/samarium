@@ -134,7 +134,7 @@
     </div>
   @endif
 
-  <div class="my-3 py-3">
+  <div class="my-3">
     <a href="./calendar">
       Visit calendar
       <i class="fas fa-link ml-2"></i>

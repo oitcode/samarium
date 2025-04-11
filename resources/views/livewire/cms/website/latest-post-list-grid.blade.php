@@ -5,7 +5,7 @@
     </h2>
     <hr class="mb-4" width="10%" style="border: 3px solid black; margin: 0 0;"/>
 
-    @if (false && count($webpages) > 0)
+    @if (count($webpages) > 0)
       <div class="row p-2-rm" style="margin: auto;">
           @foreach ($webpages as $webpage)
             <div class="col-md-6 p3 mb-0 pl-0 pb-3">

@@ -11,7 +11,7 @@
 
   <div class="table-responsive border-rm">
     <table class="table mb-0">
-      @if (false && $notices != null && count($notices) > 0)
+      @if ($notices != null && count($notices) > 0)
         @foreach ($notices as $notice) 
         <tr class="border-bottom-rm border-0-rm">
           <td class="border-0 border-bottom-danger p-0 py-2">

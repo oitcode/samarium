@@ -87,7 +87,7 @@
         </div>
       @endif
 
-      <div class="@if ($onlyForm == 'yes') col-md-12 @else col-md-6 @endif bg-white-rm border-rm p-0 rounded px-3 px-md-0">
+      <div class="@if ($onlyForm == 'yes') col-md-12 @else col-md-6 @endif bg-white-rm border-rm p-0 rounded px-3-rm px-md-0-rm">
         <div>
           <h2 class="h5 o-heading py-3">
             Send us a message
