@@ -43,13 +43,22 @@
     {{-- TODO: Need a better implementation --}}
     @livewire ('carousal-component')
   @endif
+
+  {{--
+  |
+  | Product filter.
+  |
+  --}}
+  @livewire ('product.website.product-filter')
+
+  @include ('partials.cms.website.company-info')
   
   {{--
   |
   | HFN.
   |
   --}}
-  @if (has_module('hfn'))
+  @if (false && has_module('hfn'))
     <div class="container-fluid p-0 o-fade-in" style="
     @if($cmsTheme)
       background-color: {{ $cmsTheme->ascent_bg_color }};
@@ -113,6 +122,26 @@
       </div>
     </div>
   @endif
+
+  {{--
+  |
+  | Featured products.
+  |
+  --}}
+  @if (false)
+  @livewire ('product.website.featured-product-list')
+
+  {{--
+  |
+  | Product listing.
+  |
+  --}}
+  <div class="container">
+    @foreach (\App\Product::limit(5)->get() as $product)
+      @livewire ('product.website.product-listing-display', ['product' => $product,], key(rand()),)
+    @endforeach                                                                                                                                      
+  </div>
+  @endif
   
   {{--
   |
@@ -122,7 +151,7 @@
   <div class="container-fluid bg-white border pt-4 pb-4">
     <div class="container">
       <div class="row" style="margin: auto;">
-        <div class="col-md-8 border p-0">
+        <div class="col-md-8 border-rm p-0">
           @livewire ('calendar.website.upcoming-events-list')
         </div>
         <div class="col-md-4 pt-4 pt-md-0 px-0 px-md-3">
@@ -137,6 +166,7 @@
   | Show a cool grid of featured webpages
   |
   --}}
+  @if ($featuredWebpages != null && count($featuredWebpages) > 0)
   <div class="container pt-3">
     <div class="row mb-4" style="margin: auto;">
       <div class="col-md-8 p-0 border">
@@ -172,13 +202,14 @@
       </div>
     </div>
   </div>
+  @endif
 
   {{--
   |
   | Latest post list and contact form.
   |
   --}}
-  <div class="container pb-4">
+  <div class="container py-4">
     <div class="row" style="margin: auto;">
       <div class="col-md-8">
         @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
