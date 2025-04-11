@@ -11,7 +11,7 @@
 
   <div class="table-responsive border-rm">
     <table class="table mb-0">
-      @if ($notices != null && count($notices) > 0)
+      @if (false && $notices != null && count($notices) > 0)
         @foreach ($notices as $notice) 
         <tr class="border-bottom-rm border-0-rm">
           <td class="border-0 border-bottom-danger p-0 py-2">
@@ -32,9 +32,9 @@
         </tr>
         @endforeach
       @else
-        <tr>
-          <td class="text-muted">
-             <div class="h5 font-weight-bold" style="color: orange;">
+        <tr class="border-0">
+          <td class="text-muted p-0 py-2 border-0">
+             <div class="h6">
                <i class="fas fa-exclamation-circle mr-1"></i>
                No notice.
              </div>
@@ -46,9 +46,15 @@
 
   <div class="py-3 border-rm">
     @if (Route::has('website-webpage-/notice'))
-      <a href="{{ route('website-webpage-/notice') }}">See all notice</a>
+      <a href="{{ route('website-webpage-/notice') }}">
+        See all notice
+        <i class="fas fa-link ml-2"></i>
+      </a>
     @elseif (Route::has('website-webpage-/noticeboard'))
-      <a href="{{ route('website-webpage-/noticeboard') }}">See all notice</a>
+      <a href="{{ route('website-webpage-/noticeboard') }}">
+        See all notice
+        <i class="fas fa-link ml-2"></i>
+      </a>
     @endif
   </div>
 

@@ -5,7 +5,7 @@
     </h2>
     <hr class="mb-4" width="10%" style="border: 3px solid black; margin: 0 0;"/>
 
-    @if (true && count($webpages) > 0)
+    @if (false && count($webpages) > 0)
       <div class="row p-2-rm" style="margin: auto;">
           @foreach ($webpages as $webpage)
             <div class="col-md-6 p3 mb-0 pl-0 pb-3">
@@ -46,8 +46,8 @@
           @endforeach
       </div>
     @else
-      <div class="p-3 text-muted">
-        <div class="h5 font-weight-bold" style="color: orange;">
+      <div class="text-muted py-2">
+        <div class="h6">
           <i class="fas fa-exclamation-circle mr-1"></i>
           No posts.
         </div>
