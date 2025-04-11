@@ -3,16 +3,13 @@
   <div class="container p-0">
     <div class="row" style="margin: auto;">
       @if ($onlyForm != 'yes')
-        <div class="col-md-6 p-4">
-          <div class="d-flex">
-            <div class="d-flex flex-column justify-content-center">
-              <div>
-                <h2 class="h1 font-weight-bold">
-                  {{ $company->name }}
-                </h2>
-              </div>
-            </div>
+        <div class="col-md-6">
+          <div>
+            <h2 class="h5 o-heading py-3">
+              {{ $company->name }}
+            </h2>
           </div>
+          <hr class="mb-4" width="10%" style="border: 3px solid black; margin: 0 0;"/>
   
           <div class="table-resposive">
             <table class="table table-sm table-borderless">
@@ -46,7 +43,7 @@
           </div>
 
           <div class="my-5">
-            <h2 class="h5 font-weight-bold my-3">
+            <h2 class="h5 o-heading my-3">
               Our social media pages
             </h2>
             <div class="d-flex">
@@ -90,13 +87,14 @@
         </div>
       @endif
 
-      <div class="@if ($onlyForm == 'yes') col-md-12 @else col-md-6 @endif bg-white border p-0">
+      <div class="@if ($onlyForm == 'yes') col-md-12 @else col-md-6 @endif bg-white-rm border-rm p-0 rounded px-3 px-md-0">
         <div>
-        <h2 class="h5 o-heading text-md-center pl-3 py-3">
-          Send us a message
+          <h2 class="h5 o-heading py-3">
+            Send us a message
           </h2>
         </div>
-        <div class="p-3">
+        <hr class="mb-4" width="10%" style="border: 3px solid black; margin: 0 0;"/>
+        <div class="p-3 border bg-white">
           @if (session()->has('message'))
             <div class="alert alert-success">
               {{ session('message') }}

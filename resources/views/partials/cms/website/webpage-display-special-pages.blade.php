@@ -242,8 +242,8 @@
 
   {{-- Show quick contacts team if needed --}}
   @if (count(\App\Team::where('name', 'Quick Contacts')->first()->teamMembers) > 0)
-    <div class="container-fluid my-4">
-      <div class="container">
+    <div class="container-fluid my-5 px-3">
+      <div class="container p-0">
         @if (\App\Team::where('name', 'Quick Contacts')->first())
           @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Quick Contacts')->first(),])
         @endif

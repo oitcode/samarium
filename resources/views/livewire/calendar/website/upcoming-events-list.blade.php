@@ -1,12 +1,13 @@
 <div>
 
-  <div class="d-flex p-3 border">
+  <div class="d-flex border-rm mb-3">
     <div class="d-flex flex-column justify-content-center">
-      <h2 class="h5 o-heading py-3 mb-0">
+      <h2 class="h5 o-heading pt-3 mb-0">
         Upcoming events
       </h2>
     </div>
   </div>
+  <hr class="mb-4" width="10%" style="border: 3px solid black; margin: 0 0;"/>
 
   @if ($selectedCalendarGroup)
     <div class="row" style="margin: auto;">
