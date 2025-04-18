@@ -49,16 +49,18 @@
   | Product filter.
   |
   --}}
+  @if (false)
   @livewire ('product.website.product-filter')
 
   @include ('partials.cms.website.company-info')
+  @endif
   
   {{--
   |
   | HFN.
   |
   --}}
-  @if (false && has_module('hfn'))
+  @if (has_module('hfn'))
     <div class="container-fluid p-0 o-fade-in" style="
     @if($cmsTheme)
       background-color: {{ $cmsTheme->ascent_bg_color }};
