@@ -88,6 +88,26 @@
           </button>
         </div>
       </div>
+
+      <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
+        <div class="col-md-3 o-heading p-0">
+          Price unit
+        </div>
+        <div class="col-md-6">
+          @if ($modes['updateProductPriceUnitMode'])
+            @livewire ('product.dashboard.product-edit-price-unit', ['product' => $product,])
+          @else
+            <div>
+              {{ $product->selling_price_unit }}
+            </div>
+          @endif
+        </div>
+        <div class="col-md-3 text-right">
+          <button class="btn btn-light " wire:click="enterMode('updateProductPriceUnitMode')">
+            <i class="fas fa-edit text-muted mr-1"></i>
+          </button>
+        </div>
+      </div>
     </div>
     <div class="col-md-3">
       {{-- Product info --}}

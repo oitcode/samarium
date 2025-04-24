@@ -21,6 +21,9 @@
                 <div class="65 text-muted text-left mt-3" style="font-weight: bold;">
                   {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $product->selling_price ); @endphp
+                  @if ($product->selling_price_unit != null)
+                   &nbsp; / &nbsp; {{ $product->selling_price_unit }}
+                  @endif
                 </div>
               @else
                 <div class="65 text-muted text-left mt-3" style="font-weight: bold;">

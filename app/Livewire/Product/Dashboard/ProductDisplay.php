@@ -33,6 +33,7 @@ class ProductDisplay extends Component
         'updateProductCategoryMode' => false,
         'updateProductDescriptionMode' => false,
         'updateProductPriceMode' => false,
+        'updateProductPriceUnitMode' => false,
         'updateProductImageMode' => false,
         'updateProductAddProductSpecificationMode' => false,
         'updateProductAddProductSpecificationHeadingMode' => false,
@@ -75,6 +76,9 @@ class ProductDisplay extends Component
 
         'productUpdatePriceCancelled',
         'productUpdatePriceCompleted',
+
+        'productUpdatePriceUnitCancelled',
+        'productUpdatePriceUnitCompleted',
 
         'productUpdateImageCancelled',
         'productUpdateImageCompleted',
@@ -155,6 +159,17 @@ class ProductDisplay extends Component
     {
         session()->flash('message', 'Product updated');
         $this->exitMode('updateProductPriceMode');
+    }
+
+    public function productUpdatePriceUnitCancelled(): void
+    {
+        $this->exitMode('updateProductPriceUnitMode');
+    }
+
+    public function productUpdatePriceUnitCompleted(): void
+    {
+        session()->flash('message', 'Product updated');
+        $this->exitMode('updateProductPriceUnitMode');
     }
 
     public function productUpdateImageCancelled(): void

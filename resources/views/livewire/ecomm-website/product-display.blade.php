@@ -28,6 +28,12 @@
             <h1 class="h5 mb-3 o-heading text-danger" style="font-weight: bold;">
               Rs
               @php echo number_format( $product->selling_price ); @endphp
+
+              @if ($product->selling_price_unit != null)
+               <span class="h6 text-secondary">
+                 &nbsp; / &nbsp; {{ $product->selling_price_unit }}
+               </span>
+              @endif
             </h1>
           @endif
         </div>
