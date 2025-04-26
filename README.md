@@ -130,6 +130,14 @@ Now open your web browser and visit
 Please use below steps to install the application using Docker.
 
 ```
+git clone https://github.com/oitcode/samarium.git
+```
+
+```
+cd samarium
+```
+
+```
 cp .env.docker.example .env
 ```
 
