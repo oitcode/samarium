@@ -141,8 +141,14 @@ docker-compose up --build -d
 
 Above command creates required images, and run the containers. Once this step is completed run below commands:
 
+Note: Below commands need to be run only first time during installation.
+
 ```
 docker exec -it samarium_app npm run dev
+```
+
+```
+docker exec -it samarium_app composer dump-autoload
 ```
 
 ```
