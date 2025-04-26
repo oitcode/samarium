@@ -65,7 +65,7 @@ cd samarium
 ```
 
 ```
-cp env.example .env
+cp .env.example .env
 ```
 
 Now create a mysql database. Then grant access to the mysql user. 
@@ -106,7 +106,7 @@ php artisan key:generate
 php artisan storage:link
 ```
 
-## Database seeding
+### Database seeding
 
 `php artisan db:seed`
 
@@ -117,13 +117,52 @@ Gallery and Contact us are created - and few other things. Please
 check seeder files in `database/seeder` if you want to see what
 database seeding is done.
  
-## Running the app
+### Running the app
 
 `php artisan serve`
 
 Now open your web browser and visit 
 - `127.0.0.1:8000` to see the website
 - `127.0.0.1:8000/dashboard` to see the dashboard
+
+## Installation (Using Docker)
+
+Please use below steps to install the application using Docker.
+
+Note: You may need to use `sudo` with these commands if you have Linux based OS as host.
+
+```
+docker-compose up --build -d
+```
+
+Above command creates required images, and run the containers. Once this step is completed run below commands:
+
+```
+docker exec -it samarium_app npm run dev
+```
+
+```
+docker exec -it samarium_app php artisan migrate
+```
+
+```
+docker exec -it samarium_app php artisan key:generate
+```
+
+```
+docker exec -it samarium_app php artisan storage:link
+```
+
+```
+docker exec -it samarium_app php artisan db:seed
+```
+
+Now open your web browser and visit 
+- `127.0.0.1:8000` to see the website
+- `127.0.0.1:8000/dashboard` to see the dashboard
+
+Note: This docker setup is a minimal one for development env. Please modify Docker related files
+accoring to your needs.
 
 ## Screenshots
 

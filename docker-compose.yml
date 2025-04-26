@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: samarium_app
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    environment:
+      - APP_ENV=local
+      - DB_HOST=db
+      - DB_DATABASE=samarium
+      - DB_USERNAME=samarium_user
+      - DB_PASSWORD=samarium_password
+    volumes:
+      - laravel-storage:/var/www/html/storage
+      - laravel-cache:/var/www/html/bootstrap/cache
+      - ./:/var/www/html
+      - /var/www/html/node_modules
+      - /var/www/html/vendor
+    depends_on:
+      - db
+    networks:
+      - laravel-network
+
+  db:
+    image: mysql:8.0
+    container_name: samarium_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: samarium
+      MYSQL_USER: samarium_user
+      MYSQL_PASSWORD: samarium_password
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - dbdata:/var/lib/mysql
+    ports:
+      - "21876:3306"
+    networks:
+      - laravel-network
+
+  redis:
+    image: redis:alpine
+    container_name: samarium_redis
+    restart: unless-stopped
+    networks:
+      - laravel-network
+
+networks:
+  laravel-network:
+    driver: bridge
+
+volumes:
+  laravel-storage:
+  laravel-cache:
+  dbdata:
+    driver: local
