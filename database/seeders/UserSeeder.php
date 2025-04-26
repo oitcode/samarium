@@ -17,6 +17,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        echo "\n CREATE FIRST ADMIN USER: Please provide below details.\n";
+
         /* Ask for name, email and password from terminal. */
         $name = text('Name:', required: true);
         $email = text('Email:', required: true);
