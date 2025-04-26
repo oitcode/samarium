@@ -129,6 +129,10 @@ Now open your web browser and visit
 
 Please use below steps to install the application using Docker.
 
+```
+cp .env.docker.example .env
+```
+
 Note: You may need to use `sudo` with these commands if you have Linux based OS as host.
 
 ```
