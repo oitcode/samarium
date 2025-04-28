@@ -1,3 +1,6 @@
+## Samarium
+
+<!--
 <div align="center">
 # Samarium
 </div>
@@ -5,40 +8,48 @@
 <div align="center">
   <img src="screenshots/samarium-logo-1.png" alt="Samarium ERP logo">
 </div>
+-->
 
 <hr />
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Version-0.9.5-blue" alt="Version">  <img src="https://img.shields.io/badge/PHP-^8.2-474A8A" alt="PHP"> <img src="https://img.shields.io/badge/Laravel-^11.0-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Livewire-^3.0-AA3B62" alt="Livewire"> <img src="https://img.shields.io/badge/Bootstrap-^4.0-AA2BE2" alt="Bootstrap"> <img src="https://img.shields.io/badge/License-MIT-7b2" alt="License">
+  <img src="https://img.shields.io/badge/Version-0.9.5-blue" alt="Version">  <img src="https://img.shields.io/badge/PHP-^8.2-474A8A" alt="PHP"> <img
+  src="https://img.shields.io/badge/Laravel-^11.0-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Livewire-^3.0-AA3B62" alt="Livewire">
+  <img src="https://img.shields.io/badge/Bootstrap-^4.0-AA2BE2" alt="Bootstrap"> <img src="https://img.shields.io/badge/License-MIT-7b2"
+  alt="License"> <img src="https://img.shields.io/badge/Docker-Supported-7b2" alt="Docker">
 </div>
 
 <hr />
 
-## Open source ERP built with Laravel and Livewire.
 
 ![screenshot](screenshots/screenshot-sale-invoice-create-1.gif)
 
 ## Features
 
-Feature | Description
-------- | -----------
-Product | Create products from admin panel. This product can be added to invoices as well as displayed in the website.
-Product Category | Arrange products by product categories. 
-Invoicing | Create and manage sale invoice, purchase and expense entries.
-Website Management (CMS) | Create and manage webpage and blog post entries.
-Calendar | Create and manage calendar events.
-Team | Create and manage teams.
-Contact Message | View contact messages sent by website visitors 
-Appointment | Get appointment request from website visitors. Approve or reject from admin panel.
-Newsletter subscription | Get newsletter subscription request from website visitors.
-Task Manager | Create and manage tasks.
-Users  | Create and manage users.
-
+Product
+Invoicing
+Finance tracking
+CMS
+Calendar
+Team
+Contact Message
+Appointment
+Newsletter
+Task Manager
+Users
 
 ## Installation
 
-It is just another laravel application. So we do all the steps required to get a
-laravel application working. 
+Dockerfile is available for the application. So it will be very easy if you install the application
+using docker. You just have to glone the repo, cd into the directory and run docker-compose up -d to
+install it. Perform below steps:
+
+git clone https://github.com/oitcode/samarium.git
+cd samarium
+docker-compose up --build -d
+
+If you do not have docker, or do not want to use it, then please perform below steps to do the install
+manually.
 
 ### Pre requisites
 
