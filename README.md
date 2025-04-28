@@ -16,6 +16,8 @@
 
 ![screenshot](screenshots/screenshot-sale-invoice-create-1.gif)
 
+Simple ERP to generate invoice, track finance, manage website, manage tasks, etc. Simplicity in user interface (UI). 
+
 ## Installation
 
 ### Install with Docker
