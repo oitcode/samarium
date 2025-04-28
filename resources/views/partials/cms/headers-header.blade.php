@@ -55,10 +55,9 @@
       </div>
       <div class="">
         <div class="h-100 d-flex flex-column justify-content-center">
-          <button class="btn btn-primary btn-lg">
-            <i class="fas fa-plus-circle mr-1"></i>
-            Post product
-          </button>
+          <a href="/contact-us" class="btn btn-primary btn-lg">
+            Contact us
+          </a>
         </div>
       </div>
     </div>

@@ -45,7 +45,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | App Menu Color
+    | Dashboard/Admin panel Menu Color
     |--------------------------------------------------------------------------
     |
     | This value determines the color of application dashboard menu. Please put
@@ -74,13 +74,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Footer blade file path
+    | Website header, footer blade file path
     |--------------------------------------------------------------------------
     |
-    | Specifiy the blade file for footer of website.
+    | Specifiy the blade file for header and footer of website.
     |
     */
 
+    'header_blade_file' => 'partials.cms.headers-header',
     'footer_blade_file' => 'partials.cms.footer',
 
     /*
@@ -146,7 +147,7 @@ return [
     |
     */
 
-    'timezone' => 'Asia/Kathmandu',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
