@@ -10,62 +10,87 @@
 </div>
 -->
 
-<hr />
-
-<div align="center">
-  <img src="https://img.shields.io/badge/Version-0.9.5-blue" alt="Version">  <img src="https://img.shields.io/badge/PHP-^8.2-474A8A" alt="PHP"> <img
-  src="https://img.shields.io/badge/Laravel-^11.0-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Livewire-^3.0-AA3B62" alt="Livewire">
-  <img src="https://img.shields.io/badge/Bootstrap-^4.0-AA2BE2" alt="Bootstrap"> <img src="https://img.shields.io/badge/License-MIT-7b2"
-  alt="License"> <img src="https://img.shields.io/badge/Docker-Supported-7b2" alt="Docker">
+<div>
+  <img src="https://img.shields.io/badge/Version-0.9.5-blue" alt="Version">  <img src="https://img.shields.io/badge/PHP-^8.2-474A8A" alt="PHP"> <img src="https://img.shields.io/badge/Laravel-^11.0-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Livewire-^3.0-AA3B62" alt="Livewire"> <img src="https://img.shields.io/badge/Bootstrap-^4.0-AA2BE2" alt="Bootstrap"> <img src="https://img.shields.io/badge/Docker-Supported-35a" alt="Docker"> <img src="https://img.shields.io/badge/License-MIT-7b2" alt="License">
 </div>
-
-<hr />
-
 
 ![screenshot](screenshots/screenshot-sale-invoice-create-1.gif)
 
-## Features
-
-Product
-Invoicing
-Finance tracking
-CMS
-Calendar
-Team
-Contact Message
-Appointment
-Newsletter
-Task Manager
-Users
-
 ## Installation
 
-Dockerfile is available for the application. So it will be very easy if you install the application
-using docker. You just have to glone the repo, cd into the directory and run docker-compose up -d to
-install it. Perform below steps:
+### Install with Docker
 
+Perform below steps:
+
+```
 git clone https://github.com/oitcode/samarium.git
+```
+
+```
 cd samarium
+```
+
+```
+cp .env.docker.example .env
+```
+
+> **Note:** You may need to use `sudo` with this command if you have Linux based OS as host.
+
+```
 docker-compose up --build -d
+```
 
-If you do not have docker, or do not want to use it, then please perform below steps to do the install
-manually.
+> **Note:** Below commands need to be run only first time during installation.
 
-### Pre requisites
+> **Note:** You may need to use `sudo` with these commands.
+
+```
+docker exec -it samarium_app npm run dev
+```
+
+```
+docker exec -it samarium_app composer dump-autoload
+```
+
+```
+docker exec -it samarium_app php artisan migrate
+```
+
+```
+docker exec -it samarium_app php artisan key:generate
+```
+
+```
+docker exec -it samarium_app php artisan storage:link
+```
+
+```
+docker exec -it samarium_app php artisan db:seed
+```
+
+> **Note:** This docker setup is a minimal one. Please modify Docker related files accoring to your needs.
+
+#### Running the app
+
+Open your web browser and visit 
+- `127.0.0.1:8000` to see the website
+- `127.0.0.1:8000/dashboard` to see the dashboard
+
+### Installation without Docker
+
+#### Dependencies 
 
 Below applications must be installed in the system. 
 
 ```
 php >= 8.2
 mysql >= 8.0
-nodejs
 composer
+nodejs
 npm
 ```
 
-### Step by step instructions
-
-Perform below steps to get the application running.
+#### Step by step instructions
 
 ```
 git clone https://github.com/oitcode/samarium.git
@@ -117,81 +142,25 @@ php artisan key:generate
 php artisan storage:link
 ```
 
-### Database seeding
-
-`php artisan db:seed`
-
-Please use the database seeding to setup a minimal working dashboard and
-website. Seeder files will create first admin user, basic webpages
-of a typical website - Webpage like About us, Calendar, Noticeboard,
-Gallery and Contact us are created - and few other things. Please
-check seeder files in `database/seeder` if you want to see what
-database seeding is done.
- 
-### Running the app
-
-`php artisan serve`
-
-Now open your web browser and visit 
-- `127.0.0.1:8000` to see the website
-- `127.0.0.1:8000/dashboard` to see the dashboard
-
-## Installation (Using Docker)
-
-Please use below steps to install the application using Docker.
-
 ```
-git clone https://github.com/oitcode/samarium.git
+php artisan db:seed
 ```
 
-```
-cd samarium
-```
+> **Note:** Seeder files will create first admin user, basic webpages
+> of a typical website - Webpage like About us, Calendar, Noticeboard,
+> Gallery and Contact us are created - and few other things. Please
+> check seeder files in `database/seeder` if you want to see what
+> database seeding is done.
+
+#### Running the app
 
 ```
-cp .env.docker.example .env
-```
-
-Note: You may need to use `sudo` with these commands if you have Linux based OS as host.
-
-```
-docker-compose up --build -d
-```
-
-Above command creates required images, and run the containers. Once this step is completed run below commands:
-
-Note: Below commands need to be run only first time during installation.
-
-```
-docker exec -it samarium_app npm run dev
-```
-
-```
-docker exec -it samarium_app composer dump-autoload
-```
-
-```
-docker exec -it samarium_app php artisan migrate
-```
-
-```
-docker exec -it samarium_app php artisan key:generate
-```
-
-```
-docker exec -it samarium_app php artisan storage:link
-```
-
-```
-docker exec -it samarium_app php artisan db:seed
+php artisan serve
 ```
 
 Now open your web browser and visit 
 - `127.0.0.1:8000` to see the website
 - `127.0.0.1:8000/dashboard` to see the dashboard
-
-Note: This docker setup is a minimal one for development env. Please modify Docker related files
-accoring to your needs.
 
 ## Screenshots
 
@@ -215,7 +184,9 @@ Below are some screenshots.
 ## Configuration
 
 Please check `app/config.php` file to see different configuration options
-for the application. Below are some configuration options you may want to
+for the application.
+
+<!--Below are some configuration options you may want to
 change.  
 
 File:                    `app/config.php`
@@ -229,25 +200,16 @@ Configurable option:     `App menu color options`
 'app_top_menu_bg_color'               => 'bg-light',
 'app_top_menu_text_color'             => 'text-dark',
 ```
+-->
 
 ## Contributing
 
-Please consider contributing to this project. Any kind of contributions are welcome.
-You can contribute in following ways:
-
-Task    | How to contribute
-------- | -----------
-Raising issues | You can raise issues for existing bugs. Or you can raise issue for requesting new features.
-Fixing issues | You can fix issues that are raised here in github repo.
-Implement new feature | You can add new features to this application. Pull requests are welcome.
-Refactor existing feature | Please refactor the code if something can be done better. Pull requests are welcome.
-Adding test code | More test code is needed to automate as much test as possible. You can add more test code. 
-Improve documentation | You can help by improving the documentation.
+Any kind of contributions are welcome.
 
 ## Issues
 
-If you find any issue in this application, you can help by raising an issue here in our github repo.
+For bugs or feature request, open an issue on Github. 
 
 ## License
 
-[MIT license](https://opensource.org/licenses/MIT)
+This project is licensed under the [MIT license](https://opensource.org/licenses/MIT)
