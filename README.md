@@ -169,7 +169,6 @@ Now open your web browser and visit
 Below are some screenshots.
 
 ![screenshot](screenshots/dashboard-screenshot-1.png)
-![screenshot](screenshots/screenshot-product-list-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-display-finished-1.png)
 
@@ -187,6 +186,50 @@ Below are some screenshots.
 
 Please check `app/config.php` file to see different configuration options
 for the application.
+
+### Module configuration
+
+The application uses a modular architecture where features are organized
+into separate modules. Each module can be enabled or disabled through
+the configuration file.
+
+#### Configuration Location
+
+Module settings are stored in config/app.php using an associative array
+with boolean values:
+
+```
+'modules' => [
+    'dashboard' => true,
+    'product' => true,
+    'shop' => true,
+    // Additional modules...
+    'analytics' => false,  // Disabled module
+],
+```
+
+#### Enabling/Disabling Modules
+
+To enable a module, set its value to true. To disable a module, set
+its value to false.
+
+#### Usage in Code
+
+You can check if a module is enabled using Laravel's configuration helper:
+
+```
+if (config('app.modules.product')) {
+    // Product module is enabled
+}
+```
+
+Or you can use `has_module` helper function:
+
+```
+if (has_module('calendar'))
+    // Calendar module is enabled
+}
+```
 
 <!--Below are some configuration options you may want to
 change.  

@@ -28,7 +28,6 @@ return [
     'site_type'               => env('SITE_TYPE', ''),
     'cmp_type'                => env('CMP_TYPE', ''),
     'cmp_url'                 => env('CMP_URL', ''),
-    'modules'                 => env('MODULES', ''),
     'has_vat'                 => env('HAS_VAT', ''),
     'announcement'            => env('ANNOUNCEMENT', ''),
     'oc_ascent_btn_color'     => env('OC_ASCENT_BTN_COLOR', ''),
@@ -42,6 +41,33 @@ return [
     'no_cmp_display'          => env('NO_CMP_DISPLAY', 'please_create_company'),
     'date_type'               => env('DATE_TYPE', 'standard'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Modules
+    |--------------------------------------------------------------------------
+    |
+    | These are the modules available. To enable a module, set its value to
+    | true. To disable a module, set its value to false.
+    |
+    */
+
+    'modules' => [
+        'dashboard'  => true,
+        'product'    => true,
+        'shop'       => true,
+        'cms'        => true,
+        'team'       => true,
+        'report'     => true,
+        'accounting' => true,
+        'crm'        => true,
+        'calendar'   => true,
+        'hr'         => true,
+        'project'    => true,
+        'document'   => true,
+        'school'     => true,
+        'hfn'        => true,
+        'educ'        => false,
+    ],
 
     /*
     |--------------------------------------------------------------------------
