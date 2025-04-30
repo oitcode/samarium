@@ -189,20 +189,17 @@ for the application.
 
 ### Module configuration
 
-The application uses a modular architecture where features are organized
-into separate modules. Each module can be enabled or disabled through
-the configuration file.
+Modules can be enabled or disabled through the configuration file.
 
 #### Configuration Location
 
-Module settings are stored in config/app.php using an associative array
-with boolean values:
+Module settings are stored in `config/app.php` using an associative array with boolean values:
 
 ```
 'modules' => [
     'dashboard' => true,
-    'product' => true,
-    'shop' => true,
+    'product'   => true,
+    'shop'      => true,
     // Additional modules...
     'analytics' => false,  // Disabled module
 ],
@@ -210,8 +207,7 @@ with boolean values:
 
 #### Enabling/Disabling Modules
 
-To enable a module, set its value to true. To disable a module, set
-its value to false.
+To enable a module, set its value to true. To disable a module, set its value to false.
 
 #### Usage in Code
 
@@ -231,11 +227,10 @@ if (has_module('calendar'))
 }
 ```
 
-<!--Below are some configuration options you may want to
-change.  
+### Admin panel color configuration
 
-File:                    `app/config.php`
-Configurable option:     `App menu color options`
+Color settings for dashboard / admin panel can be configured from `config/app.php` file.  
+Values for these options are bootstrap color classes.
 
 ```
 'app_menu_dropdown_button_text_color' => 'text-white',
@@ -245,7 +240,6 @@ Configurable option:     `App menu color options`
 'app_top_menu_bg_color'               => 'bg-light',
 'app_top_menu_text_color'             => 'text-dark',
 ```
--->
 
 ## Contributing
 
