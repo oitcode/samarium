@@ -4,23 +4,34 @@ namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
 use App\Product;
 use App\ProductCategory;
-use App\ProductSpecification;
+use App\Services\ProductService;
 
+/**
+ * Livewire component for creating new products in the dashboard.
+ * 
+ * This component handles the creation of products from dashboard. This
+ * creates the product with minimum information required to create a
+ * product. Those info are product name, product category, selling
+ * price, description and product image (optional).
+ *
+ * Things like inventory management, base/sub product relationships, and
+ * product specification can be added later in product display
+ * component.
+ *
+ */
 class ProductCreate extends Component
 {
     use ModesTrait;
     use WithFileUploads;
 
     public $name;
+    public $product_category_id;
     public $selling_price;
     public $description;
-    public $product_category_id;
     public $image;
     public $is_active;
 
@@ -36,7 +47,6 @@ class ProductCreate extends Component
     public $product_type = 'normal';
 
     public $baseProducts;
-
     public $productCategories;
 
     /* This will hold all the product specifications. */
@@ -48,6 +58,14 @@ class ProductCreate extends Component
         'subProduct' => false,
     ];
 
+    /**
+     * Render the product creation form view
+     * 
+     * Fetches all product categories and base products to populate dropdown menus
+     * in the creation form.
+     * 
+     * @return View The rendered view for product creation
+     */
     public function render(): View
     {
         $this->productCategories = ProductCategory::all();
@@ -56,7 +74,15 @@ class ProductCreate extends Component
         return view('livewire.product.dashboard.product-create');
     }
 
-    public function store(): void
+    /**
+     * Create a product in the database
+     * 
+     * Validates input data, handles image upload and creates the
+     * product record.
+     * 
+     * @return void
+     */
+    public function store(ProductService $productService): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -70,95 +96,39 @@ class ProductCreate extends Component
             'product_type' => 'required',
         ]);
 
-        /* Stock/inventory related*/
-        if ($validatedData['stock_applicable'] == 'yes') {
-            if ($this->product_type != 'sub') {
-                $validatedData += $this->validate([
-                    'opening_stock_count' => 'required|integer',
-                    'stock_notification_count' => 'nullable|integer',
-                    'inventory_unit' => 'required',
-                ]);
-
-                $validatedData['stock_count'] = $validatedData['opening_stock_count'];
-            }
-
-            /*
-             * Todo
-             *
-             * Shouldnt this be better if user could
-             * give this value from frontend?
-             *
-             */
-            $validatedData['opening_stock_timestamp'] = Carbon::now()->toDateTimeString();
+        /* Stock/inventory related validation */
+        if ($validatedData['stock_applicable'] == 'yes' && $this->product_type != 'sub') {
+            $validatedData += $this->validate([
+                'opening_stock_count' => 'required|integer',
+                'stock_notification_count' => 'nullable|integer',
+                'inventory_unit' => 'required',
+            ]);
         }
 
-        /* Make booleans in validatedData */
-        if ($validatedData['is_base_product'] == 'yes') {
-            $validatedData['is_base_product'] = true;
-        } else {
-            $validatedData['is_base_product'] = false;
+        /* Add inventory unit consumption validation for sub-products */
+        if (!empty($this->base_product_id) && $this->base_product_id != '---') {
+            $validatedData['inventory_unit_consumption'] = $this->inventory_unit_consumption;
         }
 
-        if ($validatedData['product_type'] == 'base') {
-            $validatedData['is_base_product'] = true;
-        }
+        /* Create product using the service */
+        $productService->createProduct(
+            $validatedData,
+            $this->image,
+            $this->productSpecifications
+        );
 
-        if ($this->image !== null) {
-            $imagePath = $this->image->store('products', 'public');
-            $validatedData['image_path'] = $imagePath;
-        }
-
-        $validatedData['featured_product'] = 'no';
-
-        DB::beginTransaction();
-
-        try {
-            $product = Product::create($validatedData);
-
-            if (! is_null($this->base_product_id) && $this->base_product_id != '---') {
-                $product->base_product_id = $this->base_product_id;
-                $product->inventory_unit_consumption = $this->inventory_unit_consumption;
-                $product->save();
-                $product = $product->fresh();
-
-                $product->inventory_unit = $product->baseProduct->inventory_unit;
-                $product->save();
-                $product = $product->fresh();
-            }
-
-            /* If there are any product specification, save them. */
-            if (count($this->productSpecifications) > 0) {
-                $ii = 0;
-                foreach ($this->productSpecifications as $spec) {
-                    if ($spec[0] == '' || $spec[1] =='') {
-                    } else {
-                        $productSpecification = new ProductSpecification;
-
-                        $productSpecification->product_id = $product->product_id;
-
-                        $productSpecification->position = $ii;
-                        $productSpecification->spec_heading = $spec[0];
-                        $productSpecification->spec_value = $spec[1];
-
-                        $productSpecification->save();
-
-                        $ii++;
-                    }
-                }
-            }
-
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
-        }
-
-        session()->flash('success', 'Product Added');
         $this->resetInputFields();
-
         $this->dispatch('productAdded');
     }
 
+    /**
+     * Reset all input fields to their default values
+     * 
+     * Clears all form fields after a product has been successfully created
+     * or when the form needs to be reset.
+     * 
+     * @return void
+     */
     public function resetInputFields(): void
     {
         $this->name = '';
@@ -169,20 +139,42 @@ class ProductCreate extends Component
         $this->image = null;
     }
 
+    /**
+     * Enable stock applicability for the product
+     * 
+     * Sets the stock_applicable flag to 'yes' and activates the
+     * stockApplicable mode to show stock-related form fields.
+     * 
+     * @return void
+     */
     public function makeStockApplicable(): void
     {
         $this->stock_applicable = 'yes';
-
         $this->enterMode('stockApplicable');
     }
 
+    /**
+     * Disable stock applicability for the product
+     * 
+     * Sets the stock_applicable flag to 'no' and deactivates the
+     * stockApplicable mode to hide stock-related form fields.
+     * 
+     * @return void
+     */
     public function makeStockNotApplicable(): void
     {
         $this->stock_applicable = 'no';
-
         $this->exitMode('stockApplicable');
     }
 
+    /**
+     * Handle changes to the product type
+     * 
+     * Updates component modes based on the selected product type (base,
+     * sub, or normal) to show/hide relevant form sections.
+     * 
+     * @return void
+     */
     public function updatedProductType(): void
     {
         if ($this->product_type == 'base') {
@@ -197,6 +189,14 @@ class ProductCreate extends Component
         }
     }
 
+    /**
+     * Add a new empty product specification field to the form
+     * 
+     * Adds a new empty array with two elements to the productSpecifications array,
+     * allowing users to add specification heading and value pairs.
+     * 
+     * @return void
+     */
     public function addSpecification(): void
     {
         $this->productSpecifications[] = ['', ''];
