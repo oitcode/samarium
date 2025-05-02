@@ -140,4 +140,60 @@ class ProductService
             }
         }
     }
+
+    /**
+     * Check if a product can be deleted.
+     *
+     * @param int $product_id
+     * @return void
+     */
+    public function canDeleteProduct(int $product_id): bool
+    {
+        $product = Product::find($product_id);
+
+        if (count($product->saleInvoiceItems) > 0) {
+            return false;
+        } else if (count($product->saleQuotationItems) > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * Delete product
+     *
+     * @param int $product_id
+     * @return void
+     */
+    public function deleteProduct(int $product_id): void
+    {
+        $product = Product::find($product_id);
+
+        foreach ($product->productSpecifications as $productSpecification) {
+            $productSpecification->delete();
+        }
+
+        foreach ($product->productSpecificationHeadings as $productSpecificationHeading) {
+            $productSpecificationHeading->delete();
+        }
+
+        foreach ($product->productFeatures as $productFeature) {
+            $productFeature->delete();
+        }
+
+        foreach ($product->productFeatureHeadings as $productFeatureHeading) {
+            $productFeatureHeading->delete();
+        }
+
+        foreach ($product->productOptions as $productOption) {
+            $productOption->delete();
+        }
+
+        foreach ($product->productOptionHeadings as $productOptionHeading) {
+            $productOptionHeading->delete();
+        }
+
+        $product->delete();
+    }
 }

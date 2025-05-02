@@ -120,6 +120,14 @@ class Product extends Model
     }
 
     /*
+     * sale_quotation_item table.
+     */
+    public function saleQuotationItems()
+    {
+        return $this->hasMany('App\SaleQuotationItem', 'product_id', 'product_id');
+    }
+
+    /*
      * seat_table_booking_item table.
      */
     public function seatTableBookingItems()
