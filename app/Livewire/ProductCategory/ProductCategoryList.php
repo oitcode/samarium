@@ -6,6 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use Livewire\WithPagination;
+use App\Services\ProductCategoryService;
 use App\ProductCategory;
 
 class ProductCategoryList extends Component
@@ -13,15 +14,18 @@ class ProductCategoryList extends Component
     use ModesTrait;
     use WithPagination;
 
-    protected $productCategories;
+    // protected $productCategories;
     public $products = null;
     public $selectedProductCategory;
     public $totalProductCategoryCount;
+    public $deletingProductCategory;
 
     public $search_product_category;
 
     public $modes = [
         'productCategoryProductList' => false,
+        'confirmDelete' => false,
+        'cannotDelete' => false,
     ];
 
     public function mount(): void
@@ -31,10 +35,11 @@ class ProductCategoryList extends Component
 
     public function render(): View
     {
+        $productCategories = ProductCategory::orderBy('name', 'ASC')->paginate(5);
         $this->totalProductCategoryCount = ProductCategory::count();
 
         return view('livewire.product-category.product-category-list')
-            ->with('oproductCategories', $this->productCategories);
+            ->with('productCategories', $productCategories);
     }
 
     public function selectCategory($productCategoryId): void
@@ -52,5 +57,35 @@ class ProductCategoryList extends Component
         $productCategories = ProductCategory::where('name', 'like', '%'.$validatedData['search_product_category'].'%')->get();
 
         $this->productCategories = $productCategories;
+    }
+
+    public function confirmDeleteProductCategory(int $product_category_id, ProductCategoryService $productCategoryService): void
+    {
+        $this->deletingProductCategory = ProductCategory::find($product_category_id);
+
+        if ($productCategoryService->canDeleteProductCategory($product_category_id)) {
+            $this->enterMode('confirmDelete');
+        } else {
+            $this->enterMode('cannotDelete');
+        }
+    }
+
+    public function cancelDeleteProductCategory(): void
+    {
+        $this->deletingProductCategory = null;
+        $this->exitMode('confirmDelete');
+    }
+
+    public function cancelCannotDeleteProductCategory(): void
+    {
+        $this->deletingProductCategory = null;
+        $this->exitMode('cannotDelete');
+    }
+
+    public function deleteProductCategory(ProductCategoryService $productCategoryService): void
+    {
+        $productCategoryService->deleteProductCategory($this->deletingProductCategory->product_category_id);
+        $this->deletingProductCategory = null;
+        $this->exitMode('confirmDelete');
     }
 }

@@ -15,7 +15,7 @@
       </x-slot>
     
       <x-slot name="listBody">
-        @foreach ($oproductCategories as $productCategory)
+        @foreach ($productCategories as $productCategory)
           <x-table-row-component>
             <td wire:click="$dispatch('displayProductCategory', { productCategory: {{ $productCategory }} } )" role="button">
                 {{ $productCategory->name }}
@@ -24,11 +24,32 @@
               {{ count($productCategory->products) }}
             </td>
             <td class="text-right">
+              @if ($modes['confirmDelete'])
+                @if ($deletingProductCategory->product_category_id == $productCategory->product_category_id)
+                  <button class="btn btn-danger mr-1" wire:click="deleteProductCategory">
+                    Confirm delete
+                  </button>
+                  <button class="btn btn-light mr-1" wire:click="cancelDeleteProductCategory">
+                    Cancel
+                  </button>
+                @endif
+              @endif
+              @if ($modes['cannotDelete'])
+                @if ($deletingProductCategory->product_category_id == $productCategory->product_category_id)
+                  <span class="text-danger mr-3">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    Product category cannot be deleted
+                  </span>
+                  <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteProductCategory">
+                    Cancel
+                  </button>
+                @endif
+              @endif
               <x-list-edit-button-component clickMethod="$dispatch('displayProductCategory', { productCategoryId: {{ $productCategory->product_category_id }} } )">
               </x-list-edit-button-component>
               <x-list-view-button-component clickMethod="$dispatch('displayProductCategory', { productCategoryId: {{ $productCategory->product_category_id }} } )">
               </x-list-view-button-component>
-              <x-list-delete-button-component clickMethod="">
+              <x-list-delete-button-component clickMethod="confirmDeleteProductCategory({{ $productCategory->product_category_id }})">
               </x-list-delete-button-component>
             </td>
           </x-table-row-component>
@@ -36,7 +57,7 @@
       </x-slot>
     
       <x-slot name="listPaginationLinks">
-        {{ $oproductCategories->links() }}
+        {{ $productCategories->links() }}
       </x-slot>
     </x-list-component>
   @endif

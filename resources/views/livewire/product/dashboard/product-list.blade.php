@@ -60,9 +60,10 @@
             @endif
             @if ($modes['cannotDelete'])
               @if ($deletingProduct->product_id == $product->product_id)
-                <button class="btn btn-light mr-1" wire:click="">
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
                   Product cannot be deleted
-                </button>
+                </span>
                 <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteProduct">
                   Cancel
                 </button>

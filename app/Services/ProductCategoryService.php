@@ -37,7 +37,13 @@ class ProductCategoryService
      */
     public function canDeleteProductCategory(int $product_category_id): bool
     {
-        // Todo
+        $productCategory = ProductCategory::find($product_category_id);
+
+        if (count($productCategory->products) > 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -48,6 +54,8 @@ class ProductCategoryService
      */
     public function deleteProductCategory(int $product_category_id): void
     {
-        // Todo
+        $productCategory = ProductCategory::find($product_category_id);
+
+        $productCategory->delete();
     }
 }
