@@ -9,56 +9,66 @@ use Livewire\WithPagination;
 use App\Services\ProductCategoryService;
 use App\ProductCategory;
 
+/**
+ * ProductCategoryList Component
+ * 
+ * This Livewire component handles the listing of product categories.
+ */
 class ProductCategoryList extends Component
 {
     use ModesTrait;
     use WithPagination;
 
-    // protected $productCategories;
-    public $products = null;
-    public $selectedProductCategory;
+    /**
+     * Product categories per pagination
+     *
+     * @var int
+     */
+    public $perPage = 5;
+
+    /**
+     * Total count of product categories
+     *
+     * @var int
+     */
     public $totalProductCategoryCount;
+
+    /**
+     * Product category which needs to be deleted
+     *
+     * @var ProductCategory
+     */
     public $deletingProductCategory;
 
-    public $search_product_category;
-
+    /**
+     * Component display modes
+     *
+     * @var array
+     */
     public $modes = [
-        'productCategoryProductList' => false,
         'confirmDelete' => false,
         'cannotDelete' => false,
     ];
 
-    public function mount(): void
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render(ProductCategoryService $productCategoryService): View
     {
-        $this->productCategories = ProductCategory::orderBy('name', 'ASC')->paginate(5);
-    }
-
-    public function render(): View
-    {
-        $productCategories = ProductCategory::orderBy('name', 'ASC')->paginate(5);
-        $this->totalProductCategoryCount = ProductCategory::count();
-
-        return view('livewire.product-category.product-category-list')
-            ->with('productCategories', $productCategories);
-    }
-
-    public function selectCategory($productCategoryId): void
-    {
-        $this->selectedProductCategory = ProductCategory::find($productCategoryId);
-        $this->enterMode('productCategoryProductList');
-    }
-
-    public function searchProductCategory(): void
-    {
-        $validatedData = $this->validate([
-            'search_product_category' => 'required',
+        $productCategories = $productCategoryService->getPaginatedProductCategories($this->perPage);
+            
+        return view('livewire.product-category.product-category-list', [
+            'productCategories' => $productCategories
         ]);
-
-        $productCategories = ProductCategory::where('name', 'like', '%'.$validatedData['search_product_category'].'%')->get();
-
-        $this->productCategories = $productCategories;
     }
 
+    /**
+     * Confirm if user really wants to delete a product category
+     *
+     * @return void
+     */
     public function confirmDeleteProductCategory(int $product_category_id, ProductCategoryService $productCategoryService): void
     {
         $this->deletingProductCategory = ProductCategory::find($product_category_id);
@@ -70,18 +80,33 @@ class ProductCategoryList extends Component
         }
     }
 
+    /**
+     * Cancel product category delete
+     *
+     * @return void
+     */
     public function cancelDeleteProductCategory(): void
     {
         $this->deletingProductCategory = null;
         $this->exitMode('confirmDelete');
     }
 
+    /**
+     * Turn off the mode that shows that a product cannot be deleted
+     *
+     * @return void
+     */
     public function cancelCannotDeleteProductCategory(): void
     {
         $this->deletingProductCategory = null;
         $this->exitMode('cannotDelete');
     }
 
+    /**
+     * Delete product category
+     *
+     * @return void
+     */
     public function deleteProductCategory(ProductCategoryService $productCategoryService): void
     {
         $productCategoryService->deleteProductCategory($this->deletingProductCategory->product_category_id);

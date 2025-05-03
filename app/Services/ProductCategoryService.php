@@ -7,9 +7,21 @@ use App\ProductCategory;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ProductCategoryService
 {
+    /**
+     * Get paginated list of product categories
+     *
+     * @param int $perPage
+     * @return LengthAwarePaginator
+     */
+    public function getPaginatedProductCategories(int $perPage = 5): LengthAwarePaginator
+    {
+        return ProductCategory::orderBy('product_category_id', 'DESC')->paginate($perPage);
+    }
+
     /**
      * Create a new product category
      *
