@@ -5,6 +5,7 @@ namespace App\Livewire\ProductCategory;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
+use App\Services\ProductCategoryService;
 use App\ProductCategory;
 
 class ProductCategoryCreate extends Component
@@ -24,7 +25,7 @@ class ProductCategoryCreate extends Component
         return view('livewire.product-category.product-category-create');
     }
 
-    public function store(): void
+    public function store(ProductCategoryService $productCategoryService): void
     {
         $validatedData = $this->validate([
             'name' => 'required',
@@ -32,13 +33,11 @@ class ProductCategoryCreate extends Component
             'parent_product_category_id' => 'nullable|integer',
         ]);
 
-
-        if ($this->image !== null) {
-            $imagePath = $this->image->store('productCategory', 'public');
-            $validatedData['image_path'] = $imagePath;
-        }
-
-        ProductCategory::create($validatedData);
+        /* Create product category using the service */
+        $productCategoryService->createProductCategory(
+            $validatedData,
+            $this->image,
+        );
 
         $this->resetInputFields();
 
