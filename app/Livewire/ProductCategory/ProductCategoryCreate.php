@@ -8,6 +8,13 @@ use Livewire\WithFileUploads;
 use App\Services\ProductCategoryService;
 use App\ProductCategory;
 
+/**
+ * ProductCategoryCreate Livewire Component
+ *
+ * This component handles the creation of product categories
+ * from application dashboard.
+ *
+ */
 class ProductCategoryCreate extends Component
 {
     use WithFileUploads;
@@ -18,6 +25,11 @@ class ProductCategoryCreate extends Component
 
     public $productCategories;
 
+    /**
+     * Render the component's view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function render(): View
     {
         $this->productCategories = ProductCategory::all();
@@ -25,6 +37,15 @@ class ProductCategoryCreate extends Component
         return view('livewire.product-category.product-category-create');
     }
 
+    /**
+     * Create a new product category.
+     *
+     * Validates the input data, creates the product category using the service,
+     * resets the form fields, and dispatches a completion event.
+     *
+     * @param ProductCategoryService $productCategoryService
+     * @return void
+     */
     public function store(ProductCategoryService $productCategoryService): void
     {
         $validatedData = $this->validate([
@@ -40,10 +61,16 @@ class ProductCategoryCreate extends Component
         );
 
         $this->resetInputFields();
-
         $this->dispatch('productCategoryCreateCompleted');
     }
 
+    /**
+     * Reset the input fields after form submission.
+     *
+     * Clears the name and image fields to prepare the form for a new entry.
+     *
+     * @return void
+     */
     public function resetInputFields(): void
     {
         $this->name = '';

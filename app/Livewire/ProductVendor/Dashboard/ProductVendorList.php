@@ -5,21 +5,37 @@ namespace App\Livewire\ProductVendor\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
+use App\Services\ProductVendorService;
 use App\ProductVendor;
 
+/**
+ * ProductVendorList Livewire Component
+ * 
+ * This Livewire component handles the listing of product vendors.
+ */
 class ProductVendorList extends Component
 {
     use WithPagination;
 
-    // public $productVendors;
+    /**
+     * Total count of product vendors
+     *
+     * @var int
+     */
     public $totalProductVendorCount;
 
-    public function render(): View
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render(ProductVendorService $productVendorService): View
     {
-        $productVendors = ProductVendor::orderBy('product_vendor_id', 'DESC')->paginate(5);
-        $this->totalProductVendorCount = ProductVendor::count();
+        $productVendors = $productVendorService->getPaginatedProductVendors(5);
+        $this->totalProductVendorCount = $productVendorService->getTotalProductVendorCount();
 
-        return view('livewire.product-vendor.dashboard.product-vendor-list')
-            ->with('productVendors', $productVendors);
+        return view('livewire.product-vendor.dashboard.product-vendor-list', [
+            'productVendors' => $productVendors,
+        ]);
     }
 }

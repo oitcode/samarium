@@ -5,6 +5,7 @@ namespace App\Livewire\ProductCategory;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
+use App\Services\ProductCategoryService;
 
 class ProductCategoryDisplay extends Component
 {
@@ -50,15 +51,10 @@ class ProductCategoryDisplay extends Component
         $this->exitMode('updateProductCategoryImageMode');
     }
 
-    public function toggleProductCategorySellability(): void
+    public function toggleProductCategorySellability(ProductCategoryService $productCategoryService): void
     {
-        if ($this->productCategory->does_sell == 'yes') {
-            $this->productCategory->does_sell = 'no';
-        } else {
-            $this->productCategory->does_sell = 'yes';
-        }
-
-        $this->productCategory->save();
+        $productCategoryService->toggleSellability($this->productCategory->product_category_id);
+        $this->productCategory = $this->productCategory->refresh();
         $this->render();
     }
 

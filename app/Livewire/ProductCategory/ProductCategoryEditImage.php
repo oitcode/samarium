@@ -5,6 +5,7 @@ namespace App\Livewire\ProductCategory;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
+use App\Services\ProductCategoryService;
 
 class ProductCategoryEditImage extends Component
 {
@@ -19,18 +20,13 @@ class ProductCategoryEditImage extends Component
         return view('livewire.product-category.product-category-edit-image');
     }
 
-    public function update(): void
+    public function update(ProductCategoryService $productCategoryService): void
     {
         $validatedData = $this->validate([
             'image' => 'required|image',
         ]);
 
-        $imagePath = $this->image->store('products', 'public');
-        $validatedData['image_path'] = $imagePath;
-
-        $this->productCategory->image_path = $validatedData['image_path'];
-        $this->productCategory->save();
-
+        $productCategoryService->updateImage($this->productCategory->product_category_id, $validatedData['image']);
         $this->dispatch('productCategoryUpdateImageCompleted');
     }
 }
