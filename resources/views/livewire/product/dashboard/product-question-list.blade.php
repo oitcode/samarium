@@ -38,11 +38,32 @@
               </span>
             </td>
             <td class="text-right">
+              @if ($modes['confirmDelete'])
+                @if ($deletingProductQuestion->product_question_id == $productQuestion->product_question_id)
+                  <button class="btn btn-danger mr-1" wire:click="deleteProductQuestion">
+                    Confirm delete
+                  </button>
+                  <button class="btn btn-light mr-1" wire:click="cancelDeleteProductQuestion">
+                    Cancel
+                  </button>
+                @endif
+              @endif
+              @if ($modes['cannotDelete'])
+                @if ($deletingProductQuestion->product_question_id == $productQuestion->product_question_id)
+                  <span class="text-danger mr-3">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    Product question cannot be deleted
+                  </span>
+                  <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteProductQuestion">
+                    Cancel
+                  </button>
+                @endif
+              @endif
               <x-list-edit-button-component clickMethod="$dispatch('displayProductQuestion', {productQuestionId: {{ $productQuestion->product_question_id }} })">
               </x-list-edit-button-component>
               <x-list-view-button-component clickMethod="$dispatch('displayProductQuestion', {productQuestionId: {{ $productQuestion->product_question_id }} })">
               </x-list-view-button-component>
-              <x-list-delete-button-component clickMethod="">
+              <x-list-delete-button-component clickMethod="confirmDeleteProductQuestion({{ $productQuestion->product_question_id }})">
               </x-list-delete-button-component>
             </td>
           </x-table-row-component>
