@@ -6,57 +6,110 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
+use App\Services\Cms\WebpageService;
 use App\Webpage;
 
 class WebpageList extends Component
 {
     use WithPagination;
-
     use ModesTrait;
 
     /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
 
+    /**
+     * Webpage per pagination
+     *
+     * @var int
+     */
+    public $perPage = 5;
+
+    /**
+     * Total count of webpages
+     *
+     * @var int
+     */
+    public $totalWebpageCount;
+
+    /**
+     * Webpage which needs to be deleted
+     *
+     * @var Gallery
+     */
     public $deletingWebpage;
 
+    /**
+     * Component display modes
+     *
+     * @var array
+     */
     public $modes = [
-        'delete' => false,
+        'confirmDelete' => false,
         'cannotDelete' => false,
     ];
 
-    public function render(): View
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render(WebpageService $webpageService): View
     {
-        $webpages = Webpage::where('is_post', 'no')->orderBy('webpage_id', 'DESC')->paginate(5);
+        $webpages = $webpageService->getPaginatedWebpages($this->perPage);
+        $this->totalWebpageCount = $webpageService->getTotalWebpageCount();
 
-        return view('livewire.cms.dashboard.webpage-list')
-            ->with('webpages', $webpages);
+        return view('livewire.cms.dashboard.webpage-list', [
+            'webpages' => $webpages,
+        ]);
     }
 
-    public function deleteWebpage(Webpage $webpage): void
+    /**
+     * Confirm if user really wants to delete a webpage
+     *
+     * @return void
+     */
+    public function confirmDeleteWebpage(int $webpage_id, WebpageService $webpageService): void
     {
-        $this->deletingWebpage = $webpage;
+        $this->deletingWebpage = Webpage::find($webpage_id);
 
-        $this->enterMode('delete');
-
-        if (count($webpage->cmsNavMenuItems) > 0) {
-            $this->enterModeSilent('cannotDelete');
+        if ($webpageService->canDeleteWebpage($webpage_id)) {
+            $this->enterMode('confirmDelete');
+        } else {
+            $this->enterMode('cannotDelete');
         }
     }
 
-    public function deleteWebpageCancel(): void
+    /**
+     * Cancel webpage delete
+     *
+     * @return void
+     */
+    public function cancelDeleteWebpage(): void
     {
         $this->deletingWebpage = null;
-        $this->exitMode('delete');
+        $this->exitMode('confirmDelete');
     }
 
-    public function confirmDeleteWebpage(): void
+    /**
+     * Turn off the mode that shows that a webpage cannot be deleted
+     *
+     * @return void
+     */
+    public function cancelCannotDeleteWebpage(): void
     {
-        foreach ($this->deletingWebpage->webpageContents as $webpageContent) {
-            $webpageContent->delete();
-        }
+        $this->deletingWebpage = null;
+        $this->exitMode('cannotDelete');
+    }
 
-        $this->deletingWebpage->delete();
-
-        $this->exitMode('delete');
+    /**
+     * Delete webpage
+     *
+     * @return void
+     */
+    public function deleteWebpage(WebpageService $webpageService): void
+    {
+        $webpageService->deleteWebpage($this->deletingWebpage->webpage_id);
+        $this->deletingWebpage = null;
+        $this->exitMode('confirmDelete');
     }
 }

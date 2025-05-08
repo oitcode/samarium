@@ -2,6 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
+      Total post: {{ $totalPostCount }}
     </x-slot>
 
     <x-slot name="listHeadingRow">
@@ -77,22 +78,33 @@
             @endif
           </td>
           <td class="text-right">
+            @if ($modes['confirmDelete'])
+              @if ($deletingPost->webpage_id == $post->webpage_id)
+                <button class="btn btn-danger mr-1" wire:click="deletePost">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeletePost">
+                  Cancel
+                </button>
+              @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingPost->webpage_id == $post->webpage_id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  Post cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeletePost">
+                  Cancel
+                </button>
+              @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displayPost', { postId: {{ $post->webpage_id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayPost', { postId: {{ $post->webpage_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="deleteWebpage({{ $post }})">
+            <x-list-delete-button-component clickMethod="confirmDeletePost({{ $post->webpage_id }})">
             </x-list-delete-button-component>
-            @if ($modes['delete'])
-              @if ($deletingPost->webpage_id == $post->webpage_id)
-                <span class="btn btn-danger mr-3" wire:click="confirmDeletePost">
-                  Confirm delete
-                </span>
-                <span class="btn btn-light mr-3" wire:click="deletePostCancel">
-                  Cancel
-                </span>
-              @endif
-            @endif
           </td>
         </x-table-row-component>
       @endforeach

@@ -92,7 +92,7 @@ class ProductCategoryList extends Component
     }
 
     /**
-     * Turn off the mode that shows that a product cannot be deleted
+     * Turn off the mode that shows that a product category cannot be deleted
      *
      * @return void
      */

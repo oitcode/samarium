@@ -6,6 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
+use App\Services\Cms\PostService;
 use App\Webpage;
 
 class PostList extends Component
@@ -16,49 +17,99 @@ class PostList extends Component
     /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
 
+    /**
+     * Posts per pagination
+     *
+     * @var int
+     */
+    public $perPage = 5;
+
+    /**
+     * Total count of posts
+     *
+     * @var int
+     */
     public $totalPostCount;
 
+    /**
+     * Post which needs to be deleted
+     *
+     * @var Gallery
+     */
     public $deletingPost;
 
+    /**
+     * Component display modes
+     *
+     * @var array
+     */
     public $modes = [
-        'delete' => false,
+        'confirmDelete' => false,
+        'cannotDelete' => false,
     ];
 
-    public function render(): View
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render(PostService $postService): View
     {
-        $posts = Webpage::where('is_post', 'yes')->orderBy('webpage_id', 'DESC')->paginate(5);
-        $this->totalPostCount = Webpage::where('is_post', 'yes')->count();
+        $posts = $postService->getPaginatedPosts($this->perPage);
+        $this->totalPostCount = $postService->getTotalPostCount();
 
-        return view('livewire.cms.dashboard.post-list')
-            ->with('posts', $posts);
+        return view('livewire.cms.dashboard.post-list', [
+            'posts' => $posts,
+        ]);
     }
 
-    public function deletePost(Webpage $post): void
+    /**
+     * Confirm if user really wants to delete a post
+     *
+     * @return void
+     */
+    public function confirmDeletePost(int $webpage_id, PostService $postService): void
     {
-        $this->deletingPost = $post;
+        $this->deletingPost = Webpage::find($webpage_id);
 
-        $this->enterMode('delete');
+        if ($postService->canDeletePost($webpage_id)) {
+            $this->enterMode('confirmDelete');
+        } else {
+            $this->enterMode('cannotDelete');
+        }
     }
 
-    public function deletePostCancel(): void
+    /**
+     * Cancel post delete
+     *
+     * @return void
+     */
+    public function cancelDeletePost(): void
     {
         $this->deletingPost = null;
-        $this->exitMode('delete');
+        $this->exitMode('confirmDelete');
     }
 
-    public function confirmDeletePost(): void
+    /**
+     * Turn off the mode that shows that a post cannot be deleted
+     *
+     * @return void
+     */
+    public function cancelCannotDeletePost(): void
     {
-        foreach ($this->deletingPost->webpageContents as $webpageContent) {
-            foreach ($webpageContent->cmsWebpageContentCssOptions as $option) {
-                $option->delete();
-            }
+        $this->deletingPost = null;
+        $this->exitMode('cannotDelete');
+    }
 
-            $webpageContent->delete();
-        }
-
-        $this->deletingPost->delete();
-
-        $this->deletingPost = null; 
-        $this->exitMode('delete');
+    /**
+     * Delete post
+     *
+     * @return void
+     */
+    public function deletePost(PostService $postService): void
+    {
+        $postService->deletePost($this->deletingPost->webpage_id);
+        $this->deletingPost = null;
+        $this->exitMode('confirmDelete');
     }
 }

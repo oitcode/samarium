@@ -2,6 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
+      Total webpage: {{ $totalWebpageCount }}
     </x-slot>
 
     <x-slot name="listHeadingRow">
@@ -61,31 +62,33 @@
             @endif
           </td>
           <td class="text-right">
+            @if ($modes['confirmDelete'])
+              @if ($deletingWebpage->webpage_id == $webpage->webpage_id)
+                <button class="btn btn-danger mr-1" wire:click="deleteWebpage">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeleteWebpage">
+                  Cancel
+                </button>
+              @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingWebpage->webpage_id == $webpage->webpage_id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  Webpage cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteWebpage">
+                  Cancel
+                </button>
+              @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displayWebpage', { webpageId: {{ $webpage->webpage_id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayWebpage', { webpageId: {{ $webpage->webpage_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="deleteWebpage({{ $webpage }})">
+            <x-list-delete-button-component clickMethod="confirmDeleteWebpage({{ $webpage->webpage_id }})">
             </x-list-delete-button-component>
-            @if ($modes['delete'])
-              @if ($deletingWebpage->webpage_id == $webpage->webpage_id)
-                @if ($modes['cannotDelete'])
-                  <span class="text-danger mr-3">
-                    Cannot be deleted
-                  </span>
-                  <span class="btn btn-light mr-3" wire:click="deleteWebpageCancel">
-                    Cancel
-                  </span>
-                @else
-                  <span class="btn btn-danger mr-3" wire:click="confirmDeleteWebpage">
-                    Confirm delete
-                  </span>
-                  <span class="btn btn-light mr-3" wire:click="deleteWebpageCancel">
-                    Cancel
-                  </span>
-                @endif
-              @endif
-            @endif
           </td>
         </x-table-row-component>
       @endforeach
