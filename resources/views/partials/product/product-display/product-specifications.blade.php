@@ -109,12 +109,12 @@
                       </button>
                     @else
                       <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
-                        <i class="fas fa-trash"></i>
+                        <i class="fas fa-trash text-muted"></i>
                       </button>
                     @endif
                   @else
                     <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
-                      <i class="fas fa-trash"></i>
+                      <i class="fas fa-trash text-muted"></i>
                     </button>
                   @endif
                 </td>
@@ -191,12 +191,12 @@
                       </button>
                     @else
                       <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
-                        <i class="fas fa-trash"></i>
+                        <i class="fas fa-trash text-muted"></i>
                       </button>
                     @endif
                   @else
                     <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
-                      <i class="fas fa-trash"></i>
+                      <i class="fas fa-trash text-muted"></i>
                     </button>
                   @endif
                 </td>

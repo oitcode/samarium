@@ -44,10 +44,10 @@
   @endif
 
   @if (count($product->productFeatureHeadings) > 0)
-    <div class="mb-3 p-2">
-      <div class="table-responsive">
-        <table class="table table-bordered mb-0">
-          @foreach ($product->productFeatureHeadings as $productFeatureHeading)
+    <div class="mb-3-rm p-2">
+      @foreach ($product->productFeatureHeadings as $productFeatureHeading)
+        <div class="table-responsive mb-3">
+          <table class="table table-bordered mb-0">
             <tr class="">
               <th colspan="2" class="o-heading" style="width: 200px;">
                 {{ $productFeatureHeading->feature_heading }}
@@ -60,19 +60,23 @@
                     @if ($updatingProductFeature->product_feature_id == $productFeature->product_feature_id)
                       @livewire ('product.dashboard.product-feature-edit', ['productFeature' => $productFeature,])
                     @else
-                      {{ $productFeature->feature }}
-                      <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>
+                      <div class="d-flex justify-content-between">
+                        {{ $productFeature->feature }}
+                        <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
+                          <i class="fas fa-edit text-muted"></i>
+                        </button>
+                      </div>
                     @endif
                   @else
-                    {{ $productFeature->feature }}
-                    <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    <div class="d-flex justify-content-between">
+                      {{ $productFeature->feature }}
+                      <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
+                        <i class="fas fa-edit text-muted"></i>
+                      </button>
+                    </div>
                   @endif
                 </th>
-                <td class="" style="width: 200px;">
+                <td class="text-right" style="width: 200px;">
                   @if ($modes['deleteProductFeatureMode'])
                     @if ($deletingProductFeature->product_feature_id == $productFeature->product_feature_id)
                       <button class="btn btn-danger" wire:click="confirmDeleteProductFeature({{ $productFeature }})">
@@ -83,20 +87,20 @@
                       </button>
                     @else
                       <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
-                        <i class="fas fa-trash"></i>
+                        <i class="fas fa-trash text-muted"></i>
                       </button>
                     @endif
                   @else
                     <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
-                      <i class="fas fa-trash"></i>
+                      <i class="fas fa-trash text-muted"></i>
                     </button>
                   @endif
                 </td>
               </tr>
             @endforeach
-          @endforeach
-        </table>
-      </div>
+          </table>
+        </div>
+      @endforeach
     </div>
   @endif
 
@@ -117,19 +121,23 @@
                     @if ($updatingProductFeature->product_feature_id == $productFeature->product_feature_id)
                       @livewire ('product.dashboard.product-feature-edit', ['productFeature' => $productFeature,])
                     @else
-                      {{ $productFeature->feature }}
-                      <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>
+                      <div class="d-flex justify-content-between">
+                        {{ $productFeature->feature }}
+                        <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
+                          <i class="fas fa-edit text-muted"></i>
+                        </button>
+                      </div>
                     @endif
                   @else
-                    {{ $productFeature->feature }}
-                    <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
+                    <div class="d-flex justify-content-between">
+                      {{ $productFeature->feature }}
+                      <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
+                        <i class="fas fa-edit text-muted"></i>
+                      </button>
+                    </div>
                   @endif
                 </th>
-                <td class="" style="width: 200px;">
+                <td class="text-right" style="width: 200px;">
                   @if ($modes['deleteProductFeatureMode'])
                     @if ($deletingProductFeature->product_feature_id == $productFeature->product_feature_id)
                       <button class="btn btn-danger" wire:click="confirmDeleteProductFeature({{ $productFeature }})">
@@ -140,12 +148,12 @@
                       </button>
                     @else
                       <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
-                        <i class="fas fa-trash"></i>
+                        <i class="fas fa-trash text-muted"></i>
                       </button>
                     @endif
                   @else
                     <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
-                      <i class="fas fa-trash"></i>
+                      <i class="fas fa-trash text-muted"></i>
                     </button>
                   @endif
                 </td>
