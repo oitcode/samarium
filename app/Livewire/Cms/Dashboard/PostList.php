@@ -9,6 +9,11 @@ use App\Traits\ModesTrait;
 use App\Services\Cms\PostService;
 use App\Webpage;
 
+/**
+ * PostList Component
+ * 
+ * This Livewire component handles the listing of posts.
+ */
 class PostList extends Component
 {
     use WithPagination;
@@ -34,7 +39,7 @@ class PostList extends Component
     /**
      * Post which needs to be deleted
      *
-     * @var Gallery
+     * @var Webpage
      */
     public $deletingPost;
 
