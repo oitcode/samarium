@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Gallery;
+use App\GalleryImage;
 
 class GalleryService
 {
@@ -71,5 +72,51 @@ class GalleryService
     public function getTotalGalleryCount(): int
     {
         return Gallery::count();
+    }
+
+    /**
+     * Delete an image from gallery
+     *
+     * @return void
+     */
+    public function deleteImageFromGallery(int $galleryImageId): void
+    {
+        $galleryImage = GalleryImage::find($galleryImageId);
+
+        $galleryImage->delete();
+    }
+
+    /**
+     * Get the preceeding image of an image
+     *
+     * @return GalleryImage
+     */
+    public function getPreviousImage(int $galleryImageId): GalleryImage
+    {
+        $galleryImage = GalleryImage::find($galleryImageId);
+
+        $previousItem = $galleryImage->gallery
+            ->galleryImages()->where('position', '<', $galleryImage->position)
+            ->orderBy('position', 'desc')
+            ->first();
+
+        return $previousItem;
+    }
+
+    /**
+     * Get the next image of an image
+     *
+     * @return GalleryImage
+     */
+    public function getNextImage(int $galleryImageId): GalleryImage
+    {
+        $galleryImage = GalleryImage::find($galleryImageId);
+
+        $nextItem = $galleryImage->gallery
+            ->galleryImages()->where('position', '>', $galleryImage->position)
+            ->orderBy('position', 'asc')
+            ->first();
+
+        return $nextItem;
     }
 }
