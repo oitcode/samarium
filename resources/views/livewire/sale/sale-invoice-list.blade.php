@@ -178,69 +178,6 @@
           </td>
         </x-table-row-component>
 
-        {{-- Show in smaller screens --}}
-        <x-table-row-component bsClass="d-md-none">
-          <td>
-            {{ $saleInvoice->sale_invoice_id }}
-          </td>
-          <td>
-            <p>
-              @if (\Carbon\Carbon::today()->toDateString() == $saleInvoice->created_at->toDateString())
-                <i class="fas fa-star mr-2 text-primary"></i>
-                <span class="text-primary">
-                  Today
-                </span>
-
-              @else
-                <span>
-                  {{ $saleInvoice->created_at->toDateString() }}
-                </span>
-              @endif
-            </p>
-            <p>
-              {{ $saleInvoice->created_at->format('H:i A') }}
-            </p>
-          </td>
-          <td>
-            <p class="h5">
-              Rs
-              @php echo number_format( $saleInvoice->getTotalAmount() ); @endphp
-            </p>
-
-            @if ($saleInvoice->payment_status == 'pending')
-              <span class="badge badge-pill badge-danger">
-                Pending
-              </span>
-            @elseif ($saleInvoice->payment_status == 'partially_paid')
-              <span class="badge badge-pill badge-warning">
-                Partial
-              </span>
-            @elseif ($saleInvoice->payment_status == 'paid')
-              <span class="badge badge-pill badge-success">
-                Paid
-              </span>
-            @else
-              {{ $saleInvoice->payment_status }}
-            @endif
-          </td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-cog text-secondary"></i>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <button class="dropdown-item" wire:click="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
-                  <i class="fas fa-file text-primary mr-2"></i>
-                  View
-                </button>
-                <button class="dropdown-item" wire:click="confirmDeleteSaleInvoice({{ $saleInvoice }})">
-                  <i class="fas fa-trash text-danger mr-2"></i>
-                  Delete
-                </button>
-              </div>
-            </div>
-          </td>
-        </x-table-row-component>
       @endforeach
     </x-slot>
 

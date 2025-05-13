@@ -8,126 +8,112 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
+use App\Services\Shop\PurchaseService;
 use App\Purchase;
 
+/**
+ * PurchaseList Component
+ * 
+ * This Livewire component handles the listing of purchases.
+ * It also handles deletion of purchases.
+ */
 class PurchaseList extends Component
 {
     use ModesTrait;
     use WithPagination;
 
-    // public $purchases;
+    /**
+     * Purchases per pagination
+     *
+     * @var int
+     */
+    public $perPage = 5;
 
-    public $startDate = null;
-    public $endDate = null;
-    public $total = 0;
+    /**
+     * Total count of purchases
+     *
+     * @var int
+     */
+    public $totalPurchaseCount;
 
+    /**
+     * Purchase which needs to be deleted
+     *
+     * @var Purchase
+     */
     public $deletingPurchase = null;
 
+    /**
+     * Component display modes
+     *
+     * @var array
+     */
     public $modes = [
-        'confirmDeletePurchase' => false,
+        'confirmDelete' => false, 
+        'cannotDelete' => false, 
     ];
 
-    protected $listeners = [
-        'purchaseDeleted' => 'ackPurchaseDeleted',
-        'exitConfirmPurchaseDelete',
-    ];
-
-    public function mount(): void
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render(PurchaseService $purchaseService): View
     {
-        $this->startDate = date('Y-m-d');
-    }
+        $purchases = $purchaseService->getPaginatedPurchases($this->perPage);
 
-    public function render(): View
-    {
-        // $this->getPurchasesForDateRange();
-        // $this->calculateTotal();
-
-        $purchases = Purchase::orderBy('purchase_id', 'DESC')->paginate(5);
-
-        return view('livewire.purchase.purchase-list')
-            ->with('purchases', $purchases);
-    }
-
-    public function calculateTotal(): void
-    {
-        $total = 0;
-
-        foreach ($this->purchases as $purchase) {
-            $total += $purchase->getTotalAmount();
-        }
-
-        $this->total = $total;
-    }
-
-    public function getPurchasesForDateRange(): void
-    {
-        /* Todo: Validation */
-        $validatedData = $this->validate([
-            'startDate' => 'required|date',
-            'endDate' => 'nullable|date',
+        return view('livewire.purchase.purchase-list', [
+            'purchases' => $purchases,
         ]);
+    }
 
-        /*
-         * Todo: Validate that endDate is not smaller than startDate
-         *
-         * Well, below is a simple validation.
-         *
-         * TOdo: Need to do in livewire / laravel specific way.
-         *
-         */
+    /**
+     * Confirm if user really wants to delete a purchase
+     *
+     * @return void
+     */
+    public function confirmDeletePurchase(int $purchase_id, PurchaseService $purchaseService): void
+    {
+        $this->deletingPurchase = Purchase::find($purchase_id);
 
-        if ($validatedData['endDate']) {
-            if (! $validatedData['startDate']) {
-                return;
-            }
-
-            if ($validatedData['startDate'] > $validatedData['endDate']) {
-                return;
-            }
-        }
-
-        if ($validatedData['endDate']) {
-            $purchases = Purchase::whereDate('purchase_date', '>=', $validatedData['startDate'])
-                ->whereDate('purchase_date', '<=', $validatedData['endDate'])
-                ->orderBy('purchase_id', 'desc')
-                ->get();
+        if ($purchaseService->canDeletePurchase($purchase_id)) {
+            $this->enterMode('confirmDelete');
         } else {
-            $purchases = Purchase::whereDate('purchase_date', $validatedData['startDate'])
-                ->orderBy('purchase_id', 'desc')
-                ->get();
+            $this->enterMode('cannotDelete');
         }
-
-        $this->purchases = $purchases;
     }
 
-    public function enterConfirmDeletePurchaseMode(Purchase $purchase): void
-    {
-        $this->deletingPurchase = $purchase;
-
-        $this->enterMode('confirmDeletePurchase');
-    }
-
-    public function exitConfirmPurchaseDelete(): void
+    /**
+     * Cancel purchase delete
+     *
+     * @return void
+     */
+    public function cancelDeletePurchase(): void
     {
         $this->deletingPurchase = null;
-
-        $this->exitMode('confirmDeletePurchase');
+        $this->exitMode('confirmDelete');
     }
 
-    public function ackPurchaseDeleted(): void
+    /**
+     * Turn off the mode that shows that a purchase cannot be deleted
+     *
+     * @return void
+     */
+    public function cancelCannotDeletePurchase(): void
     {
         $this->deletingPurchase = null;
-        $this->exitMode('confirmDeletePurchase');
-        $this->getPurchasesForDateRange();
+        $this->exitMode('cannotDelete');
     }
 
-    public function setPreviousDay(): void
+    /**
+     * Delete purchase
+     *
+     * @return void
+     */
+    public function deletePurchase(PurchaseService $purchaseService): void
     {
-        $this->startDate = Carbon::create($this->startDate)->subDay()->toDateString();
-    }
-
-    public function setNextDay(): void
-    {
-        $this->startDate = Carbon::create($this->startDate)->addDay()->toDateString();
+        $purchaseService->deletePurchase($this->deletingPurchase->purchase_id);
+        $this->deletingPurchase = null;
+        $this->exitMode('confirmDelete');
     }
 }

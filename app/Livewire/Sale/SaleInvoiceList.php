@@ -22,7 +22,7 @@ class SaleInvoiceList extends Component
     use ModesTrait;
 
     /**
-     * Product categories per pagination
+     * Sale invoices per pagination
      *
      * @var int
      */
@@ -53,7 +53,7 @@ class SaleInvoiceList extends Component
     protected $paginationTheme = 'bootstrap';
 
     /**
-     * Product category which needs to be deleted
+     * Sale invoice which needs to be deleted
      *
      * @var SaleInvoice
      */
@@ -72,16 +72,6 @@ class SaleInvoiceList extends Component
 
         'confirmDelete' => false, 
         'cannotDelete' => false, 
-    ];
-
-    /**
-     * Component event listeners
-     *
-     * @var array
-     */
-    protected $listeners = [
-        'exitConfirmSaleInvoiceDelete',
-        'saleInvoiceDeleted' => 'ackSaleInvoiceDeleted',
     ];
 
     /**
@@ -114,40 +104,19 @@ class SaleInvoiceList extends Component
             ->with('saleInvoices', $saleInvoices);
     }
 
-    public function confirmDeleteSaleInvoice(SaleInvoice $saleInvoice): void
-    {
-        $this->deletingSaleInvoice= $saleInvoice;
-
-        $this->enterModeSilent('confirmDelete');
-    }
-
-    public function exitConfirmSaleInvoiceDelete(): void
-    {
-        $this->deletingSaleInvoice = null;
-        $this->exitMode('confirmDelete');
-    }
-
-    public function ackSaleInvoiceDeleted(): void
-    {
-        $this->deletingSaleInvoice = null;
-        $this->exitMode('confirmDelete');
-
-        $this->render();
-    }
-
     /**
      * Confirm if user really wants to delete a sale invoice
      *
      * @return void
      */
-    public function confirmDeleteProductCategory(int $sale_invoice_id, SaleInvoiceService $saleInvoiceService): void
+    public function confirmDeleteSaleInvoice(int $sale_invoice_id, SaleInvoiceService $saleInvoiceService): void
     {
         $this->deletingSaleInvoice = SaleInvoice::find($sale_invoice_id);
 
         if ($saleInvoiceService->canDeleteSaleInvoice($sale_invoice_id)) {
-            $this->enterMode('confirmDelete');
+            $this->enterModeSilent('confirmDelete');
         } else {
-            $this->enterMode('cannotDelete');
+            $this->enterModeSilent('cannotDelete');
         }
     }
 
