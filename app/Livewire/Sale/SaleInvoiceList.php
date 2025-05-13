@@ -6,40 +6,89 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
+use App\Services\Shop\SaleInvoiceService;
 use App\SaleInvoice;
 use App\SaleInvoiceAdditionHeading;
 
+/**
+ * SaleInvoiceList Component
+ * 
+ * This Livewire component handles the listing of sale invoices.
+ * It also handles deletion of sale invoices.
+ */
 class SaleInvoiceList extends Component
 {
     use WithPagination;
     use ModesTrait;
 
-    public $todaySaleInvoiceCount;
+    /**
+     * Product categories per pagination
+     *
+     * @var int
+     */
+    public $perPage = 5;
+
+    /**
+     * Total count of sale invoices
+     *
+     * @var int
+     */
     public $totalSaleInvoiceCount;
+
+    /**
+     * Total count of sale invoices created today
+     *
+     * @var int
+     */
+    public $todaySaleInvoiceCount;
+
+    /**
+     * Vat is supported or not
+     *
+     * @var bool
+     */
     public $hasVat;
 
     /* Use bootstrap pagination theme */
     protected $paginationTheme = 'bootstrap';
 
-    // public $saleInvoices;
+    /**
+     * Product category which needs to be deleted
+     *
+     * @var SaleInvoice
+     */
+    public $deletingSaleInvoice;
 
+    /**
+     * Component display modes
+     *
+     * @var array
+     */
     public $modes = [
-        'confirmDelete' => false,
-
         'showOnlyPendingMode' => false,
         'showOnlyPartiallyPaidMode' => false,
         'showOnlyPaidMode' => false,
         'showAllMode' => true,
 
-        'delete' => false, 
+        'confirmDelete' => false, 
         'cannotDelete' => false, 
     ];
 
+    /**
+     * Component event listeners
+     *
+     * @var array
+     */
     protected $listeners = [
         'exitConfirmSaleInvoiceDelete',
         'saleInvoiceDeleted' => 'ackSaleInvoiceDeleted',
     ];
 
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
     public function render(): View
     {
         $this->hasVat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
@@ -69,7 +118,7 @@ class SaleInvoiceList extends Component
     {
         $this->deletingSaleInvoice= $saleInvoice;
 
-        $this->enterMode('confirmDelete');
+        $this->enterModeSilent('confirmDelete');
     }
 
     public function exitConfirmSaleInvoiceDelete(): void
@@ -84,5 +133,55 @@ class SaleInvoiceList extends Component
         $this->exitMode('confirmDelete');
 
         $this->render();
+    }
+
+    /**
+     * Confirm if user really wants to delete a sale invoice
+     *
+     * @return void
+     */
+    public function confirmDeleteProductCategory(int $sale_invoice_id, SaleInvoiceService $saleInvoiceService): void
+    {
+        $this->deletingSaleInvoice = SaleInvoice::find($sale_invoice_id);
+
+        if ($saleInvoiceService->canDeleteSaleInvoice($sale_invoice_id)) {
+            $this->enterMode('confirmDelete');
+        } else {
+            $this->enterMode('cannotDelete');
+        }
+    }
+
+    /**
+     * Cancel product sale invoice
+     *
+     * @return void
+     */
+    public function cancelDeleteSaleInvoice(): void
+    {
+        $this->deletingSaleInvoice = null;
+        $this->exitMode('confirmDelete');
+    }
+
+    /**
+     * Turn off the mode that shows that a sale invoice cannot be deleted
+     *
+     * @return void
+     */
+    public function cancelCannotDeleteSaleInvoice(): void
+    {
+        $this->deletingSaleInvoice = null;
+        $this->exitMode('cannotDelete');
+    }
+
+    /**
+     * Delete sale invoice
+     *
+     * @return void
+     */
+    public function deleteSaleInvoice(SaleInvoiceService $saleInvoiceService): void
+    {
+        $saleInvoiceService->deleteSaleInvoice($this->deletingSaleInvoice->sale_invoice_id);
+        $this->deletingSaleInvoice = null;
+        $this->exitMode('confirmDelete');
     }
 }

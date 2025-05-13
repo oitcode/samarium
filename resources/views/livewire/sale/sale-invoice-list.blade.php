@@ -148,11 +148,32 @@
             @endif
           </td>
           <td class="text-right">
+            @if ($modes['confirmDelete'])
+              @if ($deletingSaleInvoice->sale_invoice_id == $saleInvoice->sale_invoice_id)
+                <button class="btn btn-danger mr-1" wire:click="deleteSaleInvoice">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeleteSaleInvoice">
+                  Cancel
+                </button>
+              @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingSaleInvoice->sale_invoice_id == $saleInvoice->sale_invoice_id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  Sale invoice cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteSaleInvoice">
+                  Cancel
+                </button>
+              @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="$dispatch('displaySaleInvoice', { saleInvoiceId: {{ $saleInvoice->sale_invoice_id }} })">
+            <x-list-delete-button-component clickMethod="confirmDeleteSaleInvoice({{ $saleInvoice->sale_invoice_id }})">
             </x-list-delete-button-component>
           </td>
         </x-table-row-component>
@@ -221,10 +242,6 @@
           </td>
         </x-table-row-component>
       @endforeach
-
-      @if ($modes['confirmDelete'])
-        @livewire ('saleInvoice-list-confirm-delete', ['saleInvoice' => $deletingSaleInvoice,])
-      @endif
     </x-slot>
 
     <x-slot name="listPaginationLinks">
