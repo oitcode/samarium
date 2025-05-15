@@ -9,171 +9,112 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Traits\ModesTrait;
+use App\Services\Shop\ExpenseService;
 use App\Expense;
 
+/**
+ * ExpenseList Component
+ * 
+ * This Livewire component handles the listing of expenses.
+ * It also handles deletion of expenses.
+ */
 class ExpenseList extends Component
 {
     use ModesTrait;
     use WithPagination;
-    // public $expenses = null;
 
-    public $startDate = null;
-    public $endDate = null;
-    public $total = 0;
+    /**
+     * Expenses per pagination
+     *
+     * @var int
+     */
+    public $perPage = 5;
 
+    /**
+     * Total count of expenses
+     *
+     * @var int
+     */
+    public $totalExpenseCount;
+
+    /**
+     * Expense which needs to be deleted
+     *
+     * @var Expense
+     */
     public $deletingExpense = null;
 
-    public $modes = [
-        'confirmDeleteExpense' => false,
-    ];
-
-    protected $listeners = [
-        'expenseDeleted' => 'ackExpenseDeleted',
-        'exitConfirmExpenseDelete',
-        'deleteExpenseFromList',
-    ];
-
-    public function mount(): void
-    {
-        $this->startDate = date('Y-m-d');
-    }
-
-    public function render(): View
-    {
-        $this->getExpensesForDateRange();
-        $this->calculateTotal();
-
-        $expenses = Expense::orderBy('expense_id', 'DESC')->paginate(5);
-
-        return view('livewire.expense.expense-list')
-            ->with('expenses', $expenses);
-    }
-
-    public function calculateTotal(): void
-    {
-        $this->total = 0;
-
-        if (! is_null($this->expenses) && count($this->expenses) > 0) {
-            foreach ($this->expenses as $expense) {
-                $this->total += $expense->getTotalAmount();
-            }
-        }
-    }
-
-    public function getExpensesForDateRange(): void
-    {
-        /* Todo: Validation */
-        $validatedData = $this->validate([
-            'startDate' => 'required|date',
-            'endDate' => 'nullable|date',
-        ]);
-
-        /*
-         * Todo: Validate that endDate is not smaller than startDate
-         *
-         * Well, below is a simple validation.
-         *
-         * TOdo: Need to do in livewire / laravel specific way.
-         *
-         */
-
-        try {
-            if ($validatedData['endDate']) {
-                if (! $validatedData['startDate']) {
-                    return;
-                }
-
-                if ($validatedData['startDate'] > $validatedData['endDate']) {
-                    return;
-                }
-            }
-
-            if ($validatedData['endDate']) {
-                $expenses = Expense::whereDate('date', '>=', $validatedData['startDate'])
-                    ->whereDate('date', '<=', $validatedData['endDate'])
-                    ->orderBy('expense_id', 'desc')
-                    ->get();
-            } else {
-                $expenses = Expense::whereDate('date', $validatedData['startDate'])
-                    ->orderBy('expense_id', 'desc')
-                    ->get();
-            }
-        } catch(\Throwable $e) {
-            Log::error($e);
-        }
-
-        $this->expenses = $expenses;
-    }
-
-    public function enterConfirmDeleteExpenseMode(Expense $expense): void
-    {
-        $this->deletingExpense = $expense;
-
-        $this->enterMode('confirmDeleteExpense');
-    }
-
-    public function exitConfirmExpenseDelete(): void
-    {
-        $this->deletingExpense = null;
-
-        $this->exitMode('confirmDeleteExpense');
-    }
-
-    public function ackExpenseDeleted(): void
-    {
-        $this->deletingExpense = null;
-        $this->exitMode('confirmDeleteExpense');
-        $this->getExpensesForDateRange();
-    }
-
-    public function setPreviousDay(): void
-    {
-        $this->startDate = Carbon::create($this->startDate)->subDay()->toDateString();
-    }
-
-    public function setNextDay(): void
-    {
-        $this->startDate = Carbon::create($this->startDate)->addDay()->toDateString();
-    }
-
-    /*
-     * Todo: This function had to be moved from delete confirm modal
-     *       to here as a code fix for bug #2 . Why?
+    /**
+     * Component display modes
      *
-     *
+     * @var array
      */
-    public function deleteExpenseFromList(Expense $expense): void
+    public $modes = [
+        'confirmDelete' => false, 
+        'cannotDelete' => false, 
+    ];
+
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render(ExpenseService $expenseService): View
     {
-        DB::beginTransaction();
+        $expenses = $expenseService->getPaginatedExpenses($this->perPage);
 
-        try {
-            /* Delete expense items */
-            foreach ($expense->expenseItems as $item) {
-                /* Delete expense item */
-                $item->delete();
-            }
+        return view('livewire.expense.expense-list', [
+            'expenses' => $expenses,
+        ]);
+    }
 
-            /* Delete expense additions payments */
-            foreach ($expense->expenseAdditions as $expenseAddition) {
-                $expenseAddition->delete();
-            }
+    /**
+     * Confirm if user really wants to delete a expense
+     *
+     * @return void
+     */
+    public function confirmDeleteExpense(int $expense_id, ExpenseService $expenseService): void
+    {
+        $this->deletingExpense = Expense::find($expense_id);
 
-            /* Delete expense payments */
-            foreach ($expense->expensePayments as $expensePayment) {
-                $expensePayment->delete();
-            }
-
-            /* Delete expense */
-            $expense->delete();
-
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
+        if ($expenseService->canDeleteExpense($expense_id)) {
+            $this->enterMode('confirmDelete');
+        } else {
+            $this->enterMode('cannotDelete');
         }
+    }
 
+    /**
+     * Cancel expense delete
+     *
+     * @return void
+     */
+    public function cancelDeleteExpense(): void
+    {
         $this->deletingExpense = null;
-        $this->exitMode('confirmDeleteExpense');
-        $this->getExpensesForDateRange();
+        $this->exitMode('confirmDelete');
+    }
+
+    /**
+     * Turn off the mode that shows that a expense cannot be deleted
+     *
+     * @return void
+     */
+    public function cancelCannotDeleteExpense(): void
+    {
+        $this->deletingExpense = null;
+        $this->exitMode('cannotDelete');
+    }
+
+    /**
+     * Delete expense
+     *
+     * @return void
+     */
+    public function deleteExpense(ExpenseService $expenseService): void
+    {
+        $expenseService->deleteExpense($this->deletingExpense->expense_id);
+        $this->deletingExpense = null;
+        $this->exitMode('confirmDelete');
     }
 }

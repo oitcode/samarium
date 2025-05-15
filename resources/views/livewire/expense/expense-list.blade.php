@@ -1,67 +1,5 @@
 <div>
 
-  @if (false)
-    {{-- Show in bigger screens --}}
-    <div class="mt-1 mb-1 py-2 text-secondary d-none d-md-block bg-white">
-      <div class="d-flex">
-        <div class="mt-0 text-secondary mr-3">
-          <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
-            <i class="fas fa-arrow-left"></i>
-          </button>
-          <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setNextDay">
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
-        <div>
-          <input type="date" wire:model="startDate" class="mr-3" />
-          <input type="date" wire:model="endDate" class="mr-3" />
-          <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getExpensesForDateRange">
-            Go
-          </button>
-        </div>
-
-        @include ('partials.dashboard.spinner-button')
-
-        <div class="d-flex justify-content-end flex-grow-1">
-          <div class="pl-2 font-weight-bold pr-3 py-2 bg-white">
-            <span class="text-dark">
-            {{ config('app.transaction_currency_symbol') }}
-            @php echo number_format( $total, 2 ); @endphp
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{-- Show in smaller screens --}}
-    <div class="mb-3 text-secondary d-md-none">
-      <div class="mt-0 text-secondary mr-3">
-        <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setPreviousDay">
-          <i class="fas fa-arrow-left"></i>
-        </button>
-        <button class="btn {{ config('app.oc_ascent_btn_color') }}" wire:click="setNextDay">
-          <i class="fas fa-arrow-right"></i>
-        </button>
-      </div>
-      <div>
-        <input type="date" wire:model="startDate" class="mr-3" />
-        <input type="date" wire:model="endDate" class="mr-3" />
-        <button class="btn {{ config('app.oc_ascent_btn_color') }} mr-3" wire:click="getExpensesForDateRange">
-          Go
-        </button>
-      </div>
-      @include ('partials.dashboard.spinner-button')
-      <div class="d-flex flex-grow-1">
-        <div class="pl-2 font-weight-bold pr-3 border py-2 bg-white">
-          <span class="text-dark">
-          {{ config('app.transaction_currency_symbol') }}
-          @php echo number_format( $total, 2 ); @endphp
-          </span>
-        </div>
-      </div>
-    </div>
-  @endif
-
   <x-list-component>
     <x-slot name="listInfo">
     </x-slot>
@@ -94,45 +32,33 @@
             @php echo number_format( $expense->getTotalAmount(), 2 ); @endphp
           </td>
           <td class="text-right">
-            @if (true)
+            @if ($modes['confirmDelete'])
+              @if ($deletingExpense->expense_id == $expense->expense_id)
+                <button class="btn btn-danger mr-1" wire:click="deleteExpense">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeleteExpense">
+                  Cancel
+                </button>
+              @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingExpense->expense_id == $expense->expense_id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  Expense cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteExpense">
+                  Cancel
+                </button>
+              @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displayExpense', {expenseId: {{ $expense->expense_id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayExpense', {expenseId: {{ $expense->expense_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="">
+            <x-list-delete-button-component clickMethod="confirmDeleteExpense({{ $expense->expense_id }})">
             </x-list-delete-button-component>
-            @endif
-          </td>
-        </x-table-row-component>
-
-        {{-- Show in smaller screens --}}
-        <x-table-row-component bsClass="d-md-none" wire:key="{{ rand() }}">
-          <td>
-            {{ $expense->expense_id }}
-            <div>
-              {{ $expense->date }}
-            </div>
-          </td>
-          <td class="font-weight-bold">
-            {{ config('app.transaction_currency_symbol') }}
-            @php echo number_format( $expense->amount, 2 ); @endphp
-          </td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-cog text-secondary"></i>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <button class="dropdown-item" wire:click="">
-                  <i class="fas fa-file text-primary mr-2"></i>
-                  View
-                </button>
-                <button class="dropdown-item" wire:click="enterConfirmDeleteExpenseMode({{ $expense }})">
-                  <i class="fas fa-trash text-danger mr-2"></i>
-                  Delete
-                </button>
-              </div>
-            </div>
           </td>
         </x-table-row-component>
       @endforeach
@@ -142,9 +68,5 @@
       {{ $expenses->links() }}
     </x-slot>
   </x-list-component>
-
-  @if ($modes['confirmDeleteExpense'])
-    @livewire ('expense-list-expense-delete-confirm', ['expense' => $deletingExpense,])
-  @endif
 
 </div>
