@@ -6,7 +6,7 @@
         <div class="pt-2">
           <div class="d-flex">
             <div class="mr-4 px-2 py-1 border font-weight-bold">
-              Total : {{ $contactMessageCount }}
+              Total : {{ $totalContactMessageCount }}
             </div>
           </div>
         </div>
@@ -116,22 +116,33 @@
             @endif
           </td>
           <td class="text-right">
+              @if ($modes['confirmDelete'])
+                @if ($deletingContactMessage->contact_message_id == $contactMessage->contact_message_id)
+                  <button class="btn btn-danger mr-1" wire:click="deleteContactMessage">
+                    Confirm delete
+                  </button>
+                  <button class="btn btn-light mr-1" wire:click="cancelDeleteContactMessage">
+                    Cancel
+                  </button>
+                @endif
+              @endif
+              @if ($modes['cannotDelete'])
+                @if ($deletingContactMessage->contact_message_id == $contactMessage->contact_message_id)
+                  <span class="text-danger mr-3">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    Contact message cannot be deleted
+                  </span>
+                  <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteContactMessage">
+                    Cancel
+                  </button>
+                @endif
+              @endif
               <x-list-edit-button-component clickMethod="$dispatch('displayContactMessage', { contactMessageId: {{ $contactMessage->contact_message_id }} })">
               </x-list-edit-button-component>
               <x-list-view-button-component clickMethod="$dispatch('displayContactMessage', { contactMessageId: {{ $contactMessage->contact_message_id }} })">
               </x-list-view-button-component>
-              <x-list-delete-button-component clickMethod="deleteContactMessage({{ $contactMessage }})">
+              <x-list-delete-button-component clickMethod="confirmDeleteContactMessage({{ $contactMessage->contact_message_id }})">
               </x-list-delete-button-component>
-              @if ($modes['deleteContactMessageMode'])
-                @if ($deletingContactMessage->contact_message_id == $contactMessage->contact_message_id)
-                  <span class="btn btn-danger mx-3" wire:click="confirmDeleteContactMessage">
-                    Confirm delete
-                  </span>
-                  <span class="btn btn-light mr-3" wire:click="deleteContactMessageCancel">
-                    Cancel
-                  </span>
-                @endif
-              @endif
           </td>
         </x-table-row-component>
       @endforeach
