@@ -2,7 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      Total : {{ $teamsCount }}
+      Total : {{ $totalTeamCount }}
     </x-slot>
 
     <x-slot name="listHeadingRow">
@@ -22,33 +22,33 @@
             </span>
           </td>
           <td class="text-right">
+            @if ($modes['confirmDelete'])
+              @if ($deletingTeam->team_id == $team->team_id)
+                <button class="btn btn-danger mr-1" wire:click="deleteTeam">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeleteTeam">
+                  Cancel
+                </button>
+              @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingTeam->team_id == $team->team_id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  Team cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteTeam">
+                  Cancel
+                </button>
+              @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displayTeam', { teamId: {{ $team->team_id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayTeam', { teamId: {{ $team->team_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="">
+            <x-list-delete-button-component clickMethod="confirmDeleteTeam({{ $team->team_id }})">
             </x-list-delete-button-component>
-            @if ($modes['delete'])
-              @if ($deletingTeam->team_id == $team->team_id)
-
-                @if ($modes['cannotDelete'])
-                  <span class="text-danger mr-3">
-                    Cannot be deleted
-                  </span>
-                  <span class="btn btn-light mr-3" wire:click="deleteTeamCancel">
-                    Cancel
-                  </span>
-                @else
-                  <span class="btn btn-danger mr-3" wire:click="confirmDeleteTeam">
-                    Confirm delete
-                  </span>
-                  <span class="btn btn-light mr-3" wire:click="deleteTeamCancel">
-                    Cancel
-                  </span>
-                @endif
-
-              @endif
-            @endif
           </td>
         </x-table-row-component>
       @endforeach

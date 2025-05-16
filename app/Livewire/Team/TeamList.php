@@ -6,81 +6,113 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
+use App\Services\Team\TeamService;
 use App\Team;
 
+/**
+ * TeamList Component
+ * 
+ * This Livewire component handles the listing of teams.
+ * It also handles deletion of teams.
+ */
 class TeamList extends Component
 {
     use WithPagination;
     use ModesTrait;
 
-    /* Use bootstrap pagination theme */
-    protected $paginationTheme = 'bootstrap';
+    /**
+     * Teams per pagination
+     *
+     * @var int
+     */
+    public $perPage = 5;
 
-    // public $teams;
+    /**
+     * Total count of teams
+     *
+     * @var int
+     */
+    public $totalTeamCount;
 
-    public $teamSearch = [
-        'name' => '',
-    ];
+    /**
+     * Team which needs to be deleted
+     *
+     * @var Team
+     */
+    public $deletingTeam = null;
 
-    public $deletingTeam;
-
+    /**
+     * Component display modes
+     *
+     * @var array
+     */
     public $modes = [
-        'delete' => false, 
+        'confirmDelete' => false, 
         'cannotDelete' => false, 
     ];
 
-    public $teamsCount;
-
-    public $team_search_name;
-    public $searchResultTeams;
-
-    public function render(): View
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render(TeamService $teamService): View
     {
-        $teams = Team::paginate(5);
-        $this->teamsCount = Team::count();
+        $teams = $teamService->getPaginatedTeams($this->perPage);
+        $this->totalTeamCount = $teamService->getTotalTeamCount();
 
-        return view('livewire.team.team-list')
-            ->with('teams', $teams);
-    }
-
-    public function search(): void
-    {
-        $validatedData = $this->validate([
-            'team_search_name' => 'required',
+        return view('livewire.team.team-list', [
+            'teams' => $teams,
         ]);
-
-        $teams = Team::where('name', 'like', '%'.$validatedData['team_search_name'].'%')->get();
-
-        $this->searchResultTeams = $teams;
-        
     }
 
-    public function deleteTeam(Team $team): void
+    /**
+     * Confirm if user really wants to delete a team
+     *
+     * @return void
+     */
+    public function confirmDeleteTeam(int $team_id, TeamService $teamService): void
     {
-        $this->deletingTeam = $team;
+        $this->deletingTeam = Team::find($team_id);
 
-        $this->enterMode('delete');
-
-        if (count($team->teamMembers) > 0) {
-            $this->enterModeSilent('cannotDelete');
+        if ($teamService->canDeleteTeam($team_id)) {
+            $this->enterMode('confirmDelete');
+        } else {
+            $this->enterMode('cannotDelete');
         }
     }
 
-    public function deleteTeamCancel(): void
+    /**
+     * Cancel team delete
+     *
+     * @return void
+     */
+    public function cancelDeleteTeam(): void
     {
         $this->deletingTeam = null;
-        $this->exitMode('delete');
+        $this->exitMode('confirmDelete');
     }
 
-    public function confirmDeleteTeam(): void
+    /**
+     * Turn off the mode that shows that a team cannot be deleted
+     *
+     * @return void
+     */
+    public function cancelCannotDeleteTeam(): void
     {
-        /* Todo: Delete team members and other things
-                 before deletng the team itself.
-         */
+        $this->deletingTeam = null;
+        $this->exitMode('cannotDelete');
+    }
 
-        $this->deletingTeam->delete();
-
-        $this->deletingTeam = null; 
-        $this->exitMode('delete');
+    /**
+     * Delete team
+     *
+     * @return void
+     */
+    public function deleteTeam(TeamService $teamService): void
+    {
+        $teamService->deleteTeam($this->deletingTeam->team_id);
+        $this->deletingTeam = null;
+        $this->exitMode('confirmDelete');
     }
 }
