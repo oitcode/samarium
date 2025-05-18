@@ -25,7 +25,6 @@ class AppointmentService
      * Create a new appointment
      *
      * @param array $data
-     * @param UploadedFile|null $image
      * @return Appointment
      */
     public function createAppointment(array $data): Appointment

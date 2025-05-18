@@ -2,7 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      Total : {{ $testimonialsCount }}
+      Total : {{ $totalTestimonialCount }}
     </x-slot>
 
     <x-slot name="listHeadingRow">
@@ -33,11 +33,32 @@
             {{ \Illuminate\Support\Str::limit($testimonial->body, 100, $end=' ...') }}
           </td>
           <td class="text-right">
+            @if ($modes['confirmDelete'])
+              @if ($deletingTestimonial->testimonial_id == $testimonial->testimonial_id)
+                <button class="btn btn-danger mr-1" wire:click="deleteTestimonial">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeleteTestimonial">
+                  Cancel
+                </button>
+              @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingTestimonial->testimonial_id == $testimonial->testimonial_id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  Testimonial cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteTestimonial">
+                  Cancel
+                </button>
+              @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displayTestimonial', { testimonialId: {{ $testimonial->testimonial_id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayTestimonial', { testimonialId: {{ $testimonial->testimonial_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="">
+            <x-list-delete-button-component clickMethod="confirmDeleteTestimonial({{ $testimonial->testimonial_id }})">
             </x-list-delete-button-component>
           </td>
         </x-table-row-component>

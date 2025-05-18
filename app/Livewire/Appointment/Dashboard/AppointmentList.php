@@ -107,7 +107,7 @@ class AppointmentList extends Component
     }
 
     /**
-     * Delete contact message
+     * Delete appointment
      *
      * @return void
      */
