@@ -4,7 +4,7 @@
     <x-slot name="listInfo">
       <div class="py-3 px-2 bg-white border d-flex justify-content-between">
         <div class="pt-2 px-2 font-weight-bold border mr-2">
-          Total : {{ $todoCount }}
+          Total : {{ $totalTodoCount }}
         </div>
         <div class="font-weight-bold h6 d-flex">
           <div class="d-flex">
@@ -146,11 +146,32 @@
             @endif
           </td>
           <td class="text-right">
+            @if ($modes['confirmDelete'])
+              @if ($deletingTodo->todo_id == $todo->todo_id)
+                <button class="btn btn-danger mr-1" wire:click="deleteTodo">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeleteTodo">
+                  Cancel
+                </button>
+              @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingTodo->todo_id == $todo->todo_id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  Todo cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteTodo">
+                  Cancel
+                </button>
+              @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displayTodo', { todoId: {{ $todo->todo_id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayTodo', { todoId: {{ $todo->todo_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="">
+            <x-list-delete-button-component clickMethod="confirmDeleteTodo({{ $todo->todo_id }})">
             </x-list-delete-button-component>
           </td>
         </x-table-row-component>
@@ -161,9 +182,5 @@
       {{ $todos->links() }}
     </x-slot>
   </x-list-component>
-
-  @if ($modes['confirmDeleteMode'])
-    @livewire ('todo-list-confirm-delete', ['todo' => $deletingTodo,])
-  @endif
 
 </div>

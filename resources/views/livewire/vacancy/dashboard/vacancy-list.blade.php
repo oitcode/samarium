@@ -2,7 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      Total : {{ $vacanciesCount }}
+      Total : {{ $totalVacancyCount }}
     </x-slot>
 
     <x-slot name="listHeadingRow">
@@ -29,11 +29,32 @@
           {{ $vacancy->created_at->toDateString() }}
           </td>
           <td class="text-right">
+            @if ($modes['confirmDelete'])
+              @if ($deletingVacancy->vacancy_id == $vacancy->vacancy_id)
+                <button class="btn btn-danger mr-1" wire:click="deleteVacancy">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeleteVacancy">
+                  Cancel
+                </button>
+              @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingVacancy->vacancy_id == $vacancy->vacancy_id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  Vacancy cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteVacancy">
+                  Cancel
+                </button>
+              @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displayVacancy', { vacancyId: {{ $vacancy->vacancy_id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayVacancy', { vacancyId: {{ $vacancy->vacancy_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="">
+            <x-list-delete-button-component clickMethod="confirmDeleteVacancy({{ $vacancy->vacancy_id }})">
             </x-list-delete-button-component>
           </td>
         </x-table-row-component>

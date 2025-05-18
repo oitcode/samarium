@@ -2,36 +2,50 @@
 
 namespace App\Livewire\Todo\Dashboard;
 
-use App\Traits\ModesTrait;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Traits\ModesTrait;
+use App\Services\Todo\TodoService;
 use App\Todo;
 
+/**
+ * TodoList Component
+ * 
+ * This Livewire component handles the listing of todos.
+ * It also handles deletion of todos.
+ */
 class TodoList extends Component
 {
     use WithPagination;
     use ModesTrait;
 
-    // public $todos = null;
+    /**
+     * Todos per pagination
+     *
+     * @var int
+     */
+    public $perPage = 5;
 
-    public $searchToolBoxShow = false;
+    /**
+     * Total count of todos
+     *
+     * @var int
+     */
+    public $totalTodoCount;
 
-    public $todoCount = 0;
-    public $todoDisplayCount = 0;
+    /**
+     * Todo which needs to be deleted
+     *
+     * @var Todo
+     */
+    public $deletingTodo;
 
-    public $deletingTodo = null;
-
-
-    /* Search items */
-    public $searchData = [
-        'id' => null,
-        'title' => null,
-        'startDate' => null,
-        'endDate' => null,
-        'status' => null,
-    ];
-
+    /**
+     * Component display modes
+     *
+     * @var array
+     */
     public $modes = [
         'deleteTodoMode' => false,
         'showOnlyPendingMode' => false,
@@ -40,25 +54,22 @@ class TodoList extends Component
         'showOnlyDeferredMode' => false,
         'showOnlyCancelledMode' => false,
         'showAllMode' => true,
-        'delete' => false, 
-        'confirmDeleteMode' => false, 
+
+        'confirmDelete' => false, 
         'cannotDelete' => false, 
     ];
 
-    protected $listeners = [
-        'updateList' => 'mount',
-        'deleteInstance',
-        'exitConfirmDelete',
-    ];
-
-    public function render(): View
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render(TodoService $todoService): View
     {
-        // $this->todoDisplayCount = $this->todoCount;;
-        $this->todoDisplayCount = $this->todoCount;;
+        $this->totalTodoCount = $todoService->getTotalTodoCount();
 
         $todos = null;
 
-        // $this->todos = Todo::orderBy('todo_id', 'desc')->get();
         if ($this->modes['showAllMode']) {
             $todos = Todo::orderBy('todo_id', 'desc')->paginate(5);
         } else if ($this->modes['showOnlyPendingMode']) {
@@ -75,105 +86,107 @@ class TodoList extends Component
             // Todo
         }
 
-        // $this->todoCount = count($this->todos);
-        $this->todoCount = $todos->count();
-
-        return view('livewire.todo.dashboard.todo-list')
-            ->with('todos', $todos);
+        return view('livewire.todo.dashboard.todo-list', [
+            'todos' => $todos,
+        ]);
     }
 
-    public function toggleSearchToolBox(): void
-    {
-        $this->searchToolBoxShow = !$this->searchToolBoxShow;
-    }
+    // public function toggleSearchToolBox(): void
+    // {
+    //     $this->searchToolBoxShow = !$this->searchToolBoxShow;
+    // }
 
-    public function search(): void
+    // public function search(): void
+    // {
+    //     /* Retreive all records if empty search */
+    //     $emptySearch = true;
+    //     foreach ($this->searchData as $key => $value) {
+    //         if ($value !== null && $value != '') {
+    //           $emptySearch = false;
+    //           break;
+    //         }
+    //     }
+
+    //     if ($emptySearch) {
+    //         $this->todos = Todo::orderBy('publish_date', 'desc')
+    //         ->orderBy('todo_id', 'desc')
+    //         ->get();
+
+    //         $this->todoCount = Todo::count();
+    //         $this->todoDisplayCount = $this->todoCount;
+
+    //         return;
+    //     } 
+
+    //     /* Apply search filter */
+
+    //     /* Status */
+    //     if ($this->searchData['status'] && $this->searchData['status'] != 'all') {
+    //         $todos = Todo::where('status', $this->searchData['status']);
+    //     }
+
+    //     if ($this->searchData['status'] && $this->searchData['status'] == 'all') {
+    //         $todos = new Todo;
+    //     }
+
+    //     $this->todos = $todos
+    //         ->orderBy('publish_date', 'desc')
+    //         ->orderBy('todo_id', 'desc');
+
+    //     $this->todoCount = $this->todos->count();
+    //     $this->todoDisplayCount = $this->todos->count();
+
+    //     $this->todos = $this->todos->get();
+    // }
+
+    /**
+     * Confirm if user really wants to delete a todo
+     *
+     * @return void
+     */
+    public function confirmDeleteTodo(int $todo_id, TodoService $todoService): void
     {
-        /* Retreive all records if empty search */
-        $emptySearch = true;
-        foreach ($this->searchData as $key => $value) {
-            if ($value !== null && $value != '') {
-              $emptySearch = false;
-              break;
-            }
+        $this->deletingTodo = Todo::find($todo_id);
+
+        if ($todoService->canDeleteTodo($todo_id)) {
+            $this->enterModeSilent('confirmDelete');
+        } else {
+            $this->enterModeSilent('cannotDelete');
         }
-
-        if ($emptySearch) {
-            $this->todos = Todo::orderBy('publish_date', 'desc')
-            ->orderBy('todo_id', 'desc')
-            ->get();
-
-            $this->todoCount = Todo::count();
-            $this->todoDisplayCount = $this->todoCount;
-
-            return;
-        } 
-
-        /* Apply search filter */
-
-        /* Status */
-        if ($this->searchData['status'] && $this->searchData['status'] != 'all') {
-            $todos = Todo::where('status', $this->searchData['status']);
-        }
-
-        if ($this->searchData['status'] && $this->searchData['status'] == 'all') {
-            $todos = new Todo;
-        }
-
-        $this->todos = $todos
-            ->orderBy('publish_date', 'desc')
-            ->orderBy('todo_id', 'desc');
-
-        $this->todoCount = $this->todos->count();
-        $this->todoDisplayCount = $this->todos->count();
-
-        $this->todos = $this->todos->get();
     }
 
-    /*
-    public function confirmDeleteTodo(Todo $todo)
-    {
-        $this->deletingTodo = $todo;
-        $this->enterMode('confirmDeleteMode');
-    }
-    */
-
-    public function deleteInstance($todoId): void
-    {
-        $todo = Todo::find($todoId);
-
-        $todo->delete();
-
-        session()->flash('message', 'Todo deleted');
-
-        $this->exitConfirmDelete();
-        $this->mount();
-    }
-
-    public function exitConfirmDelete(): void
+    /**
+     * Cancel todo delete
+     *
+     * @return void
+     */
+    public function cancelDeleteTodo(): void
     {
         $this->deletingTodo = null;
-        $this->exitMode('confirmDeleteMode');
+        $this->exitMode('confirmDelete');
     }
 
-    public function deleteTodo(Todo $todo): void
-    {
-        $this->deletingTodo = $todo;
-
-        $this->enterMode('delete');
-    }
-
-    public function deleteTodoCancel(): void
+    /**
+     * Turn off the mode that shows that an todo cannot be deleted
+     *
+     * @return void
+     */
+    public function cancelCannotDeleteTodo(): void
     {
         $this->deletingTodo = null;
-        $this->exitMode('delete');
+        $this->exitMode('cannotDelete');
     }
 
-    public function confirmDeleteTodo(): void
+    /**
+     * Delete todo
+     *
+     * @return void
+     */
+    public function deleteTodo(TodoService $todoService): void
     {
-        $this->deletingTodo->delete();
-
-        $this->deletingTodo = null; 
-        $this->exitMode('delete');
+        $todoService->deleteTodo($this->deletingTodo->todo_id);
+        $this->deletingTodo = null;
+        $this->exitMode('confirmDelete');
     }
+
 }
