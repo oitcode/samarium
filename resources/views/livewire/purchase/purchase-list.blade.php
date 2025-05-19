@@ -101,8 +101,6 @@
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayPurchase', { purchaseId: {{ $purchase->purchase_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="confirmDeletePurchase({{ $purchase->purchase_id }})">
-            </x-list-delete-button-component>
           </td>
         </x-table-row-component>
       @endforeach

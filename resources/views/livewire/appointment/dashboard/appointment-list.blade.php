@@ -85,27 +85,27 @@
             @endif
           </td>
           <td class="text-right">
-              @if ($modes['confirmDelete'])
-                @if ($deletingAppointment->appointment_id == $appointment->appointment_id)
-                  <button class="btn btn-danger mr-1" wire:click="deleteAppointment">
-                    Confirm delete
-                  </button>
-                  <button class="btn btn-light mr-1" wire:click="cancelDeleteAppointment">
-                    Cancel
-                  </button>
-                @endif
+            @if ($modes['confirmDelete'])
+              @if ($deletingAppointment->appointment_id == $appointment->appointment_id)
+                <button class="btn btn-danger mr-1" wire:click="deleteAppointment">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeleteAppointment">
+                  Cancel
+                </button>
               @endif
-              @if ($modes['cannotDelete'])
-                @if ($deletingAppointment->appointment_id == $appointment->appointment_id)
-                  <span class="text-danger mr-3">
-                    <i class="fas fa-exclamation-circle mr-1"></i>
-                    Appointment cannot be deleted
-                  </span>
-                  <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteAppointment">
-                    Cancel
-                  </button>
-                @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingAppointment->appointment_id == $appointment->appointment_id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  Appointment cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteAppointment">
+                  Cancel
+                </button>
               @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displayAppointment', { appointmentId: {{ $appointment->appointment_id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayAppointment', { appointmentId: {{ $appointment->appointment_id }} })">

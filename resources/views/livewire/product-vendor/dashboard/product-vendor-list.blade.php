@@ -5,6 +5,7 @@
       Total product vendors: {{ $totalProductVendorCount }}
     </x-slot>
     <x-slot name="listHeadingRow">
+      <th>ID</th>
       <th>Product Vendor</th>
       <th class="text-right">Action</th>
     </x-slot>
@@ -12,6 +13,9 @@
     <x-slot name="listBody">
       @foreach ($productVendors as $productVendor)
         <x-table-row-component>
+          <td>
+            {{ $productVendor->product_vendor_id }}
+          </td>
           <td wire:click="$dispatch('displayProductVendor', { productVendor: {{ $productVendor }} } )" role="button">
             {{ $productVendor->name }}
           </td>

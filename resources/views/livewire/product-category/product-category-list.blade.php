@@ -14,6 +14,7 @@
   
     {{-- Table header --}}
     <x-slot name="listHeadingRow">
+      <th>ID</th>
       <th>Category</th>
       <th>Products</th>
       <th class="text-right">Action</th>
@@ -22,6 +23,9 @@
     <x-slot name="listBody">
       @foreach ($productCategories as $productCategory)
         <x-table-row-component>
+          <td>
+              {{ $productCategory->product_category_id }}
+          </td>
           <td wire:click="$dispatch('displayProductCategory', { productCategory: {{ $productCategory }} } )" role="button">
               {{ $productCategory->name }}
           </td>

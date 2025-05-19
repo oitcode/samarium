@@ -7,6 +7,9 @@
 
     <x-slot name="listHeadingRow">
       <th>
+        ID
+      </th>
+      <th>
         Vacancy
       </th>
       <th>
@@ -20,6 +23,9 @@
     <x-slot name="listBody">
       @foreach ($vacancies as $vacancy)
         <x-table-row-component>
+          <td>
+            {{ $vacancy->vacancy_id }}
+          </td>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayVacancy', { vacancy: {{ $vacancy }} })" role="button">
             <span>
               {{ $vacancy->title }}

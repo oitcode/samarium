@@ -7,6 +7,9 @@
   
     <x-slot name="listHeadingRow">
       <th>
+        ID
+      </th>
+      <th>
         Product
       </th>
       <th>
@@ -24,6 +27,9 @@
       @if (count($productQuestions) > 0)
         @foreach ($productQuestions as $productQuestion)
           <x-table-row-component>
+            <td>
+              {{ $productQuestion->product_question_id }}
+            </td>
             <td class="h6 font-weight-bold"
                 wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })"
                 role="button">

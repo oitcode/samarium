@@ -152,8 +152,6 @@
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayOnlineOrder', { onlineOrderId: {{ $order->website_order_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="">
-            </x-list-delete-button-component>
         </x-table-row-component>
 
         {{-- Show in smaller screens --}}

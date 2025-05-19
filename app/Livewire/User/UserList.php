@@ -7,64 +7,126 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
+use App\Services\User\UserService;
 use App\User;
 
+/**
+ * UserList Component
+ * 
+ * This Livewire component handles the listing of users.
+ * It also handles deletion of users.
+ */
 class UserList extends Component
 {
     use WithPagination;
     use ModesTrait;
 
-    protected string $paginationTheme = 'bootstrap';
+    /**
+     * Users per pagination
+     *
+     * @var int
+     */
+    public $perPage = 5;
 
-    // public $users;
+    /**
+     * Total count of users
+     *
+     * @var int
+     */
+    public $totalUsersCount;
 
-    public int $usersCount;
-    public int $adminUsersCount;
+    /**
+     * Total count of admin users
+     *
+     * @var int
+     */
+    public $totalAdminUsersCount;
 
-    public User | null $deletingUser;
+    /**
+     * User which needs to be deleted
+     *
+     * @var User
+     */
+    public $deletingUser;
 
+    /**
+     * Component display modes
+     *
+     * @var array
+     */
     public $modes = [
-        'delete' => false,
+        'confirmDelete' => false, 
+        'cannotDelete' => false, 
     ];
 
-    public function render(): View
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render(UserService $userService): View
     {
-        $users = User::orderBy('id', 'DESC')->paginate(5);
-        $this->usersCount = User::count();
-        $this->adminUsersCount = User::where('role', 'admin')->count();
+        $users = $userService->getPaginatedUsers($this->perPage);
+        $this->totalUsersCount = $userService->getTotalUserCount();
+        $this->totalAdminUsersCount = $userService->getTotalAdminUserCount();
 
-        return view('livewire.user.user-list')
-            ->with('users', $users);
+        return view('livewire.user.user-list', [
+            'users' => $users,
+        ]);
     }
 
-    public function deleteUser(User $user): void
+    /**
+     * Confirm if user really wants to delete a user
+     *
+     * @return void
+     */
+    public function confirmDeleteUser(int $user_id, UserService $userService): void
     {
-        $this->deletingUser = $user;
+        $this->deletingUser = User::find($user_id);
 
-        $this->enterMode('delete');
+        if ($userService->canDeleteUser($user_id)) {
+            $this->enterModeSilent('confirmDelete');
+        } else {
+            $this->enterModeSilent('cannotDelete');
+        }
     }
 
-    public function deleteUserCancel(): void
+    /**
+     * Cancel user delete
+     *
+     * @return void
+     */
+    public function cancelDeleteUser(): void
     {
         $this->deletingUser = null;
-        $this->exitMode('delete');
+        $this->exitMode('confirmDelete');
     }
 
-    public function confirmDeleteUser(Request $request): void
+    /**
+     * Turn off the mode that shows that an user cannot be deleted
+     *
+     * @return void
+     */
+    public function cancelCannotDeleteUser(): void
     {
-        if ($request->user()->cannot('delete', $this->deletingUser)) {
-            session()->flash('error', 'ERROR! Admin users cannot be deleted.');
-            $this->exitMode('delete');
-            return;
-        }
+        $this->deletingUser = null;
+        $this->exitMode('cannotDelete');
+    }
 
+    /**
+     * Delete user
+     *
+     * @return void
+     */
+    public function deleteUser(UserService $userService): void
+    {
         try {
-            $this->deletingUser->delete();
+            $userService->deleteUser($this->deletingUser->id);
             session()->flash('success', "SUCCESS! User: {$this->deletingUser?->name} deleted successfully.");
+            $this->deletingUser = null;
+            $this->exitMode('confirmDelete');
         } catch (\Exception $e) {
             session()->flash('error', 'ERROR! Something went wrong, please try again later.');
         }
-
-        $this->exitMode('delete');
     }
 }

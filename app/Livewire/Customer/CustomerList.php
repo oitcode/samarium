@@ -5,64 +5,114 @@ namespace App\Livewire\Customer;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
+use App\Traits\ModesTrait;
+use App\Services\Shop\CustomerService;
 use App\Customer;
 
+/**
+ * CustomerList Component
+ * 
+ * This Livewire component handles the listing of customers.
+ * It also handles deletion of customers.
+ */
 class CustomerList extends Component
 {
+    use ModesTrait;
     use WithPagination;
 
-    // public $customers;
+    /**
+     * Customers per pagination
+     *
+     * @var int
+     */
+    public $perPage = 5;
 
-    public $total;
-    public $customersCount;
+    /**
+     * Total count of customers
+     *
+     * @var int
+     */
+    public $totalCustomerCount;
 
-    public $customerSearch = [
-        'name' => null,
-        'phone' => null,
-        'email' => null,
-        'address' => null,
+    /**
+     * Customer which needs to be deleted
+     *
+     * @var Customer
+     */
+    public $deletingCustomer = null;
+
+    /**
+     * Component display modes
+     *
+     * @var array
+     */
+    public $modes = [
+        'confirmDelete' => false, 
+        'cannotDelete' => false, 
     ];
 
-    public function mount(): void
+    /**
+     * Render the component
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render(CustomerService $customerService): View
     {
-        $this->total = Customer::count();
+        $customers = $customerService->getPaginatedCustomers($this->perPage);
+        $this->totalCustomerCount = $customerService->getTotalCustomerCount();
+
+        return view('livewire.customer.customer-list', [
+            'customers' => $customers,
+        ]);
     }
 
-    public function render(): View
+    /**
+     * Confirm if user really wants to delete a customer
+     *
+     * @return void
+     */
+    public function confirmDeleteCustomer(int $customer_id, CustomerService $customerService): void
     {
-        $customers = Customer::orderBy('customer_id', 'DESC')->paginate(5);
-        $this->customersCount = Customer::count();
+        $this->deletingCustomer = Customer::find($customer_id);
 
-        return view('livewire.customer.customer-list')
-            ->with('customers', $customers);
-    }
-
-    public function search(): void
-    {
-        $this->customers = new Customer;
-
-        if ($this->customerSearch['name']) {
-            $this->customers = $this->customers->where('name', 'like', '%'.$this->customerSearch['name'].'%');
-        } 
-
-        if ($this->customerSearch['phone']) {
-            $this->customers = $this->customers->where('phone', 'like', '%'.$this->customerSearch['phone'].'%');
-        } 
-
-        $this->customers = $this->customers->get();
-    }
-
-    public function getCreditors(): void
-    {
-        $customers = Customer::all();
-
-        foreach ($customers as $key => $customer) {
-            if ($customer->getBalance() <= 0) {
-              // remove this element
-              unset($customers[$key]);
-            }
+        if ($customerService->canDeleteCustomer($customer_id)) {
+            $this->enterMode('confirmDelete');
+        } else {
+            $this->enterMode('cannotDelete');
         }
+    }
 
-        $this->customers = $customers;
+    /**
+     * Cancel customer delete
+     *
+     * @return void
+     */
+    public function cancelDeleteCustomer(): void
+    {
+        $this->deletingCustomer = null;
+        $this->exitMode('confirmDelete');
+    }
+
+    /**
+     * Turn off the mode that shows that a customer cannot be deleted
+     *
+     * @return void
+     */
+    public function cancelCannotDeleteCustomer(): void
+    {
+        $this->deletingCustomer = null;
+        $this->exitMode('cannotDelete');
+    }
+
+    /**
+     * Delete customer
+     *
+     * @return void
+     */
+    public function deleteCustomer(CustomerService $customerService): void
+    {
+        $customerService->deleteCustomer($this->deletingCustomer->customer_id);
+        $this->deletingCustomer = null;
+        $this->exitMode('confirmDelete');
     }
 }

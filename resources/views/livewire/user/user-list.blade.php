@@ -12,10 +12,10 @@
     <x-slot name="listInfo">
       <div class="d-flex">
         <div class="mr-4">
-          Users: {{ $usersCount }}
+          Users: {{ $totalUsersCount }}
         </div>
         <div>
-          Admin: {{ $adminUsersCount }}
+          Admin: {{ $totalAdminUsersCount }}
         </div>
       </div>
     </x-slot>
@@ -52,22 +52,33 @@
             @endif
           </td>
           <td class="text-right">
+            @if ($modes['confirmDelete'])
+              @if ($deletingUser->id == $user->id)
+                <button class="btn btn-danger mr-1" wire:click="deleteUser">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeleteUser">
+                  Cancel
+                </button>
+              @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingUser->id == $user->id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  User cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteUser">
+                  Cancel
+                </button>
+              @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displayUser', {userId: {{ $user->id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayUser', {userId: {{ $user->id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="deleteUser({{ $user }})">
+            <x-list-delete-button-component clickMethod="confirmDeleteUser({{ $user->id }})">
             </x-list-delete-button-component>
-            @if ($modes['delete'])
-              @if ($deletingUser->id == $user->id)
-                <span class="btn btn-danger mr-3" wire:click="confirmDeleteUser">
-                  Confirm delete
-                </span>
-                <span class="btn btn-light mr-3" wire:click="deleteUserCancel">
-                  Cancel
-                </span>
-              @endif
-            @endif
           </td>
         </x-table-row-component>
       @endforeach

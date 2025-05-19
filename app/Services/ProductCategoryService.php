@@ -120,4 +120,9 @@ class ProductCategoryService
 
         $productCategory->save();
     }
+
+    public function getTotalProductCategoryCount()
+    {
+        return ProductCategory::count();
+    }
 }

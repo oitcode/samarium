@@ -6,6 +6,7 @@
     </x-slot>
 
     <x-slot name="listHeadingRow">
+      <th>ID</th>
       <th>Team</th>
       <th class="text-right">Action</th>
     </x-slot>
@@ -13,6 +14,9 @@
     <x-slot name="listBody">
       @foreach ($teams as $team)
         <x-table-row-component>
+          <td>
+            {{ $team->team_id }}
+          </td>
           <td>
             @if ($team->image_path)
               <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">

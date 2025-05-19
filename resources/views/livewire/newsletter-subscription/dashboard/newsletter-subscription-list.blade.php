@@ -7,6 +7,9 @@
 
     <x-slot name="listHeadingRow">
       <th>
+        ID
+      </th>
+      <th>
         Email
       </th>
       <th>
@@ -20,6 +23,9 @@
     <x-slot name="listBody">
       @foreach ($newsletterSubscriptions as $newsletterSubscription)
         <x-table-row-component>
+          <td>
+            {{ $newsletterSubscription->newsletter_subscription_id }}
+          </td>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayNewsletterSubscription', { newsletterSubscription: {{ $newsletterSubscription }} })" role="button">
             <span>
               {{ $newsletterSubscription->email }}

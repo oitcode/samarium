@@ -72,8 +72,6 @@
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displaySaleQuotation', { saleQuotationId: {{ $saleQuotation->sale_quotation_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="">
-            </x-list-delete-button-component>
           </td>
         </x-table-row-component>
 

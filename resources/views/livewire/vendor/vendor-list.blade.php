@@ -30,11 +30,32 @@
             </span>
           </td>
           <td class="text-right">
+            @if ($modes['confirmDelete'])
+              @if ($deletingVendor->vendor_id == $vendor->vendor_id)
+                <button class="btn btn-danger mr-1" wire:click="deleteVendor">
+                  Confirm delete
+                </button>
+                <button class="btn btn-light mr-1" wire:click="cancelDeleteVendor">
+                  Cancel
+                </button>
+              @endif
+            @endif
+            @if ($modes['cannotDelete'])
+              @if ($deletingVendor->vendor_id == $vendor->vendor_id)
+                <span class="text-danger mr-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  Vendor cannot be deleted
+                </span>
+                <button class="btn btn-light mr-1" wire:click="cancelCannotDeleteVendor">
+                  Cancel
+                </button>
+              @endif
+            @endif
             <x-list-edit-button-component clickMethod="$dispatch('displayVendor', { vendorId: {{ $vendor->vendor_id }} })">
             </x-list-edit-button-component>
             <x-list-view-button-component clickMethod="$dispatch('displayVendor', { vendorId: {{ $vendor->vendor_id }} })">
             </x-list-view-button-component>
-            <x-list-delete-button-component clickMethod="">
+            <x-list-delete-button-component clickMethod="confirmDeleteVendor({{ $vendor->vendor_id }})">
             </x-list-delete-button-component>
           </td>
         </x-table-row-component>

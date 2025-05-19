@@ -58,6 +58,7 @@ class ProductCategoryList extends Component
     public function render(ProductCategoryService $productCategoryService): View
     {
         $productCategories = $productCategoryService->getPaginatedProductCategories($this->perPage);
+        $this->totalProductCategoryCount = $productCategoryService->getTotalProductCategoryCount();
             
         return view('livewire.product-category.product-category-list', [
             'productCategories' => $productCategories

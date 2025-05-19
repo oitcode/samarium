@@ -7,6 +7,9 @@
 
     <x-slot name="listHeadingRow">
       <th>
+        ID
+      </th>
+      <th>
         Name
       </th>
       <th>
@@ -26,6 +29,9 @@
     <x-slot name="listBody">
       @foreach ($documentFiles as $documentFile)
         <x-table-row-component>
+          <td>
+            {{ $documentFile->document_file_id }}
+          </td>
           <td>
           {{ $documentFile->name }}
           </td>

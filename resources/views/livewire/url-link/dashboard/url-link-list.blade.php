@@ -7,6 +7,9 @@
 
     <x-slot name="listHeadingRow">
       <th>
+        ID
+      </th>
+      <th>
         Link
       </th>
       <th>
@@ -23,6 +26,9 @@
     <x-slot name="listBody">
       @foreach ($urlLinks as $urlLink)
         <x-table-row-component>
+          <td>
+            {{ $urlLink->url_link_id }}
+          </td>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayUrlLink', {urlLink: {{ $urlLink }} })" role="button">
             <span>
               {{ $urlLink->url }}
