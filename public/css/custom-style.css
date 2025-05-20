@@ -211,3 +211,13 @@ animation-play-state:paused;
   width   : 50%;  /* or 100px */
   border-bottom:1px solid magenta;
 }
+
+.o-table-header {
+    background-color: #eee;
+}
+.o-caret-off::before {
+    display: none;
+}
+.o-caret-off::after {
+    display: none;
+}

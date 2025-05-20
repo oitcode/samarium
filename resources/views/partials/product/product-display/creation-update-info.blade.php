@@ -7,18 +7,20 @@
   </div>
   <div class="row">
     <div class="col-6">
-      Created at
+      Created at:
+      &nbsp;&nbsp;&nbsp;
+      {{ $product->created_at }}
     </div>
     <div class="col-6">
-      {{ $product->created_at }}
     </div>
   </div>
   <div class="row">
     <div class="col-6">
-      Updated at
+      Updated at:
+      &nbsp;&nbsp;
+      {{ $product->updated_at }}
     </div>
     <div class="col-6">
-      {{ $product->updated_at }}
     </div>
   </div>
 </div>

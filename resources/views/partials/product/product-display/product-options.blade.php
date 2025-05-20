@@ -49,7 +49,7 @@
       <div class="table-responsive">
         <table class="table table-bordered mb-0">
           @foreach ($product->productOptionHeadings as $productOptionHeading)
-            <tr class="">
+            <tr class="o-table-header">
               <th colspan="2" class="o-heading" style="width: 200px;">
                 {{ $productOptionHeading->product_option_heading_name }}
               </th>
@@ -63,18 +63,12 @@
                       @livewire ('product.dashboard.product-option-edit', ['productOption' => $productOption,])
                     @else
                       {{ $productOption->product_option_name }}
-                      <button class="btn btn-light" wire:click="updateProductOption({{ $productOption }})">
-                        <i class="fas fa-pencil-alt"></i>
-                      </button>
                     @endif
                   @else
                     {{ $productOption->product_option_name }}
-                    <button class="btn btn-light" wire:click="updateProductOption({{ $productOption }})">
-                      <i class="fas fa-pencil-alt"></i>
-                    </button>
                   @endif
                 </th>
-                <td class="" style="width: 200px;">
+                <td class="text-right" style="width: 200px;">
                   @if ($modes['deleteProductOptionMode'])
                     @if ($deletingProductOption->product_option_id == $productOption->product_option_id)
                       <button class="btn btn-danger" wire:click="confirmDeleteProductOption({{ $productOption }})">
@@ -88,11 +82,15 @@
                         <i class="fas fa-trash"></i>
                       </button>
                     @endif
-                  @else
-                    <button class="btn btn-light" wire:click="deleteProductOption({{ $productOption }})">
-                      <i class="fas fa-trash"></i>
-                    </button>
                   @endif
+                  <x-toolbar-dropdown-component toolbarButtonDropdownId="{{ 'toolbar-option-' . $productOption->product_option_id }}" toolbarIcon="fas fa-ellipsis-h">
+                    <x-toolbar-dropdown-item-component clickMethod="updateProductOption({{ $productOption->product_option_id }})">
+                      Edit
+                    </x-toolbar-dropdown-item-component>
+                    <x-toolbar-dropdown-item-component clickMethod="deleteProductOption({{ $productOption->product_option_id }})">
+                      Delete
+                    </x-toolbar-dropdown-item-component>
+                  </x-toolbar-dropdown-button>
                 </td>
               </tr>
             @endforeach

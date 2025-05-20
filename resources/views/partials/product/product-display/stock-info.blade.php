@@ -6,10 +6,11 @@
   </div>
   <div class="row">
     <div class="col-6">
-      Stock applicable
+      Stock applicable:
+      &nbsp;
+      {{ ucwords($product->stock_applicable) }}
     </div>
     <div class="col-6">
-      {{ $product->stock_applicable }}
     </div>
   </div>
 

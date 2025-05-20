@@ -48,7 +48,7 @@
       @foreach ($product->productFeatureHeadings as $productFeatureHeading)
         <div class="table-responsive mb-3">
           <table class="table table-bordered mb-0">
-            <tr class="">
+            <tr class="o-table-header">
               <th colspan="2" class="o-heading" style="width: 200px;">
                 {{ $productFeatureHeading->feature_heading }}
               </th>
@@ -62,17 +62,11 @@
                     @else
                       <div class="d-flex justify-content-between">
                         {{ $productFeature->feature }}
-                        <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
-                          <i class="fas fa-edit text-muted"></i>
-                        </button>
                       </div>
                     @endif
                   @else
                     <div class="d-flex justify-content-between">
                       {{ $productFeature->feature }}
-                      <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
-                        <i class="fas fa-edit text-muted"></i>
-                      </button>
                     </div>
                   @endif
                 </th>
@@ -85,16 +79,16 @@
                       <button class="btn btn-light" wire:click="cancelDeleteProductFeature">
                         Cancel
                       </button>
-                    @else
-                      <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
-                        <i class="fas fa-trash text-muted"></i>
-                      </button>
                     @endif
-                  @else
-                    <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
-                      <i class="fas fa-trash text-muted"></i>
-                    </button>
                   @endif
+                  <x-toolbar-dropdown-component toolbarButtonDropdownId="{{ 'toolbar-feature-' . $productFeature->product_feature_id }}" toolbarIcon="fas fa-ellipsis-h">
+                    <x-toolbar-dropdown-item-component clickMethod="updateProductFeature({{ $productFeature->product_feature_id }})">
+                      Edit
+                    </x-toolbar-dropdown-item-component>
+                    <x-toolbar-dropdown-item-component clickMethod="deleteProductFeature({{ $productFeature->product_feature_id }})">
+                      Delete
+                    </x-toolbar-dropdown-item-component>
+                  </x-toolbar-dropdown-button>
                 </td>
               </tr>
             @endforeach
@@ -108,7 +102,7 @@
     <div class="mb-3 p-2">
       <div class="table-responsive">
         <table class="table table-bordered mb-0">
-          <tr class="">
+          <tr class="o-table-header">
             <th colspan="2" class="o-heading" style="width: 200px;">
               General features
             </th>
@@ -123,17 +117,11 @@
                     @else
                       <div class="d-flex justify-content-between">
                         {{ $productFeature->feature }}
-                        <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
-                          <i class="fas fa-edit text-muted"></i>
-                        </button>
                       </div>
                     @endif
                   @else
                     <div class="d-flex justify-content-between">
                       {{ $productFeature->feature }}
-                      <button class="btn btn-light" wire:click="updateProductFeature({{ $productFeature }})">
-                        <i class="fas fa-edit text-muted"></i>
-                      </button>
                     </div>
                   @endif
                 </th>
@@ -146,16 +134,16 @@
                       <button class="btn btn-light" wire:click="cancelDeleteProductFeature">
                         Cancel
                       </button>
-                    @else
-                      <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
-                        <i class="fas fa-trash text-muted"></i>
-                      </button>
                     @endif
-                  @else
-                    <button class="btn btn-light" wire:click="deleteProductFeature({{ $productFeature }})">
-                      <i class="fas fa-trash text-muted"></i>
-                    </button>
                   @endif
+                  <x-toolbar-dropdown-component toolbarButtonDropdownId="{{ 'toolbar-feature-' . $productFeature->product_feature_id }}" toolbarIcon="fas fa-ellipsis-h">
+                    <x-toolbar-dropdown-item-component clickMethod="updateProductFeature({{ $productFeature->product_feature_id }})">
+                      Edit
+                    </x-toolbar-dropdown-item-component>
+                    <x-toolbar-dropdown-item-component clickMethod="deleteProductFeature({{ $productFeature->product_feature_id }})">
+                      Delete
+                    </x-toolbar-dropdown-item-component>
+                  </x-toolbar-dropdown-button>
                 </td>
               </tr>
             @endif

@@ -309,10 +309,10 @@ class ProductDisplay extends Component
         session()->flash('message', 'Product removed from featured product.');
     }
 
-    public function updateProductSpecificationKeyword(ProductSpecification $productSpecification): void
+    public function updateProductSpecificationKeyword(int $productSpecificationId): void
     {
+        $this->updatingProductSpecification = ProductSpecification::find($productSpecificationId);
         $this->enterMode('updateProductUpdateProductSpecificationKeyword');
-        $this->updatingProductSpecification = $productSpecification;
     }
 
     public function productSpecificationUpdateKeywordCancelled(): void
@@ -327,10 +327,10 @@ class ProductDisplay extends Component
         $this->exitMode('updateProductUpdateProductSpecificationKeyword');
     }
 
-    public function updateProductSpecificationValue(ProductSpecification $productSpecification): void
+    public function updateProductSpecificationValue(int $productSpecificationId): void
     {
+        $this->updatingProductSpecification = ProductSpecification::find($productSpecificationId);
         $this->enterMode('updateProductUpdateProductSpecificationValue');
-        $this->updatingProductSpecification = $productSpecification;
     }
 
     public function productSpecificationUpdateValueCancelled(): void
@@ -345,10 +345,10 @@ class ProductDisplay extends Component
         $this->exitMode('updateProductUpdateProductSpecificationValue');
     }
 
-    public function updateProductFeature(ProductFeature $productFeature): void
+    public function updateProductFeature(int $productFeatureId): void
     {
+        $this->updatingProductFeature = ProductFeature::find($productFeatureId);
         $this->enterMode('updateProductUpdateProductFeature');
-        $this->updatingProductFeature = $productFeature;
     }
 
     public function productFeatureUpdateCancelled(): void
@@ -363,9 +363,9 @@ class ProductDisplay extends Component
         $this->exitMode('updateProductUpdateProductFeature');
     }
 
-    public function deleteProductSpecification(ProductSpecification $productSpecification): void
+    public function deleteProductSpecification(int $productSpecificationId): void
     {
-        $this->deletingProductSpecification = $productSpecification; 
+        $this->deletingProductSpecification = ProductSpecification::find($productSpecificationId); 
         $this->enterMode('deleteProductSpecificationMode');
     }
 
@@ -383,9 +383,9 @@ class ProductDisplay extends Component
         $this->product->refresh();
     }
 
-    public function deleteProductFeature(ProductFeature $productFeature): void
+    public function deleteProductFeature(int $productFeatureId): void
     {
-        $this->deletingProductFeature = $productFeature; 
+        $this->deletingProductFeature = ProductFeature::find($productFeatureId);
         $this->enterMode('deleteProductFeatureMode');
     }
 

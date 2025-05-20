@@ -30,8 +30,7 @@
         <i class="fas fa-check-circle mr-3"></i>
         {{ session('addSpecMessage') }}
         <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
-          <span class="text-danger" aria-hidden="true">&times;</span>
-        </button>
+          <span class="text-danger" aria-hidden="true">&times;</span> </button>
       </div>
     </div>
   @endif
@@ -49,7 +48,7 @@
       <div class="table-responsive">
         <table class="table table-bordered mb-0">
           @foreach ($product->productSpecificationHeadings as $productSpecificationHeading)
-            <tr class="">
+            <tr class="o-table-header">
               <th class="bg-primary-rm text-white-rm border-dark-rm o-heading" colspan="3" style="width: 200px;">
                 {{ $productSpecificationHeading->specification_heading }}
               </th>
@@ -63,17 +62,16 @@
                     @else
                       <div class="d-flex justify-content-between">
                         {{ $productSpecification->spec_heading}}
-                        <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
-                          <i class="fas fa-edit text-muted"></i>
-                        </button>
                       </div>
                     @endif
                   @else
                     <div class="d-flex justify-content-between">
-                      {{ $productSpecification->spec_heading}}
-                      <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
-                        <i class="fas fa-edit text-muted"></i>
-                      </button>
+                      <div>
+                        @if (config('faicons.' . strtolower($productSpecification->spec_heading)))
+                          <i class="{{ config('faicons.' . strtolower($productSpecification->spec_heading)) }} mr-1"></i>
+                        @endif
+                        {{ $productSpecification->spec_heading}}
+                      </div>
                     </div>
                   @endif
                 </th>
@@ -84,17 +82,11 @@
                     @else
                       <div class="d-flex justify-content-between">
                         {{ $productSpecification->spec_value }}
-                        <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
-                          <i class="fas fa-edit text-muted"></i>
-                        </button>
                       </div>
                     @endif
                   @else
                     <div class="d-flex justify-content-between">
                       {{ $productSpecification->spec_value }}
-                      <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
-                        <i class="fas fa-edit text-muted"></i>
-                      </button>
                     </div>
                   @endif
                 </td>
@@ -107,16 +99,19 @@
                       <button class="btn btn-light" wire:click="cancelDeleteProductSpecification">
                         Cancel
                       </button>
-                    @else
-                      <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
-                        <i class="fas fa-trash text-muted"></i>
-                      </button>
                     @endif
-                  @else
-                    <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
-                      <i class="fas fa-trash text-muted"></i>
-                    </button>
                   @endif
+                  <x-toolbar-dropdown-component toolbarButtonDropdownId="{{ 'toolbar-spec-' . $productSpecification->product_specification_id }}" toolbarIcon="fas fa-ellipsis-h">
+                    <x-toolbar-dropdown-item-component clickMethod="updateProductSpecificationKeyword({{ $productSpecification->product_specification_id }})">
+                      Edit keyword
+                    </x-toolbar-dropdown-item-component>
+                    <x-toolbar-dropdown-item-component clickMethod="updateProductSpecificationValue({{ $productSpecification->product_specification_id }})">
+                      Edit value
+                    </x-toolbar-dropdown-item-component>
+                    <x-toolbar-dropdown-item-component clickMethod="deleteProductSpecification({{ $productSpecification->product_specification_id }})">
+                      Delete
+                    </x-toolbar-dropdown-item-component>
+                  </x-toolbar-dropdown-button>
                 </td>
               </tr>
             @endforeach
@@ -130,7 +125,7 @@
     <div class="mb-3 p-2">
       <div class="table-responsive">
         <table class="table table-bordered mb-0">
-          <tr class="">
+          <tr class="o-table-header">
             <th class="bg-primary-rm text-white-rm border-dark-rm o-heading" colspan="3" style="width: 200px;">
               General specifications
             </th>
@@ -145,17 +140,16 @@
                     @else
                       <div class="d-flex justify-content-between">
                         {{ $productSpecification->spec_heading}}
-                        <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
-                          <i class="fas fa-edit text-muted"></i>
-                        </button>
                       </div>
                     @endif
                   @else
                     <div class="d-flex justify-content-between">
-                      {{ $productSpecification->spec_heading}}
-                      <button class="btn btn-light" wire:click="updateProductSpecificationKeyword({{ $productSpecification }})">
-                        <i class="fas fa-edit text-muted"></i>
-                      </button>
+                      <div>
+                        @if (config('faicons.' . strtolower($productSpecification->spec_heading)))
+                          <i class="{{ config('faicons.' . strtolower($productSpecification->spec_heading)) }} mr-1"></i>
+                        @endif
+                        {{ $productSpecification->spec_heading}}
+                      </div>
                     </div>
                   @endif
                 </th>
@@ -166,17 +160,11 @@
                     @else
                       <div class="d-flex justify-content-between">
                         {{ $productSpecification->spec_value }}
-                        <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
-                          <i class="fas fa-edit text-muted"></i>
-                        </button>
                       </div>
                     @endif
                   @else
                     <div class="d-flex justify-content-between">
                       {{ $productSpecification->spec_value }}
-                      <button class="btn btn-light" wire:click="updateProductSpecificationValue({{ $productSpecification }})">
-                        <i class="fas fa-edit text-muted"></i>
-                      </button>
                     </div>
                   @endif
                 </td>
@@ -189,16 +177,19 @@
                       <button class="btn btn-light" wire:click="cancelDeleteProductSpecification">
                         Cancel
                       </button>
-                    @else
-                      <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
-                        <i class="fas fa-trash text-muted"></i>
-                      </button>
                     @endif
-                  @else
-                    <button class="btn btn-light" wire:click="deleteProductSpecification({{ $productSpecification }})">
-                      <i class="fas fa-trash text-muted"></i>
-                    </button>
                   @endif
+                  <x-toolbar-dropdown-component toolbarButtonDropdownId="{{ 'toolbar-spec-' . $productSpecification->product_specification_id }}" toolbarIcon="fas fa-ellipsis-h">
+                    <x-toolbar-dropdown-item-component clickMethod="updateProductSpecificationKeyword({{ $productSpecification->product_specification_id }})">
+                      Edit keyword
+                    </x-toolbar-dropdown-item-component>
+                    <x-toolbar-dropdown-item-component clickMethod="updateProductSpecificationValue({{ $productSpecification->product_specification_id }})">
+                      Edit value
+                    </x-toolbar-dropdown-item-component>
+                    <x-toolbar-dropdown-item-component clickMethod="deleteProductSpecification({{ $productSpecification->product_specification_id }})">
+                      Delete
+                    </x-toolbar-dropdown-item-component>
+                  </x-toolbar-dropdown-button>
                 </td>
               </tr>
             @endif
