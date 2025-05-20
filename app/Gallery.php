@@ -78,7 +78,11 @@ class Gallery extends Model
     {
         $lastImage = $this->galleryImages()->orderBy('position', 'desc')->first();
 
-        return $lastImage->position;
+        if ($lastImage) {
+            return $lastImage->position;
+        } else {
+            return 0;
+        }
     }
 
     /*
