@@ -44,7 +44,7 @@ class NavMenuDisplayNavMenuDropdownItemCreate extends Component
 
     public function getHighestMenuDropdownItemOrder(): int
     {
-        if ($this->cmsNavMenuItem->cmsNavMenuDropdownItems) {
+        if (count($this->cmsNavMenuItem->cmsNavMenuDropdownItems) > 0) {
             return $this->cmsNavMenuItem->cmsNavMenuDropdownItems()->max('order');
         } else {
             return 0;

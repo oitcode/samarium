@@ -58,7 +58,7 @@ class NavMenuDisplayNavMenuItemCreate extends Component
 
     public function getHighestMenuItemOrder(): int
     {
-        if ($this->cmsNavMenu->cmsNavMenuItems) {
+        if (count($this->cmsNavMenu->cmsNavMenuItems) > 0) {
             return $this->cmsNavMenu->cmsNavMenuItems()->max('order');
         } else {
             return 0;
