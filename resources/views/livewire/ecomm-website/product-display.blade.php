@@ -228,7 +228,7 @@
                   @foreach ($product->productFeatures as $feature)
                     @if ($feature->product_feature_heading_id == null)
                       <div class="col-6 col-md-3 p-3-rm pl-0-rm bg-danger-rm pr-3 pb-3 pt-0 pl-0">
-                        <div class="border p-3 pl-0 text-center h-100 bg-success-rm text-white-rm shadow" style="border-left: 5px solid #eee !important;">
+                        <div class="border p-3 pl-0 text-center h-100 bg-success-rm text-white-rm shadow-sm" style="border-left: 5px solid #eee !important;">
                           <i class="fas fa-check-circle text-primary-rm"></i>
                           &nbsp;
                           {{ $feature->feature }}
@@ -276,8 +276,14 @@
                   <div class="row p-0" style="margin: auto;">
                     @foreach ($productFeatureHeading->productFeatures as $productFeature)
                       <div class="col-6 col-md-3 p-3-rm pl-0-rm bg-danger-rm pr-3 pb-3 pt-0 pl-0">
-                        <div class="border p-3 pl-0 text-center bg-primary-rm text-white-rm h-100 shadow" style="border-left: 5px solid #eee !important;">
-                          <i class="fas fa-check-circle text-primary-rm"></i>
+                        <div class="border p-3 pl-0 text-center bg-primary-rm text-white-rm h-100 shadow-sm" style="border-left: 5px solid #eee !important;">
+                          @if (str_contains(strtolower($productFeatureHeading->feature_heading), 'include'))
+                            <i class="fas fa-check-circle text-success mr-1"></i>
+                          @elseif (str_contains(strtolower($productFeatureHeading->feature_heading), 'exclude'))
+                            <i class="fas fa-times-circle text-danger mr-1"></i>
+                          @else
+                            <i class="fas fas fa-check-circle text-success mr-1"></i>
+                          @endif
                           &nbsp;
                           {{ $productFeature->feature}}
                         </div>
