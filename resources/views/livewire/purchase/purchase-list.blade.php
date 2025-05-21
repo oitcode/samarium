@@ -6,12 +6,11 @@
 
     <x-slot name="listHeadingRow">
       <th class="d-none d-md-table-cell">ID</th>
-      <th class="d-none d-md-table-cell" style="width: 100px;">Date</th>
+      <th class="d-none d-md-table-cell">Date</th>
+      <th class="d-none d-md-table-cell">Time</th>
       <th class="d-none d-md-table-cell">Vendor</th>
-      <th class="d-none d-md-table-cell">Items</th>
-      <th class="d-none d-md-table-cell" style="width: 200px;">Payment Status</th>
-      <th class="d-none d-md-table-cell"> Pending</th>
       <th class="d-none d-md-table-cell">Amount</th>
+      <th class="d-none d-md-table-cell" style="width: 200px;">Payment Status</th>
       <th class="d-none d-md-table-cell text-right">Action</th>
     </x-slot>
 
@@ -25,19 +24,21 @@
             {{ $purchase->purchase_date }}
           </td>
           <td>
+            {{ $purchase->created_at->format('H:i A') }}
+          </td>
+          <td>
             @if ($purchase->vendor)
               {{ $purchase->vendor->name }}
             @else
+              <i class="far fa-question-circle text-muted"></i>
             @endif
           </td>
           <td>
-            @if ($purchase->purchaseItems)
-              @foreach ($purchase->purchaseItems as $purchaseItem )
-                {{ $purchaseItem->product->name }}
-                ,
-              @endforeach
+            {{ config('app.transaction_currency_symbol') }}
+            @if (is_int($purchase->getTotalAmount()))
+              @php echo number_format( $purchase->getTotalAmount() ); @endphp
             @else
-              NONE
+              @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
             @endif
           </td>
           <td>
@@ -57,22 +58,6 @@
               @else
                 {{ $purchase->payment_status }}
               @endif
-            @endif
-          </td>
-          <td>
-            {{ config('app.transaction_currency_symbol') }}
-            @if (is_int($purchase->getPendingAmount()))
-              @php echo number_format( $purchase->getPendingAmount() ); @endphp
-            @else
-              @php echo number_format( $purchase->getPendingAmount(), 2 ); @endphp
-            @endif
-          </td>
-          <td>
-            {{ config('app.transaction_currency_symbol') }}
-            @if (is_int($purchase->getTotalAmount()))
-              @php echo number_format( $purchase->getTotalAmount() ); @endphp
-            @else
-              @php echo number_format( $purchase->getTotalAmount(), 2 ); @endphp
             @endif
           </td>
           <td class="text-right">

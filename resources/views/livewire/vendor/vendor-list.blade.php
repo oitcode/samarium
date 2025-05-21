@@ -8,6 +8,7 @@
     <x-slot name="listHeadingRow">
       <th>ID</th>
       <th>Name</th>
+      <th>Phone</th>
       <th>Pending</th>
       <th class="text-right">Action</th>
     </x-slot>
@@ -21,6 +22,12 @@
           <td>
             {{ $vendor->name }}
           </td>
+          <td>
+            @if ($vendor->phone)
+              {{ $vendor->phone }}
+            @else
+              <i class="far fa-question-circle text-secondary"></i>
+            @endif
           <td>
             <span class="text-muted mr-1">
               {{ config('app.transaction_currency_symbol') }}

@@ -10,10 +10,10 @@
         ID
       </th>
       <th>
-        Vacancy
+        Date
       </th>
       <th>
-        Date
+        Vacancy
       </th>
       <th class="text-right">
         Action
@@ -26,13 +26,13 @@
           <td>
             {{ $vacancy->vacancy_id }}
           </td>
+          <td>
+          {{ $vacancy->created_at->toDateString() }}
+          </td>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayVacancy', { vacancy: {{ $vacancy }} })" role="button">
             <span>
               {{ $vacancy->title }}
             </span>
-          </td>
-          <td>
-          {{ $vacancy->created_at->toDateString() }}
           </td>
           <td class="text-right">
             @if ($modes['confirmDelete'])

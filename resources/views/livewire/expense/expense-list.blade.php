@@ -23,9 +23,13 @@
             {{ $expense->date }}
           </td>
           <td>
-            @foreach ($expense->expenseItems as $expenseItem)
-              {{ $expenseItem->name }}
-            @endforeach
+            @if (count($expense->expenseItems) > 0)
+              @foreach ($expense->expenseItems as $expenseItem)
+                {{ $expenseItem->name }}
+              @endforeach
+            @else
+              <i class="far fa-question-circle text-muted"></i>
+            @endif
           </td>
           <td>
             {{ config('app.transaction_currency_symbol') }}

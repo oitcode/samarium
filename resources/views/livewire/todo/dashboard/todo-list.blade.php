@@ -113,9 +113,7 @@
             @if ($todo->due_date)
               {{ $todo->due_date }}
             @else
-              <span class="badge badge-warning badge-pill">
-                Not set
-              </span>
+              <i class="far fa-question-circle text-muted"></i>
             @endif
           </td>
           <td class="d-none d-md-table-cell">
@@ -123,9 +121,7 @@
               <i class="fas fa-user-circle mr-1"></i>
               {{ $todo->assignedTo->name }}
             @else
-              <span class="badge badge-warning badge-pill">
-                Not set
-              </span>
+              <i class="far fa-question-circle text-muted"></i>
             @endif
           </td>
           <td>

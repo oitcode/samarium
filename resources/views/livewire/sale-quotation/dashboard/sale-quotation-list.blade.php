@@ -17,13 +17,13 @@
         ID
       </th>
       <th class="d-none d-md-table-cell">
-        Customer
-      </th>
-      <th class="d-none d-md-table-cell">
         Date
       </th>
       <th class="d-none d-md-table-cell">
         Time
+      </th>
+      <th class="d-none d-md-table-cell">
+        Customer
       </th>
       <th class="d-none d-md-table-cell">
         Amount
@@ -41,19 +41,17 @@
             {{ $saleQuotation->sale_quotation_id }}
           </td>
           <td class="d-none d-md-table-cell">
-            @if ($saleQuotation->customer)
-              {{ $saleQuotation->customer->name }}
-            @else
-              <span class="text-secondary">
-                --
-              </span>
-            @endif
-          </td>
-          <td class="d-none d-md-table-cell">
             {{ $saleQuotation->sale_quotation_date }}
           </td>
           <td class="d-none d-md-table-cell">
             {{ $saleQuotation->created_at->format('H:i A') }}
+          </td>
+          <td class="d-none d-md-table-cell">
+            @if ($saleQuotation->customer)
+              {{ $saleQuotation->customer->name }}
+            @else
+              <i class="far fa-question-circle text-muted"></i>
+            @endif
           </td>
           <td class="font-weight-bold">
             {{ config('app.transaction_currency_symbol') }}

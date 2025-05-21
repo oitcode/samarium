@@ -53,8 +53,7 @@
                 </span>
               @endforeach
             @else
-              <i class="fas fa-exclamation-circle text-secondary mr-2"></i>
-              None
+              <i class="far fa-question-circle text-muted"></i>
             @endif
           </td>
           <td>

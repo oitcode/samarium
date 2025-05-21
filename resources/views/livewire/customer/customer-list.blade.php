@@ -29,9 +29,7 @@
             @if ($customer->phone)
               {{ $customer->phone }}
             @else
-              <span class="text-secondary">
-                No info
-              </span>
+              <i class="far fa-question-circle text-secondary"></i>
             @endif
           </td>
           <td>

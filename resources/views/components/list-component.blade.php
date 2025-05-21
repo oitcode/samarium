@@ -14,8 +14,8 @@
    | The table
    |
 --}}
-<div class="table-responsive p-2 bg-white border ">
-  <table class="table table-hover shadow-sm border mb-0">
+<div class="table-responsive p-3 bg-white border-rm ">
+  <table class="table table-bordered table-hover shadow-sm-rm border mb-0">
     <thead>
       <tr class="{{ config('app.app_menu_bg_color') }}-rm {{ config('app.app_menu_normal_button_text_color') }}-rm bg-light text-dark p-4 o-heading">
         {{ $listHeadingRow }}
@@ -33,6 +33,6 @@
    | Pagination links
    |
 --}}
-<div class="bg-white border p-2">
+<div class="bg-white border-rm p-3">
   {{ $listPaginationLinks }}
 </div>

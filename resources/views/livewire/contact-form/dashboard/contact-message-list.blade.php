@@ -67,13 +67,13 @@
         ID
       </th>
       <th>
+        Date
+      </th>
+      <th>
         Sender name
       </th>
       <th>
         Message
-      </th>
-      <th>
-        Date
       </th>
       <th>
         Status
@@ -89,14 +89,18 @@
           <td>
             {{ $contactMessage->contact_message_id }}
           </td>
+          <td>
+            {{ $contactMessage->created_at->toDateString() }}
+          </td>
           <td class="h6 font-weight-bold">
-            {{ $contactMessage->sender_name }}
+            @if ($contactMessage->sender_name)
+              {{ $contactMessage->sender_name }}
+            @else
+              <i class="far fa-question-circle text-muted"></i>
+            @endif
           </td>
           <td>
             {{ \Illuminate\Support\Str::limit($contactMessage->message, 100, $end=' ...') }}
-          </td>
-          <td>
-            {{ $contactMessage->created_at->toDateString() }}
           </td>
           <td>
             @if ($contactMessage->status == 'new')

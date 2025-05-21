@@ -221,3 +221,8 @@ animation-play-state:paused;
 .o-caret-off::after {
     display: none;
 }
+
+.o-package-color {
+    background-color: rgba(100, 150, 250, 1.0);
+    color: white;
+}

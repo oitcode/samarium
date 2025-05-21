@@ -10,10 +10,10 @@
         ID
       </th>
       <th>
-        Email
+        Subscription date
       </th>
       <th>
-        Subscription date
+        Email
       </th>
       <th class="text-right">
         Action
@@ -26,13 +26,13 @@
           <td>
             {{ $newsletterSubscription->newsletter_subscription_id }}
           </td>
+          <td>
+            {{ $newsletterSubscription->created_at->toDateString() }}
+          </td>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayNewsletterSubscription', { newsletterSubscription: {{ $newsletterSubscription }} })" role="button">
             <span>
               {{ $newsletterSubscription->email }}
             </span>
-          </td>
-          <td>
-            {{ $newsletterSubscription->created_at->toDateString() }}
           </td>
           <td class="text-right">
             @if ($modes['confirmDelete'])

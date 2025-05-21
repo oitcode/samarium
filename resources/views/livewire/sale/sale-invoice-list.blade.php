@@ -67,7 +67,7 @@
 
     <x-slot name="listHeadingRow">
       <th class="d-none d-md-table-cell">
-        Sale invoice ID
+        ID
       </th>
       <th class="d-none d-md-table-cell">
         Date
@@ -109,13 +109,11 @@
           </td>
           <td class="d-none d-md-table-cell">
             @if ($saleInvoice->customer)
-              <span class="font-weight-bold" style="color: #fe8d01;">
+              <span class="font-weight-bold">
                 {{ $saleInvoice->customer->name }}
               </span>
             @else
-              <span class="font-weight-bold" style="color: #fe8d01;">
-                None 
-              </span>
+              <i class="far fa-question-circle text-muted"></i>
             @endif
           </td>
           <td class="font-weight-bold">

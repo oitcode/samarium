@@ -12,7 +12,7 @@
         @isset($btnBsColor)
           {{ $btnBsColor }}
         @else
-          btn-primary
+          o-package-color  
         @endisset
         "
         wire:click="{{ $btnClickMethod }}" role="button">
