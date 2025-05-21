@@ -24,7 +24,7 @@
                 <div class="text-muted" style="@if ($cmsTheme) color: {{ $cmsTheme->ascent_bg_color }} @else color: #888; @endif;">
                   <i class="fas fa-calendar mr-1"></i>
                   {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($notice->created_at->toDateString(), 'english')  }}
-                  2081
+                  2082
                 </div>
               </div>
             </a>

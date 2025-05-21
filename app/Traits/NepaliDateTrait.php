@@ -51,6 +51,21 @@ trait NepaliDateTrait
         'Chaitra' => [ '2025-03-14', '2025-04-13', ],
     ];
 
+    static $monthInfo2082 = [
+        'Baisakh' => [ '2025-04-14', '2025-05-14', ],
+        'Jestha' => [ '2025-05-15', '2025-06-14', ],
+        'Asadh' => [ '2025-06-15', '2025-07-16', ],
+        'Shrawan' => [ '2025-07-17', '2025-08-16', ],
+        'Bhadra' => [ '2025-08-17', '2025-09-16', ],
+        'Ashwin' => [ '2025-09-17', '2025-10-17', ],
+        'Kartik' => [ '2025-10-18', '2025-11-16', ],
+        'Mangsir' => [ '2025-11-17', '2025-12-15', ],
+        'Poush' => [ '2025-12-16', '2026-01-14', ],
+        'Magh' => [ '2026-01-15', '2026-02-12', ],
+        'Falgun' => [ '2026-02-13', '2026-03-14', ],
+        'Chaitra' => [ '2026-03-15', '2026-04-13', ],
+    ];
+
     public static function convertEnglishToNepaliDate($englishDate, $font)
     {
         $nepaliYear = '';
@@ -59,6 +74,7 @@ trait NepaliDateTrait
 
         $ii = false;
         $jj = false;
+        $kk = false;
 
         foreach (self::$monthInfo as $key => $val) {
             if ($englishDate >= $val[0] && $englishDate <= $val[1]) {
@@ -97,6 +113,21 @@ trait NepaliDateTrait
 
                     $nepaliMonth = $nepaliMonth . $key;   
 
+                    $kk = true;
+                    break;
+                }
+            }
+        }
+
+        if ($ii == false && $jj == false && $kk == false) {
+            foreach (self::$monthInfo2082 as $key => $val) {
+                if ($englishDate >= $val[0] && $englishDate <= $val[1]) {
+                    if ($font == 'nepali') {
+                        $nepaliMonthInNepaliFont = $nepaliMonth . self::getMonthNameInNepaliFont($key);   
+                    }
+
+                    $nepaliMonth = $nepaliMonth . $key;   
+
                     break;
                 }
             }
@@ -104,7 +135,7 @@ trait NepaliDateTrait
 
         $checkDay = Carbon::parse($englishDate);
 
-        /* If $ii is true it means the date is in 2079 BS else it will be in 2080 BS (for now) */
+        /* If $ii is true it means the date is in 2079 BS else it will be in 2080 BS (for now) and so on */
 
         if ($ii == true) {
             /* If $ii is true it means the date is in 2079 BS */
@@ -112,9 +143,12 @@ trait NepaliDateTrait
         } else if ($jj == true){
             /* If $jj is true it means the date is in 2080 BS */
             $day = Carbon::parse(self::$monthInfo2080[$nepaliMonth][0]);
-        } else {
-            /* If both $ii and $jj are false it means the date is in 2081 BS */
+        } else if ($kk == true){
+            /* If $kk is true it means the date is in 2081 BS */
             $day = Carbon::parse(self::$monthInfo2081[$nepaliMonth][0]);
+        } else {
+            /* If all $ii, $jj and $kk are false it means the date is in 2082 BS */
+            $day = Carbon::parse(self::$monthInfo2082[$nepaliMonth][0]);
         }
 
 

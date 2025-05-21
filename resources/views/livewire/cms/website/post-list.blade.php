@@ -14,7 +14,7 @@
               <div class="mr-5 text-muted">
                 <span style="@if ($cmsTheme) color: {{ $cmsTheme->ascent_bg_color }}; @endif">
                   {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($post->created_at->toDateString(), 'english')  }}
-                  2081
+                  2082
                 </span>
                 <br />
               </div>

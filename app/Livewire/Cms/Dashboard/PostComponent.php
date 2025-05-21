@@ -68,6 +68,6 @@ class PostComponent extends Component
     {
         $webpage = Webpage::find($webpageId);
 
-        $this->displayPost($webpage);
+        $this->displayPost($webpageId);
     }
 }

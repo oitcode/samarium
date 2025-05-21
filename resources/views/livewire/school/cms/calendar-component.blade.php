@@ -44,7 +44,7 @@
               Today
               </br>
               </br>
-              {{ $today['day']->toDateString() }}
+              {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($today['day'], 'english') }}
               ,
               {{ $today['day']->format('l') }}
             </div>
