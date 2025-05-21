@@ -4,7 +4,7 @@
     <div class="row">
       @foreach ($testimonials as $testimonial)
         <div class="col-md-4 p-3 my-3 mb-4">
-          <div class="h-100 p-0 shadow bg-white" style="background-color: #cdd;">
+          <div class="h-100 p-0 shadow bg-white d-flex flex-column justify-content-between" style="background-color: #cdd;">
             <div class="p-3">
               <i class="fas fa-quote-left fa-2x"></i>
               <br/>
