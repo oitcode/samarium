@@ -3,23 +3,19 @@
     <h2 class="h6 o-heading">
       Product options
     </h2>
-    <div class="mb-3-rm">
+    <div class="d-flex">
       @include ('partials.dashboard.spinner-button')
-
-      <button class="btn btn-light text-primary"
-          style="min-width: 200px;"
-          wire:click="enterMode('updateProductAddProductOptionHeadingMode')">
-        <i class="fas fa-plus-circle mr-1"></i>
-        Add option heading
-      </button>
-
-      <button class="btn btn-light"
+      <x-toolbar-dropdown-component toolbarButtonDropdownId="toolbar-prod-options" toolbarIcon="fas fa-ellipsis-h">
+        <x-toolbar-dropdown-item-component clickMethod="enterMode('updateProductAddProductOptionHeadingMode')">
+          Add option heading
+        </x-toolbar-dropdown-item-component>
+      </x-toolbar-dropdown-button>
+      <button class="btn btn-light border"
           style="min-width: 200px;"
           wire:click="enterMode('updateProductAddProductOptionMode')">
         <i class="fas fa-plus-circle mr-1"></i>
         Add option
       </button>
-
     </div>
   </div>
 
