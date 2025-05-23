@@ -4,7 +4,10 @@
       Product features
     </h2>
     <div class="d-flex">
-      @include ('partials.dashboard.spinner-button')
+      <x-spinner-component wireTarget="enterMode('updateProductAddProductFeatureHeadingMode')">
+      </x-spinner-component >
+      <x-spinner-component wireTarget="enterMode('updateProductAddProductFeatureMode')">
+      </x-spinner-component >
       <x-toolbar-dropdown-component toolbarButtonDropdownId="toolbar-prod-features" toolbarIcon="fas fa-ellipsis-h">
         <x-toolbar-dropdown-item-component clickMethod="enterMode('updateProductAddProductFeatureHeadingMode')">
           Add feature heading

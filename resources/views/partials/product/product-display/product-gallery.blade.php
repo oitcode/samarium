@@ -4,10 +4,8 @@
       Product gallery
     </h2>
     <div>
-      <button wire:loading class="btn m-0">
-        <span class="spinner-border text-info mr-3" role="status">
-        </span>
-      </button>
+      <x-spinner-component wireTarget="enterMode('createProductGalleryMode')">
+      </x-spinner-component >
 
       @if (! $product->gallery)
         <button class="btn btn-light m-0 border"

@@ -4,10 +4,8 @@
       Product vendor
     </h2>
     <div class="mb-3-rm">
-      <button wire:loading class="btn m-0">
-        <span class="spinner-border text-info mr-3" role="status">
-        </span>
-      </button>
+      <x-spinner-component wireTarget="enterMode('linkProductVendorMode')">
+      </x-spinner-component >
 
       <button class="btn btn-light m-0 border"
           style="min-width: 200px;"

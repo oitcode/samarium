@@ -4,7 +4,10 @@
       Product specification
     </h2>
     <div class="mb-3-rm d-flex">
-      @include ('partials.dashboard.spinner-button')
+      <x-spinner-component wireTarget="enterMode('updateProductAddProductSpecificationHeadingMode')">
+      </x-spinner-component >
+      <x-spinner-component wireTarget="enterMode('updateProductAddProductSpecificationMode')">
+      </x-spinner-component >
       <x-toolbar-dropdown-component toolbarButtonDropdownId="toolbar-prod-spec" toolbarIcon="fas fa-ellipsis-h">
         <x-toolbar-dropdown-item-component clickMethod="enterMode('updateProductAddProductSpecificationHeadingMode')">
           Add specification heading

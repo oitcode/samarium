@@ -4,7 +4,10 @@
       Product options
     </h2>
     <div class="d-flex">
-      @include ('partials.dashboard.spinner-button')
+      <x-spinner-component wireTarget="enterMode('updateProductAddProductOptionHeadingMode')">
+      </x-spinner-component >
+      <x-spinner-component wireTarget="enterMode('updateProductAddProductOptionMode')">
+      </x-spinner-component >
       <x-toolbar-dropdown-component toolbarButtonDropdownId="toolbar-prod-options" toolbarIcon="fas fa-ellipsis-h">
         <x-toolbar-dropdown-item-component clickMethod="enterMode('updateProductAddProductOptionHeadingMode')">
           Add option heading
