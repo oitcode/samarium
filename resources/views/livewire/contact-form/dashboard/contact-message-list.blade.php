@@ -5,7 +5,7 @@
       <div class="mb-1 p-3 bg-white border d-flex justify-content-between">
         <div class="pt-2">
           <div class="d-flex">
-            <div class="mr-4 px-2 py-1 border font-weight-bold">
+            <div class="mr-4 px-2 font-weight-bold">
               Total : {{ $totalContactMessageCount }}
             </div>
           </div>
