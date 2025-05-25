@@ -2,7 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      <div class="py-3 px-2 bg-white border d-flex justify-content-between">
+      <div class="py-3 bg-white d-flex justify-content-between">
         <div class="px-2 pt-2 font-weight-bold mr-4">
           Total : {{ $totalTodoCount }}
         </div>

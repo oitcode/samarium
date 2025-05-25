@@ -1,4 +1,4 @@
-<div class="d-none d-md-block {{ config('app.app_top_menu_bg_color') }} {{ config('app.app_top_menu_text_color') }}">
+<div class="d-none d-md-block {{ config('app.app_top_menu_bg_color') }} {{ config('app.app_top_menu_text_color') }} border-bottom">
   <div class="d-flex justify-content-between o-darker-rm py-2">
     @guest
     @else

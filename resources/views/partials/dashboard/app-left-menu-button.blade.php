@@ -10,6 +10,7 @@
           background-color: rgba(100, 150, 250, 0.5);
         @else
         @endif
+        border-radius: 15px !important;
       "
       >
 

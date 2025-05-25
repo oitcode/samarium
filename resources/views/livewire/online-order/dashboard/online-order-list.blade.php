@@ -2,7 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      <div class="mb-1 p-3 bg-white border d-flex justify-content-between">
+      <div class="py-3 bg-white d-flex justify-content-between">
         <div class="pt-2">
           <div class="d-flex">
             <div class="mr-4 font-weight-bold">

@@ -2,7 +2,15 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      Total products: {{ $totalProductCount }}
+      <div class="d-flex justify-content-between">
+        <div class="mr-5 pt-2">
+          Total products: {{ $totalProductCount }}
+        </div>
+        <div class="d-flex">
+          <input type="text" class="form-control mr-2" placeholder="Search"/>
+          <button class="btn btn-light border">Search</button>
+        </div>
+      </div>
     </x-slot>
 
     <x-slot name="listHeadingRow">
