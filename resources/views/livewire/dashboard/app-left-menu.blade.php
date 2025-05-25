@@ -64,37 +64,39 @@
         |
         --}}
   
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'product',
-                  'iconFaClass' => 'fas fa-dice-d6',
-                  'btnText' => 'Products',
-              ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'product',
+                    'iconFaClass' => 'fas fa-dice-d6',
+                    'btnText' => 'Products',
+                ])
   
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'product-category',
-                  'iconFaClass' => 'fas fa-folder-open',
-                  'btnText' => 'Product category',
-              ])
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'product-vendor',
-                  'iconFaClass' => 'fas fa-users',
-                  'btnText' => 'Product vendor',
-              ])
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'product-question',
-                  'iconFaClass' => 'fas fa-question',
-                  'btnText' => 'Product question',
-              ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-inventory',
-            'iconFaClass' => 'fas fa-dolly',
-            'btnText' => 'Inventory',
-          ])
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'product-category',
+                    'iconFaClass' => 'fas fa-folder-open',
+                    'btnText' => 'Product category',
+                ])
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'product-vendor',
+                    'iconFaClass' => 'fas fa-users',
+                    'btnText' => 'Product vendor',
+                ])
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'product-question',
+                    'iconFaClass' => 'fas fa-question',
+                    'btnText' => 'Product question',
+                ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-inventory',
+              'iconFaClass' => 'fas fa-dolly',
+              'btnText' => 'Inventory',
+            ])
+          </div>
         </div>
   
       @endif
@@ -126,61 +128,63 @@
         |
         |
         --}}
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'sale',
-                  'iconFaClass' => 'fas fa-dice-d6',
-                  'btnText' => 'Sales',
-              ])
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'dashboard-purchase',
-                  'iconFaClass' => 'fas fa-shopping-cart',
-                  'btnText' => 'Purchase',
-              ])
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'dashboard-expense',
-                  'iconFaClass' => 'fas fa-tools',
-                  'btnText' => 'Expense',
-              ])
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'customer',
-                  'iconFaClass' => 'fas fa-users',
-                  'btnText' => 'Customer',
-              ])
-          @include ('partials.dashboard.app-left-menu-button',
-          [
-            'btnRoute' => 'dashboard-vendor',
-            'iconFaClass' => 'fas fa-users',
-            'btnText' => 'Vendors',
-          ])
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'online-order',
-                  'iconFaClass' => 'fas fa-cloud-download-alt',
-                  'btnText' => 'Online order',
-              ])
-          @if (config('app.has_vat') == true)
-            @include ('partials.dashboard.app-left-menu-button', [
-              'btnRoute' => 'dashboard-vat',
-              'iconFaClass' => 'fas fa-solar-panel',
-              'btnText' => 'VAT',
-            ])
-          @endif
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-sale-quotation',
-            'iconFaClass' => 'fas fa-edit',
-            'btnText' => 'Quotation',
-          ])
-          @if (config('app.cmp_type') === 'cafe')
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
             @include ('partials.dashboard.app-left-menu-button',
                 [
-                    'btnRoute' => 'cafesale',
-                    'iconFaClass' => 'fas fa-table', 'btnText' => 'Tables', ])
-          @endif
+                    'btnRoute' => 'sale',
+                    'iconFaClass' => 'fas fa-dice-d6',
+                    'btnText' => 'Sales',
+                ])
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'dashboard-purchase',
+                    'iconFaClass' => 'fas fa-shopping-cart',
+                    'btnText' => 'Purchase',
+                ])
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'dashboard-expense',
+                    'iconFaClass' => 'fas fa-tools',
+                    'btnText' => 'Expense',
+                ])
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'customer',
+                    'iconFaClass' => 'fas fa-users',
+                    'btnText' => 'Customer',
+                ])
+            @include ('partials.dashboard.app-left-menu-button',
+            [
+              'btnRoute' => 'dashboard-vendor',
+              'iconFaClass' => 'fas fa-users',
+              'btnText' => 'Vendors',
+            ])
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'online-order',
+                    'iconFaClass' => 'fas fa-cloud-download-alt',
+                    'btnText' => 'Online order',
+                ])
+            @if (config('app.has_vat') == true)
+              @include ('partials.dashboard.app-left-menu-button', [
+                'btnRoute' => 'dashboard-vat',
+                'iconFaClass' => 'fas fa-solar-panel',
+                'btnText' => 'VAT',
+              ])
+            @endif
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-sale-quotation',
+              'iconFaClass' => 'fas fa-edit',
+              'btnText' => 'Quotation',
+            ])
+            @if (config('app.cmp_type') === 'cafe')
+              @include ('partials.dashboard.app-left-menu-button',
+                  [
+                      'btnRoute' => 'cafesale',
+                      'iconFaClass' => 'fas fa-table', 'btnText' => 'Tables', ])
+            @endif
+          </div>
         </div>
       @endif
     @endif
@@ -211,32 +215,34 @@
         |
         --}}
   
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-cms-webpage',
-            'iconFaClass' => 'fas fa-clone',
-            'btnText' => 'Pages',
-          ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-cms-post',
-            'iconFaClass' => 'fas fa-edit',
-            'btnText' => 'Posts',
-          ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-cms-gallery',
-            'iconFaClass' => 'fas fa-image',
-            'btnText' => 'Gallery',
-          ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-cms-nav-menu',
-            'iconFaClass' => 'fas fa-link',
-            'btnText' => 'Nav menu',
-          ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-cms-theme',
-            'iconFaClass' => 'fas fa-sliders',
-            'btnText' => 'Appearence',
-          ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-cms-webpage',
+              'iconFaClass' => 'fas fa-clone',
+              'btnText' => 'Pages',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-cms-post',
+              'iconFaClass' => 'fas fa-edit',
+              'btnText' => 'Posts',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-cms-gallery',
+              'iconFaClass' => 'fas fa-image',
+              'btnText' => 'Gallery',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-cms-nav-menu',
+              'iconFaClass' => 'fas fa-link',
+              'btnText' => 'Nav menu',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-cms-theme',
+              'iconFaClass' => 'fas fa-sliders',
+              'btnText' => 'Appearence',
+            ])
+          </div>
         </div>
       @endif
     @endif
@@ -268,18 +274,20 @@
         |
         --}}
   
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-school-calendar',
-            'iconFaClass' => 'fas fa-calendar',
-            'btnText' => 'Calendar',
-          ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-calendar-group',
-            'iconFaClass' => 'fas fa-users',
-            'btnText' => 'Calendar group',
-          ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-school-calendar',
+              'iconFaClass' => 'fas fa-calendar',
+              'btnText' => 'Calendar',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-calendar-group',
+              'iconFaClass' => 'fas fa-users',
+              'btnText' => 'Calendar group',
+            ])
   
+          </div>
         </div>
       @endif
     @endif
@@ -310,17 +318,19 @@
         |
         |
         --}}
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-team',
-            'iconFaClass' => 'fas fa-users',
-            'btnText' => 'Team',
-          ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-quick-contacts',
-            'iconFaClass' => 'fas fa-users',
-            'btnText' => 'Quick contacts',
-          ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-team',
+              'iconFaClass' => 'fas fa-users',
+              'btnText' => 'Team',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-quick-contacts',
+              'iconFaClass' => 'fas fa-users',
+              'btnText' => 'Quick contacts',
+            ])
+          </div>
         </div>
       @endif
     @endif
@@ -347,31 +357,33 @@
         {{--
         |
         |
-        | Team route buttons
+        | CRM route buttons
         |
         |
         --}}
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-contact-form',
-            'iconFaClass' => 'fas fa-sms',
-            'btnText' => 'Contact message',
-          ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-appointment',
-            'iconFaClass' => 'fas fa-paste',
-            'btnText' => 'Appointment',
-          ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-newsletter-subscription',
-            'iconFaClass' => 'fas fa-envelope',
-            'btnText' => 'Newsletter subscription',
-          ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-testimonial',
-            'iconFaClass' => 'fas fa-sms',
-            'btnText' => 'Testimonial',
-          ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-contact-form',
+              'iconFaClass' => 'fas fa-sms',
+              'btnText' => 'Contact message',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-appointment',
+              'iconFaClass' => 'fas fa-paste',
+              'btnText' => 'Appointment',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-newsletter-subscription',
+              'iconFaClass' => 'fas fa-envelope',
+              'btnText' => 'Newsletter subscription',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-testimonial',
+              'iconFaClass' => 'fas fa-sms',
+              'btnText' => 'Testimonial',
+            ])
+          </div>
         </div>
       @endif
     @endif
@@ -402,13 +414,14 @@
         |
         |
         --}}
-        <div class="mb-3 border-bottom">
-  
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-vacancy',
-            'iconFaClass' => 'fas fa-edit',
-            'btnText' => 'Vacancy',
-          ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-vacancy',
+              'iconFaClass' => 'fas fa-edit',
+              'btnText' => 'Vacancy',
+            ])
+          </div>
         </div>
       @endif
     @endif
@@ -439,12 +452,14 @@
         |
         |
         --}}
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-todo',
-            'iconFaClass' => 'fas fa-tasks',
-            'btnText' => 'Tasks',
-          ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-todo',
+              'iconFaClass' => 'fas fa-tasks',
+              'btnText' => 'Tasks',
+            ])
+          </div>
         </div>
       @endif
     @endif
@@ -475,17 +490,19 @@
         |
         |
         --}}
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-document-url-link',
-            'iconFaClass' => 'fas fa-link',
-            'btnText' => 'Link',
-          ])
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-document-file',
-            'iconFaClass' => 'fas fa-file',
-            'btnText' => 'File',
-          ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-document-url-link',
+              'iconFaClass' => 'fas fa-link',
+              'btnText' => 'Link',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-document-file',
+              'iconFaClass' => 'fas fa-file',
+              'btnText' => 'File',
+            ])
+          </div>
         </div>
       @endif
     @endif
@@ -538,26 +555,28 @@
         |
         --}}
   
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'daybook',
-                  'iconFaClass' => 'fas fa-book',
-                  'btnText' => 'Daybook',
-              ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'daybook',
+                    'iconFaClass' => 'fas fa-book',
+                    'btnText' => 'Daybook',
+                ])
   
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'weekbook',
-                  'iconFaClass' => 'fas fa-book',
-                  'btnText' => 'Weekbook',
-              ])
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'weekbook',
+                    'iconFaClass' => 'fas fa-book',
+                    'btnText' => 'Weekbook',
+                ])
   
-          @include ('partials.dashboard.app-left-menu-button', [
-            'btnRoute' => 'dashboard-report',
-            'iconFaClass' => 'fas fa-chart-line',
-            'btnText' => 'Report',
-          ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-report',
+              'iconFaClass' => 'fas fa-chart-line',
+              'btnText' => 'Report',
+            ])
+          </div>
         </div>
       @endif
     @endif
@@ -590,20 +609,22 @@
         |
         --}}
   
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'dashboard-educ-institution',
-                  'iconFaClass' => 'fas fa-building',
-                  'btnText' => 'Institution',
-              ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'dashboard-educ-institution',
+                    'iconFaClass' => 'fas fa-building',
+                    'btnText' => 'Institution',
+                ])
   
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'weekbook',
-                  'iconFaClass' => 'fas fa-book',
-                  'btnText' => 'Program',
-              ])
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'weekbook',
+                    'iconFaClass' => 'fas fa-book',
+                    'btnText' => 'Program',
+                ])
+          </div>
         </div>
       @endif
     @endif
@@ -635,13 +656,15 @@
         |
         --}}
   
-        <div class="mb-3 border-bottom">
-          @include ('partials.dashboard.app-left-menu-button',
-              [
-                  'btnRoute' => 'dashboard-accounting',
-                  'iconFaClass' => 'fas fa-book',
-                  'btnText' => 'Accounting',
-              ])
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'dashboard-accounting',
+                    'iconFaClass' => 'fas fa-book',
+                    'btnText' => 'Accounting',
+                ])
+          </div>
         </div>
       @endif
     @endif
@@ -672,27 +695,29 @@
       |
       --}}
   
-      <div class="mb-3 border-bottom">
-        @include ('partials.dashboard.app-left-menu-button',
-            [
-                'btnRoute' => 'company',
-                'iconFaClass' => 'fas fa-th',
-                'btnText' => 'Company',
-            ])
+      <div class="p-3 mb-3">
+        <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+          @include ('partials.dashboard.app-left-menu-button',
+              [
+                  'btnRoute' => 'company',
+                  'iconFaClass' => 'fas fa-th',
+                  'btnText' => 'Company',
+              ])
 
-        @include ('partials.dashboard.app-left-menu-button',
-            [
-                'btnRoute' => 'dashboard-users',
-                'iconFaClass' => 'fas fa-users',
-                'btnText' => 'Users',
-            ])
+          @include ('partials.dashboard.app-left-menu-button',
+              [
+                  'btnRoute' => 'dashboard-users',
+                  'iconFaClass' => 'fas fa-users',
+                  'btnText' => 'Users',
+              ])
 
-        @include ('partials.dashboard.app-left-menu-button',
-            [
-                'btnRoute' => 'dashboard-settings',
-                'iconFaClass' => 'fas fa-cogs',
-                'btnText' => 'Settings',
-            ])
+          @include ('partials.dashboard.app-left-menu-button',
+              [
+                  'btnRoute' => 'dashboard-settings',
+                  'iconFaClass' => 'fas fa-cogs',
+                  'btnText' => 'Settings',
+              ])
+        </div>
       </div>
     @endif
   </div>
