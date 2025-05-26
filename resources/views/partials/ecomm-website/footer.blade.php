@@ -1,6 +1,5 @@
 <div class="border-top bg-white">
 
-
   {{-- Brand Info --}}
   <div class="container-fluid" style="background-color: #ececec;">
     <div class="container">
