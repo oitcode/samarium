@@ -16,7 +16,21 @@
     ;"
 >
   {{-- Show in bigger screens --}}
-  <div class="container-fluid d-none d-md-block bg-primary text-white">
+  <div class="container-fluid d-none d-md-block bg-primary-rm text-white-rm border-bottom" style="
+    background-color:
+        @if ($cmsTheme)
+          {{ $cmsTheme->nav_menu_bg_color }}
+        @else
+          white
+        @endif
+        ;
+    color:
+        @if ($cmsTheme)
+          {{ $cmsTheme->nav_menu_text_color }}
+        @else
+          black
+        @endif
+  ">
     <div class="container text-right py-2">
       <i class="fas fa-envelope mr-1"></i>
       {{ $company->email }}
