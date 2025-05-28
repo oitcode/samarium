@@ -252,8 +252,7 @@ Header blade files are location in below directory:
 resources/views/partials/cms/website/header
 ```
 
-By default
-`resources/views/partials/cms/website/header/header-default.blade.php` blade file is used for header. You can modify the default header file there.  However, if you want to have a different header altogether then you can create a new blade file in that directory. Which header file to use can be configured in `footer_blade_file`in `config/app.php` file.
+By default `resources/views/partials/cms/website/header/header-default.blade.php` blade file is used for header. You can modify the default header file there.  However, if you want to have a different header altogether then you can create a new blade file in that directory. Which header file to use can be configured in `footer_blade_file` setting in `config/app.php` file.
 
 ### Header file configuration
 
@@ -269,7 +268,7 @@ Footer files are location in below directory:
 ```
 resources/views/partials/cms/website/footer
 ``` 
-By default `resources/views/partials/cms/website/footer/footer-default.blade.php` blade file is used for footer. You can modify the default footer file there. However, if you want to have a different footer altogether then you can create a new file in that directory. Which footer file to use can be configured in `footer_blade_file`in `config/app.php` file.
+By default `resources/views/partials/cms/website/footer/footer-default.blade.php` blade file is used for footer. You can modify the default footer file there. However, if you want to have a different footer altogether then you can create a new file in that directory. Which footer file to use can be configured in `footer_blade_file` setting in `config/app.php` file.
 
 ### Footer file configuration
 
@@ -293,7 +292,7 @@ If you have a footer file named `footer-corporate.blade.php` in the `resources/v
 'footer_blade_file' => 'partials.cms.website.footer.footer-corporate'
 ```
 
-This allows you to maintain multiple header and footer designs and switch between them without code changes - simply update the configuration file.
+> **Note:** This allows you to maintain multiple header and footer designs and switch between them without code changes - simply update the configuration file.
 
 ### Available Data & Styling
 
