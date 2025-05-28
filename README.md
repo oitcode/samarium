@@ -241,6 +241,93 @@ Values for these options are bootstrap color classes.
 'app_top_menu_text_color'             => 'text-dark',
 ```
 
+## Website Header/Footer Configuration
+
+Public facing website can be accessed in `127.0.0.1:8000`. Website consists of header, navigation menu, main content and footer. The application supports multiple header and footer templates that can be easily switched through configuration.
+
+### Header file location
+
+Header blade files are location in below directory:
+```
+resources/views/partials/cms/website/header
+```
+
+By default
+`resources/views/partials/cms/website/header/header-default.blade.php` blade file is used for header. You can modify the default header file there.  However, if you want to have a different header altogether then you can create a new blade file in that directory. Which header file to use can be configured in `footer_blade_file`in `config/app.php` file.
+
+### Header file configuration
+
+To set which header blade file to use, update the `header_blade_file` setting in `app/config.php`:
+
+```
+'header_blade_file' => 'partials.cms.website.header.header-some-name'
+```
+
+### Footer file location
+
+Footer files are location in below directory:
+```
+resources/views/partials/cms/website/footer
+``` 
+By default `resources/views/partials/cms/website/footer/footer-default.blade.php` blade file is used for footer. You can modify the default footer file there. However, if you want to have a different footer altogether then you can create a new file in that directory. Which footer file to use can be configured in `footer_blade_file`in `config/app.php` file.
+
+### Footer file configuration
+
+To set which footer blade file to use, update the `footer_blade_file` setting in `app/config.php`:
+
+```
+'footer_blade_file' => 'partials.cms.website.footer.footer-some-name'
+```
+
+### Example
+
+If you have a header file named `header-corporate.blade.php` in the `resources/views/partials/cms/website/header` directory, configure it as below in `config/app.php` file:
+
+```php
+'header_blade_file' => 'partials.cms.website.header.header-corporate'
+```
+
+If you have a footer file named `footer-corporate.blade.php` in the `resources/views/partials/cms/website/footer` directory, configure it as below in `config/app.php` file:
+
+```php
+'footer_blade_file' => 'partials.cms.website.footer.footer-corporate'
+```
+
+This allows you to maintain multiple header and footer designs and switch between them without code changes - simply update the configuration file.
+
+### Available Data & Styling
+
+**Company Information**
+The `$company` object is globally available in all Blade files, providing access to:
+```blade
+{{ $company->name }}
+{{ $company->phone }}
+{{ $company->email }}
+{{ $company->address }}
+{{ $company->brief_descriptoin }}
+```
+
+**CSS Framework**
+Header and Footer templates can use Bootstrap 4 classes for styling:
+
+Example:
+
+```blade
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>{{ $company->name }}</h5>
+                <p class="text-muted">{{ $company->address }}</p>
+            </div>
+            <div class="col-md-6 text-right">
+                <p>Call us: {{ $company->phone }}</p>
+            </div>
+        </div>
+    </div>
+</footer>
+```
+
 ## Contributing
 
 Any kind of contributions are welcome.
