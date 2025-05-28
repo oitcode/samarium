@@ -79,9 +79,9 @@ return [
     |
     */
 
-    'app_menu_dropdown_button_text_color' => 'text-white',
-    'app_menu_normal_button_text_color'   => 'text-white',
-    'app_menu_bg_color'                   => 'bg-dark',
+    'app_menu_dropdown_button_text_color' => 'text-dark',
+    'app_menu_normal_button_text_color'   => 'text-dark',
+    'app_menu_bg_color'                   => 'bg-white',
 
     'app_top_menu_bg_color'               => 'bg-white',
     'app_top_menu_text_color'             => 'text-dark',
@@ -107,8 +107,8 @@ return [
     |
     */
 
-    'header_blade_file' => 'partials.cms.headers-header',
-    'footer_blade_file' => 'partials.cms.footer',
+    'header_blade_file' => 'partials.cms.website.header.headers-header',
+    'footer_blade_file' => 'partials.cms.website.footer.footer-default',
 
     /*
     |--------------------------------------------------------------------------
@@ -280,6 +280,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+         * This application Service Providers...
+         */
+        App\Providers\LivewireModeServiceProvider::class,
 
     ],
 
