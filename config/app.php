@@ -107,7 +107,7 @@ return [
     |
     */
 
-    'header_blade_file' => 'partials.cms.website.header.headers-header',
+    'header_blade_file' => 'partials.cms.website.header.header-default',
     'footer_blade_file' => 'partials.cms.website.footer.footer-default',
 
     /*
