@@ -7,8 +7,7 @@
 | All the webpages of cms website extend this blade file. It is a simple
 | layout with a header, top navigation menu, content and footer.
 |
-| If you want to remove header, top-navigation, content or footer,
-| then you can remove them by modifying this file.
+| You can edit this file to change the layout of website.
 |
 --}}
 
@@ -75,7 +74,28 @@
     <link href="{{ asset('vendor/fontawesome-free/css/all.css') }}" rel="stylesheet">
 
     <style> 
-    html, body { overflow-x: hidden; } 
+      html, body { overflow-x: hidden; } 
+
+      .o-footer-color {
+        background-color: @if ($cmsTheme) {{ $cmsTheme->footer_bg_color }} @else white @endif ;
+        color: @if ($cmsTheme) {{ $cmsTheme->footer_text_color }} @else black @endif ;
+      }
+
+      .o-header-color {
+        background-color: @if ($cmsTheme) {{ $cmsTheme->top_header_bg_color }} @else white @endif ;
+        color: @if ($cmsTheme) {{ $cmsTheme->top_header_text_color }} @else black @endif ;
+      }
+
+      .o-nav-menu-color {
+        background-color: @if ($cmsTheme) {{ $cmsTheme->nav_menu_bg_color }} @else white @endif ;
+        color: @if ($cmsTheme) {{ $cmsTheme->nav_menu_text_color }} @else black @endif ;
+      }
+
+      .o-ascent-color, .o-ascent-color:hover {
+        background-color: @if ($cmsTheme) {{ $cmsTheme->ascent_bg_color }} @else #123 @endif ;
+        color: @if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else white @endif ;
+      }
+
     </style>
 
     {{--
@@ -103,14 +123,14 @@
       | Header
       |
       --}}
-      @include ('partials.cms.headers-header')
+      @include (config('app.header_blade_file'))
 
       {{--
       |
       | Nav menu
       |
       --}}
-      @livewire ('cms.website.nav-menu')
+      @include ('partials.cms.website.nav-menu.nav-menu-default')
 
       {{--
       |
@@ -127,7 +147,7 @@
       | Footer
       |
       --}}
-      @include ('partials.cms.footer')
+      @include (config('app.footer_blade_file'))
     </div>
   @endif
 

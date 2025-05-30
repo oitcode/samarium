@@ -121,25 +121,7 @@
             @error('message') <span class="text-danger">{{ $message }}</span> @enderror
           </div>
         
-          <button type="submit"
-              class="btn btn-block badge-pill py-3"
-              wire:click="store"
-              style="
-                background-color:
-                  @if ($cmsTheme)
-                    {{ $cmsTheme->ascent_bg_color }}
-                  @else
-                    #123
-                  @endif
-                  ;
-                color:
-                  @if ($cmsTheme)
-                    {{ $cmsTheme->ascent_text_color }}
-                  @else
-                    white
-                  @endif
-                  ;
-              ">
+          <button type="submit" class="btn btn-block badge-pill py-3 o-ascent-color" wire:click="store">
             SEND MESSAGE
           </button>
         </div>

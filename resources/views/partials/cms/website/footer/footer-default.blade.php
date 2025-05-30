@@ -41,23 +41,7 @@
   </div>
 @endif
 
-<div class="border-top"
-     style="
-      background-color:
-          @if ($cmsTheme)
-            {{ $cmsTheme->footer_bg_color }}
-          @else
-            white
-          @endif
-          ;
-      color:
-          @if ($cmsTheme)
-            {{ $cmsTheme->footer_text_color }}
-          @else
-            black
-          @endif
-      ;"
->
+<div class="border-top o-footer-color">
   {{--
   |
   | Logo and contact details row.
@@ -66,7 +50,7 @@
   |
   --}}
   <div class="container-fluid p-0">
-    <div class="p-3" style="background-color: rgba(0, 0, 0, 0.1);">
+    <div class="p-3 o-dark-shade">
       <div class="container">
         <div class="row">
           <div class="col-md-3 mb-3">
@@ -152,17 +136,8 @@
           </div>
           <div>
             @if ($company->fb_link)
-              <a href="{{ $company->fb_link }}" target="_blank">
-                <i class="fab fa-facebook fa-2x mr-2 "
-                    style="
-                      color:
-                          @if ($cmsTheme)
-                            {{ $cmsTheme->footer_text_color }}
-                          @else
-                            white
-                          @endif
-                          ;"
-                ></i>
+              <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">
+                <i class="fab fa-facebook fa-2x mr-2 "></i>
               </a>
             @endif
             @if ($company->twitter_link)
@@ -204,7 +179,7 @@
   <hr />
   <div class="text-center pb-2 px-3">
     <div>
-      &copy; 2025 | {{ $company->name }} | All rights reserved
+      &copy; {{ date('Y') }} | {{ $company->name }} | All rights reserved
     </div>
     <div>
       Powered by
