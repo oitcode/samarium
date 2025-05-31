@@ -280,12 +280,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        /*
-         * This application Service Providers...
-         */
-        App\Providers\LivewireModeServiceProvider::class,
-
     ],
 
     /*
