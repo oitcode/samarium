@@ -226,3 +226,11 @@ animation-play-state:paused;
     background-color: rgba(100, 150, 250, 1.0);
     color: white;
 }
+
+.o-dark-shade {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.o-light-shade {
+    background-color: rgba(255, 255, 255, 0.5);
+}

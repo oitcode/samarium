@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 use App\Company;
 use App\CmsTheme;
+use App\CmsNavMenu;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,11 @@ class AppServiceProvider extends ServiceProvider
         if (Schema::hasTable('cms_theme')) {
             $cmsTheme = CmsTheme::first();
             View::share('cmsTheme', $cmsTheme);
+        }
+
+        if (Schema::hasTable('cms_nav_menu')) {
+            $cmsNavMenu = CmsNavMenu::first();
+            View::share('cmsNavMenu', $cmsNavMenu);
         }
     }
 }
