@@ -100,10 +100,7 @@
   <div class="row">
     <div class="col-md-6">
       @if ($modes['displaySaleInvoice'])
-        {{--
-        @livewire ('record-book.daybook-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
-        --}}
-        @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice, 'exitDispatchEvent' => 'exitDisplaySaleInvoiceMode',])
+        @livewire ('core.dashboard.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice, 'exitDispatchEvent' => 'exitDisplaySaleInvoiceMode',])
       @else
         <div class="bg-white border p-2">
         <h2 class="h5 o-heading py-3 px-1">Sale</h2>

@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('record-book.daybook-component')
+  @livewire('record-book.dashboard.daybook-component')
 @endsection

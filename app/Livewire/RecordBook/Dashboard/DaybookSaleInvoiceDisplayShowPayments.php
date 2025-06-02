@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\RecordBook;
+namespace App\Livewire\RecordBook\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -11,6 +11,6 @@ class DaybookSaleInvoiceDisplayShowPayments extends Component
 
     public function render(): View
     {
-        return view('livewire.record-book.daybook-sale-invoice-display-show-payments');
+        return view('livewire.record-book.dashboard.daybook-sale-invoice-display-show-payments');
     }
 }

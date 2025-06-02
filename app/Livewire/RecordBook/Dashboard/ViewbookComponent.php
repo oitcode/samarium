@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\RecordBook;
+namespace App\Livewire\RecordBook\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -34,7 +34,7 @@ class ViewbookComponent extends Component
             $this->populateBook();
         }
 
-        return view('livewire.record-book.viewbook-component');
+        return view('livewire.record-book.dashboard.viewbook-component');
     }
 
     public function enterDaybookMode(): void

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\RecordBook;
+namespace App\Livewire\RecordBook\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -154,7 +154,7 @@ class DaybookComponent extends Component
          * Return the view with required info.
          *
          */
-        return view('livewire.record-book.daybook-component')
+        return view('livewire.record-book.dashboard.daybook-component')
             ->with('saleInvoices', $saleInvoices)
             ->with('purchases', $purchases)
             ->with('expenses', $expenses);
