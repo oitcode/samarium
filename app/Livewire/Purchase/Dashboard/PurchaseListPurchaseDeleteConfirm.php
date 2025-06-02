@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Purchase;
+namespace App\Livewire\Purchase\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -13,7 +13,7 @@ class PurchaseListPurchaseDeleteConfirm extends Component
 
     public function render(): View
     {
-        return view('livewire.purchase.purchase-list-purchase-delete-confirm');
+        return view('livewire.purchase.dashboard.purchase-list-purchase-delete-confirm');
     }
 
     public function deletePurchase(Purchase $purchase): void

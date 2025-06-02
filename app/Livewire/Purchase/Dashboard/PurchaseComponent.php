@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Purchase;
+namespace App\Livewire\Purchase\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -32,7 +32,7 @@ class PurchaseComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.purchase.purchase-component');
+        return view('livewire.purchase.dashboard.purchase-component');
     }
 
     public function displayPurchase($purchaseId): void

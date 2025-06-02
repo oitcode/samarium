@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Purchase;
+namespace App\Livewire\Purchase\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -46,7 +46,7 @@ class PurchaseAddItem extends Component
     {
         $this->productCategories = ProductCategory::all();
 
-        return view('livewire.purchase.purchase-add-item');
+        return view('livewire.purchase.dashboard.purchase-add-item');
     }
 
     public function addItemToPurchase(): void

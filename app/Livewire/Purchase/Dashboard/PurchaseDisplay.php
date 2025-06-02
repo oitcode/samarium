@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Purchase;
+namespace App\Livewire\Purchase\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -20,7 +20,7 @@ class PurchaseDisplay extends Component
 
     public function render(): View
     {
-        return view('livewire.purchase.purchase-display');
+        return view('livewire.purchase.dashboard.purchase-display');
     }
 
     public function exitMakePaymentMode(): void

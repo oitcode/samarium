@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Purchase;
+namespace App\Livewire\Purchase\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -68,7 +68,7 @@ class PurchaseList extends Component
     {
         $purchases = Purchase::orderBy('purchase_id', 'DESC')->paginate(5);
 
-        return view('livewire.purchase.purchase-list')
+        return view('livewire.purchase.dashboard.purchase-list')
             ->with('purchases', $purchases);
     }
 

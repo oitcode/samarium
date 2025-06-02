@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('purchase.purchase-component')
+  @livewire('purchase.dashboard.purchase-component')
 @endsection

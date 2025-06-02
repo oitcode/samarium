@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Purchase;
+namespace App\Livewire\Purchase\Dashboard;
 
 use App\Traits\MiscTrait;
 use Illuminate\View\View;
@@ -60,7 +60,7 @@ class PurchaseMakePayment extends Component
 
         $this->updateNumbers();
 
-        return view('livewire.purchase.purchase-make-payment');
+        return view('livewire.purchase.dashboard.purchase-make-payment');
     }
 
     public function store(): void

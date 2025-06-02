@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Purchase;
+namespace App\Livewire\Purchase\Dashboard;
 
 use App\Traits\MiscTrait;
 use Illuminate\View\View;
@@ -70,7 +70,7 @@ class PurchaseCreate extends Component
         $this->purchasePaymentTypes = PurchasePaymentType::all();
         $this->vendors = Vendor::all();
 
-        return view('livewire.purchase.purchase-create');
+        return view('livewire.purchase.dashboard.purchase-create');
     }
 
     public function startPurchase(): Purchase

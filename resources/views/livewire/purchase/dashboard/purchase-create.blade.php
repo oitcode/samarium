@@ -1,7 +1,7 @@
 <div>
 
   @if ($purchase->creation_status == 'created')
-    @livewire ('core.core-purchase-display', ['purchase' => $purchase, 'exitDispatchEvent' => 'exitPurchaseCreate',])
+    @livewire ('core.dashboard.core-purchase-display', ['purchase' => $purchase, 'exitDispatchEvent' => 'exitPurchaseCreate',])
   @else
     <x-transaction-create-component>
       <x-slot name="topToolbar">
@@ -115,7 +115,7 @@
       </x-slot>
 
       <x-slot name="transactionAddItem">
-        @livewire ('purchase.purchase-add-item', ['purchase' => $purchase,])
+        @livewire ('purchase.dashboard.purchase-add-item', ['purchase' => $purchase,])
       </x-slot>
 
       <x-slot name="transactionItemList">
@@ -245,7 +245,7 @@
 
       <x-slot name="transactionPayment">
         @if (! $modes['paid'])
-          @livewire ('purchase.purchase-make-payment', ['purchase' => $purchase,])
+          @livewire ('purchase.dashboard.purchase-make-payment', ['purchase' => $purchase,])
         @endif
       </x-slot>
 

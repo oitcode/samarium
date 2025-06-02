@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Purchase;
+namespace App\Livewire\Purchase\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -62,7 +62,7 @@ class PurchaseList extends Component
     {
         $purchases = $purchaseService->getPaginatedPurchases($this->perPage);
 
-        return view('livewire.purchase.purchase-list', [
+        return view('livewire.purchase.dashboard.purchase-list', [
             'purchases' => $purchases,
         ]);
     }

@@ -38,12 +38,12 @@
       --}}
 
       @if ($modes['create'])
-        @livewire ('purchase.purchase-create')
+        @livewire ('purchase.dashboard.purchase-create')
       @elseif ($modes['list'])
-        @livewire ('purchase.purchase-list')
+        @livewire ('purchase.dashboard.purchase-list')
       @elseif ($modes['display'])
         @if ($displayingPurchase->creation_status == 'progress')
-          @livewire ('purchase.purchase-create', [
+          @livewire ('purchase.dashboard.purchase-create', [
               'createNew' => false,
               'purchase' => $displayingPurchase,
           ])
@@ -51,9 +51,9 @@
           @livewire ('core.dashboard.core-purchase-display', ['purchase' => $displayingPurchase,])
         @endif
       @elseif ($modes['search'])
-        @livewire ('purchase.purchase-search')
+        @livewire ('purchase.dashboard.purchase-search')
       @else
-        @livewire ('purchase.purchase-list')
+        @livewire ('purchase.dashboard.purchase-list')
       @endif
 
     </div>
