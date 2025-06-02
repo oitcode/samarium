@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Chart;
+namespace App\Livewire\Chart\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -24,7 +24,7 @@ class ChartSaleByCategory extends Component
     {
         $this->populateSaleByCategory();
 
-        return view('livewire.chart.chart-sale-by-category');
+        return view('livewire.chart.dashboard.chart-sale-by-category');
     }
 
     public function populateSaleByCategory(): void

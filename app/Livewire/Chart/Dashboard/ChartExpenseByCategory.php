@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Chart;
+namespace App\Livewire\Chart\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -31,7 +31,7 @@ class ChartExpenseByCategory extends Component
         $this->getExpenseByCategory();
         $this->calculateTotal();
 
-        return view('livewire.chart.chart-expense-by-category');
+        return view('livewire.chart.dashboard.chart-expense-by-category');
     }
 
     public function getExpensesForDateRange(): void

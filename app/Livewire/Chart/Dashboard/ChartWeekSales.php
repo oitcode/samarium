@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Chart;
+namespace App\Livewire\Chart\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -16,7 +16,7 @@ class ChartWeekSales extends Component
     {
         $this->populateWeekSales();
 
-        return view('livewire.chart.chart-week-sales');
+        return view('livewire.chart.dashboard.chart-week-sales');
     }
 
     public function populateWeekSales(): void
