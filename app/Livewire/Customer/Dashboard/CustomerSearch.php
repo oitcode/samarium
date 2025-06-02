@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Customer;
+namespace App\Livewire\Customer\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -15,7 +15,7 @@ class CustomerSearch extends Component
 
     public function render(): View
     {
-        return view('livewire.customer.customer-search');
+        return view('livewire.customer.dashboard.customer-search');
     }
 
     public function search(): void

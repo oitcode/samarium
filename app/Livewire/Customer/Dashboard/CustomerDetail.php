@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Customer;
+namespace App\Livewire\Customer\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -66,7 +66,7 @@ class CustomerDetail extends Component
 
     public function render(): View
     {
-        return view('livewire.customer.customer-detail');
+        return view('livewire.customer.dashboard.customer-detail');
     }
 
     public function customerPaymentMade($amountRemaining): void

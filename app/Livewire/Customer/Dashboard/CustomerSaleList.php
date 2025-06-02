@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Customer;
+namespace App\Livewire\Customer\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -14,6 +14,6 @@ class CustomerSaleList extends Component
     {
         $this->saleInvoices = $this->customer->saleInvoices()->orderBy('sale_invoice_id', 'DESC')->get();
 
-        return view('livewire.customer.customer-sale-list');
+        return view('livewire.customer.dashboard.customer-sale-list');
     }
 }

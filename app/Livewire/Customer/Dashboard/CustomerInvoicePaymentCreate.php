@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Customer;
+namespace App\Livewire\Customer\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -24,7 +24,7 @@ class CustomerInvoicePaymentCreate extends Component
         $this->payment_date = date('Y-m-d');
         $this->saleInvoicePaymentTypes = SaleInvoicePaymentType::all();
 
-        return view('livewire.customer.customer-invoice-payment-create');
+        return view('livewire.customer.dashboard.customer-invoice-payment-create');
     }
 
     public function store(): void

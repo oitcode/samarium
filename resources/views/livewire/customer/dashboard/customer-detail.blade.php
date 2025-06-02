@@ -162,15 +162,15 @@
     </div>
 
     @if ($modes['salesHistory'])
-      @livewire ('customer.customer-sale-list', ['customer' => $customer,])
+      @livewire ('customer.dashboard.customer-sale-list', ['customer' => $customer,])
     @endif
 
     @if ($modes['saleInvoiceDisplay'])
-      @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
+      @livewire ('core.dashboard.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice,])
     @endif
 
     @if ($modes['saleInvoicePaymentCreate'])
-      @livewire ('customer.customer-invoice-payment-create', ['saleInvoice' => $paymentReceivingSaleInvoice,])
+      @livewire ('customer.dashboard.customer-invoice-payment-create', ['saleInvoice' => $paymentReceivingSaleInvoice,])
     @endif
   </div>
 
@@ -201,7 +201,7 @@
 
     @if ($modes['customerPaymentCreate'])
       <div class="my-3">
-        @livewire ('customer.customer-payment-create', ['customer' => $customer,])
+        @livewire ('customer.dashboard.customer-payment-create', ['customer' => $customer,])
       </div>
     @endif
   </div>

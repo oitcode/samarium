@@ -38,15 +38,15 @@
       --}}
 
       @if ($modes['create'])
-        @livewire ('customer.customer-create')
+        @livewire ('customer.dashboard.customer-create')
       @elseif ($modes['list'])
-        @livewire ('customer.customer-list')
+        @livewire ('customer.dashboard.customer-list')
       @elseif ($modes['search'])
-        @livewire ('customer.customer-search')
+        @livewire ('customer.dashboard.customer-search')
       @elseif ($modes['display'])
-        @livewire ('customer.customer-detail', ['customer' => $displayingCustomer,])
+        @livewire ('customer.dashboard.customer-detail', ['customer' => $displayingCustomer,])
       @else
-        @livewire ('customer.customer-list')
+        @livewire ('customer.dashboard.customer-list')
       @endif
 
     </div>

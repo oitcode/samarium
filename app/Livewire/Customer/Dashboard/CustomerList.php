@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Customer;
+namespace App\Livewire\Customer\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -61,7 +61,7 @@ class CustomerList extends Component
         $customers = $customerService->getPaginatedCustomers($this->perPage);
         $this->totalCustomerCount = $customerService->getTotalCustomerCount();
 
-        return view('livewire.customer.customer-list', [
+        return view('livewire.customer.dashboard.customer-list', [
             'customers' => $customers,
         ]);
     }

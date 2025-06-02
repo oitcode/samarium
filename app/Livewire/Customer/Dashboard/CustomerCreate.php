@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Customer;
+namespace App\Livewire\Customer\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -19,7 +19,7 @@ class CustomerCreate extends Component
 
     public function render(): View
     {
-        return view('livewire.customer.customer-create');
+        return view('livewire.customer.dashboard.customer-create');
     }
 
     public function store(): void
