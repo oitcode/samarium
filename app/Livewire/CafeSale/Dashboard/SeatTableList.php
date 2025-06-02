@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\CafeSale;
+namespace App\Livewire\CafeSale\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -19,6 +19,6 @@ class SeatTableList extends Component
     {
         $this->seatTables = SeatTable::all();
 
-        return view('livewire.cafe-sale.seat-table-list');
+        return view('livewire.cafe-sale.dashboard.seat-table-list');
     }
 }

@@ -28,15 +28,15 @@
       --}}
 
       @if ($modes['workingTableDisplay'])
-        @livewire ('cafe-sale.seat-table-work-display', ['seatTable' => $workingSeatTable,])
+        @livewire ('cafe-sale.dashboard.seat-table-work-display', ['seatTable' => $workingSeatTable,])
       @elseif ($modes['seatTableDisplayXypher'])
-        @livewire ('cafe-sale.seat-table-display', ['seatTable' => displayingSeatTable,])
+        @livewire ('cafe-sale.dashboard.seat-table-display', ['seatTable' => displayingSeatTable,])
       @elseif ($modes['editSettingsMode'])
         @livewire ('seat-table.dashboard.seat-table-settings-component')
       @elseif ($modes['createSeatTableMode'])
-        @livewire ('cafe-sale.seat-table-create')
+        @livewire ('cafe-sale.dashboard.seat-table-create')
       @else
-        @livewire ('cafe-sale.seat-table-list')
+        @livewire ('cafe-sale.dashboard.seat-table-list')
       @endif
 
     </div>

@@ -50,7 +50,7 @@
   --}}
 
   @if ($modes['createSeatTableMode'])
-    @livewire ('cafe-sale.seat-table-create')
+    @livewire ('cafe-sale.dashboard.seat-table-create')
   @endif
 
 </div>

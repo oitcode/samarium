@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\CafeSale;
+namespace App\Livewire\CafeSale\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -36,7 +36,7 @@ class SeatTableWorkDisplay extends Component
 
     public function render(): View
     {
-        return view('livewire.cafe-sale.seat-table-work-display');
+        return view('livewire.cafe-sale.dashboard.seat-table-work-display');
     }
 
     public function bookSeatTable(): void
