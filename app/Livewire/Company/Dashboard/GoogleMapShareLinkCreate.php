@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Company;
+namespace App\Livewire\Company\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -13,7 +13,7 @@ class GoogleMapShareLinkCreate extends Component
 
     public function render(): View
     {
-        return view('livewire.company.google-map-share-link-create');
+        return view('livewire.company.dashboard.google-map-share-link-create');
     }
 
     public function store(): void

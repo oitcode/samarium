@@ -355,7 +355,7 @@
 
         @if ($company->brief_description)
           @if ($modes['briefDescriptionUpdateMode'])
-            @livewire ('company.brief-description-edit', ['company' => $company,])
+            @livewire ('company.dashboard.brief-description-edit', ['company' => $company,])
           @else
             <div class="py-3">
               {{ $company->brief_description}}
@@ -369,7 +369,7 @@
           @endif
         @else
           @if ($modes['briefDescriptionCreateMode'])
-            @livewire ('company.brief-description-create', ['company' => $company,])
+            @livewire ('company.dashboard.brief-description-create', ['company' => $company,])
           @else
             <div class="py-3 text-muted">
               No brief description.
@@ -400,7 +400,7 @@
 
         @if ($company->google_map_share_link)
           @if ($modes['googleMapShareLinkUpdateMode'])
-            @livewire ('company.google-map-share-link-edit', ['company' => $company,])
+            @livewire ('company.dashboard.google-map-share-link-edit', ['company' => $company,])
           @else
             <div class="py-3">
               {{ $company->google_map_share_link}}
@@ -414,7 +414,7 @@
           @endif
         @else
           @if ($modes['googleMapShareLinkCreateMode'])
-            @livewire ('company.google-map-share-link-create', ['company' => $company,])
+            @livewire ('company.dashboard.google-map-share-link-create', ['company' => $company,])
           @else
             <div class="py-3 text-muted">
               No google map share link.

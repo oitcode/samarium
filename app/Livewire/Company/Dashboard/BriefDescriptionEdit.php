@@ -1,22 +1,27 @@
 <?php
 
-namespace App\Livewire\Company;
+namespace App\Livewire\Company\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
 
-class BriefDescriptionCreate extends Component
+class BriefDescriptionEdit extends Component
 {
     public $company;
 
     public $brief_description;
 
-    public function render(): View
+    public function mount(): void
     {
-        return view('livewire.company.brief-description-create');
+        $this->brief_description = $this->company->brief_description;
     }
 
-    public function store(): void
+    public function render(): View
+    {
+        return view('livewire.company.dashboard.brief-description-edit');
+    }
+
+    public function update(): void
     {
         $validatedData = $this->validate([
             'brief_description' => 'required',
@@ -26,6 +31,6 @@ class BriefDescriptionCreate extends Component
         $this->company->brief_description = $validatedData['brief_description'];
         $this->company->save();
 
-        $this->dispatch('briefDescriptionCreateCompleted');
+        $this->dispatch('briefDescriptionEditCompleted');
     }
 }
