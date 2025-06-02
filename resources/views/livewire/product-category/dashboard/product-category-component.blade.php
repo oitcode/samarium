@@ -38,15 +38,15 @@
       --}}
 
       @if ($modes['create'])
-        @livewire ('product-category.product-category-create')
+        @livewire ('product-category.dashboard.product-category-create')
       @elseif ($modes['list'])
-        @livewire ('product-category.product-category-list')
+        @livewire ('product-category.dashboard.product-category-list')
       @elseif ($modes['search'])
         @livewire ('product-category.dashboard.product-category-search')
       @elseif ($modes['display'])
-        @livewire ('product-category.product-category-display', ['productCategory' => $displayingProductCategory,])
+        @livewire ('product-category.dashboard.product-category-display', ['productCategory' => $displayingProductCategory,])
       @else
-        @livewire ('product-category.product-category-list')
+        @livewire ('product-category.dashboard.product-category-list')
       @endif
 
     </div>

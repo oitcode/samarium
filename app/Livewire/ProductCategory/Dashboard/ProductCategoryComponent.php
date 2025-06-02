@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\ProductCategory;
+namespace App\Livewire\ProductCategory\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -31,7 +31,7 @@ class ProductCategoryComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.product-category.product-category-component');
+        return view('livewire.product-category.dashboard.product-category-component');
     }
 
     public function productCategoryCreateCancelled(): void

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\ProductCategory;
+namespace App\Livewire\ProductCategory\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -34,7 +34,7 @@ class ProductCategoryCreate extends Component
     {
         $this->productCategories = ProductCategory::all();
 
-        return view('livewire.product-category.product-category-create');
+        return view('livewire.product-category.dashboard.product-category-create');
     }
 
     /**

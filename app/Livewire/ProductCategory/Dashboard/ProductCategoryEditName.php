@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\ProductCategory;
+namespace App\Livewire\ProductCategory\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -49,7 +49,7 @@ class ProductCategoryEditName extends Component
      */
     public function render(): View
     {
-        return view('livewire.product-category.product-category-edit-name');
+        return view('livewire.product-category.dashboard.product-category-edit-name');
     }
 
     /**

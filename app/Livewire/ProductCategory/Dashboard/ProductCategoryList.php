@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\ProductCategory;
+namespace App\Livewire\ProductCategory\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -60,7 +60,7 @@ class ProductCategoryList extends Component
         $productCategories = $productCategoryService->getPaginatedProductCategories($this->perPage);
         $this->totalProductCategoryCount = $productCategoryService->getTotalProductCategoryCount();
             
-        return view('livewire.product-category.product-category-list', [
+        return view('livewire.product-category.dashboard.product-category-list', [
             'productCategories' => $productCategories
         ]);
     }
