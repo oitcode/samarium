@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\AppInfo;
+namespace App\Livewire\AppInfo\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -9,6 +9,6 @@ class LvPackageInfo extends Component
 {
     public function render(): View
     {
-        return view('livewire.app-info.lv-package-info');
+        return view('livewire.app-info.dashboard.lv-package-info');
     }
 }
