@@ -25,35 +25,12 @@
               {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
               <input type="date" wire:model="daybookDate" class="ml-5">
               <button class="btn btn-success mx-3" wire:click="render">
-                Go
+                View
               </button>
             </div>
           </div>
 
-          @if (! $modes['displaySaleInvoice'])
-            <div class="float-left-rm px-2 pt-2 ml-5-rm">
-              Bills: {{ $todaySaleInvoiceCount }}
-            </div>
-          @endif
-
           @include ('partials.dashboard.spinner-button')
-
-          @if (! $modes['displaySaleInvoice'])
-            <div class="flex-grow-1 d-flex justify-content-end">
-              <div class="card bg-white text-dark">
-                <div class="card-body p-2">
-                  <div class="p-0">
-                    <h2 class="h5 o-heading pt-1">
-                      <span class="mr-2">
-                        {{ config('app.transaction_currency_symbol') }}
-                      </span>
-                      @php echo number_format( $totalSaleAmount ); @endphp
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          @endif
         </div>
       </div>
     @endif
@@ -128,9 +105,9 @@
         --}}
         @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice, 'exitDispatchEvent' => 'exitDisplaySaleInvoiceMode',])
       @else
-        <div class="bg-success border p-2">
+        <div class="bg-white border p-2">
         <h2 class="h5 o-heading py-3 px-1">Sale</h2>
-        <div class="my-3 px-2 py-3 bg-success border">
+        <div class="my-3 px-2 py-3 border">
           <div class="d-flex">
             <div class="mr-3 font-weight-bold">
               Total:
@@ -148,9 +125,9 @@
             @if ( true {{--$saleInvoices != null && count($saleInvoices) > 0--}})
               {{-- Show in bigger screens --}}
               <div class="table-responsive d-none d-md-block mb-3">
-                <table class="table shadow-sm border mb-0 bg-success">
+                <table class="table shadow-sm border mb-0">
                   <thead>
-                    <tr class="bg-success">
+                    <tr>
                       <th class="o-heading" style="width: 100px;">ID</th>
                       <th class="o-heading" class="d-none d-md-table-cell" style="width: 200px;">Time</th>
                       <th class="o-heading" class="d-none d-md-table-cell" style="width: 200px;">Table</th>
@@ -168,7 +145,7 @@
                   <tbody class="bg-white">
                     @if (count($saleInvoices) > 0)
                       @foreach ($saleInvoices as $saleInvoice)
-                        <tr class="bg-success" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
+                        <tr role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
                           <td wire:click="" role="button">
                             <span>
                             {{ $saleInvoice->sale_invoice_id }}
@@ -314,11 +291,11 @@
             @endif
             
             {{-- Payment by types --}}
-            <div class="border mb-3 bg-success">
-              <h2 class="h6 o-heading bg-success p-3 mb-0 border">
+            <div class="border mb-3">
+              <h2 class="h6 o-heading p-3 mb-0 border">
                 Payment by types
               </h2>
-              <div class="row m-0 p-3 bg-success d-flex">
+              <div class="row m-0 p-3 d-flex">
                 @foreach ($paymentByType as $key => $val)
                   <div class="mb-4 mr-5">
                     <h2 class="h6 mb-3 o-heading">
@@ -346,15 +323,15 @@
           </div>
 
           {{-- Daybook item count div --}}
-          <div class="border bg-success">
-            <h2 class="h6 o-heading p-3 mb-0 bg-success border">
+          <div class="border">
+            <h2 class="h6 o-heading p-3 mb-0 border">
               Product sale count
             </h2>
             @if (count($todayItems) > 0)
               <div class="table-responsive">
                 <table class="table table-hover border mb-0">
                   <thead>
-                    <tr class="bg-success">
+                    <tr>
                       <th class="o-heading" colspan="2">
                         Item
                       </th>
@@ -365,7 +342,7 @@
                   </thead>
                   <tbody class="bg-white">
                     @foreach ($todayItems as $item)
-                      <tr class="bg-success">
+                      <tr>
                         <td style="width: 50px;">
                           <img src="{{ asset('storage/' . $item['product']->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
                         </td>

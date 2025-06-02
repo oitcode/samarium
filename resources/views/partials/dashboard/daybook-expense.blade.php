@@ -1,7 +1,7 @@
-<div class="p-2 bg-danger text-white border">
+<div class="p-2 bg-white border">
 
-  <h2 class="h5 o-heading py-2 px-1 text-white">Expense</h2>
-  <div class="my-3 px-2 py-3 bg-danger border">
+  <h2 class="h5 o-heading py-2 px-1 ">Expense</h2>
+  <div class="my-3 px-2 py-3 border">
     <div class="d-flex">
       <div class="mr-3 font-weight-bold">
         Total:
@@ -19,18 +19,18 @@
     <div class="table-responsive d-none d-md-block mb-3">
       <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
         <thead>
-          <tr class="bg-danger text-white">
-            <th class="o-heading text-white" style="width: 100px;">ID</th>
-            <th class="o-heading text-white d-none d-md-table-cell" style="width: 200px;">Time</th>
-            <th class="o-heading text-white d-none d-md-table-cell" style="width: 500px;">Vendor</th>
-            <th class="o-heading text-white" style="width: 200px;">Total</th>
+          <tr class=" ">
+            <th class="o-heading " style="width: 100px;">ID</th>
+            <th class="o-heading d-none d-md-table-cell" style="width: 200px;">Time</th>
+            <th class="o-heading d-none d-md-table-cell" style="width: 500px;">Vendor</th>
+            <th class="o-heading " style="width: 200px;">Total</th>
           </tr>
         </thead>
   
         <tbody class="bg-white">
           @if (count($expenses) > 0)
             @foreach ($expenses as $expense)
-              <tr class="bg-danger text-white" role="button" wire:click="displayExpense({{ $expense }})">
+              <tr class=" " role="button" wire:click="displayExpense({{ $expense }})">
                 <td class="text-secondary-rm" wire:click="" role="button">
                   <span class="text-primary-rm">
                   {{ $expense->expense_id }}
@@ -111,17 +111,17 @@
     
     {{-- Payment by types --}}
     <div class="border">
-      <h2 class="h6 o-heading bg-danger text-white p-3 mb-0 border">
+      <h2 class="h6 o-heading p-3 mb-0 border">
         Payment by types
       </h2>
-      <div class="row border-rm m-0 p-3 bg-danger text-dark d-flex">
+      <div class="row border-rm m-0 p-3 text-dark d-flex">
   
         @foreach ($expensePaymentByType as $key => $val)
           <div class="mb-4 mr-5">
-                <h2 class="h6 mb-3 o-heading text-white">
+                <h2 class="h6 mb-3 o-heading ">
                   {{ $key }}
                 </h2>
-                <h2 class="h6 text-white">
+                <h2 class="h6 ">
                   {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $val ); @endphp
                 </h2>
@@ -129,11 +129,11 @@
         @endforeach
   
         {{-- Pending Amount --}}
-        <div class="text-white">
-          <h2 class="h6 text-muted-rm mb-3 o-heading text-white">
+        <div class="">
+          <h2 class="h6 text-muted-rm mb-3 o-heading ">
             Pending
           </h2>
-          <h2 class="h6 text-white">
+          <h2 class="h6 ">
             {{ config('app.transaction_currency_symbol') }}
             @php echo number_format( $netExpensePendingAmount ); @endphp
           </h2>
