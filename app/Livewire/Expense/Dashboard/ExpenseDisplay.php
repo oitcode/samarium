@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Expense;
+namespace App\Livewire\Expense\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -11,6 +11,6 @@ class ExpenseDisplay extends Component
 
     public function render(): View
     {
-        return view('livewire.expense.expense-display');
+        return view('livewire.expense.dashboard.expense-display');
     }
 }

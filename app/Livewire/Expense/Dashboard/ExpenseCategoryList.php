@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Expense;
+namespace App\Livewire\Expense\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -14,6 +14,6 @@ class ExpenseCategoryList extends Component
     {
         $this->expenseCategories = ExpenseCategory::all();
 
-        return view('livewire.expense.expense-category-list');
+        return view('livewire.expense.dashboard.expense-category-list');
     }
 }

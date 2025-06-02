@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Expense;
+namespace App\Livewire\Expense\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -126,7 +126,7 @@ class ExpenseCreate extends Component
         /* Make payment related */
         $this->expensePaymentTypes = ExpensePaymentType::all();
 
-        return view('livewire.expense.expense-create');
+        return view('livewire.expense.dashboard.expense-create');
     }
 
     public function addItemToExpense(): void

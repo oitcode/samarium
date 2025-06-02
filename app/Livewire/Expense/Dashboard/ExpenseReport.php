@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Expense;
+namespace App\Livewire\Expense\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -36,7 +36,7 @@ class ExpenseReport extends Component
         $this->getExpenseByCategory();
         $this->calculateTotal();
 
-        return view('livewire.expense.expense-report');
+        return view('livewire.expense.dashboard.expense-report');
     }
 
     public function enableChartAndGoOn(): void

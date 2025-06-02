@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Expense;
+namespace App\Livewire\Expense\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -50,7 +50,7 @@ class ExpenseList extends Component
 
         $expenses = Expense::orderBy('expense_id', 'DESC')->paginate(5);
 
-        return view('livewire.expense.expense-list')
+        return view('livewire.expense.dashboard.expense-list')
             ->with('expenses', $expenses);
     }
 

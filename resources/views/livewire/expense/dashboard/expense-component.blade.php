@@ -38,24 +38,24 @@
       --}}
 
       @if ($modes['create'])
-        @livewire ('expense.expense-create')
+        @livewire ('expense.dashboard.expense-create')
       @elseif ($modes['list'])
-        @livewire ('expense.expense-list')
+        @livewire ('expense.dashboard.expense-list')
       @elseif ($modes['display'])
         @if ($displayingExpense->creation_status == 'progress')
-          @livewire ('expense.expense-create', [
+          @livewire ('expense.dashboard.expense-create', [
               'createNew' => false,
               'expense' => $displayingExpense,
           ])
         @else
-          @livewire ('expense.expense-display', ['expense' => $displayingExpense,])
+          @livewire ('expense.dashboard.expense-display', ['expense' => $displayingExpense,])
         @endif
       @elseif ($modes['report'])
-        @livewire ('expense.expense-report')
+        @livewire ('expense.dashboard.expense-report')
       @elseif ($modes['createCategory'])
-        @livewire ('expense.expense-category-create')
+        @livewire ('expense.dashboard.expense-category-create')
       @else
-        @livewire ('expense.expense-list')
+        @livewire ('expense.dashboard.expense-list')
       @endif
 
     </div>
