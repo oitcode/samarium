@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Sale;
+namespace App\Livewire\SaleInvoice\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -100,7 +100,7 @@ class SaleInvoiceList extends Component
 
         $saleInvoices  = $saleInvoices->paginate(5);
 
-        return view('livewire.sale.sale-invoice-list')
+        return view('livewire.sale-invoice.dashboard.sale-invoice-list')
             ->with('saleInvoices', $saleInvoices);
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Sale;
+namespace App\Livewire\SaleInvoice\Dashboard;
 
 use App\Traits\ModesTrait;
 use Illuminate\View\View;
@@ -47,7 +47,7 @@ class SaleInvoiceWork extends Component
         $this->sale_invoice_date = $this->saleInvoice->sale_invoice_date;
         $this->customers = Customer::all();
 
-        return view('livewire.sale.sale-invoice-work');
+        return view('livewire.sale-invoice.dashboard.sale-invoice-work');
     }
 
     public function exitMakePaymentMode(): void

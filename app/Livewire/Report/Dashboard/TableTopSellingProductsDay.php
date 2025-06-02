@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Report;
+namespace App\Livewire\Report\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -19,7 +19,7 @@ class TableTopSellingProductsDay extends Component
 
         $this->getSaleItemQuantity($saleInvoices);
 
-        return view('livewire.report.table-top-selling-products-day');
+        return view('livewire.report.dashboard.table-top-selling-products-day');
     }
 
     public function getSaleItemQuantity($saleInvoices): void

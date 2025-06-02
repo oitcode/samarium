@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Sale;
+namespace App\Livewire\SaleInvoice\Dashboard;
 
 use App\Traits\ModesTrait;
 use Illuminate\View\View;
@@ -53,7 +53,7 @@ class SaleInvoiceWorkAddItem extends Component
             ->orderBy('name', 'ASC')
             ->get();
 
-        return view('livewire.sale.sale-invoice-work-add-item');
+        return view('livewire.sale-invoice.dashboard.sale-invoice-work-add-item');
     }
 
     public function addItemToSaleInvoice(): void

@@ -38,19 +38,19 @@
       --}}
 
       @if ($modes['create'])
-        @livewire ('sale.sale-invoice-create')
+        @livewire ('sale-invoice.dashboard.sale-invoice-create')
       @elseif ($modes['display'])
         @if ($displayingSaleInvoice->creation_status == 'progress')
-          @livewire ('sale.sale-invoice-work', ['saleInvoice' => $displayingSaleInvoice,])
+          @livewire ('sale-invoice.dashboard.sale-invoice-work', ['saleInvoice' => $displayingSaleInvoice,])
         @else
           @livewire ('core.dashboard.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice, 'exitDispatchEvent' => 'exitSaleInvoiceDisplay',])
         @endif
       @elseif ($modes['list'])
-        @livewire ('sale.sale-invoice-list')
+        @livewire ('sale-invoice.dashboard.sale-invoice-list')
       @elseif ($modes['search'])
-        @livewire ('sale.sale-invoice-search')
+        @livewire ('sale-invoice.dashboard.sale-invoice-search')
       @else
-        @livewire ('sale.sale-invoice-list')
+        @livewire ('sale-invoice.dashboard.sale-invoice-list')
       @endif
 
     </div>

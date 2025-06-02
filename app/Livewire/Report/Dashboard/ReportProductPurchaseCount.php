@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Report;
+namespace App\Livewire\Report\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -27,7 +27,7 @@ class ReportProductPurchaseCount extends Component
 
         $this->getPurchaseItemQuantity($purchases);
 
-        return view('livewire.report.report-product-purchase-count');
+        return view('livewire.report.dashboard.report-product-purchase-count');
     }
 
     public function getPurchaseItemQuantity($purchases): void

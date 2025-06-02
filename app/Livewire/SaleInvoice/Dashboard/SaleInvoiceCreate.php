@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Sale;
+namespace App\Livewire\SaleInvoice\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -13,7 +13,7 @@ class SaleInvoiceCreate extends Component
     {
         $saleInvoice = $this->startSaleInvoice();
 
-        return view('livewire.sale.sale-invoice-create')
+        return view('livewire.sale-invoice.dashboard.sale-invoice-create')
             ->with('saleInvoice', $saleInvoice);
     }
 

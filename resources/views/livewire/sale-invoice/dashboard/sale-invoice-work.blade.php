@@ -9,7 +9,7 @@
     | Display final invoice if already created. 
     |
     --}}
-    @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $saleInvoice, 'exitDispatchEvent' => 'exitSaleInvoiceWorkMode',])
+    @livewire ('core.dashboard.core-sale-invoice-display', ['saleInvoice' => $saleInvoice, 'exitDispatchEvent' => 'exitSaleInvoiceWorkMode',])
   @else
     <x-transaction-create-component>
       <x-slot name="topToolbar">
@@ -122,7 +122,7 @@
       </x-slot>
 
       <x-slot name="transactionAddItem">
-        @livewire ('sale.sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
+        @livewire ('sale-invoice.dashboard.sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
       </x-slot>
 
       <x-slot name="transactionItemList">
@@ -237,13 +237,13 @@
 
       <x-slot name="transactionPayment">
         @if ($saleInvoice->status != 'closed' && $saleInvoice->payment_status != 'paid' && $modes['makePayment'])
-          @livewire ('sale.sale-invoice-work-make-payment', ['saleInvoice' => $saleInvoice,])
+          @livewire ('sale-invoice.dashboard.sale-invoice-work-make-payment', ['saleInvoice' => $saleInvoice,])
         @endif
       </x-slot>
 
       <div>
         @if ($modes['confirmRemoveSaleInvoiceItem'])
-          @livewire ('sale.sale-invoice-work-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
+          @livewire ('sale-invoice.dashboard.sale-invoice-work-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
         @endif
       </div>
     </x-transaction-create-component>

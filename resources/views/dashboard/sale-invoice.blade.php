@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('sale.sale-invoice-component')
+  @livewire('sale-invoice.dashboard.sale-invoice-component')
 @endsection

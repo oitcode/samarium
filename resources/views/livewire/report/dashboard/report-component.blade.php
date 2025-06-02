@@ -7,7 +7,7 @@
 
   <div class="row mb-4">
     <div class="col-md-3 mb-3">
-      @livewire ('report.report-transaction-component')
+      @livewire ('report.dashboard.report-transaction-component')
     </div>
     <div class="col-md-3 mb-3">
       @livewire ('chart.dashboard.chart-week-sales', key(rand()))
@@ -19,10 +19,10 @@
 
   <div class="row p-2">
     <div class="col-md-5 bg-white border mr-3 mb-3">
-      @livewire ('report.report-product-sales-count')
+      @livewire ('report.dashboard.report-product-sales-count')
     </div>
     <div class="col-md-5 bg-white border mb-3">
-      @livewire ('report.report-product-purchase-count')
+      @livewire ('report.dashboard.report-product-purchase-count')
     </div>
   </div>
 

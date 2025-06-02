@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Sale;
+namespace App\Livewire\SaleInvoice\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -30,7 +30,7 @@ class SaleInvoiceComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.sale.sale-invoice-component');
+        return view('livewire.sale-invoice.dashboard.sale-invoice-component');
     }
 
     public function displaySaleInvoice($saleInvoiceId): void
