@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Accounting;
+namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -21,7 +21,7 @@ class AccountingLedgerBook extends Component
     {
         $this->abAccounts = AbAccount::all();
 
-        return view('livewire.accounting.accounting-ledger-book');
+        return view('livewire.accounting.dashboard.accounting-ledger-book');
     }
 
     public function selectAbAccount(): void

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Accounting;
+namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -31,7 +31,7 @@ class AccountingCashFlow extends Component
         $this->calculateGrossProfit();
         $this->calculateNetProfit();
 
-        return view('livewire.accounting.accounting-cash-flow');
+        return view('livewire.accounting.dashboard.accounting-cash-flow');
     }
 
     /* This taken from income statement to calculate retained earnings. */

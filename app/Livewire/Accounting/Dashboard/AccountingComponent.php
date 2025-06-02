@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Accounting;
+namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -35,7 +35,7 @@ class AccountingComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.accounting.accounting-component');
+        return view('livewire.accounting.dashboard.accounting-component');
     }
 
     public function abAccountAdded(): void

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Accounting;
+namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -33,7 +33,7 @@ class AccountingIncomeStatement extends Component
         $this->calculateGrossProfit();
         $this->calculateNetProfit();
 
-        return view('livewire.accounting.accounting-income-statement');
+        return view('livewire.accounting.dashboard.accounting-income-statement');
     }
 
     public function populateRevenue(): void

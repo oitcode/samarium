@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Accounting;
+namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -14,6 +14,6 @@ class JournalEntryList extends Component
     {
         $this->journalEntries = JournalEntry::all();
 
-        return view('livewire.accounting.journal-entry-list');
+        return view('livewire.accounting.dashboard.journal-entry-list');
     }
 }

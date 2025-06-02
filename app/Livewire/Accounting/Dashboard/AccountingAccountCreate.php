@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Accounting;
+namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -19,7 +19,7 @@ class AccountingAccountCreate extends Component
     {
         $this->abAccountTypes = AbAccountType::all();
 
-        return view('livewire.accounting.accounting-account-create');
+        return view('livewire.accounting.dashboard.accounting-account-create');
     }
 
     public function store(): void

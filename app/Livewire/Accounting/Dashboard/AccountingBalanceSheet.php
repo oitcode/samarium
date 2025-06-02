@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Accounting;
+namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -32,7 +32,7 @@ class AccountingBalanceSheet extends Component
         $this->calculateLiabilitiesTotal();
         $this->calculateEquityTotal();
 
-        return view('livewire.accounting.accounting-balance-sheet');
+        return view('livewire.accounting.dashboard.accounting-balance-sheet');
     }
 
     public function calculateAssetTotal(): void

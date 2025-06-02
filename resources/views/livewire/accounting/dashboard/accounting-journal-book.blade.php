@@ -5,6 +5,6 @@
     </h1>
   </div>
   <div>
-    @livewire ('journal-entry-list')
+    @livewire ('accounting.dashboard.journal-entry-list')
   </div>
 </div>
