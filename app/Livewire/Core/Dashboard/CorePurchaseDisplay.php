@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Core;
+namespace App\Livewire\Core\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -20,6 +20,6 @@ class CorePurchaseDisplay extends Component
 
     public function render(): View
     {
-        return view('livewire.core.core-purchase-display');
+        return view('livewire.core.dashboard.core-purchase-display');
     }
 }

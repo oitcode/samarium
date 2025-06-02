@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Core;
+namespace App\Livewire\Core\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -17,6 +17,6 @@ class CoreExpenseDisplay extends Component
 
     public function render(): View
     {
-        return view('livewire.core.core-expense-display');
+        return view('livewire.core.dashboard.core-expense-display');
     }
 }

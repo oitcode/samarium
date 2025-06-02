@@ -43,7 +43,7 @@
         @if ($displayingSaleInvoice->creation_status == 'progress')
           @livewire ('sale.sale-invoice-work', ['saleInvoice' => $displayingSaleInvoice,])
         @else
-          @livewire ('core.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice, 'exitDispatchEvent' => 'exitSaleInvoiceDisplay',])
+          @livewire ('core.dashboard.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice, 'exitDispatchEvent' => 'exitSaleInvoiceDisplay',])
         @endif
       @elseif ($modes['list'])
         @livewire ('sale.sale-invoice-list')

@@ -48,7 +48,7 @@
               'purchase' => $displayingPurchase,
           ])
         @else
-          @livewire ('core.core-purchase-display', ['purchase' => $displayingPurchase,])
+          @livewire ('core.dashboard.core-purchase-display', ['purchase' => $displayingPurchase,])
         @endif
       @elseif ($modes['search'])
         @livewire ('purchase.purchase-search')

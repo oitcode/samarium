@@ -1,7 +1,7 @@
 <div>
 
   @if ($expense->creation_status == 'created')
-    @livewire ('core.core-expense-display', ['expense' => $expense, 'exitDispatchEvent' => 'exitCreateMode',])
+    @livewire ('core.dashboard.core-expense-display', ['expense' => $expense, 'exitDispatchEvent' => 'exitCreateMode',])
   @else
     <x-transaction-create-component>
       <x-slot name="topToolbar">

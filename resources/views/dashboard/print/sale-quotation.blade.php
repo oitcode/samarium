@@ -37,7 +37,7 @@
 
 <body>
   <div class="container">
-    @livewire ('core.core-sale-quotation-display', ['saleQuotation' => $saleQuotation, 'display_toolbar' => false,])
+    @livewire ('core.dashboard.core-sale-quotation-display', ['saleQuotation' => $saleQuotation, 'display_toolbar' => false,])
   </div>
 
   <!-- Livewire scripts -->

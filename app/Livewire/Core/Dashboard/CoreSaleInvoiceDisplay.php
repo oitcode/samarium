@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Core;
+namespace App\Livewire\Core\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -23,6 +23,6 @@ class CoreSaleInvoiceDisplay extends Component
 
         $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
 
-        return view('livewire.core.core-sale-invoice-display');
+        return view('livewire.core.dashboard.core-sale-invoice-display');
     }
 }

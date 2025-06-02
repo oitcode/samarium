@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Core;
+namespace App\Livewire\Core\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -20,7 +20,7 @@ class CorePurchaseList extends Component
     {
         $this->fillPurchases();
 
-        return view('livewire.core.core-purchase-list');
+        return view('livewire.core.dashboard.core-purchase-list');
     }
 
     public function fillPurchases(): void

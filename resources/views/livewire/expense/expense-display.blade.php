@@ -1,5 +1,5 @@
 <div>
 
-  @livewire ('core.core-expense-display', ['expense' => $expense,])
+  @livewire ('core.dashboard.core-expense-display', ['expense' => $expense,])
 
 </div>
