@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('school.calendar-component')
+  @livewire('calendar.dashboard.calendar-component')
 @endsection

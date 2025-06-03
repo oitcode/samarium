@@ -39,12 +39,12 @@
 
       @if ($modes['eventCreate'])
         @if ($eventCreationDay)
-          @livewire ('school.calendar-event-create', ['eventCreationDay' => $eventCreationDay,])
+          @livewire ('calendar.dashboard.calendar-event-create', ['eventCreationDay' => $eventCreationDay,])
         @else
-          @livewire ('school.calendar-event-create')
+          @livewire ('calendar.dashboard.calendar-event-create')
         @endif
       @elseif ($modes['displayCalendarEventMode'])
-        @livewire ('school.calendar-event-display', ['calendarEvent' => $displayingCalendarEvent,])
+        @livewire ('calendar.dashboard.calendar-event-display', ['calendarEvent' => $displayingCalendarEvent,])
       @else
       <div class="d-flex bg-white mb-1">
         <div class="d-flex flex-column justify-content-center mr-2 px-3">

@@ -82,7 +82,7 @@
         @endif
         @if (true || ! $eventCreationDay)
           <div class="p-2 border" wire:key="{{ rand() }}" wire:ignore>
-            @livewire ('school.calendar-date-picker-nepali', ['emitDate' => 'start_date',], key(rand()))
+            @livewire ('calendar.dashboard.calendar-date-picker-nepali', ['emitDate' => 'start_date',], key(rand()))
           </div>
         @endif
       </div>
@@ -101,7 +101,7 @@
               @endif
           </div>
           <div class="p-2 border">
-            @livewire ('school.calendar-date-picker-nepali', ['emitDate' => 'end_date',], key(rand()))
+            @livewire ('calendar.dashboard.calendar-date-picker-nepali', ['emitDate' => 'end_date',], key(rand()))
           </div>
         </div>
       @endif

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\School;
+namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -92,7 +92,7 @@ class CalendarDatePickerNepali extends Component
     {
         $this->populateMonthBookDayWise();
 
-        return view('livewire.school.calendar-date-picker-nepali');
+        return view('livewire.calendar.dashboard.calendar-date-picker-nepali');
     }
 
     public function populateMonthBook(): void

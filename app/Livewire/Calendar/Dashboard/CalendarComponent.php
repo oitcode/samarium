@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\School;
+namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -100,7 +100,7 @@ class CalendarComponent extends Component
             $this->populateMonthBook();
         }
 
-        return view('livewire.school.calendar-component');
+        return view('livewire.calendar.dashboard.calendar-component');
     }
 
     public function selectMonth($monthName): void

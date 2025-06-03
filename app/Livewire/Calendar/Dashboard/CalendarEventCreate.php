@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\School;
+namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -112,7 +112,7 @@ class CalendarEventCreate extends Component
 
     public function render(): View
     {
-        return view('livewire.school.calendar-event-create');
+        return view('livewire.calendar.dashboard.calendar-event-create');
     }
 
     public function store(): void

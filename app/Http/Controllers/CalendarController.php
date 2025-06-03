@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class SchoolCalendarController extends Controller
+class CalendarController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,6 +24,6 @@ class SchoolCalendarController extends Controller
      */
     public function index(): View
     {
-        return view('dashboard.school-calendar');
+        return view('dashboard.calendar');
     }
 }

@@ -137,7 +137,7 @@
       @endif
 
       {{-- Calendar options --}}
-      @if (has_module('school'))
+      @if (has_module('calendar'))
         <li class="nav-item dropdown bg-light text-dark border">
           <a class="nav-link dropdown-toggle text-dark p-3 py-4" href="#" id="mobTopMenuCalendarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-calendar text-secondry mr-3"></i>
@@ -146,7 +146,7 @@
             </span>
           </a>
           <div class="dropdown-menu p-0" aria-labelledby="mobTopMenuCalendarDropdown">
-            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-school-calendar') }}">
+            <a class="dropdown-item py-3 pl-3 font-weight-bold" href="{{ route('dashboard-calendar') }}">
               <i class="fas fa-calendar mr-3"></i>
               Calendar
             </a>

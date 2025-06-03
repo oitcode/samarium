@@ -274,7 +274,7 @@
   | This page shows the calendar.
   |
   --}}
-  @livewire ('school.cms.calendar-component')
+  @livewire ('calendar.website.calendar-component')
 @elseif ($webpage->name == 'Careers')
   {{--
   |--------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\School\Cms;
+namespace App\Livewire\Calendar\Website;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -108,7 +108,7 @@ class CalendarComponent extends Component
 
         $this->populateToday();
 
-        return view('livewire.school.cms.calendar-component');
+        return view('livewire.calendar.website.calendar-component');
     }
 
     public function getTodaysNepaliMonth(): string|null

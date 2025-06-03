@@ -277,7 +277,7 @@
         <div class="p-3 mb-3">
           <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
             @include ('partials.dashboard.app-left-menu-button', [
-              'btnRoute' => 'dashboard-school-calendar',
+              'btnRoute' => 'dashboard-calendar',
               'iconFaClass' => 'fas fa-calendar',
               'btnText' => 'Calendar',
             ])
