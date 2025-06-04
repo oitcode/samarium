@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\User;
+namespace App\Livewire\User\Dashboard;
 
 use Illuminate\Http\Request;
 use Livewire\Component;
@@ -70,7 +70,7 @@ class UserList extends Component
         $this->totalUsersCount = $userService->getTotalUserCount();
         $this->totalAdminUsersCount = $userService->getTotalAdminUserCount();
 
-        return view('livewire.user.user-list', [
+        return view('livewire.user.dashboard.user-list', [
             'users' => $users,
         ]);
     }

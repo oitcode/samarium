@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\User;
+namespace App\Livewire\User\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -28,7 +28,7 @@ class UserComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.user.user-component');
+        return view('livewire.user.dashboard.user-component');
     }
 
     public function userCreated(): void

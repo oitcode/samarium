@@ -43,13 +43,13 @@
   --}}
 
   @if ($modes['createUserMode'])
-    @livewire ('user.user-create')
+    @livewire ('user.dashboard.user-create')
   @elseif ($modes['listUserMode'])
-    @livewire ('user.user-list')
+    @livewire ('user.dashboard.user-list')
   @elseif ($modes['displayUserMode'])
-    @livewire ('user.user-display', ['user' => $displayingUser,])
+    @livewire ('user.dashboard.user-display', ['user' => $displayingUser,])
   @else
-    @livewire ('user.user-list')
+    @livewire ('user.dashboard.user-list')
   @endif
 
 </div>

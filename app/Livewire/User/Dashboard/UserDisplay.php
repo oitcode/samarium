@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\User;
+namespace App\Livewire\User\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -31,7 +31,7 @@ class UserDisplay extends Component
         $this->userWebpageCount = $this->user->webpages()->where('is_post', '!=', 'yes')->count();
         $this->userPostCount = $this->user->webpages()->where('is_post', 'yes')->count();
 
-        return view('livewire.user.user-display');
+        return view('livewire.user.dashboard.user-display');
     }
 
     public function addUserToGroupCancelled(): void
