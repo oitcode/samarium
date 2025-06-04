@@ -162,13 +162,13 @@
   --}}
 
   @if ($modes['purchaseList'])
-    @livewire ('core.core-purchase-list', ['vendor' => $vendor,])
+    @livewire ('core.dashboard.core-purchase-list', ['vendor' => $vendor,])
   @elseif ($modes['settle'])
-    @livewire ('vendor.vendor-display-settle', ['vendor' => $vendor,])
+    @livewire ('vendor.dashboard.vendor-display-settle', ['vendor' => $vendor,])
   @elseif ($modes['purchasePaymentCreate'])
-    @livewire ('vendor.vendor-purchase-payment-create', ['purchase' => $paymentMakingPurchase,])
+    @livewire ('vendor.dashboard.vendor-purchase-payment-create', ['purchase' => $paymentMakingPurchase,])
   @elseif ($modes['purchaseDisplay'])
-    @livewire ('core.core-purchase-display', ['purchase' => $displayingPurchase,])
+    @livewire ('core.dashboard.core-purchase-display', ['purchase' => $displayingPurchase,])
   @endif
 
 </div>

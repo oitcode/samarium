@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Vendor;
+namespace App\Livewire\Vendor\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -19,7 +19,7 @@ class VendorCreate extends Component
 
     public function render(): View
     {
-        return view('livewire.vendor.vendor-create');
+        return view('livewire.vendor.dashboard.vendor-create');
     }
 
     public function store(): void

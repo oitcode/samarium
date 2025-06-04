@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Vendor;
+namespace App\Livewire\Vendor\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -61,7 +61,7 @@ class VendorList extends Component
         $vendors = $vendorService->getPaginatedVendors($this->perPage);
         $this->totalVendorCount = $vendorService->getTotalVendorCount();
 
-        return view('livewire.vendor.vendor-list', [
+        return view('livewire.vendor.dashboard.vendor-list', [
             'vendors' => $vendors,
         ]);
     }

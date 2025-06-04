@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Vendor;
+namespace App\Livewire\Vendor\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -24,7 +24,7 @@ class VendorDisplaySettle extends Component
         $this->payment_date = date('Y-m-d');
         $this->purchasePaymentTypes = PurchasePaymentType::all();
 
-        return view('livewire.vendor.vendor-display-settle');
+        return view('livewire.vendor.dashboard.vendor-display-settle');
     }
 
     public function store(): void

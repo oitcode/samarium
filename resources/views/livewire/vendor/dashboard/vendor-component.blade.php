@@ -38,15 +38,15 @@
       --}}
 
       @if ($modes['create'])
-        @livewire ('vendor.vendor-create')
+        @livewire ('vendor.dashboard.vendor-create')
       @elseif ($modes['search'])
-        @livewire ('vendor.vendor-search')
+        @livewire ('vendor.dashboard.vendor-search')
       @elseif ($modes['display'])
-        @livewire ('vendor.vendor-display', ['vendor' => $displayingVendor,])
+        @livewire ('vendor.dashboard.vendor-display', ['vendor' => $displayingVendor,])
       @elseif ($modes['list'])
-        @livewire ('vendor.vendor-list')
+        @livewire ('vendor.dashboard.vendor-list')
       @else
-        @livewire ('vendor.vendor-list')
+        @livewire ('vendor.dashboard.vendor-list')
       @endif
     </div>
   </x-base-component>

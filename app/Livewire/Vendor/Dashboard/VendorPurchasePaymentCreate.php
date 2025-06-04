@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Vendor;
+namespace App\Livewire\Vendor\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;

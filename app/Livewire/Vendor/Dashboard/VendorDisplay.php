@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Vendor;
+namespace App\Livewire\Vendor\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -51,7 +51,7 @@ class VendorDisplay extends Component
 
     public function render(): View
     {
-        return view('livewire.vendor.vendor-display');
+        return view('livewire.vendor.dashboard.vendor-display');
     }
 
     public function exitSettlement(): void
