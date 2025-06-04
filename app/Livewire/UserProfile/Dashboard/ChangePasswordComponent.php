@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\UserProfile;
+namespace App\Livewire\UserProfile\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -15,7 +15,7 @@ class ChangePasswordComponent extends Component
 
     public function render(): View
     {
-        return view('livewire.user-profile.change-password-component');
+        return view('livewire.user-profile.dashboard.change-password-component');
     }
 
     public function change(): void
