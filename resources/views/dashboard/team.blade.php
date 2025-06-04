@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section ('content')
-  @livewire('team.team-component')
+  @livewire('team.dashboard.team-component')
 @endsection

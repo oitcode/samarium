@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Team;
+namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -61,7 +61,7 @@ class TeamList extends Component
         $teams = $teamService->getPaginatedTeams($this->perPage);
         $this->totalTeamCount = $teamService->getTotalTeamCount();
 
-        return view('livewire.team.team-list', [
+        return view('livewire.team.dashboard.team-list', [
             'teams' => $teams,
         ]);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Team;
+namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -38,7 +38,7 @@ class TeamDisplay extends Component
 
     public function render(): View
     {
-        return view('livewire.team.team-display');
+        return view('livewire.team.dashboard.team-display');
     }
 
     public function exitCreateTeamMemberMode(): void

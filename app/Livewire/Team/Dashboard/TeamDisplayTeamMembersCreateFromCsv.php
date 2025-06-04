@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Team;
+namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
@@ -28,7 +28,7 @@ class TeamDisplayTeamMembersCreateFromCsv extends Component
 
     public function render(): View
     {
-        return view('livewire.team.team-display-team-members-create-from-csv');
+        return view('livewire.team.dashboard.team-display-team-members-create-from-csv');
     }
 
     public function preview(): void

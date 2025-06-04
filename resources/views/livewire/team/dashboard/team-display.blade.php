@@ -62,13 +62,13 @@
   --}}
 
   @if ($modes['createTeamMemberMode'])
-    @livewire ('team.team-display-team-member-create', ['team' => $team,])
+    @livewire ('team.dashboard.team-display-team-member-create', ['team' => $team,])
   @elseif ($modes['createTeamMembersFromCsvMode'])
-    @livewire ('team.team-display-team-members-create-from-csv', ['team_id' => $team->team_id,])
+    @livewire ('team.dashboard.team-display-team-members-create-from-csv', ['team_id' => $team->team_id,])
   @elseif ($modes['updateTeamMode'])
-    @livewire ('team.team-update', ['team' => $team,])
+    @livewire ('team.dashboard.team-update', ['team' => $team,])
   @elseif ($modes['updateTeamMemberMode'])
-    @livewire ('team.team-display-team-member-update', ['teamMember' => $updatingTeamMember,])
+    @livewire ('team.dashboard.team-display-team-member-update', ['teamMember' => $updatingTeamMember,])
   @else
     {{-- Members --}}
     <div>

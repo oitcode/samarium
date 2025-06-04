@@ -47,13 +47,13 @@
       --}}
 
       @if ($modes['createMode'])
-        @livewire ('team.team-create')
+        @livewire ('team.dashboard.team-create')
       @elseif ($modes['listMode'])
-        @livewire ('team.team-list')
+        @livewire ('team.dashboard.team-list')
       @elseif ($modes['displayMode'])
-        @livewire ('team.team-display', ['team' => $displayingTeam, 'displayTeamName' => false,])
+        @livewire ('team.dashboard.team-display', ['team' => $displayingTeam, 'displayTeamName' => false,])
       @else
-        @livewire ('team.team-list')
+        @livewire ('team.dashboard.team-list')
       @endif
 
     </div>
