@@ -5,10 +5,10 @@ namespace App\Livewire\Purchase\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Product;
-use App\ProductCategory;
-use App\PurchaseItem;
-use App\Purchase;
+use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\Purchase\PurchaseItem;
+use App\Models\Purchase\Purchase;
 
 class PurchaseAddItem extends Component
 {

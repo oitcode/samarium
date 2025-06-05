@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Purchase;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -61,7 +61,7 @@ class Purchase extends Model
      */
     public function purchaseItems()
     {
-        return $this->hasMany('App\PurchaseItem', 'purchase_id', 'purchase_id');
+        return $this->hasMany('App\Models\Purchase\PurchaseItem', 'purchase_id', 'purchase_id');
     }
 
     /*
@@ -70,7 +70,7 @@ class Purchase extends Model
      */
     public function purchasePayments()
     {
-        return $this->hasMany('App\PurchasePayment', 'purchase_id', 'purchase_id');
+        return $this->hasMany('App\Models\Purchase\PurchasePayment', 'purchase_id', 'purchase_id');
     }
 
     /*
@@ -79,7 +79,7 @@ class Purchase extends Model
      */
     public function purchaseAdditions()
     {
-        return $this->hasMany('App\PurchaseAddition', 'purchase_id', 'purchase_id');
+        return $this->hasMany('App\Models\Purchase\PurchaseAddition', 'purchase_id', 'purchase_id');
     }
 
 

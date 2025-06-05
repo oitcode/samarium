@@ -7,11 +7,11 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
-use App\PurchasePaymentType;
-use App\PurchasePayment;
-use App\PurchaseAdditionHeading;
-use App\SaleInvoiceAdditionHeading;
-use App\PurchaseAddition;
+use App\Models\Purchase\PurchasePaymentType;
+use App\Models\Purchase\PurchasePayment;
+use App\Models\Purchase\PurchaseAdditionHeading;
+use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
+use App\Models\Purchase\PurchaseAddition;
 
 class PurchaseMakePayment extends Component
 {

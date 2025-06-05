@@ -5,7 +5,7 @@ namespace App\Livewire\Purchase\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Purchase;
+use App\Models\Purchase\Purchase;
 
 class PurchaseComponent extends Component
 {

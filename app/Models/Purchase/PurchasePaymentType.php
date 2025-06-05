@@ -1,27 +1,27 @@
 <?php
 
-namespace App;
+namespace App\Models\Purchase;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PurchaseAdditionHeading extends Model
+class PurchasePaymentType extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'purchase_addition_heading';
+    protected $table = 'purchase_payment_type';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'purchase_addition_heading_id';
+    protected $primaryKey = 'purchase_payment_type_id';
 
     protected $fillable = [
-         'name', 'effect',
+         'name',
     ];
 
 
@@ -32,11 +32,11 @@ class PurchaseAdditionHeading extends Model
      */
 
     /*
-     * purchase_addition table.
+     * purchase_payment table.
      *
      */
-    public function purchaseAdditions()
+    public function purchasePayments()
     {
-        return $this->hasMany('App\PurchaseAddition', 'purchase_addition_heading_id', 'purchase_addition_heading_id');
+        return $this->hasMany('App\Models\Purchase\PurchasePayment', 'purchase_payment_type_id', 'purchase_payment_type_id');
     }
 }

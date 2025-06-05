@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Purchase;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -41,7 +41,7 @@ class PurchasePayment extends Model
      */
     public function purchasePaymentType()
     {
-        return $this->belongsTo('App\PurchasePaymentType', 'purchase_payment_type_id', 'purchase_payment_type_id');
+        return $this->belongsTo('App\Models\Purchase\PurchasePaymentType', 'purchase_payment_type_id', 'purchase_payment_type_id');
     }
 
     /*
@@ -50,6 +50,6 @@ class PurchasePayment extends Model
      */
     public function purchase()
     {
-        return $this->belongsTo('App\Purchase', 'purchase_id', 'purchase_id');
+        return $this->belongsTo('App\Models\Purchase\Purchase', 'purchase_id', 'purchase_id');
     }
 }

@@ -2,17 +2,17 @@
 
 namespace App\Livewire\Purchase\Dashboard;
 
-use App\Traits\MiscTrait;
 use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Vendor;
-use App\Purchase;
-use App\PurchaseItem;
-use App\PurchasePaymentType;
-use App\PurchasePayment;
+use App\Traits\MiscTrait;
 use App\Traits\ModesTrait;
+use App\Vendor;
+use App\Models\Purchase\Purchase;
+use App\Models\Purchase\PurchaseItem;
+use App\Models\Purchase\PurchasePaymentType;
+use App\Models\Purchase\PurchasePayment;
 
 class PurchaseCreate extends Component
 {

@@ -4,7 +4,7 @@ namespace App\Livewire\Purchase\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Purchase;
+use App\Models\Purchase\Purchase;
 
 class PurchaseSearch extends Component
 {

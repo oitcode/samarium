@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Purchase;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,7 +38,7 @@ class PurchaseAddition extends Model
      */
     public function purchase()
     {
-        return $this->belongsTo('App\Purchase', 'purchase_id', 'purchase_id');
+        return $this->belongsTo('App\Models\Purchase\Purchase', 'purchase_id', 'purchase_id');
     }
 
     /*
@@ -47,6 +47,6 @@ class PurchaseAddition extends Model
      */
     public function purchaseAdditionHeading()
     {
-        return $this->belongsTo('App\PurchaseAdditionHeading', 'purchase_addition_heading_id', 'purchase_addition_heading_id');
+        return $this->belongsTo('App\Models\Purchase\PurchaseAdditionHeading', 'purchase_addition_heading_id', 'purchase_addition_heading_id');
     }
 }
