@@ -4,8 +4,8 @@ namespace App\Livewire\Shop\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\SaleInvoice;
-use App\Purchase;
+use App\Models\SaleInvoice\SaleInvoice;
+use App\Models\Purchase\Purchase;
 use App\Expense;
 
 class ShopGlance extends Component
