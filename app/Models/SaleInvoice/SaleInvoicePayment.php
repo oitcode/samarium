@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\SaleInvoice;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -41,7 +41,7 @@ class SaleInvoicePayment extends Model
      */
     public function saleInvoicePaymentType()
     {
-        return $this->belongsTo('App\SaleInvoicePaymentType', 'sale_invoice_payment_type_id', 'sale_invoice_payment_type_id');
+        return $this->belongsTo('App\Models\SaleInvoice\SaleInvoicePaymentType', 'sale_invoice_payment_type_id', 'sale_invoice_payment_type_id');
     }
 
     /*
@@ -50,6 +50,6 @@ class SaleInvoicePayment extends Model
      */
     public function saleInvoice()
     {
-        return $this->belongsTo('App\SaleInvoice', 'sale_invoice_id', 'sale_invoice_id');
+        return $this->belongsTo('App\Models\SaleInvoice\SaleInvoice', 'sale_invoice_id', 'sale_invoice_id');
     }
 }

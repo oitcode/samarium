@@ -6,9 +6,9 @@ use App\Traits\ModesTrait;
 use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
-use App\SaleInvoice;
-use App\SaleInvoiceItem;
-use App\SaleInvoiceAdditionHeading;
+use App\Models\SaleInvoice\SaleInvoice;
+use App\Models\SaleInvoice\SaleInvoiceItem;
+use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
 use App\Customer;
 
 class SaleInvoiceWork extends Component

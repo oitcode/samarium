@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\SaleInvoice;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -62,7 +62,7 @@ class SaleInvoice extends Model
      */
     public function saleInvoiceItems()
     {
-        return $this->hasMany('App\SaleInvoiceItem', 'sale_invoice_id', 'sale_invoice_id');
+        return $this->hasMany('App\Models\SaleInvoice\SaleInvoiceItem', 'sale_invoice_id', 'sale_invoice_id');
     }
 
     /*
@@ -71,7 +71,7 @@ class SaleInvoice extends Model
      */
     public function saleInvoicePayments()
     {
-        return $this->hasMany('App\SaleInvoicePayment', 'sale_invoice_id', 'sale_invoice_id');
+        return $this->hasMany('App\Models\SaleInvoice\SaleInvoicePayment', 'sale_invoice_id', 'sale_invoice_id');
     }
 
     /*
@@ -98,7 +98,7 @@ class SaleInvoice extends Model
      */
     public function saleInvoiceAdditions()
     {
-        return $this->hasMany('App\SaleInvoiceAddition', 'sale_invoice_id', 'sale_invoice_id');
+        return $this->hasMany('App\Models\SaleInvoice\SaleInvoiceAddition', 'sale_invoice_id', 'sale_invoice_id');
     }
 
 

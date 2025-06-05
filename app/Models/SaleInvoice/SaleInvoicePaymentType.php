@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\SaleInvoice;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class SaleInvoicePaymentType extends Model
      */
     public function saleInvoicePayments()
     {
-        return $this->hasMany('App\SaleInvoicePayment', 'sale_invoice_payment_type_id', 'sale_invoice_payment_type_id');
+        return $this->hasMany('App\Models\SaleInvoice\SaleInvoicePayment', 'sale_invoice_payment_type_id', 'sale_invoice_payment_type_id');
     }
 
     public static function getNameFromId($id)

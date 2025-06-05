@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\SaleInvoice;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -41,7 +41,7 @@ class SaleInvoiceItem extends Model
      */
     public function saleInvoice()
     {
-        return $this->belongsTo('App\SaleInvoice', 'sale_invoice_id', 'sale_invoice_id');
+        return $this->belongsTo('App\Models\SaleInvoice\SaleInvoice', 'sale_invoice_id', 'sale_invoice_id');
     }
 
     /*
@@ -50,7 +50,7 @@ class SaleInvoiceItem extends Model
      */
     public function product()
     {
-        return $this->belongsTo('App\Product', 'product_id', 'product_id');
+        return $this->belongsTo('App\Models\Product', 'product_id', 'product_id');
     }
 
 

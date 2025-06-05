@@ -235,7 +235,7 @@
                 @endforeach
               </select>
               @else
-                {{ \App\SaleInvoicePaymentType::getNameFromId($sale_invoice_payment_type_id) }}
+                {{ \App\Models\SaleInvoice\SaleInvoicePaymentType::getNameFromId($sale_invoice_payment_type_id) }}
               @endif
             </td>
           </tr>

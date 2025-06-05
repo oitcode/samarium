@@ -6,9 +6,9 @@ use App\Traits\ModesTrait;
 use Illuminate\View\View;
 use App\Traits\InventoryTrait;
 use Livewire\Component;
-use App\Product;
-use App\ProductCategory;
-use App\SaleInvoiceItem;
+use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\SaleInvoice\SaleInvoiceItem;
 use App\Takeaway;
 
 class SaleInvoiceWorkAddItem extends Component

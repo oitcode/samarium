@@ -5,7 +5,7 @@ namespace App\Livewire\SaleInvoice\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use App\SaleInvoice;
+use App\Models\SaleInvoice\SaleInvoice;
 
 class SaleInvoiceCreate extends Component
 {

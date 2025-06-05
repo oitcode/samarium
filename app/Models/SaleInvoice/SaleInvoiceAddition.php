@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\SaleInvoice;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,7 +38,7 @@ class SaleInvoiceAddition extends Model
      */
     public function saleInvoice()
     {
-        return $this->belongsTo('App\SaleInvoice', 'sale_invoice_id', 'sale_invoice_id');
+        return $this->belongsTo('App\Models\SaleInvoice\SaleInvoice', 'sale_invoice_id', 'sale_invoice_id');
     }
 
     /*
@@ -47,6 +47,6 @@ class SaleInvoiceAddition extends Model
      */
     public function saleInvoiceAdditionHeading()
     {
-        return $this->belongsTo('App\SaleInvoiceAdditionHeading', 'sale_invoice_addition_heading_id', 'sale_invoice_addition_heading_id');
+        return $this->belongsTo('App\Models\SaleInvoice\SaleInvoiceAdditionHeading', 'sale_invoice_addition_heading_id', 'sale_invoice_addition_heading_id');
     }
 }

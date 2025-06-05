@@ -7,8 +7,8 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\Shop\SaleInvoiceService;
-use App\SaleInvoice;
-use App\SaleInvoiceAdditionHeading;
+use App\Models\SaleInvoice\SaleInvoice;
+use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
 
 /**
  * SaleInvoiceList Component

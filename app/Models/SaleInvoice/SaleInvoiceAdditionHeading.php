@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\SaleInvoice;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,6 +37,6 @@ class SaleInvoiceAdditionHeading extends Model
      */
     public function saleInvoiceAdditions()
     {
-        return $this->hasMany('App\SaleInvoiceAddition', 'sale_invoice_addition_heading_id', 'sale_invoice_addition_heading_id');
+        return $this->hasMany('App\Models\SaleInvoice\SaleInvoiceAddition', 'sale_invoice_addition_heading_id', 'sale_invoice_addition_heading_id');
     }
 }

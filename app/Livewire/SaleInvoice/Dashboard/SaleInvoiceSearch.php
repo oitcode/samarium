@@ -4,7 +4,7 @@ namespace App\Livewire\SaleInvoice\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\SaleInvoice;
+use App\Models\SaleInvoice\SaleInvoice;
 
 class SaleInvoiceSearch extends Component
 {
