@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\ProductVendorService;
-use App\ProductVendor;
+use App\Models\ProductVendor;
 
 /**
  * ProductVendorList Livewire Component

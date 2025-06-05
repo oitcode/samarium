@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Product;
-use App\ProductSpecification;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
+use App\Models\Product;
+use App\Models\ProductSpecification;
 
 class ProductService
 {

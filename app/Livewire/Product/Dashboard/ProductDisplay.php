@@ -5,10 +5,10 @@ namespace App\Livewire\Product\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\ProductQuestion;
-use App\ProductAnswer;
-use App\ProductSpecification;
-use App\ProductFeature;
+use App\Models\ProductQuestion;
+use App\Models\ProductAnswer;
+use App\Models\ProductSpecification;
+use App\Models\ProductFeature;
 
 class ProductDisplay extends Component
 {

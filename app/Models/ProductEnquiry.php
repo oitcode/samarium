@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,6 +40,6 @@ class ProductEnquiry extends Model
      */
     public function product()
     {
-        return $this->belongsTo('App\Product', 'product_id', 'product_id');
+        return $this->belongsTo('App\Models\Product', 'product_id', 'product_id');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -39,6 +39,6 @@ class ProductVendor extends Model
      */
     public function products()
     {
-        return $this->hasMany('App\Product', 'product_vendor_id', 'product_vendor_id');
+        return $this->hasMany('App\Models\Product', 'product_vendor_id', 'product_vendor_id');
     }
 }

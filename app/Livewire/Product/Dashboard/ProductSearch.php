@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Services\ProductService;
-use App\Product;
+use App\Models\Product;
 
 class ProductSearch extends Component
 {

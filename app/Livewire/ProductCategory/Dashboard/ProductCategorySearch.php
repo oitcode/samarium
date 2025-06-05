@@ -4,7 +4,7 @@ namespace App\Livewire\ProductCategory\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\ProductCategory;
+use App\Models\ProductCategory;
 
 class ProductCategorySearch extends Component
 {

@@ -7,8 +7,8 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
-use App\Product;
-use App\ProductCategory;
+use App\Models\Product;
+use App\Models\ProductCategory;
 
 class ProductCreateFromCsv extends Component
 {

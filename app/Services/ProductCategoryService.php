@@ -2,12 +2,12 @@
 
 namespace App\Services;
 
-use App\Product;
-use App\ProductCategory;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Models\Product;
+use App\Models\ProductCategory;
 
 class ProductCategoryService
 {

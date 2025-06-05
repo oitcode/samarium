@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -44,7 +44,7 @@ class Product extends Model
      */
     public function productCategory()
     {
-        return $this->belongsTo('App\ProductCategory', 'product_category_id', 'product_category_id');
+        return $this->belongsTo('App\Models\ProductCategory', 'product_category_id', 'product_category_id');
     }
 
     /*
@@ -52,7 +52,7 @@ class Product extends Model
      */
     public function productVendor()
     {
-        return $this->belongsTo('App\ProductVendor', 'product_vendor_id', 'product_vendor_id');
+        return $this->belongsTo('App\Models\ProductVendor', 'product_vendor_id', 'product_vendor_id');
     }
 
     /*
@@ -60,7 +60,7 @@ class Product extends Model
      */
     public function productReviews()
     {
-        return $this->hasMany('App\ProductReview', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\ProductReview', 'product_id', 'product_id');
     }
 
     /*
@@ -68,7 +68,7 @@ class Product extends Model
      */
     public function productQuestions()
     {
-        return $this->hasMany('App\ProductQuestion', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\ProductQuestion', 'product_id', 'product_id');
     }
 
     /*
@@ -76,7 +76,7 @@ class Product extends Model
      */
     public function productEnquiries()
     {
-        return $this->hasMany('App\ProductEnquiry', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\ProductEnquiry', 'product_id', 'product_id');
     }
 
     /*
@@ -96,7 +96,7 @@ class Product extends Model
      */
     public function baseProduct()
     {
-        return $this->belongsTo('App\Product', 'base_product_id', 'product_id');
+        return $this->belongsTo('App\Models\Product', 'base_product_id', 'product_id');
     }
 
     /*
@@ -108,7 +108,7 @@ class Product extends Model
      */
     public function subProducts()
     {
-        return $this->hasMany('App\Product', 'base_product_id', 'product_id');
+        return $this->hasMany('App\Models\Product', 'base_product_id', 'product_id');
     }
 
     /*
@@ -166,7 +166,7 @@ class Product extends Model
      */
     public function productSpecificationHeadings()
     {
-        return $this->hasMany('App\ProductSpecificationHeading', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\ProductSpecificationHeading', 'product_id', 'product_id');
     }
 
     /*
@@ -174,7 +174,7 @@ class Product extends Model
      */
     public function productSpecifications()
     {
-        return $this->hasMany('App\ProductSpecification', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\ProductSpecification', 'product_id', 'product_id');
     }
 
     /*
@@ -182,7 +182,7 @@ class Product extends Model
      */
     public function productFeatureHeadings()
     {
-        return $this->hasMany('App\ProductFeatureHeading', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\ProductFeatureHeading', 'product_id', 'product_id');
     }
 
     /*
@@ -190,7 +190,7 @@ class Product extends Model
      */
     public function productFeatures()
     {
-        return $this->hasMany('App\ProductFeature', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\ProductFeature', 'product_id', 'product_id');
     }
 
     /*
@@ -198,7 +198,7 @@ class Product extends Model
      */
     public function productOptionHeadings()
     {
-        return $this->hasMany('App\ProductOptionHeading', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\ProductOptionHeading', 'product_id', 'product_id');
     }
 
     /*
@@ -206,7 +206,7 @@ class Product extends Model
      */
     public function productOptions()
     {
-        return $this->hasMany('App\ProductOption', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\ProductOption', 'product_id', 'product_id');
     }
 
     public function isUsedToday()

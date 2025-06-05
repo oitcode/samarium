@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use Livewire\WithPagination;
 use App\Services\ProductCategoryService;
-use App\ProductCategory;
+use App\Models\ProductCategory;
 
 /**
  * ProductCategoryList Component

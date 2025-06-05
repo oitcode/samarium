@@ -6,8 +6,8 @@ use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Company;
-use App\ProductCategory;
-use App\Product;
+use App\Models\ProductCategory;
+use App\Models\Product;
 
 class HomeComponent extends Component
 {

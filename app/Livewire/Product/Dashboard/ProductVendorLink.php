@@ -4,7 +4,7 @@ namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\ProductVendor;
+use App\Models\ProductVendor;
 
 class ProductVendorLink extends Component
 {

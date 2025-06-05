@@ -5,9 +5,9 @@ namespace App\Livewire\Product\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
-use App\Product;
 use App\Services\ProductService;
 use App\Traits\ModesTrait;
+use App\Models\Product;
 
 class ProductList extends Component
 {

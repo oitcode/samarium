@@ -1,29 +1,27 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductQuestion extends Model
+class ProductOption extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'product_question';
+    protected $table = 'product_option';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'product_question_id';
+    protected $primaryKey = 'product_option_id';
 
     protected $fillable = [
-         'product_id',
-         'writer_name', 'writer_info',
-         'question_text',
+         'product_option_name', 'position', 'product_id', 'product_option_heading_id',
     ];
 
 
@@ -39,15 +37,15 @@ class ProductQuestion extends Model
      */
     public function product()
     {
-        return $this->belongsTo('App\Product', 'product_id', 'product_id');
+        return $this->belongsTo('App\Models\Product', 'product_id', 'product_id');
     }
 
     /*
-     * product_answer table.
+     * product_option_heading table.
      *
      */
-    public function productAnswers()
+    public function productOptionHeading()
     {
-        return $this->hasMany('App\ProductAnswer', 'product_question_id', 'product_question_id');
+        return $this->belongsTo('App\Models\ProductOptionHeading', 'product_option_heading_id', 'product_option_heading_id');
     }
 }

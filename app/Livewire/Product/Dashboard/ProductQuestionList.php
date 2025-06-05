@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\ProductQuestionService;
-use App\ProductQuestion;
+use App\Models\ProductQuestion;
 
 /**
  * ProductQuestionList Livewire Component

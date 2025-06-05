@@ -1,27 +1,27 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductSpecificationHeading extends Model
+class ProductSpecification extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'product_specification_heading';
+    protected $table = 'product_specification';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'product_specification_heading_id';
+    protected $primaryKey = 'product_specification_id';
 
     protected $fillable = [
-         'specification_heading', 'position', 'product_id',
+         'product_id', 'position', 'spec_heading', 'spec_value',
     ];
 
 
@@ -37,15 +37,15 @@ class ProductSpecificationHeading extends Model
      */
     public function product()
     {
-        return $this->belongsTo('App\Product', 'product_id', 'product_id');
+        return $this->belongsTo('App\Models\Product', 'product_id', 'product_id');
     }
 
     /*
-     * product_specification table.
+     * product_specification_heading table.
      *
      */
-    public function productSpecifications()
+    public function productSpecificationHeading()
     {
-        return $this->hasMany('App\ProductSpecification', 'product_specification_heading_id', 'product_specification_heading_id');
+        return $this->belongsTo('App\Models\ProductSpecificationHeading', 'product_specification_heading_id', 'product_specification_heading_id');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\ProductSpecificationHeading;
+use App\Models\ProductSpecificationHeading;
 
 class ProductEditAddProductSpecificationHeading extends Component
 {

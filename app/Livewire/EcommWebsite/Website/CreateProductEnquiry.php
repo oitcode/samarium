@@ -4,7 +4,7 @@ namespace App\Livewire\EcommWebsite\Website;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\ProductEnquiry;
+use App\Models\ProductEnquiry;
 
 class CreateProductEnquiry extends Component
 {

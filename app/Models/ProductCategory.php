@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class ProductCategory extends Model
      */
     public function products()
     {
-        return $this->hasMany('App\Product', 'product_category_id', 'product_category_id');
+        return $this->hasMany('App\Models\Product', 'product_category_id', 'product_category_id');
     }
 
     /*
@@ -46,7 +46,7 @@ class ProductCategory extends Model
      */
     public function subProductCategories()
     {
-        return $this->hasMany('App\ProductCategory', 'parent_product_category_id', 'product_category_id');
+        return $this->hasMany('App\Models\ProductCategory', 'parent_product_category_id', 'product_category_id');
     }
 
     /*
@@ -55,7 +55,7 @@ class ProductCategory extends Model
      */
     public function parentProductCategory()
     {
-        return $this->belongsTo('App\ProductCategory', 'parent_product_category_id', 'product_category_id');
+        return $this->belongsTo('App\Models\ProductCategory', 'parent_product_category_id', 'product_category_id');
     }
 
     /*
