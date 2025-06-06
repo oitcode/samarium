@@ -6,10 +6,10 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
-use App\SaleInvoice;
-use App\SaleInvoiceItem;
-use App\Product;
-use App\ProductCategory;
+use App\Models\SaleInvoice\SaleInvoice;
+use App\Models\SaleInvoice\SaleInvoiceItem;
+use App\Models\Product;
+use App\Models\ProductCategory;
 
 class ReportProductSalesCount extends Component
 {

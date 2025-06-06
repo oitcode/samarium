@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use App\Models\SaleInvoice\SaleInvoice;
 use App\Models\Purchase\Purchase;
-use App\Expense;
+use App\Models\Expense\Expense;
 
 class ShopGlance extends Component
 {

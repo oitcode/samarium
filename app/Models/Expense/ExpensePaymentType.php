@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Expense;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,6 +37,6 @@ class ExpensePaymentType extends Model
      */
     public function expensePayments()
     {
-        return $this->hasMany('App\ExpensePayment', 'expense_payment_type_id', 'expense_payment_type_id');
+        return $this->hasMany('App\Models\Expense\ExpensePayment', 'expense_payment_type_id', 'expense_payment_type_id');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Expense;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -52,7 +52,7 @@ class Expense extends Model
      */
     public function expenseCategory()
     {
-        return $this->belongsTo('App\ExpenseCategory', 'expense_category_id', 'expense_category_id');
+        return $this->belongsTo('App\Models\Expense\ExpenseCategory', 'expense_category_id', 'expense_category_id');
     }
 
     /*
@@ -61,7 +61,7 @@ class Expense extends Model
      */
     public function expenseItems()
     {
-        return $this->hasMany('App\ExpenseItem', 'expense_id', 'expense_id');
+        return $this->hasMany('App\Models\Expense\ExpenseItem', 'expense_id', 'expense_id');
     }
 
     /*
@@ -70,7 +70,7 @@ class Expense extends Model
      */
     public function expensePayments()
     {
-        return $this->hasMany('App\ExpensePayment', 'expense_id', 'expense_id');
+        return $this->hasMany('App\Models\Expense\ExpensePayment', 'expense_id', 'expense_id');
     }
 
     /*
@@ -79,7 +79,7 @@ class Expense extends Model
      */
     public function expenseAdditions()
     {
-        return $this->hasMany('App\ExpenseAddition', 'expense_id', 'expense_id');
+        return $this->hasMany('App\Models\Expense\ExpenseAddition', 'expense_id', 'expense_id');
     }
 
     /*

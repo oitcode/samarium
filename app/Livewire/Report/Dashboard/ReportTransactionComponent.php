@@ -4,9 +4,9 @@ namespace App\Livewire\Report\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\SaleInvoice;
-use App\Purchase;
-use App\Expense;
+use App\Models\SaleInvoice\SaleInvoice;
+use App\Models\Purchase\Purchase;
+use App\Models\Expense\Expense;
 
 class ReportTransactionComponent extends Component
 {

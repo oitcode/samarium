@@ -5,7 +5,7 @@ namespace App\Livewire\Expense\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Expense;
+use App\Models\Expense\Expense;
 
 class ExpenseComponent extends Component
 {

@@ -5,8 +5,8 @@ namespace App\Livewire\Report\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Carbon\Carbon;
-use App\Purchase;
-use App\PurchaseItem;
+use App\Models\Purchase\Purchase;
+use App\Models\Purchase\PurchaseItem;
 use App\Product;
 
 class ReportProductPurchaseCount extends Component

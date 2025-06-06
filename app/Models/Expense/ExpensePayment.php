@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models\Expense;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ExpenseAddition extends Model
+class ExpensePayment extends Model
 {
     use SoftDeletes;
 
@@ -14,17 +14,17 @@ class ExpenseAddition extends Model
      *
      * @var string
      */
-    protected $table = 'expense_addition';
+    protected $table = 'expense_payment';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'expense_addition_id';
+    protected $primaryKey = 'expense_payment_id';
 
     protected $fillable = [
-         'expense_id', 'expense_addition_heading_id',
+         'expense_payment_type_id', 'expense_id', 'payment_date',
          'amount',
     ];
 
@@ -36,20 +36,20 @@ class ExpenseAddition extends Model
      */
 
     /*
+     * expense_payment_type table.
+     *
+     */
+    public function expensePaymentType()
+    {
+        return $this->belongsTo('App\Models\Expense\ExpensePaymentType', 'expense_payment_type_id', 'expense_payment_type_id');
+    }
+
+    /*
      * expense table.
      *
      */
     public function expense()
     {
         return $this->belongsTo('App\Expense', 'expense_id', 'expense_id');
-    }
-
-    /*
-     * expense_addition_heading table.
-     *
-     */
-    public function expenseAdditionHeading()
-    {
-        return $this->belongsTo('App\ExpenseAdditionHeading', 'expense_addition_heading_id', 'expense_addition_heading_id');
     }
 }

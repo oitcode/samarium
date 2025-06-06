@@ -5,9 +5,9 @@ namespace App\Livewire\Chart\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Carbon\Carbon;
-use App\SaleInvoice;
-use App\SaleInvoiceItem;
-use App\ProductCategory;
+use App\Models\SaleInvoice\SaleInvoice;
+use App\Models\SaleInvoice\SaleInvoiceItem;
+use App\Models\ProductCategory;
 
 class ChartSaleByCategory extends Component
 {

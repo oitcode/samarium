@@ -7,18 +7,17 @@ use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use Carbon\Carbon;
 use Livewire\WithPagination;
-use App\Sale;
-use App\SaleInvoice;
-use App\SaleInvoiceItem;
-use App\SeatTableBooking;
-use App\SaleInvoicePaymentType;
-use App\Product;
-use App\Purchase;
-use App\PurchaseItem;
-use App\PurchasePaymentType;
-use App\Expense;
-use App\ExpenseItem;
-use App\ExpensePaymentType;
+use App\Models\Product;
+use App\Models\SaleInvoice\SaleInvoice;
+use App\Models\SaleInvoice\SaleInvoiceItem;
+use App\Models\SaleInvoice\SeatTableBooking;
+use App\Models\SaleInvoice\SaleInvoicePaymentType;
+use App\Models\Purchase\Purchase;
+use App\Models\Purchase\PurchaseItem;
+use App\Models\Purchase\PurchasePaymentType;
+use App\Models\Expense\Expense;
+use App\Models\Expense\ExpenseItem;
+use App\Models\Expense\ExpensePaymentType;
 
 class DaybookComponent extends Component
 {

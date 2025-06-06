@@ -7,14 +7,14 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
-use App\Expense;
-use App\ExpenseCategory;
-use App\ExpensePaymentType;
-use App\ExpensePayment;
-use App\ExpenseAdditionHeading;
-use App\SaleInvoiceAdditionHeading;
-use App\ExpenseItem;
-use App\ExpenseAddition;
+use App\Models\Expense\Expense;
+use App\Models\Expense\ExpenseCategory;
+use App\Models\Expense\ExpensePaymentType;
+use App\Models\Expense\ExpensePayment;
+use App\Models\Expense\ExpenseAdditionHeading;
+use App\Models\Expense\ExpenseItem;
+use App\Models\Expense\ExpenseAddition;
+use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
 use App\Vendor;
 
 class ExpenseCreate extends Component

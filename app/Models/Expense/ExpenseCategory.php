@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Expense;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,7 +38,7 @@ class ExpenseCategory extends Model
      */
     public function expenses()
     {
-        return $this->hasMany('App\Expense', 'expense_category_id', 'expense_category_id');
+        return $this->hasMany('App\Models\Expense\Expense', 'expense_category_id', 'expense_category_id');
     }
 
     /*

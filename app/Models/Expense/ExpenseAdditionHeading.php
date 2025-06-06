@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Expense;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,6 +37,6 @@ class ExpenseAdditionHeading extends Model
      */
     public function expenseAdditions()
     {
-        return $this->hasMany('App\ExpenseAddition', 'expense_addition_heading_id', 'expense_addition_heading_id');
+        return $this->hasMany('App\Models\Expense\ExpenseAddition', 'expense_addition_heading_id', 'expense_addition_heading_id');
     }
 }

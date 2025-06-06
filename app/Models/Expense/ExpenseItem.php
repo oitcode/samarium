@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Expense;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -42,7 +42,7 @@ class ExpenseItem extends Model
      */
     public function expense()
     {
-        return $this->belongsTo('App\Expense', 'expense_id', 'expense_id');
+        return $this->belongsTo('App\Models\Expense\Expense', 'expense_id', 'expense_id');
     }
 
     /*
@@ -51,6 +51,6 @@ class ExpenseItem extends Model
      */
     public function expenseCategory()
     {
-        return $this->belongsTo('App\ExpenseCategory', 'expense_category_id', 'expense_category_id');
+        return $this->belongsTo('App\Models\Expense\ExpenseCategory', 'expense_category_id', 'expense_category_id');
     }
 }

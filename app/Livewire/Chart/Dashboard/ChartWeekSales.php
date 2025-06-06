@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Carbon\Carbon;
 
-use App\SaleInvoice;
+use App\Models\SaleInvoice\SaleInvoice;
 
 class ChartWeekSales extends Component
 {
