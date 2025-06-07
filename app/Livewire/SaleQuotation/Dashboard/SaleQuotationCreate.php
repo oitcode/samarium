@@ -5,7 +5,7 @@ namespace App\Livewire\SaleQuotation\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use App\SaleQuotation;
+use App\Models\SaleQuotation\SaleQuotation;
 
 class SaleQuotationCreate extends Component
 {

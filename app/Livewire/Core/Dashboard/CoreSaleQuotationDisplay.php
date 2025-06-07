@@ -5,7 +5,7 @@ namespace App\Livewire\Core\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Company;
-use App\SaleInvoiceAdditionHeading;
+use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
 
 class CoreSaleQuotationDisplay extends Component
 {

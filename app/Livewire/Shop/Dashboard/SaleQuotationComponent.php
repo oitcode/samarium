@@ -5,7 +5,7 @@ namespace App\Livewire\Shop\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\SaleQuotation;
+use App\Models\SaleQuotation\SaleQuotation;
 
 class SaleQuotationComponent extends Component
 {

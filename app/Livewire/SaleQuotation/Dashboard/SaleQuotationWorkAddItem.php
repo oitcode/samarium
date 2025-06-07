@@ -5,9 +5,9 @@ namespace App\Livewire\SaleQuotation\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Product;
-use App\ProductCategory;
-use App\SaleQuotationItem;
+use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\SaleQuotation\SaleQuotationItem;
 
 class SaleQuotationWorkAddItem extends Component
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\SaleQuotation;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,7 +49,7 @@ class SaleQuotation extends Model
      */
     public function customer()
     {
-        return $this->belongsTo('App\Customer', 'customer_id', 'customer_id');
+        return $this->belongsTo('App\Models\Customer\Customer', 'customer_id', 'customer_id');
     }
 
     /*
@@ -58,7 +58,7 @@ class SaleQuotation extends Model
      */
     public function saleQuotationItems()
     {
-        return $this->hasMany('App\SaleQuotationItem', 'sale_quotation_id', 'sale_quotation_id');
+        return $this->hasMany('App\Models\SaleQuotation\SaleQuotationItem', 'sale_quotation_id', 'sale_quotation_id');
     }
 
 

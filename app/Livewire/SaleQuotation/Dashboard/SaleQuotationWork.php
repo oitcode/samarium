@@ -6,10 +6,10 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
-use App\SaleQuotation;
-use App\SaleQuotationItem;
-use App\SaleInvoiceAdditionHeading;
-use App\Customer;
+use App\Models\SaleQuotation\SaleQuotation;
+use App\Models\SaleQuotation\SaleQuotationItem;
+use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
+use App\Models\Customer\Customer;
 
 class SaleQuotationWork extends Component
 {

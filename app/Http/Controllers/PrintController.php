@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\SaleInvoice;
-use App\SaleQuotation;
+use App\Models\SaleInvoice\SaleInvoice;
+use App\Models\SaleQuotation\SaleQuotation;
 
 class PrintController extends Controller
 {

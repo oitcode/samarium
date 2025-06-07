@@ -6,8 +6,8 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
-use App\SaleQuotation;
-use App\SaleInvoiceAdditionHeading;
+use App\Models\SaleQuotation\SaleQuotation;
+use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
 
 class SaleQuotationList extends Component
 {
