@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\Shop\CustomerService;
-use App\Customer;
+use App\Models\Customer\Customer;
 
 /**
  * CustomerList Component

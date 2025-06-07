@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
-use App\CustomerComment;
+use App\Models\Customer\CustomerComment;
 
 class CustomerCommentCreate extends Component
 {

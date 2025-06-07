@@ -5,7 +5,7 @@ namespace App\Livewire\Customer\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\SaleInvoice;
+use App\Models\SaleInvoice\SaleInvoice;
 
 class CustomerDetail extends Component
 {

@@ -5,8 +5,8 @@ namespace App\Livewire\Customer\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
-use App\SaleInvoicePayment;
-use App\SaleInvoicePaymentType;
+use App\Models\SaleInvoice\SaleInvoicePayment;
+use App\Models\SaleInvoice\SaleInvoicePaymentType;
 
 class CustomerInvoicePaymentCreate extends Component
 {

@@ -5,7 +5,7 @@ namespace App\Livewire\Customer\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
-use App\Customer;
+use App\Models\Customer\Customer;
 use App\AbAccount;
 use App\AbAccountType;
 

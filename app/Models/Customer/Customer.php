@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Customer;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -48,7 +48,7 @@ class Customer extends Model
      */
     public function saleInvoices()
     {
-        return $this->hasMany('App\SaleInvoice', 'customer_id', 'customer_id');
+        return $this->hasMany('App\Models\SaleInvoice\SaleInvoice', 'customer_id', 'customer_id');
     }
 
     /*
@@ -66,7 +66,7 @@ class Customer extends Model
      */
     public function customerComments()
     {
-        return $this->hasMany('App\CustomerComment', 'customer_id', 'customer_id');
+        return $this->hasMany('App\Models\Customer\CustomerComment', 'customer_id', 'customer_id');
     }
 
     /*
@@ -84,7 +84,7 @@ class Customer extends Model
      */
     public function customerDocumentFiles()
     {
-        return $this->hasMany('App\CustomerDocumentFile', 'customer_id', 'customer_id');
+        return $this->hasMany('App\Models\Customer\CustomerDocumentFile', 'customer_id', 'customer_id');
     }
 
     /*

@@ -4,7 +4,7 @@ namespace App\Livewire\Customer\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Customer;
+use App\Models\Customer\Customer;
 
 class CustomerSearch extends Component
 {
