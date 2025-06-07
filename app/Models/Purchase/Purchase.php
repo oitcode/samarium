@@ -52,7 +52,7 @@ class Purchase extends Model
      */
     public function vendor()
     {
-        return $this->belongsTo('App\Vendor', 'vendor_id', 'vendor_id');
+        return $this->belongsTo('App\Models\Vendor\Vendor', 'vendor_id', 'vendor_id');
     }
 
     /*

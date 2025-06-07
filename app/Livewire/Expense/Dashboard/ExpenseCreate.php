@@ -15,7 +15,7 @@ use App\Models\Expense\ExpenseAdditionHeading;
 use App\Models\Expense\ExpenseItem;
 use App\Models\Expense\ExpenseAddition;
 use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
-use App\Vendor;
+use App\Models\Vendor\Vendor;
 
 class ExpenseCreate extends Component
 {

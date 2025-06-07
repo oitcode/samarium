@@ -5,7 +5,7 @@ namespace App\Livewire\Vendor\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Vendor;
+use App\Models\Vendor\Vendor;
 
 class VendorComponent extends Component
 {

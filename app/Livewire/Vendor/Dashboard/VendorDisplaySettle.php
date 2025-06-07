@@ -5,8 +5,8 @@ namespace App\Livewire\Vendor\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
-use App\PurchasePaymentType;
-use App\PurchasePayment;
+use App\Models\Purchase\PurchasePaymentType;
+use App\Models\Purchase\PurchasePayment;
 
 class VendorDisplaySettle extends Component
 {

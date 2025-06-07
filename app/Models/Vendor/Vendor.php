@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Vendor;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,7 +39,7 @@ class Vendor extends Model
      */
     public function purchases()
     {
-        return $this->hasMany('App\Purchase', 'vendor_id', 'vendor_id');
+        return $this->hasMany('App\Models\Purchase\Purchase', 'vendor_id', 'vendor_id');
     }
 
     /*
@@ -48,7 +48,7 @@ class Vendor extends Model
      */
     public function expenses()
     {
-        return $this->hasMany('App\Expense', 'vendor_id', 'vendor_id');
+        return $this->hasMany('App\Models\Expense\Expense', 'vendor_id', 'vendor_id');
     }
 
 

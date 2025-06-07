@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\SaleInvoice\SaleInvoice;
 use App\Models\SaleInvoice\SaleInvoiceItem;
 use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
-use App\Customer;
+use App\Models\Customer\Customer;
 
 class SaleInvoiceWork extends Component
 {

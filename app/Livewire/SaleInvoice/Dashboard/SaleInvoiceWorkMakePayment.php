@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
-use App\Customer;
+use App\Models\Customer\Customer;
 use App\Models\SaleInvoice\SaleInvoice;
 use App\Models\SaleInvoice\SaleInvoicePaymentType;
 use App\Models\SaleInvoice\SaleInvoicePayment;

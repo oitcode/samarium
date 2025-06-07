@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\MiscTrait;
 use App\Traits\ModesTrait;
-use App\Vendor;
+use App\Models\Vendor\Vendor;
 use App\Models\Purchase\Purchase;
 use App\Models\Purchase\PurchaseItem;
 use App\Models\Purchase\PurchasePaymentType;
