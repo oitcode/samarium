@@ -4,8 +4,8 @@ namespace App\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\WebsiteOrder;
 use App\Traits\ModesTrait;
+use App\Models\WebsiteOrder\WebsiteOrder;
 
 class OnlineOrderComponent extends Component
 {

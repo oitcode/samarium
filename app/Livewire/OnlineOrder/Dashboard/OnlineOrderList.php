@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
-use App\WebsiteOrder;
+use App\Models\WebsiteOrder\WebsiteOrder;
 
 class OnlineOrderList extends Component
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\WebsiteOrder;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class WebsiteOrder extends Model
      */
     public function product()
     {
-        return $this->belongsTo('App\Product', 'product_id', 'product_id');
+        return $this->belongsTo('App\Models\Product', 'product_id', 'product_id');
     }
 
     /*
@@ -46,7 +46,7 @@ class WebsiteOrder extends Model
      */
     public function websiteOrderItems()
     {
-        return $this->hasMany('App\WebsiteOrderItem', 'website_order_id', 'website_order_id');
+        return $this->hasMany('App\Models\WebsiteOrder\WebsiteOrderItem', 'website_order_id', 'website_order_id');
     }
 
 

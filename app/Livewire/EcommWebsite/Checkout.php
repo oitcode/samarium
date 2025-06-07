@@ -6,8 +6,8 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
-use App\WebsiteOrder;
-use App\WebsiteOrderItem;
+use App\Models\WebsiteOrder\WebsiteOrder;
+use App\Models\WebsiteOrder\WebsiteOrderItem;
 
 class Checkout extends Component
 {
