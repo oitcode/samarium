@@ -80,7 +80,7 @@ class SaleInvoice extends Model
      */
     public function seatTableBooking()
     {
-        return $this->BelongsTo('App\SeatTableBooking', 'seat_table_booking_id', 'seat_table_booking_id');
+        return $this->BelongsTo('App\Models\SeatTable\SeatTableBooking', 'seat_table_booking_id', 'seat_table_booking_id');
     }
 
     /*

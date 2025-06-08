@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\SeatTable;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class SeatTableBooking extends Model
      */
     public function seatTable()
     {
-        return $this->belongsTo('App\SeatTable', 'seat_table_id', 'seat_table_id');
+        return $this->belongsTo('App\Models\SeatTable\SeatTable', 'seat_table_id', 'seat_table_id');
     }
 
     /*
@@ -55,7 +55,7 @@ class SeatTableBooking extends Model
      */
     public function saleInvoice()
     {
-        return $this->hasOne('App\SaleInvoice', 'seat_table_booking_id', 'seat_table_booking_id');
+        return $this->hasOne('App\Models\SaleInvoice\SaleInvoice', 'seat_table_booking_id', 'seat_table_booking_id');
     }
 
 

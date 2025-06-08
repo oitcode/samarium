@@ -4,7 +4,7 @@ namespace App\Livewire\CafeSale\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\SeatTable;
+use App\Models\SeatTable\SeatTable;
 
 class SeatTableListDisplay extends Component
 {

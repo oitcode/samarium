@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\SeatTable;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class SeatTable extends Model
      */
     public function seatTableBookings()
     {
-        return $this->hasMany('App\SeatTableBooking', 'seat_table_id', 'seat_table_id');
+        return $this->hasMany('App\Models\SeatTable\SeatTableBooking', 'seat_table_id', 'seat_table_id');
     }
 
 

@@ -7,10 +7,10 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
-use App\SeatTable;
-use App\SeatTableBooking;
-use App\SaleInvoice;
-use App\SaleInvoiceItem;
+use App\Models\SeatTable\SeatTable;
+use App\Models\SeatTable\SeatTableBooking;
+use App\Models\SaleInvoice\SaleInvoice;
+use App\Models\SaleInvoice\SaleInvoiceItem;
 
 class SeatTableWorkDisplay extends Component
 {
