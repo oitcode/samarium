@@ -4,8 +4,8 @@ namespace App\Livewire\Inventory;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Product;
 use App\Traits\ModesTrait;
+use App\Models\Product;
 
 class InventoryComponent extends Component
 {
