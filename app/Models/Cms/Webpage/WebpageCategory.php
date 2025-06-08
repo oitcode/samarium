@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Cms\Webpage;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class WebpageCategory extends Model
      */
     public function webPages()
     {
-        return $this->belongsToMany('App\Webpage', 'webpage__webpage_category', 'webpage_category_id', 'webpage_id');
+        return $this->belongsToMany('App\Models\Cms\Webpage\Webpage', 'webpage__webpage_category', 'webpage_category_id', 'webpage_id');
     }
 
     /*
@@ -46,6 +46,6 @@ class WebpageCategory extends Model
      */
     public function webPagesPostpage()
     {
-        return $this->belongsToMany('App\Webpage', 'webpage__webpage_category___postpage', 'webpage_category_id', 'webpage_id');
+        return $this->belongsToMany('App\Models\Cms\Webpage\Webpage', 'webpage__webpage_category___postpage', 'webpage_category_id', 'webpage_id');
     }
 }

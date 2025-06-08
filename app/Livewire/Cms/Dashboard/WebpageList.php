@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\Cms\WebpageService;
-use App\Webpage;
+use App\Models\Cms\Webpage\Webpage;
 
 class WebpageList extends Component
 {

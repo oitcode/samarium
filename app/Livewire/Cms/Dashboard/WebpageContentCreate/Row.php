@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
-use App\WebpageContent;
+use App\Models\Cms\Webpage\WebpageContent;
 
 class Row extends Component
 {

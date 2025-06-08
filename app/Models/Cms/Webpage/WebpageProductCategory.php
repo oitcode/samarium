@@ -1,26 +1,26 @@
 <?php
 
-namespace App;
+namespace App\Models\Cms\Webpage;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WebpageWebpageCategoryPostpage extends Model
+class WebpageProductCategory extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'webpage__webpage_category___postpage';
+    protected $table = 'webpage__product_category';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'webpage__webpage_category___postpage_id';
+    protected $primaryKey = 'webpage__product_category_id';
 
     protected $fillable = [
-         'webpage_id', 'webpage_category_id',
+         'webpage_id', 'product_category_id',
     ];
 }

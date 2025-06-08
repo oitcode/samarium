@@ -1,10 +1,10 @@
 <?php
 
-use App\Webpage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
+use App\Models\Cms\Webpage\Webpage;
 
 /*
 |--------------------------------------------------------------------------

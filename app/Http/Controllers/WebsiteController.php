@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Company;
-use App\Webpage;
+use App\Models\Cms\Webpage\Webpage;
 use App\SeatTable;
 use App\TeamMember;
 use App\Vacancy;

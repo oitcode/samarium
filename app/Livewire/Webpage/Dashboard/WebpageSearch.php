@@ -4,7 +4,7 @@ namespace App\Livewire\Webpage\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Webpage;
+use App\Models\Cms\Webpage\Webpage;
 
 class WebpageSearch extends Component
 {

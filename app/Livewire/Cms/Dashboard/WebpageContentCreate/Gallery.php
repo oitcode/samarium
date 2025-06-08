@@ -5,7 +5,7 @@ namespace App\Livewire\Cms\Dashboard\WebpageContentCreate;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Gallery as CmsGallery;
-use App\WebpageContent;
+use App\Models\Cms\Webpage\WebpageContent;
 
 class Gallery extends Component
 {

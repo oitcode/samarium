@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Cms\Webpage;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -46,7 +46,7 @@ class Webpage extends Model
      */
     public function webpageCategories()
     {
-        return $this->belongsToMany('App\WebpageCategory', 'webpage__webpage_category', 'webpage_id', 'webpage_category_id');
+        return $this->belongsToMany('App\Models\Cms\Webpage\WebpageCategory', 'webpage__webpage_category', 'webpage_id', 'webpage_category_id');
     }
 
     /*
@@ -55,7 +55,7 @@ class Webpage extends Model
      */
     public function webpageCategoriesPostpage()
     {
-        return $this->belongsToMany('App\WebpageCategory', 'webpage__webpage_category___postpage', 'webpage_id', 'webpage_category_id');
+        return $this->belongsToMany('App\Models\Cms\Webpage\WebpageCategory', 'webpage__webpage_category___postpage', 'webpage_id', 'webpage_category_id');
     }
 
     /*
@@ -100,7 +100,7 @@ class Webpage extends Model
      */
     public function webpageContents()
     {
-        return $this->hasMany('App\WebpageContent', 'webpage_id', 'webpage_id');
+        return $this->hasMany('App\Models\Cms\Webpage\WebpageContent', 'webpage_id', 'webpage_id');
     }
 
     /*
@@ -109,7 +109,7 @@ class Webpage extends Model
      */
     public function webpageQuestions()
     {
-        return $this->hasMany('App\WebpageQuestion', 'webpage_id', 'webpage_id');
+        return $this->hasMany('App\Models\Cms\Webpage\WebpageQuestion', 'webpage_id', 'webpage_id');
     }
 
 

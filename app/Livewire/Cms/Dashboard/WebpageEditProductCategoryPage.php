@@ -4,8 +4,8 @@ namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\ProductCategory;
-use App\WebpageProductCategory;
+use App\Models\ProductCategory;
+use App\Models\Cms\Webpage\WebpageProductCategory;
 
 class WebpageEditProductCategoryPage extends Component
 {

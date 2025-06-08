@@ -6,9 +6,9 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
-use App\Webpage;
-use App\WebpageCategory;
-use App\WebpageWebpageCategory;
+use App\Models\Cms\Webpage\Webpage;
+use App\Models\Cms\Webpage\WebpageCategory;
+use App\Models\Cms\Webpage\WebpageWebpageCategory;
 
 class WebpageDisplay extends Component
 {

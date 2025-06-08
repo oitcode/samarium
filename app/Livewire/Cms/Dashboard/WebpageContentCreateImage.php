@@ -5,7 +5,7 @@ namespace App\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
-use App\WebpageContent;
+use App\Models\Cms\Webpage\WebpageContent;
 
 class WebpageContentCreateImage extends Component
 {

@@ -5,7 +5,7 @@ namespace App\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use App\Webpage;
+use App\Models\Cms\Webpage\Webpage;
 
 class WebpageCreate extends Component
 {

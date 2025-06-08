@@ -5,7 +5,7 @@ namespace App\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Team;
-use App\WebpageTeam;
+use App\Models\Cms\Webpage\WebpageTeam;
 
 class WebpageEditTeamTeampage extends Component
 {

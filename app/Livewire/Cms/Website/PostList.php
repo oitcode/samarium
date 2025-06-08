@@ -4,8 +4,8 @@ namespace App\Livewire\Cms\Website;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Webpage;
-use App\WebpageCategory;
+use App\Models\Cms\Webpage\Webpage;
+use App\Models\Cms\Webpage\WebpageCategory;
 
 class PostList extends Component
 {

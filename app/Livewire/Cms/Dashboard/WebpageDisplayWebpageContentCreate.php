@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait; 
-use App\WebpageContent;
+use App\Models\Cms\Webpage\WebpageContent;
 
 class WebpageDisplayWebpageContentCreate extends Component
 {

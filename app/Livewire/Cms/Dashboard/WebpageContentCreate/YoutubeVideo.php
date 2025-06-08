@@ -4,7 +4,7 @@ namespace App\Livewire\Cms\Dashboard\WebpageContentCreate;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\WebpageContent;
+use App\Models\Cms\Webpage\WebpageContent;
 
 class YoutubeVideo extends Component
 {

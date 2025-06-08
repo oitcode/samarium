@@ -2,11 +2,11 @@
 
 namespace App\Services\Cms;
 
-use App\Webpage;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Models\Cms\Webpage\Webpage;
 
 class WebpageService
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Cms\Webpage;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,7 +49,7 @@ class WebpageContent extends Model
      */
     public function webpage()
     {
-        return $this->belongsTo('App\Webpage', 'webpage_id', 'webpage_id');
+        return $this->belongsTo('App\Models\Cms\Webpage\Webpage', 'webpage_id', 'webpage_id');
     }
 
     /*

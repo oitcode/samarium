@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\Webpage;
+use App\Models\Cms\Webpage\Webpage;
 
 class PostService
 {

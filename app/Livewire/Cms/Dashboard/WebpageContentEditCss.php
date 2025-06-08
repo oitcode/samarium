@@ -4,7 +4,7 @@ namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\CmsWebpageContentCssOption;
+use App\Models\Cms\Webpage\CmsWebpageContentCssOption;
 
 class WebpageContentEditCss extends Component
 {

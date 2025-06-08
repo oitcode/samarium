@@ -4,7 +4,7 @@ namespace App\Livewire\Notice\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\WebpageCategory;
+use App\Models\Cms\Webpage\WebpageCategory;
 
 class LatestNoticeList extends Component
 {

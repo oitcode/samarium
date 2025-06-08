@@ -46,7 +46,7 @@ class CmsNavMenuItem extends Model
      */
     public function webpage()
     {
-        return $this->belongsTo('App\Webpage', 'webpage_id', 'webpage_id');
+        return $this->belongsTo('App\Models\Cms\Webpage\Webpage', 'webpage_id', 'webpage_id');
     }
 
     /*
