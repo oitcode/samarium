@@ -4,7 +4,7 @@ namespace App\Livewire\OnlineOrder\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\WebsiteOrder;
+use App\Models\WebsiteOrder\WebsiteOrder;
 
 class OnlineOrderGlance extends Component
 {
