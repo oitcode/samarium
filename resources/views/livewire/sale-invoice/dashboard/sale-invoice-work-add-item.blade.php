@@ -1,4 +1,4 @@
-<div>
+<div class="mb-2">
 
   {{--
      |
@@ -12,17 +12,19 @@
     ])
   @endif
 
+  
   {{--
      |
      | Show in bigger screen
      |
   --}}
-  <div class="mb-2 border shadow-sm-rm d-none d-md-block">
-    <div class="table-responsive m-0">
+  <div class="bg-white mb-2-rm px-2 border shadow-sm-rm d-none-rm d-md-block-rm">
+    <div class="table-responsive bg-white pt-3 m-0">
       <table class="table table-sm table-bordered m-0">
+        @if (false)
         <thead>
           <tr class="bg-white">
-            <th class="py-2 pl-2" style="width: 200px;">
+            <th class="py-2 border-0" style="width: 200px;">
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-column justify-content-center o-heading">
                   Search Item
@@ -50,11 +52,44 @@
             @endif
           </tr>
         </thead>
+        @endif
         <tbody>
           <tr class="p-0 font-weight-bold" style="height: 50px;">
-            <td class="h-100 bg-white p-2-rm p-0">
-              <input class="form-control m-0 w-100 h-100 border-0-rm py-2" type="text" style="background-color: #fff;"
-                  wire:model="add_item_name" wire:keydown.enter="updateProductList" placeholder="Search by product name" autofocus/>
+            <td class="h-100 bg-white p-0 border-0">
+              <div class="d-flex">
+                <input class="form-control m-0 w-100 h-100 border-0-rm py-2" type="text" style="background-color: #fff;"
+                    wire:model="add_item_name" wire:keydown.enter="updateProductList" placeholder="Search product by name" autofocus/>
+                <div class="m-0 bg-white py-3-rm">
+                  <div class="d-flex">
+                    @if (false)
+                      <button class="mr-3" wire:click="addItemToSaleInvoice">
+                        <i class="fas fa-plus mr-2"></i>
+                        Add
+                      </button>
+                    @endif
+                    <button class="btn btn-primary font-weight-bold ml-2 mr-4 h-100" wire:click="updateProductList">
+                        Search
+                    </button>
+                    @if (true)
+                    <button class="bg-white border-0 text-primary font-weight-bold mr-4" wire:click="resetInputFields">
+                      @if (false)
+                      <i class="fas fa-refresh"></i>
+                      @endif
+                        Reset
+                    </button>
+                    @endif
+                    @include ('partials.dashboard.spinner-button')
+                  </div>
+
+                  @if (false && $selectedProduct != null)
+                    <div class="d-flex justify-content-end">
+                      <div>
+                        <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
+                      </div>
+                    </div>
+                  @endif
+                </div>
+              </div>
             </td>
             @if (false)
             <td class="p-0 h-100">
@@ -101,37 +136,22 @@
       </table>
     </div>
 
-    <div class="p-2 m-0 bg-white">
-      <div class="row">
-        <div class="col-md-8">
-          @if (false)
-            <button class="mr-3" wire:click="addItemToSaleInvoice">
-              <i class="fas fa-plus mr-2"></i>
-              Add
-            </button>
-          @endif
-          <button class="bg-white border-0 text-primary font-weight-bold" wire:click="resetInputFields">
-            <i class="fas fa-refresh"></i>
-            @if (false)
-              Reset
-            @endif
-          </button>
-          @include ('partials.dashboard.spinner-button')
-        </div>
-
-        @if ($selectedProduct != null)
-          <div class="col-md-4" style="height: 50px;">
-            <div class="d-flex justify-content-end">
-              <div>
-                <img src="{{ asset('storage/' . $selectedProduct->image_path) }}" class="img-fluid" style="height: 50px;">
-              </div>
-            </div>
-          </div>
-        @endif
-      </div>
-    </div>
   </div>
-  
+
+  <div class="bg-dark text-muted px-3 py-2">
+    <small>
+    Add products to the sale invoice
+    </small>
+  </div>
+  <div class="bg-white text-dark px-3 py-2">
+    &nbsp;<br/>
+    &nbsp;<br/>
+    &nbsp;<br/>
+    &nbsp;<br/>
+    &nbsp;<br/>
+    &nbsp;<br/>
+  </div>
+
   @if ($modes['productSelected'])
     <div class="d-flex justify-content-between border p-3 bg-white mb-2" wire:key="{{ rand() }}">
       <div>
@@ -170,12 +190,15 @@
           <button class="btn btn-primary" wire:click="addItemToSaleInvoice">
             Add
           </button>
+          <button class="btn btn-primary" wire:click="resetInputFields">
+            Cancel
+          </button>
         </div>
       </div>
     </div>
   @else
     @if ($products != null && count($products) > 0)
-      <div class="mb-4">
+      <div class="mb-3">
         @foreach ($products as $product)
           <div class="d-flex justify-content-between border p-3 bg-white" wire:key="{{ rand() }}">
             <div>
@@ -211,6 +234,7 @@
      | Show in smaller screen
      |
   --}}
+  @if (false)
   <div class="d-md-none mb-3">
     @if (! $modes['showMobForm'])
       <button class="btn btn-success ml-3" wire:click="showAddItemFormMob">
@@ -230,5 +254,6 @@
       </div>
     @endif
   </div>
+  @endif
 
 </div>

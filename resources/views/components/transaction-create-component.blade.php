@@ -14,7 +14,7 @@
         {{ $transactionItemList }}
       </div>
     </div>
-    <div class="col-md-4 pr-0">
+    <div class="col-md-4 p-0 border-left">
       <div>
         {{ $transactionTotalBreakdown }}
       </div>

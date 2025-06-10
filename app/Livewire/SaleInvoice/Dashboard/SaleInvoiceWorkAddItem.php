@@ -204,8 +204,9 @@ class SaleInvoiceWorkAddItem extends Component
         $this->product_id = $product->product_id;
         $this->selectedProduct = $product;
         $this->enterMode('productSelected');
-        // $this->quantity = 1;
-        // $this->price_per_unit = $this->selectedProduct->selling_price;;
+        $this->quantity = 1;
+        $this->price_per_unit = $this->selectedProduct->selling_price;;
+        $this->updateTotal();
 
         // $this->addItemToSaleInvoice();
     }

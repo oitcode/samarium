@@ -1,4 +1,4 @@
-<div>
+<div class="">
 
   @if (($saleInvoice->seatTableBooking && $saleInvoice->seatTableBooking->status == 'closed')
         ||
@@ -20,31 +20,52 @@
         --}}
         <x-toolbar-component>
           <x-slot name="toolbarInfo">
+            @if (false)
             Sale
             <i class="fas fa-angle-right mx-2"></i>
             {{ $saleInvoice->sale_invoice_id }}
+            @else
+              Sale Invoice ID:
+              &nbsp;
+              <span class="o-heading text-white-rm">
+                {{ $saleInvoice->sale_invoice_id }}
+              </span>
+              &nbsp;
+              &nbsp;
+              &nbsp;
+              &nbsp;
+              &nbsp;
+              Date:
+              &nbsp;
+              <span class="o-heading text-white-rm">
+                {{ $saleInvoice->created_at->toDateString() }}
+              </span>
+            @endif
           </x-slot>
           <x-slot name="toolbarButtons">
-            <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
-              <i class="fas fa-refresh"></i>
-            </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="">
-              <i class="fas fa-envelope"></i>
-              Email
-            </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="">
-              <i class="fas fa-print"></i>
-              Print
-            </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="closeThisComponent">
-              <i class="fas fa-times-circle text-danger mr-1"></i>
-              Close
-            </x-toolbar-button-component>
+            <div class="py-2">
+              <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
+                <i class="fas fa-refresh"></i>
+              </x-toolbar-button-component>
+              <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="">
+                <i class="fas fa-envelope"></i>
+                Email
+              </x-toolbar-button-component>
+              <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="">
+                <i class="fas fa-print"></i>
+                Print
+              </x-toolbar-button-component>
+              <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="closeThisComponent">
+                <i class="fas fa-times-circle text-danger mr-1"></i>
+                Close
+              </x-toolbar-button-component>
+            </div>
           </x-slot>
         </x-toolbar-component>
       </x-slot>
 
       <x-slot name="transactionMainInfo">
+        @if (false)
         <x-transaction-main-info-component>
           <x-slot name="transactionIdName">
             Sale Invoice ID
@@ -119,6 +140,7 @@
             @endif
           </x-slot>
         </x-transaction-main-info-component>
+        @endif
       </x-slot>
 
       <x-slot name="transactionAddItem">
@@ -126,105 +148,117 @@
       </x-slot>
 
       <x-slot name="transactionItemList">
-        <div class="card mb-3 shadow-sm">
+        <div class="bg-dark text-white text-center px-3 py-2">
+          <span class="h4 o-heading text-white">
+            Transaction #: {{ $saleInvoice->sale_invoice_id }}
+          </span>
+          <br/>
+          {{ $saleInvoice->created_at->toDateString() }}
+        </div>
+        <div class="card mb-3 shadow-rm">
           <div class="card-body p-0">
             @if ($saleInvoice)
-              @if (count($saleInvoice->saleInvoiceItems) > 0)
-                {{-- Show in bigger screens --}}
-                <div class="table-responsive d-none d-md-block">
-                  <table class="table table-hover border-dark mb-0">
-                    <thead>
-                      <tr>
-                        <th class="o-heading">--</th>
-                        <th class="o-heading">Item</th>
-                        <th class="o-heading">Price</th>
-                        <th class="o-heading">Qty</th>
-                        <th class="o-heading">Amount</th>
-                      </tr>
-                    </thead>
+              {{-- Show in bigger screens --}}
+              <div class="table-responsive d-none-rm d-md-block-rm">
+                <table class="table table-hover border-dark mb-0">
+                  <thead>
+                    <tr>
+                      <th class="o-heading">--</th>
+                      <th class="o-heading">ITEM</th>
+                      <th class="o-heading">QTY</th>
+                      <th class="o-heading">PRICE</th>
+                      <th class="o-heading">TOTAL</th>
+                    </tr>
+                  </thead>
+                  @if (count($saleInvoice->saleInvoiceItems) > 0)
                     <tbody>
-                      @if (count($saleInvoice->saleInvoiceItems) > 0)
-                        @foreach ($saleInvoice->saleInvoiceItems as $item)
-                        <tr class="font-weight-bold">
-                          <td>
-                            <a href="" wire:click.prevent="confirmRemoveItemFromSaleInvoice({{ $item->sale_invoice_item_id }})">
-                            <i class="fas fa-times-circle text-danger"></i>
-                            </a>
-                          </td>
-                          <td>
-                            <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
-                            {{ $item->product->name }}
-                          </td>
-                          <td>
-                            {{ config('app.transaction_currency_symbol') }}
-                            @php echo number_format( $item->price_per_unit ); @endphp
-                          </td>
-                          <td>
-                            <span>
-                              {{ $item->quantity }}
-                            </span>
-                          </td>
-                          <td>
-                            {{ config('app.transaction_currency_symbol') }}
-                            @php echo number_format( $item->getTotalAmount() ); @endphp
-                          </td>
-                        </tr>
-                        @endforeach
-                      @endif
-                    </tbody>
-                    <tfoot>
-                      <tr class="py-0">
-                        <td colspan="4" class="o-heading text-right pr-4 py-3">
-                          Subtotal
-                        </td>
-                        <td class="font-weight-bold py-3">
-                          {{ config('app.transaction_currency_symbol') }}
-                          @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
-                        </td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
-      
-                {{-- Show in smaller screens --}}
-                <div class="table-responsive d-md-none">
-                  <table class="table">
-                    @if (count($saleInvoice->saleInvoiceItems) > 0)
                       @foreach ($saleInvoice->saleInvoiceItems as $item)
                       <tr class="font-weight-bold">
                         <td>
-                          <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
-                        </td>
-                        <td>
-                          {{ $item->product->name }}
-                          <br />
-                          <span class="mr-3">
-                            Rs @php echo number_format( $item->product->selling_price ); @endphp
-                          </span>
-                          <span class="text-secondary">
-                            Qty: {{ $item->quantity }}
-                          </span>
-                        </td>
-                        <td>
-                          @php echo number_format( $item->getTotalAmount() ); @endphp
-                        </td>
-                        <td>
-                          <a href="" wire:click.prevent="confirmRemoveItemFromTakeaway({{ $item->sale_invoice_item_id }})">
-                          <i class="fas fa-trash text-danger"></i>
+                          <a href="" wire:click.prevent="confirmRemoveItemFromSaleInvoice({{ $item->sale_invoice_item_id }})">
+                          @if (false)
+                          <i class="fas fa-times-circle text-danger"></i>
+                          @endif
                           </a>
+                          <span class="bg-danger text-white px-2 h-100 mx-1">
+                            DEL
+                          </span>
+                        </td>
+                        <td>
+                          <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 30px; height: 30px;">
+                          {{ $item->product->name }}
+                        </td>
+                        <td class="">
+                          <span>
+                            {{ $item->quantity }}
+                          </span>
+                        </td>
+                        <td class="o-heading">
+                          {{ config('app.transaction_currency_symbol') }}
+                          @php echo number_format( $item->price_per_unit ); @endphp
+                        </td>
+                        <td class="o-heading">
+                          {{ config('app.transaction_currency_symbol') }}
+                          @php echo number_format( $item->getTotalAmount() ); @endphp
                         </td>
                       </tr>
                       @endforeach
-                    @endif
-                  </table>
-                </div>
-              @else
-                <div class="p-4 bg-white border text-muted">
-                  <p class="font-weight-bold h4 py-4 text-center" style="color: #fe8d01;">
-                    <i class="fas fa-exclamation-circle mr-2"></i>
-                    No items in the list
-                  <p>
-                </div>
+                    </tbody>
+                  @else
+                    <tr class="font-weight-bold">
+                      <td colspan="5" class="py-4 text-center">
+                        <i class="fas fa-exclamation-circle mr-1"></i>
+                        No products added
+                      </td>
+                    </tr>
+                  @endif
+                  <tfoot>
+                    <tr class="py-0">
+                      <td colspan="4" class="o-heading text-right pr-4 py-3">
+                        Subtotal
+                      </td>
+                      <td class="o-heading py-3">
+                        {{ config('app.transaction_currency_symbol') }}
+                        @php echo number_format( $saleInvoice->getTotalAmountRaw() ); @endphp
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+      
+              {{-- Show in smaller screens --}}
+              @if (false)
+              <div class="table-responsive d-md-none">
+                <table class="table">
+                  @if (count($saleInvoice->saleInvoiceItems) > 0)
+                    @foreach ($saleInvoice->saleInvoiceItems as $item)
+                    <tr class="font-weight-bold">
+                      <td>
+                        <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                      </td>
+                      <td>
+                        {{ $item->product->name }}
+                        <br />
+                        <span class="mr-3">
+                          Rs @php echo number_format( $item->product->selling_price ); @endphp
+                        </span>
+                        <span class="text-secondary">
+                          Qty: {{ $item->quantity }}
+                        </span>
+                      </td>
+                      <td>
+                        @php echo number_format( $item->getTotalAmount() ); @endphp
+                      </td>
+                      <td>
+                        <a href="" wire:click.prevent="confirmRemoveItemFromTakeaway({{ $item->sale_invoice_item_id }})">
+                        <i class="fas fa-trash text-danger"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    @endforeach
+                  @endif
+                </table>
+              </div>
               @endif
             @endif
           </div>

@@ -1,7 +1,26 @@
-<div>
+<div class="bg-white">
 
-  <div class="card bg-light">
-    <div class="card-body p-0 py-3">
+  <div class="card bg-light-rm">
+    <div class="card-body p-0 pb-3">
+      <div class="bg-dark text-white py-3 text-center">
+        <div class="h4">
+          CUSTOMER DISPLAY
+        </div>
+        <div class="h3 o-heading text-warning mb-0">
+          {{ config('app.transaction_currency_symbol') }}
+          @php echo number_format( $this->grand_total ); @endphp
+        </div>
+      </div>
+      <div class="bg-success text-white py-3 text-center">
+        <div class="h5 o-heading text-white mb-0">
+          TRANSACTION SUMMARY
+        </div>
+      </div>
+      @if (false)
+      <h2 class="h4 bg-primary-rm text-dark o-heading pl-4 py-4">
+        Total
+      </h2>
+      @endif
       <div class="table-responsive mb-0 bg-white">
         <table class="table mb-0">
           <tbody>
@@ -157,12 +176,16 @@
     </div>
   </div>
 
-  <div class="mt-2-rm p-3 bg-light">
-    <div class="d-flex justify-content-between">
+  <div class="mt-2-rm p-3-rm bg-danger-r">
+    <h2 class="h4 bg-danger-rm text-dark o-heading pl-4 py-4">
+      Payment
+    </h2>
+    @if (false)
+    <div class="d-flex justify-content-between bg-primary text-white">
       <div class="d-flex flex-column justify-content-center">
-        <h2 class="h4 o-heading pl-2">
+        <h2 class="h4 bg-primary text-white o-heading pl-2">
           Payment
-        </h1>
+        </h2>
       </div>
       <div>
       @include ('partials.dashboard.spinner-button')
@@ -181,13 +204,14 @@
         @endif
       </div>
     </div>
+    @endif
   </div>
   @if (! $modes['multiplePayments'])
-    <div class="table-responsive mb-0" wire:key=" boomboom ">
-      <table class="table table-bordered mb-0">
+    <div class="table-responsive mb-0 bg-warning" wire:key=" boomboom ">
+      <table class="table table-bordered mb-0 mt-0">
         <tbody>
           <tr style="height: 50px;" class="bg-light">
-            <td class="w-50 p-0 pt-2 p-0 o-heading border-0">
+            <td class="w-50 p-0 pt-2-rm p-0 o-heading border-0">
               <span class="ml-4 d-inline-block mt-2 mb-3">
                 Tender Amount
               </span>
@@ -314,7 +338,7 @@
           class="btn btn-success w-100 py-3 o-heading text-white"
           wire:click="store">
         <i class="fas fa-check-circle mr-3"></i>
-        Confirm
+        CONFIRM
       </button>
     @else
       <button
