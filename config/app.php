@@ -83,8 +83,8 @@ return [
     'app_menu_normal_button_text_color'   => 'text-white',
     'app_menu_bg_color'                   => 'bg-dark',
 
-    'app_top_menu_bg_color'               => 'bg-white',
-    'app_top_menu_text_color'             => 'text-dark',
+    'app_top_menu_bg_color'               => 'bg-dark',
+    'app_top_menu_text_color'             => 'text-white',
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'transaction_currency' => 'US Dollar',
+    'transaction_currency' => 'USD',
     'transaction_currency_symbol' => '$',
 
     /*

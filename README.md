@@ -170,6 +170,7 @@ Below are some screenshots.
 
 ![screenshot](screenshots/dashboard-screenshot-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-list-1.png)
+![screenshot](screenshots/screenshot-sale-invoice-display-progress-1.png)
 ![screenshot](screenshots/screenshot-sale-invoice-display-finished-1.png)
 
 <!--
