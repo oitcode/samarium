@@ -343,13 +343,13 @@
     @else
       <button
           onclick="this.disabled=true;"
-          class="btn btn-lg btn-light py-4"
+          class="btn btn-block btn-lg btn-success py-4 w-50-rm m-0"
           wire:click="finishPayment">
         FINISH
       </button>
       <button
           onclick="this.disabled=true;"
-          class="btn btn-lg btn-light py-4"
+          class="btn btn-block btn-lg btn-primary py-4 w-50-rm m-0"
           wire:click="finishPayment">
         PRINT
       </button>

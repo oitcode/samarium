@@ -12,56 +12,54 @@
     @livewire ('core.dashboard.core-sale-invoice-display', ['saleInvoice' => $saleInvoice, 'exitDispatchEvent' => 'exitSaleInvoiceWorkMode',])
   @else
     <x-transaction-create-component>
-      <x-slot name="topToolbar">
-        {{--
-        |
-        | Toolbar
-        |
-        --}}
-        <x-toolbar-component>
-          <x-slot name="toolbarInfo">
-            @if (false)
-            Sale
-            <i class="fas fa-angle-right mx-2"></i>
-            {{ $saleInvoice->sale_invoice_id }}
-            @else
-              Sale Invoice ID:
-              &nbsp;
-              <span class="o-heading text-white-rm">
-                {{ $saleInvoice->sale_invoice_id }}
-              </span>
-              &nbsp;
-              &nbsp;
-              &nbsp;
-              &nbsp;
-              &nbsp;
-              Date:
-              &nbsp;
-              <span class="o-heading text-white-rm">
-                {{ $saleInvoice->created_at->toDateString() }}
-              </span>
-            @endif
-          </x-slot>
-          <x-slot name="toolbarButtons">
-            <div class="py-2">
-              <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="$refresh">
-                <i class="fas fa-refresh"></i>
-              </x-toolbar-button-component>
-              <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="">
-                <i class="fas fa-envelope"></i>
-                Email
-              </x-toolbar-button-component>
-              <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="">
-                <i class="fas fa-print"></i>
-                Print
-              </x-toolbar-button-component>
-              <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="closeThisComponent">
-                <i class="fas fa-times-circle text-danger mr-1"></i>
-                Close
-              </x-toolbar-button-component>
+      <x-slot name="topToolbarNxt">
+            <div class="d-flex justify-content-between bg-dark text-white px-3">
+              <div class="d-flex flex-column justify-content-center">
+                <div>
+                  @if (false)
+                  Sale
+                  <i class="fas fa-angle-right mx-2"></i>
+                  {{ $saleInvoice->sale_invoice_id }}
+                  @else
+                    Sale Invoice ID:
+                    &nbsp;
+                    <span class="o-heading text-white">
+                      {{ $saleInvoice->sale_invoice_id }}
+                    </span>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    Date:
+                    &nbsp;
+                    <span class="o-heading text-white">
+                      {{ $saleInvoice->created_at->toDateString() }}
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="py-2">
+                <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="$refresh">
+                  <i class="fas fa-refresh"></i>
+                </x-toolbar-button-component>
+                <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="">
+                  <i class="fas fa-envelope"></i>
+                  Email
+                </x-toolbar-button-component>
+                <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="">
+                  <i class="fas fa-print"></i>
+                  Print
+                </x-toolbar-button-component>
+                <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="closeThisComponent">
+                  <i class="fas fa-times-circle text-danger mr-1"></i>
+                  Close
+                </x-toolbar-button-component>
+              </div>
             </div>
-          </x-slot>
-        </x-toolbar-component>
+      </x-slot>
+
+      <x-slot name="topToolbar">
       </x-slot>
 
       <x-slot name="transactionMainInfo">

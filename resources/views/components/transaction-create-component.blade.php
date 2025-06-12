@@ -1,5 +1,8 @@
 <div>
   <div>
+    {{ $topToolbarNxt ?? ' ' }}
+  </div>
+  <div>
     {{ $topToolbar }}
   </div>
   <div class="row" style="margin: auto;">
