@@ -80,7 +80,9 @@
 
     {{-- Save/Cancel buttons div --}}
     <div class="py-4 m-0">
-      @include ('partials.button-store')
+      <x-general-ui.button.button-general btnClickMethod="store">
+        Submit
+      </x-general-ui.button.button-general>
       @include ('partials.button-cancel', ['clickEmitEventName' => 'exitCreateProductMode',])
       @include ('partials.dashboard.spinner-button')
     </div>
