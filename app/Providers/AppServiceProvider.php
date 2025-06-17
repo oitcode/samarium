@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
-use App\Company;
+use App\Models\Company\Company;
 use App\Models\Cms\CmsTheme\CmsTheme;
 use App\Models\Cms\CmsNavMenu\CmsNavMenu;
 

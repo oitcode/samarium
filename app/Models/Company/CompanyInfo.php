@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Company;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -51,6 +51,6 @@ class CompanyInfo extends Model
      */
     public function company()
     {
-        return $this->belongsTo('App\Company', 'company_id', 'company_id');
+        return $this->belongsTo('App\Models\Company\Company', 'company_id', 'company_id');
     }
 }

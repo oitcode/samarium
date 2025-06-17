@@ -5,7 +5,7 @@ namespace App\Livewire\Company\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\CompanyInfo;
+use App\Models\Company\CompanyInfo;
 
 class CompanyInfoDisplay extends Component
 {

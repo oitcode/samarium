@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Company;
+use App\Models\Company\Company;
 use App\Models\Cms\Webpage\Webpage;
 use App\Models\SeatTable\SeatTable;
 use App\Models\Team\TeamMember;

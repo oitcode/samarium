@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Company;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -43,6 +43,6 @@ class Company extends Model
      */
     public function companyInfos()
     {
-        return $this->hasMany('App\CompanyInfo', 'company_id', 'company_id');
+        return $this->hasMany('App\Models\Company\CompanyInfo', 'company_id', 'company_id');
     }
 }

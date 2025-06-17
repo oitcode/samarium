@@ -6,8 +6,8 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
-use App\Company;
-use App\GalleryImage;
+use App\Models\Company\Company;
+use App\Models\Gallery\GalleryImage;
 
 class CompanyComponent extends Component
 {

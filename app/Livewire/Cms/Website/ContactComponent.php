@@ -4,7 +4,7 @@ namespace App\Livewire\Cms\Website;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Company;
+use App\Models\Company\Company;
 use App\Models\ContactMessage\ContactMessage;
 
 class ContactComponent extends Component

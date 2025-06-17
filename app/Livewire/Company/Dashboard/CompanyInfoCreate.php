@@ -5,8 +5,8 @@ namespace App\Livewire\Company\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
-use App\Company;
-use App\CompanyInfo;
+use App\Models\Company\Company;
+use App\Models\Company\CompanyInfo;
 
 class CompanyInfoCreate extends Component
 {
