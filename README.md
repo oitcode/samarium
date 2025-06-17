@@ -1,199 +1,180 @@
-## Samarium
-
-<!--
-<div align="center">
-# Samarium
-</div>
+# Samarium - Business Management System
 
 <div align="center">
-  <img src="screenshots/samarium-logo-1.png" alt="Samarium ERP logo">
-</div>
--->
 
-<div>
-  <img src="https://img.shields.io/badge/Version-0.9.5-blue" alt="Version">  <img src="https://img.shields.io/badge/PHP-^8.2-474A8A" alt="PHP"> <img src="https://img.shields.io/badge/Laravel-^11.0-FA5B32" alt="Laravel"> <img src="https://img.shields.io/badge/Livewire-^3.0-AA3B62" alt="Livewire"> <img src="https://img.shields.io/badge/Bootstrap-^4.0-AA2BE2" alt="Bootstrap"> <img src="https://img.shields.io/badge/Docker-Supported-35a" alt="Docker"> <img src="https://img.shields.io/badge/License-MIT-7b2" alt="License">
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PHP](https://img.shields.io/badge/PHP->=8.2-777BB4?logo=php&logoColor=white)](https://php.net/)
+[![Laravel](https://img.shields.io/badge/Laravel-Framework-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/)
+[![MySQL](https://img.shields.io/badge/MySQL->=8.0-4479A1?logo=mysql&logoColor=white)](https://mysql.com/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](https://docker.com/)
+
+**A simple ERP system for small businesses - still growing and improving**
+
+[Quick Start](#quick-start) • [Features](#current-features) • [Installation](#installation) • [Contributing](#contributing)
+
 </div>
 
-![screenshot](screenshots/screenshot-sale-invoice-create-1.gif)
+---
+
+## About Samarium
+
+Samarium is a work-in-progress business management system that aims to help small businesses handle basic operations like invoicing, inventory, and customer management in one place. While it's still in active development with many features being refined and added, it might be useful for simple business needs.
+
+The project started as a learning exercise but has grown into something that could potentially help others who need basic business management tools without the complexity or cost of enterprise solutions.
+
+## Current Features
+
+**Please note**: Many features are still being developed and improved. What's available now:
+
+### Basic ERP Functions
+- Simple invoice generation
+- Basic financial tracking (income/expenses)
+- Customer database management
+- Basic inventory tracking
+
+### Point of Sale
+- Simple checkout process
+- Basic receipt generation
+- Product management
+
+### Website Management
+- Simple CMS functionality
+- Basic pages (About, Contact, etc.)
+- Basic content management
+
+### Additional Tools
+- Task management (basic)
+- Calendar system
+- Notice board
+- Simple analytics dashboard
+
+### Customization Options
+- Modular architecture (enable/disable features)
+- Basic theme customization
+- Configuration options
+
+## Who Might Find This Useful
+
+This might be helpful for:
+- Small businesses looking for a simple, free alternative to expensive software
+- Developers wanting to contribute to or learn from a Laravel-based business system
+- Anyone needing basic business management tools while understanding this is still evolving
+
+## Quick Start
+
+### Using Docker (Easiest)
+```bash
+git clone https://github.com/oitcode/samarium.git
+cd samarium
+cp .env.docker.example .env
+docker-compose up --build -d
+
+# First-time setup only
+docker exec -it samarium_app npm run dev
+docker exec -it samarium_app composer dump-autoload
+docker exec -it samarium_app php artisan migrate
+docker exec -it samarium_app php artisan key:generate
+docker exec -it samarium_app php artisan storage:link
+docker exec -it samarium_app php artisan db:seed
+
+# Visit: http://127.0.0.1:8000 (website)
+# Dashboard: http://127.0.0.1:8000/dashboard
+```
 
 ## Installation
 
-### Install with Docker
+<details>
+<summary>Manual Installation (requires PHP, MySQL, etc.)</summary>
 
-Perform below steps:
+### Requirements
+- PHP >= 8.2
+- MySQL >= 8.0
+- Composer
+- Node.js & npm
 
-```
+### Steps
+```bash
 git clone https://github.com/oitcode/samarium.git
-```
-
-```
 cd samarium
-```
-
-```
-cp .env.docker.example .env
-```
-
-> **Note:** You may need to use `sudo` with this command if you have Linux based OS as host.
-
-```
-docker-compose up --build -d
-```
-
-> **Note:** Below commands need to be run only first time during installation.
-
-> **Note:** You may need to use `sudo` with these commands.
-
-```
-docker exec -it samarium_app npm run dev
-```
-
-```
-docker exec -it samarium_app composer dump-autoload
-```
-
-```
-docker exec -it samarium_app php artisan migrate
-```
-
-```
-docker exec -it samarium_app php artisan key:generate
-```
-
-```
-docker exec -it samarium_app php artisan storage:link
-```
-
-```
-docker exec -it samarium_app php artisan db:seed
-```
-
-> **Note:** This docker setup is a minimal one. Please modify Docker related files accoring to your needs.
-
-#### Running the app
-
-Open your web browser and visit 
-- `127.0.0.1:8000` to see the website
-- `127.0.0.1:8000/dashboard` to see the dashboard
-
-### Installation without Docker
-
-#### Dependencies 
-
-Below applications must be installed in the system. 
-
-```
-php >= 8.2
-mysql >= 8.0
-composer
-nodejs
-npm
-```
-
-#### Step by step instructions
-
-```
-git clone https://github.com/oitcode/samarium.git
-```
-
-```
-cd samarium
-```
-
-```
 cp .env.example .env
-```
 
-Now create a mysql database. Then grant access to the mysql user. 
-Lets assume you created database named `demo_database` and you granted
-access to mysql user `demo_user`. Next, enter database name, mysql username
-and mysql password in the .env file.  Your .env file's database part should
-be like this.
+# Create database and update .env with your database credentials:
+# DB_DATABASE=your_database_name
+# DB_USERNAME=your_username
+# DB_PASSWORD=your_password
 
-```
-DB_DATABASE=demo_database
-DB_USERNAME=demo_user
-DB_PASSWORD='demo_password'
-```
-Please replace `demo_database`, `demo_user` and `demo_password` with real
-database name, username and password.
-
-```
 composer install
-```
-
-```
 npm install
-```
-
-```
 npm run dev
-```
 
-```
 php artisan migrate
-```
-
-```
 php artisan key:generate
-```
-
-```
 php artisan storage:link
-```
-
-```
 php artisan db:seed
-```
 
-> **Note:** Seeder files will create first admin user, basic webpages
-> of a typical website - Webpage like About us, Calendar, Noticeboard,
-> Gallery and Contact us are created - and few other things. Please
-> check seeder files in `database/seeder` if you want to see what
-> database seeding is done.
-
-#### Running the app
-
-```
 php artisan serve
 ```
 
-Now open your web browser and visit 
-- `127.0.0.1:8000` to see the website
-- `127.0.0.1:8000/dashboard` to see the dashboard
+Access at `http://127.0.0.1:8000`
 
-## Screenshots
-
-Below are some screenshots.
-
-![screenshot](screenshots/dashboard-screenshot-1.png)
-![screenshot](screenshots/screenshot-sale-invoice-display-progress-1.png)
-![screenshot](screenshots/screenshot-sale-invoice-display-progress-2.png)
-![screenshot](screenshots/screenshot-sale-invoice-display-finished-1.png)
-
-<!--
-## GIFs
-
-![screenshot](screenshots/screenshot-gif-product-1.gif)
-
-![screenshot](screenshots/create-webpage-1.gif)
-
-![screenshot](screenshots/create-post-1.gif)
--->
+</details>
 
 ## Configuration
 
-Please check `app/config.php` file to see different configuration options
-for the application.
+You can enable or disable modules in `config/app.php`:
+
+```php
+'modules' => [
+    'dashboard' => true,
+    'product' => true,
+    'shop' => true,
+    'calendar' => true,
+    'analytics' => false, // Disable unused features
+],
+```
+
+Theme colors can be customized in the same file:
+
+```php
+'app_menu_bg_color' => 'bg-dark',
+'app_top_menu_bg_color' => 'bg-light',
+```
+
+## Current Limitations
+
+Being honest about where things stand:
+- Many features are still basic and need improvement
+- Documentation could be much better
+- Some modules are incomplete
+- UI/UX needs work in many areas
+- Testing coverage is limited
+- Performance optimizations are needed
 
 ## Contributing
 
-Any kind of contributions are welcome.
+If you're interested in helping improve this project, contributions are very welcome:
 
-## Issues
+- **Bug reports**: If something doesn't work as expected
+- **Feature suggestions**: Ideas for improvements
+- **Code contributions**: Help fix issues or add features
+- **Documentation**: Help make things clearer for others
+- **Testing**: Help identify problems
 
-For bugs or feature request, open an issue on Github. 
+Feel free to open issues or pull requests. Even small improvements are appreciated.
+
+## Technical Details
+
+- **Backend**: Laravel (PHP)
+- **Frontend**: Bootstrap, JavaScript
+- **Database**: MySQL
+- **Containerization**: Docker support included
 
 ## License
 
-This project is licensed under the [MIT license](https://opensource.org/licenses/MIT)
+MIT License - feel free to use, modify, and distribute.
+
+## A Note
+
+This project is still evolving. While it works for basic needs, please consider it as "early stage" software. If you try it and encounter issues or have suggestions, feedback would be genuinely helpful for making it better.
+
+Thanks for taking a look at this project.
