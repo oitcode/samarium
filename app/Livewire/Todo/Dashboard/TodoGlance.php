@@ -4,7 +4,7 @@ namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Todo;
+use App\Models\Todo\Todo;
 
 class TodoGlance extends Component
 {
