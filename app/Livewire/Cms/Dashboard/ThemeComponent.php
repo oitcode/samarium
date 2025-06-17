@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
-use App\CmsTheme;
+use App\Models\Cms\CmsTheme\CmsTheme;
 use App\GalleryImage;
 
 class ThemeComponent extends Component

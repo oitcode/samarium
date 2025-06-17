@@ -213,7 +213,7 @@
   |
   --}}
 
-  @if (\App\Testimonial::count() > 0)
+  @if (\App\Models\Testimonial\Testimonial::count() > 0)
     <div class="container-fluid py-5 border bg-light">
       <div class="container">
         <h2 class="h5 o-heading mb-4">
