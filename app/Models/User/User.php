@@ -107,7 +107,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function documentFiles()
     {
-        return $this->hasMany('App\DocumentFile', 'creator_id', 'id');
+        return $this->hasMany('App\Models\DocumentFile\DocumentFile', 'creator_id', 'id');
     }
 
     /*

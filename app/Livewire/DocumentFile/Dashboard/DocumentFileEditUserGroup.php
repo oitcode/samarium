@@ -5,7 +5,7 @@ namespace App\Livewire\DocumentFile\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Models\User\UserGroup;
-use App\DocumentFileUserGroup;
+use App\Models\DocumentFile\DocumentFileUserGroup;
 
 class DocumentFileEditUserGroup extends Component
 {

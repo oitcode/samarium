@@ -5,7 +5,7 @@ namespace App\Livewire\DocumentFile\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\DocumentFile;
+use App\Models\DocumentFile\DocumentFile;
 
 class DocumentFileComponent extends Component
 {

@@ -55,7 +55,7 @@ class UserGroup extends Model
      */
     public function documentFiles()
     {
-        return $this->belongsToMany('App\DocumentFile', 'document_file__user_group', 'user_group_id', 'document_file_id');
+        return $this->belongsToMany('App\Models\DocumentFile\DocumentFile', 'document_file__user_group', 'user_group_id', 'document_file_id');
     }
 
     /*

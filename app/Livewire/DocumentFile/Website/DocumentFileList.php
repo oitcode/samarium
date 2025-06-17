@@ -6,8 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-
-use App\DocumentFile;
+use App\Models\DocumentFile\DocumentFile;
 
 class DocumentFileList extends Component
 {

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\DocumentFile\DocumentFileService;
-use App\DocumentFile;
+use App\Models\DocumentFile\DocumentFile;
 
 /**
  * DocumentFileList Component

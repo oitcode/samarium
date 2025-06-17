@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
-use App\DocumentFile;
+use App\Models\DocumentFile\DocumentFile;
 
 class DocumentFileCreate extends Component
 {

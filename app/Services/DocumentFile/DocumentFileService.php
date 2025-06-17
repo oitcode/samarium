@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\DocumentFile;
+use App\Models\DocumentFile\DocumentFile;
 
 class DocumentFileService
 {

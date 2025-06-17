@@ -11,7 +11,7 @@ use App\Models\Cms\Webpage\Webpage;
 use App\Models\SeatTable\SeatTable;
 use App\TeamMember;
 use App\Models\Vacancy\Vacancy;
-use App\DocumentFile;
+use App\Models\DocumentFile\DocumentFile;
 
 class WebsiteController extends Controller
 {
