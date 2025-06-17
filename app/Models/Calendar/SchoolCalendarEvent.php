@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Calendar;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,7 +40,7 @@ class SchoolCalendarEvent extends Model
     public function calendarGroups()
     {
         return $this->belongsToMany(
-            'App\CalendarGroup',
+            'App\Models\Calendar\CalendarGroup',
             'school_calendar_event__calendar_group',
             'school_calendar_event_id', 'calendar_group_id'
         );

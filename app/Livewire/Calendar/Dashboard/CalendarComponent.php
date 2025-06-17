@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Traits\ModesTrait;
-use App\SchoolCalendarEvent;
+use App\Models\Calendar\SchoolCalendarEvent;
 
 class CalendarComponent extends Component
 {

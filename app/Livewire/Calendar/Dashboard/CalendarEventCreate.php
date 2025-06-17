@@ -6,9 +6,9 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Traits\ModesTrait;
-use App\SchoolCalendarEvent;
-use App\CalendarGroup;
-use App\SchoolCalendarEventCalendarGroup;
+use App\Models\Calendar\SchoolCalendarEvent;
+use App\Models\Calendar\CalendarGroup;
+use App\Models\Calendar\SchoolCalendarEventCalendarGroup;
 
 class CalendarEventCreate extends Component
 {

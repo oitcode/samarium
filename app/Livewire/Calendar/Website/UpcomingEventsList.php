@@ -4,8 +4,8 @@ namespace App\Livewire\Calendar\Website;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\SchoolCalendarEvent;
-use App\CalendarGroup;
+use App\Models\Calendar\SchoolCalendarEvent;
+use App\Models\Calendar\CalendarGroup;
 
 class UpcomingEventsList extends Component
 {

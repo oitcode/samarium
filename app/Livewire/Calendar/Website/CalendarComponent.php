@@ -7,8 +7,8 @@ use Illuminate\View\View;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use App\Traits\ModesTrait;
-use App\SchoolCalendarEvent;
-use App\CalendarGroup;
+use App\Models\Calendar\SchoolCalendarEvent;
+use App\Models\Calendar\CalendarGroup;
 
 class CalendarComponent extends Component
 {
