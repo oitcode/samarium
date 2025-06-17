@@ -4,7 +4,7 @@ namespace App\Livewire\EcommWebsite;
 
 use Illuminate\View\View;
 use Livewire\Component;
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription\NewsletterSubscription;
 
 use App\Events\NewsletterSubscriptionCreated;
 

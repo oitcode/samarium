@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\NewsletterSubscription\NewsletterSubscriptionService;
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription\NewsletterSubscription;
 
 /**
  * NewsletterSubscriptionList Component

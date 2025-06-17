@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\NewsletterSubscription;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

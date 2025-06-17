@@ -5,7 +5,7 @@ namespace App\Livewire\NewsletterSubscription\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription\NewsletterSubscription;
 
 class NewsletterSubscriptionComponent extends Component
 {

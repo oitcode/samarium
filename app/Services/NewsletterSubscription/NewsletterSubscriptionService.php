@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\NewsletterSubscription;
+use App\Models\NewsletterSubscription\NewsletterSubscription;
 
 class NewsletterSubscriptionService
 {
