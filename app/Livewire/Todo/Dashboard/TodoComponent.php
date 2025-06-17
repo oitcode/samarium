@@ -5,7 +5,7 @@ namespace App\Livewire\Todo\Dashboard;
 use App\Traits\ModesTrait;
 use Illuminate\View\View;
 use Livewire\Component;
-use App\Todo;
+use App\Models\Todo\Todo;
 
 class TodoComponent extends Component
 {

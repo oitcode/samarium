@@ -7,7 +7,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\Todo\TodoService;
-use App\Todo;
+use App\Models\Todo\Todo;
 
 /**
  * TodoList Component

@@ -89,7 +89,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function todos()
     {
-        return $this->hasMany('App\Todo', 'creator_id', 'id');
+        return $this->hasMany('App\Models\Todo\Todo', 'creator_id', 'id');
     }
 
     /*
@@ -170,6 +170,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function assignedToTodos()
     {
-        return $this->hasMany('App\Todo', 'assigned_to_id', 'id');
+        return $this->hasMany('App\Models\Todo\Todo', 'assigned_to_id', 'id');
     }
 }
