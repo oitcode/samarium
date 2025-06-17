@@ -58,6 +58,6 @@ class WebpageContent extends Model
      */
     public function cmsWebpageContentCssOptions()
     {
-        return $this->hasMany('App\CmsWebpageContentCssOption', 'webpage_content_id', 'webpage_content_id');
+        return $this->hasMany('App\Models\Cms\Webpage\CmsWebpageContentCssOption', 'webpage_content_id', 'webpage_content_id');
     }
 }

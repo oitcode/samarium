@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Cms\Webpage;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,6 +38,6 @@ class CmsWebpageContentCssOption extends Model
      */
     public function webpageContent()
     {
-        return $this->belongsTo('App\WebpageContent', 'webpage_content_id', 'webpage_content_id');
+        return $this->belongsTo('App\Models\Cms\Webpage\WebpageContent', 'webpage_content_id', 'webpage_content_id');
     }
 }
