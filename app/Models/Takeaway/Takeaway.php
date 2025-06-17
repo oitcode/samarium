@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Takeaway;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -40,7 +40,7 @@ class Takeaway extends Model
      */
     public function saleInvoice()
     {
-        return $this->hasOne('App\SaleInvoice', 'takeaway_id', 'takeaway_id');
+        return $this->hasOne('App\Models\SaleInvoice\SaleInvoice', 'takeaway_id', 'takeaway_id');
     }
 
 

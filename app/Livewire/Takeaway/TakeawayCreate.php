@@ -5,8 +5,8 @@ namespace App\Livewire\Takeaway;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use App\Takeaway;
-use App\SaleInvoice;
+use App\Models\Takeaway\Takeaway;
+use App\Models\SaleInvoice\SaleInvoice;
 
 class TakeawayCreate extends Component
 {

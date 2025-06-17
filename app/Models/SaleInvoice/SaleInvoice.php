@@ -89,7 +89,7 @@ class SaleInvoice extends Model
      */
     public function takeaway()
     {
-        return $this->BelongsTo('App\Takeaway', 'takeaway_id', 'takeaway_id');
+        return $this->BelongsTo('App\Models\Takeaway\Takeaway', 'takeaway_id', 'takeaway_id');
     }
 
     /*

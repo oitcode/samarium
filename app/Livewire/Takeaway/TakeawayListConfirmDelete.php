@@ -4,7 +4,7 @@ namespace App\Livewire\Takeaway;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Takeaway;
+use App\Models\Takeaway\Takeaway;
 
 class TakeawayListConfirmDelete extends Component
 {

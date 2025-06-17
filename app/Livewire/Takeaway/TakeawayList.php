@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
-use App\Takeaway;
+use App\Models\Takeaway\Takeaway;
 
 class TakeawayList extends Component
 {
