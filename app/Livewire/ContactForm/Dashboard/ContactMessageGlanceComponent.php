@@ -4,7 +4,7 @@ namespace App\Livewire\ContactForm\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\ContactMessage;
+use App\Models\ContactMessage\ContactMessage;
 
 class ContactMessageGlanceComponent extends Component
 {

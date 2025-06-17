@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\ContactMessage\ContactMessageService;
-use App\ContactMessage;
+use App\Models\ContactMessage\ContactMessage;
 
 /**
  * ContactMessageList Component
