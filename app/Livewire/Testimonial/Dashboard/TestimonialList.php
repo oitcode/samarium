@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\Testimonial\TestimonialService;
-use App\Testimonial;
+use App\Models\Testimonial\Testimonial;
 
 /**
  * TestimonialList Component

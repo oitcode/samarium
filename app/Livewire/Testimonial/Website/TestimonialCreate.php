@@ -4,7 +4,7 @@ namespace App\Livewire\Testimonial\Website;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Testimonial;
+use App\Models\Testimonial\Testimonial;
 
 class TestimonialCreate extends Component
 {

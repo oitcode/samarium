@@ -5,7 +5,7 @@ namespace App\Livewire\Testimonial\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Testimonial;
+use App\Models\Testimonial\Testimonial;
 
 class TestimonialComponent extends Component
 {
