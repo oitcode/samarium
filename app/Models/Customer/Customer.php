@@ -57,7 +57,7 @@ class Customer extends Model
      */
     public function saleQuotations()
     {
-        return $this->hasMany('App\SaleQuotation', 'customer_id', 'customer_id');
+        return $this->hasMany('App\Models\SaleQuotation\SaleQuotation', 'customer_id', 'customer_id');
     }
 
     /*
@@ -75,7 +75,7 @@ class Customer extends Model
      */
     public function educApplications()
     {
-        return $this->hasMany('App\EducApplication', 'customer_id', 'customer_id');
+        return $this->hasMany('App\Models\EducInstitution\EducApplication', 'customer_id', 'customer_id');
     }
 
     /*

@@ -1,27 +1,27 @@
 <?php
 
-namespace App;
+namespace App\Models\EducInstitution;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EducInstitutionProgram extends Model
+class EducInstitution extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'educ_institution_program';
+    protected $table = 'educ_institution';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'educ_institution_program_id';
+    protected $primaryKey = 'educ_institution_id';
 
     protected $fillable = [
-         'name', 'program_type', 'educ_institution_id', 'creator_id',
+         'name', 'country', 'institution_type', 'creator_id',
     ];
 
 
@@ -41,20 +41,11 @@ class EducInstitutionProgram extends Model
     }
 
     /*
-     * educ_institution table.
+     * educ_institution_program table.
      *
      */
-    public function educInstitution()
+    public function educInstitutionPrograms()
     {
-        return $this->belongsTo('App\EducInstitution', 'educ_institution_id', 'educ_institution_id');
-    }
-
-    /*
-     * educ_application table.
-     *
-     */
-    public function educApplications()
-    {
-        return $this->hasMany('App\EducApplication', 'educ_institution_program_id', 'educ_institution_program_id');
+        return $this->hasMany('App\Models\EducInstitution\EducInstitutionProgram', 'educ_institution_id', 'educ_institution_id');
     }
 }

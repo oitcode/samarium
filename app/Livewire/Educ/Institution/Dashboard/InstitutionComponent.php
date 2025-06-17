@@ -5,7 +5,7 @@ namespace App\Livewire\Educ\Institution\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\EducInstitution;
+use App\Models\EducInstitution\EducInstitution;
 
 class InstitutionComponent extends Component
 {

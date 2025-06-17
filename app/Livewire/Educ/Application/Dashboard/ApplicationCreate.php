@@ -5,9 +5,9 @@ namespace App\Livewire\Educ\Application\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use App\EducInstitution;
-use App\EducInstitutionProgram;
-use App\EducApplication;
+use App\Models\EducInstitution\EducInstitution;
+use App\Models\EducInstitution\EducInstitutionProgram;
+use App\Models\EducInstitution\EducApplication;
 
 class ApplicationCreate extends Component
 {
