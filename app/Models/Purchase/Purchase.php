@@ -43,7 +43,7 @@ class Purchase extends Model
      */
     public function creator()
     {
-        return $this->belongsTo('App\User', 'creator_id', 'id');
+        return $this->belongsTo('App\Models\User\User', 'creator_id', 'id');
     }
 
     /*

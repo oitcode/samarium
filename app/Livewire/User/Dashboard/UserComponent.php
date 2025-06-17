@@ -5,7 +5,7 @@ namespace App\Livewire\User\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\User;
+use App\Models\User\User;
 
 class UserComponent extends Component
 {

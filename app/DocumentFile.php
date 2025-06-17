@@ -37,7 +37,7 @@ class DocumentFile extends Model
      */
     public function creator()
     {
-        return $this->belongsTo('App\User', 'creator_id', 'id');
+        return $this->belongsTo('App\Models\User\User', 'creator_id', 'id');
     }
 
     /*
@@ -46,6 +46,6 @@ class DocumentFile extends Model
      */
     public function userGroups()
     {
-        return $this->belongsToMany('App\UserGroup', 'document_file__user_group', 'document_file_id', 'user_group_id');
+        return $this->belongsToMany('App\Models\User\UserGroup', 'document_file__user_group', 'document_file_id', 'user_group_id');
     }
 }

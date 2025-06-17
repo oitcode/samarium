@@ -4,7 +4,7 @@ namespace App\Livewire\Todo\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\User;
+use App\Models\User\User;
 
 class TodoEditAssignedTo extends Component
 {

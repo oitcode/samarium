@@ -4,7 +4,7 @@ namespace App\Livewire\UrlLink\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\UserGroup;
+use App\Models\User\UserGroup;
 use App\UrlLinkUserGroup;
 
 class UrlLinkEditUserGroup extends Component

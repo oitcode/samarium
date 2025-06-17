@@ -8,7 +8,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\User\UserService;
-use App\User;
+use App\Models\User\User;
 
 /**
  * UserList Component

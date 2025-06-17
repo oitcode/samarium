@@ -5,7 +5,7 @@ namespace App\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Webpage;
+use App\Models\Cms\Webpage\Webpage;
 
 class PostComponent extends Component
 {

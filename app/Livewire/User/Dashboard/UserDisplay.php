@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\ModesTrait;
-use App\User;
+use App\Models\User\User;
 
 class UserDisplay extends Component
 {

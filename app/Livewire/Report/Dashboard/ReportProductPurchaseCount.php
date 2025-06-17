@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Models\Purchase\Purchase;
 use App\Models\Purchase\PurchaseItem;
-use App\Product;
+use App\Models\Product;
 
 class ReportProductPurchaseCount extends Component
 {

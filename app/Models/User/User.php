@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\User;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -53,7 +53,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function webpages()
     {
-        return $this->hasMany('App\Webpage', 'creator_id', 'id');
+        return $this->hasMany('App\Models\Cms\Webpage\Webpage', 'creator_id', 'id');
     }
 
     /*
@@ -62,7 +62,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function saleInvoices()
     {
-        return $this->hasMany('App\SaleInvoice', 'creator_id', 'id');
+        return $this->hasMany('App\Models\SaleInvoice\SaleInvoice', 'creator_id', 'id');
     }
 
     /*
@@ -71,7 +71,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function purchases()
     {
-        return $this->hasMany('App\Purchase', 'creator_id', 'id');
+        return $this->hasMany('App\Models\Purchase\Purchase', 'creator_id', 'id');
     }
 
     /*
@@ -80,7 +80,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function expenses()
     {
-        return $this->hasMany('App\Expense', 'creator_id', 'id');
+        return $this->hasMany('App\Models\Expense\Expense', 'creator_id', 'id');
     }
 
     /*
@@ -116,7 +116,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function customerComments()
     {
-        return $this->hasMany('App\CustomerComment', 'creator_id', 'id');
+        return $this->hasMany('App\Models\Customer\CustomerComment', 'creator_id', 'id');
     }
 
     /*
@@ -125,7 +125,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function customerDocumentFiles()
     {
-        return $this->hasMany('App\CustomerDocumentFile', 'creator_id', 'id');
+        return $this->hasMany('App\Models\Customer\CustomerDocumentFile', 'creator_id', 'id');
     }
 
     /*
@@ -152,7 +152,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function createdUserGroups()
     {
-        return $this->hasMany('App\UserGroup', 'creator_id', 'id');
+        return $this->hasMany('App\Models\User\UserGroup', 'creator_id', 'id');
     }
 
     /*
@@ -161,7 +161,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function userGroups()
     {
-        return $this->belongsToMany('App\UserGroup', 'user__user_group', 'user_id', 'user_group_id');
+        return $this->belongsToMany('App\Models\User\UserGroup', 'user__user_group', 'user_id', 'user_group_id');
     }
 
     /*

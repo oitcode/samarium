@@ -5,8 +5,8 @@ namespace App\Livewire\User\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use App\UserGroup;
-use App\UserUserGroup;
+use App\Models\User\UserGroup;
+use App\Models\User\UserUserGroup;
 
 class AddUserToGroup extends Component
 {

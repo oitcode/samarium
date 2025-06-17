@@ -37,7 +37,7 @@ class UrlLink extends Model
      */
     public function creator()
     {
-        return $this->belongsTo('App\User', 'creator_id', 'id');
+        return $this->belongsTo('App\Models\User\User', 'creator_id', 'id');
     }
 
     /*
@@ -46,6 +46,6 @@ class UrlLink extends Model
      */
     public function userGroups()
     {
-        return $this->belongsToMany('App\UserGroup', 'url_link__user_group', 'url_link_id', 'user_group_id');
+        return $this->belongsToMany('App\Models\User\UserGroup', 'url_link__user_group', 'url_link_id', 'user_group_id');
     }
 }

@@ -5,9 +5,9 @@ namespace App\Livewire\RecordBook\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Carbon\Carbon;
-use App\SaleInvoice;
-use App\Purchase;
-use App\Expense;
+use App\Models\SaleInvoice\SaleInvoice;
+use App\Models\Purchase\Purchase;
+use App\Models\Expense\Expense;
 
 class WeekbookComponent extends Component
 {

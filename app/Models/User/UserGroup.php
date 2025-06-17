@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class UserGroup extends Model
      */
     public function creator()
     {
-        return $this->belongsTo('App\User', 'creator_id', 'id');
+        return $this->belongsTo('App\Models\User\User', 'creator_id', 'id');
     }
 
     /*
@@ -46,11 +46,11 @@ class UserGroup extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('App\User', 'user__user_group', 'user_group_id', 'user_id');
+        return $this->belongsToMany('App\Models\User\User', 'user__user_group', 'user_group_id', 'user_id');
     }
 
     /*
-     * webpage table.
+     * document_file table.
      *
      */
     public function documentFiles()

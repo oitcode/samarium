@@ -38,7 +38,7 @@ class Todo extends Model
      */
     public function creator()
     {
-        return $this->belongsTo('App\User', 'creator_id', 'id');
+        return $this->belongsTo('App\Models\User\User', 'creator_id', 'id');
     }
 
     /*
@@ -47,6 +47,6 @@ class Todo extends Model
      */
     public function assignedTo()
     {
-        return $this->belongsTo('App\User', 'assigned_to_id', 'id');
+        return $this->belongsTo('App\Models\User\User', 'assigned_to_id', 'id');
     }
 }
