@@ -82,7 +82,7 @@ class Webpage extends Model
      */
     public function cmsNavMenuItems()
     {
-        return $this->hasMany('App\CmsNavMenuItem', 'webpage_id', 'webpage_id');
+        return $this->hasMany('App\Models\Cms\CmsNavMenu\CmsNavMenuItem', 'webpage_id', 'webpage_id');
     }
 
     /*
@@ -91,7 +91,7 @@ class Webpage extends Model
      */
     public function cmsNavMenuDropdownItems()
     {
-        return $this->hasMany('App\CmsNavMenuDropdownItem', 'webpage_id', 'webpage_id');
+        return $this->hasMany('App\Models\Cms\CmsNavMenu\CmsNavMenuDropdownItem', 'webpage_id', 'webpage_id');
     }
 
     /*

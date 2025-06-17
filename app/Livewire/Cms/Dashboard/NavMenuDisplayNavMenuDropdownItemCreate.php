@@ -4,8 +4,8 @@ namespace App\Livewire\Cms\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Webpage;
-use App\CmsNavMenuDropdownItem;
+use App\Models\Cms\Webpage\Webpage;
+use App\Models\Cms\CmsNavMenu\CmsNavMenuDropdownItem;
 
 class NavMenuDisplayNavMenuDropdownItemCreate extends Component
 {

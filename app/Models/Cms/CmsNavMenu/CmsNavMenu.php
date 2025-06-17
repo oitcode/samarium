@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Cms\CmsNavMenu;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,6 +37,6 @@ class CmsNavMenu extends Model
      */
     public function cmsNavMenuItems()
     {
-        return $this->hasMany('App\CmsNavMenuItem', 'cms_nav_menu_id', 'cms_nav_menu_id');
+        return $this->hasMany('App\Models\Cms\CmsNavMenu\CmsNavMenuItem', 'cms_nav_menu_id', 'cms_nav_menu_id');
     }
 }

@@ -5,7 +5,7 @@ namespace App\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Models\Cms\Webpage\Webpage;
-use App\CmsNavMenuItem;
+use App\Models\Cms\CmsNavMenu\CmsNavMenuItem;
 
 class NavMenuDisplayNavMenuItemCreate extends Component
 {

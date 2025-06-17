@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 use App\Company;
 use App\CmsTheme;
-use App\CmsNavMenu;
+use App\Models\Cms\CmsNavMenu\CmsNavMenu;
 
 class AppServiceProvider extends ServiceProvider
 {

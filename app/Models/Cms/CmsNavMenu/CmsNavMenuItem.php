@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Cms\CmsNavMenu;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class CmsNavMenuItem extends Model
      */
     public function cmsNavMenu()
     {
-        return $this->belongsTo('App\CmsNavMenu', 'cms_nav_menu_id', 'cms_nav_menu_id');
+        return $this->belongsTo('App\Models\Cms\CmsNavMenu\CmsNavMenu', 'cms_nav_menu_id', 'cms_nav_menu_id');
     }
 
     /*
@@ -55,6 +55,6 @@ class CmsNavMenuItem extends Model
      */
     public function cmsNavMenuDropdownItems()
     {
-        return $this->hasMany('App\CmsNavMenuDropdownItem', 'cms_nav_menu_item_id', 'cms_nav_menu_item_id');
+        return $this->hasMany('App\Models\Cms\CmsNavMenu\CmsNavMenuDropdownItem', 'cms_nav_menu_item_id', 'cms_nav_menu_item_id');
     }
 }
