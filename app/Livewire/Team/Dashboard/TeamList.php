@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\Team\TeamService;
-use App\Team;
+use App\Models\Team\Team;
 
 /**
  * TeamList Component

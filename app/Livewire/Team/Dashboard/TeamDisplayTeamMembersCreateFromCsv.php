@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 use \ForceUTF8\Encoding;
-use App\Team;
-use App\TeamMember;
+use App\Models\Team\Team;
+use App\Models\Team\TeamMember;
 
 class TeamDisplayTeamMembersCreateFromCsv extends Component
 {

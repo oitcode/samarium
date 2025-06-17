@@ -5,7 +5,7 @@ namespace App\Livewire\Team\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use App\TeamMemberAppointmentAvailability;
+use App\Models\Team\TeamMemberAppointmentAvailability;
 
 class TeamMemberAddAvailability extends Component
 {

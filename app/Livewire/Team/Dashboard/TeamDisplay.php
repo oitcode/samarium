@@ -5,7 +5,7 @@ namespace App\Livewire\Team\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\TeamMember;
+use App\Models\Team\TeamMember;
 
 class TeamDisplay extends Component
 {

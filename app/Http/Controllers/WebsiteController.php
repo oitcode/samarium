@@ -9,7 +9,7 @@ use App\Models\ProductCategory;
 use App\Company;
 use App\Models\Cms\Webpage\Webpage;
 use App\Models\SeatTable\SeatTable;
-use App\TeamMember;
+use App\Models\Team\TeamMember;
 use App\Models\Vacancy\Vacancy;
 use App\Models\DocumentFile\DocumentFile;
 

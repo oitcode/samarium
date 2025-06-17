@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Team;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -41,7 +41,7 @@ class TeamMember extends Model
      */
     public function team()
     {
-        return $this->belongsTo('App\Team', 'team_id', 'team_id');
+        return $this->belongsTo('App\Models\Team\Team', 'team_id', 'team_id');
     }
 
     /*
@@ -50,7 +50,7 @@ class TeamMember extends Model
      */
     public function teamMemberAppointmentAvailabilities()
     {
-        return $this->hasMany('App\TeamMemberAppointmentAvailability', 'team_member_id', 'team_member_id');
+        return $this->hasMany('App\Models\Team\TeamMemberAppointmentAvailability', 'team_member_id', 'team_member_id');
     }
 
     /*

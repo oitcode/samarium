@@ -5,7 +5,7 @@ namespace App\Livewire\Team\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
-use App\Team;
+use App\Models\Team\Team;
 
 class TeamUpdate extends Component
 {

@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
-use App\TeamMember;
+use App\Models\Team\TeamMember;
 use App\GalleryImage;
 
 class TeamDisplayTeamMemberCreate extends Component

@@ -64,7 +64,7 @@ class Webpage extends Model
      */
     public function webpageTeams()
     {
-        return $this->belongsToMany('App\Team', 'webpage__team', 'webpage_id', 'team_id');
+        return $this->belongsToMany('App\Models\Team\Team', 'webpage__team', 'webpage_id', 'team_id');
     }
 
     /*

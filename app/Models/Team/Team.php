@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Team;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class Team extends Model
      */
     public function teamMembers()
     {
-        return $this->hasMany('App\TeamMember', 'team_id', 'team_id');
+        return $this->hasMany('App\Models\Team\TeamMember', 'team_id', 'team_id');
     }
 
     /*
@@ -46,7 +46,7 @@ class Team extends Model
      */
     public function webPages()
     {
-        return $this->belongsToMany('App\Webpage', 'webpage__team', 'team_id', 'webpage_id');
+        return $this->belongsToMany('App\Models\Cms\Webpage\Webpage', 'webpage__team', 'team_id', 'webpage_id');
     }
 
 

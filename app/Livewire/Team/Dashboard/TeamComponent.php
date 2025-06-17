@@ -4,8 +4,8 @@ namespace App\Livewire\Team\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Team;
 use App\Traits\ModesTrait;
+use App\Models\Team\Team;
 
 class TeamComponent extends Component
 {

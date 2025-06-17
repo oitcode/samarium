@@ -172,7 +172,7 @@
   | This page shows the first playing team.
   |
   --}}
-  @if (\App\Team::where('team_type', 'playing_team')->first())
+  @if (\App\Models\Team\Team::where('team_type', 'playing_team')->first())
     <div class="container my-4">
       @include ('partials.team.team-block-display')
     </div>
@@ -186,14 +186,14 @@
   | This page shows the first sponsor and co-sponsor team.
   |
   --}}
-  @if (\App\Team::where('name', 'Sponsors')->first())
+  @if (\App\Models\Team\Team::where('name', 'Sponsors')->first())
     <div class="container my-4">
-      @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Sponsors')->first(),])
+      @include ('partials.team.team-display-fe', ['team' => \App\Models\Team\Team::where('name', 'Sponsors')->first(),])
     </div>
   @endif
-  @if (\App\Team::where('name', 'Co-Sponsors')->first())
+  @if (\App\Models\Team\Team::where('name', 'Co-Sponsors')->first())
     <div class="container my-4">
-      @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Co-Sponsors')->first(),])
+      @include ('partials.team.team-display-fe', ['team' => \App\Models\Team\Team::where('name', 'Co-Sponsors')->first(),])
     </div>
   @endif
 @elseif ($webpage->name == 'Organizing Committee')
@@ -205,8 +205,8 @@
   | This page shows the organizing committee team.
   |
   --}}
-  @if (\App\Team::where('team_type', 'organizing_team')->first())
-    @foreach (\App\Team::where('team_type', 'organizing_team')->get() as $team)
+  @if (\App\Models\Team\Team::where('team_type', 'organizing_team')->first())
+    @foreach (\App\Models\Team\Team::where('team_type', 'organizing_team')->get() as $team)
       <div class="container my-4">
         @include ('partials.team.team-display-fe', ['team' => $team,])
       </div>
@@ -221,8 +221,8 @@
   | This page shows the committee team.
   |
   --}}
-  @if (\App\Team::where('name', 'Committee')->first())
-    @foreach (\App\Team::where('name', 'Committee')->get() as $team)
+  @if (\App\Models\Team\Team::where('name', 'Committee')->first())
+    @foreach (\App\Models\Team\Team::where('name', 'Committee')->get() as $team)
       <div class="container my-4">
         @include ('partials.team.team-display-fe', ['team' => $team,])
       </div>
@@ -241,11 +241,11 @@
   @livewire ('cms.website.contact-component')
 
   {{-- Show quick contacts team if needed --}}
-  @if (count(\App\Team::where('name', 'Quick Contacts')->first()->teamMembers) > 0)
+  @if (count(\App\Models\Team\Team::where('name', 'Quick Contacts')->first()->teamMembers) > 0)
     <div class="container-fluid my-5 px-3">
       <div class="container p-0">
-        @if (\App\Team::where('name', 'Quick Contacts')->first())
-          @include ('partials.team.team-display-fe', ['team' => \App\Team::where('name', 'Quick Contacts')->first(),])
+        @if (\App\Models\Team\Team::where('name', 'Quick Contacts')->first())
+          @include ('partials.team.team-display-fe', ['team' => \App\Models\Team\Team::where('name', 'Quick Contacts')->first(),])
         @endif
       </div>
     </div>
