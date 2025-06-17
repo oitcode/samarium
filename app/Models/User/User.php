@@ -98,7 +98,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function urlLinks()
     {
-        return $this->hasMany('App\UrlLink', 'creator_id', 'id');
+        return $this->hasMany('App\Models\UrlLink\UrlLink', 'creator_id', 'id');
     }
 
     /*

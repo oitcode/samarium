@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\UrlLink\UrlLinkService;
-use App\UrlLink;
+use App\Models\UrlLink\UrlLink;
 
 /**
  * UrlLinkList Component

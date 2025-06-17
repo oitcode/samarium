@@ -57,4 +57,13 @@ class UserGroup extends Model
     {
         return $this->belongsToMany('App\DocumentFile', 'document_file__user_group', 'user_group_id', 'document_file_id');
     }
+
+    /*
+     * url_link table.
+     *
+     */
+    public function urlLinks()
+    {
+        return $this->belongsToMany('App\Models\UrlLink\UrlLink', 'url_link__user_group', 'user_group_id', 'url_link_id');
+    }
 }

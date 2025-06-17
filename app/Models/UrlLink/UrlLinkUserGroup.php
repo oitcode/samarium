@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\UrlLink;
 
 use Illuminate\Database\Eloquent\Model;
 
