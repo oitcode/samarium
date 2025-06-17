@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 use Carbon\Carbon;
 use App\Traits\ModesTrait;
 use App\Services\Appointment\AppointmentService;
-use App\Appointment;
+use App\Models\Appointment\Appointment;
 
 /**
  * AppointmentList Component

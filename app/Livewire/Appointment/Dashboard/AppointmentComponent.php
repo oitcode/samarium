@@ -5,7 +5,7 @@ namespace App\Livewire\Appointment\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Appointment;
+use App\Models\Appointment\Appointment;
 
 class AppointmentComponent extends Component
 {

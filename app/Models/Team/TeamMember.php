@@ -59,6 +59,6 @@ class TeamMember extends Model
      */
     public function appointments()
     {
-        return $this->hasMany('App\Appointment', 'team_member_id', 'team_member_id');
+        return $this->hasMany('App\Models\Appointment\Appointment', 'team_member_id', 'team_member_id');
     }
 }

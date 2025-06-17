@@ -4,7 +4,7 @@ namespace App\Livewire\Appointment\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Appointment;
+use App\Models\Appointment\Appointment;
 
 class AppointmentDisplay extends Component
 {

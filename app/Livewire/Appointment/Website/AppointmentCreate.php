@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Company;
-use App\Appointment;
+use App\Models\Appointment\Appointment;
 use App\TeamMember;
 
 class AppointmentCreate extends Component

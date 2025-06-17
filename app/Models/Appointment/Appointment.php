@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Appointment;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,6 +39,6 @@ class Appointment extends Model
      */
     public function teamMember()
     {
-        return $this->belongsTo('App\TeamMember', 'team_member_id', 'team_member_id');
+        return $this->belongsTo('App\Models\Team\TeamMember', 'team_member_id', 'team_member_id');
     }
 }
