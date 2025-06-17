@@ -5,8 +5,8 @@ namespace App\Livewire\Accounting\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Collection;
-use App\AbAccount;
-use App\AbAccountType;
+use App\Models\Accounting\AbAccount;
+use App\Models\Accounting\AbAccountType;
 
 class AccountingAccountCreate extends Component
 {

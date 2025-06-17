@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Accounting;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -42,7 +42,7 @@ class LedgerEntry extends Model
      */
     public function abAccount()
     {
-        return $this->belongsTo('App\AbAccount', 'ab_account_id', 'ab_account_id');
+        return $this->belongsTo('App\Models\Accounting\AbAccount', 'ab_account_id', 'ab_account_id');
     }
 
     /*
@@ -53,7 +53,7 @@ class LedgerEntry extends Model
      */
     public function journalEntry()
     {
-        return $this->belongsTo('App\JournalEntry', 'journal_entry_id', 'journal_entry_id');
+        return $this->belongsTo('App\Models\Accounting\JournalEntry', 'journal_entry_id', 'journal_entry_id');
     }
     /*
      * ab_account table (related).
@@ -64,6 +64,6 @@ class LedgerEntry extends Model
 
     public function relatedAbAccount()
     {
-        return $this->belongsTo('App\AbAccount', 'related_ab_account_id', 'ab_account_id');
+        return $this->belongsTo('App\Models\Accounting\AbAccount', 'related_ab_account_id', 'ab_account_id');
     }
 }

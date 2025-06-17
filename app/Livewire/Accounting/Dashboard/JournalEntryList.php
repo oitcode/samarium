@@ -4,7 +4,7 @@ namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\JournalEntry;
+use App\Models\Accounting\JournalEntry;
 
 class JournalEntryList extends Component
 {

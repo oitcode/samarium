@@ -4,7 +4,7 @@ namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\LedgerEntry;
+use App\Models\Accounting\LedgerEntry;
 
 class LedgerDisplay extends Component
 {

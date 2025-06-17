@@ -4,8 +4,8 @@ namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\AbAccount;
-use App\Company;
+use App\Models\Accounting\AbAccount;
+use App\Models\Company\Company;
 
 class AccountingTrialBalanceComponent extends Component
 {

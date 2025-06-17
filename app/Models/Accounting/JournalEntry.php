@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Accounting;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class JournalEntry extends Model
      */
     public function journalEntryItems()
     {
-        return $this->hasMany('App\JournalEntryItem', 'journal_entry_id', 'journal_entry_id');
+        return $this->hasMany('App\Models\Accounting\JournalEntryItem', 'journal_entry_id', 'journal_entry_id');
     }
 
     /*
@@ -46,6 +46,6 @@ class JournalEntry extends Model
      */
     public function ledgerEntries()
     {
-        return $this->hasMany('App\LedgerEntry', 'journal_entry_id', 'journal_entry_id');
+        return $this->hasMany('App\Models\Accounting\LedgerEntry', 'journal_entry_id', 'journal_entry_id');
     }
 }

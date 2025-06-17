@@ -4,8 +4,8 @@ namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\AbAccount;
 use App\Traits\ModesTrait;
+use App\Models\Accounting\AbAccount;
 
 class AccountingComponent extends Component
 {

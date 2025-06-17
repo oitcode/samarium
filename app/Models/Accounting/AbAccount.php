@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Accounting;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class AbAccount extends Model
      */
     public function abAccountType()
     {
-        return $this->belongsTo('App\AbAccountType', 'ab_account_type_id', 'ab_account_type_id');
+        return $this->belongsTo('App\Models\Accounting\AbAccountType', 'ab_account_type_id', 'ab_account_type_id');
     }
 
     /*
@@ -46,7 +46,7 @@ class AbAccount extends Model
      */
     public function journalEntryItems()
     {
-        return $this->hasMany('App\JournalEntryItem', 'ab_account_id', 'ab_account_id');
+        return $this->hasMany('App\Models\Accounting\JournalEntryItem', 'ab_account_id', 'ab_account_id');
     }
 
     /*
@@ -55,7 +55,7 @@ class AbAccount extends Model
      */
     public function customer()
     {
-        return $this->belongsTo('App\Customer', 'ab_account_id', 'ab_account_id');
+        return $this->belongsTo('App\Models\Customer\Customer', 'ab_account_id', 'ab_account_id');
     }
 
     /*
@@ -64,7 +64,7 @@ class AbAccount extends Model
      */
     public function ledgerEntries()
     {
-        return $this->hasMany('App\LedgerEntry', 'ab_account_id', 'ab_account_id');
+        return $this->hasMany('App\Models\Accounting\LedgerEntry', 'ab_account_id', 'ab_account_id');
     }
 
     /*
@@ -73,7 +73,7 @@ class AbAccount extends Model
      */
     public function relatedLedgerEntries()
     {
-        return $this->hasMany('App\LedgerEntry', 'related_ab_account_id', 'ab_account_id');
+        return $this->hasMany('App\Models\Accounting\LedgerEntry', 'related_ab_account_id', 'ab_account_id');
     }
 
 

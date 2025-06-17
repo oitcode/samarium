@@ -93,7 +93,7 @@ class Customer extends Model
      */
     public function abAccount()
     {
-        return $this->hasOne('App\AbAccount', 'ab_account_id', 'ab_account_id');
+        return $this->hasOne('App\Models\Accounting\AbAccount', 'ab_account_id', 'ab_account_id');
     }
 
 

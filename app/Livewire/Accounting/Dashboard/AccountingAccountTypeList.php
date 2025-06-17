@@ -4,7 +4,7 @@ namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\AbAccountType;
+use App\Models\Accounting\AbAccountType;
 
 class AccountingAccountTypeList extends Component
 {

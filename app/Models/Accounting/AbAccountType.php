@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Accounting;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,6 +37,6 @@ class AbAccountType extends Model
      */
     public function abAccounts()
     {
-        return $this->hasMany('App\AbAccount', 'ab_account_type_id', 'ab_account_type_id');
+        return $this->hasMany('App\Models\Accounting\AbAccount', 'ab_account_type_id', 'ab_account_type_id');
     }
 }

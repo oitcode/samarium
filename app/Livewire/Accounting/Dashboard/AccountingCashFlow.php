@@ -4,8 +4,8 @@ namespace App\Livewire\Accounting\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\AbAccountType;
-use App\AbAccount;
+use App\Models\Accounting\AbAccountType;
+use App\Models\Accounting\AbAccount;
 
 class AccountingCashFlow extends Component
 {
