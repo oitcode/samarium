@@ -4,7 +4,7 @@ namespace App\Livewire\Vacancy\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Vacancy;
+use App\Models\Vacancy\Vacancy;
 
 class VacancyCreate extends Component
 {

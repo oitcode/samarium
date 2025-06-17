@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\Vacancy\VacancyService;
-use App\Vacancy;
+use App\Models\Vacancy\Vacancy;
 
 /**
  * VacancyList Component

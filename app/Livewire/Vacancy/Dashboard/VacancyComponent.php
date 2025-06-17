@@ -5,7 +5,7 @@ namespace App\Livewire\Vacancy\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Vacancy;
+use App\Models\Vacancy\Vacancy;
 
 class VacancyComponent extends Component
 {
