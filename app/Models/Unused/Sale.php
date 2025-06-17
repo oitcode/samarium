@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Unused;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class Sale extends Model
      */
     public function customer()
     {
-        return $this->belongsTo('App\Customer', 'customer_id', 'customer_id');
+        return $this->belongsTo('App\Models\Customer\Customer', 'customer_id', 'customer_id');
     }
 
     /*
@@ -46,7 +46,7 @@ class Sale extends Model
      */
     public function saleItems()
     {
-        return $this->hasMany('App\SaleItem', 'sale_id', 'sale_id');
+        return $this->hasMany('App\Models\Unused\SaleItem', 'sale_id', 'sale_id');
     }
 
 

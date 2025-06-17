@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Unused;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,6 +37,6 @@ class SaleItem extends Model
      */
     public function sale()
     {
-        return $this->belongsTo('App\Sale', 'sale_id', 'sale_id');
+        return $this->belongsTo('App\Models\Unused\Sale', 'sale_id', 'sale_id');
     }
 }
