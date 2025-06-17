@@ -12,6 +12,8 @@
 
 [Quick Start](#quick-start) • [Features](#current-features) • [Installation](#installation) • [Contributing](#contributing)
 
+![screenshot](screenshots/screenshot-sale-invoice-create-1.gif)
+
 </div>
 
 ---
