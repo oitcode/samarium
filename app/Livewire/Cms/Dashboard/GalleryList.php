@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\Cms\GalleryService;
-use App\Gallery;
+use App\Models\Gallery\Gallery;
 
 /**
  * GalleryList Component

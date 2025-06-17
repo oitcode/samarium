@@ -5,7 +5,7 @@ namespace App\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Gallery;
+use App\Models\Gallery\Gallery;
 
 class GalleryComponent extends Component
 {

@@ -5,7 +5,7 @@ namespace App\Livewire\Cms\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
-use App\GalleryImage;
+use App\Models\Gallery\GalleryImage;
 
 class GalleryUpdate extends Component
 {

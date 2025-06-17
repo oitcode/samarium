@@ -70,8 +70,8 @@
   --}}
   <div class="container-fluid">
     <div class="container py-4">
-      @if (\App\Gallery::where('show_in_gallery_page', 'yes')->get() != null && count(\App\Gallery::where('show_in_gallery_page', 'yes')->get()) > 0)
-          @foreach (\App\Gallery::where('show_in_gallery_page', 'yes')->get() as $gallery)
+      @if (\App\Models\Gallery\Gallery::where('show_in_gallery_page', 'yes')->get() != null && count(\App\Models\Gallery\Gallery::where('show_in_gallery_page', 'yes')->get()) > 0)
+          @foreach (\App\Models\Gallery\Gallery::where('show_in_gallery_page', 'yes')->get() as $gallery)
             <div class="mb-5">
               <h2 class="h4 font-weight-bold mt-3 mb-3" style="color: #000; font-family: Arial; font-weight: bold;">
                 {{ $gallery->name }}

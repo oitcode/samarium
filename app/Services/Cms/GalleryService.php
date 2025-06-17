@@ -6,8 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\Gallery;
-use App\GalleryImage;
+use App\Models\Gallery\Gallery;
+use App\Models\Gallery\GalleryImage;
 
 class GalleryService
 {

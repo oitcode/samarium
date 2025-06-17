@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Gallery;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,7 +39,7 @@ class Gallery extends Model
      */
     public function galleryImages()
     {
-        return $this->hasMany('App\GalleryImage', 'gallery_id', 'gallery_id');
+        return $this->hasMany('App\Models\Gallery\GalleryImage', 'gallery_id', 'gallery_id');
     }
 
     /*
@@ -48,7 +48,7 @@ class Gallery extends Model
      */
     public function product()
     {
-        return $this->belongsTo('App\Product', 'gallery_id', 'gallery_id');
+        return $this->belongsTo('App\Models\Product', 'gallery_id', 'gallery_id');
     }
 
 
