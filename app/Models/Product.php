@@ -84,7 +84,7 @@ class Product extends Model
      */
     public function gallery()
     {
-        return $this->hasOne('App\Gallery', 'gallery_id', 'gallery_id');
+        return $this->hasOne('App\Models\Gallery\Gallery', 'gallery_id', 'gallery_id');
     }
 
     /*
