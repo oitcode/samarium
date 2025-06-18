@@ -2,8 +2,7 @@
 
 @section ('pageTitleTag')
   <title>
-    {{ $productCategory->name }}
-    {{ env ('CMP_NAME', 'Foobiz') }}
+    {{ $productCategory->name }} {{ env ('CMP_NAME', '') }}
   </title>
 @endsection
 

@@ -1,7 +1,7 @@
 @extends ('website.cms.base')
 
 @section ('pageTitleTag')
-  <title>{{ $product->name }} {{ env ('CMP_NAME', 'Foobiz') }}</title>
+  <title>{{ $product->name }} {{ env ('CMP_NAME', '') }}</title>
 @endsection
 
 @section ('googleAnalyticsTag')
