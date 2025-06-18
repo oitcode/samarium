@@ -73,7 +73,7 @@ class Webpage extends Model
      */
     public function webpageProductCategories()
     {
-        return $this->belongsToMany('App\Models\ProductCategory', 'webpage__product_category', 'webpage_id', 'product_category_id');
+        return $this->belongsToMany('App\Models\Product\ProductCategory', 'webpage__product_category', 'webpage_id', 'product_category_id');
     }
 
     /*

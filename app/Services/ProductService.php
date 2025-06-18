@@ -5,8 +5,8 @@ namespace App\Services;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
-use App\Models\Product;
-use App\Models\ProductSpecification;
+use App\Models\Product\Product;
+use App\Models\Product\ProductSpecification;
 
 class ProductService
 {

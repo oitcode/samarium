@@ -6,9 +6,9 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
-use App\Models\Product;
-use App\Models\ProductCategory;
 use App\Services\ProductService;
+use App\Models\Product\Product;
+use App\Models\Product\ProductCategory;
 
 /**
  * Livewire component for creating new products in the dashboard.

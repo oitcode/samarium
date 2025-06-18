@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Services\ProductCategoryService;
-use App\Models\ProductCategory;
+use App\Models\Product\ProductCategory;
 
 /**
  * ProductCategoryCreate Livewire Component

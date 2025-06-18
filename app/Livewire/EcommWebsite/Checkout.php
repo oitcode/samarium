@@ -5,7 +5,7 @@ namespace App\Livewire\EcommWebsite;
 use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
-use App\Models\Product;
+use App\Models\Product\Product;
 use App\Models\WebsiteOrder\WebsiteOrder;
 use App\Models\WebsiteOrder\WebsiteOrderItem;
 

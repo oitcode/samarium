@@ -50,7 +50,7 @@ class SaleInvoiceItem extends Model
      */
     public function product()
     {
-        return $this->belongsTo('App\Models\Product', 'product_id', 'product_id');
+        return $this->belongsTo('App\Models\Product\Product', 'product_id', 'product_id');
     }
 
 

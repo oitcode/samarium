@@ -8,9 +8,9 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
-use App\Product;
-use App\ProductCategory;
-use App\ProductSpecification;
+use App\Models\Product\Product;
+use App\Models\Product\ProductCategory;
+use App\Models\Product\ProductSpecification;
 
 class ProductCreate extends Component
 {

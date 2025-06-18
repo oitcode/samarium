@@ -1,30 +1,30 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Product;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductVendor extends Model
+class ProductEnquiry extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'product_vendor';
+    protected $table = 'product_enquiry';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'product_vendor_id';
+    protected $primaryKey = 'product_enquiry_id';
 
     protected $fillable = [
-         'name', 'phone', 'email', 'address',
+         'product_id',
+         'writer_name',
+         'writer_email', 'writer_phone',
+         'enquiry_text',
     ];
 
 
@@ -36,9 +36,10 @@ class ProductVendor extends Model
 
     /*
      * product table.
+     *
      */
-    public function products()
+    public function product()
     {
-        return $this->hasMany('App\Models\Product', 'product_vendor_id', 'product_vendor_id');
+        return $this->belongsTo('App\Models\Product\Product', 'product_id', 'product_id');
     }
 }

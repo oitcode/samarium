@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use App\Traits\ModesTrait;
 use App\Services\Cms\GalleryService;
-use App\GalleryImage;
+use App\Models\Gallery\GalleryImage;
 
 class ProductGalleryDisplay extends Component
 {

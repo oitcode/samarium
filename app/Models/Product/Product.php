@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Product;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -44,7 +44,7 @@ class Product extends Model
      */
     public function productCategory()
     {
-        return $this->belongsTo('App\Models\ProductCategory', 'product_category_id', 'product_category_id');
+        return $this->belongsTo('App\Models\Product\ProductCategory', 'product_category_id', 'product_category_id');
     }
 
     /*
@@ -52,7 +52,7 @@ class Product extends Model
      */
     public function productVendor()
     {
-        return $this->belongsTo('App\Models\ProductVendor', 'product_vendor_id', 'product_vendor_id');
+        return $this->belongsTo('App\Models\Product\ProductVendor', 'product_vendor_id', 'product_vendor_id');
     }
 
     /*
@@ -60,7 +60,7 @@ class Product extends Model
      */
     public function productReviews()
     {
-        return $this->hasMany('App\Models\ProductReview', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\Product\ProductReview', 'product_id', 'product_id');
     }
 
     /*
@@ -68,7 +68,7 @@ class Product extends Model
      */
     public function productQuestions()
     {
-        return $this->hasMany('App\Models\ProductQuestion', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\Product\ProductQuestion', 'product_id', 'product_id');
     }
 
     /*
@@ -76,7 +76,7 @@ class Product extends Model
      */
     public function productEnquiries()
     {
-        return $this->hasMany('App\Models\ProductEnquiry', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\Product\ProductEnquiry', 'product_id', 'product_id');
     }
 
     /*
@@ -96,7 +96,7 @@ class Product extends Model
      */
     public function baseProduct()
     {
-        return $this->belongsTo('App\Models\Product', 'base_product_id', 'product_id');
+        return $this->belongsTo('App\Models\Product\Product', 'base_product_id', 'product_id');
     }
 
     /*
@@ -108,7 +108,7 @@ class Product extends Model
      */
     public function subProducts()
     {
-        return $this->hasMany('App\Models\Product', 'base_product_id', 'product_id');
+        return $this->hasMany('App\Models\Product\Product', 'base_product_id', 'product_id');
     }
 
     /*
@@ -116,7 +116,7 @@ class Product extends Model
      */
     public function saleInvoiceItems()
     {
-        return $this->hasMany('App\SaleInvoiceItem', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\SaleInvoice\SaleInvoiceItem', 'product_id', 'product_id');
     }
 
     /*
@@ -124,7 +124,7 @@ class Product extends Model
      */
     public function saleQuotationItems()
     {
-        return $this->hasMany('App\SaleQuotationItem', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\SaleQuotation\SaleQuotationItem', 'product_id', 'product_id');
     }
 
     /*
@@ -132,7 +132,7 @@ class Product extends Model
      */
     public function seatTableBookingItems()
     {
-        return $this->hasMany('App\SeatTableBookingItem', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\SeatTable\SeatTableBookingItem', 'product_id', 'product_id');
     }
 
     /*
@@ -150,7 +150,7 @@ class Product extends Model
      */
     public function websiteOrderItems()
     {
-        return $this->hasMany('App\WebsiteOrderItems', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\WebsiteOrder\WebsiteOrderItems', 'product_id', 'product_id');
     }
 
     /*
@@ -158,7 +158,7 @@ class Product extends Model
      */
     public function purchaseItems()
     {
-        return $this->hasMany('App\PurchaseItem', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\Purchase\PurchaseItem', 'product_id', 'product_id');
     }
 
     /*
@@ -166,7 +166,7 @@ class Product extends Model
      */
     public function productSpecificationHeadings()
     {
-        return $this->hasMany('App\Models\ProductSpecificationHeading', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\Product\ProductSpecificationHeading', 'product_id', 'product_id');
     }
 
     /*
@@ -174,7 +174,7 @@ class Product extends Model
      */
     public function productSpecifications()
     {
-        return $this->hasMany('App\Models\ProductSpecification', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\Product\ProductSpecification', 'product_id', 'product_id');
     }
 
     /*
@@ -182,7 +182,7 @@ class Product extends Model
      */
     public function productFeatureHeadings()
     {
-        return $this->hasMany('App\Models\ProductFeatureHeading', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\Product\ProductFeatureHeading', 'product_id', 'product_id');
     }
 
     /*
@@ -190,7 +190,7 @@ class Product extends Model
      */
     public function productFeatures()
     {
-        return $this->hasMany('App\Models\ProductFeature', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\Product\ProductFeature', 'product_id', 'product_id');
     }
 
     /*
@@ -198,7 +198,7 @@ class Product extends Model
      */
     public function productOptionHeadings()
     {
-        return $this->hasMany('App\Models\ProductOptionHeading', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\Product\ProductOptionHeading', 'product_id', 'product_id');
     }
 
     /*
@@ -206,7 +206,7 @@ class Product extends Model
      */
     public function productOptions()
     {
-        return $this->hasMany('App\Models\ProductOption', 'product_id', 'product_id');
+        return $this->hasMany('App\Models\Product\ProductOption', 'product_id', 'product_id');
     }
 
     public function isUsedToday()

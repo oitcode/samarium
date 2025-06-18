@@ -5,9 +5,9 @@ namespace App\Livewire\EcommWebsite;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Company;
-use App\Models\ProductCategory;
-use App\Models\Product;
+use App\Models\Company\Company;
+use App\Models\Product\ProductCategory;
+use App\Models\Product\Product;
 
 class HomeComponent extends Component
 {

@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Services\ProductService;
 use App\Traits\ModesTrait;
-use App\Models\Product;
+use App\Models\Product\Product;
 
 class ProductList extends Component
 {

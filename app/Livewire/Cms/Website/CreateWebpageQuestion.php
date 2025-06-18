@@ -4,7 +4,7 @@ namespace App\Livewire\Cms\Website;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\WebpageQuestion;
+use App\Models\Cms\Webpage\WebpageQuestion;
 
 class CreateWebpageQuestion extends Component
 {

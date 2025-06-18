@@ -5,7 +5,7 @@ namespace App\Livewire\ProductCategory\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Models\ProductCategory;
+use App\Models\Product\ProductCategory;
 
 class ProductCategoryComponent extends Component
 {

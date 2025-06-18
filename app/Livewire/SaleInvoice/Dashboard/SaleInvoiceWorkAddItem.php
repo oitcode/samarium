@@ -6,10 +6,10 @@ use App\Traits\ModesTrait;
 use Illuminate\View\View;
 use App\Traits\InventoryTrait;
 use Livewire\Component;
-use App\Models\Product;
-use App\Models\ProductCategory;
+use App\Models\Product\Product;
+use App\Models\Product\ProductCategory;
 use App\Models\SaleInvoice\SaleInvoiceItem;
-use App\Takeaway;
+use App\Models\Takeaway\Takeaway;
 
 class SaleInvoiceWorkAddItem extends Component
 {

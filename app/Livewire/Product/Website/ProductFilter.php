@@ -3,9 +3,9 @@
 namespace App\Livewire\Product\Website;
 
 use Livewire\Component;
-use App\Models\ProductCategory;
-use App\Models\Product;
-use App\Models\ProductSpecification;
+use App\Models\Product\ProductCategory;
+use App\Models\Product\Product;
+use App\Models\Product\ProductSpecification;
 
 class ProductFilter extends Component
 {

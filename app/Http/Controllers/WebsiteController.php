@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\Product;
-use App\Models\ProductCategory;
+use App\Models\Product\Product;
+use App\Models\Product\ProductCategory;
 use App\Models\Company\Company;
 use App\Models\Cms\Webpage\Webpage;
 use App\Models\SeatTable\SeatTable;

@@ -14,7 +14,7 @@
   </div>
 
   <div class="my-3">
-    @include ('partials.button-store')
+    @include ('partials.button-update')
     @include ('partials.button-cancel', ['clickEmitEventName' => 'webpageEditVisibilityCancel',])
     @include ('partials.dashboard.spinner-button')
   </div>

@@ -5,7 +5,7 @@ namespace App\Livewire\EcommWebsite;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Models\Product;
+use App\Models\Product\Product;
 
 class ProductDisplay extends Component
 {

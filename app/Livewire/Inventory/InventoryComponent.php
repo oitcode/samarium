@@ -5,7 +5,7 @@ namespace App\Livewire\Inventory;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Models\Product;
+use App\Models\Product\Product;
 
 class InventoryComponent extends Component
 {

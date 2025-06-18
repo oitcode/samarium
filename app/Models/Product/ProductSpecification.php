@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Product;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +37,7 @@ class ProductSpecification extends Model
      */
     public function product()
     {
-        return $this->belongsTo('App\Models\Product', 'product_id', 'product_id');
+        return $this->belongsTo('App\Models\Product\Product', 'product_id', 'product_id');
     }
 
     /*
@@ -46,6 +46,6 @@ class ProductSpecification extends Model
      */
     public function productSpecificationHeading()
     {
-        return $this->belongsTo('App\Models\ProductSpecificationHeading', 'product_specification_heading_id', 'product_specification_heading_id');
+        return $this->belongsTo('App\Models\Product\ProductSpecificationHeading', 'product_specification_heading_id', 'product_specification_heading_id');
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Livewire\Product\Website;
 
 use Livewire\Component;
-use App\Models\Product;
+use App\Models\Product\Product;
 
 class FeaturedProductList extends Component
 {

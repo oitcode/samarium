@@ -5,8 +5,8 @@ namespace App\Livewire\Purchase\Dashboard;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\Models\Product;
-use App\Models\ProductCategory;
+use App\Models\Product\Product;
+use App\Models\Product\ProductCategory;
 use App\Models\Purchase\PurchaseItem;
 use App\Models\Purchase\Purchase;
 

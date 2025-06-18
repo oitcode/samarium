@@ -4,7 +4,7 @@ namespace App\Livewire\Product\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Models\ProductFeature;
+use App\Models\Product\ProductFeature;
 
 class ProductEditAddProductFeature extends Component
 {

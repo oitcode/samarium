@@ -5,7 +5,7 @@ namespace App\Services;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\Models\ProductVendor;
+use App\Models\Product\ProductVendor;
 
 class ProductVendorService
 {

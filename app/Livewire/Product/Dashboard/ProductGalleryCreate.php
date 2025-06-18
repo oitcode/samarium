@@ -6,8 +6,8 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
-use App\GalleryImage;
-use App\Gallery;
+use App\Models\Gallery\GalleryImage;
+use App\Models\Gallery\Gallery;
 
 class ProductGalleryCreate extends Component
 {

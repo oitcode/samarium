@@ -55,7 +55,7 @@
             </div>
             <div class="flex-grow-1">
               <div class="row py-3" style="margin: auto;">
-                @foreach (\App\Models\Product::where('featured_product', 'yes')->get() as $product)
+                @foreach (\App\Models\Product\Product::where('featured_product', 'yes')->get() as $product)
                     <div class="col-md-4">
                       <a href="{{ route('website-product-view', [$product->product_id, str_replace(' ', '-', $product->name)]) }}"
                           class="text-decoration-none">
@@ -114,7 +114,7 @@
           Our most viewed products
         </p>
         <div class="row">
-          @foreach (\App\Models\Product::orderBy('website_views', 'desc')->limit('3')->get() as $product)
+          @foreach (\App\Models\Product\Product::orderBy('website_views', 'desc')->limit('3')->get() as $product)
             <div class="col-6 col-md-4">
               <a href="{{ route('website-product-view', [$product->product_id, str_replace(" ", "-", $product->name)]) }}"
                   class="text-decoration-none"
