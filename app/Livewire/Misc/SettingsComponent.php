@@ -5,12 +5,12 @@ namespace App\Livewire\Misc;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Traits\ModesTrait;
-use App\SaleInvoicePaymentType;
-use App\PurchasePaymentType;
-use App\ExpensePaymentType;
-use App\SaleInvoiceAdditionHeading;
-use App\PurchaseAdditionHeading;
-use App\ExpenseAdditionHeading;
+use App\Models\SaleInvoice\SaleInvoicePaymentType;
+use App\Models\Purchase\PurchasePaymentType;
+use App\Models\Expense\ExpensePaymentType;
+use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
+use App\Models\Purchase\PurchaseAdditionHeading;
+use App\Models\Expense\ExpenseAdditionHeading;
 
 class SettingsComponent extends Component
 {
