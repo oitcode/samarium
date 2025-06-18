@@ -1,4 +1,4 @@
-<div class="bg-white" style="border-radius: 5px;">
+<div class="bg-white o-border-radius">
   {{--
      |
      | Info div

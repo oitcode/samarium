@@ -234,3 +234,7 @@ animation-play-state:paused;
 .o-light-shade {
     background-color: rgba(255, 255, 255, 0.5);
 }
+
+.o-border-radius {
+    border-radius: 15px;
+}

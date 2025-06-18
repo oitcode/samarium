@@ -1,4 +1,4 @@
-<div>
+<div class="bg-white p-3 pt-4 o-border-radius">
 
   <div class="d-flex justify-content-between">
     <div>
@@ -7,7 +7,7 @@
       </h2>
     </div>
     <div class="px-3">
-      <a href="{{ route('dashboard-todo') }}" class="btn btn-primary px-3">
+      <a href="{{ route('dashboard-todo') }}" class="btn btn-primary px-3" style="border-radius: 10px;">
         <span class="font-weight-bold">
           Open Tasks
         </span>
@@ -20,24 +20,28 @@
   </div>
 
   @foreach ($todos as $todo)
-    <div class="py-3 border my-3 bg-white" style="border-radius: 25px;">
+    <div class="py-3 border my-3 bg-white">
       <div class="px-3 mb-1">
-        <span class="font-weight-bold">
+        <div class="o-heading mb-2">
         {{ $todo->title }}
-        </span>
-        <span class="badge badge-pill badge-light border mx-3">
-          ID
-          {{ $todo->todo_id }}
-        </span>
+        </div>
       </div>
       <div class="d-flex justify-content-between">
         <div class="px-3">
-          <span class="text-muted">
-            Due Date
-          </span>
-          <span class="text-dark font-weight-bold mx-2">
-            Not set
-          </span>
+          <div class="d-flex text-muted">
+            <div class="mr-2">
+              ID
+              {{ $todo->todo_id }}
+            </div>
+            <div class="px-3">
+              <span class="text-muted">
+                Due Date
+              </span>
+              <span class="text-muted font-weight-bold mx-2">
+                Not set
+              </span>
+            </div>
+          </div>
         </div>
         <div class="px-3">
           @if ($todo->status == 'pending')

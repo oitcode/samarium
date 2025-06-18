@@ -30,7 +30,7 @@
     | Upper part
     |
     --}}
-    <div class="row mb-5 pt-3">
+    <div class="row mb-4 pt-3">
       {{-- Shop glance --}}
       @if (has_module('shop'))
         <div class="col-12 col-md-3">
