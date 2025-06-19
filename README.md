@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/Version-0.9.6-blue" alt="Version">
+[![Version: 0.9.6](https://img.shields.io/badge/Version-0.9.6-green.svg)](https://github.com/oitcode/samarium)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![PHP](https://img.shields.io/badge/PHP->=8.2-777BB4?logo=php&logoColor=white)](https://php.net/)
 [![Laravel](https://img.shields.io/badge/Laravel-Framework-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/)
