@@ -2,7 +2,8 @@
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<img src="https://img.shields.io/badge/Version-0.9.6-blue" alt="Version">
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![PHP](https://img.shields.io/badge/PHP->=8.2-777BB4?logo=php&logoColor=white)](https://php.net/)
 [![Laravel](https://img.shields.io/badge/Laravel-Framework-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/)
 [![MySQL](https://img.shields.io/badge/MySQL->=8.0-4479A1?logo=mysql&logoColor=white)](https://mysql.com/)
