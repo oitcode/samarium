@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
+use App\Traits\TaxTrait;
 use App\Models\Purchase\PurchasePaymentType;
 use App\Models\Purchase\PurchasePayment;
 use App\Models\Purchase\PurchaseAdditionHeading;
@@ -16,6 +17,7 @@ use App\Models\Purchase\PurchaseAddition;
 class PurchaseMakePayment extends Component
 {
     use ModesTrait;
+    use TaxTrait;
     use MiscTrait;
 
     public $purchase;
@@ -47,7 +49,7 @@ class PurchaseMakePayment extends Component
 
     public function render(): View
     {
-        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
+        $this->has_vat = $this->hasVat();
 
         foreach (PurchaseAdditionHeading::all() as $purchaseAddition) {
             $this->purchaseAdditions += [$purchaseAddition->name => 0];
@@ -166,7 +168,11 @@ class PurchaseMakePayment extends Component
 
         /* Todo: Really Hard code VAT ? Better way? */
         if ($this->has_vat) {
-            $this->grand_total = $this->taxable_amount + $this->purchaseAdditions['VAT'] ;
+            if (array_key_exists('vat', $this->purchaseAdditions)) {
+                $this->grand_total = $this->taxable_amount + $this->purchaseAdditions['vat'];
+            } else if (array_key_exists('VAT', $this->purchaseAdditions)) {
+                $this->grand_total = $this->taxable_amount + $this->purchaseAdditions['VAT'];
+            }
         } else {
             $this->grand_total = $this->taxable_amount;
         }

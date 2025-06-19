@@ -3,6 +3,7 @@
 namespace App\Livewire\SaleInvoice\Dashboard;
 
 use App\Traits\ModesTrait;
+use App\Traits\TaxTrait;
 use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +15,7 @@ use App\Models\Customer\Customer;
 class SaleInvoiceWork extends Component
 {
     use ModesTrait;
+    use TaxTrait;
 
     public $saleInvoice;
 
@@ -43,7 +45,7 @@ class SaleInvoiceWork extends Component
 
     public function render(): View
     {
-        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
+        $this->has_vat = $this->hasVat();
         $this->sale_invoice_date = $this->saleInvoice->sale_invoice_date;
         $this->customers = Customer::all();
 

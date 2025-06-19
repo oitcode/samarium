@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
+use App\Traits\TaxTrait;
 use App\Models\Expense\Expense;
 use App\Models\Expense\ExpenseCategory;
 use App\Models\Expense\ExpensePaymentType;
@@ -20,6 +21,7 @@ use App\Models\Vendor\Vendor;
 class ExpenseCreate extends Component
 {
     use ModesTrait;
+    use TaxTrait;
 
     public $expense = null;
 
@@ -93,7 +95,7 @@ class ExpenseCreate extends Component
             $this->expenseAdditions += [$expenseAddition->name => 0];
         }
 
-        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
+        $this->has_vat = $this->hasVat();
 
         $this->sub_total = $this->expense->getSubTotal();
 
@@ -178,7 +180,11 @@ class ExpenseCreate extends Component
 
         /* Todo: Really Hard code VAT ? Better way? */
         if ($this->has_vat) {
-            $this->grand_total = $this->taxable_amount + $this->expenseAdditions['VAT'] ;
+            if (array_key_exists('vat', $this->expenseAdditions)) {
+                $this->grand_total = $this->taxable_amount + $this->expenseAdditions['vat'] ;
+            } else if (array_key_exists('VAT', $this->expenseAdditions)) {
+                $this->grand_total = $this->taxable_amount + $this->expenseAdditions['VAT'] ;
+            }
         } else {
             $this->grand_total = $this->taxable_amount;
         }
@@ -198,7 +204,7 @@ class ExpenseCreate extends Component
         foreach ($this->expenseAdditions as $key => $val) {
 
             /* Dont add VAT (or any other taxes) while calculating taxable amount. */
-            if ($key == 'VAT') {
+            if ($key == 'VAT' || $key == 'vat') {
                 continue;
             }
 

@@ -5,6 +5,7 @@ namespace App\Livewire\Expense\Dashboard;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use App\Traits\MiscTrait;
+use App\Traits\TaxTrait;
 use App\Vendor;
 use App\Expense;
 use App\ExpensePaymentType;
@@ -19,6 +20,7 @@ use App\LedgerEntry;
 class ExpenseWorkMakePayment extends Component
 {
     use MiscTrait;
+    use TaxTrait;
 
     public $expense;
 
@@ -70,7 +72,7 @@ class ExpenseWorkMakePayment extends Component
 
     public function mount(): void
     {
-        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
+        $this->has_vat = $this->hasVat();
 
         $this->expensePaymentTypes = ExpensePaymentType::all();
 
@@ -140,7 +142,11 @@ class ExpenseWorkMakePayment extends Component
 
         /* Todo: Really Hard code VAT ? Better way? */
         if ($this->has_vat) {
-            $this->grand_total = $this->taxable_amount + $this->expenseAdditions['VAT'] ;
+            if (array_key_exists('vat', $this->expenseAdditions)) {
+                $this->grand_total = $this->taxable_amount + $this->expenseAdditions['vat'] ;
+            } else if (array_key_exists('VAT', $this->expenseAdditions)) {
+                $this->grand_total = $this->taxable_amount + $this->expenseAdditions['VAT'] ;
+            }
         } else {
             $this->grand_total = $this->taxable_amount;
         }

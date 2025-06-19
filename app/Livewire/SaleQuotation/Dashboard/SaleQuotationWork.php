@@ -6,6 +6,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
+use App\Traits\TaxTrait;
 use App\Models\SaleQuotation\SaleQuotation;
 use App\Models\SaleQuotation\SaleQuotationItem;
 use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
@@ -14,6 +15,7 @@ use App\Models\Customer\Customer;
 class SaleQuotationWork extends Component
 {
     use ModesTrait;
+    use TaxTrait;
 
     public $saleQuotation;
 
@@ -40,7 +42,7 @@ class SaleQuotationWork extends Component
 
     public function render(): View
     {
-        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
+        $this->has_vat = $this->hasVat();
         $this->sale_quotation_date = $this->saleQuotation->sale_quotation_date;
         $this->customers = Customer::all();
 

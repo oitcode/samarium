@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ModesTrait;
+use App\Traits\TaxTrait;
 use App\Models\Customer\Customer;
 use App\Models\SaleInvoice\SaleInvoice;
 use App\Models\SaleInvoice\SaleInvoicePaymentType;
@@ -22,6 +23,7 @@ class SaleInvoiceWorkMakePayment extends Component
 {
     use MiscTrait;
     use ModesTrait;
+    use TaxTrait;
 
     public $saleInvoice;
 
@@ -78,7 +80,7 @@ class SaleInvoiceWorkMakePayment extends Component
 
     public function mount(): void
     {
-        $this->has_vat = SaleInvoiceAdditionHeading::where('name', 'vat')->exists();
+        $this->has_vat = $this->hasVat();
 
         $this->saleInvoicePaymentTypes = SaleInvoicePaymentType::all();
 
