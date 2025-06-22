@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\CalendarGroup;
+use App\Models\Calendar\CalendarGroup;
 
 class CalendarGroupService
 {

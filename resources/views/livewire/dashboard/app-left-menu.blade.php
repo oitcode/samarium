@@ -248,23 +248,23 @@
     @endif
   
     @if (has_module('calendar'))
-      @if ($modes['school'])
+      @if ($modes['calendar'])
         @include ('partials.dashboard.app-left-menu-button-lw', [
-            'btnClickMethod' => "exitMode('school')",
+            'btnClickMethod' => "exitMode('calendar')",
             'btnIconFaClass' => 'fas fa-calendar',
             'btnText' => 'Calendar',
-            'btnCheckMode' => 'school',
+            'btnCheckMode' => 'calendar',
         ])
       @else
         @include ('partials.dashboard.app-left-menu-button-lw', [
-            'btnClickMethod' => "enterModeSilent('school')",
+            'btnClickMethod' => "enterModeSilent('calendar')",
             'btnIconFaClass' => 'fas fa-calendar',
             'btnText' => 'Calendar',
-            'btnCheckMode' => 'school',
+            'btnCheckMode' => 'calendar',
         ])
       @endif
   
-      @if ($modes['school'])
+      @if ($modes['calendar'])
   
         {{--
         |

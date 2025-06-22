@@ -4,8 +4,8 @@ namespace App\Livewire\Calendar\Dashboard;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\CalendarGroup;
 use App\Traits\ModesTrait;
+use App\Models\Calendar\CalendarGroup;
 
 class CalendarGroupComponent extends Component
 {

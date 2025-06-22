@@ -66,7 +66,7 @@ Route::get('/cms/post', 'CmsPostController@index')                            ->
 Route::get('/cms/navMenu', 'CmsNavMenuController@index')                      ->name('dashboard-cms-nav-menu');
 Route::get('/cms/theme', 'CmsThemeController@index')                          ->name('dashboard-cms-theme');
 Route::get('/cms/gallery', 'CmsGalleryController@index')                      ->name('dashboard-cms-gallery');
-Route::get('/dashboard/calendar', 'CalendarController@index')                 ->name('dashboard-calendar');
+Route::get('/dashboard/calendar/calendar', 'CalendarController@index')        ->name('dashboard-calendar');
 Route::get('/dashboard/vat', 'VatController@index')                           ->name('dashboard-vat');
 Route::get('/dashboard/quick-contacts', 'BgcController@quickContacts')        ->name('dashboard-quick-contacts');
 Route::get('/dashboard/sponsors', 'BgcController@sponsors')                   ->name('dashboard-sponsors');

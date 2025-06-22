@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\Calendar\CalendarGroupService;
-use App\CalendarGroup;
+use App\Models\Calendar\CalendarGroup;
 
 /**
  * CalendarGroupList Component

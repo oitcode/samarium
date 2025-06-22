@@ -8,8 +8,8 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\SaleInvoice\SaleInvoice;
 use App\Models\SaleInvoice\SaleInvoiceItem;
-use App\Models\Product;
-use App\Models\ProductCategory;
+use App\Models\Product\Product;
+use App\Models\Product\ProductCategory;
 
 class ReportProductSalesCount extends Component
 {

@@ -15,7 +15,7 @@ class AppLeftMenu extends Component
         'product' => false,
         'shop' => false,
         'cms' => false,
-        'school' => false,
+        'calendar' => false,
         'bgc' => false,
         'team' => false,
         'report' => false,
@@ -72,10 +72,10 @@ class AppLeftMenu extends Component
         ) {
             $this->enterModeSilent('team');
         } else if (
-            $uri == '/dashboard/school/calendar' ||
+            $uri == '/dashboard/calendar/calendar' ||
             $uri == '/dashboard/calendar/calendar-group'
         ) {
-            $this->enterModeSilent('school');
+            $this->enterModeSilent('calendar');
         } else if (
             $uri == '/dashboard/contact-form' ||
             $uri == '/dashboard/appointment' ||
