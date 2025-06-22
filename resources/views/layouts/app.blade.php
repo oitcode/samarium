@@ -52,7 +52,7 @@
     <!-- Livewire -->
     @livewireStyles
 </head>
-<body style="background-color: #eaeaea;">
+<body style="background-color: #f0f0f0;">
   <div class="h-100">
 
     {{--
@@ -78,7 +78,7 @@
       | App left menu
       |
       --}}
-      <div class="col-md-2 p-0 {{ config('app.app_menu_bg_color') }} d-none d-md-block border-right shadow-sm">
+      <div class="col-md-2 p-0 {{ config('app.app_menu_bg_color') }}-rm d-none d-md-block border-right shadow-sm" style="background-color: #1e293b;">
         @livewire ('dashboard.app-left-menu')
       </div>
 

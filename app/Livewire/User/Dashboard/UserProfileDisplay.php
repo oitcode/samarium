@@ -2,10 +2,10 @@
 
 namespace App\Livewire\User\Dashboard;
 
-use App\User;
 use Illuminate\View\View;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User\User;
 
 class UserProfileDisplay extends Component
 {

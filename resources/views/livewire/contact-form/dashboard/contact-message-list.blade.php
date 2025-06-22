@@ -2,7 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      <div class="py-3 bg-white d-flex justify-content-between">
+      <div class="py-3 bg-white-rm d-flex justify-content-between">
         <div class="pt-2">
           <div class="d-flex">
             <div class="mr-4 px-2 font-weight-bold">
@@ -12,7 +12,7 @@
         </div>
         <div class="font-weight-bold h6 d-flex">
           <div class="d-flex">
-            <div class="d-flex flex-column justify-content-center mr-3 o-heading">
+            <div class="d-flex flex-column justify-content-center mr-3 o-heading text-white">
               <i class="fas fa-funnel mr-1"></i>
               Filter
             </div>
@@ -25,7 +25,7 @@
                   @elseif ($modes['showOnlyProgressMode'])
                     btn-warning
                   @elseif ($modes['showAllMode'])
-                    btn-outline-dark border border-dark
+                    btn-outline-light border border-white
                   @endif
                   dropdown-toggle"
                   style="min-width: 100px;"

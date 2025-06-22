@@ -3,8 +3,8 @@
   <x-list-component>
     <x-slot name="listInfo">
       <div class="d-flex justify-content-between">
-        <div class="mr-5 pt-2">
-          Total products: {{ $totalProductCount }}
+        <div class="mr-5 pt-2 pl-2">
+          Product list
         </div>
         <div class="d-flex">
           <input type="text" class="form-control mr-2" placeholder="Search"/>
@@ -42,12 +42,12 @@
           </td>
           <td class="h6 font-weight-bold">
             @if ($product->is_active == 1)
-              <span class="badge badge-pill badge-success">
-                Active
+              <span class="badge-rm badge-pill badge-success-rm o-heading text-white-rm py-2 px-3 bg-success text-white">
+                ACTIVE
               </span>
             @else
-              <span class="badge badge-pill badge-danger">
-                Inactive
+              <span class="badge-rm badge-pill badge-danger-rm o-heading text-white-rm py-2 px-3 bg-danger text-white">
+                INACTIVE
               </span>
             @endif
           </td>
