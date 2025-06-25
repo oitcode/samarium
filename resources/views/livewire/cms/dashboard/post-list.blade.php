@@ -30,11 +30,11 @@
       @foreach ($posts as $post)
         {{-- Show in bigger screens --}}
         <x-table-row-component>
-          <td class="h5 font-weight-bold py-4">
+          <x-table-cell>
             <span class="text-dark">
               {{ \Illuminate\Support\Str::limit($post->name, 60, $end=' ...') }}
             </span>
-          </td>
+          </x-table-cell>
           <td>
             @if ($post->creator)
               {{ $post->creator->name }}

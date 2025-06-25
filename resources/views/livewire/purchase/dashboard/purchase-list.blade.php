@@ -17,12 +17,12 @@
     <x-slot name="listBody">
       @foreach ($purchases as $purchase)
         <x-table-row-component wire:key="{{ rand() }}">
-          <td>
+          <x-table-cell>
             {{ $purchase->purchase_id }}
-          </td>
-          <td>
+          </x-table-cell>
+          <x-table-cell>
             {{ $purchase->purchase_date }}
-          </td>
+          </x-table-cell>
           <td>
             {{ $purchase->created_at->format('H:i A') }}
           </td>

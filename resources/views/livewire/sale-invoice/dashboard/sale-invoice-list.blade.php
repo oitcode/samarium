@@ -93,17 +93,17 @@
       @foreach ($saleInvoices as $saleInvoice)
         {{-- Show in bigger screens --}}
         <x-table-row-component bsClass="d-none d-md-table-row">
-          <td>
+          <x-table-cell>
             {{ $saleInvoice->sale_invoice_id }}
-          </td>
-          <td class="d-none d-md-table-cell">
+          </x-table-cell>
+          <x-table-cell>
             {{--
                 Todo: Should show saleInvoice date
                 if needed then set appropriate date for
                 back dated saleInvoice entries
             --}}
             {{ $saleInvoice->sale_invoice_date }}
-          </td>
+          </x-table-cell>
           <td class="d-none d-md-table-cell">
             {{ $saleInvoice->created_at->format('H:i A') }}
           </td>

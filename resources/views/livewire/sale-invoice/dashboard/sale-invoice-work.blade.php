@@ -13,7 +13,7 @@
   @else
     <x-transaction-create-component>
       <x-slot name="topToolbarNxt">
-            <div class="d-flex justify-content-between bg-dark text-white px-3">
+            <div class="d-flex justify-content-between bg-dark-rm text-white px-3 o-package-color">
               <div class="d-flex flex-column justify-content-center">
                 <div>
                   @if (false)
@@ -146,7 +146,7 @@
       </x-slot>
 
       <x-slot name="transactionItemList">
-        <div class="bg-dark text-white text-center px-3 py-2">
+        <div class="bg-dark-rm text-white text-center px-3 py-2 o-package-color">
           <span class="h4 o-heading text-white">
             Transaction #: {{ $saleInvoice->sale_invoice_id }}
           </span>

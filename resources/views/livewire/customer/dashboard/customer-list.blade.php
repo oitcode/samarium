@@ -17,14 +17,14 @@
       @foreach ($customers as $customer)
         {{-- Show in bigger screens --}}
         <x-table-row-component bsClass="d-none d-md-table-row border">
-          <td>
+          <x-table-cell>
             {{ $customer->customer_id }}
-          </td>
-          <td>
+          </x-table-cell>
+          <x-table-cell>
             <span>
               {{ ucwords($customer->name) }}
             </span>
-          </td>
+          </x-table-cell>
           <td>
             @if ($customer->phone)
               {{ $customer->phone }}

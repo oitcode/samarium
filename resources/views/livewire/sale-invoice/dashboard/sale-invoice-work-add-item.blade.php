@@ -138,7 +138,7 @@
 
   </div>
 
-  <div class="bg-dark text-muted px-3 py-2">
+  <div class="bg-dark-rm text-muted px-3 py-2 o-package-color">
     <small>
     Add products to the sale invoice
     </small>

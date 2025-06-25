@@ -23,17 +23,17 @@
     <x-slot name="listBody">
       @foreach ($vacancies as $vacancy)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $vacancy->vacancy_id }}
-          </td>
+          </x-table-cell>
           <td>
-          {{ $vacancy->created_at->toDateString() }}
+            {{ $vacancy->created_at->toDateString() }}
           </td>
-          <td class="h6 font-weight-bold" wire:click="$dispatch('displayVacancy', { vacancy: {{ $vacancy }} })" role="button">
+          <x-table-cell>
             <span>
               {{ $vacancy->title }}
             </span>
-          </td>
+          </x-table-cell>
           <td class="text-right">
             @if ($modes['confirmDelete'])
               @if ($deletingVacancy->vacancy_id == $vacancy->vacancy_id)

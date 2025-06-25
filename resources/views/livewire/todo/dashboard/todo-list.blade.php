@@ -99,12 +99,12 @@
     <x-slot name="listBody">
       @foreach ($todos as $todo)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $todo->todo_id }}
-          </td>
-          <td class="h6 font-weight-bold" wire:click="$dispatch('displayTodo', { todo: {{ $todo }} })" role="button">
+          </x-table-cell>
+          <x-table-cell>
             {{ \Illuminate\Support\Str::limit($todo->title, 60, $end=' ...') }}
-          </td>
+          </x-table-cell>
           <td class="d-none d-md-table-cell">
             <i class="fas fa-circle text-primary mr-1"></i>
             {{ $todo->priority }}

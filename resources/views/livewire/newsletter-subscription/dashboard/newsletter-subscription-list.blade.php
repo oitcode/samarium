@@ -23,12 +23,12 @@
     <x-slot name="listBody">
       @foreach ($newsletterSubscriptions as $newsletterSubscription)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $newsletterSubscription->newsletter_subscription_id }}
-          </td>
-          <td>
+          </x-table-cell>
+          <x-table-cell>
             {{ $newsletterSubscription->created_at->toDateString() }}
-          </td>
+          </x-table-cell>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayNewsletterSubscription', { newsletterSubscription: {{ $newsletterSubscription }} })" role="button">
             <span>
               {{ $newsletterSubscription->email }}

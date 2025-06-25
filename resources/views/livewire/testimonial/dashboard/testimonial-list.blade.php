@@ -26,12 +26,12 @@
     <x-slot name="listBody">
       @foreach ($testimonials as $testimonial)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $testimonial->testimonial_id }}
-          </td>
-          <td class="h6 font-weight-bold" wire:click="$dispatch('displayTestimonial', { testimonial: {{ $testimonial }} })" role="button">
+          </x-table-cell>
+          <x-table-cell>
             {{ $testimonial->writer_name }}
-          </td>
+          </x-table-cell>
           <td wire:click="$dispatch('displayTestimonial', {testimonial: {{ $testimonial }} })" role="button">
             {{ $testimonial->writer_info }}
           </td>

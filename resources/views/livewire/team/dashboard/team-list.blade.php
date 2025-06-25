@@ -14,17 +14,17 @@
     <x-slot name="listBody">
       @foreach ($teams as $team)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $team->team_id }}
-          </td>
-          <td>
+          </x-table-cell>
+          <x-table-cell>
             @if ($team->image_path)
               <img src="{{ asset('storage/' . $team->image_path) }}" class="img-fluid" style="height: 50px;">
             @endif
             <span>
               {{ $team->name }}
             </span>
-          </td>
+          </x-table-cell>
           <td class="text-right">
             @if ($modes['confirmDelete'])
               @if ($deletingTeam->team_id == $team->team_id)

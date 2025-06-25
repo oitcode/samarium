@@ -29,12 +29,12 @@
     <x-slot name="listBody">
       @foreach ($documentFiles as $documentFile)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $documentFile->document_file_id }}
-          </td>
-          <td>
-          {{ $documentFile->name }}
-          </td>
+          </x-table-cell>
+          <x-table-cell>
+            {{ $documentFile->name }}
+          </x-table-cell>
           <td class="h6 font-weight-bold" wire:click="$dispatch('displayDocumentFile', { documentFile: {{ $documentFile }} })" role="button">
             <span>
               {{ $documentFile->file_path }}

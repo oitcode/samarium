@@ -14,12 +14,12 @@
     <x-slot name="listBody">
       @foreach ($calendarGroups as $calendarGroup)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $calendarGroup->calendar_group_id }}
-          </td>
-          <td class="font-weight-bold">
+          </x-table-cell>
+          <x-table-cell>
             {{ $calendarGroup->name }}
-          </td>
+          </x-table-cell>
           <td class="text-right">
             @if ($modes['confirmDelete'])
               @if ($deletingCalendarGroup->calendar_group_id == $calendarGroup->calendar_group_id)

@@ -18,14 +18,14 @@
     <x-slot name="listBody">
       @foreach ($galleries as $gallery)
       <x-table-row-component>
-        <td>
+        <x-table-cell>
           {{ $gallery->gallery_id }}
-        </td>
-        <td class="h6 font-weight-bold">
+        </x-table-cell>
+        <x-table-cell>
           <strong>
           {{ $gallery->name }}
           </strong>
-        </td>
+        </x-table-cell>
         <td>
           {{ count($gallery->galleryImages) }}
         </td>

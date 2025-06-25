@@ -13,12 +13,12 @@
     <x-slot name="listBody">
       @foreach ($productVendors as $productVendor)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $productVendor->product_vendor_id }}
-          </td>
-          <td wire:click="$dispatch('displayProductVendor', { productVendor: {{ $productVendor }} } )" role="button">
+          </x-table-cell>
+          <x-table-cell>
             {{ $productVendor->name }}
-          </td>
+          </x-table-cell>
           <td class="text-right">
             @if ($modes['confirmDelete'])
               @if ($deletingProductVendor->product_vendor_id == $productVendor->product_vendor_id)

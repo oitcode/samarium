@@ -23,12 +23,12 @@
     <x-slot name="listBody">
       @foreach ($productCategories as $productCategory)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
               {{ $productCategory->product_category_id }}
-          </td>
-          <td wire:click="$dispatch('displayProductCategory', { productCategory: {{ $productCategory }} } )" role="button">
+          </x-table-cell>
+          <x-table-cell>
               {{ $productCategory->name }}
-          </td>
+          </x-table-cell>
           <td>
             {{ count($productCategory->products) }}
           </td>

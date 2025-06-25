@@ -86,12 +86,12 @@
     <x-slot name="listBody">
       @foreach ($contactMessages as $contactMessage)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $contactMessage->contact_message_id }}
-          </td>
-          <td>
+          </x-table-cell>
+          <x-table-cell>
             {{ $contactMessage->created_at->toDateString() }}
-          </td>
+          </x-table-cell>
           <td class="h6 font-weight-bold">
             @if ($contactMessage->sender_name)
               {{ $contactMessage->sender_name }}

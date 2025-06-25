@@ -99,10 +99,10 @@
       @foreach ($websiteOrders as $order)
         {{-- Show in bigger screens --}}
         <x-table-row-component bsClass="d-none d-md-table-row">
-          <td>
+          <x-table-cell>
             {{ $order->website_order_id }}
-          </td>
-          <td>
+          </x-table-cell>
+          <x-table-cell>
             @if ($order->created_at->isToday())
               <span class="text-success" style="font-weight: bold;">
                 Today
@@ -110,7 +110,7 @@
             @else
               {{ $order->created_at->toDateString() }}
             @endif
-          </td>
+          </x-table-cell>
           <td>
             {{ $order->created_at->format('g:i A') }}
           </td>

@@ -35,14 +35,14 @@
     <x-slot name="listBody">
       @foreach ($appointments as $appointment)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $appointment->appointment_id }}
-          </td>
-          <td>
+          </x-table-cell>
+          <x-table-cell>
             <strong>
               {{ $appointment->applicant_name }}
             </strong>
-          </td>
+          </x-table-cell>
           <td>
             <div>
               {{ $appointment->applicant_phone }}

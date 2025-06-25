@@ -2,7 +2,7 @@
 
   <div class="card bg-light-rm">
     <div class="card-body p-0 pb-3">
-      <div class="bg-dark text-white py-3 text-center">
+      <div class="bg-dark-rm text-white py-3 text-center o-package-color">
         <div class="h4">
           CUSTOMER DISPLAY
         </div>

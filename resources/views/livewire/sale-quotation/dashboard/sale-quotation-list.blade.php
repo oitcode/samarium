@@ -37,12 +37,12 @@
       @foreach ($saleQuotations as $saleQuotation)
         {{-- Show in bigger screens --}}
         <x-table-row-component bsClass="d-none d-md-table-row">
-          <td>
+          <x-table-cell>
             {{ $saleQuotation->sale_quotation_id }}
-          </td>
-          <td class="d-none d-md-table-cell">
+          </x-table-cell>
+          <x-table-cell>
             {{ $saleQuotation->sale_quotation_date }}
-          </td>
+          </x-table-cell>
           <td class="d-none d-md-table-cell">
             {{ $saleQuotation->created_at->format('H:i A') }}
           </td>

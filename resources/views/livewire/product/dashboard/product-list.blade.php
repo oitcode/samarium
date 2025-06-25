@@ -34,12 +34,12 @@
     <x-slot name="listBody">
       @foreach ($products as $product)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $product->product_id }}
-          </td>
-          <td class="h6" wire:click="$dispatch('displayProduct', { productId : {{ $product->product_id }} })" role="button">
+          </x-table-cell>
+          <x-table-cell>
             {{ \Illuminate\Support\Str::limit($product->name, 60, $end=' ...') }}
-          </td>
+          </x-table-cell>
           <td class="h6 font-weight-bold">
             @if ($product->is_active == 1)
               <span class="badge-rm badge-pill badge-success-rm o-heading text-white-rm py-2 px-3 bg-success text-white">

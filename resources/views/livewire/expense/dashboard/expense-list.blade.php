@@ -16,12 +16,12 @@
       @foreach ($expenses as $expense)
         {{-- Show in bigger screens --}} 
         <x-table-row-component bsClass="d-none d-md-table-row" wire:key="{{ rand() * $expense->expense_id }}">
-          <td>
+          <x-table-cell>
             {{ $expense->expense_id }}
-          </td>
-          <td>
+          </x-table-cell>
+          <x-table-cell>
             {{ $expense->date }}
-          </td>
+          </x-table-cell>
           <td>
             @if (count($expense->expenseItems) > 0)
               @foreach ($expense->expenseItems as $expenseItem)

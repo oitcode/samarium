@@ -31,12 +31,12 @@
     <x-slot name="listBody">
       @foreach ($users as $user)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $user->id }}
-          </td>
-          <td class="font-weight-bold" wire:click="$dispatch('displayUser', {user: {{ $user }} })" role="button">
+          </x-table-cell>
+          <x-table-cell>
             {{ $user->name }}
-          </td>
+          </x-table-cell>
           <td>
             {{ $user->email }}
           </td>

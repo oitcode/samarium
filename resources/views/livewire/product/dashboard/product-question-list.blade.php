@@ -27,14 +27,12 @@
       @if (count($productQuestions) > 0)
         @foreach ($productQuestions as $productQuestion)
           <x-table-row-component>
-            <td>
+            <x-table-cell>
               {{ $productQuestion->product_question_id }}
-            </td>
-            <td class="h6 font-weight-bold"
-                wire:click="$dispatch('displayProductQuestion', {productQuestion: {{ $productQuestion }} })"
-                role="button">
+            </x-table-cell>
+            <x-table-cell>
               {{ \Illuminate\Support\Str::limit($productQuestion->product->name, 60, $end=' ...') }}
-            </td>
+            </x-table-cell>
             <td class="font-weight-bold">
               {{ $productQuestion->question_text }}
             </td>

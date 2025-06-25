@@ -16,12 +16,12 @@
     <x-slot name="listBody">
       @foreach ($vendors as $vendor)
         <x-table-row-component>
-          <td>
+          <x-table-cell>
             {{ $vendor->vendor_id }}
-          </td>
-          <td>
+          </x-table-cell>
+          <x-table-cell>
             {{ $vendor->name }}
-          </td>
+          </x-table-cell>
           <td>
             @if ($vendor->phone)
               {{ $vendor->phone }}

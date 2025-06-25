@@ -26,11 +26,11 @@
     <x-slot name="listBody">
       @foreach ($webpages as $webpage)
         <x-table-row-component>
-          <td class="h5 font-weight-bold py-4">
+          <x-table-cell>
             <span>
               {{ $webpage->name }}
             </span>
-          </td>
+          </x-table-cell>
           <td>
             @if ($webpage->creator)
               {{ $webpage->creator->name }}
