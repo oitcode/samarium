@@ -1,5 +1,5 @@
 {{-- Creation and update info --}} 
-<div class="border bg-white p-3 my-3">
+<div class="border bg-white p-3 my-3 o-border-radius">
   <div class="mb-4">
     <h2 class="h6 o-heading">
       Product history

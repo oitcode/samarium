@@ -1,7 +1,7 @@
 <div class="mx-3">
   <a href="{{ route($btnRoute) }}"
       class="btn
-        w-100 h-100 py-3 font-weight-bold text-left rounded-0
+        w-100 h-100 py-2 font-weight-bold-rm text-left rounded-0
         @if ($bordered ?? false)
         @endif
         "
@@ -15,10 +15,12 @@
       >
 
     <div class="d-flex">
+      @if (false)
       <div class="d-flex justify-content-center mr-2 mt-1">
         <i class="{{ $iconFaClass }} {{ config('app.app_menu_dropdown_button_text_color') }}"></i>
       </div>
-      <div class="d-flex justify-content-center o-heading {{ config('app.app_menu_dropdown_button_text_color') }}">
+      @endif
+      <div class="d-flex justify-content-center o-heading-rm {{ config('app.app_menu_dropdown_button_text_color') }}">
         <strong>
         {{ $btnText }}
         </strong>

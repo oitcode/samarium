@@ -2,11 +2,15 @@
   <div class="d-flex justify-content-between o-darker-rm py-2">
     @guest
     @else
-      <div class="p-2 px-3">
-        <i class="fas fa-check-circle mr-1"></i>
-        <span class="o-heading {{ config('app.app_top_menu_text_color') }}-rm">
-          {{ config('app.name') }}
-        </span>
+      <div class="d-flex flex-column justify-content-center p-2 px-3">
+        <div class="h2 mb-0 text-primary o-heading">
+          <i class="fas fa-check-circle mr-1"></i>
+          @if (false)
+          <span class="o-heading {{ config('app.app_top_menu_text_color') }}-rm">
+            {{ config('app.name') }}
+          </span>
+          @endif
+        </div>
       </div>
 
       {{-- Top menu buttons. --}}

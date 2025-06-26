@@ -1,4 +1,4 @@
-<div class="mb-4 bg-white">
+<div class="mb-4 bg-white o-border-radius">
   <div class="d-flex justify-content-between p-3">
     <div>
       <h2 class="h6 o-heading">

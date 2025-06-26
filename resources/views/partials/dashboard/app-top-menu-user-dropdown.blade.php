@@ -1,17 +1,23 @@
 <div class="d-flex">
   <div class="d-flex flex-column justify-content-center mr-3" style="font-size: 1rem;">
+    @if (false)
     <i class="fas fa-bell mr-2"></i>
+    @endif
   </div>
   <div class="dropdown pt-1">
     <button class="btn mr-2" type="button" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <div class="d-flex px-2 {{ config('app.app_top_menu_text_color') }}-rm">
+        <div class="d-flex flex-column justify-content-center mr-3 o-package-color-rm px-3 py-2 o-border-radius-rm" style="border-radius: 10px;
+        border: 2px solid #ccc;">
+          @if (false)
+          <i class="fas fa-user-circle" style="font-size: 1.2rem;"></i>
+          @endif
+          A
+        </div>
         <div class="d-flex flex-column justify-content-center pt-1 mr-3">
           <span class="h6">
             {{ Auth::user()->name }}
           </span>
-        </div>
-        <div class="d-flex flex-column justify-content-center mr-3">
-          <i class="fas fa-user-circle" style="font-size: 1.2rem;"></i>
         </div>
         <div class="d-flex flex-column justify-content-center">
           <i class="fas fa-angle-down mr-2" style="font-size: 1.2rem;"></i>

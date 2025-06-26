@@ -1,31 +1,30 @@
-<div class="p-1 bg-white">
+<div class="p-1 bg-white-rm">
   <div class="row" style="margin: auto;">
-    <div class="col-md-9">
-      <div class="row bg-white py-0 pt-3 border-bottom-rm" style="margin: auto;">
-        {{--
-        <div class="col-md-3 o-heading">
-          Product name
+    <div class="col-md-9 bg-white o-border-radius">
+      <div class="h4 o-heading text-dark my-4">
+        Product information
+      </div>
+      <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
+        <div class="col-md-3 o-heading p-0">
+          Name
         </div>
-        --}}
-        <div class="col-md-6 p-0">
+        <div class="col-md-6">
           @if ($modes['updateProductNameMode'])
             @livewire ('product.dashboard.product-edit-name', ['product' => $product,])
           @else
-            <div class="d-flex justify-content-between-rm my-0">
-              {{-- Product name --}}
-                  <h1 class="h5 o-heading">
-                    {{ $product->name }}
-                  </h1>
-            </div>
+          <div class="d-flex-rm justify-content-between-rm" style="">
+            <span>
+              {{ $product->name }}
+            </span>
+          </div>
           @endif
         </div>
-        <div class="col-md-6 text-right">
+        <div class="col-md-3 text-right">
           <button class="btn btn-light " wire:click="enterMode('updateProductNameMode')">
             <i class="fas fa-edit text-muted mr-1"></i>
           </button>
         </div>
       </div>
-
       <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
         <div class="col-md-3 o-heading p-0">
           Category
@@ -134,9 +133,9 @@
       </div>
 
       {{-- Product image --}}
-      <div class="mb-2 bg-white border-rm p-3 h-100">
+      <div class="mb-2 bg-white border-rm p-3 h-100 o-border-radius">
         <div class="d-flex justify-content-between">
-          <div class="o-heading">
+          <div class="h4 o-heading text-dark">
             Image
           </div>
           <div>
@@ -152,7 +151,9 @@
             @if ($product->image_path)
               <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 500px;">
             @else
-              <i class="fas fa-dice-d6 text-muted fa-8x"></i>
+              <div class="o-ola o-heading-rm">
+                Product image
+              </div>
             @endif
           </div>
         @endif

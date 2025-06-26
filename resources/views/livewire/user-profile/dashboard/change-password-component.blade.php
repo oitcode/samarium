@@ -1,8 +1,8 @@
 <div class="d-flex justify-content-center">
 
   <div class="card card-outline card-primary col-md-4 p-0 shadow mt-4">
-    <div class="card-header text-center">
-      <h1 class="h5 font-weight-bold pt-2 o-heading">
+    <div class="card-header text-center o-package-color">
+      <h1 class="h5 font-weight-bold pt-2 o-heading text-white">
         Change Password
       </h1>
     </div>

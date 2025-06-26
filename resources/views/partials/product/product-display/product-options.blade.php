@@ -1,4 +1,4 @@
-<div class="my-3 bg-white border">
+<div class="my-3 bg-white border o-border-radius">
   <div class="d-flex justify-content-between p-3">
     <h2 class="h6 o-heading">
       Product options
@@ -13,7 +13,7 @@
           Add option heading
         </x-toolbar-dropdown-item-component>
       </x-toolbar-dropdown-button>
-      <button class="btn btn-light border"
+      <button class="btn btn-light m-0 border o-linear-gradient text-white o-border-radius-sm"
           style="min-width: 200px;"
           wire:click="enterMode('updateProductAddProductOptionMode')">
         <i class="fas fa-plus-circle mr-1"></i>

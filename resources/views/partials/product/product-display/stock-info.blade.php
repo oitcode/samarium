@@ -1,4 +1,4 @@
-<div class="bg-white p-3 mb-3">
+<div class="bg-white p-3 mb-3 o-border-radius">
   <div class="mb-4">
     <h3 class="h6 o-heading">
       Stock info
