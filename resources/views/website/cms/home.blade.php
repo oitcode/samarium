@@ -237,6 +237,7 @@
   @endif
   @endif
 
+ @if (false)
  {{--
   |
   | Product filter.
@@ -293,5 +294,6 @@
       </div>
     @endif
   @endforeach
+  @endif
 
 @endsection
