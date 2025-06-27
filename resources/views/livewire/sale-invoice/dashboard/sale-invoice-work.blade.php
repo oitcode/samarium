@@ -1,9 +1,26 @@
-<div class="">
+<div>
 
-  @if (($saleInvoice->seatTableBooking && $saleInvoice->seatTableBooking->status == 'closed')
-        ||
-        $saleInvoice->creation_status == 'closed'
-  )
+  {{--
+  |--------------------------------------------------------------------------
+  | Sale Invoice Work View
+  |--------------------------------------------------------------------------
+  |
+  | This blade template handles the sale invoice creation/editing workflow.
+  | It displays either a finalized invoice (if creation_status is 'closed')
+  | or an interactive interface for building the invoice including:
+  | - Adding/removing items to the invoice
+  | - Managing payment recording
+  | - Real-time invoice totals calculation
+  | - Print/email functionality
+  |
+  | Used by: SaleInvoiceWork Livewire component
+  |
+  | Dependencies: CoreSaleInvoiceDisplay, SaleInvoiceWorkAddItem,
+  |               SaleInvoiceWorkMakePayment livewire components
+  |
+  --}}
+
+  @if ($saleInvoice->creation_status == 'closed')
     {{--
     |
     | Display final invoice if already created. 
@@ -12,152 +29,92 @@
     @livewire ('core.dashboard.core-sale-invoice-display', ['saleInvoice' => $saleInvoice, 'exitDispatchEvent' => 'exitSaleInvoiceWorkMode',])
   @else
     <x-transaction-create-component>
+      {{--
+      |
+      | Top toolbar section.
+      |
+      --}}
       <x-slot name="topToolbarNxt">
-            <div class="d-flex justify-content-between bg-dark-rm text-white px-3 o-package-color">
-              <div class="d-flex flex-column justify-content-center">
-                <div>
-                  @if (false)
-                  Sale
-                  <i class="fas fa-angle-right mx-2"></i>
+        <div class="d-flex justify-content-between text-white px-3 o-package-color">
+          <div class="d-flex flex-column justify-content-center">
+            <div>
+              @if (false)
+              Sale
+              <i class="fas fa-angle-right mx-2"></i>
+              {{ $saleInvoice->sale_invoice_id }}
+              @else
+                Sale Invoice ID:
+                &nbsp;
+                <span class="o-heading text-white">
                   {{ $saleInvoice->sale_invoice_id }}
-                  @else
-                    Sale Invoice ID:
-                    &nbsp;
-                    <span class="o-heading text-white">
-                      {{ $saleInvoice->sale_invoice_id }}
-                    </span>
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
-                    Date:
-                    &nbsp;
-                    <span class="o-heading text-white">
-                      {{ $saleInvoice->created_at->toDateString() }}
-                    </span>
-                  @endif
-                </div>
-              </div>
-              <div class="py-2">
-                <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="$refresh">
-                  <i class="fas fa-refresh"></i>
-                </x-toolbar-button-component>
-                <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="">
-                  <i class="fas fa-envelope"></i>
-                  Email
-                </x-toolbar-button-component>
-                <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="">
-                  <i class="fas fa-print"></i>
-                  Print
-                </x-toolbar-button-component>
-                <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="closeThisComponent">
-                  <i class="fas fa-times-circle text-danger mr-1"></i>
-                  Close
-                </x-toolbar-button-component>
-              </div>
+                </span>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                Date:
+                &nbsp;
+                <span class="o-heading text-white">
+                  {{ $saleInvoice->created_at->toDateString() }}
+                </span>
+              @endif
             </div>
+          </div>
+          <div class="py-2">
+            <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="$refresh">
+              <i class="fas fa-refresh"></i>
+            </x-toolbar-button-component>
+            <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="">
+              <i class="fas fa-envelope"></i>
+              Email
+            </x-toolbar-button-component>
+            <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="">
+              <i class="fas fa-print"></i>
+              Print
+            </x-toolbar-button-component>
+            <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="closeThisComponent">
+              <i class="fas fa-times-circle text-danger mr-1"></i>
+              Close
+            </x-toolbar-button-component>
+          </div>
+        </div>
       </x-slot>
 
+      {{-- Todo: Unused slot --}}
       <x-slot name="topToolbar">
       </x-slot>
 
+      {{-- Todo: Unused slot --}}
       <x-slot name="transactionMainInfo">
-        @if (false)
-        <x-transaction-main-info-component>
-          <x-slot name="transactionIdName">
-            Sale Invoice ID
-          </x-slot>
-          <x-slot name="transactionIdValue">
-            {{ $saleInvoice->sale_invoice_id }}
-          </x-slot>
-          <x-slot name="transactionDateName">
-            Sale Invoice Date
-          </x-slot>
-          <x-slot name="transactionDateValue">
-            @if ($modes['backDate'])
-              <div>
-                <div>
-                  <input type="date" wire:model="sale_invoice_date">
-                  <div class="mt-2">
-                    <button class="btn btn-light" wire:click="changeSaleInvoiceDate">
-                      <i class="fas fa-check-circle text-success"></i>
-                    </button>
-                    <button class="btn btn-light" wire:click="exitMode('backDate')">
-                      <i class="fas fa-times-circle text-danger"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            @else
-              <div class="h6" role="button" wire:click="enterModeSilent('backDate')">
-                {{ $saleInvoice->sale_invoice_date }}
-              </div>
-            @endif
-          </x-slot>
-          <x-slot name="transactionPartyName">
-            Customer
-          </x-slot>
-          <x-slot name="transactionPartyValue">
-            @if ($modes['customerSelected'])
-              {{ $saleInvoice->customer->name }}
-            @else
-              <select class="custom-control w-75" wire:model="customer_id">
-                <option>---</option>
-                @foreach ($customers as $customer)
-                  <option value="{{ $customer->customer_id }}">
-                    {{ $customer->name }}
-                  </option>
-                @endforeach
-              </select>
-              <button class="btn btn-sm btn-light ml-2" wire:click="linkCustomerToSaleInvoice">
-                Select
-              </button>
-            @endif
-          </x-slot>
-          <x-slot name="transactionPaymentStatusName">
-            Payment Status
-          </x-slot>
-          <x-slot name="transactionPaymentStatusValue">
-            @if ( $saleInvoice->payment_status == 'paid')
-              <span class="badge badge-pill badge-success">
-                Paid
-              </span>
-            @elseif ( $saleInvoice->payment_status == 'partially_paid')
-              <span class="badge badge-pill badge-warning">
-                Partial
-              </span>
-            @elseif ( $saleInvoice->payment_status == 'pending')
-              <span class="badge badge-pill badge-danger">
-                Pending
-              </span>
-            @else
-              <span class="badge badge-pill badge-secondary">
-                {{ $saleInvoice->payment_status }}
-              </span>
-            @endif
-          </x-slot>
-        </x-transaction-main-info-component>
-        @endif
       </x-slot>
 
+      {{--
+      |
+      | Transaction add item section.
+      |
+      --}}
       <x-slot name="transactionAddItem">
         @livewire ('sale-invoice.dashboard.sale-invoice-work-add-item', ['saleInvoice' => $saleInvoice,])
       </x-slot>
 
+      {{--
+      |
+      | Transaction item list section.
+      |
+      --}}
       <x-slot name="transactionItemList">
-        <div class="bg-dark-rm text-white text-center px-3 py-2 o-package-color">
+        <div class="text-white text-center px-3 py-2 o-package-color">
           <span class="h4 o-heading text-white">
             Transaction #: {{ $saleInvoice->sale_invoice_id }}
           </span>
           <br/>
           {{ $saleInvoice->created_at->toDateString() }}
         </div>
-        <div class="card mb-3 shadow-rm">
+        <div class="card mb-3">
           <div class="card-body p-0">
             @if ($saleInvoice)
-              {{-- Show in bigger screens --}}
-              <div class="table-responsive d-none-rm d-md-block-rm">
+              <div class="table-responsive">
                 <table class="table table-hover border-dark mb-0">
                   <thead>
                     <tr>
@@ -223,56 +180,31 @@
                   </tfoot>
                 </table>
               </div>
-      
-              {{-- Show in smaller screens --}}
-              @if (false)
-              <div class="table-responsive d-md-none">
-                <table class="table">
-                  @if (count($saleInvoice->saleInvoiceItems) > 0)
-                    @foreach ($saleInvoice->saleInvoiceItems as $item)
-                    <tr class="font-weight-bold">
-                      <td>
-                        <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
-                      </td>
-                      <td>
-                        {{ $item->product->name }}
-                        <br />
-                        <span class="mr-3">
-                          Rs @php echo number_format( $item->product->selling_price ); @endphp
-                        </span>
-                        <span class="text-secondary">
-                          Qty: {{ $item->quantity }}
-                        </span>
-                      </td>
-                      <td>
-                        @php echo number_format( $item->getTotalAmount() ); @endphp
-                      </td>
-                      <td>
-                        <a href="" wire:click.prevent="confirmRemoveItemFromTakeaway({{ $item->sale_invoice_item_id }})">
-                        <i class="fas fa-trash text-danger"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    @endforeach
-                  @endif
-                </table>
-              </div>
-              @endif
             @endif
           </div>
         </div>
       </x-slot>
 
+      {{-- Todo: Unused slot --}}
       <x-slot name="transactionTotalBreakdown">
-        {{-- Todo --}}
       </x-slot>
 
+      {{--
+      |
+      | Payment recording section.
+      |
+      --}}
       <x-slot name="transactionPayment">
         @if ($saleInvoice->status != 'closed' && $saleInvoice->payment_status != 'paid' && $modes['makePayment'])
           @livewire ('sale-invoice.dashboard.sale-invoice-work-make-payment', ['saleInvoice' => $saleInvoice,])
         @endif
       </x-slot>
 
+      {{--
+      |
+      | Sale invoice item remove section.
+      |
+      --}}
       <div>
         @if ($modes['confirmRemoveSaleInvoiceItem'])
           @livewire ('sale-invoice.dashboard.sale-invoice-work-confirm-sale-invoice-item-delete', ['deletingSaleInvoiceItem' => $deletingSaleInvoiceItem,])
