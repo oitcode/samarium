@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use App\Webpage;
+use App\Models\Cms\Webpage\Webpage;
 
 class CmsNavMenuSeeder extends Seeder
 {
