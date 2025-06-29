@@ -38,42 +38,36 @@
         <div class="d-flex justify-content-between text-white px-3 o-package-color">
           <div class="d-flex flex-column justify-content-center">
             <div>
-              @if (false)
-              Sale
-              <i class="fas fa-angle-right mx-2"></i>
-              {{ $saleInvoice->sale_invoice_id }}
-              @else
-                Sale Invoice ID:
-                &nbsp;
-                <span class="o-heading text-white">
-                  {{ $saleInvoice->sale_invoice_id }}
-                </span>
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                Date:
-                &nbsp;
-                <span class="o-heading text-white">
-                  {{ $saleInvoice->created_at->toDateString() }}
-                </span>
-              @endif
+              Sale Invoice ID:
+              &nbsp;
+              <span class="o-heading text-white">
+                {{ $saleInvoice->sale_invoice_id }}
+              </span>
+              &nbsp;
+              &nbsp;
+              &nbsp;
+              &nbsp;
+              &nbsp;
+              Date:
+              &nbsp;
+              <span class="o-heading text-white">
+                {{ $saleInvoice->created_at->toDateString() }}
+              </span>
             </div>
           </div>
           <div class="py-2">
-            <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="$refresh">
+            <x-toolbar-button-component btnBsClass="btn-light border-0" btnClickMethod="$refresh">
               <i class="fas fa-refresh"></i>
             </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="">
+            <x-toolbar-button-component btnBsClass="btn-light border-0" btnClickMethod="">
               <i class="fas fa-envelope"></i>
               Email
             </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="">
+            <x-toolbar-button-component btnBsClass="btn-light border-0" btnClickMethod="">
               <i class="fas fa-print"></i>
               Print
             </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="closeThisComponent">
+            <x-toolbar-button-component btnBsClass="btn-light border-0" btnClickMethod="closeThisComponent">
               <i class="fas fa-times-circle text-danger mr-1"></i>
               Close
             </x-toolbar-button-component>
