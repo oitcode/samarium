@@ -1,8 +1,22 @@
 <div class="bg-white">
 
-  <div class="card bg-light-rm">
+  {{--
+  |--------------------------------------------------------------------------
+  | Sale Invoice Work Make Payment - Livewire Component View
+  |--------------------------------------------------------------------------
+  |
+  | This blade template renders a payment interface that displays:
+  | - Transaction summary with itemized breakdown (subtotal, discounts, VAT, total)
+  | - Interactive payment form with tender amount input and payment type selection
+  | - Support for both single and multiple payment methods
+  | - Real-time calculation of change/return amount
+  | - Payment confirmation and completion workflow
+  | 
+  --}}
+
+  <div class="card">
     <div class="card-body p-0 pb-3">
-      <div class="bg-dark-rm text-white py-3 text-center o-package-color">
+      <div class="text-white py-3 text-center o-package-color">
         <div class="h4">
           CUSTOMER DISPLAY
         </div>
@@ -16,11 +30,6 @@
           TRANSACTION SUMMARY
         </div>
       </div>
-      @if (false)
-      <h2 class="h4 bg-primary-rm text-dark o-heading pl-4 py-4">
-        Total
-      </h2>
-      @endif
       <div class="table-responsive mb-0 bg-white">
         <table class="table mb-0">
           <tbody>
@@ -176,8 +185,8 @@
     </div>
   </div>
 
-  <div class="mt-2-rm p-3-rm bg-danger-r">
-    <h2 class="h4 bg-danger-rm text-dark o-heading pl-4 py-4">
+  <div>
+    <h2 class="h4 text-dark o-heading pl-4 py-4">
       Payment
     </h2>
     @if (false)
@@ -211,7 +220,7 @@
       <table class="table table-bordered mb-0 mt-0">
         <tbody>
           <tr style="height: 50px;" class="bg-light">
-            <td class="w-50 p-0 pt-2-rm p-0 o-heading border-0">
+            <td class="w-50 p-0 p-0 o-heading border-0">
               <span class="ml-4 d-inline-block mt-2 mb-3">
                 Tender Amount
               </span>
@@ -343,13 +352,13 @@
     @else
       <button
           onclick="this.disabled=true;"
-          class="btn btn-block btn-lg btn-success py-4 w-50-rm m-0"
+          class="btn btn-block btn-lg btn-success py-4 m-0"
           wire:click="finishPayment">
         FINISH
       </button>
       <button
           onclick="this.disabled=true;"
-          class="btn btn-block btn-lg btn-primary py-4 w-50-rm m-0"
+          class="btn btn-block btn-lg btn-primary py-4 m-0"
           wire:click="finishPayment">
         PRINT
       </button>
