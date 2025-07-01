@@ -57,7 +57,7 @@
               </select>
             </td>
             <td class="p-0 h-100">
-              <input class="w-100-rm h-100 font-weight-bold border-0" type="text" wire:model="quantity" wire:keydown.enter="updateTotal"/>
+              <input class="h-100 font-weight-bold border-0" type="text" wire:model="quantity" wire:keydown.enter="updateTotal"/>
             </td>
             <td class="p-0">
               <select class="w-100 h-100 custom-control border-0 p-0 bg-white" wire:model="unit" wire:change="">
@@ -72,7 +72,7 @@
                 <div class="h-100 d-flex flex-column justify-content-center pr-2">
                   {{ config('app.transaction_currency_symbol') }}
                 </div>
-                <input class="w-50-rm h-100 font-weight-bold border-0" type="text" wire:model="purchase_price_per_unit" wire:change="updateTotal"/>
+                <input class="h-100 font-weight-bold border-0" type="text" wire:model="purchase_price_per_unit" wire:change="updateTotal"/>
               </div>
             </td>
             <td>
