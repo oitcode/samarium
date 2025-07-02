@@ -44,28 +44,21 @@
   @livewireStyles
 </head>
 
-<body style="height: 100% !important; background-color: #f0f0f0;">
+<body style="height: 100% !important; background-color: #f8fafc;">
   <div class="h-100 d-flex justify-content-center h-100">
     <div class="d-flex flex-column justify-content-center col-md-3">
-      <div class="px-3 bg-white border shadow-sm">
-        <div class="d-flex p-3">
-          <div class="d-flex flex-column justify-content-center mr-2">
-            @if ($company)
-              <img src="{{ asset('storage/' . $company->logo_image_path) }}"
-                  class="img-fluid"
-                  alt="{{ $company->name }} logo"
-                  style="height: 40px !important;">
-            @else
-              <i class="fas fa-user-circle fa-2x mr-2"></i>
-            @endif
-          </div>
-          <div class="h4 my-3 o-heading">
-            Login
+      <div class="px-3 bg-white border shadow-sm o-border-radius">
+        <div class="text-center p-3 pt-5">
+          <div class="">
+            <i class="fas fa-user-circle fa-4x o-package-color-darker-text"></i>
+            <div class="h4 my-3 o-heading o-package-color-darker-text">
+              Login
+            </div>
           </div>
         </div>
 
-        <div class=" d-flex">
-          <div class="px-3 py-3 w-100">
+        <div class="d-flex">
+          <div class="px-3 pb-3 w-100">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
@@ -74,18 +67,16 @@
                 | User email
                 |
                 --}}
-                <div class="form-group mb-3">
+                <div class="form-group mb-4">
                   <label class="o-heading">
-                    Email
+                    Email Address
                   </label>
                   <input id="email" type="email"
-                      class="form-row form-control @error('email') is-invalid @enderror"
+                      class="form-row form-control o-border-radius-sm @error('email') is-invalid @enderror"
                       name="email" value="{{ old('email') }}"
                       required
                       autocomplete="email"
-                      {{--
-                      placeholder="Email"
-                      --}}
+                      placeholder="Enter you email address"
                       autofocus>
 
                   @error ('email')
@@ -106,12 +97,10 @@
                       Password
                     </label>
                     <input id="password" type="password"
-                        class="form-control @error('password') is-invalid @enderror"
+                        class="form-control o-border-radius-sm @error('password') is-invalid @enderror"
                         name="password"
                         required
-                        {{--
-                        placeholder="Password"
-                        --}}
+                        placeholder="Enter your password"
                         autocomplete="current-password">
 
                     @error('password')
@@ -144,8 +133,7 @@
                 |
                 --}}
                 <div class="form-group mt-4 mb-2">
-                    <button type="submit" class="btn btn-dark btn-block py-3 text-white"
-                        style="">
+                    <button type="submit" class="btn btn-block py-3 text-white o-border-radius-sm o-linear-gradient o-heading">
                         {{ __('Login') }}
                     </button>
 
@@ -161,18 +149,18 @@
             </form>
           </div>
         </div>
-      </div>
 
-      {{--
-      | 
-      | Display version at bottom
-      |
-      --}}
-      <div class="px-3 my-4">
-        <div class="text-center text-muted">
-          <small>
-            v0.9.6
-          </small>
+        {{--
+        |
+        | Display version at bottom
+        |
+        --}}
+        <div class="px-3 mb-5">
+          <div class="text-center text-muted">
+            <small>
+              v0.9.6
+            </small>
+          </div>
         </div>
       </div>
     </div>
