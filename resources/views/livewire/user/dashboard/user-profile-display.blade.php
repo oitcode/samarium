@@ -1,25 +1,46 @@
 <div>
 
-  <div class="mb-2">
-    <h2 class="h5 o-heading py-3">
+  <div class="mt-2 mb-2">
+    <h2 class="h4 o-heading py-3">
       User profile
-      @if (false)
-      {{ Auth::user()->name }}
-      @endif
     </h2>
+  </div>
 
-    {{-- Basic info --}}
-    <div class="table-responsive bg-white border">
-      <table class="table mb-0">
-        <tr class="border-top">
-          <th class="border-0 o-heading">Name</th>
-          <td class="border-0">{{ Auth::user()->name }}</td>
-        </tr>
-        <tr>
-          <th class="border-0 o-heading">Email</th>
-          <td class="border-0">{{ Auth::user()->email }}</td>
-        </tr>
-      </table>
+  {{-- Basic info --}}
+  <div class="py-5 mb-4 text-center o-linear-gradient o-border-radius">
+    <div class="h2 o-heading text-white">
+      {{ Auth::user()->name }}
+    </div>
+    <div class="h5 text-white">
+      {{ Auth::user()->email }}
+    </div>
+  </div>
+
+  {{--
+  |
+  | Username
+  |
+  --}}
+  <div class="bg-white p-3 mb-4 o-border-radius">
+    <div class="h5 o-heading text-muted mb-2">
+      Username
+    </div>
+    <div class="">
+      {{ $user->name }}
+    </div>
+  </div>
+
+  {{--
+  |
+  | Email
+  |
+  --}}
+  <div class="bg-white p-3 mb-4 o-border-radius">
+    <div class="h5 o-heading text-muted mb-2">
+      Email Address
+    </div>
+    <div class="">
+      {{ $user->email }}
     </div>
   </div>
 
@@ -28,20 +49,17 @@
   | Role
   |
   --}}
-
-  <div class="bg-white mb-2">
-    <div class="d-flex justify-content-between p-2 border-bottom">
-      <div class="d-flex flex-column justify-content-center o-heading">
-        Role
-      </div>
+  <div class="bg-white p-3 mb-4 o-border-radius">
+    <div class="h5 o-heading text-muted mb-2">
+      User Role
     </div>
-    <div class="p-2 py-3">
+    <div class="">
       @if ($user->role == 'standard')
-        <span class="badge badge-pill badge-success">
+        <span class="badge badge-pill badge-success h4 o-heading text-white">
           Standard
         </span>
       @elseif ($user->role == 'admin')
-        <span class="badge badge-pill badge-danger">
+        <span class="badge badge-pill badge-danger h4 o-heading text-white">
           Admin
         </span>
       @else
