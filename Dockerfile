@@ -51,3 +51,9 @@ EXPOSE 8000:80
 
 # Start Apache
 CMD ["apache2-foreground"]
+# Copy the entrypoint script into the image
+COPY docker-entrypoint.sh /var/www/html/docker-entrypoint.sh
+
+# Make sure it is executable
+RUN chmod +x /var/www/html/docker-entrypoint.sh
+
