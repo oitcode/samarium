@@ -227,6 +227,10 @@ animation-play-state:paused;
     color: white;
 }
 
+.o-package-color-text {
+    color: rgba(100, 150, 250, 1.0);
+}
+
 .o-dark-shade {
     background-color: rgba(0, 0, 0, 0.1);
 }
@@ -246,6 +250,10 @@ animation-play-state:paused;
 .o-linear-gradient {
     background-image: linear-gradient(135deg, #45a, #1e293b);
     color: white;
+}
+
+.o-package-color-darker-text {
+    color: #238;
 }
 
 .o-ola {
