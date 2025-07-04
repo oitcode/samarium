@@ -7,12 +7,8 @@
   <div class="dropdown pt-1">
     <button class="btn mr-2" type="button" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <div class="d-flex px-2 {{ config('app.app_top_menu_text_color') }}-rm">
-        <div class="d-flex flex-column justify-content-center mr-3 o-package-color-rm px-3 py-2 o-border-radius-rm" style="border-radius: 10px;
-        border: 2px solid #ccc;">
-          @if (false)
-          <i class="fas fa-user-circle" style="font-size: 1.2rem;"></i>
-          @endif
-          A
+        <div class="d-flex flex-column justify-content-center mr-1 o-package-color-rm px-3 py-2 o-border-radius-rm">
+          <i class="fas fa-user-circle fa-2x text-primary-rm text-muted"></i>
         </div>
         <div class="d-flex flex-column justify-content-center pt-1 mr-3">
           <span class="h6">
