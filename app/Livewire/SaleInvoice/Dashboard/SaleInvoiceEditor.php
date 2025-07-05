@@ -12,7 +12,7 @@ use App\Models\SaleInvoice\SaleInvoiceItem;
 use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
 use App\Models\Customer\Customer;
 
-class SaleInvoiceWork extends Component
+class SaleInvoiceEditor extends Component
 {
     use ModesTrait;
     use TaxTrait;
@@ -49,7 +49,7 @@ class SaleInvoiceWork extends Component
         $this->sale_invoice_date = $this->saleInvoice->sale_invoice_date;
         $this->customers = Customer::all();
 
-        return view('livewire.sale-invoice.dashboard.sale-invoice-work');
+        return view('livewire.sale-invoice.dashboard.sale-invoice-editor');
     }
 
     public function exitMakePaymentMode(): void

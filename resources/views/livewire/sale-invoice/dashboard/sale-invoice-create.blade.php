@@ -1,3 +1,3 @@
 <div>
-  @livewire ('sale-invoice.dashboard.sale-invoice-work', ['saleInvoice' => $saleInvoice,])
+  @livewire ('sale-invoice.dashboard.sale-invoice-editor', ['saleInvoice' => $saleInvoice,])
 </div>

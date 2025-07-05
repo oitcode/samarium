@@ -11,7 +11,7 @@ use App\Models\Product\ProductCategory;
 use App\Models\SaleInvoice\SaleInvoiceItem;
 use App\Models\Takeaway\Takeaway;
 
-class SaleInvoiceWorkAddItem extends Component
+class SaleInvoiceEditorAddItem extends Component
 {
     use ModesTrait;
     use InventoryTrait;
@@ -53,7 +53,7 @@ class SaleInvoiceWorkAddItem extends Component
             ->orderBy('name', 'ASC')
             ->get();
 
-        return view('livewire.sale-invoice.dashboard.sale-invoice-work-add-item');
+        return view('livewire.sale-invoice.dashboard.sale-invoice-editor-add-item');
     }
 
     public function addItemToSaleInvoice(): void

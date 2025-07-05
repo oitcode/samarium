@@ -19,7 +19,7 @@ use App\JournalEntryItem;
 use App\AbAccount;
 use App\LedgerEntry;
 
-class SaleInvoiceWorkMakePayment extends Component
+class SaleInvoiceEditorMakePayment extends Component
 {
     use MiscTrait;
     use ModesTrait;
@@ -107,7 +107,7 @@ class SaleInvoiceWorkMakePayment extends Component
 
     public function render(): View
     {
-        return view('livewire.sale-invoice.dashboard.sale-invoice-work-make-payment');
+        return view('livewire.sale-invoice.dashboard.sale-invoice-editor-make-payment');
     }
 
     public function updatedSaleInvoiceAdditions(): void
