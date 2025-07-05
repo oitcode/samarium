@@ -44,7 +44,7 @@
   </div>
 
   {{-- Placeholder div --}}
-  <div class="text-muted px-3 py-2 o-package-color">
+  <div class="bg-white text-muted px-3 py-2 o-package-color-rm">
     <small>
     Add products to the sale invoice
     </small>

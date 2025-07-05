@@ -35,8 +35,8 @@
       |
       --}}
       <x-slot name="topToolbarNxt">
-        <div class="d-flex justify-content-between text-white px-3 o-package-color">
-          <div class="d-flex flex-column justify-content-center">
+        <div class="d-flex justify-content-between text-dark px-1 o-linear-gradient o-border-radius mb-3 pl-3 py-3">
+          <div class="d-flex flex-column justify-content-center text-white">
             <div>
               Sale Invoice ID:
               &nbsp;
@@ -56,21 +56,38 @@
             </div>
           </div>
           <div class="py-2">
-            <x-toolbar-button-component btnBsClass="btn-light border-0" btnClickMethod="$refresh">
+            <span class="btn btn-light border o-border-radius px-4 mr-3 o-heading" wire:click="$refresh">
+              <i class="fas fa-refresh"></i>
+            </span>
+            <span class="btn btn-light border o-border-radius px-4 mr-3 o-heading" wire:click="">
+              <i class="fas fa-envelope"></i>
+              Email
+            </span>
+            <span class="btn btn-light border o-border-radius px-4 mr-3 o-heading" wire:click="">
+              <i class="fas fa-print"></i>
+              Print
+            </span>
+            <span class="btn btn-light border o-border-radius px-4 mr-3 o-heading" wire:click="closeThisComponent">
+              <i class="fas fa-times-circle text-danger mr-1"></i>
+              Close
+            </span>
+            @if (false)
+            <x-toolbar-button-component btnBsClass="btn-success border-0" btnClickMethod="$refresh">
               <i class="fas fa-refresh"></i>
             </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-light border-0" btnClickMethod="">
+            <x-toolbar-button-component btnBsClass="btn-primary border-0" btnClickMethod="">
               <i class="fas fa-envelope"></i>
               Email
             </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-light border-0" btnClickMethod="">
+            <x-toolbar-button-component btnBsClass="btn-dark border-0" btnClickMethod="">
               <i class="fas fa-print"></i>
               Print
             </x-toolbar-button-component>
-            <x-toolbar-button-component btnBsClass="btn-light border-0" btnClickMethod="closeThisComponent">
-              <i class="fas fa-times-circle text-danger mr-1"></i>
+            <x-toolbar-button-component btnBsClass="btn-danger border-0" btnClickMethod="closeThisComponent">
+              <i class="fas fa-times-circle text-danger-rm mr-1"></i>
               Close
             </x-toolbar-button-component>
+            @endif
           </div>
         </div>
       </x-slot>
@@ -98,8 +115,8 @@
       |
       --}}
       <x-slot name="transactionItemList">
-        <div class="text-white text-center px-3 py-2 o-package-color">
-          <span class="h4 o-heading text-white">
+        <div class="text-white-rm text-center px-3 py-2 o-package-color-rm">
+          <span class="h4 o-heading text-white-rm">
             Transaction #: {{ $saleInvoice->sale_invoice_id }}
           </span>
           <br/>

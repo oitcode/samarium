@@ -16,11 +16,11 @@
 
   <div class="card">
     <div class="card-body p-0 pb-3">
-      <div class="text-white py-3 text-center o-package-color">
+      <div class="text-white-rm py-3 text-center o-package-color-rm">
         <div class="h4">
           CUSTOMER DISPLAY
         </div>
-        <div class="h3 o-heading text-warning mb-0">
+        <div class="h3 o-heading text-warning-rm mb-0">
           {{ config('app.transaction_currency_symbol') }}
           @php echo number_format( $this->grand_total ); @endphp
         </div>
