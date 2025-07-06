@@ -73,6 +73,7 @@ class PurchaseEditorMakePayment extends Component
             'purchase_payment_type_id' => 'required|integer',
         ]);
 
+
         if ($validatedData['paid_amount'] > $validatedData['grand_total']) {
             return;
         }
@@ -172,6 +173,8 @@ class PurchaseEditorMakePayment extends Component
                 $this->grand_total = $this->taxable_amount + $this->purchaseAdditions['vat'];
             } else if (array_key_exists('VAT', $this->purchaseAdditions)) {
                 $this->grand_total = $this->taxable_amount + $this->purchaseAdditions['VAT'];
+            } else {
+                $this->grand_total = $this->taxable_amount;
             }
         } else {
             $this->grand_total = $this->taxable_amount;

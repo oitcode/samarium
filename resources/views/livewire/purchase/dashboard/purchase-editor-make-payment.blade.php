@@ -1,4 +1,4 @@
-<div class="card bg-transparent border-0">
+<div>
 
   <div class="card-header p-0 bg-white">
     <div class="d-flex justify-content-between my-2">
@@ -218,16 +218,14 @@
       @else
         <button
             onclick="this.disabled=true;"
-            class="btn btn-lg btn-success mr-3"
-            wire:click="finishPayment"
-            style="width: 120px; height: 70px;">
+            class="btn btn-block btn-lg btn-success py-4 m-0"
+            wire:click="finishPayment">
           FINISH
         </button>
         <button
             onclick="this.disabled=true;"
-            class="btn btn-lg mr-3"
-            wire:click="finishPayment"
-            style="width: 120px; height: 70px; background-color: orange">
+            class="btn btn-block btn-lg btn-primary py-4 m-0"
+            wire:click="finishPayment">
           PRINT
         </button>
       @endif

@@ -1,5 +1,29 @@
 <div>
 
+  {{--
+  |
+  | Purchase Editor Livewire Component View
+  | 
+  | Blade template for the purchase editor Livewire component that handles
+  | the display and editing of purchase transactions.
+  | 
+  | Component Features:
+  | - Displays completed purchases with full transaction details
+  | - Allows editing of purchase-in-progress transactions
+  | - Vendor selection and linking functionality
+  | - Item management (add/remove items from purchase)
+  | - Payment status tracking (paid, partial, pending)
+  | - Payment processing integration
+  | 
+  | Livewire Properties Used:
+  | - $purchase - The purchase model instance
+  | - $modes - Array controlling various component states
+  | - $vendors - Collection of available vendors
+  | - $vendor_id - Selected vendor ID
+  | - $purchase_date - Purchase date for editing
+  |
+  --}}
+
   @if ($purchase->creation_status == 'created')
     @livewire ('core.dashboard.core-purchase-display', ['purchase' => $purchase, 'exitDispatchEvent' => 'exitPurchaseCreate',])
   @else
@@ -46,7 +70,7 @@
             @if ($modes['backDate'])
               <div>
                 <div>
-                  <input type="date" wire:model="sale_invoice_date">
+                  <input type="date" wire:model="purchase_date">
                   <div class="mt-2">
                     <button class="btn btn-light" wire:click="changePurchaseDate">
                       <i class="fas fa-check-circle text-success"></i>
@@ -121,120 +145,71 @@
       <x-slot name="transactionItemList">
         <div class="card mb-0">
           <div class="card-body p-0">
-            @if (count($purchase->purchaseItems) > 0)
-              {{-- Show in bigger screens --}}
-              <div class="table-responsive border d-none d-md-block">
-                <table class="table table-hover mb-0">
-                  <thead>
-                    <tr>
-                      <th class="o-heading">--</th>
-                      <th class="o-heading">#</th>
-                      <th class="o-heading">Item</th>
-                      <th class="o-heading">Quantity</th>
-                      <th class="o-heading">Unit</th>
-                      <th class="o-heading">Price per unit</th>
-                      <th class="o-heading">Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody class="bg-white">
-                    @if (count($purchase->purchaseItems) > 0)
-                      @foreach ($purchase->purchaseItems as $item)
-                      <tr class="font-weight-bold">
-                        <td>
-                          <a href="" wire:click.prevent="confirmRemoveItemFromPurchase({{ $item->purchase_item_id }})">
-                          <i class="fas fa-trash text-danger"></i>
-                          </a>
-                        </td>
-                        <td class="text-secondary"> {{ $loop->iteration }} </td>
-                        <td>
-                          <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
-                          {{ $item->product->name }}
-                        </td>
-                        <td>
-                          {{ $item->quantity }}
-                        </td>
-                        <td>
-                          {{ $item->unit }}
-                        </td>
-                        <td>
-                          {{ config('app.transaction_currency_symbol') }}
-                          @php echo number_format( $item->purchase_price_per_unit, 2 ); @endphp
-                        </td>
-                        <td>
-                          {{ config('app.transaction_currency_symbol') }}
-                          @php echo number_format( $item->getTotalAmount(), 2 ); @endphp
-                        </td>
-                      </tr>
-                      @endforeach
-                    @endif
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <td colspan="6" class="o-heading text-right">
-                        Subtotal
+            <div class="table-responsive border">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th class="o-heading">--</th>
+                    <th class="o-heading">#</th>
+                    <th class="o-heading">Item</th>
+                    <th class="o-heading">Quantity</th>
+                    <th class="o-heading">Unit</th>
+                    <th class="o-heading">Price per unit</th>
+                    <th class="o-heading">Amount</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white">
+                  @if (count($purchase->purchaseItems) > 0)
+                    @foreach ($purchase->purchaseItems as $item)
+                    <tr class="font-weight-bold">
+                      <td>
+                        <a href="" wire:click.prevent="confirmRemoveItemFromPurchase({{ $item->purchase_item_id }})">
+                        <i class="fas fa-trash text-danger"></i>
+                        </a>
                       </td>
-                      <td class="o-heading">
+                      <td class="text-secondary"> {{ $loop->iteration }} </td>
+                      <td>
+                        <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
+                        {{ $item->product->name }}
+                      </td>
+                      <td>
+                        {{ $item->quantity }}
+                      </td>
+                      <td>
+                        {{ $item->unit }}
+                      </td>
+                      <td>
                         {{ config('app.transaction_currency_symbol') }}
-                        @php echo number_format( $purchase->getTotalAmountRaw(), 2 ); @endphp
+                        @php echo number_format( $item->purchase_price_per_unit, 2 ); @endphp
+                      </td>
+                      <td>
+                        {{ config('app.transaction_currency_symbol') }}
+                        @php echo number_format( $item->getTotalAmount(), 2 ); @endphp
                       </td>
                     </tr>
-                  </tfoot>
-                </table>
-              </div>
-
-              {{-- Show in smaller screens --}}
-              <div class="table-responsive d-md-none border">
-                <table class="table table-hover border-dark mb-0">
-                  <tbody class="bg-white">
-                    @if (count($purchase->purchaseItems) > 0)
-                      @foreach ($purchase->purchaseItems as $item)
-                      <tr class="font-weight-bold">
-                        <td>
-                          <img src="{{ asset('storage/' . $item->product->image_path) }}" class="mr-3" style="width: 40px; height: 40px;">
-                        </td>
-                        <td>
-                          <div class="font-weight-bold">
-                            {{ $item->product->name }}
-                          </div>
-                          <div class="mt-2">
-                            <span class="mr-3">
-                              PPU: Rs {{ $item->purchase_price_per_unit }}
-                            </span>
-                          </div>
-                          <div>
-                            <span class="mr-3">
-                              Unit: {{ $item->unit }}
-                            </span>
-                          </div>
-                          <div>
-                            <span class="text-primary">
-                              Qty: {{ $item->quantity }}
-                            </span>
-                          </div>
-                        </td>
-                        <td class="font-weight-bold">
-                          {{ config('app.transaction_currency_symbol') }}
-                          @php echo number_format( $item->getTotalAmount(), 2 ); @endphp
-                        </td>
-                        <td>
-                          <a href="" wire:click.prevent="confirmRemoveItemFromCurrentBooking({{ $item->sale_invoice_item_id }})">
-                          <i class="fas fa-trash text-danger"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      @endforeach
-                    @endif
-                  </tbody>
-                </table>
-              </div>
-            @else
-              <div class="p-4 bg-white border text-muted">
-                <p class="font-weight-bold h4 py-4 text-center" style="color: #fe8d01;">
-                  <i class="fas fa-exclamation-circle mr-2"></i>
-                  No items in the list
-                <p>
-              </div>
-            @endif
+                    @endforeach
+                  @else
+                    <tr class="font-weight-bold">
+                      <td colspan="7" class="text-center py-4">
+                        <i class="fas fa-exclamation-circle mr-1"></i>
+                        No products added
+                      </td>
+                    </tr>
+                  @endif
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="6" class="o-heading text-right">
+                      Subtotal
+                    </td>
+                    <td class="o-heading">
+                      {{ config('app.transaction_currency_symbol') }}
+                      @php echo number_format( $purchase->getTotalAmountRaw(), 2 ); @endphp
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
           </div>
         </div>
       </x-slot>
