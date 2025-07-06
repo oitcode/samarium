@@ -38,12 +38,12 @@
       --}}
 
       @if ($modes['create'])
-        @livewire ('purchase.dashboard.purchase-create')
+        @livewire ('purchase.dashboard.purchase-editor')
       @elseif ($modes['list'])
         @livewire ('purchase.dashboard.purchase-list')
       @elseif ($modes['display'])
         @if ($displayingPurchase->creation_status == 'progress')
-          @livewire ('purchase.dashboard.purchase-create', [
+          @livewire ('purchase.dashboard.purchase-editor', [
               'createNew' => false,
               'purchase' => $displayingPurchase,
           ])

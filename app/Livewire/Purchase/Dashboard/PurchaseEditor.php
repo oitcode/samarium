@@ -14,7 +14,7 @@ use App\Models\Purchase\PurchaseItem;
 use App\Models\Purchase\PurchasePaymentType;
 use App\Models\Purchase\PurchasePayment;
 
-class PurchaseCreate extends Component
+class PurchaseEditor extends Component
 {
     use MiscTrait;
     use ModesTrait;
@@ -70,7 +70,7 @@ class PurchaseCreate extends Component
         $this->purchasePaymentTypes = PurchasePaymentType::all();
         $this->vendors = Vendor::all();
 
-        return view('livewire.purchase.dashboard.purchase-create');
+        return view('livewire.purchase.dashboard.purchase-editor');
     }
 
     public function startPurchase(): Purchase

@@ -10,7 +10,7 @@ use App\Models\Product\ProductCategory;
 use App\Models\Purchase\PurchaseItem;
 use App\Models\Purchase\Purchase;
 
-class PurchaseAddItem extends Component
+class PurchaseEditorAddItem extends Component
 {
     use ModesTrait;
     
@@ -46,7 +46,7 @@ class PurchaseAddItem extends Component
     {
         $this->productCategories = ProductCategory::all();
 
-        return view('livewire.purchase.dashboard.purchase-add-item');
+        return view('livewire.purchase.dashboard.purchase-editor-add-item');
     }
 
     public function addItemToPurchase(): void

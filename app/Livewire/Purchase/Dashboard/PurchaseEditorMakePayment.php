@@ -14,7 +14,7 @@ use App\Models\Purchase\PurchaseAdditionHeading;
 use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
 use App\Models\Purchase\PurchaseAddition;
 
-class PurchaseMakePayment extends Component
+class PurchaseEditorMakePayment extends Component
 {
     use ModesTrait;
     use TaxTrait;
@@ -62,7 +62,7 @@ class PurchaseMakePayment extends Component
 
         $this->updateNumbers();
 
-        return view('livewire.purchase.dashboard.purchase-make-payment');
+        return view('livewire.purchase.dashboard.purchase-editor-make-payment');
     }
 
     public function store(): void

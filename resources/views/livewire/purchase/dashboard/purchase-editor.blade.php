@@ -115,7 +115,7 @@
       </x-slot>
 
       <x-slot name="transactionAddItem">
-        @livewire ('purchase.dashboard.purchase-add-item', ['purchase' => $purchase,])
+        @livewire ('purchase.dashboard.purchase-editor-add-item', ['purchase' => $purchase,])
       </x-slot>
 
       <x-slot name="transactionItemList">
@@ -245,7 +245,7 @@
 
       <x-slot name="transactionPayment">
         @if (! $modes['paid'])
-          @livewire ('purchase.dashboard.purchase-make-payment', ['purchase' => $purchase,])
+          @livewire ('purchase.dashboard.purchase-editor-make-payment', ['purchase' => $purchase,])
         @endif
       </x-slot>
 

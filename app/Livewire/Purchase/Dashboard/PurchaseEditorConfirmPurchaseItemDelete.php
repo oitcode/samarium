@@ -6,13 +6,13 @@ use Livewire\Component;
 use Illuminate\View\View;
 use App\PurchaseItem;
 
-class PurchaseCreateConfirmPurchaseItemDelete extends Component
+class PurchaseEditorConfirmPurchaseItemDelete extends Component
 {
     public $purchaseItem;
 
     public function render(): View
     {
-        return view('livewire.purchase.dashboard.purchase-create-confirm-purchase-item-delete');
+        return view('livewire.purchase.dashboard.purchase-editor-confirm-purchase-item-delete');
     }
 
     public function deletePurchaseItem(PurchaseItem $purchaseItem): void
