@@ -115,11 +115,11 @@
       </x-slot>
 
       <x-slot name="transactionAddItem">
-        @include ('partials.dashboard.expense-create-add-item')
+        @include ('partials.dashboard.expense-editor-add-item')
       </x-slot>
 
       <x-slot name="transactionItemList">
-        @include ('partials.dashboard.expense-create-main')
+        @include ('partials.dashboard.expense-editor-main')
       </x-slot>
 
       <x-slot name="transactionTotalBreakdown">
@@ -127,7 +127,7 @@
 
       <x-slot name="transactionPayment">
         @if (! $modes['paid'])
-          @include ('partials.dashboard.expense-create-make-payment')
+          @include ('partials.dashboard.expense-editor-make-payment')
           <div>
             <div class="p-0 m-0">
               @if (! $modes['paid'])

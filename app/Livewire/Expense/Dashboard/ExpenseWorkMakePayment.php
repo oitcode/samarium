@@ -17,7 +17,7 @@ use App\JournalEntryItem;
 use App\AbAccount;
 use App\LedgerEntry;
 
-class ExpenseWorkMakePayment extends Component
+class ExpenseEditorMakePayment extends Component
 {
     use MiscTrait;
     use TaxTrait;
@@ -103,7 +103,7 @@ class ExpenseWorkMakePayment extends Component
 
     public function render(): View
     {
-        return view('livewire.expense.dashboard.expense-work-make-payment');
+        return view('livewire.expense.dashboard.expense-editor-make-payment');
     }
 
     public function calculateTaxableAmount(): void

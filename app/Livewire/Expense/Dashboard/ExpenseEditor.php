@@ -18,7 +18,7 @@ use App\Models\Expense\ExpenseAddition;
 use App\Models\SaleInvoice\SaleInvoiceAdditionHeading;
 use App\Models\Vendor\Vendor;
 
-class ExpenseCreate extends Component
+class ExpenseEditor extends Component
 {
     use ModesTrait;
     use TaxTrait;
@@ -128,7 +128,7 @@ class ExpenseCreate extends Component
         /* Make payment related */
         $this->expensePaymentTypes = ExpensePaymentType::all();
 
-        return view('livewire.expense.dashboard.expense-create');
+        return view('livewire.expense.dashboard.expense-editor');
     }
 
     public function addItemToExpense(): void

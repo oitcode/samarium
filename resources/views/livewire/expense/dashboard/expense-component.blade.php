@@ -38,12 +38,12 @@
       --}}
 
       @if ($modes['create'])
-        @livewire ('expense.dashboard.expense-create')
+        @livewire ('expense.dashboard.expense-editor')
       @elseif ($modes['list'])
         @livewire ('expense.dashboard.expense-list')
       @elseif ($modes['display'])
         @if ($displayingExpense->creation_status == 'progress')
-          @livewire ('expense.dashboard.expense-create', [
+          @livewire ('expense.dashboard.expense-editor', [
               'createNew' => false,
               'expense' => $displayingExpense,
           ])

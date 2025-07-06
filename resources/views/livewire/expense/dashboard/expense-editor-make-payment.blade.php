@@ -4,7 +4,7 @@
     <div class="d-flex justify-content-between">
       <div class="d-flex flex-column justify-content-center">
         <h2>
-          Payment
+          Payment OLA
         </h1>
       </div>
       <div>
