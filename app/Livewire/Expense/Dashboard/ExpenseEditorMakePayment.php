@@ -62,11 +62,10 @@ class ExpenseEditorMakePayment extends Component
     ];
 
     protected $listeners = [
-      'makePaymentPleaseUpdate' => 'mount',
-      'updatePaymentComponent' => 'mount',
+        'itemAddedToExpense' => 'render',
     ];
 
-    public function mount(): void
+    public function render(): View
     {
         $this->has_vat = $this->hasVat();
 
@@ -100,10 +99,7 @@ class ExpenseEditorMakePayment extends Component
         //
         // /* Calculate Grand Total */
         // $this->calculateGrandTotal();
-    }
 
-    public function render(): View
-    {
         return view('livewire.expense.dashboard.expense-editor-make-payment');
     }
 
