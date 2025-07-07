@@ -119,7 +119,13 @@ class Expense extends Model
 
     public function getTotalAmountRaw()
     {
-        return $this->amount;
+        $total = 0;
+
+        foreach ($this->expenseItems as $expenseItem) {
+            $total += $expenseItem->amount;
+        }
+
+        return $total;
     }
 
     public function getVatAmount()

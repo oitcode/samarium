@@ -4,22 +4,24 @@ namespace App\Livewire\Expense\Dashboard;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 use App\Traits\MiscTrait;
+use App\Traits\ModesTrait;
 use App\Traits\TaxTrait;
-use App\Vendor;
-use App\Expense;
-use App\ExpensePaymentType;
-use App\ExpensePayment;
-use App\ExpenseAddition;
-use App\ExpenseAdditionHeading;
-use App\JournalEntry;
-use App\JournalEntryItem;
-use App\AbAccount;
-use App\LedgerEntry;
+use App\Models\Expense\Expense;
+use App\Models\Expense\ExpensePaymentType;
+use App\Models\Expense\ExpensePayment;
+use App\Models\Expense\ExpenseAddition;
+use App\Models\Expense\ExpenseAdditionHeading;
+use App\Models\Accounting\JournalEntry;
+use App\Models\Accounting\JournalEntryItem;
+use App\Models\Accounting\AbAccount;
+use App\Models\Accounting\LedgerEntry;
 
 class ExpenseEditorMakePayment extends Component
 {
     use MiscTrait;
+    use ModesTrait;
     use TaxTrait;
 
     public $expense;
@@ -27,6 +29,7 @@ class ExpenseEditorMakePayment extends Component
     public $total;
     public $pay_by;
     public $tender_amount;
+    public $paid_amount;
 
     public $discount = 0;
     public $service_charge = 0;
@@ -40,13 +43,6 @@ class ExpenseEditorMakePayment extends Component
     public $discount_percentage = null;
 
     public $returnAmount;
-
-    /* Vendor to which expense will be made */
-    public $vendor = null;
-    public $vendor_id;
-
-    /* List of customers */
-    public $vendors;
 
     /* Expense addition headings */
     public $expenseAdditionHeadings;
@@ -88,17 +84,22 @@ class ExpenseEditorMakePayment extends Component
             $this->total = 0;
         }
 
-        /* Calculate total before taxes. */
-        $this->calculateTaxableAmount();
+        $this->taxable_amount = $this->total;
+        $this->grand_total = $this->total;
 
-        if ($this->has_vat) {
-            $this->expenseAdditions['VAT'] = $this->calculateExpenseVat();
-        }
-
-        /* Calculate Grand Total */
-        $this->calculateGrandTotal();
-
-        $this->vendors = Vendor::all();
+        // Todo: Skip this for now. Need to find out how taxes
+        // on expenses are dealt with in real world. Need
+        // to update the code accordingly. Skip for now.
+        // 
+        // /* Calculate total before taxes. */
+        // $this->calculateTaxableAmount();
+        //
+        // if ($this->has_vat) {
+        //     $this->expenseAdditions['VAT'] = $this->calculateExpenseVat();
+        // }
+        //
+        // /* Calculate Grand Total */
+        // $this->calculateGrandTotal();
     }
 
     public function render(): View
@@ -150,5 +151,44 @@ class ExpenseEditorMakePayment extends Component
         } else {
             $this->grand_total = $this->taxable_amount;
         }
+    }
+
+    public function store(): void
+    {
+        $validatedData = $this->validate([
+            'paid_amount' => 'required|integer',
+            'expense_payment_type_id' => 'required|integer',
+        ]);
+
+        DB::beginTransaction();
+
+        try {
+            $expensePayment = new ExpensePayment;
+
+            $expensePayment->expense_id = $this->expense->expense_id;
+            $expensePayment->expense_payment_type_id = $validatedData['expense_payment_type_id'];
+            $expensePayment->payment_date = date('Y-m-d');
+            $expensePayment->amount = $validatedData['paid_amount'];
+
+            $expensePayment->save();
+
+            $this->expense->payment_status = 'paid';
+            $this->expense->save();
+
+            /* Make accounting entries */
+            //$this->makePurchaseAccountingEntry($this->purchase);
+
+            DB::commit();
+
+            $this->enterMode('paid');
+        } catch (\Exception $e) {
+            DB::rollback();
+            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
+        }
+    }
+
+    public function finishPayment(): void
+    {
+        $this->dispatch('exitMakePaymentMode');
     }
 }

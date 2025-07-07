@@ -36,11 +36,6 @@ class ExpenseEditor extends Component
     public $multiPayments = array();
     public $expense_payment_type_id;
 
-    /* Expense item related */
-    public $add_item_name;
-    public $add_item_expense_category_id;
-    public $add_item_amount;
-
     /* Total related */
     public $sub_total;
     public $expenseAdditions = array();
@@ -67,6 +62,11 @@ class ExpenseEditor extends Component
         'backDate' => false,
     ];
 
+    protected $listeners = [
+        'itemAddedToExpense' => 'redner',
+        'exitMakePaymentMode',
+    ];
+
     public function mount(): void
     {
         $this->vendors = Vendor::all();
@@ -75,6 +75,9 @@ class ExpenseEditor extends Component
             $expense = new Expense;
 
             /* Todo: Set correct value of amount instead of dummy 1. */
+            /* Todo: This total for the expense as a whole makes sense. 
+                     But need to set this amount correctly.
+             */
             $expense->amount = 1;
 
             $expense->date = date('Y-m-d');
@@ -151,13 +154,6 @@ class ExpenseEditor extends Component
         $this->item_count ++;
         $this->resetInputFields();
         $this->updateNumbers();
-    }
-
-    public function resetInputFields(): void
-    {
-        $this->add_item_name = '';
-        $this->add_item_expense_category_id = '';
-        $this->add_item_amount = '';
     }
 
     public function updateNumbers(): void
@@ -322,5 +318,10 @@ class ExpenseEditor extends Component
 
         $this->modes['backDate'] = false;
         $this->render();
+    }
+
+    public function exitMakePaymentMode(): void
+    {
+        $this->enterMode('paid');
     }
 }

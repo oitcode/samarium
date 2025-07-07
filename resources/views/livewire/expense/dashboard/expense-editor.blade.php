@@ -1,6 +1,6 @@
 <div>
 
-  @if ($expense->creation_status == 'created')
+  @if ($expense->payment_status == 'paid')
     @livewire ('core.dashboard.core-expense-display', ['expense' => $expense, 'exitDispatchEvent' => 'exitCreateMode',])
   @else
     <x-transaction-create-component>
@@ -115,7 +115,7 @@
       </x-slot>
 
       <x-slot name="transactionAddItem">
-        @include ('partials.dashboard.expense-editor-add-item')
+        @livewire ('expense.dashboard.expense-editor-add-item', ['expense' => $expense,])
       </x-slot>
 
       <x-slot name="transactionItemList">
@@ -127,24 +127,7 @@
 
       <x-slot name="transactionPayment">
         @if (! $modes['paid'])
-          @include ('partials.dashboard.expense-editor-make-payment')
-          <div>
-            <div class="p-0 m-0">
-              @if (! $modes['paid'])
-                <button onclick="this.disabled=true;" class="btn btn-success w-100 py-3 o-heading text-white" wire:click="finishCreation">
-                  <i class="fas fa-check-circle mr-3"></i>
-                  Confirm
-                </button>
-              @else
-                <button onclick="this.disabled=true;" class="btn btn-lg btn-success" wire:click="finishPayment">
-                  FINISH
-                </button>
-                <button onclick="this.disabled=true;" class="btn btn-lg" wire:click="finishPayment" style="background-color: orange">
-                  PRINT
-                </button>
-              @endif
-            </div>
-          </div>
+          @livewire ('expense.dashboard.expense-editor-make-payment', ['expense' => $expense,])
         @endif
       </x-slot>
     </x-transaction-create-component>

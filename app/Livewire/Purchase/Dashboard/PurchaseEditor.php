@@ -89,39 +89,6 @@ class PurchaseEditor extends Component
         return $purchase;
     }
 
-    public function savePayment(): void
-    {
-        $validatedData = $this->validate([
-            'paid_amount' => 'required|integer',
-            'purchase_payment_type_id' => 'required|integer',
-        ]);
-
-        DB::beginTransaction();
-
-        try {
-            $payment = new PurchasePayment;
-
-            $payment->purchase_id = $this->purchase->purchase_id;
-            $payment->purchase_payment_type_id = $validatedData['purchase_payment_type_id'];
-            $payment->payment_date = date('Y-m-d');
-            $payment->amount = $validatedData['paid_amount'];
-
-            $payment->save();
-
-            $this->purchase->payment_status = 'paid';
-            $this->purchase->save();
-
-            /* Make accounting entries */
-            //$this->makePurchaseAccountingEntry($this->purchase);
-
-            DB::commit();
-
-            $this->enterMode('paid');
-        } catch (\Exception $e) {
-            DB::rollback();
-            session()->flash('errorDbTransaction', 'Some error in DB transaction.');
-        }
-    }
 
     public function linkPurchaseToVendor(): void
     {

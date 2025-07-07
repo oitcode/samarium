@@ -1,10 +1,10 @@
-<div class="card" style="background-color: #efe;">
+<div>
 
-  <div class="card-header bg-success text-white">
+  <div class="card-header">
     <div class="d-flex justify-content-between">
       <div class="d-flex flex-column justify-content-center">
-        <h2>
-          Payment OLA
+        <h2 class="h2 o-heading">
+          Payment
         </h1>
       </div>
       <div>
@@ -31,7 +31,7 @@
       <table class="table mb-0 bg-danger">
         <tbody>
           <tr style="height: 50px;" class="bg-light border-bottom">
-            <td class="w-50 p-0 h-100 font-weight-bold border-0 pt-2">
+            <td class="w-50 p-0 h-100 o-heading border-0 pt-2">
               <span class="ml-4">
                 Subtotal
               </span>
@@ -39,7 +39,7 @@
             <td class="p-0 h-100 font-weight-bold pl-3 pt-0 border-0">
               <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                   type="text"
-                  style="background-color: #afa; outline: none;"
+                  style=""
                   wire:model="total" />
             </td>
           </tr>
@@ -173,7 +173,7 @@
                   <input class="w-100 h-100 font-weight-bold border-0 pl-3"
                       type="text"
                       style="background-color: #afa; outline: none;"
-                      wire:model="tender_amount" />
+                      wire:model="paid_amount" />
                 </td>
               </tr>
 
