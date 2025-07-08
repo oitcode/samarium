@@ -99,10 +99,6 @@ class PurchaseEditorAddItem extends Component
 
         $this->resetInputFields();
         $this->dispatch('itemAddedToPurchase');
-
-        if ($this->modes['showMobForm']) {
-            $this->exitMode('showMobForm');
-        }
     }
 
     public function updateProductList(): void

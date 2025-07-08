@@ -1,5 +1,24 @@
 <div>
 
+  {{--
+  |--------------------------------------------------------------------------
+  | Expense Editor Livewire Component Blade File
+  |--------------------------------------------------------------------------
+  |
+  | This blade template handles the expense creation/editing workflow.
+  | It displays either a finalized expense or an interactive
+  | interface for building the expense including:
+  | - Adding/removing items to the expense
+  | - Managing payment recording
+  | - Real-time expense totals calculation
+  | - Print/email functionality (Todo)
+  |
+  | It uses two other livewire components:
+  | - ExpenseEditorAddItem
+  | - ExpenseEditorMakePayment
+  |
+  --}}
+
   @if ($expense->payment_status == 'paid')
     @livewire ('core.dashboard.core-expense-display', ['expense' => $expense, 'exitDispatchEvent' => 'exitCreateMode',])
   @else
@@ -119,7 +138,59 @@
       </x-slot>
 
       <x-slot name="transactionItemList">
-        @include ('partials.dashboard.expense-editor-main')
+        {{-- Items grid --}}
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body p-0">
+            {{-- Show in bigger screens --}}
+            <div class="table-responsive d-none d-md-block">
+              <table class="table table-hover border-dark mb-0">
+                <thead>
+                  <tr class="bg-success-rm text-white-rm">
+                    <th class="o-heading">--</th>
+                    <th class="o-heading">#</th>
+                    <th class="o-heading">Item</th>
+                    <th class="o-heading">Category</th>
+                    <th class="o-heading">Amount</th>
+                  </tr>
+                </thead>
+        
+                @if ($expense->expenseItems && count($expense->expenseItems) > 0)
+                <tbody>
+                  @foreach ($expense->expenseItems as $expenseItem)
+                    <tr class="font-weight-bold text-white-rm">
+                      <td>
+                        <a href="" wire:click.prevent="" class="">
+                        <i class="fas fa-trash text-danger"></i>
+                        </a>
+                      </td>
+                      <td class="text-secondary">
+                        {{ $loop->iteration }}
+                      </td>
+                      <td>
+                        {{ $expenseItem->name }}
+                      </td>
+                      <td>
+                        {{ $expenseItem->expenseCategory->name }}
+                      </td>
+                      <td>
+                        {{ config('app.transaction_currency_symbol') }}
+                        {{ $expenseItem->amount }}
+                      </td>
+                    </tr>
+                  @endforeach
+                </tbody>
+                @else
+                  <tr class="font-weight-bold">
+                    <td colspan="5" class="text-center py-4">
+                      <i class="fas fa-exclamation-circle mr-1"></i>
+                      No items added to the list
+                    </td>
+                  </tr>
+                @endif
+              </table>
+            </div>
+          </div>
+        </div>
       </x-slot>
 
       <x-slot name="transactionTotalBreakdown">

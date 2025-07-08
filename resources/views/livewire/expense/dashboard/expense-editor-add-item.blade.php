@@ -1,5 +1,14 @@
 <div>
 
+  {{--
+  |--------------------------------------------------------------------------
+  | Expense Editor Add Item Livewire Component Blade File
+  |--------------------------------------------------------------------------
+  |
+  | This blade template handles adding expense items to the expense.
+  |
+  --}}
+
   <div class="mb-2 border shadow-sm">
     <div class="table-responsive m-0">
       <table class="table table-sm table-bordered m-0">
@@ -13,7 +22,7 @@
         <tbody>
           <tr class="p-0 font-weight-bold">
             <td class="p-0 h-100">
-              <input class="m-0 w-100 h-100 border-0" type="text" wire:model="add_item_name" wire:keydown.enter="updateProductList"/>
+              <input class="m-0 w-100 h-100 border-0" type="text" wire:model="add_item_name"/>
             </td>
             <td class="p-0 h-100">
               <select class="w-100 h-100 custom-control border-0 bg-white" wire:model="add_item_expense_category_id">
@@ -37,16 +46,16 @@
         </tbody>
       </table>
     </div>
-  
+
     <div class="p-2 m-0 bg-white">
-        <button class="btn btn-success mr-3" wire:click="addItemToExpense">
-          <i class="fas fa-plus mr-2"></i>
-          Add
-        </button>
-        <button class="btn btn-danger" wire:click="resetInputFields">
-          Reset
-        </button>
-        @include ('partials.dashboard.spinner-button')
+      <button class="btn btn-success mr-3" wire:click="addItemToExpense">
+        <i class="fas fa-plus mr-2"></i>
+        Add
+      </button>
+      <button class="btn btn-danger" wire:click="resetInputFields">
+        Reset
+      </button>
+      @include ('partials.dashboard.spinner-button')
     </div>
   </div>
 

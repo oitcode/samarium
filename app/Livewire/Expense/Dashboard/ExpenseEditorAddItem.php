@@ -9,7 +9,6 @@ use App\Models\Expense\ExpenseItem;
 class ExpenseEditorAddItem extends Component
 {
     public $expense;
-
     public $expenseCategories; 
 
     /* Expense item related */

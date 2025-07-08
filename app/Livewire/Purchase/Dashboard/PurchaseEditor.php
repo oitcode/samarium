@@ -33,11 +33,8 @@ class PurchaseEditor extends Component
     public $modes = [
         'addItem' => true,
         'paid' => false,
-        'payment' => true,
-
         'vendorSelected' => false,
         'deletingPurchaseItemMode' => false,
-
         'backDate' => false,
     ];
 
@@ -105,7 +102,6 @@ class PurchaseEditor extends Component
 
     public function exitMakePaymentMode(): void
     {
-        $this->modes['payment'] = false;
         $this->enterMode('paid');
     }
 
