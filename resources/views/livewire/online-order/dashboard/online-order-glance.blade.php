@@ -6,6 +6,7 @@
       iconFaClass="fas fa-edit"
       btnTextPrimary="Online order"
       btnTextSecondary="{{ $onlineOrderCount }}"
+      bgColor="#f0f0ff"
   >
   </x-glance-card>
 
