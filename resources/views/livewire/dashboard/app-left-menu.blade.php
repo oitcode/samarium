@@ -150,18 +150,6 @@
                 ])
             @include ('partials.dashboard.app-left-menu-button',
                 [
-                    'btnRoute' => 'customer',
-                    'iconFaClass' => 'fas fa-users',
-                    'btnText' => 'Customer',
-                ])
-            @include ('partials.dashboard.app-left-menu-button',
-            [
-              'btnRoute' => 'dashboard-vendor',
-              'iconFaClass' => 'fas fa-users',
-              'btnText' => 'Vendors',
-            ])
-            @include ('partials.dashboard.app-left-menu-button',
-                [
                     'btnRoute' => 'online-order',
                     'iconFaClass' => 'fas fa-cloud-download-alt',
                     'btnText' => 'Online order',
@@ -363,6 +351,18 @@
         --}}
         <div class="p-3 mb-3">
           <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'customer',
+                    'iconFaClass' => 'fas fa-users',
+                    'btnText' => 'Customer',
+                ])
+            @include ('partials.dashboard.app-left-menu-button',
+            [
+              'btnRoute' => 'dashboard-vendor',
+              'iconFaClass' => 'fas fa-users',
+              'btnText' => 'Vendors',
+            ])
             @include ('partials.dashboard.app-left-menu-button', [
               'btnRoute' => 'dashboard-contact-form',
               'iconFaClass' => 'fas fa-sms',

@@ -20,14 +20,14 @@
   </div>
 
   @foreach ($todos as $todo)
-    <div class="py-3 border my-3 bg-white">
-      <div class="px-3 mb-1">
+    <div class="py-2 border-bottom my-2 bg-white">
+      <div class="px-3-rm mb-1">
         <div class="o-heading mb-2">
         {{ $todo->title }}
         </div>
       </div>
       <div class="d-flex justify-content-between">
-        <div class="px-3">
+        <div class="px-3-rm">
           <div class="d-flex text-muted">
             <div class="mr-2">
               ID

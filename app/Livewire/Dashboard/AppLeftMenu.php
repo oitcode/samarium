@@ -43,9 +43,7 @@ class AppLeftMenu extends Component
         } else if (
             $uri == '/dashboard/sale' ||
             $uri == '/dashboard/cafesale' ||
-            $uri == '/dashboard/customer' ||
             $uri == '/dashboard/purchase' ||
-            $uri == '/dashboard/vendor' ||
             $uri == '/dashboard/expense' ||
             $uri == '/dashboard/onlineorder' ||
             $uri == '/dashboard/sale-quotation'
@@ -77,6 +75,8 @@ class AppLeftMenu extends Component
         ) {
             $this->enterModeSilent('calendar');
         } else if (
+            $uri == '/dashboard/customer' ||
+            $uri == '/dashboard/vendor' ||
             $uri == '/dashboard/contact-form' ||
             $uri == '/dashboard/appointment' ||
             $uri == '/dashboard/newsletter-subscription' ||

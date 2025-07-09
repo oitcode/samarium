@@ -14,14 +14,14 @@
     @else
       bg-dark
     @endisset
-    m-0 py-3 w-100 text-left rounded-0 font-weight-bold o-heading
+    m-0 py-2 pt-3-rm w-100 text-left rounded-0 font-weight-bold o-heading
     {{ config('app.app_menu_dropdown_button_text_color') }}
     text-white-rm
     "
     wire:click="{{ $btnClickMethod }}" wire:key="{{ rand() . $btnCheckMode }}">
   <div class="d-flex justify-content-between">
     <div>
-      <i class="{{ $btnIconFaClass }} mr-2"></i>
+      <i class="{{ $btnIconFaClass }} mr-2" style="@isset($iconColor) color: {{ $iconColor }} @endisset"></i>
       {{ $btnText }}
       <div class="ml-5 p-0" wire:loading wire:target="{{ $btnClickMethod }}">
         <span class="spinner-border spinner-border-sm text-primary" role="status">
