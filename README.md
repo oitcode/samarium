@@ -167,8 +167,8 @@ Feel free to open issues or pull requests. Even small improvements are appreciat
 
 ## Technical Details
 
-- **Backend**: Laravel (PHP)
-- **Frontend**: Bootstrap, JavaScript
+- **Backend**: Laravel (PHP), Livewire
+- **Frontend**: Bootstrap, Livewire
 - **Database**: MySQL
 - **Containerization**: Docker support included
 
