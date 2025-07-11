@@ -252,7 +252,7 @@
   @endif
 
   {{-- Show google map share link if needed --}}
-  @if (\App\Company::first()->google_map_share_link)
+  @if (\App\Models\Company\Company::first()->google_map_share_link)
     <div class="container my-5">
       <h2 class="h4 font-weight-bold mb-3">
         Find us in google map
@@ -262,7 +262,7 @@
         You can view our location in google map.
       </p>
 
-      <a href="{{ \App\Company::first()->google_map_share_link }}" target="_blank">View in google map</a>
+      <a href="{{ \App\Models\Company\Company::first()->google_map_share_link }}" target="_blank">View in google map</a>
     </div>
   @endif
 @elseif ($webpage->name == 'Calendar' || $webpage->permalink == '/calendar')
