@@ -17,13 +17,28 @@
   <div class="card">
     <div class="card-body p-0 pb-3">
       <div class="text-white-rm py-3 text-center o-package-color-rm">
-        <div class="h4">
-          CUSTOMER DISPLAY
+        <div class="h4 text-muted">
+          @if (false)
+            CUSTOMER DISPLAY
+          @else
+            TOTAL AMOUNT
+          @endif
+
         </div>
-        <div class="h3 o-heading text-warning-rm mb-0">
+        <div class="h1 o-heading text-warning-rm mb-0">
           {{ config('app.transaction_currency_symbol') }}
           @php echo number_format( $this->grand_total ); @endphp
         </div>
+        @if ($modes['paid'])
+          <div class="h4 text-muted">
+            RETURN
+          </div>
+          <div class="h1 o-heading text-warning-rm mb-0">
+            {{ config('app.transaction_currency_symbol') }}
+            @php echo number_format( $this->returnAmount ); @endphp
+          </div>
+        @endif
+
       </div>
       <div class="bg-success text-white py-3 text-center">
         <div class="h5 o-heading text-white mb-0">

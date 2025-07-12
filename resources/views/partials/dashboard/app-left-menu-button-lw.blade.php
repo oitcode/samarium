@@ -15,9 +15,10 @@
       bg-dark
     @endisset
     m-0 py-2 pt-3-rm w-100 text-left rounded-0 font-weight-bold o-heading
-    {{ config('app.app_menu_dropdown_button_text_color') }}
+    {{ config('app.app_menu_dropdown_button_text_color') }}-rm
     text-white-rm
     "
+    style="color: {{ config('app.app_left_menu_text_color') }}"
     wire:click="{{ $btnClickMethod }}" wire:key="{{ rand() . $btnCheckMode }}">
   <div class="d-flex justify-content-between">
     <div>

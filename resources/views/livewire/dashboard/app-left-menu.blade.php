@@ -13,20 +13,30 @@
       @endif
       <div>
         <a href="{{ route('dashboard') }}"
-            class="btn w-100 h-100 py-3 font-weight-bold text-left rounded-0"
+            class="btn w-100 h-100 py-3 o-heading text-left rounded-0
+              @if(Route::current()->getName() == 'dashboard')
+                o-app-left-menu-hl-color-bg o-app-left-menu-hl-color-text
+              @else
+              @endif
+            "
             style="
               @if(Route::current()->getName() == 'dashboard')
-                background-color: rgba(100, 150, 250, 0.5);
+                background-color: {{ config('app.app_left_menu_hl_color_bg') }};
+                color: {{ config('app.app_left_menu_hl_color_text') }};
               @else
+                background-color: {{ config('app.app_left_menu_bg_color') }};
+                color: {{ config('app.app_left_menu_text_color') }};
               @endif
             "
             >
       
           <div class="d-flex">
             <div class="d-flex justify-content-center mr-2 mt-1">
-              <i class="fas fa-tv {{ config('app.app_menu_dropdown_button_text_color') }}"></i>
+              <i class="fas fa-tv {{ config('app.app_menu_dropdown_button_text_color') }}-rm"></i>
             </div>
-            <div class="d-flex justify-content-center o-heading {{ config('app.app_menu_dropdown_button_text_color') }}">
+            <div class="d-flex justify-content-center o-heading-rm {{ config('app.app_left_menu_hl_color_text') }}-rm"
+            style="
+            ">
               <strong>
               Dashboard
               </strong>
@@ -234,6 +244,71 @@
         </div>
       @endif
     @endif
+
+    @if (has_module('crm'))
+      @if ($modes['crm'])
+        @include ('partials.dashboard.app-left-menu-button-lw', [
+            'btnClickMethod' => "exitMode('crm')",
+            'btnIconFaClass' => 'fas fa-users',
+            'btnText' => 'CRM',
+            'btnCheckMode' => 'crm',
+        ])
+      @else
+        @include ('partials.dashboard.app-left-menu-button-lw', [
+            'btnClickMethod' => "enterModeSilent('crm')",
+            'btnIconFaClass' => 'fas fa-users',
+            'btnText' => 'CRM',
+            'btnCheckMode' => 'crm',
+        ])
+      @endif
+  
+      @if ($modes['crm'])
+  
+        {{--
+        |
+        |
+        | CRM route buttons
+        |
+        |
+        --}}
+        <div class="p-3 mb-3">
+          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
+            @include ('partials.dashboard.app-left-menu-button',
+                [
+                    'btnRoute' => 'customer',
+                    'iconFaClass' => 'fas fa-users',
+                    'btnText' => 'Customer',
+                ])
+            @include ('partials.dashboard.app-left-menu-button',
+            [
+              'btnRoute' => 'dashboard-vendor',
+              'iconFaClass' => 'fas fa-users',
+              'btnText' => 'Vendors',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-contact-form',
+              'iconFaClass' => 'fas fa-sms',
+              'btnText' => 'Contact message',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-appointment',
+              'iconFaClass' => 'fas fa-paste',
+              'btnText' => 'Appointment',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-newsletter-subscription',
+              'iconFaClass' => 'fas fa-envelope',
+              'btnText' => 'Newsletter subscription',
+            ])
+            @include ('partials.dashboard.app-left-menu-button', [
+              'btnRoute' => 'dashboard-testimonial',
+              'iconFaClass' => 'fas fa-sms',
+              'btnText' => 'Testimonial',
+            ])
+          </div>
+        </div>
+      @endif
+    @endif
   
     @if (has_module('calendar'))
       @if ($modes['calendar'])
@@ -323,70 +398,6 @@
       @endif
     @endif
 
-    @if (has_module('crm'))
-      @if ($modes['crm'])
-        @include ('partials.dashboard.app-left-menu-button-lw', [
-            'btnClickMethod' => "exitMode('crm')",
-            'btnIconFaClass' => 'fas fa-users',
-            'btnText' => 'CRM',
-            'btnCheckMode' => 'crm',
-        ])
-      @else
-        @include ('partials.dashboard.app-left-menu-button-lw', [
-            'btnClickMethod' => "enterModeSilent('crm')",
-            'btnIconFaClass' => 'fas fa-users',
-            'btnText' => 'CRM',
-            'btnCheckMode' => 'crm',
-        ])
-      @endif
-  
-      @if ($modes['crm'])
-  
-        {{--
-        |
-        |
-        | CRM route buttons
-        |
-        |
-        --}}
-        <div class="p-3 mb-3">
-          <div class="py-3" style="background-color: rgba(0, 0, 0, 0.2); border-radius: 15px;">
-            @include ('partials.dashboard.app-left-menu-button',
-                [
-                    'btnRoute' => 'customer',
-                    'iconFaClass' => 'fas fa-users',
-                    'btnText' => 'Customer',
-                ])
-            @include ('partials.dashboard.app-left-menu-button',
-            [
-              'btnRoute' => 'dashboard-vendor',
-              'iconFaClass' => 'fas fa-users',
-              'btnText' => 'Vendors',
-            ])
-            @include ('partials.dashboard.app-left-menu-button', [
-              'btnRoute' => 'dashboard-contact-form',
-              'iconFaClass' => 'fas fa-sms',
-              'btnText' => 'Contact message',
-            ])
-            @include ('partials.dashboard.app-left-menu-button', [
-              'btnRoute' => 'dashboard-appointment',
-              'iconFaClass' => 'fas fa-paste',
-              'btnText' => 'Appointment',
-            ])
-            @include ('partials.dashboard.app-left-menu-button', [
-              'btnRoute' => 'dashboard-newsletter-subscription',
-              'iconFaClass' => 'fas fa-envelope',
-              'btnText' => 'Newsletter subscription',
-            ])
-            @include ('partials.dashboard.app-left-menu-button', [
-              'btnRoute' => 'dashboard-testimonial',
-              'iconFaClass' => 'fas fa-sms',
-              'btnText' => 'Testimonial',
-            ])
-          </div>
-        </div>
-      @endif
-    @endif
   
     @if (has_module('hr'))
       @if ($modes['hr'])

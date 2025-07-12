@@ -86,6 +86,16 @@ return [
     'app_top_menu_bg_color'               => 'bg-dark',
     'app_top_menu_text_color'             => 'text-white',
 
+    'app_left_menu_bg_color'              => '#213',
+    'app_left_menu_text_color'            => 'white',
+    'app_left_menu_hl_color_bg'           => '#55a',
+    'app_left_menu_hl_color_text'         => 'white',
+
+    'app_linear_gradient_color_1'         => '#55a',
+    'app_linear_gradient_color_2'         => '#123',
+    'app_linear_gradient_text_color'      => '#fff',
+
+
     /*
     |--------------------------------------------------------------------------
     | Shop module currency

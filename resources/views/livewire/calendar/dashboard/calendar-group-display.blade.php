@@ -1,5 +1,15 @@
 <div>
 
+  {{-- Basic info --}}
+  <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
+    <div class="h2 o-heading text-white">
+      {{ $calendarGroup->name }}
+    </div>
+    <div class="h5 text-white">
+      {{ $calendarGroup->created_at }}
+    </div>
+  </div>
+
   {{--
   |
   | Toolbar.

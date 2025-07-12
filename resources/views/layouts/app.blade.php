@@ -47,6 +47,23 @@
       html, body {
         overflow-x: hidden;
       }
+
+      .o-linear-gradient {
+          background-image: linear-gradient(135deg, {{ config('app.app_linear_gradient_color_1') }}, {{ config('app.app_linear_gradient_color_2') }});
+          color: {{ config('app.app_linear_gradient_text_color') }};
+      }
+
+      .o-app-left-menu-bg {
+          background-color: {{ config('app.app_left_menu_bg_color') }};
+      }
+
+      .o-app-left-menu-hl-color-bg {
+          background-color: {{ config('app.app_left_menu_hl_color_bg') }};
+      }
+
+      .o-app-left-menu-hl-color-text {
+          color: {{ config('app.app_left_menu_hl_color_text') }};
+      }
     </style>
 
     <!-- Livewire -->
@@ -78,7 +95,7 @@
       | App left menu
       |
       --}}
-      <div class="col-md-2 p-0 {{ config('app.app_menu_bg_color') }}-rm d-none d-md-block border-right shadow-sm" style="background-color: #1e293b;">
+      <div class="col-md-2 p-0 {{ config('app.app_menu_bg_color') }}-rm d-none d-md-block border-right shadow-sm o-app-left-menu-bg" style="">
         @livewire ('dashboard.app-left-menu')
       </div>
 

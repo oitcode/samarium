@@ -1,15 +1,15 @@
 <div>
 
-  <div class="h5 o-heading py-3 pt-4">
+  <div class="h4 o-heading py-3 pt-4">
     Settings
   </div>
 
-  <div class="mb-3 p-2 bg-white border">
-    <h1 class="h5 font-weight-bold pt-2">
-      <i class="fas fa-exclamation-circle mr-1 text-danger"></i>
+  <div class="mb-3 py-3 px-3 bg-white border o-linear-gradient o-border-radius">
+    <h1 class="h5 o-heading text-white pt-2">
+      <i class="fas fa-exclamation-circle mr-1"></i>
       Caution
     </h1>
-    <div class="text-muted">
+    <div class="">
       Please be careful while making settings changes.
     </div>
   </div>
@@ -20,11 +20,11 @@
         {{-- Sales settings --}}
         @if (has_module('shop'))
         <div class="bg-white p-2 mb-3 shadow-sm border rounded-lg">
-          <h2 class="h5 font-weight-bold mt-2">Sale invoice</h2>
+          <h2 class="h5 o-heading mt-2">Sale invoice</h2>
           <hr />
           {{-- Sale invoice payment types --}}
           <div class="mb-4">
-            <h3 class="h5 font-weight-bold">Sale invoice payment types</h3>
+            <h3 class="h6 o-heading">Sale invoice payment types</h3>
             <div>
               @foreach ($saleInvoicePaymentTypes as $saleInvoicePaymentType)
                 <span class="badge badge-light badge-pill border p-2 mr-2">
@@ -67,7 +67,7 @@
 
           {{-- Sale invoice additions --}}
           <div class="mb-4">
-            <h3 class="h5 font-weight-bold">Sale invoice additions</h3>
+            <h3 class="h6 o-heading">Sale invoice additions</h3>
             <div>
               @foreach ($saleInvoiceAdditionHeadings as $saleInvoiceAdditionHeading)
                 <span class="badge badge-light badge-pill border p-2 mr-2">
@@ -129,9 +129,9 @@
         {{-- Purchase payment types --}}
         <div class="bg-white p-2 mb-3 border shadow-sm rounded-lg">
           <div class="mb-4">
-            <h2 class="h5 font-weight-bold">Purchase</h2>
+            <h2 class="h5 o-heading">Purchase</h2>
             <hr />
-            <h3 class="h5 font-weight-bold">Purchase payment types</h3>
+            <h3 class="h6 o-heading">Purchase payment types</h3>
             <div>
               @foreach ($purchasePaymentTypes as $purchasePaymentType)
                 <span class="badge badge-light badge-pill border p-2 mr-2">
@@ -173,7 +173,7 @@
 
           {{-- Purchase additions --}}
           <div class="mb-4">
-            <h3 class="h5 font-weight-bold">Purchase additions</h3>
+            <h3 class="h6 o-heading">Purchase additions</h3>
             <div>
               @foreach ($purchaseAdditionHeadings as $purchaseAdditionHeading)
                 <span class="badge badge-light badge-pill border p-2 mr-2">
@@ -234,9 +234,9 @@
         {{-- Expense payment types --}}
         <div class="bg-white p-2 mb-3 border shadow-sm rounded-lg">
           <div class="mb-4">
-            <h2 class="h5 font-weight-bold">Expense</h2>
+            <h2 class="h5 o-heading">Expense</h2>
             <hr />
-            <h3 class="h5 font-weight-bold">Expense payment types</h3>
+            <h3 class="h6 o-heading">Expense payment types</h3>
             <div>
               @foreach ($expensePaymentTypes as $expensePaymentType)
                 <span class="badge badge-light badge-pill border p-2 mr-2">
@@ -279,7 +279,7 @@
 
           {{-- Expense additions --}}
           <div class="mb-4">
-            <h3 class="h5 font-weight-bold">Expense additions</h3>
+            <h3 class="h6 o-heading">Expense additions</h3>
             <div>
               @foreach ($expenseAdditionHeadings as $expenseAdditionHeading)
                 <span class="badge badge-light badge-pill border p-2 mr-2">
@@ -336,9 +336,10 @@
           </div>
         </div>
 
+        @if (false)
         {{-- Back date setting --}}
         <div class="bg-white p-2 mb-3 border shadow-sm rounded-lg">
-          <h2 class="h5 font-weight-bold">
+          <h2 class="h5 o-heading">
             Back date entry
           </h2>
           <hr />
@@ -351,6 +352,7 @@
           </select>
         </div>
         @endif
+        @endif
       </div>
       <div class="col-md-4">
       </div>
@@ -360,8 +362,9 @@
   </div>
 
   {{-- Site type --}}
+  @if (false)
   <div class="bg-white p-2 mb-3 border shadow-sm rounded-lg">
-    <h2 class="h5 font-weight-bold">Site type</h2>
+    <h2 class="h5 o-heading">Site type</h2>
     <hr />
     <div class="my-3 px-2">
       <h2 class="h6">
@@ -373,5 +376,6 @@
       </select>
     </div>
   </div>
+  @endif
 
 </div>

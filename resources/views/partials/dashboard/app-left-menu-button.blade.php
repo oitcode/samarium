@@ -4,23 +4,22 @@
         w-100 h-100 py-2 font-weight-bold-rm text-left rounded-0
         @if ($bordered ?? false)
         @endif
+        @if(Route::current()->getName() == $btnRoute)
+          o-app-left-menu-hl-color-bg o-app-left-menu-hl-color-text
+        @endif
         "
       style="
         @if(Route::current()->getName() == $btnRoute)
-          background-color: rgba(100, 150, 250, 0.5);
+          color: {{ config('app.app_left_menu_hl_color_text') }};
         @else
+          color: {{ config('app.app_left_menu_text_color') }};
         @endif
         border-radius: 15px !important;
       "
       >
 
     <div class="d-flex">
-      @if (false)
-      <div class="d-flex justify-content-center mr-2 mt-1">
-        <i class="{{ $iconFaClass }} {{ config('app.app_menu_dropdown_button_text_color') }}"></i>
-      </div>
-      @endif
-      <div class="d-flex justify-content-center o-heading-rm {{ config('app.app_menu_dropdown_button_text_color') }}">
+      <div class="d-flex justify-content-center o-heading-rm">
         <strong>
         {{ $btnText }}
         </strong>

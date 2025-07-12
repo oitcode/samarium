@@ -1,4 +1,4 @@
-<div class="row bg-white py-0 mb-1 border" style="margin: auto;">
+<div class="row bg-white-rm py-0 mb-1 border-rm" style="margin: auto;">
   {{-- Toolbar info --}}
   <div class="col-md-6 my-2 p-2 d-flex flex-column justify-content-center">
     <div>

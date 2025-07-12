@@ -1,5 +1,15 @@
 <div>
 
+  {{-- Basic info --}}
+  <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
+    <div class="h2 o-heading">
+      {{ $vendor->name }}
+    </div>
+    <div class="h5">
+      {{ $vendor->created_at }}
+    </div>
+  </div>
+
   {{--
   |
   | Toolbar.

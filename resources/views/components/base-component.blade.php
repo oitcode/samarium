@@ -6,9 +6,11 @@
   |
   --}}
 
+  @if (isset($toolbar))
   <x-toolbar-classic toolbarTitle="{{ $moduleName }}">
     {{ $toolbar }}
   </x-toolbar-classic>
+  @endif
 
 
   {{--

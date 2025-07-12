@@ -12,20 +12,11 @@
       @include ('partials.dashboard.spinner-button')
 
       @if (! array_search(true, $modes) || $modes['listMode'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('createMode')",
-          'btnIconFaClass' => 'fas fa-plus-circle',
-          'btnText' => 'New',
-          'btnCheckMode' => 'createMode',
-      ])
-      @endif
-
-      @if ($modes['displayMode'])
         @include ('partials.dashboard.tool-bar-button-pill', [
-            'btnClickMethod' => "clearModes",
-            'btnIconFaClass' => 'fas fa-times',
-            'btnText' => '',
-            'btnCheckMode' => '',
+            'btnClickMethod' => "enterMode('createMode')",
+            'btnIconFaClass' => 'fas fa-plus-circle',
+            'btnText' => 'New',
+            'btnCheckMode' => 'createMode',
         ])
       @endif
 

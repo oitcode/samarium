@@ -3,13 +3,27 @@
     @guest
     @else
       <div class="d-flex flex-column justify-content-center p-2 px-3">
-        <div class="h2 mb-0 text-primary o-heading">
-          <i class="fas fa-check-circle mr-1"></i>
-          @if (false)
-          <span class="o-heading {{ config('app.app_top_menu_text_color') }}-rm">
-            {{ config('app.name') }}
-          </span>
-          @endif
+        <div class="d-flex">
+          <div class="h1 mb-0 text-primary o-heading mr-2">
+            <i class="fas fa-meteor mr-1 text-primary"></i>
+            @if (false)
+            <span class="o-heading {{ config('app.app_top_menu_text_color') }}-rm">
+              @if (false)
+              {{ config('app.name') }}
+              @endif
+              {{ $company->name }}
+            </span>
+            @endif
+          </div>
+          <div class="h6 mb-0 text-primary o-heading">
+            <div class="d-flex flex-column justify-content-center h-100">
+              @if (false)
+              <span class="o-heading {{ config('app.app_top_menu_text_color') }}-rm">
+                Samarium
+              </span>
+              @endif
+            </div>
+          </div>
         </div>
       </div>
 

@@ -10,7 +10,7 @@
             @endif
           @endisset
           m-0 mr-3 px-4 h-100-rm o-flipper-rm py-2 d-flex flex-column justify-content-center badge-pill-rm rounded-rm text-white-rm o-border-radius
-          o-linear-gradient text-white
+          o-linear-gradient
           @isset($btnBsColor)
             {{ $btnBsColor }}
           @else

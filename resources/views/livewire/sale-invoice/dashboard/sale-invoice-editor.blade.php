@@ -36,11 +36,11 @@
       --}}
       <x-slot name="topToolbarNxt">
         <div class="d-flex justify-content-between text-dark px-1 o-linear-gradient o-border-radius mb-3 pl-3 py-3">
-          <div class="d-flex flex-column justify-content-center text-white">
+          <div class="d-flex flex-column justify-content-center text-white-rm">
             <div>
               Sale Invoice ID:
               &nbsp;
-              <span class="o-heading text-white">
+              <span class="o-heading text-white-rm">
                 {{ $saleInvoice->sale_invoice_id }}
               </span>
               &nbsp;
@@ -50,7 +50,7 @@
               &nbsp;
               Date:
               &nbsp;
-              <span class="o-heading text-white">
+              <span class="o-heading text-white-rm">
                 {{ $saleInvoice->created_at->toDateString() }}
               </span>
             </div>

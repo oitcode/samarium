@@ -8,19 +8,18 @@
     |
     --}}
 
+    @if ($displayingCmsNavMenu)
+    @else
     <x-slot name="toolbar">
-      @include ('partials.dashboard.spinner-button')
-
-      @if ($displayingCmsNavMenu)
-      @else
+        @include ('partials.dashboard.spinner-button')
         @include ('partials.dashboard.tool-bar-button-pill', [
             'btnClickMethod' => "enterMode('create')",
             'btnIconFaClass' => 'fas fa-plus-circle',
             'btnText' => 'Create',
             'btnCheckMode' => 'create',
         ])
-      @endif
     </x-slot>
+    @endif
 
     <div>
 

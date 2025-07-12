@@ -1,5 +1,15 @@
 <div>
 
+  {{-- Basic info --}}
+  <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
+    <div class="h2 o-heading text-white">
+      {{ $todo->title }}
+    </div>
+    <div class="h5 text-white">
+      {{ $todo->created_at }}
+    </div>
+  </div>
+
   {{--
   |
   | Toolbar.
@@ -29,8 +39,8 @@
      |
   --}}
 
-  <div>
-    <div class="mb-0 h5 font-weight-bold border bg-white">
+  <div class="bg-white p-3 border">
+    <div class="mb-0 h5 font-weight-bold bg-white">
       @if ($modes['updateTitleMode'])
         <div class="p-3">
           @livewire ('todo.dashboard.todo-edit-title', ['todo' => $todo,])
@@ -50,33 +60,33 @@
     </div>
 
     <div>
-      <div class="row" style="margin: auto;">
-        <div class="col-md-2 border p-3 bg-white o-heading">
+      <div class="row border-bottom" style="margin: auto;">
+        <div class="col-md-2 border-rm p-3 bg-white o-heading">
           Task ID
         </div>
-        <div class="col-md-10 border bg-white p-3">
+        <div class="col-md-10 border-rm bg-white p-3">
           {{ $todo->todo_id }}
         </div>
       </div>
     </div>
 
     <div>
-      <div class="row" style="margin: auto;">
-        <div class="col-md-2 border p-3 bg-light o-heading">
+      <div class="row border-bottom" style="margin: auto;">
+        <div class="col-md-2 border-rm p-3 bg-light o-heading">
           Posted Date
         </div>
-        <div class="col-md-10 border bg-white p-3">
+        <div class="col-md-10 border-rm bg-white p-3">
           {{ $todo->created_at->toDateString() }}
         </div>
       </div>
     </div>
 
     <div>
-      <div class="row" style="margin: auto;">
-        <div class="col-md-2 border p-3 bg-light o-heading">
+      <div class="row border-bottom" style="margin: auto;">
+        <div class="col-md-2 border-rm p-3 bg-light o-heading">
           Due Date
         </div>
-        <div class="col-md-10 border bg-white p-3">
+        <div class="col-md-10 border-rm bg-white p-3">
           @if ($modes['updateDueDateMode'])
             <div class="p-3">
               @livewire ('todo.dashboard.todo-edit-due-date', ['todo' => $todo,])
@@ -104,11 +114,11 @@
     </div>
 
     <div>
-      <div class="row" style="margin: auto;">
-        <div class="col-md-2 border p-3 bg-light o-heading">
+      <div class="row border-bottom" style="margin: auto;">
+        <div class="col-md-2 border-rm p-3 bg-light o-heading">
           Priority
         </div>
-        <div class="col-md-10 border bg-white p-3">
+        <div class="col-md-10 border-rm bg-white p-3">
           @if ($modes['updatePriorityMode'])
             <div class="p-3">
               @livewire ('todo.dashboard.todo-edit-priority', ['todo' => $todo,])
@@ -130,11 +140,11 @@
     </div>
 
     <div>
-      <div class="row" style="margin: auto;">
-        <div class="col-md-2 border p-3 bg-light o-heading">
+      <div class="row border-bottom" style="margin: auto;">
+        <div class="col-md-2 border-rm p-3 bg-light o-heading">
           Description
         </div>
-        <div class="col-md-10 border bg-white p-3">
+        <div class="col-md-10 border-rm bg-white p-3">
           @if ($modes['updateDescriptionMode'])
             @livewire ('todo.dashboard.todo-edit-description', ['todo' => $todo,])
           @else

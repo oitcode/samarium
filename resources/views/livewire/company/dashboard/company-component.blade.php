@@ -16,6 +16,16 @@
       @include ('partials.flash-message', ['message' => session('message'),])
     @endif
 
+    {{-- Basic info --}}
+    <div class="py-5 mb-4 text-center o-linear-gradient o-border-radius">
+      <div class="h2 o-heading text-white">
+        {{ $company->name}}
+      </div>
+      <div class="h5 text-white">
+        {{ $company->tagline }}
+      </div>
+    </div>
+
     <div>
       <div class="bg-white p-3 mb-2">
         <div class="d-flex justify-content-between">

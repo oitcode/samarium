@@ -2,10 +2,15 @@
 
   <x-toolbar-classic toolbarTitle="Navigation menu" titleNone="yes">
     @include ('partials.dashboard.spinner-button')
-    <button class="btn btn-primary border mr-2" wire:click="enterMode('createNavMenuItem')">
-      <i class="fas fa-plus-circle mr-2"></i>
-      Add item
-    </button>
+    @if (!array_search(true, $modes))
+      @include ('partials.dashboard.tool-bar-button-pill', [
+          'btnClickMethod' => "enterMode('createNavMenuItem')",
+          'btnIconFaClass' => 'fas fa-plus-circle',
+          'btnText' => 'Add item',
+          'btnCheckMode' => '',
+      ])
+    @else
+    @endif
   </x-toolbar-classic>
 
   @if ($modes['createNavMenuItem'])
@@ -17,15 +22,15 @@
       <div class="table-responsive bg-white border">
         <table class="table">
           <thead>
-            <th class="o-heading">Name</th>
-            <th class="o-heading">Webpage</th>
-            <th class="o-heading text-right">Action</th>
+            <th class="o-heading text-muted">Name</th>
+            <th class="o-heading text-muted">Webpage</th>
+            <th class="o-heading text-muted text-right">Action</th>
           </thead>
           <tbody>
             @foreach ($cmsNavMenu->cmsNavMenuItems()->orderBy('order', 'asc')->get() as $cmsNavMenuItem)
               <tr>
                 <td>
-                  <div>
+                  <div class="o-heading">
                     {{ $cmsNavMenuItem->name }}
                   </div>
                   @if ($cmsNavMenuItem->cmsNavMenuDropdownItems)
@@ -41,7 +46,7 @@
                   @if ($cmsNavMenuItem->webpage)
                     {{ $cmsNavMenuItem->webpage->name }}
                   @else
-                    NA
+                    DROPDOWN
                   @endif
                 </td>
                 <td class="text-right">
@@ -50,13 +55,13 @@
                       <i class="fas fa-plus-circle"></i>
                     </button>
                   @endif
-                  <button class="btn btn-primary" wire:click="moveUp({{ $cmsNavMenuItem }})">
+                  <button class="btn btn-light" wire:click="moveUp({{ $cmsNavMenuItem }})">
                     <i class="fas fa-arrow-up"></i>
                   </button>
-                  <button class="btn btn-primary" wire:click="moveDown({{ $cmsNavMenuItem }})">
+                  <button class="btn btn-light" wire:click="moveDown({{ $cmsNavMenuItem }})">
                     <i class="fas fa-arrow-down"></i>
                   </button>
-                  <button class="btn btn-danger"
+                  <button class="btn btn-light"
                       wire:click="deleteCmsNavMenuItem({{ $cmsNavMenuItem }})">
                     <i class="fas fa-trash"></i>
                   </button>
