@@ -38,6 +38,11 @@
     html, body {
       overflow-x: hidden;
     }
+
+    .o-linear-gradient {
+        background-image: linear-gradient(135deg, {{ config('app.app_linear_gradient_color_1') }}, {{ config('app.app_linear_gradient_color_2') }});
+        color: {{ config('app.app_linear_gradient_text_color') }};
+    }
   </style>
 
   <!-- Livewire -->
