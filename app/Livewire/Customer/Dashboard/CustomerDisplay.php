@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use App\Models\SaleInvoice\SaleInvoice;
 
-class CustomerDetail extends Component
+class CustomerDisplay extends Component
 {
     use ModesTrait;
 
@@ -66,7 +66,7 @@ class CustomerDetail extends Component
 
     public function render(): View
     {
-        return view('livewire.customer.dashboard.customer-detail');
+        return view('livewire.customer.dashboard.customer-display');
     }
 
     public function customerPaymentMade($amountRemaining): void

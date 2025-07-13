@@ -44,7 +44,7 @@
       @elseif ($modes['search'])
         @livewire ('customer.dashboard.customer-search')
       @elseif ($modes['display'])
-        @livewire ('customer.dashboard.customer-detail', ['customer' => $displayingCustomer,])
+        @livewire ('customer.dashboard.customer-display', ['customer' => $displayingCustomer,])
       @else
         @livewire ('customer.dashboard.customer-list')
       @endif
