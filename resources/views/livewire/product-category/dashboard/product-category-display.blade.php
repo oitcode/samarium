@@ -10,6 +10,13 @@
     @include ('partials.flash-message', ['message' => session('message'),])
   @endif
 
+  {{-- Basic info --}}
+  <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
+    <div class="h2 o-heading o-linear-gradient-text-color">
+      {{ $productCategory->name }}
+    </div>
+  </div>
+
   {{--
   |
   | Toolbar
@@ -28,8 +35,8 @@
         <i class="fas fa-refresh"></i>
       </x-toolbar-button-component>
       @endif
-      <x-toolbar-button-component btnBsClass="btn-light" btnClickMethod="closeThisComponent">
-        <i class="fas fa-times-circle text-danger mr-1"></i>
+      <x-toolbar-button-component btnBsClass="btn-danger" btnClickMethod="closeThisComponent">
+        <i class="fas fa-times-circle mr-1"></i>
         Close
       </x-toolbar-button-component>
     </x-slot>
@@ -128,20 +135,26 @@
       <div class="border-bottom px-3 py-3 o-heading">
         Products
       </div>
-      {{-- Product list --}}
-      <div class="table-responsive bg-white pl-1">
-        <table class="table">
-          <tbody>
-            @foreach ($productCategory->products as $product)
-              <tr>
-                <td>
-                  {{ $product->name }}
-                </td>
-              </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
+      @if (count($productCategory->products) > 0)
+        {{-- Product list --}}
+        <div class="table-responsive bg-white pl-1">
+          <table class="table">
+            <tbody>
+              @foreach ($productCategory->products as $product)
+                <tr>
+                  <td>
+                    {{ $product->name }}
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      @else
+        <div class="p-3">
+          No products
+        </div>
+      @endif
     </div>
     <hr class="m-0 p-0"/>
   </div>

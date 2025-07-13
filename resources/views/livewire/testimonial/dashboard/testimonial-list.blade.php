@@ -32,10 +32,10 @@
           <x-table-cell>
             {{ $testimonial->writer_name }}
           </x-table-cell>
-          <td wire:click="$dispatch('displayTestimonial', {testimonial: {{ $testimonial }} })" role="button">
+          <td wire:click="$dispatch('displayTestimonial', {testimonialId: {{ $testimonial->testimonial_id }} })" role="button">
             {{ $testimonial->writer_info }}
           </td>
-          <td wire:click="$dispatch('displayTestimonial', {testimonial: {{ $testimonial }} })" role="button">
+          <td wire:click="$dispatch('displayTestimonial', {testimonialId: {{ $testimonial->testimonial_id }} })" role="button">
             {{ \Illuminate\Support\Str::limit($testimonial->body, 100, $end=' ...') }}
           </td>
           <td class="text-right">

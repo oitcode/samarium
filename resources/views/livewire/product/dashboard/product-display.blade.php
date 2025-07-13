@@ -10,7 +10,7 @@
     @include ('partials.flash-message', ['message' => session('message'),])
   @endif
 
-  <div class="mb-4 py-5 o-linear-gradient text-white o-border-radius px-3 h4 o-heading mb-0">
+  <div class="mb-4 py-5 o-linear-gradient o-border-radius px-3 h4 o-heading mb-0">
     {{ $product->name }}
   </div>
 

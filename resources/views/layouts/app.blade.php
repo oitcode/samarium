@@ -53,6 +53,10 @@
           color: {{ config('app.app_linear_gradient_text_color') }};
       }
 
+      .o-linear-gradient-text-color {
+          color: {{ config('app.app_linear_gradient_text_color') }};
+      }
+
       .o-app-left-menu-bg {
           background-color: {{ config('app.app_left_menu_bg_color') }};
       }

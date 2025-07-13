@@ -24,6 +24,13 @@
   |
   --}}
 
+  {{-- Basic info --}}
+  <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
+    <div class="h2 o-heading o-linear-gradient-text-color">
+      {{ $purchase->purchase_id }}
+    </div>
+  </div>
+
   @if ($purchase->creation_status == 'created')
     @livewire ('core.dashboard.core-purchase-display', ['purchase' => $purchase, 'exitDispatchEvent' => 'exitPurchaseCreate',])
   @else

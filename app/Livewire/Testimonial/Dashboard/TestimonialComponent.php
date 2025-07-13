@@ -28,9 +28,9 @@ class TestimonialComponent extends Component
         return view('livewire.testimonial.dashboard.testimonial-component');
     }
 
-    public function displayTestimonial(Testimonial $testimonial): void
+    public function displayTestimonial($testimonialId): void
     {
-        $this->displayingTestimonial = $testimonial;
+        $this->displayingTestimonial = Testimonial::find($testimonialId);
 
         $this->enterMode('displayTestimonialMode');
     }

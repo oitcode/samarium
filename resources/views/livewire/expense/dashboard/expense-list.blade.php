@@ -2,6 +2,7 @@
 
   <x-list-component>
     <x-slot name="listInfo">
+      Total: {{ count($expenses) }}
     </x-slot>
 
     <x-slot name="listHeadingRow">

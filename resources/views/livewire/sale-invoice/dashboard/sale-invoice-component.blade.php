@@ -43,6 +43,12 @@
         @if ($displayingSaleInvoice->creation_status == 'progress')
           @livewire ('sale-invoice.dashboard.sale-invoice-editor', ['saleInvoice' => $displayingSaleInvoice,])
         @else
+          {{-- Basic info --}}
+          <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
+            <div class="h2 o-heading o-linear-gradient-text-color">
+              {{ $displayingSaleInvoice->sale_invoice_id }}
+            </div>
+          </div>
           @livewire ('core.dashboard.core-sale-invoice-display', ['saleInvoice' => $displayingSaleInvoice, 'exitDispatchEvent' => 'exitSaleInvoiceDisplay',])
         @endif
       @elseif ($modes['list'])

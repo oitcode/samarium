@@ -2,11 +2,11 @@
 
   {{-- Basic info --}}
   <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
-    <div class="h2 o-heading">
-      {{ $appointment->created_at }}
+    <div class="h2 o-heading o-linear-gradient-text-color">
+      {{ $appointment->teamMember->name }}
     </div>
     <div class="h5">
-      {{ $appointment->created_at }}
+      {{ $appointment->appointment_date_time }}
     </div>
   </div>
 

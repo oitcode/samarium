@@ -20,6 +20,13 @@
   |
   --}}
 
+  {{-- Basic info --}}
+  <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
+    <div class="h2 o-heading o-linear-gradient-text-color">
+      {{ $saleInvoice->sale_invoice_id }}
+    </div>
+  </div>
+
   @if ($saleInvoice->creation_status == 'closed')
     {{--
     |
@@ -35,12 +42,12 @@
       |
       --}}
       <x-slot name="topToolbarNxt">
-        <div class="d-flex justify-content-between text-dark px-1 o-linear-gradient o-border-radius mb-3 pl-3 py-3">
+        <div class="d-flex justify-content-between text-dark-rm px-1 o-linear-gradient o-border-radius mb-3 pl-3 py-3">
           <div class="d-flex flex-column justify-content-center text-white-rm">
             <div>
               Sale Invoice ID:
               &nbsp;
-              <span class="o-heading text-white-rm">
+              <span class="o-heading o-linear-gradient-text-color">
                 {{ $saleInvoice->sale_invoice_id }}
               </span>
               &nbsp;
@@ -50,7 +57,7 @@
               &nbsp;
               Date:
               &nbsp;
-              <span class="o-heading text-white-rm">
+              <span class="o-heading o-linear-gradient-text-color">
                 {{ $saleInvoice->created_at->toDateString() }}
               </span>
             </div>

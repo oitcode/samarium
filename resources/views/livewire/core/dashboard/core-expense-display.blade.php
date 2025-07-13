@@ -133,9 +133,6 @@
         @endif
       </div>
       <div>
-        <div class="mb-3 p-2 bg-danger text-white text-center">
-          EXPENSE
-        </div>
       </div>
     </div>
      {{-- Vendor Info --}}

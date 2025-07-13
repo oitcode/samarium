@@ -18,10 +18,10 @@
 
     {{-- Basic info --}}
     <div class="py-5 mb-4 text-center o-linear-gradient o-border-radius">
-      <div class="h2 o-heading text-white">
+      <div class="h2 o-heading o-linear-gradient-text-color">
         {{ $company->name}}
       </div>
-      <div class="h5 text-white">
+      <div class="h5">
         {{ $company->tagline }}
       </div>
     </div>

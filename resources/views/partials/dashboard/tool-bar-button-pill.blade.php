@@ -3,14 +3,14 @@
   <div class="d-none d-md-block h-100">
     <div class="d-flex flex-column justify-content-center h-100">
       <div
-          class="border btn
+          class="border btn-rm
           @isset ($borderLess)
             @if ($borderLess == 'yes')
               border-0
             @endif
           @endisset
           m-0 mr-3 px-4 h-100-rm o-flipper-rm py-2 d-flex flex-column justify-content-center badge-pill-rm rounded-rm text-white-rm o-border-radius
-          o-linear-gradient
+          o-linear-gradient o-linear-gradient-text-color
           @isset($btnBsColor)
             {{ $btnBsColor }}
           @else

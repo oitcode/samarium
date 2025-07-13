@@ -2,10 +2,10 @@
 
   {{-- Basic info --}}
   <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
-    <div class="h2 o-heading text-white">
+    <div class="h2 o-heading o-linear-gradient-text-color">
       {{ $todo->title }}
     </div>
-    <div class="h5 text-white">
+    <div class="h5">
       {{ $todo->created_at }}
     </div>
   </div>

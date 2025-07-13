@@ -2,7 +2,7 @@
 
   {{-- Basic info --}}
   <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
-    <div class="h2 o-heading">
+    <div class="h2 o-heading o-linear-gradient-text-color">
       {{ $customer->name }}
     </div>
     <div class="h5">

@@ -1,5 +1,12 @@
 <div>
 
+  {{-- Basic info --}}
+  <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
+    <div class="h2 o-heading o-linear-gradient-text-color">
+      {{ $gallery->name }}
+    </div>
+  </div>
+
   {{--
   |
   | Toolbar.

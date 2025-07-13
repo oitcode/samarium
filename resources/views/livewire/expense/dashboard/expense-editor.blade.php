@@ -19,6 +19,13 @@
   |
   --}}
 
+  {{-- Basic info --}}
+  <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
+    <div class="h2 o-heading o-linear-gradient-text-color">
+      {{ $expense->expense_id }}
+    </div>
+  </div>
+
   @if ($expense->payment_status == 'paid')
     @livewire ('core.dashboard.core-expense-display', ['expense' => $expense, 'exitDispatchEvent' => 'exitCreateMode',])
   @else

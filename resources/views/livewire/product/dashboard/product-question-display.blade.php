@@ -1,5 +1,15 @@
 <div>
 
+  {{-- Basic info --}}
+  <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
+    <div class="h3 o-heading o-linear-gradient-text-color">
+      {{ $productQuestion->question_text }}
+    </div>
+    <div class="h6 o-heading o-linear-gradient-text-color">
+      {{ $productQuestion->product->name }}
+    </div>
+  </div>
+
   {{--
   |
   | Toolbar.

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 use App\Traits\ModesTrait;
 use App\Services\Shop\PurchaseService;
-use App\Purchase;
+use App\Models\Purchase\Purchase;
 
 /**
  * PurchaseList Component
@@ -60,6 +60,7 @@ class PurchaseList extends Component
      */
     public function render(PurchaseService $purchaseService): View
     {
+        $this->totalPurchaseCount = Purchase::count();
         $purchases = $purchaseService->getPaginatedPurchases($this->perPage);
 
         return view('livewire.purchase.dashboard.purchase-list', [

@@ -2,11 +2,11 @@
 
   {{-- Basic info --}}
   <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
-    <div class="h2 o-heading">
+    <div class="h2 o-heading o-linear-gradient-text-color">
       {{ $contactMessage->sender_name }}
     </div>
     <div class="h5">
-      {{ $contactMessage->created_at }}
+      {{ $contactMessage->message }}
     </div>
   </div>
 

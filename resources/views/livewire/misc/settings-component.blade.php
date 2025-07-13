@@ -5,7 +5,7 @@
   </div>
 
   <div class="mb-3 py-3 px-3 bg-white border o-linear-gradient o-border-radius">
-    <h1 class="h5 o-heading text-white pt-2">
+    <h1 class="h5 o-heading o-linear-gradient-text-color pt-2">
       <i class="fas fa-exclamation-circle mr-1"></i>
       Caution
     </h1>
