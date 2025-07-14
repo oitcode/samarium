@@ -33,12 +33,12 @@
         <div class="table-responsive bg-white border">
           <table class="table table-sm table-hover mb-0">
             <thead>
-              <tr>
-                <th colspan="2" class="o-heading">Item</th>
-                <th class="o-heading">Inventory Unit</th>
-                <th class="o-heading">Inventory low</th>
-                <th class="o-heading">Used today</th>
-                <th class="o-heading">Stock</th>
+              <tr class="py-3">
+                <th colspan="2" class="o-heading py-3">Item</th>
+                <th class="o-heading py-3">Inventory Unit</th>
+                <th class="o-heading py-3">Inventory low</th>
+                <th class="o-heading py-3">Used today</th>
+                <th class="o-heading py-3">Stock</th>
               </tr>
             </thead>
 

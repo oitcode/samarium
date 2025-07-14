@@ -85,6 +85,7 @@
     </table>
   </div>
 
+  @if (false)
   {{-- Delete testimonial --}}
   <div class="bg-white border p-3 mb-2">
     <div class="col-md-6 p-3 border rounded">
@@ -96,5 +97,6 @@
       </div>
     </div>
   </div>
+  @endif
 
 </div>

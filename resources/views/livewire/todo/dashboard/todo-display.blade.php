@@ -278,7 +278,7 @@
               Delete this task
           </div>
           <div>
-            Once you delete, it cannot be undone. Please be sure.
+            Please be sure
           </div>
         </div>
         <div>

@@ -19,24 +19,18 @@
   <x-toolbar-classic toolbarTitle="{{ $team->name }}">
     @include ('partials.dashboard.spinner-button')
     @if (! $modes['updateTeamMemberMode'])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('createTeamMemberMode')",
-          'btnIconFaClass' => 'fas fa-plus-circle',
-          'btnText' => 'Add team member',
-          'btnCheckMode' => 'createTeamMemberMode',
-      ])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('createTeamMembersFromCsvMode')",
-          'btnIconFaClass' => 'fas fa-file',
-          'btnText' => 'Upload from csv',
-          'btnCheckMode' => 'createTeamMembersFromCsvMode',
-      ])
-      @include ('partials.dashboard.tool-bar-button-pill', [
-          'btnClickMethod' => "enterMode('updateTeamMode')",
-          'btnIconFaClass' => 'fas fa-pencil-alt',
-          'btnText' => 'Update team',
-          'btnCheckMode' => 'updateTeamMode',
-      ])
+      <x-toolbar-button-component btnBsClass="btn-light mr-3" btnClickMethod="enterMode('createTeamMemberMode')">
+        <i class="fas fa-plus-circle"></i>
+        Add team member
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-light mr-3" btnClickMethod="enterMode('createTeamMembersFromCsvMode')">
+        <i class="fas fa-file"></i>
+        Upload from CSV
+      </x-toolbar-button-component>
+      <x-toolbar-button-component btnBsClass="btn-light mr-3" btnClickMethod="enterMode('updateTeamMode')">
+        <i class="fas fa-pencil-alt"></i>
+        Update team
+      </x-toolbar-button-component>
     @else
       @include ('partials.dashboard.tool-bar-button-pill', [
           'btnClickMethod' => "",
@@ -45,12 +39,10 @@
           'btnCheckMode' => 'updateTeamMemberMode',
       ])
     @endif
-    @include ('partials.dashboard.tool-bar-button-pill', [
-        'btnClickMethod' => "clearModes",
-        'btnIconFaClass' => 'fas fa-times',
-        'btnText' => '',
-        'btnCheckMode' => '',
-    ])
+    <x-toolbar-button-component btnBsClass="btn-light mr-3" btnClickMethod="closeThisComponent">
+      <i class="fas fa-times-circle text-danger"></i>
+      Close
+    </x-toolbar-button-component>
   </x-toolbar-classic>
 
   {{--

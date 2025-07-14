@@ -10,11 +10,11 @@
             @endif
           @endisset
           m-0 mr-3 px-4 h-100-rm o-flipper-rm py-2 d-flex flex-column justify-content-center badge-pill-rm rounded-rm text-white-rm o-border-radius
-          o-linear-gradient o-linear-gradient-text-color
+          o-app-left-menu-hl-color-bg o-app-left-menu-hl-color-text
           @isset($btnBsColor)
-            {{ $btnBsColor }}
+            {{ $btnBsColor }}-rm
           @else
-            o-package-color  
+            o-package-color-rm
           @endisset
           "
           wire:click="{{ $btnClickMethod }}" role="button">

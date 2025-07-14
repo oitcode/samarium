@@ -1,9 +1,9 @@
 <div class="card shadow-sm">
 
   <div class="card-body p-3">
-    <h1>
+    <h2 class="h4 o-heading">
       Update team
-    </h1>
+    </h2>
 
     <div class="form-group">
       <label>Name</label>
@@ -42,7 +42,7 @@
       @error('image') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    <div class="p-3 m-0">
+    <div class="py-3 m-0">
       @include ('partials.button-update')
       @include ('partials.button-cancel', ['clickEmitEventName' => 'exitUpdateTeamMode',])
       @include ('partials.spinner-border')

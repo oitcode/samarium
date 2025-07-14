@@ -114,17 +114,17 @@
     </table>
   </div>
 
+  @if (false)
   {{-- Delete contact message --}}
-  <div class="bg-white border p-3 mb-2">
-    <div class="col-md-6 p-3 border rounded">
-      <div class="o-heading">
-        Delete this contact message
-      </div>
-      <div>
-        Once you delete, it cannot be undone. Please be sure.
-      </div>
+  <div class="bg-white border p-3-rm mb-2">
+    <div class="o-heading">
+      Delete this contact message
+    </div>
+    <div>
+      Once you delete, it cannot be undone. Please be sure.
     </div>
   </div>
+  @endif
 
 
 </div>

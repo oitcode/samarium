@@ -21,6 +21,7 @@ class TeamComponent extends Component
         'exitCreateMode',
         'teamCreated',
         'displayTeam',
+        'exitTeamDisplay',
     ];
 
     public $displayingTeam = null;
@@ -45,5 +46,11 @@ class TeamComponent extends Component
     {
         session()->flash('message', 'Team created');
         $this->exitMode('createMode');
+    }
+
+    public function exitTeamDisplay()
+    {
+        $this->displayingTeam = null;
+        $this->clearModes();
     }
 }

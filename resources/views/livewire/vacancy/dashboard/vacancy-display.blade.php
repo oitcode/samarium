@@ -137,6 +137,7 @@
      | Delete vacancy
      |
   --}}
+  @if (false)
   <div class="bg-white border p-3 my-3">
     <div class="col-md-6 p-0 border rounded">
       <div>
@@ -155,5 +156,6 @@
       </div>
     </div>
   </div>
+  @endif
 
 </div>

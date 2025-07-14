@@ -85,16 +85,16 @@
     </table>
   </div>
 
+  @if (false)
   {{-- Delete appointment --}}
   <div class="bg-white border p-3 mb-2">
-    <div class="col-md-6 p-3 border rounded">
-      <div class="o-heading">
-        Delete this appointment
-      </div>
-      <div>
-        Once you delete, it cannot be undone. Please be sure.
-      </div>
+    <div class="o-heading">
+      Delete this appointment
+    </div>
+    <div>
+      Please delete from the list
     </div>
   </div>
+  @endif
 
 </div>

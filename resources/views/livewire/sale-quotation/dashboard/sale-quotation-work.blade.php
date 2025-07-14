@@ -27,7 +27,8 @@
         <i class="fas fa-plus-circle mr-1"></i>
         Add item
       </x-toolbar-button-component>
-      <a href="{{ route('dashboard-print-sale-quotation', $saleQuotation->sale_quotation_id) }}" class="btn btn-light px-3 border" target="_blank">
+      <a href="{{ route('dashboard-print-sale-quotation', $saleQuotation->sale_quotation_id) }}" class="btn btn-light px-3 badge-pill mr-3"
+          style="border: 2px solid #888;" target="_blank">
         <i class="fas fa-print mr-1"></i>
         Print
       </a>

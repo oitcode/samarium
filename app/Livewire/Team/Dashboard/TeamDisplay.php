@@ -142,4 +142,9 @@ class TeamDisplay extends Component
         $this->exitMode('deleteTeamMemberMode');
         session()->flash('message', 'Team member deleted');
     }
+
+    public function closeThisComponent()
+    {
+        $this->dispatch('exitTeamDisplay');
+    }
 }

@@ -43,6 +43,14 @@
         background-image: linear-gradient(135deg, {{ config('app.app_linear_gradient_color_1') }}, {{ config('app.app_linear_gradient_color_2') }});
         color: {{ config('app.app_linear_gradient_text_color') }};
     }
+
+    .o-app-left-menu-hl-color-bg {
+        background-color: {{ config('app.app_left_menu_hl_color_bg') }};
+    }
+
+    .o-app-left-menu-hl-color-text {
+        color: {{ config('app.app_left_menu_hl_color_text') }};
+    }
   </style>
 
   <!-- Livewire -->
@@ -138,7 +146,8 @@
                 |
                 --}}
                 <div class="form-group mt-4 mb-2">
-                    <button type="submit" class="btn btn-block py-3 text-white o-border-radius-sm o-linear-gradient o-heading">
+                    <button type="submit" class="btn btn-block py-3 text-white-rm o-border-radius-sm o-linear-gradient-rm o-app-left-menu-hl-color-bg
+                    o-app-left-menu-hl-color-text o-heading">
                         {{ __('Login') }}
                     </button>
 
