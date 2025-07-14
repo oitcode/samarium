@@ -86,7 +86,7 @@ return [
     'app_top_menu_bg_color'               => 'bg-dark',
     'app_top_menu_text_color'             => 'text-white',
 
-    'app_left_menu_bg_color'              => '#213',
+    'app_left_menu_bg_color'              => '#123',
     'app_left_menu_text_color'            => 'white',
     'app_left_menu_hl_color_bg'           => '#55a',
     'app_left_menu_hl_color_text'         => 'white',
