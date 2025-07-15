@@ -12,7 +12,7 @@
         </div>
         <div class="font-weight-bold h6 d-flex">
           <div class="d-flex">
-            <div class="d-flex flex-column justify-content-center mr-3 o-heading text-white">
+            <div class="d-flex flex-column justify-content-center mr-3 o-heading o-linear-gradient-text-color">
               <i class="fas fa-funnel mr-1"></i>
               Filter
             </div>

@@ -8,24 +8,24 @@
         </div>
         <div class="font-weight-bold h6 d-flex">
           <div class="d-flex">
-            <div class="d-flex flex-column justify-content-center mr-3 o-heading text-white">
+            <div class="d-flex flex-column justify-content-center mr-3 o-heading o-linear-gradient-text-color">
               <i class="fas fa-funnel mr-1"></i>
               Filter
             </div>
             <div class="dropdown p-0 px-2">
               <button class="btn
                   @if ($modes['showOnlyPendingMode'])
-                    btn-outline-danger
+                    btn-danger
                   @elseif ($modes['showOnlyDoneMode'])
-                    btn-outline-success
+                    btn-success
                   @elseif ($modes['showOnlyProgressMode'])
                     btn-warning
                   @elseif ($modes['showOnlyDeferredMode'])
-                    btn-outline-light
+                    btn-light
                   @elseif ($modes['showOnlyCancelledMode'])
-                    btn-outline-light
+                    btn-light
                   @elseif ($modes['showAllMode'])
-                    btn-outline-light border border-white
+                    btn-light border border-white
                   @endif
                   dropdown-toggle"
                   style="min-width: 100px;"
