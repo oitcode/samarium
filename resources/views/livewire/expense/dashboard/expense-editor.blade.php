@@ -205,7 +205,7 @@
 
       <x-slot name="transactionPayment">
         @if (! $modes['paid'])
-          @livewire ('expense.dashboard.expense-editor-make-payment', ['expense' => $expense,])
+          @livewire ('expense.dashboard.expense-editor-payment-recorder', ['expense' => $expense,])
         @endif
       </x-slot>
     </x-transaction-create-component>

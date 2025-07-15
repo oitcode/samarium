@@ -214,7 +214,7 @@
       --}}
       <x-slot name="transactionPayment">
         @if ($saleInvoice->status != 'closed' && $saleInvoice->payment_status != 'paid' && $modes['makePayment'])
-          @livewire ('sale-invoice.dashboard.sale-invoice-editor-make-payment', ['saleInvoice' => $saleInvoice,])
+          @livewire ('sale-invoice.dashboard.sale-invoice-editor-payment-recorder', ['saleInvoice' => $saleInvoice,])
         @endif
       </x-slot>
 

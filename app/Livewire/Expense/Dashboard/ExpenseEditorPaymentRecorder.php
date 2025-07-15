@@ -18,7 +18,7 @@ use App\Models\Accounting\JournalEntryItem;
 use App\Models\Accounting\AbAccount;
 use App\Models\Accounting\LedgerEntry;
 
-class ExpenseEditorMakePayment extends Component
+class ExpenseEditorPaymentRecorder extends Component
 {
     use MiscTrait;
     use ModesTrait;
@@ -100,7 +100,7 @@ class ExpenseEditorMakePayment extends Component
         // /* Calculate Grand Total */
         // $this->calculateGrandTotal();
 
-        return view('livewire.expense.dashboard.expense-editor-make-payment');
+        return view('livewire.expense.dashboard.expense-editor-payment-recorder');
     }
 
     public function calculateTaxableAmount(): void

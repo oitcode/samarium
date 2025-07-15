@@ -227,7 +227,7 @@
 
       <x-slot name="transactionPayment">
         @if (! $modes['paid'])
-          @livewire ('purchase.dashboard.purchase-editor-make-payment', ['purchase' => $purchase,])
+          @livewire ('purchase.dashboard.purchase-editor-payment-recorder', ['purchase' => $purchase,])
         @endif
       </x-slot>
 
