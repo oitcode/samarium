@@ -20,7 +20,7 @@
   </div>
 
   @foreach ($todos as $todo)
-    <div class="py-2 border-bottom my-2 bg-white">
+    <div class="py-2 @if(! $loop->last) border-bottom @endif my-2 bg-white">
       <div class="px-3-rm mb-1">
         <div class="o-heading mb-2">
         {{ $todo->title }}
