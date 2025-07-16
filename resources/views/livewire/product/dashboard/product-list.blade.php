@@ -42,11 +42,11 @@
           </x-table-cell>
           <td class="h6 font-weight-bold">
             @if ($product->is_active == 1)
-              <span class="badge-rm badge-pill badge-success-rm o-heading text-white-rm py-2 px-3 bg-success text-white">
+              <span class="badge-pill o-heading py-2 px-3 bg-success text-white">
                 ACTIVE
               </span>
             @else
-              <span class="badge-rm badge-pill badge-danger-rm o-heading text-white-rm py-2 px-3 bg-danger text-white">
+              <span class="badge-pill o-heading py-2 px-3 bg-danger text-white">
                 INACTIVE
               </span>
             @endif
