@@ -1,42 +1,32 @@
-<div>
+<div class="h-100 bg-white border p-3 o-border-radius">
 
-  <div class="d-flex border-rm mb-3">
-    <div class="d-flex flex-column justify-content-center">
-      <h2 class="h5 o-heading pt-3 mb-0">
+  <div>
+    <div class="d-flex justify-content-between mb-3">
+      <h2 class="h4 o-heading">
         Upcoming events
       </h2>
+      <div>
+        <i class="fas fa-calendar fa-2x"></i>
+      </div>
     </div>
   </div>
+  @if (false)
   <hr class="mb-4" width="10%" style="border: 3px solid black; margin: 0 0;"/>
+  @endif
 
   @if ($selectedCalendarGroup)
-    <div class="row" style="margin: auto;">
-      <div class="col-md-4 p-0" style="
-          background-color:
-            @if ($cmsTheme)
-              {{ $cmsTheme->ascent_bg_color }}
-            @else
-              orange
-            @endif
-            ;
-          color:
-            @if ($cmsTheme)
-              {{ $cmsTheme->ascent_text_color }}
-            @else
-              white
-            @endif
-            ;
-      ">
-        <div class="d-flex flex-column justify-content-center h-100" style="background-color: rgba(0, 0, 0, 0.5)">
-          <div class="h5 font-weight-bold p-3 mb-0">
+    <div class="d-flex">
+      <div class="p-0">
+        <div class="h-100 d-flex flex-column justify-content-center">
+          <div class="h5 o-heading py-2 px-3 mb-0 bg-primary text-white o-border-radius mr-3">
             {{ $selectedCalendarGroup->name }}
           </div>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="">
         <div class="d-flex py-3">
           <div class="dropdown mr-4" style="position: relative; z-index: 10000;">
-            <button class="btn btn-success border dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-success border o-border-radius-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Select Calendar Group
             </button>
             <div class="dropdown-menu" aria-labelledby="calendarGroupDropdownMenu">
@@ -137,7 +127,7 @@
   <div class="my-3">
     <a href="./calendar">
       Visit calendar
-      <i class="fas fa-link ml-2"></i>
+      <i class="fas fa-arrow-right ml-2"></i>
     </a>
   </div>
 

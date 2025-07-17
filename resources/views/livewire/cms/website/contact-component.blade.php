@@ -93,7 +93,9 @@
             Send us a message
           </h2>
         </div>
+        @if (false)
         <hr class="mb-4" width="10%" style="border: 3px solid black; margin: 0 0;"/>
+        @endif
         <div class="p-3 border bg-white">
           @if (session()->has('message'))
             <div class="alert alert-success">

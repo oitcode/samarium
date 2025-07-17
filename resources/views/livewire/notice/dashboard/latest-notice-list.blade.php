@@ -1,13 +1,19 @@
-<div class="bg-white">
+<div class="bg-white border p-3 o-border-radius">
 
   <div>
-    <div class="h-100 w-100">
-      <h2 class="h5 o-heading py-3 mb-0 h-100 w-100">
+    <div class="d-flex justify-content-between mb-3">
+      <h2 class="h4 o-heading">
         Latest Notice
       </h2>
+      <div>
+        <i class="fas fa-bell fa-2x"></i>
+      </div>
     </div>
   </div>
+
+  @if (false)
   <hr class="mb-4" width="10%" style="border: 3px solid black; margin: 0 0;"/>
+  @endif
 
   <div class="table-responsive border-rm">
     <table class="table mb-0">
@@ -17,7 +23,7 @@
           <td class="border-0 border-bottom-danger p-0 py-2">
             <a href="{{ route('website-webpage-' . $notice->permalink) }}" class="text-decoration-none text-reset">
               <div class="border-bottom pb-3">
-                <div class="h6">
+                <div class="h6 o-heading">
                   <i class="fas fa-exclamation-circle mr-1"></i>
                   {{ $notice->name }}
                 </div>
@@ -53,7 +59,7 @@
     @elseif (Route::has('website-webpage-/noticeboard'))
       <a href="{{ route('website-webpage-/noticeboard') }}">
         See all notice
-        <i class="fas fa-link ml-2"></i>
+        <i class="fas fa-arrow-right ml-2"></i>
       </a>
     @endif
   </div>
