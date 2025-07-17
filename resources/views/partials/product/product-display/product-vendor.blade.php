@@ -1,9 +1,9 @@
 <div class="my-3 bg-white border o-border-radius">
   <div class="d-flex justify-content-between p-3">
-    <h2 class="h6 font-weight-bold text-secondary-rm" style="font-weight: 900; font-family: arial; color: #123;">
+    <h2 class="h6 o-heading">
       Product vendor
     </h2>
-    <div class="mb-3-rm">
+    <div>
       <x-spinner-component wireTarget="enterMode('linkProductVendorMode')">
       </x-spinner-component >
 

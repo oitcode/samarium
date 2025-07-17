@@ -3,7 +3,7 @@
     <h2 class="h6 o-heading">
       Product video
     </h2>
-    <div class="mb-3-rm">
+    <div>
       @include ('partials.dashboard.spinner-button', ['wireTarget' => "enterMode('updateProductVideoMode')"])
 
       <button class="btn btn-light m-0 border o-linear-gradient text-white o-border-radius-sm"

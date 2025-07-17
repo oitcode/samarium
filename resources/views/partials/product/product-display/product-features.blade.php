@@ -44,7 +44,7 @@
   @endif
 
   @if (count($product->productFeatureHeadings) > 0)
-    <div class="mb-3-rm p-2">
+    <div class="p-2">
       @foreach ($product->productFeatureHeadings as $productFeatureHeading)
         <div class="table-responsive mb-3">
           <table class="table table-bordered mb-0">

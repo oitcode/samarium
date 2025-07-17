@@ -3,7 +3,7 @@
     <h2 class="h6 o-heading">
       Product specification
     </h2>
-    <div class="mb-3-rm d-flex">
+    <div class="d-flex">
       <x-spinner-component wireTarget="enterMode('updateProductAddProductSpecificationHeadingMode')">
       </x-spinner-component >
       <x-spinner-component wireTarget="enterMode('updateProductAddProductSpecificationMode')">
@@ -48,13 +48,13 @@
         <table class="table table-bordered mb-0">
           @foreach ($product->productSpecificationHeadings as $productSpecificationHeading)
             <tr class="o-table-header">
-              <th class="bg-primary-rm text-white-rm border-dark-rm o-heading" colspan="3" style="width: 200px;">
+              <th class="o-heading" colspan="3" style="width: 200px;">
                 {{ $productSpecificationHeading->specification_heading }}
               </th>
             </tr>
             @foreach ($productSpecificationHeading->productSpecifications as $productSpecification)
               <tr class="">
-                <th class="border-dark-rm" style="width: 200px;">
+                <th style="width: 200px;">
                   @if ($modes['updateProductUpdateProductSpecificationKeyword'])
                     @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       @livewire ('product.dashboard.product-specification-keyword-edit', ['productSpecification' => $productSpecification,])
@@ -74,7 +74,7 @@
                     </div>
                   @endif
                 </th>
-                <td class="border-dark-rm" style="width: 200px;">
+                <td style="width: 200px;">
                   @if ($modes['updateProductUpdateProductSpecificationValue'])
                     @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       @livewire ('product.dashboard.product-specification-value-edit', ['productSpecification' => $productSpecification,])
@@ -89,7 +89,7 @@
                     </div>
                   @endif
                 </td>
-                <td class="border-dark-rm text-right" style="width: 200px;">
+                <td class="text-right" style="width: 200px;">
                   @if ($modes['deleteProductSpecificationMode'])
                     @if ($deletingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       <button class="btn btn-danger" wire:click="confirmDeleteProductSpecification({{ $productSpecification }})">
@@ -125,14 +125,14 @@
       <div class="table-responsive">
         <table class="table table-bordered mb-0">
           <tr class="o-table-header">
-            <th class="bg-primary-rm text-white-rm border-dark-rm o-heading" colspan="3" style="width: 200px;">
+            <th class="o-heading" colspan="3" style="width: 200px;">
               General specifications
             </th>
           </tr>
           @foreach ($product->productSpecifications as $productSpecification)
             @if ($productSpecification->product_specification_heading_id == null)
-              <tr class="">
-                <th class="border-dark-rm" style="width: 200px;">
+              <tr>
+                <th style="width: 200px;">
                   @if ($modes['updateProductUpdateProductSpecificationKeyword'])
                     @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       @livewire ('product.dashboard.product-specification-keyword-edit', ['productSpecification' => $productSpecification,])
@@ -152,7 +152,7 @@
                     </div>
                   @endif
                 </th>
-                <td class="border-dark-rm" style="width: 200px;">
+                <td style="width: 200px;">
                   @if ($modes['updateProductUpdateProductSpecificationValue'])
                     @if ($updatingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       @livewire ('product.dashboard.product-specification-value-edit', ['productSpecification' => $productSpecification,])
@@ -167,7 +167,7 @@
                     </div>
                   @endif
                 </td>
-                <td class="border-dark-rm text-right" style="width: 200px;">
+                <td class="text-right" style="width: 200px;">
                   @if ($modes['deleteProductSpecificationMode'])
                     @if ($deletingProductSpecification->product_specification_id == $productSpecification->product_specification_id)
                       <button class="btn btn-danger" wire:click="confirmDeleteProductSpecification({{ $productSpecification }})">

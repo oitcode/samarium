@@ -7,7 +7,7 @@
   @if (count($product->productQuestions) > 0)
     {{-- Show product reviews --}}
     @foreach ($product->productQuestions as $productQuestion)
-      <div class="py-2 border-rm my-3 mb-4 bg-white-rm shadow-sm-rm" style="{{-- border-top: 2px solid red !important; --}} background-color: #fafafa;">
+      <div class="py-2 my-3 mb-4" style="background-color: #fafafa;">
         <div>
           Q:
           {{ $productQuestion->question_text }}

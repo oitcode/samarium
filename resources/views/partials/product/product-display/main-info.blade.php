@@ -1,10 +1,10 @@
-<div class="p-1 bg-white-rm">
+<div class="p-1">
   <div class="row" style="margin: auto;">
     <div class="col-md-9 bg-white o-border-radius">
       <div class="h4 o-heading text-dark my-4">
         Product information
       </div>
-      <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
+      <div class="row bg-white my-3 rounded" style="margin: auto;">
         <div class="col-md-3 o-heading p-0">
           Name
         </div>
@@ -12,7 +12,7 @@
           @if ($modes['updateProductNameMode'])
             @livewire ('product.dashboard.product-edit-name', ['product' => $product,])
           @else
-          <div class="d-flex-rm justify-content-between-rm" style="">
+          <div>
             <span>
               {{ $product->name }}
             </span>
@@ -25,7 +25,7 @@
           </button>
         </div>
       </div>
-      <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
+      <div class="row bg-white my-3 rounded" style="margin: auto;">
         <div class="col-md-3 o-heading p-0">
           Category
         </div>
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
+      <div class="row bg-white my-3 rounded" style="margin: auto;">
         <div class="col-md-3 o-heading p-0">
           Description
         </div>
@@ -67,7 +67,7 @@
         </div>
       </div>
 
-      <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
+      <div class="row bg-white my-3 rounded" style="margin: auto;">
         <div class="col-md-3 o-heading p-0">
           Price
         </div>
@@ -88,7 +88,7 @@
         </div>
       </div>
 
-      <div class="row bg-white py-3-rm my-3 border-bottom-rm rounded" style="margin: auto;">
+      <div class="row bg-white my-3 rounded" style="margin: auto;">
         <div class="col-md-3 o-heading p-0">
           Price unit
         </div>
@@ -133,7 +133,7 @@
       </div>
 
       {{-- Product image --}}
-      <div class="mb-2 bg-white border-rm p-3 h-100 o-border-radius">
+      <div class="mb-2 bg-white p-3 h-100 o-border-radius">
         <div class="d-flex justify-content-between">
           <div class="h4 o-heading text-dark">
             Image
@@ -151,7 +151,7 @@
             @if ($product->image_path)
               <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 500px;">
             @else
-              <div class="o-ola o-heading-rm">
+              <div class="o-ola">
                 Product image
               </div>
             @endif
