@@ -66,23 +66,36 @@ This might be helpful for:
 ## Quick Start
 
 ### Using Docker (Easiest)
+
 ```bash
 git clone https://github.com/oitcode/samarium.git
 cd samarium
-cp .env.docker.example .env
-docker-compose up --build -d
-
-# First-time setup only
-docker exec -it samarium_app npm run dev
-docker exec -it samarium_app composer dump-autoload
-docker exec -it samarium_app php artisan migrate
-docker exec -it samarium_app php artisan key:generate
-docker exec -it samarium_app php artisan storage:link
-docker exec -it samarium_app php artisan db:seed
-
-# Visit: http://127.0.0.1:8000 (website)
-# Dashboard: http://127.0.0.1:8000/dashboard
+make setup
 ```
+
+- This will:
+  - Copy the Docker environment file
+  - Build and start the containers
+  - Run all first-time setup steps inside the container
+
+To (re)start the stack later, just use:
+```bash
+make start
+```
+
+To stop all containers:
+```bash
+make stop
+```
+
+To view logs:
+```bash
+make logs
+```
+
+When setup completes, visit your site:
+- Website: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- Dashboard: [http://127.0.0.1:8000/dashboard](http://127.0.0.1:8000/dashboard)
 
 ## Installation
 
