@@ -6,8 +6,8 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Models\Customer\Customer;
-use App\AbAccount;
-use App\AbAccountType;
+use App\Models\Accounting\AbAccount;
+use App\Models\Accounting\AbAccountType;
 
 class CustomerCreate extends Component
 {
