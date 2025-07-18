@@ -50,29 +50,30 @@
   |
   --}}
   <div class="container-fluid p-0">
-    <div class="p-3 o-dark-shade">
+    <div class="py-4 o-dark-shade">
       <div class="container">
         <div class="row">
-          <div class="col-md-3 mb-3">
+          <div class="col-md-3 mb-3-rm justify-content-center">
             <img src="{{ asset('storage/' . $company->logo_image_path) }}"
                 class="img-fluid"
+                style="max-width: 100px;"
                 alt="{{ $company->name }} logo">
           </div>
-          <div class="col-md-3 mb-3">
-              <div class="h5 font-weight-bold">
-                Address
+          <div class="col-md-3 pt-3">
+              <div class="h5 o-heading o-footer-text-color">
+                ADDRESS
               </div>
               {{ $company->address }}
           </div>
-          <div class="col-md-3 mb-3">
-              <div class="h5 font-weight-bold">
-                Phone
+          <div class="col-md-3 pt-3">
+              <div class="h5 o-heading o-footer-text-color">
+                PHONE
               </div>
               {{ $company->phone }}
           </div>
-          <div class="col-md-3 mb-3">
-              <div class="h5 font-weight-bold">
-                Email
+          <div class="col-md-3 pt-3">
+              <div class="h5 o-heading o-footer-text-color">
+                EMAIL
               </div>
               {{ $company->email }}
           </div>
@@ -92,12 +93,12 @@
   |
   --}}
   <div class="container-fluid pt-4 pb-3">
-    <div class="container">
+    <div class="container pt-1">
       <div class="row">
 
         {{-- Company brief description --}}
         <div class="col-md-3 mb-4">
-          <h2 class="h5 font-weight-bold mb-3">
+          <h2 class="h5 o-heading o-footer-text-color mb-3">
             About us
           </h2>
           <div class="mb-2">
@@ -107,21 +108,21 @@
 
         {{-- Quick links --}}
         <div class="col-md-3 mb-4">
-          <div class="h5 mb-3 font-weight-bold">
+          <h2 class="h5 o-heading o-footer-text-color mb-3">
             Quick links
-          </div>
+          </h2>
           <div>
-            <div class="my-2">
+            <div class="my-1">
               <a href="/contact-us" class="text-reset text-decoration-none text-underline">
                 Contact us
               </a>
             </div>
-            <div>
+            <div class="my-1">
               <a href="/post" class="text-reset text-decoration-none text-underline">
                 Posts
               </a>
             </div>
-            <div>
+            <div class="my-1">
               <a href="/dashboard" class="text-reset text-decoration-none text-underline">
                 Dashboard
               </a>
@@ -131,9 +132,9 @@
 
         {{-- Social media --}}
         <div class="col-md-3 mb-5">
-          <div class="h5 font-weight-bold mb-3">
+          <h2 class="h5 o-heading o-footer-text-color mb-3">
             Follow us
-          </div>
+          </h2>
           <div>
             @if ($company->fb_link)
               <a href="{{ $company->fb_link }}" class="text-reset" target="_blank">

@@ -81,6 +81,10 @@
         color: @if ($cmsTheme) {{ $cmsTheme->footer_text_color }} @else black @endif ;
       }
 
+      .o-footer-text-color {
+        color: @if ($cmsTheme) {{ $cmsTheme->footer_text_color }} @else black @endif ;
+      }
+
       .o-header-color {
         background-color: @if ($cmsTheme) {{ $cmsTheme->top_header_bg_color }} @else white @endif ;
         color: @if ($cmsTheme) {{ $cmsTheme->top_header_text_color }} @else black @endif ;
