@@ -143,7 +143,7 @@ class UpcomingEventsList extends Component
     public function checkIfAnyEvents(): bool
     {
         foreach ($this->monthBook as $day) {
-            if ($day['events']) {
+            if (count($day['events']) > 0) {
                 return true;
             }
         }

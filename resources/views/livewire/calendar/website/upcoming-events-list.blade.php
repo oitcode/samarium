@@ -118,9 +118,18 @@
       @endif
     @endforeach
   @else
-    <div class="h5 font-weight-bold p-3" style="color: orange;">
-      <i class="fas fa-exclamation-circle mr-1"></i>
-      No upcoming events.
+    <div class="p-3 py-5">
+      <div class="text-center mb-4">
+        <i class="fas fa-exclamation-circle fa-2x"></i>
+      </div>
+      <div class="h6 o-heading text-center">
+        No upcoming events
+      </div>
+      <div class="text-center text-muted">
+        There are currently no events scheduled.
+        <br/>
+        Check back later or visit the calendar to see all events.
+      </div>
     </div>
   @endif
 
