@@ -3,7 +3,7 @@
   <div>
     <div class="row">
       <div class="col-md-12">
-        <h2 class="h5 font-weight-bold">
+        <h2 class="h5 o-heading o-footer-text-color">
           Subscribe us
         </h2>
         <p>
@@ -33,7 +33,7 @@
           @enderror
         </div>
         <div class="mt-4 d-flex">
-          <button class="btn shadow border border-light" wire:click="store"
+          <button class="btn px-3 shadow badge-pill" wire:click="store"
               style="
                   @if ($cmsTheme)
                     background-image:
