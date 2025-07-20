@@ -127,8 +127,6 @@
       </div>
       <div class="text-center text-muted">
         There are currently no events scheduled.
-        <br/>
-        Check back later or visit the calendar to see all events.
       </div>
     </div>
   @endif
