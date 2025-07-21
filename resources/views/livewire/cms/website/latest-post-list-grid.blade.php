@@ -1,6 +1,7 @@
-<div class="mb-4">
+<div class="mb-4 border o-border-radius">
 
-    <h2 class="h5 o-heading py-3 mb-0">
+    <h2 class="h4 o-heading pt-5 pb-4 pl-4 mb-0">
+      <i class="fas fa-edit mr-2"></i>
       Latest posts
     </h2>
 
@@ -9,10 +10,10 @@
     @endif
 
     @if (count($webpages) > 0)
-      <div class="row p-2-rm" style="margin: auto;">
+      <div class="row px-3 pl-4 pt-2" style="margin: auto;">
           @foreach ($webpages as $webpage)
-            <div class="col-md-6 p3 mb-0 pl-0 pb-3">
-              <div class="h-100 border p-3 bg-white shadow o-border-radius">
+            <div class="col-md-6 p3 mb-0 pl-0 pb-4">
+              <div class="h-100 border p-3 px-2 bg-white o-border-radius">
                 <div class="d-flex">
                   <div class="mr-3">
                     @if ($webpage->featured_image_path != null)
@@ -24,7 +25,7 @@
                   </div>
                   <div>
                     <a href="{{ route('website-webpage-' . $webpage->permalink) }}" class="text-reset text-decoration-none">
-                      <h2 class="h5 font-weight-bold mb-3">
+                      <h2 class="h5 o-heading mb-3">
                         {{ $webpage->name }}
                       </h2>
                     </a>
@@ -48,6 +49,12 @@
               </div>
             </div>
           @endforeach
+      </div>
+      <div class="mt-3 mb-5 text-center">
+        <button class="btn btn-outline-primary px-4 py-3 o-border-radius-sm">
+          View all posts
+          <i class="fas fa-arrow-right ml-2"></i>
+        </button>
       </div>
     @else
       <div class="text-muted py-2">

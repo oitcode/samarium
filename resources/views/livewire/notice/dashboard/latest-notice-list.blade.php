@@ -1,4 +1,4 @@
-<div class="bg-white border p-3 o-border-radius">
+<div class="h-100 bg-white border p-3 o-border-radius">
 
   <div>
     <div class="d-flex justify-content-between mb-3">
@@ -17,7 +17,7 @@
 
   <div class="table-responsive border-rm">
     <table class="table mb-0">
-      @if ($notices != null && count($notices) > 0)
+      @if (false && $notices != null && count($notices) > 0)
         @foreach ($notices as $notice) 
         <tr class="border-bottom-rm border-0-rm">
           <td class="border-0 border-bottom-danger p-0 py-2">
@@ -39,11 +39,18 @@
         @endforeach
       @else
         <tr class="border-0">
-          <td class="text-muted p-0 py-2 border-0">
-             <div class="h6">
-               <i class="fas fa-exclamation-circle mr-1"></i>
-               No notice.
-             </div>
+          <td class="p-0 py-2 border-0">
+            <div class="p-3 py-5">
+              <div class="text-center mb-4">
+                <i class="fas fa-exclamation-circle fa-2x"></i>
+              </div>
+              <div class="h6 o-heading text-center">
+                No notice
+              </div>
+              <div class="text-center text-muted">
+                There are currently no notice.
+              </div>
+            </div>
           </td>
         </tr>
       @endif
