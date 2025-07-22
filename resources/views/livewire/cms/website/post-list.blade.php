@@ -2,7 +2,7 @@
 
   @if (count($posts) > 0)
     @foreach ($posts as $post)
-      <div class="border rounded mb-2">
+      <div class="border mb-2 o-border-radius">
         <div class="flex-grow-1 d-flex justify-content-between p-3 bg-white text-dark">
           <div class="text-dark">
             <a href="{{ route('website-webpage-' . $post->permalink) }}" class="text-reset">
