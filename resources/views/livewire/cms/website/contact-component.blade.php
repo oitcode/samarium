@@ -87,9 +87,9 @@
         </div>
       @endif
 
-      <div class="@if ($onlyForm == 'yes') col-md-12 @else col-md-6 @endif bg-white-rm text-danger border p-0 rounded-rm px-3 px-md-0 o-border-radius h-100">
+      <div class="@if ($onlyForm == 'yes') col-md-12 @else col-md-6 @endif bg-white text-danger border p-0 rounded-rm px-3 px-md-0 o-border-radius h-100">
         <div>
-          <h2 class="h4 o-heading pt-5 pb-3 px-3">
+          <h2 class="h4 o-heading pt-4 px-4 pb-3 px-3">
             <i class="fas fa-comment mr-2"></i>
             Send us a message
           </h2>

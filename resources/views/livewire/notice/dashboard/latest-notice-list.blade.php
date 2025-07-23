@@ -1,4 +1,4 @@
-<div class="h-100 bg-white border p-3 o-border-radius">
+<div class="h-100 bg-white border py-4 px-4 o-border-radius">
 
   <div>
     <div class="d-flex justify-content-between mb-3">

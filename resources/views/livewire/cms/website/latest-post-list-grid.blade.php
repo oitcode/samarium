@@ -1,6 +1,6 @@
-<div class="mb-4 border o-border-radius">
+<div class="mb-4 border o-border-radius bg-white">
 
-    <h2 class="h4 o-heading pt-5 pb-4 pl-4 mb-0">
+    <h2 class="h4 o-heading py-4 px-4 mb-0">
       <i class="fas fa-edit mr-2"></i>
       Latest posts
     </h2>
@@ -13,7 +13,7 @@
       <div class="row px-3 pl-4 pt-2" style="margin: auto;">
           @foreach ($webpages as $webpage)
             <div class="col-md-6 p3 mb-0 pl-0 pb-4">
-              <div class="h-100 border p-3 px-2 bg-white o-border-radius">
+              <div class="h-100 border p-3 px-2 o-border-radius" style="background-color: #fafaff;">
                 <div class="d-flex">
                   <div class="mr-3">
                     @if ($webpage->featured_image_path != null)
