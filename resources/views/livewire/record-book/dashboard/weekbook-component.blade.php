@@ -7,14 +7,20 @@
 
   {{-- Top Menu --}}
   {{-- Show in bigger screens --}}
-  <div class="mb-1 d-none d-md-block bg-white p-3">
+  <div class="mb-3 d-none d-md-block bg-white p-3 py-4 border o-border-radius">
     <div class="d-flex">
-      <button class="btn m-0 p-0 bg-white badge-pill mr-4" wire:click="goToPreviousWeek">
+      <button class="btn m-0 p-0 bg-white badge-pill mr-3" wire:click="goToPreviousWeek">
         <i class="fas fa-arrow-alt-circle-left fa-2x"></i>
       </button>
-      <button class="btn mx-0 p-0 badge-pill bg-white" wire:click="goToNextWeek">
+      <div class="badge-pill border p-3 mr-3">
+        {{ Carbon\Carbon::parse($startDay)->format('j F') }}
+        -
+        {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('j F') }}
+      </div>
+      <button class="btn mx-0 p-0 badge-pill bg-white mr-3" wire:click="goToNextWeek">
         <i class="fas fa-arrow-alt-circle-right fa-2x"></i>
       </button>
+      @if (false)
       <div class="mr-3 mx-5">
         <i class="fas fa-calendar mr-2"></i>
         {{ Carbon\Carbon::parse($startDay)->format('Y F d') }}
@@ -29,11 +35,14 @@
         &nbsp; &nbsp; &nbsp;
         {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('l') }}
       </div>
-      <div>
-        <input type="date" wire:model="weekStartDate" class="ml-5">
-        <button class="btn {{ config('app.oc_ascent_bg_color', 'bg-success') }}" wire:click="setStartOfWeek">
-          Go
-        </button>
+      @endif
+      <div class="d-flex flex-column justify-content-center">
+        <div>
+          <input type="date" wire:model="weekStartDate" class="p-3 badge-pill mr-3 border">
+          <button class="btn btn-primary p-3 o-border-radius-sm-rm px-4 badge-pill" wire:click="setStartOfWeek">
+            Go
+          </button>
+        </div>
       </div>
       @include ('partials.dashboard.spinner-button')
     </div>
@@ -98,36 +107,74 @@
     </div>
   </div>
 
+  <div class="p0 py-4-rm mb-3 bg-white border o-border-radius">
+    <div class="row" style="margin: auto;">
+      <div class="col-md-4 p-3">
+        <div class="border o-border-radius p-3">
+          <div class="mb-2">
+            TOTAL SALES
+          </div>
+          <div class="h4 o-heading">
+            {{ config('app.transaction_currency_symbol') }}
+            @php echo number_format($totalAmount); @endphp
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 p-3">
+        <div class="border o-border-radius p-3">
+          <div class="mb-2">
+            TOTAL PURCHASE
+          </div>
+          <div class="h4 o-heading">
+            {{ config('app.transaction_currency_symbol') }}
+            @php echo number_format($totalAmountPurchase); @endphp
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 p-3">
+        <div class="border o-border-radius p-3">
+          <div class="mb-2">
+            TOTAL EXPENSE
+          </div>
+          <div class="h4 o-heading">
+            {{ config('app.transaction_currency_symbol') }}
+            @php echo number_format($totalAmountExpense); @endphp
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   {{-- Show in bigger screens --}}
   @if (count($weekBook) > 0)
     {{-- Show in bigger screens --}}
-    <div class="table-responsive m-0 p-0 d-none d-md-block shadow-sm">
+    <div class="table-responsive m-0 p-0 d-none d-md-block shadow-sm o-border-radius">
       <table class="table table-hover shadow-sm border mb-0">
         <thead>
           <tr class="bg-white">
-            <th>
-              Date
+            <th class="o-heading">
+              DATE
             </th>
-            <th>
-              Day
+            <th class="o-heading">
+              DAY
             </th>
-            <th>
-              Sales
+            <th class="o-heading">
+              SALES
             </th>
-            <th>
-              Purchase
+            <th class="o-heading">
+              PURCHASE
             </th>
-            <th>
-              Expense
+            <th class="o-heading">
+              EXPENSE
             </th>
           </tr>
         </thead>
         <tbody class="bg-white">
             @for ($i=0; $i<7; $i++)
-              <tr> 
+              <tr @if (\Carbon\Carbon::today() == $weekBook[$i]['day']) class="table-primary" style="linear-gradient(135deg, #fff9c4 0%, #fff1a4 100%)" @endif> 
                 <td>
                   @if (\Carbon\Carbon::today() == $weekBook[$i]['day'])
-                    <span class="badge badge-success">
+                    <span class="badge-pill badge-success h6 o-heading text-white py-1">
                       TODAY
                     </span>
 
@@ -141,53 +188,56 @@
                   {{ $weekBook[$i]['day']->format('l') }}
                 </td>
                 <td>
+                  <span class="badge-pill mr-3 text-primary px-3 py-1" style="background-color: #e3f2fd;">
                   {{ $weekBook[$i]['totalBills'] }}
-                  <span class="text-secondary mr-3">
                   bills
                   </span>
-                  <span class="text-secondary">
-                  Total:
+                  <span class="o-heading">
+                    Total:
+                    {{ config('app.transaction_currency_symbol') }}
+                    @php echo number_format( $weekBook[$i]['totalAmount'] ); @endphp
                   </span>
-                  {{ config('app.transaction_currency_symbol') }}
-                  @php echo number_format( $weekBook[$i]['totalAmount'] ); @endphp
                 </td>
                 <td>
-                  {{ $weekBookPurchase[$i]['totalBills'] }}
-                  <span class="text-secondary mr-3">
-                  bills
+                  <span class="badge-pill mr-3 text-primary px-3 py-1" style="background-color: #e3f2fd;">
+                    {{ $weekBookPurchase[$i]['totalBills'] }}
+                    bills
                   </span>
-                  <span class="text-secondary">
-                  Total:
+                  <span class="o-heading">
+                    Total:
+                    {{ config('app.transaction_currency_symbol') }}
+                    @php echo number_format( $weekBookPurchase[$i]['totalAmount'] ); @endphp
                   </span>
-                  {{ config('app.transaction_currency_symbol') }}
-                  @php echo number_format( $weekBookPurchase[$i]['totalAmount'] ); @endphp
                 </td>
                 <td>
-                  {{ $weekBookExpense[$i]['totalBills'] }}
-                  <span class="text-secondary mr-3">
-                  bills
+                  <span class="badge-pill mr-3 text-primary px-3 py-1" style="background-color: #e3f2fd;">
+                    {{ $weekBookExpense[$i]['totalBills'] }}
+                    bills
                   </span>
-                  <span class="text-secondary">
-                  Total:
+                  <span class="o-heading">
+                    Total:
+                    {{ config('app.transaction_currency_symbol') }}
+                    @php echo number_format( $weekBookExpense[$i]['totalAmount'] ); @endphp
                   </span>
-                  {{ config('app.transaction_currency_symbol') }}
-                  @php echo number_format( $weekBookExpense[$i]['totalAmount'] ); @endphp
                 </td>
               <tr>
             @endfor
         </tbody>
         <tfoot class="bg-white">
           <tr>
-            <td colspan="2" class="text-right mr-3 font-weight-bold">
+            <td colspan="2" class="mr-3 o-heading">
               Total
             </td>
-            <td class="font-weight-bold">
+            <td class="o-heading">
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format($totalAmount); @endphp
             </td>
-            <td class="font-weight-bold">
+            <td class="o-heading">
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format($totalAmountPurchase); @endphp
             </td>
-            <td class="font-weight-bold">
+            <td class="o-heading">
+              {{ config('app.transaction_currency_symbol') }}
               @php echo number_format($totalAmountExpense); @endphp
             </td>
           </tr>
