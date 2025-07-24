@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Carbon\Carbon;
 use App\Models\SaleInvoice\SaleInvoice;
 use App\Models\SaleInvoice\SaleInvoiceItem;
-use App\Models\ProductCategory;
+use App\Models\Product\ProductCategory;
 
 class ChartSaleByCategory extends Component
 {
