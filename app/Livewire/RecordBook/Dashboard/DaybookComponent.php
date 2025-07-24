@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use App\Traits\ModesTrait;
 use Carbon\Carbon;
 use Livewire\WithPagination;
-use App\Models\Product;
+use App\Models\Product\Product;
 use App\Models\SaleInvoice\SaleInvoice;
 use App\Models\SaleInvoice\SaleInvoiceItem;
 use App\Models\SaleInvoice\SeatTableBooking;
