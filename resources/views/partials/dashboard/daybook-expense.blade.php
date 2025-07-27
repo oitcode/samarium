@@ -1,7 +1,7 @@
-<div class="p-2 bg-white border">
-
-  <h2 class="h5 o-heading py-2 px-1 ">Expense</h2>
-  <div class="my-3 px-2 py-3 border">
+<div class="bg-white border p-2 o-border-radius py-4 mb-3">
+<div class="d-flex justify-content-between mt-2 mb-4 px-1">
+  <h2 class="h5 o-heading px-1">Expense</h2>
+  <div class="px-2 py-3-rm border-rm">
     <div class="d-flex">
       <div class="mr-3 font-weight-bold">
         Total:
@@ -13,10 +13,12 @@
       </div>
     </div>
   </div>
-  
+</div>
+
+<div>
   <div>
-    {{-- Show in bigger screens --}}
-    <div class="table-responsive d-none d-md-block mb-3">
+    @if (true)
+    <div class="table-responsive mb-3 border o-border-radius">
       <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
         <thead>
           <tr class=" ">
@@ -59,63 +61,24 @@
               </tr>
             @endforeach
           @else
-            {{-- Todo --}} 
+            <tr class="table-warning">
+              <td colspan="4" class="py-4">
+                <i class="fas fa-exclamation-circle mr-1"></i>
+                No expense
+              </td>
+            </tr>
           @endif
         </tbody>
       </table>
     </div>
-  
-    {{-- Show in smaller screens --}}
-    <div class="table-responsive d-md-none bg-white border mb-3">
-      <table class="table">
-        <tbody>
-          @foreach ($expenses as $expense)
-            <tr class="" role="button" wire:click="displayExpense({{ $expense }})">
-              <td class="text-secondary-rm" wire:click="" role="button">
-                <span class="text-primary">
-                {{ $expense->expense_id }}
-                </span>
-                <div>
-                  {{ $expense->created_at->format('H:i A') }}
-                </div>
-              </td>
-              <td>
-  
-                @foreach ($expense->expensePayments as $expensePayment)
-                <span class="badge badge-pill ml-3">
-                  {{ $expensePayment->expensePaymentType->name }}
-                </span>
-                @endforeach
-  
-                <div>
-                  @if ($expense->vendor)
-                    <i class="fas fa-circle text-success mr-3"></i>
-                    {{ $expense->vendor->name }}
-                  @endif
-                </div>
-              </td>
-              <td class="font-weight-bold">
-                {{ config('app.transaction_currency_symbol') }}
-                @php echo number_format( $expense->getTotalAmount() ); @endphp
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-  
-    {{-- Nav links for pagination -- TODO -- --}}
-    <div>
-      {{ $expenses->links() }}
-    </div>
+    @endif
     
     {{-- Payment by types --}}
-    <div class="border">
-      <h2 class="h6 o-heading p-3 mb-0 border">
+    <div class="border mb-3 o-border-radius py-4">
+      <h2 class="h6 o-heading px-3 mb-4">
         Payment by types
       </h2>
-      <div class="row border-rm m-0 p-3 text-dark d-flex">
-  
+      <div class="m-0 px-3 d-flex">
         @foreach ($expensePaymentByType as $key => $val)
           <div class="mb-4 mr-5">
                 <h2 class="h6 mb-3 o-heading ">
@@ -142,4 +105,5 @@
     </div>
   </div>
 
+</div>
 </div>
