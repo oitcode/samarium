@@ -9,7 +9,10 @@
         @php echo number_format( $totalExpenseAmount ); @endphp
       </div>
       <div class="font-weight-bold">
-        Bills: {{ $todayExpenseCount }}
+        <span class="badge-pill mr-3 text-primary px-3 py-1" style="background-color: #e3f2fd;">
+          Bills:
+          {{ $todayExpenseCount }}
+        </span>
       </div>
     </div>
   </div>
@@ -19,12 +22,12 @@
   <div>
     @if (true)
     <div class="table-responsive mb-3 border o-border-radius">
-      <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0">
+      <table class="table table-sm-rm table-bordered-rm table-hover shadow-sm border mb-0 text-nowrap">
         <thead>
-          <tr class=" ">
-            <th class="o-heading " style="width: 100px;">ID</th>
-            <th class="o-heading d-none d-md-table-cell" style="width: 200px;">Time</th>
-            <th class="o-heading d-none d-md-table-cell" style="width: 500px;">Vendor</th>
+          <tr class="table-primary">
+            <th class="o-heading" style="width: 100px;">ID</th>
+            <th class="o-heading" style="width: 200px;">Time</th>
+            <th class="o-heading" style="width: 500px;">Vendor</th>
             <th class="o-heading " style="width: 200px;">Total</th>
           </tr>
         </thead>
@@ -32,18 +35,18 @@
         <tbody class="bg-white">
           @if (count($expenses) > 0)
             @foreach ($expenses as $expense)
-              <tr class=" " role="button" wire:click="displayExpense({{ $expense }})">
+              <tr class="table-danger" role="button" wire:click="displayExpense({{ $expense }})">
                 <td class="text-secondary-rm" wire:click="" role="button">
                   <span class="text-primary-rm">
                   {{ $expense->expense_id }}
                   </span>
                 </td>
-                <td class="d-none d-md-table-cell">
+                <td class="">
                   <div>
                     {{ $expense->created_at->format('H:i A') }}
                   </div>
                 </td>
-                <td class="d-none d-md-table-cell">
+                <td class="">
                   @if ($expense->vendor)
                     <i class="fas fa-user-circle text-muted-rm mr-2"></i>
                     {{ $expense->vendor->name }}
@@ -61,7 +64,7 @@
               </tr>
             @endforeach
           @else
-            <tr class="table-warning">
+            <tr class="table-danger">
               <td colspan="4" class="py-4">
                 <i class="fas fa-exclamation-circle mr-1"></i>
                 No expense
@@ -74,33 +77,39 @@
     @endif
     
     {{-- Payment by types --}}
-    <div class="border mb-3 o-border-radius py-4">
+    <div class="border mb-3 o-border-radius pt-4">
       <h2 class="h6 o-heading px-3 mb-4">
         Payment by types
       </h2>
-      <div class="m-0 px-3 d-flex">
-        @foreach ($expensePaymentByType as $key => $val)
-          <div class="mb-4 mr-5">
-                <h2 class="h6 mb-3 o-heading ">
+      <div class="table-responsive o-border-bottom-radius">
+        <table class="table text-nowrap mb-0">
+          <thead>
+            <tr class="table-primary">
+              @foreach ($expensePaymentByType as $key => $val)
+                <th class="o-heading">
                   {{ $key }}
-                </h2>
-                <h2 class="h6 ">
+                </th>
+              @endforeach
+              <th class="o-heading">
+                Pending
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-warning">
+              @foreach ($expensePaymentByType as $key => $val)
+                <td>
                   {{ config('app.transaction_currency_symbol') }}
-                  @php echo number_format( $val ); @endphp
-                </h2>
-          </div>
-        @endforeach
-  
-        {{-- Pending Amount --}}
-        <div class="">
-          <h2 class="h6 text-muted-rm mb-3 o-heading ">
-            Pending
-          </h2>
-          <h2 class="h6 ">
-            {{ config('app.transaction_currency_symbol') }}
-            @php echo number_format( $netExpensePendingAmount ); @endphp
-          </h2>
-        </div>
+                  {{ $val }}
+                </td>
+              @endforeach
+              <td>
+                {{ config('app.transaction_currency_symbol') }}
+                @php echo number_format( $netExpensePendingAmount ); @endphp
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

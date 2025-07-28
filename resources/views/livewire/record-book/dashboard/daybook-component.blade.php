@@ -98,8 +98,11 @@
                   {{ config('app.transaction_currency_symbol') }}
                   @php echo number_format( $totalSaleAmount ); @endphp
                 </div>
-                <div class="font-weight-bold">
-                  Bills: {{ $todaySaleInvoiceCount }}
+                <div>
+                  <span class="badge-pill mr-3 text-primary px-3 py-1" style="background-color: #e3f2fd;">
+                    Bills:
+                    {{ $todaySaleInvoiceCount }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -109,45 +112,49 @@
             <div>
               @if ( true {{--$saleInvoices != null && count($saleInvoices) > 0--}})
                 <div class="table-responsive mb-3 border o-border-radius">
-                  <table class="table shadow-sm border mb-0">
+                  <table class="table shadow-sm border mb-0 text-nowrap">
                     <thead>
-                      <tr>
+                      <tr class="table-primary">
                         <th class="o-heading" style="width: 100px;">ID</th>
-                        <th class="o-heading" class="d-none d-md-table-cell" style="width: 200px;">Time</th>
-                        <th class="o-heading" class="d-none d-md-table-cell" style="width: 200px;">Table</th>
-                        <th class="o-heading" class="d-none d-md-table-cell" style="width: 500px;">Customer</th>
+                        <th class="o-heading" class="" style="width: 200px;">Time</th>
+                        @if (false)
+                        <th class="o-heading" class="" style="width: 200px;">Table</th>
+                        @endif
+                        <th class="o-heading" class="" style="width: 500px;">Customer</th>
                         <th class="o-heading" style="width: 200px;">
                           <span class="d-none d-md-inline">
                             Payment
                           </span>
                           Status
                         </th>
-                        <th class="o-heading d-none d-md-table-cell" style="width: 200px;">Pending Amount</th>
+                        <th class="o-heading" style="width: 200px;">Pending Amount</th>
                         <th class="o-heading" style="width: 200px;">Total</th>
                       </tr>
                     </thead>
                     <tbody class="bg-white">
                       @if (count($saleInvoices) > 0)
                         @foreach ($saleInvoices as $saleInvoice)
-                          <tr role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
+                          <tr class="table-success" role="button" wire:click="displaySaleInvoice({{ $saleInvoice }})">
                             <td wire:click="" role="button">
                               <span>
                               {{ $saleInvoice->sale_invoice_id }}
                               </span>
                             </td>
-                            <td class="d-none d-md-table-cell">
+                            <td class="">
                               <div>
                                 {{ $saleInvoice->created_at->format('H:i A') }}
                               </div>
                             </td>
-                            <td class="d-none d-md-table-cell">
+                            @if (false)
+                            <td class="">
                               @if ($saleInvoice->seatTableBooking)
                               {{ $saleInvoice->seatTableBooking->seatTable->name }}
                               @else
                                 Takeaway
                               @endif
                             </td>
-                            <td class="d-none d-md-table-cell">
+                            @endif
+                            <td class="">
                               @if ($saleInvoice->customer)
                                 <i class="fas fa-user-circle mr-2"></i>
                                 {{ $saleInvoice->customer->name }}
@@ -183,7 +190,7 @@
                               </span>
                               @endforeach
                             </td>
-                            <td class="d-none d-md-table-cell">
+                            <td class="">
                               {{ config('app.transaction_currency_symbol') }}
                               @php echo number_format( $saleInvoice->getPendingAmount() ); @endphp
                             </td>
@@ -194,7 +201,7 @@
                           </tr>
                         @endforeach
                       @else
-                          <tr class="table-warning">
+                          <tr class="table-success">
                             <td colspan="7" class="py-4">
                               <i class="fas fa-exclamation-circle mr-1"></i>
                               No sales
@@ -216,47 +223,53 @@
               @endif
               
               {{-- Payment by types --}}
-              <div class="border mb-3 o-border-radius py-4">
+              <div class="border mb-3 o-border-radius pt-4">
                 <h2 class="h6 o-heading px-3 mb-4">
                   Payment by types
                 </h2>
-                <div class="m-0 px-3 d-flex">
-                  @foreach ($paymentByType as $key => $val)
-                    <div class="mb-4-rm mr-5">
-                      <h2 class="h6 mb-3 o-heading">
-                        {{ $key }}
-                      </h2>
-                      <h2 class="h6">
-                        {{ config('app.transaction_currency_symbol') }}
-                        @php echo number_format( $val ); @endphp
-                      </h2>
-                    </div>
-                  @endforeach
-
-                  {{-- Pending Amount --}}
-                  <div>
-                    <h2 class="h6 mb-3 o-heading">
-                      Pending
-                    </h2>
-                    <h2 class="h6 text-danger">
-                      {{ config('app.transaction_currency_symbol') }}
-                      @php echo number_format( $netPendingAmount ); @endphp
-                    </h2>
-                  </div>
+                <div class="table-responsive o-border-bottom-radius">
+                  <table class="table text-nowrap mb-0">
+                    <thead>
+                      <tr class="table-primary">
+                        @foreach ($paymentByType as $key => $val)
+                          <th class="o-heading">
+                            {{ $key }}
+                          </th>
+                        @endforeach
+                        <th class="o-heading">
+                          Pending
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="table-warning">
+                        @foreach ($paymentByType as $key => $val)
+                          <td>
+                            {{ config('app.transaction_currency_symbol') }}
+                            {{ $val }}
+                          </td>
+                        @endforeach
+                        <td>
+                          {{ config('app.transaction_currency_symbol') }}
+                          @php echo number_format( $netPendingAmount ); @endphp
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
 
             {{-- Daybook item count div --}}
-            <div class="border o-border-radius p-3">
-              <h2 class="h6 o-heading mb-3 px-1 py-3">
+            <div class="border o-border-radius">
+              <h2 class="h6 o-heading mb-0 px-3 py-4">
                 Product sale count
               </h2>
               @if (count($todayItems) > 0)
-                <div class="table-responsive border o-border-radius">
+                <div class="table-responsive o-border-bottom-radius">
                   <table class="table table-hover border-rm mb-0">
                     <thead>
-                      <tr>
+                      <tr class="table-primary">
                         <th class="o-heading" colspan="2">
                           Item
                         </th>
@@ -288,8 +301,8 @@
                   </table>
                 </div>
               @else
-                <div class="py-3-rm">
-                  <i class="fas fa-exclamation-circle mr-3"></i>
+                <div class="px-3 pb-3">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
                   No sales
                 </div>
               @endif
@@ -297,6 +310,7 @@
           </div>
           </div>
         @endif
+
         {{-- Purchase --}}
         <div class="mb-3">
           @include ('partials.dashboard.daybook-purchase')
