@@ -1,4 +1,4 @@
-<div class="p-3 p-md-0">
+<div>
 
   {{--
      |
@@ -48,7 +48,7 @@
     {{-- Summary info --}}
     <div class="p0 py-4-rm mb-3 bg-white-rm border-rm o-border-radius-rm">
       <div class="row" style="margin: auto;">
-        <div class="col-md-4 p-0 pr-3">
+        <div class="col-md-4 p-0 pr-0 pr-md-3">
           <div class="border o-border-radius p-3 bg-success text-white">
             <div class="mb-2">
               TOTAL SALES
@@ -59,7 +59,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 p-0 pr-3">
+        <div class="col-md-4 p-0 pr-0 pr-md-3">
           <div class="border o-border-radius p-3 bg-danger text-white">
             <div class="mb-2">
               TOTAL PURCHASE
@@ -70,7 +70,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 p-0 pr-3">
+        <div class="col-md-4 p-0 pr-0 pr-md-3">
           <div class="border o-border-radius p-3 bg-warning">
             <div class="mb-2">
               TOTAL EXPENSE

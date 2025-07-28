@@ -1,4 +1,4 @@
-<div class="mb-4 p-3 p-md-0">
+<div class="mb-4">
 
   {{-- Top toolbar --}}
   <x-toolbar-classic toolbarTitle="Weekbook">
