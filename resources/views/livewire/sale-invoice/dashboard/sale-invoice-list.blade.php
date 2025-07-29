@@ -91,8 +91,7 @@
 
     <x-slot name="listBody">
       @foreach ($saleInvoices as $saleInvoice)
-        {{-- Show in bigger screens --}}
-        <x-table-row-component bsClass="d-none d-md-table-row">
+        <x-table-row-component bsClass="">
           <x-table-cell>
             {{ $saleInvoice->sale_invoice_id }}
           </x-table-cell>

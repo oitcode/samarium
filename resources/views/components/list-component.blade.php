@@ -29,7 +29,7 @@
        |
     --}}
     <div class="table-responsive px-3 mt-0">
-      <table class="table table-bordered table-hover border mb-0">
+      <table class="table table-bordered table-hover border mb-0 text-nowrap">
         <thead>
           <tr class="text-dark p-4 o-heading">
             {{ $listHeadingRow }}

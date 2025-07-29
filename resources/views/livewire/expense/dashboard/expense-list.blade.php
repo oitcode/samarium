@@ -16,7 +16,7 @@
     <x-slot name="listBody">
       @foreach ($expenses as $expense)
         {{-- Show in bigger screens --}} 
-        <x-table-row-component bsClass="d-none d-md-table-row" wire:key="{{ rand() * $expense->expense_id }}">
+        <x-table-row-component bsClass="" wire:key="{{ rand() * $expense->expense_id }}">
           <x-table-cell>
             {{ $expense->expense_id }}
           </x-table-cell>

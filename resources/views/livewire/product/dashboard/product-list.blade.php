@@ -83,6 +83,7 @@
             </x-list-view-button-component>
             <x-list-delete-button-component clickMethod="confirmDeleteProduct({{ $product->product_id }})">
             </x-list-delete-button-component>
+            @if (false)
             <div class="d-md-none">
               <x-list-dropdown-component toolbarButtonDropdownId="productListProductDropdown-{{ $product->product_id }}">
                 <x-toolbar-dropdown-item-component clickMethod="$dispatch('displayProduct', { productId : {{ $product->product_id }} })">
@@ -90,6 +91,7 @@
                 </x-toolbar-dropdown-item-component>
               </x-list-dropdown-component>
             </div>
+            @endif
           </td>
         </x-table-row-component>
       @endforeach

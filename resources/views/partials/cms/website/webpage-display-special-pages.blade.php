@@ -161,6 +161,15 @@
   |
   --}}
   <div class="container my-4">
+    <div class="p-3 o-border-radius border py-5 bg-white mb-5">
+      <h2 class="h4 o-heading mb-3">
+        Latest updates & notices
+      </h2>
+      <div class="h5">
+        Welcome to our noticeboard! This page displays most recent notices and updates. Please
+        check regularly to stay informed and updated.
+      </div>
+    </div>
     @livewire ('cms.website.post-list', ['category' => 'notice',])
   </div>
 @elseif ($webpage->name == 'Teams')
