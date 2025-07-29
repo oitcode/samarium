@@ -12,33 +12,31 @@
 
 
   <div class="p-0">
-    {{-- Date selector section --}}
     @if (! $modes['displaySaleInvoice'])
-      <div class="mb-3 bg-white p-3 py-4 border o-border-radius">
-        <div class="d-flex">
-          <div class="mr-3" wire:click="setPreviousDay" role="button">
-            <i class="fas fa-arrow-alt-circle-left fa-2x text-primary"></i>
-          </div>
-          <div class="mr-3 o-heading pt-1">
-            <i class="fas fa-calendar mr-2"></i>
-            {{ Carbon\Carbon::parse($daybookDate)->format('Y F d') }}
-            ,
-            {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
-          </div>
-          <div class="mr-3" wire:click="setNextDay" role="button">
-            <i class="fas fa-arrow-alt-circle-right fa-2x text-primary"></i>
-          </div>
-          <div class="d-flex flex-column justify-content-center">
-            <div>
-              <input type="date" wire:model="daybookDate" class="px-3 badge-pill mr-3 border o-border-darker-gray">
-              @if (true)
-              <button class="btn btn-primary px-3 o-border-radius-sm-rm px-4 badge-pill o-heading text-white py-1 my-3 my-md-0" wire:click="render">
-                Go
-              </button>
-              @endif
+      {{-- Date selector section --}}
+      <div class="mb-3 bg-white px-3 py-4 border o-border-radius">
+        <div class="d-flex flex-column flex-md-row">
+          <div class="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <div class="mr-3" wire:click="setPreviousDay" role="button">
+              <i class="fas fa-arrow-alt-circle-left fa-2x text-primary"></i>
+            </div>
+            <div class="mr-3 o-heading pt-1">
+              <i class="fas fa-calendar mr-2"></i>
+              {{ Carbon\Carbon::parse($daybookDate)->format('Y F d') }}
+              ,
+              {{ Carbon\Carbon::parse($daybookDate)->format('l') }}
+            </div>
+            <div class="mr-3" wire:click="setNextDay" role="button">
+              <i class="fas fa-arrow-alt-circle-right fa-2x text-primary"></i>
             </div>
           </div>
-          <div class="mx-3">
+          <div class="d-flex justify-content-center justify-content-md-start">
+            <input type="date" wire:model="daybookDate" class="px-3 badge-pill mr-3 border o-border-darker-gray">
+            <button class="btn btn-primary px-4 badge-pill o-heading text-white py-1" wire:click="render">
+              Go
+            </button>
+          </div>
+          <div class="d-flex justify-content-center justify-content-md-start mx-0 mx-md-3">
             @include ('partials.dashboard.spinner-button')
           </div>
         </div>

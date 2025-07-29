@@ -6,34 +6,29 @@
   </x-toolbar-classic>
 
   {{-- Top Menu --}}
-  {{-- Show in bigger screens --}}
-
-
-  <div class="mb-3 bg-white p-3 py-4 border o-border-radius">
-    <div class="d-flex">
-      <div class="mr-3" wire:click="goToPreviousWeek" role="button">
-        <i class="fas fa-arrow-alt-circle-left fa-2x text-primary"></i>
-      </div>
-      <div class="mr-3 o-heading pt-1">
-        <i class="fas fa-calendar mr-2"></i>
-        {{ Carbon\Carbon::parse($startDay)->format('j F') }}
-        -
-        {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('j F') }}
-      </div>
-      <div class="mr-3" wire:click="goToNextWeek" role="button">
-        <i class="fas fa-arrow-alt-circle-right fa-2x text-primary"></i>
-      </div>
-      <div class="d-flex flex-column justify-content-center">
-        <div>
-          <input type="date" wire:model="weekStartDate" class="px-3 badge-pill mr-3 border o-border-darker-gray">
-          @if (true)
-          <button class="btn btn-primary px-3 o-border-radius-sm-rm px-4 badge-pill o-heading text-white py-1 my-3 my-md-0" wire:click="setStartOfWeek">
-            Go
-          </button>
-          @endif
+  <div class="mb-3 bg-white px-3 py-4 border o-border-radius">
+    <div class="d-flex flex-column flex-md-row">
+      <div class="d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+        <div class="mr-3" wire:click="goToPreviousWeek" role="button">
+          <i class="fas fa-arrow-alt-circle-left fa-2x text-primary"></i>
+        </div>
+        <div class="mr-3 o-heading pt-1">
+          <i class="fas fa-calendar mr-2"></i>
+          {{ Carbon\Carbon::parse($startDay)->format('j F') }}
+          -
+          {{ Carbon\Carbon::parse($startDay)->addDays(6)->format('j F') }}
+        </div>
+        <div class="mr-3" wire:click="goToNextWeek" role="button">
+          <i class="fas fa-arrow-alt-circle-right fa-2x text-primary"></i>
         </div>
       </div>
-      <div class="mx-3">
+      <div class="d-flex justify-content-center justify-content-md-start">
+        <input type="date" wire:model="weekStartDate" class="px-3 badge-pill mr-3 border o-border-darker-gray">
+        <button class="btn btn-primary px-4 badge-pill o-heading text-white py-1" wire:click="setStartOfWeek">
+          Go
+        </button>
+      </div>
+      <div class="d-flex justify-content-center justify-content-md-start mx-0 mx-md-3">
         @include ('partials.dashboard.spinner-button')
       </div>
     </div>
