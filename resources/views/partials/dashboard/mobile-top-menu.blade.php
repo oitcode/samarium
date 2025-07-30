@@ -264,7 +264,9 @@
       <li class="nav-item dropdown bg-light text-dark px-3 py-0">
         <a class="nav-link dropdown-toggle text-dark py-2" href="#" id="mobTopMenuMoreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-cog text-secondry mr-2"></i>
-          More
+          <span class="font-weight-bold">
+            More
+          </span>
         </a>
         <div class="dropdown-menu mx-3 p-3 border o-border-radius" style="background-color: #def;" aria-labelledby="mobTopMenuMoreDropdown">
           <a class="dropdown-item py-2" href="{{ route('company') }}">
