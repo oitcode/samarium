@@ -2,8 +2,8 @@
 
   <x-list-component>
     <x-slot name="listInfo">
-      <div class="d-flex justify-content-between">
-        <div class="mr-5 pt-2 pl-2">
+      <div class="d-flex flex-column flex-md-row justify-content-between">
+        <div class="mr-5 pt-2 pl-md-2 mb-3 mb-md-0">
           Product list
         </div>
         <div class="d-flex">
