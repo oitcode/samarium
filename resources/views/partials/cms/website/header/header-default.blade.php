@@ -2,10 +2,16 @@
   {{-- Show in bigger screens --}}
   <div class="container-fluid d-none d-md-block border-bottom o-nav-menu-color">
     <div class="container text-right py-2">
-      <i class="fas fa-envelope mr-1"></i>
-      {{ $company->email }}
-      <i class="fas fa-phone ml-4 mr-1"></i>
-      {{ $company->phone }}
+      <div class="d-flex justify-content-between">
+        <div>
+          <i class="fas fa-envelope mr-1"></i>
+          {{ $company->email }}
+        </div>
+        <div>
+          <i class="fas fa-phone ml-4 mr-1"></i>
+          {{ $company->phone }}
+        </div>
+      </div>
     </div>
   </div>
   <div class="container-fluid d-none d-md-block o-header-color">
@@ -40,7 +46,7 @@
         </div>
         <div class="">
           <div class="h-100 d-flex flex-column justify-content-center">
-            <a href="/contact-us" class="btn btn-primary-rm btn-lg text-reset o-ascent-color">
+            <a href="/contact-us" class="btn btn-primary-rm btn-lg o-ascent-color o-border-radius-sm">
               Contact us
             </a>
           </div>

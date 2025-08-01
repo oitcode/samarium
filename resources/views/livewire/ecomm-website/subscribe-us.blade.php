@@ -3,7 +3,7 @@
   <div>
     <div class="row">
       <div class="col-md-12">
-        <h2 class="h5 o-heading o-footer-text-color">
+        <h2 class="h5 o-heading mb-4" style="color: {{ $headingTextColor }};">
           Subscribe us
         </h2>
         <p>

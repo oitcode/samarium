@@ -100,6 +100,10 @@
         color: @if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else white @endif ;
       }
 
+      .o-ascent-text-color {
+        color: @if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else white @endif ;
+      }
+
     </style>
 
     {{--

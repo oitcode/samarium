@@ -1,4 +1,4 @@
-<div class="mb-4 border o-border-radius bg-white">
+<div class="mb-4 border o-border-radius bg-white h-100">
 
     <h2 class="h4 o-heading py-4 px-4 mb-0">
       <i class="fas fa-edit mr-2"></i>
@@ -9,7 +9,7 @@
     <hr class="mb-4" width="10%" style="border: 3px solid black; margin: 0 0;"/>
     @endif
 
-    @if (count($webpages) > 0)
+    @if (false && count($webpages) > 0)
       <div class="row px-3 pl-4 pt-2" style="margin: auto;">
           @foreach ($webpages as $webpage)
             <div class="col-md-6 p3 mb-0 pl-0 pb-4">
@@ -57,12 +57,17 @@
         </button>
       </div>
     @else
-      <div class="text-muted py-2">
-        <div class="h6">
-          <i class="fas fa-exclamation-circle mr-1"></i>
-          No posts.
-        </div>
+    <div class="p-3 py-5">
+      <div class="text-center mb-4">
+        <i class="fas fa-exclamation-circle fa-2x"></i>
       </div>
+      <div class="h6 o-heading text-center">
+        No posts
+      </div>
+      <div class="text-center text-muted">
+        There are currently no posts.
+      </div>
+    </div>
     @endif
 
 </div>

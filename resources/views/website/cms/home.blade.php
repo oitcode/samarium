@@ -60,7 +60,7 @@
   | HFN.
   |
   --}}
-  @if (false && has_module('hfn'))
+  @if (true && has_module('hfn'))
     <div class="container-fluid p-0 o-fade-in" style="
     @if($cmsTheme)
       background-color: {{ $cmsTheme->ascent_bg_color }};
@@ -77,14 +77,15 @@
           <div class="col-md-6 pt-5 px-md-5 pb-5">
             @include ('partials.school.school-quick-links-display')
             <div class="d-flex flex-column justify-content-center h-100">
-              <h1 class="h1">
+              <h1 class="h1 mb-4 o-heading o-ascent-text-color">
                 {{ $company->name }}
               </h1>
-              <div class="mb-3">
+              <div class="mb-4">
                 {{ $company->brief_description }}
               </div>
   
               <div style="
+                      @if (false)
                       background-color:
                         @if ($cmsTheme)
                           {{ $cmsTheme->ascent_bg_color }}
@@ -98,12 +99,13 @@
                         @else
                           #123
                         @endif
+                      @endif
                         ;
               ">
                 @if (\App\Models\Cms\Webpage\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first())
-                  <div class="border" style="background-color: rgba(0, 0, 0, 0.5)">
+                  <div class="border-rm" style="{{-- background-color: rgba(0, 0, 0, 0.5) --}}">
                     <a href="{{ \App\Models\Cms\Webpage\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first()->permalink }}"
-                        class="btn btn-block py-3"
+                        class="btn btn-primary py-3 o-heading text-white h4 badge-pill px-4"
                         style="
                         color:
                           @if ($cmsTheme)
@@ -151,7 +153,7 @@
   | Calendar and latest notice.
   |
   --}}
-  <div class="container-fluid bg-white border pt-4 pb-4">
+  <div class="container-fluid bg-white border py-5">
     <div class="container">
       <div class="row" style="margin: auto;">
         <div class="col-md-8 border-rm p-0">
@@ -212,12 +214,12 @@
   | Latest post list and contact form.
   |
   --}}
-  <div class="container py-4">
+  <div class="container py-5">
     <div class="row" style="margin: auto;">
-      <div class="col-md-8">
+      <div class="col-md-8 p-0">
         @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 px-3">
         @livewire ('cms.website.contact-component', ['onlyForm' => 'yes',])
       </div>
     </div>

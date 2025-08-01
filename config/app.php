@@ -91,9 +91,13 @@ return [
     'app_left_menu_hl_color_bg'           => '#55a',
     'app_left_menu_hl_color_text'         => 'white',
 
-    'app_linear_gradient_color_1'         => '#55a',
-    'app_linear_gradient_color_2'         => '#123',
-    'app_linear_gradient_text_color'      => '#fff',
+    // 'app_linear_gradient_color_1'         => '#55a',
+    // 'app_linear_gradient_color_2'         => '#123',
+    // 'app_linear_gradient_text_color'      => '#fff',
+
+    'app_linear_gradient_color_1'         => '#ddd',
+    'app_linear_gradient_color_2'         => '#ddd',
+    'app_linear_gradient_text_color'      => '#222',
 
 
     /*
@@ -118,7 +122,20 @@ return [
     */
 
     'header_blade_file' => 'partials.cms.website.header.header-default',
-    'footer_blade_file' => 'partials.cms.website.footer.footer-default',
+    'footer_blade_file' => 'partials.cms.website.footer.footer-desk-shine',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Website footer configuration
+    |--------------------------------------------------------------------------
+    |
+    | Various configuration options for website footer.
+    |
+    */
+
+    'website_footer_bg_color'      => '#012',
+    'website_footer_text_color'    => '#fff',
+    'website_footer_heading_color' => '#3bf',
 
     /*
     |--------------------------------------------------------------------------

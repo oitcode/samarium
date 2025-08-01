@@ -1,6 +1,6 @@
 <div class="h-100">
 
-  <div class="container p-0 h-100 pb-4">
+  <div class="container p-0 h-100">
     <div class="row h-100" style="margin: auto;">
       @if ($onlyForm != 'yes')
         <div class="col-md-6 h-100">

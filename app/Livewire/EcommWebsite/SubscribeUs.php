@@ -11,6 +11,7 @@ use App\Events\NewsletterSubscriptionCreated;
 class SubscribeUs extends Component
 {
     public string $email;
+    public string $headingTextColor;
 
     public string $introMessage = 'Please enter your email address to get regular updates on our products. ';
 
