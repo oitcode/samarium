@@ -3,11 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Schema;
-use App\Models\Company\Company;
-use App\Models\Cms\CmsTheme\CmsTheme;
-use App\Models\Cms\CmsNavMenu\CmsNavMenu;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,19 +23,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (Schema::hasTable('company')) {
-            $company = Company::first();
-            View::share('company', $company);
+
+        if (is_running_migration_command()) {
+            return;
         }
 
-        if (Schema::hasTable('cms_theme')) {
-            $cmsTheme = CmsTheme::first();
-            View::share('cmsTheme', $cmsTheme);
-        }
-
-        if (Schema::hasTable('cms_nav_menu')) {
-            $cmsNavMenu = CmsNavMenu::first();
-            View::share('cmsNavMenu', $cmsNavMenu);
-        }
+        share_global_view_data();
     }
 }
