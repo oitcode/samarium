@@ -33,7 +33,7 @@
           @enderror
         </div>
         <div class="mt-4 d-flex">
-          <button class="btn px-3 shadow badge-pill" wire:click="store"
+          <button class="btn px-3 shadow badge-pill border" wire:click="store"
               style="
                   @if ($cmsTheme)
                     background-image:
