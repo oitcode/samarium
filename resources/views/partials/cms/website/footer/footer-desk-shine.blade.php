@@ -26,13 +26,19 @@
         </h2>
         <div>
           <div class="mb-2">
-            Post
+            <a href="/contact-us" class="text-reset text-decoration-none text-underline">
+              Contact us
+            </a>
           </div>
           <div class="mb-2">
-            Contact us
+            <a href="/post" class="text-reset text-decoration-none text-underline">
+              Posts
+            </a>
           </div>
           <div class="mb-2">
-            Dashboard
+            <a href="/dashboard" class="text-reset text-decoration-none text-underline">
+              Dashboard
+            </a>
           </div>
         </div>
       </div>
