@@ -12,7 +12,7 @@
                 </h2>
               </a>
             </div>
-            <div class="col-md-4 text-right py-3-rm">
+            <div class="col-md-4 text-left text-md-right py-3-rm p-0 pt-3 pt-md-0">
               <span class="bg-light text-dark py-1 px-3 badge-pill" style="border: 2px solid #aaa;">
                 {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($post->created_at->toDateString(), 'english')  }}
                 2082
