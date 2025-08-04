@@ -137,6 +137,33 @@ return [
     'website_footer_text_color'    => '#fff',
     'website_footer_heading_color' => '#3bf',
 
+    'website_ascent_border_color' => '#47a',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Temporary ::: Website "What we do / services" section configuration 
+    |--------------------------------------------------------------------------
+    |
+    | Various configuration options for website services section.
+    |
+    */
+
+    'what_we_do' => [
+        'heading' => 'What we do',
+        'intro' => 'We work in the following areas.',
+        'services' => [
+            'Foo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum venenatis magna vitae iaculis auctor. Ut odio leo, consequat nec
+            libero sed, mattis tempus augue. Vivamus felis eros, tempus nec libero eget, rutrum iaculis sapien. Nullam mattis justo vitae magna
+            consectetur blandit.',
+            'Bar' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum venenatis magna vitae iaculis auctor. Ut odio leo, consequat nec
+            libero sed, mattis tempus augue. Vivamus felis eros, tempus nec libero eget, rutrum iaculis sapien. Nullam mattis justo vitae magna
+            consectetur blandit.',
+            'Biz' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum venenatis magna vitae iaculis auctor. Ut odio leo, consequat nec
+            libero sed, mattis tempus augue. Vivamus felis eros, tempus nec libero eget, rutrum iaculis sapien. Nullam mattis justo vitae magna
+            consectetur blandit.',
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Ecommerce options

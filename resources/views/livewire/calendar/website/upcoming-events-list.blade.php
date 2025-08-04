@@ -1,13 +1,13 @@
 <div class="h-100 bg-white border py-4 px-4 o-border-radius">
 
   <div>
-    <div class="d-flex justify-content-between mb-3">
+    <div class="d-flex justify-content-start mb-3">
+      <div class="mr-3">
+        <i class="fas fa-check-circle fa-2x"></i>
+      </div>
       <h2 class="h4 o-heading">
         Upcoming events
       </h2>
-      <div>
-        <i class="fas fa-calendar fa-2x"></i>
-      </div>
     </div>
   </div>
   @if (false)
@@ -119,20 +119,20 @@
     @endforeach
   @else
     <div class="p-3 py-5">
-      <div class="text-center mb-4">
-        <i class="fas fa-exclamation-circle fa-2x"></i>
+      <div class="text-center-rm mb-4">
+        <i class="fas fa-exclamation-circle fa-2x text-danger"></i>
       </div>
-      <div class="h6 o-heading text-center">
+      <div class="h6 o-heading text-center-rm">
         No upcoming events
       </div>
-      <div class="text-center text-muted">
+      <div class="text-center-rm text-muted">
         There are currently no events scheduled.
       </div>
     </div>
   @endif
 
   <div class="my-3">
-    <a href="./calendar">
+    <a href="./calendar" class="btn btn-primary btn-block badge-pill o-heading text-white h5 py-3">
       Visit calendar
       <i class="fas fa-arrow-right ml-2"></i>
     </a>

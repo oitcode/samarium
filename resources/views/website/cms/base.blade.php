@@ -104,6 +104,44 @@
         color: @if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else white @endif ;
       }
 
+      .o-ascent-border-color {
+        border: 1px solid {{ config('app.website_ascent_border_color') }};
+      }
+
+      .blog-post-image {
+          height: 200px;
+          /*
+          background: linear-gradient(135deg, #007bff, #0056b3);
+          */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1rem;
+          color: white;
+      }
+      
+      .blog-category {
+          background-color: #e6fffa;
+          color: #319795;
+          font-size: 0.75rem;
+      }
+      
+      .blog-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .blog-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      }
+
+      .blog-image {
+        height: 200px;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        width: 100%;
+      }
+
     </style>
 
     {{--

@@ -1,7 +1,7 @@
 <div class="p-0 px-0" >
   {{-- Show in bigger screens --}}
   <div class="container-fluid d-none d-md-block border-bottom o-nav-menu-color">
-    <div class="container text-right py-2">
+    <div class="container text-right py-3" style="font-size: 1rem;">
       <div class="d-flex justify-content-between">
         <div>
           <i class="fas fa-envelope mr-1"></i>
@@ -21,7 +21,7 @@
           <div class="d-flex justify-content-center h-100 pl-2">
             <a href="{{ route('website-home') }}" class="text-decoration-none">
             <div class="d-flex py-3">
-              <div class="mr-4 d-flex flex-column justify-content-center">
+              <div class="mr-0 d-flex flex-column justify-content-center">
                   <img src="{{ asset('storage/' . $company->logo_image_path) }}" style="max-width: 100px; max-height: 100px;">
               </div>
             </div>
@@ -37,7 +37,7 @@
                 </h1>
                 <div class="w-100">
                   <div>
-                    {{ $company->address }}
+                    {{ $company->tagline }}
                   </div>
                 </div>
               </div>

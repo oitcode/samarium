@@ -50,9 +50,8 @@
   |
   --}}
   @if (false)
-  @livewire ('product.website.product-filter')
-
-  @include ('partials.cms.website.company-info')
+    @livewire ('product.website.product-filter')
+    @include ('partials.cms.website.company-info')
   @endif
   
   {{--
@@ -75,8 +74,10 @@
             @endif
           </div>
           <div class="col-md-6 pt-5 px-md-5 pb-5">
-            @include ('partials.school.school-quick-links-display')
-            <div class="d-flex flex-column justify-content-center h-100">
+            <div class="mb-5">
+              @include ('partials.school.school-quick-links-display')
+            </div>
+            <div class="d-flex-rm flex-column-rm justify-content-center-rm h-100-rm">
               <h1 class="h1 mb-4 o-heading o-ascent-text-color">
                 {{ $company->name }}
               </h1>
@@ -153,6 +154,7 @@
   | Calendar and latest notice.
   |
   --}}
+  @if (false)
   <div class="container-fluid bg-white border py-5">
     <div class="container">
       <div class="row" style="margin: auto;">
@@ -165,6 +167,7 @@
       </div>
     </div>
   </div>
+  @endif
   
   {{--
   |
@@ -209,6 +212,13 @@
   </div>
   @endif
 
+  <div class="container-fluid py-5 border-top bg-light-rm" style="background-color: #eee;">
+    <div class="container">
+      @include ('partials.cms.website.what-we-do')
+    </div>
+  </div>
+
+
   {{--
   |
   | Latest post list and contact form.
@@ -216,11 +226,13 @@
   --}}
   <div class="container py-5">
     <div class="row" style="margin: auto;">
-      <div class="col-md-8 p-0">
+      <div class="col-md-12 p-0">
         @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
       </div>
       <div class="col-md-4 px-3">
+        @if (false)
         @livewire ('cms.website.contact-component', ['onlyForm' => 'yes',])
+        @endif
       </div>
     </div>
   </div>
@@ -239,63 +251,74 @@
   @endif
   @endif
 
- @if (false)
- {{--
-  |
-  | Product filter.
-  |
-  --}}
-  @livewire ('product.website.product-filter')
-
- {{--
-  |
-  | Company brief info.
-  |
-  --}}
-  @include ('partials.cms.website.company-info')
-
-  {{--
-  |
-  | Featured products.
-  |
-  --}}
-  @livewire ('product.website.featured-product-list')
-
   @if (false)
-  {{--
-  |
-  | Product listing.
-  |
-  --}}
-  <div class="container">
-    @foreach (\App\Models\Product\Product::limit(5)->get() as $product)
-      @livewire ('product.website.product-listing-display', ['product' => $product,], key(rand()),)
-    @endforeach                                                                                                                                        
-  </div>
-  @endif
+    {{--
+     |
+     | Product filter.
+     |
+     --}}
+    @livewire ('product.website.product-filter')
 
-  {{--
-  |
-  | Show products for all categories.
-  |
-  --}}
-  @foreach (\App\Models\Product\ProductCategory::all() as $productCategory)
-    @if (count($productCategory->products) > 0)
-      <div class="container my-5">
-        <h2 class="h4 o-heading text-center">
-          {{ $productCategory->name }}
-        </h2>
+    {{--
+     |
+     | Company brief info.
+     |
+     --}}
+    @include ('partials.cms.website.company-info')
 
-        <div class="row" style="margin: auto;">
-          @foreach ($productCategory->products as $product)
-            <div class="col-md-4 p-3">
-              @livewire ('ecomm-website.product-list-display', ['product' => $product,])
-            </div>
-          @endforeach
-        </div>
+    {{--
+    |
+    | Featured products.
+    |
+    --}}
+    @livewire ('product.website.featured-product-list')
+
+    @if (false)
+      {{--
+      |
+      | Product listing.
+      |
+      --}}
+      <div class="container">
+        @foreach (\App\Models\Product\Product::limit(5)->get() as $product)
+          @livewire ('product.website.product-listing-display', ['product' => $product,], key(rand()),)
+        @endforeach                                                                                                                                        
       </div>
     @endif
-  @endforeach
+
+    {{--
+    |
+    | Show products for all categories.
+    |
+    --}}
+    @foreach (\App\Models\Product\ProductCategory::all() as $productCategory)
+      @if (count($productCategory->products) > 0)
+        <div class="container my-5">
+          <h2 class="h4 o-heading text-center">
+            {{ $productCategory->name }}
+          </h2>
+
+          <div class="row" style="margin: auto;">
+            @foreach ($productCategory->products as $product)
+              <div class="col-md-4 p-3">
+                @livewire ('ecomm-website.product-list-display', ['product' => $product,])
+              </div>
+            @endforeach
+          </div>
+        </div>
+      @endif
+    @endforeach
   @endif
+
+  {{--
+  |
+  | Testimonial section.
+  |
+  --}}
+  <div class="container-fluid py-5 border-rm bg-light-rm text-white" style="background-color: #001a2a;">
+    <div class="container">
+      @livewire ('testimonial.website.testimonial-list')
+    </div>
+  </div>
 
 @endsection

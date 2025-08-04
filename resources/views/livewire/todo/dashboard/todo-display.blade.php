@@ -2,7 +2,7 @@
 
   {{-- Basic info --}}
   <div class="py-5 mb-2 text-center o-linear-gradient o-border-radius">
-    <div class="h2 o-heading o-linear-gradient-text-color">
+    <div class="h4-rm h-md-1 o-heading o-linear-gradient-text-color">
       {{ $todo->title }}
     </div>
     <div class="h5">

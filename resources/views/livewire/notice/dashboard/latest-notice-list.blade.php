@@ -64,7 +64,7 @@
         <i class="fas fa-link ml-2"></i>
       </a>
     @elseif (Route::has('website-webpage-/noticeboard'))
-      <a href="{{ route('website-webpage-/noticeboard') }}">
+      <a href="{{ route('website-webpage-/noticeboard') }}" class="btn btn-success btn-block badge-pill o-heading text-white h5 py-3">
         See all notice
         <i class="fas fa-arrow-right ml-2"></i>
       </a>

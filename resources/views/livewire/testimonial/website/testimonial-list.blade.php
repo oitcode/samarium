@@ -1,30 +1,36 @@
 <div>
 
+  <h2 class="h1 o-heading my-4 text-center text-white">
+    What others say
+  </h2>
+  <div class="h5 text-white text-center">
+    Hear from those with whom we have worked. 
+  </div>
+
   @if ($testimonials != null && count($testimonials) > 0)
-    <div class="row">
+    <div class="row mt-5">
       @foreach ($testimonials as $testimonial)
         <div class="col-md-4 p-3 my-3 mb-4">
-          <div class="h-100 p-0 shadow bg-white d-flex flex-column justify-content-between" style="background-color: #cdd;">
-            <div class="p-3">
-              <i class="fas fa-quote-left fa-2x"></i>
-              <br/>
-              <br/>
+          <div class="h-100 p-0 shadow bg-white-rm d-flex flex-column justify-content-start o-border-radius p-3" style="background-color: #234;">
+            <div class="px-3 mb-3" style="color: #aaa;">
+              <i class="fas fa-quote-left"></i>
+              <i>
               {{ $testimonial->body }}
-              <br />
-              <br />
+              </i>
             </div>
-            <div class="d-flex bg-danger text-white py-3">
+            <div class="d-flex bg-danger-rm text-white-rm py-3">
               <div class="px-4">
-                <i class="fas fa-user-circle fa-3x"></i>
+                <i class="fas fa-user-circle fa-2x text-primary"></i>
               </div>
               <div>
-                <span class="font-weight-bold">
+                <div class="o-heading text-white mb-1">
                   {{ $testimonial->writer_name }}
-                </span>
-                <br />
-                <span>
+                </div>
+                <div style="color: #aaa;">
+                  <small>
                   {{ $testimonial->writer_info }}
-                </span>
+                  </small>
+                </div>
                 <br />
               </div>
             </div>

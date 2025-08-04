@@ -79,8 +79,8 @@
 
       <div class="border bg-white">
         @if ($displayMonthName)
-          <div class="table-responsive border">
-            <table class="table table-sm table-hover mb-0">
+          <div class="table-responsive border mb-4">
+            <table class="table table-sm table-hover mb-0 text-nowrap">
               <thead>
                 <tr class="bg-light py-5">
                   <th class="o-heading py-4" style="width: 300px;">Date</th>
