@@ -1,53 +1,33 @@
-<div class="card h-100 shadow-sm border-0">
-
-  <div class="d-flex flex-column justify-content-between h-100 bg-success-rm">
-    <div class="d-flex justify-content-center flex-grow-1 bg-warning-rm">
-      @if (true)
-      <div class="d-flex-rm flex-column-rm justify-content-center-rm h-100-rm" style="border-radius: 50% !important; width: 150px !important; height: 150px !important;">
-        @if ($person->image_path)
-          <div>
-            <img class="img-fluid shadow-lg h-25-rm w-100-rm rounded-circle-rm" src="{{ asset('storage/' . $person->image_path) }}" alt="{{ $person->name }}"
-                style="{{-- border: 1px solid white; border-radius: 50%; min-width: 150px; min-height: 150px; --}}">
-          </div>
-        @else
-          <div class="py-5">
-            <i class="fas fa-user fa-5x text-secondary"></i>
-          </div>
-        @endif
-      </div>
+<div class="card team-card-rm o-border-radius">
+    <div class="blog-post-image mb-0 bg-light @if (! $person->image_path) bg-primary @endif o-border-radius">
+      @if ($person->image_path)
+        {{-- Circular person image --}}
+        <img src="{{ asset('storage/' . $person->image_path) }}" 
+             class="profile-img rounded-circle" 
+             alt="{{ $person->name }}">
+      @else
+        <i class="fas fa-user-circle fa-6x text-muted"></i>
       @endif
     </div>
 
-    <div class="d-flex flex-column justify-content-between overflow-auto" style="background-color: #f5f5f5;">
-      <div class="p-2">
-        <h2 class="h5 mt-2 mb-2" style="color: #004; font-family: Arial;">
-          {{ $person->name }}
-        </h2>
-
-        <div class="my-2">
-          <div class="h5 mb-2 text-primary">
-            @if ($person->comment)
-              {{ $person->comment }}
-            @else
-              &nbsp;
-            @endif
-          </div>
-          @if ($person->phone)
-          <div class="mb-1 text-secondary">
-            <i class="fas fa-phone mr-1"></i>
-            {{ $person->phone }}
-          </div>
-          @endif
-          @if ($person->email)
-          <div class="mb-1 text-secondary">
-            <i class="fas fa-envelope mr-1"></i>
-            {{ $person->email }}
-          </div>
-          @endif
+    <div class="card-body text-center p-4">
+        @if (false)
+        <div class="avatar-container mb-3">
+            <div class="avatar">N</div>
         </div>
+        @endif
 
-      </div>
+        <h3 class="member-name mb-2">{{ $person->name }}</h3>
+        <p class="member-role mb-4 o-ascent-text-color-bg">{{ $person->comment }}</p>
+        <div class="contact-info">
+            <a href="tel:+9779845128355" class="contact-item">
+                <i class="fas fa-phone mr-1 o-ascent-text-color-bg"></i>
+                <span class="contact-text">{{ $person->phone }}</span>
+            </a>
+            <a href="mailto:niruta.thapa@company.com" class="contact-item">
+                <i class="fas fa-envelope mr-1 o-ascent-text-color-bg"></i>
+                <span class="contact-text">{{ $person->email }}</span>
+            </a>
+        </div>
     </div>
-  </div>
-
 </div>

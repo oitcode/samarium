@@ -161,7 +161,7 @@
   |
   --}}
   <div class="container my-4">
-    <div class="p-3 o-border-radius border py-5 bg-white mb-5">
+    <div class="p-3 o-border-radius border py-5 bg-white-rm mb-5 table-danger">
       <h2 class="h4 o-heading mb-3">
         Latest updates & notices
       </h2>
@@ -251,7 +251,7 @@
 
   {{-- Show quick contacts team if needed --}}
   @if (count(\App\Models\Team\Team::where('name', 'Quick Contacts')->first()->teamMembers) > 0)
-    <div class="container-fluid my-5 px-3">
+    <div class="container-fluid my-5 px-3 py-2" style="background-color: #eee;">
       <div class="container p-0">
         @if (\App\Models\Team\Team::where('name', 'Quick Contacts')->first())
           @include ('partials.team.team-display-fe', ['team' => \App\Models\Team\Team::where('name', 'Quick Contacts')->first(),])

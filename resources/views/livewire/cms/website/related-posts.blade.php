@@ -4,7 +4,7 @@
     @foreach ($relatedPosts as $post)
       <div class="col-md-4 p-3">
         <a href="{{ $post->permalink }}" class="text-decoration-none text-reset">
-          <div class="p-2 border h-100 bg-white shadow-sm">
+          <div class="p-3 border h-100 bg-white shadow-sm o-border-radius">
             <div class="d-flex">
               <div class="mr-3">
                 <i class="fas fa-circle fa-2x" style="@if ($cmsTheme) color: {{ $cmsTheme->ascent_bg_color }} @endif ;"></i>

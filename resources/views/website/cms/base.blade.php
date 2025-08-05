@@ -104,6 +104,10 @@
         color: @if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else white @endif ;
       }
 
+      .o-ascent-text-color-bg {
+        color: @if ($cmsTheme) {{ $cmsTheme->ascent_bg_color }} @else white @endif ;
+      }
+
       .o-ascent-border-color {
         border: 1px solid {{ config('app.website_ascent_border_color') }};
       }

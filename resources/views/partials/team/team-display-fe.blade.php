@@ -14,7 +14,7 @@
   <div class="row">
   
     @foreach ($team->teamMembers()->orderBy('position')->get() as $teamMember)
-      <div class="col-6 col-md-3 mb-4">
+      <div class="col-12 col-md-4 mb-4">
         @include ('partials.team.person-display-fe', ['person' => $teamMember,])
       </div>
     @endforeach

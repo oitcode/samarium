@@ -45,7 +45,7 @@
 @endif
 
 @section ('content')
-  <div class="container px-2 py-4">
+  <div>
     @livewire ('cms.website.webpage-display', ['webpage' => $webpage,])
   </div>
 @endsection
