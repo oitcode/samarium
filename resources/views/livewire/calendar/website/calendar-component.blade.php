@@ -18,6 +18,7 @@
     </div>
   </div>
 
+  @if (true)
   {{-- Today --}}
   <div class="px-4 py-4 o-border-top-radius" style="background-color: @if ($cmsTheme) {{ $cmsTheme->ascent_bg_color }} @else white @endif;
                                                     color: @if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else black @endif ;">
@@ -70,7 +71,7 @@
               Previous
             </button>
             <div class="dropdown mr-3" style="position: relative; z-index: 10000;">
-              <button class="btn btn-success border dropdown-toggle o-border-radius-sm shadow" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button class="btn btn-success border dropdown-toggle o-border-radius-sm h-100 shadow" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Select Month
               </button>
               <div class="dropdown-menu" aria-labelledby="monthDropdownMenu">
@@ -108,6 +109,7 @@
             @foreach ($monthBook as $day)
               <tr
                   class="
+                      p-0
                       border
                       @if ($day['day']->format('l') == 'Saturday') table-danger @endif
                       @if ($day['is_holiday']) table-danger @endif
@@ -116,23 +118,31 @@
                       @endif
                   "
               >
-                <td class="border-0 w-50 py-4">
-                    <span class="h5 o-heading px-3" style="display: inline-block; min-width: 30px !important;">
-                      {{ $loop->iteration }}
-                    </span>
-                    <span class="o-heading text-secondary px-3" style="display: inline-block; min-width: 30px !important;">
-                      {{ $day['day']->format('j') }}
-                    </span>
-                    <span class="o-heading px-3">
-                      {{ $day['day']->isoFormat('ddd') }}
-                    </span>
-                    @if (\Carbon\Carbon::today() == $day['day'])
+                <td class="border-0 w-50 pl-2 h-100-rm py-4">
+                    <div class="d-flex">
+                      <div class="d-flex flex-column justify-content-center mr-5">
+                        <span class="h5 o-heading px-3 mb-0">
+                          {{ $loop->iteration }}
+                        </span>
+                      </div>
+                      <div class="d-flex flex-column justify-content-center mb-0">
+                        <div class="o-heading text-muted">
+                          {{ $day['day']->format('j') }}
+                        </div>
+                        <div class="text-muted">
+                          {{ $day['day']->isoFormat('ddd') }}
+                        </div>
+                      </div>
+                    </div>
+                </td>
+                <td class="border-0 py-4">
+                  @if (\Carbon\Carbon::today() == $day['day'])
+                    <div class="mb-3">
                       <span class="badge badge-pill badge-success ml-3 p-3 o-heading text-white mt-3 mt-md-0">
                         TODAY
                       </span>
-                    @endif
-                </td>
-                <td class="border-0 py-4">
+                    </div>
+                  @endif
                   @if ($day['day']->format('l') == 'Saturday' || $day['is_holiday'])
                   @endif
                   @if (count($day['events']) > 0)
@@ -171,5 +181,6 @@
       Select a month
     @endif
   </div>
+  @endif
 
 </div>
