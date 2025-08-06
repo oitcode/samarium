@@ -198,6 +198,10 @@ animation-play-state:paused;
     background: rgba(0, 0, 0, 0.5)
 }
 
+.o-lighter {
+    background: rgba(255, 255, 255, 0.1)
+}
+
 .o-flipper:hover {
     background-color: #ddf;
 }
@@ -250,6 +254,11 @@ animation-play-state:paused;
 .o-border-bottom-radius {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+
+.o-border-top-radius {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 /*
