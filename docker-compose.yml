@@ -21,6 +21,7 @@ services:
       - ./:/var/www/html
       - /var/www/html/node_modules
       - /var/www/html/vendor
+    entrypoint: ["/var/www/html/docker-entrypoint.sh"]   # <-- this is the only line you add
     depends_on:
       - db
     networks:
