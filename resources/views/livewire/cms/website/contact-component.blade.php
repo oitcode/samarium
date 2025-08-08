@@ -31,7 +31,7 @@
                                 </div>
                                 <div>
                                     <h5 class="mb-1 o-heading">Address</h5>
-                                    <p class="mb-0 text-muted">Demo address, Demo City, Demo Country Edit</p>
+                                    <p class="mb-0 text-muted">{{ $company->address }}</p>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div>
                                     <h5 class="mb-1 o-heading">Phone</h5>
-                                    <p class="mb-0 text-muted">000000000023</p>
+                                    <p class="mb-0 text-muted">{{ $company->phone }}</p>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div>
                                     <h5 class="mb-1 o-heading">Email</h5>
-                                    <p class="mb-0 text-muted">demo@example.comsdf</p>
+                                    <p class="mb-0 text-muted">{{ $company->email }}</p>
                                 </div>
                             </div>
                         </div>
