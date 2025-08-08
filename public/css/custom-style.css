@@ -302,6 +302,7 @@ animation-play-state:paused;
     border: 2px solid gray !important;
 }
 
+/* Used in team */
 .team-card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -434,4 +435,51 @@ animation-play-state:paused;
         height: 130px;
         border-width: 3px;
     }
+}
+
+/* For contact us part */
+.contact-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.social-icon:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+.btn-custom {
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(45deg, #5a6fd8 0%, #6a4190 100%);
+    transform: translateY(-1px);
+}
+
+/* Demo content styles */
+.demo-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.cool-bg {
+  background: linear-gradient(135deg, 
+    #ffffff 0%, 
+    #e8fafc 15%, 
+    #ffffff 30%, 
+    #f1f5f9 45%, 
+    #ffffff 60%, 
+    #f8faec 75%, 
+    #efffff 100%
+  );
 }

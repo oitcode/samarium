@@ -251,7 +251,7 @@
 
   {{-- Show quick contacts team if needed --}}
   @if (count(\App\Models\Team\Team::where('name', 'Quick Contacts')->first()->teamMembers) > 0)
-    <div class="container-fluid my-5 px-3 py-2" style="background-color: #eee;">
+    <div class="container-fluid px-3 py-2 border-top" style="background-color: #fff;">
       <div class="container p-0">
         @if (\App\Models\Team\Team::where('name', 'Quick Contacts')->first())
           @include ('partials.team.team-display-fe', ['team' => \App\Models\Team\Team::where('name', 'Quick Contacts')->first(),])
@@ -262,18 +262,23 @@
 
   {{-- Show google map share link if needed --}}
   @if (\App\Models\Company\Company::first()->google_map_share_link)
-    <div class="container my-5">
-      <h2 class="h4 font-weight-bold mb-3">
-        Find us in google map
-      </h2>
+    <div class="container-fluid mb-5-rm px-3 py-2 border-top" style="background-color: #eee;">
+      <div class="container my-5">
+        <h2 class="h4 font-weight-bold mb-3">
+          Find us in google map
+        </h2>
 
-      <p class="mb-3">
-        You can view our location in google map.
-      </p>
+        <p class="mb-3">
+          You can view our location in google map.
+        </p>
 
-      <a href="{{ \App\Models\Company\Company::first()->google_map_share_link }}" target="_blank">View in google map</a>
+        <a href="{{ \App\Models\Company\Company::first()->google_map_share_link }}" target="_blank">View in google map</a>
+      </div>
     </div>
   @endif
+
+  @livewire ('cms.website.latest-post-list-grid', ['ctaButton' => 'no',])
+
 @elseif ($webpage->name == 'Calendar' || $webpage->permalink == '/calendar')
   {{--
   |--------------------------------------------------------------------------
