@@ -26,7 +26,7 @@
       <div class="h5 o-heading mb-3" style="color: @if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else black @endif;">
         Today
       </div>
-      <div class="h2 o-heading mb-0" style="color: @if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else black @endif;">
+      <div class="h4 o-heading mb-0" style="color: @if ($cmsTheme) {{ $cmsTheme->ascent_text_color }} @else black @endif;">
         {{ \App\Traits\NepaliDateTrait::convertEnglishToNepaliDate($today['day'], 'english') }}
         ,
         {{ $today['day']->format('l') }}
@@ -55,7 +55,7 @@
   <div class="border-rm bg-white-rm p-0 py-3-rm">
     @if ($displayMonthName)
       <div class="d-flex flex-column flex-md-row justify-content-between border-left border-right py-3" style="background-color: #eee;">
-        <h3 class="h2 o-heading text-center py-4 mb-0 pl-3" >
+        <h3 class="h4 o-heading text-center py-4 mb-0 pl-3" >
           <span class="mr-2">
             {{ $displayMonthName }}
           </span>
