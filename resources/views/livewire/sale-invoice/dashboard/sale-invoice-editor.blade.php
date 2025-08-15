@@ -42,8 +42,8 @@
       |
       --}}
       <x-slot name="topToolbarNxt">
-        <div class="d-flex justify-content-between text-dark-rm px-1 o-linear-gradient o-border-radius mb-3 pl-3 py-3">
-          <div class="d-flex flex-column justify-content-center text-white-rm">
+        <div class="d-flex justify-content-between px-1 o-linear-gradient o-border-radius mb-3 pl-3 py-3">
+          <div class="d-flex flex-column justify-content-center">
             <div>
               Sale Invoice ID:
               &nbsp;
@@ -91,7 +91,7 @@
               Print
             </x-toolbar-button-component>
             <x-toolbar-button-component btnBsClass="btn-danger border-0" btnClickMethod="closeThisComponent">
-              <i class="fas fa-times-circle text-danger-rm mr-1"></i>
+              <i class="fas fa-times-circle mr-1"></i>
               Close
             </x-toolbar-button-component>
             @endif
@@ -122,8 +122,8 @@
       |
       --}}
       <x-slot name="transactionItemList">
-        <div class="text-white-rm text-center px-3 py-2 o-package-color-rm">
-          <span class="h4 o-heading text-white-rm">
+        <div class="text-center px-3 py-2">
+          <span class="h4 o-heading">
             Transaction #: {{ $saleInvoice->sale_invoice_id }}
           </span>
           <br/>
