@@ -16,7 +16,7 @@
 
   <div class="card">
     <div class="card-body p-0 pb-3">
-      <div class="text-white-rm py-3 text-center o-package-color-rm">
+      <div class="py-3 text-center">
         <div class="h4 text-muted">
           @if (false)
             CUSTOMER DISPLAY
@@ -25,7 +25,7 @@
           @endif
 
         </div>
-        <div class="h1 o-heading text-warning-rm mb-0">
+        <div class="h1 o-heading mb-0">
           {{ config('app.transaction_currency_symbol') }}
           @php echo number_format( $this->grand_total ); @endphp
         </div>
@@ -33,7 +33,7 @@
           <div class="h4 text-muted">
             RETURN
           </div>
-          <div class="h1 o-heading text-warning-rm mb-0">
+          <div class="h1 o-heading mb-0">
             {{ config('app.transaction_currency_symbol') }}
             @php echo number_format( $this->returnAmount ); @endphp
           </div>
