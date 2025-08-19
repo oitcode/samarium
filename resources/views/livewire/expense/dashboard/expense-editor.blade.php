@@ -152,7 +152,7 @@
             <div class="table-responsive d-none d-md-block">
               <table class="table table-hover border-dark mb-0">
                 <thead>
-                  <tr class="bg-success-rm text-white-rm">
+                  <tr class="">
                     <th class="o-heading">--</th>
                     <th class="o-heading">#</th>
                     <th class="o-heading">Item</th>
@@ -164,7 +164,7 @@
                 @if ($expense->expenseItems && count($expense->expenseItems) > 0)
                 <tbody>
                   @foreach ($expense->expenseItems as $expenseItem)
-                    <tr class="font-weight-bold text-white-rm">
+                    <tr class="font-weight-bold">
                       <td>
                         <a href="" wire:click.prevent="" class="">
                         <i class="fas fa-trash text-danger"></i>
