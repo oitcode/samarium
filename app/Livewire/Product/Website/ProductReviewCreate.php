@@ -4,7 +4,7 @@ namespace App\Livewire\Product\Website;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Models\ProductReview;
+use App\Models\Product\ProductReview;
 
 class ProductReviewCreate extends Component
 {
