@@ -1,6 +1,6 @@
-<div>
+<div style="background-color: #f0f0f0;">
 
-  <div class="container-fluid mb-3 p-3 border-bottom table-primary">
+  <div class="container-fluid mb-0 p-3 border-bottom table-primary">
     <div class="container">
       <a class=""
           href="{{ route('website-home') }}">
@@ -17,46 +17,33 @@
     </div>
   </div>
 
-  <div class="container mb-5">
+  <div class="container mb-0 pt-4 bg-white">
     <div class="row" style="margin: auto;">
       <div class="col-md-8">
         <div class="d-flex flex-column justify-content-center h-100-rm">
           <div class="d-flex flex-column justify-content-start h-100">
             @if ($product->image_path)
-              <img class="img-fluid" src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" style="max-height: 500px;">
+              <div class="product-image-container">
+                <img src="{{ asset('storage/' . $product->image_path) }}" 
+                     alt="Product 2 with good option of AVX" 
+                     class="product-image">
+              </div>
             @else
-              <i class="fas fa-ellipsis-h fa-10x text-muted m-5"></i>
+<div class="product-image-container">
+  <div class="product-no-image-dark"></div>
+</div>
             @endif
           </div>
-          @if ($product->gallery)
-            {{-- Product gallery --}}
-            <div class="mb-4-rm p-3 border bg-white">
-              <div>
-                <div class="mb-3 o-heading">
-                    Gallery
-                </div>
-                <div class="px-3">
-                  <div class="row">
-                  @foreach ($product->gallery->galleryImages as $galleryImage)
-                    <div class="col-3 mb-3 p-3">
-                      <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid">
-                    </div>
-                  @endforeach
-                  </div>
-                </div>
-              </div>
-            </div>
-          @endif
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 pt-4 pt-md-0">
         <div>
-          <h1 class="h1 mb-3 o-heading" style="font-weight: bold;">
+          <h1 class="h4 mb-2 o-heading" style="font-weight: bold;">
             {{ strtoupper($product->name) }}
           </h1>
         </div>
         {{-- Stats --}}
-        <div class="mb-3 border-rm bg-white">
+        <div class="mb-4">
           <div>
             <div class="py-1-rm">
               <span class="o-heading">
@@ -73,8 +60,8 @@
         </div>
         <div class="mb-4">
           @if ($product->selling_price != 0)
-            <div class="p-5 o-border-radius" style="border-left: 5px solid #23a; background-color: #fed;">
-              <h2 class="h1 mb-3 o-heading text-danger" style="font-weight: bold;">
+            <div class="p-3 p-md-5 o-border-radius" style="border-left: 5px solid red; background-color: #fed;">
+              <h2 class="h4 mb-0 o-heading text-danger" style="font-weight: bold;">
                 Rs
                 @php echo number_format( $product->selling_price ); @endphp
 
@@ -87,25 +74,29 @@
             </div>
           @endif
         </div>
-        <div class="py-3">
+        <div class="pt-2 pb-0">
           <div class="d-flex">
             <div class="o-heading mr-3 d-flex flex-column justify-content-center">
               Quantity:
             </div>
-            <div class="flex-grow-1 bg-warning">
-              <input type="text" class="px-3 py-2 o-border-radius-sm w-100" style="border: 2px solid gray;">
+            <div class="flex-grow-1 h5">
+              <i class="fas fa-chevron-circle-up"></i>
+              1
+              <i class="fas fa-chevron-circle-down"></i>
             </div>
           </div>
         </div>
         <div class="py-3 d-flex">
-          <button class="btn btn-danger o-border-radius w-50 mb-0 p-3 mb-3 mr-2 o-heading text-white" wire:click="addItemToCart({{ $product->product_id }})">
+          <button class="btn btn-danger btn-block o-border-radius w-50-rm mb-0 p-3 mb-3 mr-2 o-heading text-white" wire:click="addItemToCart({{ $product->product_id }})">
             <i class="fas fa-shopping-cart mr-1"></i>
             ADD TO CART
           </button>
+          @if (false)
           <button class="btn btn-light o-border-radius flex-grow-1 mb-0 p-3 mb-3 o-heading border" wire:click="addItemToCart({{ $product->product_id }})">
             <i class="fas fa-shopping-cart mr-1"></i>
             Wishlist
           </button>
+          @endif
         </div>
       </div>
     </div>
@@ -124,6 +115,24 @@
             </p>
           </div>
         </div>
+
+        @if ($product->gallery)
+          {{-- Product gallery --}}
+          <div class="mb-5">
+            <h3 class="h4 o-heading mb-3 pb-2 o-underline-accent-rm">
+              Gallery
+            </h3>
+            <div class="px-3">
+              <div class="row">
+              @foreach ($product->gallery->galleryImages as $galleryImage)
+                <div class="col-3 mb-3 p-3">
+                  <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid">
+                </div>
+              @endforeach
+              </div>
+            </div>
+          </div>
+        @endif
 
         {{-- Product vendor --}}
         @if ($product->productVendor)
