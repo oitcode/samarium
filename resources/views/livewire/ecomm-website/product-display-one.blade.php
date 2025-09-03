@@ -314,7 +314,7 @@
               </div>
             @else
               <div class="col-md-12 p-0">
-                <div class="d-flex justify-content-center h-100 o-dotted-border o-border-radius">
+                <div class="d-flex justify-content-center h-100 o-dashed-border o-border-radius">
                   <div class="h-100 d-flex flex-column justify-content-center py-5 px-3">
                     <div class="text-center mb-3">
                       <i class="fas fa-exclamation-circle fa-3x"></i>
@@ -392,7 +392,7 @@
                 </div>
               @endforeach
             @else
-              <div class="d-flex justify-content-center h-100 o-dotted-border o-border-radius">
+              <div class="d-flex justify-content-center h-100 o-dashed-border o-border-radius">
                 <div class="h-100 d-flex flex-column justify-content-center py-5 px-3">
                   <div class="text-center mb-3">
                     <i class="fas fa-exclamation-circle fa-3x"></i>
@@ -454,7 +454,7 @@
               </div>
             @endforeach
           @else
-            <div class="d-flex justify-content-center h-100 o-dotted-border o-border-radius">
+            <div class="d-flex justify-content-center h-100 o-dashed-border o-border-radius">
               <div class="h-100 d-flex flex-column justify-content-center py-5 px-3">
                 <div class="text-center mb-3">
                   <i class="fas fa-exclamation-circle fa-3x"></i>
