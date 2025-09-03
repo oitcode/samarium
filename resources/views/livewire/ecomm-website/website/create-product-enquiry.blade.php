@@ -1,6 +1,6 @@
-<div class="border p-3 mb-3">
+<div class="border p-3 mb-3 bg-white o-border-radius">
 
-  <h2 class="h6 o-heading mb-4">
+  <h2 class="h4 o-heading mb-4">
     Any question?
   </h2>
 

@@ -29,7 +29,7 @@ class ProductDisplay extends Component
 
     public function render(): View
     {
-        return view('livewire.ecomm-website.product-display');
+        return view('livewire.ecomm-website.product-display-one');
     }
 
     public function addItemToCart($productId): void
