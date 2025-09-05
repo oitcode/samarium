@@ -533,3 +533,343 @@ animation-play-state:paused;
 .o-dashed-border {
     border: 3px dashed #bbb;
 }
+
+/* Primary product image container */
+.product-image-container {
+  width: 100%;
+  max-width: 500px; /* Adjust based on your layout */
+  aspect-ratio: 1 / 1; /* Square container - standard for ecommerce */
+  background-color: #f8f9fa; /* Light background */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Main product image styling */
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keeps aspect ratio, fits within container */
+  object-position: center;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+/* Alternative: If you want to fill the container completely */
+.product-image-fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills container, may crop image */
+  object-position: center;
+}
+
+/* Hover effect for interactivity */
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .product-image-container {
+    max-width: 300px;
+    aspect-ratio: 4 / 3; /* Slightly rectangular on mobile */
+  }
+}
+
+/* Thumbnail images (if you have multiple product images) */
+.product-thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.product-thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.product-thumbnail:hover,
+.product-thumbnail.active {
+  border-color: #007bff;
+}
+
+/* Loading placeholder */
+.product-image-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Primary product image container */
+.product-image-container {
+  width: 100%;
+  max-width: 500px; /* Adjust based on your layout */
+  aspect-ratio: 1 / 1; /* Square container - standard for ecommerce */
+  background-color: #f8f9fa; /* Light background */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Main product image styling */
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keeps aspect ratio, fits within container */
+  object-position: center;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+/* Alternative: If you want to fill the container completely */
+.product-image-fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills container, may crop image */
+  object-position: center;
+}
+
+/* Hover effect for interactivity */
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .product-image-container {
+    max-width: 300px;
+    aspect-ratio: 4 / 3; /* Slightly rectangular on mobile */
+  }
+}
+
+/* Thumbnail images (if you have multiple product images) */
+.product-thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.product-thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.product-thumbnail:hover,
+.product-thumbnail.active {
+  border-color: #007bff;
+}
+
+/* Loading placeholder */
+.product-image-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* No Image Placeholder */
+.product-no-image {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border: 2px dashed #dee2e6;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icon for no image placeholder */
+.product-no-image::before {
+  content: "";
+  width: 60px;
+  height: 60px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236c757d'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+/* Text for no image placeholder */
+.product-no-image::after {
+  content: "No Image Available";
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* Alternative version with different styling */
+.product-no-image-minimal {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #adb5bd;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 8px;
+}
+
+.product-no-image-minimal::before {
+  content: "📷";
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+  opacity: 0.3;
+}
+
+.product-no-image-minimal::after {
+  content: "Image Coming Soon";
+}
+
+/* Dark theme version */
+.product-no-image-dark {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #adb5bd;
+  border: 2px dashed #6c757d;
+  border-radius: 8px;
+}
+
+.product-no-image-dark::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23adb5bd'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+.product-no-image-dark::after {
+  content: "No Image Available";
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.o-hover-up {
+  transition: transform 0.3s ease;
+}
+
+.o-hover-up:hover {
+  transform: translateY(-10px);
+}
+
+.o-bounce-up-down {
+  animation: bounceUpDown 2s ease-in-out infinite;
+}
+
+.o-bounce-up-down:hover {
+  animation-play-state: paused;
+}
+
+@keyframes bounceUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* CSS for center-starting ticker */
+.o-ticker-container {
+    /*
+    background: #007bff;
+    color: white;
+    */
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.o-ticker-label {
+    background: #0056b3;
+    padding: 0 15px;
+    font-weight: bold;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.o-ticker-content {
+    display: inline-block;
+    animation: scroll-from-center 30s linear infinite 0s;
+    line-height: 40px;
+    font-size: 1rem;
+}
+
+/* Modified keyframes to start from center */
+@keyframes scroll-from-center {
+    0% {
+        transform: translate3d(calc(20vw - 100px), 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.o-ticker-item {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+/* Pause animation on hover */
+.o-ticker-container:hover .o-ticker-content {
+    animation-play-state: paused;
+}
+
+/* Alternative: Faster scroll */
+.o-ticker-fast .o-ticker-content {
+    animation-duration: 15s;
+}
+
+/* Alternative: Slower scroll */
+.o-ticker-slow .o-ticker-content {
+    animation-duration: 45s;
+}
