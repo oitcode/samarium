@@ -8,14 +8,21 @@
                   Latest Notice:
               </div>
               <div class="o-ticker-content">
-                  @foreach ($notices as $notice)
+                  @if (false && $notices != null && count($notices) >0)
+                    @foreach ($notices as $notice)
+                      <span class="o-ticker-item">
+                          <a href="{{ route('website-webpage-' . $notice->permalink) }}" class="text-decoration-none text-reset">
+                            📢
+                            {{ $notice->name }}
+                          </a>
+                      </span>
+                    @endforeach
+                  @else
                     <span class="o-ticker-item">
-                        <a href="{{ route('website-webpage-' . $notice->permalink) }}" class="text-decoration-none text-reset">
-                          📢
-                          {{ $notice->name }}
-                        </a>
+                       <i class="fas fa-exclamation-circle mr-1"></i>
+                       No notice to display. Please check again for latest notice.
                     </span>
-                  @endforeach
+                  @endif
               </div>
           </div>
         </div>
