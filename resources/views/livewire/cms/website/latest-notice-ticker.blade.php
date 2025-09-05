@@ -8,7 +8,7 @@
                   Latest Notice:
               </div>
               <div class="o-ticker-content">
-                  @if (false && $notices != null && count($notices) >0)
+                  @if ($notices != null && count($notices) >0)
                     @foreach ($notices as $notice)
                       <span class="o-ticker-item">
                           <a href="{{ route('website-webpage-' . $notice->permalink) }}" class="text-decoration-none text-reset">
