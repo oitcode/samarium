@@ -31,11 +31,13 @@
   @section ('pageAnnouncer')
     {{-- Notice badge --}}
     @if ($webpage->hasCategory('notice'))
-      <div class="container mb-0 font-weight-bold px-3">
-        <div class="d-flex px-3">
-          <div class="p-3 bg-danger text-white mt-3">
-            <i class="fas fa-exclamation-circle mr-2"></i>
-            Notice
+      <div class="container-fluid py-2 border-bottom">
+        <div class="container font-weight-bold px-3">
+          <div class="d-flex">
+            <div class="px-3 py-2 bg-danger text-white o-border-radius-sm o-heading">
+              <i class="fas fa-exclamation-circle mr-1"></i>
+              Notice
+            </div>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ Quick links to relevant webpages.
               @endif
           ;
     ">
-      <div class="border-rm bg-primary-rm p-3 o-border-radius o-darker o-ascent-border-color">
+      <div class="border-rm bg-primary-rm p-3 o-border-radius o-darker-rm o-ascent-border-color o-glow-blue-rm o-hover-up">
         <a href="/calendar" class="p-0 py-2 text-reset text-decoration-none w-100">
           <div class="text-center">
             <div class="mb-2">
@@ -38,6 +38,7 @@ Quick links to relevant webpages.
     </div>
     <div class="col-6 p-2"
         style="
+          {{--
           background-color:
               @if ($cmsTheme)
                 {{ $cmsTheme->ascent_bg_color }}
@@ -52,8 +53,9 @@ Quick links to relevant webpages.
                 #123
               @endif
           ;
+          --}}
     ">
-      <div class="border-rm bg-primary-rm p-3 o-border-radius o-darker o-ascent-border-color">
+      <div class="border-rm bg-primary-rm p-3 o-border-radius o-darker-rm o-ascent-border-color o-glow-red-rm o-hover-up">
         <a href="/noticeboard" class="p-0 py-2 text-reset text-decoration-none w-100">
           <div class="text-center">
             <div class="mb-2">

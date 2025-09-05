@@ -46,7 +46,7 @@
         </div>
         <div class="">
           <div class="h-100 d-flex flex-column justify-content-center">
-            <a href="/contact-us" class="btn btn-primary-rm btn-lg o-ascent-color o-border-radius-sm">
+            <a href="/contact-us" class="btn btn-primary-rm btn-lg o-ascent-color o-border-radius-sm o-bounce-up-down">
               Contact us
             </a>
           </div>
