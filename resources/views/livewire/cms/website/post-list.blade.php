@@ -3,7 +3,7 @@
   @if (false)
     @if (count($posts) > 0)
       @foreach ($posts as $post)
-        <div class="bg-white border mb-2 o-border-radius py-3 my-4 px-3">
+        <div class="bg-white border mb-2 o-border-radius py-3 my-4 px-3 o-float-up">
           <div class="text-dark">
             <div class="row" style="margin: auto;">
               <div class="col-md-8 p-0">
@@ -47,7 +47,7 @@
               <div class="row">
                   @foreach ($posts as $post)
                   <div class="col-lg-4 col-md-6 mb-5">
-                    <div class="d-flex flex-column h-100">
+                    <div class="d-flex flex-column h-100 o-float-up">
                       @if ($post->hasCategory('notice'))
                         <div class="text-left bg-danger text-white py-4 px-3">
                             NOTICE
@@ -98,7 +98,7 @@
                                       <i class="fas fa-user-circle mr-1"></i>
                                       By {{ $post->creator->name }}
                                   </small>
-                                  <a href="{{ route('website-webpage-' . $post->permalink) }}" class="btn btn-outline-primary btn-sm">
+                                  <a href="{{ route('website-webpage-' . $post->permalink) }}" class="btn btn-outline-primary btn-sm o-hover-left">
                                       Read More <i class="fas fa-arrow-right ml-1"></i>
                                   </a>
                               </div>

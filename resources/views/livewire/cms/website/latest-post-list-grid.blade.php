@@ -17,7 +17,7 @@
             <div class="row">
                 @foreach ($webpages as $webpage)
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100 border-0 shadow-sm blog-card">
+                    <div class="card h-100 border-0 shadow-sm blog-card o-float-up">
                         <div class="blog-post-image @if (! $webpage->featured_image_path) bg-primary @endif">
                           @if ($webpage->featured_image_path)
                             <img src="{{ asset('storage/' . $webpage->featured_image_path) }}"

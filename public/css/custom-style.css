@@ -795,6 +795,14 @@ animation-play-state:paused;
   transform: translateY(-10px);
 }
 
+.o-hover-left {
+  transition: transform 0.3s ease;
+}
+
+.o-hover-left:hover {
+  transform: translateX(-10px);
+}
+
 .o-bounce-up-down {
   animation: bounceUpDown 2s ease-in-out infinite;
 }
@@ -808,7 +816,7 @@ animation-play-state:paused;
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-10px);
   }
 }
 
@@ -872,4 +880,56 @@ animation-play-state:paused;
 /* Alternative: Slower scroll */
 .o-ticker-slow .o-ticker-content {
     animation-duration: 45s;
+}
+
+.o-glow-blue {
+  box-shadow: 0 0 20px rgba(135, 206, 250, 0.8), 
+              0 0 40px rgba(135, 206, 250, 0.6), 
+              0 0 60px rgba(135, 206, 250, 0.4);
+  animation: pulse-glow-blue 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow-blue {
+  from {
+    box-shadow: 0 0 20px rgba(135, 206, 250, 0.8), 
+                0 0 40px rgba(135, 206, 250, 0.6), 
+                0 0 60px rgba(135, 206, 250, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(135, 206, 250, 1), 
+                0 0 60px rgba(135, 206, 250, 0.8), 
+                0 0 90px rgba(135, 206, 250, 0.6);
+  }
+}
+
+.o-glow-red {
+  box-shadow: 0 0 20px rgba(250, 206, 130, 0.8), 
+              0 0 40px rgba(250, 206, 130, 0.6), 
+              0 0 60px rgba(250, 206, 130, 0.4);
+  animation: pulse-glow-red 0.25s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow-red {
+  from {
+    box-shadow: 0 0 20px rgba(250, 206, 130, 0.8), 
+                0 0 40px rgba(250, 206, 130, 0.6), 
+                0 0 60px rgba(250, 206, 130, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(250, 206, 130, 1), 
+                0 0 60px rgba(250, 206, 130, 0.8), 
+                0 0 90px rgba(250, 206, 130, 0.6);
+  }
+}
+
+/* MINIMAL CSS - Just copy these 2 rules */
+.o-float-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.o-float-up.show {
+    opacity: 1;
+    transform: translateY(0);
 }

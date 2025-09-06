@@ -1,4 +1,4 @@
-<div class="card team-card-rm o-border-radius">
+<div class="card team-card-rm o-border-radius o-float-up">
     <div class="blog-post-image mb-0 bg-light @if (! $person->image_path) bg-primary @endif o-border-radius">
       @if ($person->image_path)
         {{-- Circular person image --}}

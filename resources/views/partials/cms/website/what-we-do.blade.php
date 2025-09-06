@@ -9,7 +9,7 @@
     <div class="row mt-4">
         @foreach (config('app.what_we_do.services') as $key => $val)
           <div class="col-md-4 p-3 my-3 mb-4">
-            <div class="h-100 p-0 shadow bg-white d-flex flex-column justify-content-start o-border-radius p-3 o-hover-up">
+            <div class="h-100 p-0 shadow bg-white d-flex flex-column justify-content-start o-border-radius p-3 o-hover-up o-float-up">
               <div class="d-flex-rm bg-danger-rm text-white-rm py-3 text-center">
                 @if (false)
                 <div class="px-4 mb-4">

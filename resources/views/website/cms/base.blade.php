@@ -131,12 +131,14 @@
       }
       
       .blog-card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+         /*  transition: transform 0.3s ease, box-shadow 0.3s ease; */
       }
       
       .blog-card:hover {
+          /*
           transform: translateY(-5px);
           box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+          */
       }
 
       .blog-image {
@@ -207,5 +209,13 @@
   |
   --}}
   @livewireScripts
+
+  {{-- Custom script --}}
+  <script>
+      /* For float up */
+      document.querySelectorAll('.o-float-up').forEach(el => {
+          new IntersectionObserver(([e]) => e.isIntersecting && e.target.classList.add('show')).observe(el);
+      });
+  </script>
 </body>
 </html>
