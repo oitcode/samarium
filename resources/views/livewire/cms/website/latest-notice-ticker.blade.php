@@ -1,5 +1,5 @@
 <div>
-    <div class="container-fluid px-2 py-2 bg-white-rm text-dark-rm table-danger-rm border-bottom">
+    <div class="container-fluid px-0 px-md-2 py-2 bg-white-rm text-dark-rm table-danger-rm border-bottom">
         
         <div class="container">
           <!-- Scrolling Ticker Notice -->
