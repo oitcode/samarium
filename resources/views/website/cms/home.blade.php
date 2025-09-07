@@ -34,6 +34,7 @@
 @endsection
 
 @section ('content')
+  @livewire ('cms.website.latest-notice-ticker')
   {{--
   |
   | Carousal component.
@@ -106,7 +107,7 @@
                 @if (\App\Models\Cms\Webpage\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first())
                   <div class="border-rm" style="{{-- background-color: rgba(0, 0, 0, 0.5) --}}">
                     <a href="{{ \App\Models\Cms\Webpage\Webpage::where('name', 'Contact us')->orWhere('permalink', '/contact-us')->first()->permalink }}"
-                        class="btn btn-primary py-3 o-heading text-white h4 badge-pill px-4"
+                        class="btn btn-primary py-3 o-heading text-white h4 badge-pill px-4 o-float-up"
                         style="
                         color:
                           @if ($cmsTheme)
@@ -212,7 +213,7 @@
   </div>
   @endif
 
-  <div class="container-fluid py-5 border-top bg-light-rm" style="background-color: #eee;">
+  <div class="container-fluid py-5 border-top bg-light-rm px-0" style="background-color: #eee;">
     <div class="container">
       @include ('partials.cms.website.what-we-do')
     </div>

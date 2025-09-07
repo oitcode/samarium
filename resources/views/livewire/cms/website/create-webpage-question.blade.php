@@ -1,6 +1,6 @@
-<div class="border p-3 mb-3">
+<div class="border p-3 mb-3 o-border-radius bg-white">
 
-  <h2 class="h5 o-heading mb-3">
+  <h2 class="h5 o-heading mb-3 pt-3 pb-3 text-center">
     Any question?
   </h2>
 
@@ -57,7 +57,7 @@
       </span>
     @enderror
   </div>
-  <button class="btn btn-primary btn-block py-2"
+  <button class="btn btn-primary btn-block py-2 mt-4 o-border-radius-sm"
               style="
                   @if ($cmsTheme)
                   background-image:

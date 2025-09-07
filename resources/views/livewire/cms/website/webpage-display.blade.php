@@ -77,7 +77,7 @@
               </div>
             @endforeach
           </div>
-          <div class="col-md-4 p-4">
+          <div class="col-md-4 p-4 p-md-0 pl-md-3">
 
             {{--
             |

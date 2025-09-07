@@ -11,7 +11,7 @@
     <div class="row mt-5">
       @foreach ($testimonials as $testimonial)
         <div class="col-md-4 p-3 my-3 mb-4">
-          <div class="h-100 p-0 shadow bg-white-rm d-flex flex-column justify-content-start o-border-radius p-3" style="background-color: #234;">
+          <div class="h-100 p-0 shadow bg-white-rm d-flex flex-column justify-content-start o-border-radius p-3 o-float-up" style="background-color: #234;">
             <div class="px-3 mb-3" style="color: #aaa;">
               <i class="fas fa-quote-left"></i>
               <i>

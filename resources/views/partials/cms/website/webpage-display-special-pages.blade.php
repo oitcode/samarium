@@ -80,7 +80,7 @@
               <div class="row">
               @foreach ($gallery->galleryImages as $galleryImage)
                 <div class="col-md-3 mb-3 p-3">
-                  <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid">
+                  <img src="{{ asset('storage/' . $galleryImage->image_path) }}" class="img-fluid o-border-radius o-float-up">
                 </div>
               @endforeach
               </div>
@@ -160,7 +160,7 @@
   | This page shows the latest post list with post category ``notice''.
   |
   --}}
-  <div class="container my-4">
+  <div class="container my-4 mt-4 pt-3">
     <div class="p-3 o-border-radius border py-5 bg-white-rm mb-5 table-danger">
       <h2 class="h4 o-heading mb-3">
         Latest updates & notices
