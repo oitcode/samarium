@@ -933,3 +933,17 @@ animation-play-state:paused;
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Slide in right animation */
+.o-slide-in-right {
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

@@ -61,19 +61,24 @@
   </div>
   </div>
 @else
-  <div class="container-fluid mb-0 p-0"
+  <div class="container-fluid mb-0 p-0 o-fade-in-rm"
       style= "
-      @if (\App\Models\Cms\CmsTheme\CmsTheme::first())
+      @if (false && \App\Models\Cms\CmsTheme\CmsTheme::first())
         background-color: {{ \App\Models\Cms\CmsTheme\CmsTheme::first()->ascent_bg_color }};
         color: {{ \App\Models\Cms\CmsTheme\CmsTheme::first()->ascent_text_color }};
       @endif
+      background-image: url('storage/{{ \App\Models\Cms\CmsTheme\CmsTheme::first()->hero_image_path }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
   ;">
-    <div class="h-100" style="
+    <div class="h-100" class="o-darker-rm" style="
+      background: rgba(0, 0, 0, 0.5);
       padding-top: 50px;
       padding-bottom: 50px;
     ">
       <div class="container pb-3 pt-4 @if ($webpage->is_post == 'yes') @else @endif">
-      <h1 class="h3 font-weight-bold"
+      <h1 class="h1 o-heading"
           style="
             color:
                   @if (\App\Models\Cms\CmsTheme\CmsTheme::first())
